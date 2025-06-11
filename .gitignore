@@ -1,5 +1,8 @@
 *.class
 
+# VS Code
+.vscode/
+
 # IntelliJ
 .idea/
 out/
