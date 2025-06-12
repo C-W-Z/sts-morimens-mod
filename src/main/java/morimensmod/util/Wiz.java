@@ -4,11 +4,13 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.Hitbox;
@@ -17,6 +19,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import static morimensmod.MorimensMod.makeID;
@@ -24,12 +27,15 @@ import static morimensmod.MorimensMod.makeID;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Wiz {
-    //The wonderful Wizard of Oz allows access to most easy compilations of data, or functions.
+    // The wonderful Wizard of Oz allows access to most easy compilations of data,
+    // or functions.
 
     public static AbstractPlayer adp() {
         return AbstractDungeon.player;
@@ -72,7 +78,8 @@ public class Wiz {
 
     public static ArrayList<AbstractCard> getCardsMatchingPredicate(Predicate<AbstractCard> pred, boolean allcards) {
         if (allcards)
-            return (ArrayList<AbstractCard>)CardLibrary.getAllCards().stream().filter(pred).collect(Collectors.toList());
+            return (ArrayList<AbstractCard>) CardLibrary.getAllCards().stream().filter(pred)
+                    .collect(Collectors.toList());
         else {
             ArrayList<AbstractCard> cardsList = new ArrayList<>();
             cardsList.addAll(AbstractDungeon.srcCommonCardPool.group);
@@ -100,11 +107,13 @@ public class Wiz {
     }
 
     public static boolean actuallyHovered(Hitbox hb) {
-        return InputHelper.mX > hb.x && InputHelper.mX < hb.x + hb.width && InputHelper.mY > hb.y && InputHelper.mY < hb.y + hb.height;
+        return InputHelper.mX > hb.x && InputHelper.mX < hb.x + hb.width && InputHelper.mY > hb.y
+                && InputHelper.mY < hb.y + hb.height;
     }
 
     public static boolean isInCombat() {
-        return CardCrawlGame.isInARun() && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
+        return CardCrawlGame.isInARun() && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom() != null
+                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
     }
 
     public static void atb(AbstractGameAction action) {
@@ -213,7 +222,7 @@ public class Wiz {
 
     public static AbstractGameAction multiAction(AbstractGameAction... actions) {
         return actionify(() -> {
-            ArrayList<AbstractGameAction> actionsList = (ArrayList<AbstractGameAction>)Arrays.asList(actions);
+            ArrayList<AbstractGameAction> actionsList = (ArrayList<AbstractGameAction>) Arrays.asList(actions);
             Collections.reverse(actionsList);
             for (AbstractGameAction action : actions)
                 att(action);
@@ -257,7 +266,6 @@ public class Wiz {
         removePower(p, false);
     }
 
-
     public static void reducePower(AbstractPower p, int amount) {
         atb(new ReducePowerAction(p.owner, p.owner, p, amount));
     }
@@ -268,7 +276,8 @@ public class Wiz {
 
     public static int getLogicalPowerAmount(AbstractCreature ac, String powerId) {
         AbstractPower pow = ac.getPower(powerId);
-        if (pow == null) return 0;
+        if (pow == null)
+            return 0;
         return pow.amount;
     }
 
@@ -288,7 +297,38 @@ public class Wiz {
         return AbstractDungeon.player.discardPile;
     }
 
+    public static CardGroup exhaustPile() {
+        return AbstractDungeon.player.exhaustPile;
+    }
+
+    public static CardGroup limbo() {
+        return AbstractDungeon.player.limbo;
+    }
+
     public static CardGroup deck() {
         return AbstractDungeon.player.masterDeck;
+    }
+
+    public ArrayList<AbstractCard> addColorToPool(ArrayList<AbstractCard> tmpPool, AbstractCard.CardColor color) {
+        Iterator<Map.Entry<String, AbstractCard>> var3 = CardLibrary.cards.entrySet().iterator();
+
+        while (true) {
+            Map.Entry<String, AbstractCard> c;
+            AbstractCard card;
+            do {
+                do {
+                    do {
+                        if (!var3.hasNext()) {
+                            return tmpPool;
+                        }
+
+                        c = (Map.Entry<String, AbstractCard>) var3.next();
+                        card = (AbstractCard) c.getValue();
+                    } while (!card.color.equals(color));
+                } while (card.rarity == CardRarity.BASIC);
+            } while (UnlockTracker.isCardLocked((String) c.getKey()) && !Settings.isDailyRun);
+
+            tmpPool.add(card);
+        }
     }
 }

@@ -9,6 +9,7 @@ import me.antileaf.signature.utils.SignatureHelper;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.Defend;
 import morimensmod.cards.Strike;
+import morimensmod.cards.Ramona.QueensSword;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.democards.simple.DrawAndShiv;
 import morimensmod.characters.Ramona;
@@ -31,13 +32,18 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.StanceStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import java.nio.charset.StandardCharsets;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @SuppressWarnings({"unused", "WeakerAccess"})
 @SpireInitializer
 public class MorimensMod implements
+        OnStartBattleSubscriber,
         PostInitializeSubscriber,
         EditCardsSubscriber,
         EditRelicsSubscriber,
@@ -45,6 +51,8 @@ public class MorimensMod implements
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
         AddAudioSubscriber {
+
+    public static final Logger logger = LogManager.getLogger(MorimensMod.class);
 
     public static final String modID = "morimensmod";
 
@@ -196,5 +204,10 @@ public class MorimensMod implements
     public void receivePostInitialize() {
         SignatureHelper.unlock(Strike.ID, true);
         SignatureHelper.unlock(Defend.ID, true);
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom arg0) {
+        QueensSword.attackTimesThisCombat = QueensSword.INIT_ATK_TIMES;  // 每場戰鬥重新設定為3
     }
 }

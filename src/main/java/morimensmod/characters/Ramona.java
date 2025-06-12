@@ -6,6 +6,7 @@ import basemod.animations.SpriterAnimation;
 import morimensmod.cards.Defend;
 import morimensmod.cards.Strike;
 import morimensmod.cards.Ramona.AssaultThesis;
+import morimensmod.cards.Ramona.QueensSword;
 import morimensmod.relics.TodoItem;
 
 import com.badlogic.gdx.graphics.Color;
@@ -20,7 +21,7 @@ import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-// import com.megacrit.cardcrawl.helpers.ModHelper;
+import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
@@ -52,7 +53,7 @@ public class Ramona extends CustomPlayer {
                 SHOULDER1,
                 SHOULDER2,
                 CORPSE,
-                getLoadout(), 20.0F, -10.0F, 166.0F, 327.0F, new EnergyManager(3));
+                getLoadout(), 20.0F, -10.0F, 166.0F, 327.0F, new EnergyManager(5));
 
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 240.0F * Settings.scale);
@@ -77,6 +78,7 @@ public class Ramona extends CustomPlayer {
             retVal.add(Defend.ID);
         }
         retVal.add(AssaultThesis.ID);
+        retVal.add(QueensSword.ID);
         return retVal;
     }
 
@@ -86,23 +88,23 @@ public class Ramona extends CustomPlayer {
         return retVal;
     }
 
-    // @Override
-    // public ArrayList<AbstractCard> getCardPool(ArrayList<AbstractCard> tmpPool) {
-    //     CardLibrary.addRedCards(tmpPool);
-    //     if (ModHelper.isModEnabled("Green Cards")) {
-    //         CardLibrary.addGreenCards(tmpPool);
-    //     }
+    @Override
+    public ArrayList<AbstractCard> getCardPool(ArrayList<AbstractCard> tmpPool) {
+        CardLibrary.addRedCards(tmpPool);
+        if (ModHelper.isModEnabled("Green Cards")) {
+            CardLibrary.addGreenCards(tmpPool);
+        }
 
-    //     if (ModHelper.isModEnabled("Blue Cards")) {
-    //         CardLibrary.addBlueCards(tmpPool);
-    //     }
+        if (ModHelper.isModEnabled("Blue Cards")) {
+            CardLibrary.addBlueCards(tmpPool);
+        }
 
-    //     if (ModHelper.isModEnabled("Purple Cards")) {
-    //         CardLibrary.addPurpleCards(tmpPool);
-    //     }
+        if (ModHelper.isModEnabled("Purple Cards")) {
+            CardLibrary.addPurpleCards(tmpPool);
+        }
 
-    //     return tmpPool;
-    // }
+        return tmpPool;
+    }
 
     @Override
     public void doCharSelectScreenSelectEffect() {

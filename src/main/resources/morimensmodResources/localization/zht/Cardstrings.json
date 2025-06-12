@@ -5,11 +5,15 @@
   },
   "${ModID}:Defend": {
     "NAME": "防禦",
-    "DESCRIPTION": "獲得 !B! 點格檔。"
+    "DESCRIPTION": "獲得 !B! 點 格擋 。"
   },
   "${ModID}:AssaultThesis": {
     "NAME": "攻勢推演",
-    "DESCRIPTION": "使所有敵人臨時降低 !M! 點力量。抽 !${ModID}:m2! 張牌。"
+    "DESCRIPTION": "使所有敵人 morimensmod:臨時 降低 !M! 點 力量 。抽 !${ModID}:m2! 張牌。"
+  },
+  "${ModID}:QueensSword": {
+    "NAME": "女王之劍",
+    "DESCRIPTION": "造成 !D! 點傷害 !M! 次，每次造成傷害後獲得1點 morimensmod:臨時 力量 。打出後使 「女王之劍」 傷害次數+1，最多提高為6次。"
   },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",

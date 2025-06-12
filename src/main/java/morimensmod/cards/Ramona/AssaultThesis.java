@@ -16,11 +16,12 @@ import morimensmod.characters.Ramona;
 public class AssaultThesis extends AbstractEasyCard{
     public final static String ID = makeID(AssaultThesis.class.getSimpleName());
 
+    private static final int COST = 2;
     private static final int STR_DOWN = 6;
     private static final int CARDS_TO_DRAW = 1;
 
     public AssaultThesis() {
-        super(ID, "Skills/Ramona", 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY, Ramona.Enums.RAMONA_COLOR);
+        super(ID, "Skills/Ramona", COST, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, Ramona.Enums.RAMONA_COLOR);
         this.magicNumber = this.baseMagicNumber = STR_DOWN;
         this.secondMagic = this.baseSecondMagic = CARDS_TO_DRAW;
     }

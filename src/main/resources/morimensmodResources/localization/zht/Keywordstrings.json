@@ -6,5 +6,12 @@
       "todos"
     ],
     "DESCRIPTION": "TODO: Make your own epic keywords"
+  },
+  {
+    "PROPER_NAME": "臨時",
+    "NAMES": [
+      "臨時"
+    ],
+    "DESCRIPTION": "效果僅限本回合。"
   }
 ]
