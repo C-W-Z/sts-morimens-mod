@@ -1,11 +1,15 @@
 {
   "${ModID}:Strike": {
     "NAME": "打擊",
-    "DESCRIPTION": "造成 !D! 點傷害"
+    "DESCRIPTION": "造成 !D! 點傷害。"
   },
   "${ModID}:Defend": {
     "NAME": "防禦",
-    "DESCRIPTION": "獲得 !B! 點格檔"
+    "DESCRIPTION": "獲得 !B! 點格檔。"
+  },
+  "${ModID}:AssaultThesis": {
+    "NAME": "攻勢推演",
+    "DESCRIPTION": "使所有敵人臨時降低 !M! 點力量。抽 !${ModID}:m2! 張牌。"
   },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",

@@ -5,6 +5,7 @@ import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
 import morimensmod.cards.Defend;
 import morimensmod.cards.Strike;
+import morimensmod.cards.Ramona.AssaultThesis;
 import morimensmod.relics.TodoItem;
 
 import com.badlogic.gdx.graphics.Color;
@@ -75,6 +76,7 @@ public class Ramona extends CustomPlayer {
         for (int i = 0; i < 4; i++) {
             retVal.add(Defend.ID);
         }
+        retVal.add(AssaultThesis.ID);
         return retVal;
     }
 
