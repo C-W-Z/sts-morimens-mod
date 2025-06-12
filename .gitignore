@@ -84,3 +84,7 @@ $RECYCLE.BIN/
 
 # Spriter files
 *.autosave.scml
+
+src/main/resources/*/images/signature/*.png
+!src/main/resources/*/images/signature/*_s.png
+!src/main/resources/*/images/signature/*_s_p.png
