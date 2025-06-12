@@ -5,8 +5,12 @@ import basemod.BaseMod;
 import basemod.abstracts.DynamicVariable;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
+import me.antileaf.signature.utils.SignatureHelper;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.Defend;
+import morimensmod.cards.Strike;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
+import morimensmod.cards.democards.simple.DrawAndShiv;
 import morimensmod.characters.Ramona;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.relics.AbstractEasyRelic;
@@ -34,6 +38,7 @@ import java.nio.charset.StandardCharsets;
 @SuppressWarnings({"unused", "WeakerAccess"})
 @SpireInitializer
 public class MorimensMod implements
+        PostInitializeSubscriber,
         EditCardsSubscriber,
         EditRelicsSubscriber,
         EditStringsSubscriber,
@@ -58,8 +63,8 @@ public class MorimensMod implements
     private static final String SKILL_L_ART = makeImagePath("1024/skill.png");
     private static final String POWER_L_ART = makeImagePath("1024/power.png");
     private static final String CARD_ENERGY_L = makeImagePath("1024/energy.png");
-    private static final String CHARSELECT_BUTTON = makeCharacterPath("ramona/button.png");
-    private static final String CHARSELECT_PORTRAIT = makeCharacterPath("ramona/charBG.png");
+    private static final String CHARSELECT_BUTTON = makeCharacterPath("Ramona/button.png");
+    private static final String CHARSELECT_PORTRAIT = makeCharacterPath("Ramona/charBG.png");
 
     public static Settings.GameLanguage[] SupportedLanguages = {
         Settings.GameLanguage.ZHT,
@@ -185,5 +190,11 @@ public class MorimensMod implements
                 BaseMod.addKeyword(modID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
+    }
+
+    @Override
+    public void receivePostInitialize() {
+        SignatureHelper.unlock(Strike.ID, true);
+        SignatureHelper.unlock(Defend.ID, true);
     }
 }

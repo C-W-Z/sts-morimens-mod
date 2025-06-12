@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+// import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
@@ -35,16 +36,16 @@ public class Ramona extends CustomPlayer {
     public static final String[] NAMES = characterStrings.NAMES;
     static final String[] TEXT = characterStrings.TEXT;
 
-    static final String SHOULDER1 = makeCharacterPath("ramona/shoulder.png");
-    static final String SHOULDER2 = makeCharacterPath("ramona/shoulder2.png");
-    static final String CORPSE = makeCharacterPath("ramona/corpse.png");
+    static final String SHOULDER1 = makeCharacterPath("Ramona/shoulder.png");
+    static final String SHOULDER2 = makeCharacterPath("Ramona/shoulder2.png");
+    static final String CORPSE = makeCharacterPath("Ramona/corpse.png");
 
     public Ramona(String name, PlayerClass setClass) {
         super(
                 name,
                 setClass,
-                new CustomEnergyOrb(orbTextures, makeCharacterPath("ramona/orb/vfx.png"), null),
-                new SpriterAnimation(makeCharacterPath("ramona/static.scml")));
+                new CustomEnergyOrb(orbTextures, makeCharacterPath("Ramona/orb/vfx.png"), null),
+                new SpriterAnimation(makeCharacterPath("Ramona/static.scml")));
         initializeClass(
                 null,
                 SHOULDER1,
@@ -83,6 +84,24 @@ public class Ramona extends CustomPlayer {
         return retVal;
     }
 
+    // @Override
+    // public ArrayList<AbstractCard> getCardPool(ArrayList<AbstractCard> tmpPool) {
+    //     CardLibrary.addRedCards(tmpPool);
+    //     if (ModHelper.isModEnabled("Green Cards")) {
+    //         CardLibrary.addGreenCards(tmpPool);
+    //     }
+
+    //     if (ModHelper.isModEnabled("Blue Cards")) {
+    //         CardLibrary.addBlueCards(tmpPool);
+    //     }
+
+    //     if (ModHelper.isModEnabled("Purple Cards")) {
+    //         CardLibrary.addPurpleCards(tmpPool);
+    //     }
+
+    //     return tmpPool;
+    // }
+
     @Override
     public void doCharSelectScreenSelectEffect() {
         CardCrawlGame.sound.playA("UNLOCK_PING", MathUtils.random(-0.2F, 0.2F));
@@ -91,17 +110,17 @@ public class Ramona extends CustomPlayer {
     }
 
     private static final String[] orbTextures = {
-            makeCharacterPath("ramona/orb/layer1.png"),
-            makeCharacterPath("ramona/orb/layer2.png"),
-            makeCharacterPath("ramona/orb/layer3.png"),
-            makeCharacterPath("ramona/orb/layer4.png"),
-            makeCharacterPath("ramona/orb/layer4.png"),
-            makeCharacterPath("ramona/orb/layer6.png"),
-            makeCharacterPath("ramona/orb/layer1d.png"),
-            makeCharacterPath("ramona/orb/layer2d.png"),
-            makeCharacterPath("ramona/orb/layer3d.png"),
-            makeCharacterPath("ramona/orb/layer4d.png"),
-            makeCharacterPath("ramona/orb/layer5d.png"),
+            makeCharacterPath("Ramona/orb/layer1.png"),
+            makeCharacterPath("Ramona/orb/layer2.png"),
+            makeCharacterPath("Ramona/orb/layer3.png"),
+            makeCharacterPath("Ramona/orb/layer4.png"),
+            makeCharacterPath("Ramona/orb/layer4.png"),
+            makeCharacterPath("Ramona/orb/layer6.png"),
+            makeCharacterPath("Ramona/orb/layer1d.png"),
+            makeCharacterPath("Ramona/orb/layer2d.png"),
+            makeCharacterPath("Ramona/orb/layer3d.png"),
+            makeCharacterPath("Ramona/orb/layer4d.png"),
+            makeCharacterPath("Ramona/orb/layer5d.png"),
     };
 
     @Override

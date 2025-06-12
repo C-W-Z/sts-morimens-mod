@@ -1,11 +1,11 @@
 {
   "${ModID}:Strike": {
-    "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage."
+    "NAME": "打擊",
+    "DESCRIPTION": "造成 !D! 點傷害"
   },
   "${ModID}:Defend": {
-    "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! Block."
+    "NAME": "防禦",
+    "DESCRIPTION": "獲得 !B! 點格檔"
   },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",

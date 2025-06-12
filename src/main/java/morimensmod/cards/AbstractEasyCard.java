@@ -1,6 +1,6 @@
 package morimensmod.cards;
 
-import basemod.abstracts.CustomCard;
+import me.antileaf.signature.card.AbstractSignatureCard;
 import morimensmod.characters.Ramona;
 import morimensmod.util.CardArtRoller;
 
@@ -25,7 +25,7 @@ import static morimensmod.util.Wiz.*;
 
 import java.util.function.Consumer;
 
-public abstract class AbstractEasyCard extends CustomCard {
+public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     protected final CardStrings cardStrings;
 
@@ -45,8 +45,18 @@ public abstract class AbstractEasyCard extends CustomCard {
         this(cardID, cost, type, rarity, target, Ramona.Enums.RAMONA_COLOR);
     }
 
-    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
-        super(cardID, "", getCardTextureString(cardID.replace(modID + ":", ""), type),
+    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity,
+            final CardTarget target, final CardColor color) {
+        this(cardID, cardID, cost, type, rarity, target, color);
+    }
+
+    public AbstractEasyCard(final String cardID, final String textureID, final int cost, final CardType type, final CardRarity rarity,
+            final CardTarget target) {
+        this(cardID, textureID, cost, type, rarity, target, Ramona.Enums.RAMONA_COLOR);
+    }
+
+    public AbstractEasyCard(final String cardID, final String textureID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
+        super(cardID, "", getCardTextureString(textureID.replace(modID + ":", ""), type),
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
         rawDescription = cardStrings.DESCRIPTION;
