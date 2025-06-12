@@ -2,7 +2,7 @@ package morimensmod.potions;
 
 import basemod.BaseMod;
 import morimensmod.MorimensMod;
-import morimensmod.characters.CharacterFile;
+import morimensmod.characters.Ramona;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.*;
@@ -16,7 +16,7 @@ public class DemoPotion extends AbstractEasyPotion {
     public static String ID = makeID("DemoPotion");
 
     public DemoPotion() {
-        super(ID, PotionRarity.COMMON, PotionSize.ANVIL, new Color(0.2f, 0.4f, 0.9f, 1f), new Color(0.6f, 0.8f, 1.0f, 1f), null, CharacterFile.Enums.THE_TODO, MorimensMod.characterColor);
+        super(ID, PotionRarity.COMMON, PotionSize.ANVIL, new Color(0.2f, 0.4f, 0.9f, 1f), new Color(0.6f, 0.8f, 1.0f, 1f), null, Ramona.Enums.RAMONA, MorimensMod.characterColor);
     }
 
     public int getPotency(int ascensionlevel) {

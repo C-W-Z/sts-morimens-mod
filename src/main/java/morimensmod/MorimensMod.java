@@ -7,7 +7,7 @@ import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
-import morimensmod.characters.CharacterFile;
+import morimensmod.characters.Ramona;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.relics.AbstractEasyRelic;
 import morimensmod.util.ProAudio;
@@ -47,11 +47,8 @@ public class MorimensMod implements
         return modID + ":" + idText;
     }
 
-    public static Color characterColor = new Color(MathUtils.random(), MathUtils.random(), MathUtils.random(), 1); // This should be changed eventually
+    public static Color characterColor = new Color(1, 1, 1, 1); // This should be changed eventually
 
-    public static final String SHOULDER1 = makeCharacterPath("mainChar/shoulder.png");
-    public static final String SHOULDER2 = makeCharacterPath("mainChar/shoulder2.png");
-    public static final String CORPSE = makeCharacterPath("mainChar/corpse.png");
     private static final String ATTACK_S_ART = makeImagePath("512/attack.png");
     private static final String SKILL_S_ART = makeImagePath("512/skill.png");
     private static final String POWER_S_ART = makeImagePath("512/power.png");
@@ -61,11 +58,11 @@ public class MorimensMod implements
     private static final String SKILL_L_ART = makeImagePath("1024/skill.png");
     private static final String POWER_L_ART = makeImagePath("1024/power.png");
     private static final String CARD_ENERGY_L = makeImagePath("1024/energy.png");
-    private static final String CHARSELECT_BUTTON = makeImagePath("charSelect/charButton.png");
-    private static final String CHARSELECT_PORTRAIT = makeImagePath("charSelect/charBG.png");
+    private static final String CHARSELECT_BUTTON = makeCharacterPath("ramona/button.png");
+    private static final String CHARSELECT_PORTRAIT = makeCharacterPath("ramona/charBG.png");
 
     public static Settings.GameLanguage[] SupportedLanguages = {
-            Settings.GameLanguage.ENG,
+        Settings.GameLanguage.ZHT,
     };
 
     private String getLangString() {
@@ -74,13 +71,13 @@ public class MorimensMod implements
                 return Settings.language.name().toLowerCase();
             }
         }
-        return "eng";
+        return "zht";
     }
 
     public MorimensMod() {
         BaseMod.subscribe(this);
 
-        BaseMod.addColor(CharacterFile.Enums.TODO_COLOR, characterColor, characterColor, characterColor,
+        BaseMod.addColor(Ramona.Enums.RAMONA_COLOR, characterColor, characterColor, characterColor,
                 characterColor, characterColor, characterColor, characterColor,
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
@@ -118,8 +115,8 @@ public class MorimensMod implements
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(new CharacterFile(CharacterFile.NAMES[1], CharacterFile.Enums.THE_TODO),
-            CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, CharacterFile.Enums.THE_TODO);
+        BaseMod.addCharacter(new Ramona(Ramona.NAMES[1], Ramona.Enums.RAMONA),
+            CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, Ramona.Enums.RAMONA);
 
         new AutoAdd(modID)
             .packageFilter(AbstractEasyPotion.class)

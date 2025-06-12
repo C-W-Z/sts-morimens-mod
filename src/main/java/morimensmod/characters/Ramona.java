@@ -24,27 +24,33 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import static morimensmod.MorimensMod.*;
-import static morimensmod.characters.CharacterFile.Enums.TODO_COLOR;
+import static morimensmod.characters.Ramona.Enums.RAMONA_COLOR;
 
 import java.util.ArrayList;
 
-public class CharacterFile extends CustomPlayer {
+public class Ramona extends CustomPlayer {
 
-    static final String ID = makeID("ModdedCharacter");
+    static final String ID = makeID("Ramona");
     static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     public static final String[] NAMES = characterStrings.NAMES;
     static final String[] TEXT = characterStrings.TEXT;
 
+    static final String SHOULDER1 = makeCharacterPath("ramona/shoulder.png");
+    static final String SHOULDER2 = makeCharacterPath("ramona/shoulder2.png");
+    static final String CORPSE = makeCharacterPath("ramona/corpse.png");
 
-    public CharacterFile(String name, PlayerClass setClass) {
-        super(name, setClass, new CustomEnergyOrb(orbTextures, makeCharacterPath("mainChar/orb/vfx.png"), null), new SpriterAnimation(
-                makeCharacterPath("mainChar/static.scml")));
-        initializeClass(null,
+    public Ramona(String name, PlayerClass setClass) {
+        super(
+                name,
+                setClass,
+                new CustomEnergyOrb(orbTextures, makeCharacterPath("ramona/orb/vfx.png"), null),
+                new SpriterAnimation(makeCharacterPath("ramona/static.scml")));
+        initializeClass(
+                null,
                 SHOULDER1,
                 SHOULDER2,
                 CORPSE,
                 getLoadout(), 20.0F, -10.0F, 166.0F, 327.0F, new EnergyManager(3));
-
 
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 240.0F * Settings.scale);
@@ -52,8 +58,10 @@ public class CharacterFile extends CustomPlayer {
 
     @Override
     public CharSelectInfo getLoadout() {
-        return new CharSelectInfo(NAMES[0], TEXT[0],
-                80, 80, 0, 99, 5, this, getStartingRelics(),
+        return new CharSelectInfo(
+                NAMES[0], TEXT[0],
+                60, 60, 0, 99, 5,
+                this, getStartingRelics(),
                 getStartingDeck(), false);
     }
 
@@ -83,17 +91,17 @@ public class CharacterFile extends CustomPlayer {
     }
 
     private static final String[] orbTextures = {
-            makeCharacterPath("mainChar/orb/layer1.png"),
-            makeCharacterPath("mainChar/orb/layer2.png"),
-            makeCharacterPath("mainChar/orb/layer3.png"),
-            makeCharacterPath("mainChar/orb/layer4.png"),
-            makeCharacterPath("mainChar/orb/layer4.png"),
-            makeCharacterPath("mainChar/orb/layer6.png"),
-            makeCharacterPath("mainChar/orb/layer1d.png"),
-            makeCharacterPath("mainChar/orb/layer2d.png"),
-            makeCharacterPath("mainChar/orb/layer3d.png"),
-            makeCharacterPath("mainChar/orb/layer4d.png"),
-            makeCharacterPath("mainChar/orb/layer5d.png"),
+            makeCharacterPath("ramona/orb/layer1.png"),
+            makeCharacterPath("ramona/orb/layer2.png"),
+            makeCharacterPath("ramona/orb/layer3.png"),
+            makeCharacterPath("ramona/orb/layer4.png"),
+            makeCharacterPath("ramona/orb/layer4.png"),
+            makeCharacterPath("ramona/orb/layer6.png"),
+            makeCharacterPath("ramona/orb/layer1d.png"),
+            makeCharacterPath("ramona/orb/layer2d.png"),
+            makeCharacterPath("ramona/orb/layer3d.png"),
+            makeCharacterPath("ramona/orb/layer4d.png"),
+            makeCharacterPath("ramona/orb/layer5d.png"),
     };
 
     @Override
@@ -103,12 +111,12 @@ public class CharacterFile extends CustomPlayer {
 
     @Override
     public int getAscensionMaxHPLoss() {
-        return 8;
+        return 5;
     }
 
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return TODO_COLOR;
+        return RAMONA_COLOR;
     }
 
     @Override
@@ -139,7 +147,7 @@ public class CharacterFile extends CustomPlayer {
 
     @Override
     public AbstractPlayer newInstance() {
-        return new CharacterFile(name, chosenClass);
+        return new Ramona(name, chosenClass);
     }
 
     @Override
@@ -154,10 +162,10 @@ public class CharacterFile extends CustomPlayer {
 
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
-        return new AbstractGameAction.AttackEffect[]{
+        return new AbstractGameAction.AttackEffect[] {
                 AbstractGameAction.AttackEffect.FIRE,
                 AbstractGameAction.AttackEffect.BLUNT_HEAVY,
-                AbstractGameAction.AttackEffect.FIRE};
+                AbstractGameAction.AttackEffect.FIRE };
     }
 
     @Override
@@ -171,12 +179,11 @@ public class CharacterFile extends CustomPlayer {
     }
 
     public static class Enums {
-        //TODO: Change these.
         @SpireEnum
-        public static AbstractPlayer.PlayerClass THE_TODO;
-        @SpireEnum(name = "TODO_COLOR")
-        public static AbstractCard.CardColor TODO_COLOR;
-        @SpireEnum(name = "TODO_COLOR")
+        public static AbstractPlayer.PlayerClass RAMONA;
+        @SpireEnum(name = "RAMONA_COLOR")
+        public static AbstractCard.CardColor RAMONA_COLOR;
+        @SpireEnum(name = "RAMONA_COLOR")
         @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }
