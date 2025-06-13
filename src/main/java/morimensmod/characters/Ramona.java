@@ -1,11 +1,12 @@
 package morimensmod.characters;
 
-import morimensmod.cards.Defend;
-import morimensmod.cards.Strike;
 import morimensmod.cards.chaos.AssaultThesis;
+import morimensmod.cards.chaos.Defend;
 import morimensmod.cards.chaos.QueensSword;
+import morimensmod.cards.chaos.Strike;
 import morimensmod.relics.TodoItem;
 
+import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -121,6 +122,21 @@ public class Ramona extends AbstractAwakener {
     @Override
     public String getVampireText() {
         return TEXT[2];
+    }
+
+    @Override
+    public Color getCardTrailColor() {
+        return new Color(1, 1, 1, 1);
+    }
+
+    @Override
+    public Color getCardRenderColor() {
+        return new Color(1, 1, 1, 1);
+    }
+
+    @Override
+    public Color getSlashAttackColor() {
+        return new Color(1, 1, 1, 1);
     }
 
     public static class Enums {

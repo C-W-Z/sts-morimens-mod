@@ -1,7 +1,7 @@
-package morimensmod.cards.chaos;
+package morimensmod.cards.buff;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
@@ -14,7 +14,7 @@ public class Inspiration extends AbstractEasyCard {
     public final static String ID = makeID(Inspiration.class.getSimpleName());
 
     public Inspiration() {
-        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
+        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE, BUFF_COLOR);
         this.magicNumber = this.baseMagicNumber = 1; // 獲得能量
         this.secondMagic = this.baseSecondMagic = 1; // 抽牌數
         this.exhaust = true;

@@ -1,10 +1,12 @@
-package morimensmod.cards;
+package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import morimensmod.cards.AbstractEasyCard;
 
 public class Strike extends AbstractEasyCard {
     public final static String ID = makeID("Strike");

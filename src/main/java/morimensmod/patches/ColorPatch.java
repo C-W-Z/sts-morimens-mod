@@ -14,6 +14,10 @@ public class ColorPatch {
         public static CardColor CARO_COLOR;
         @SpireEnum
         public static CardColor ULTRA_COLOR;
+        @SpireEnum
+        public static CardColor WHEEL_OF_DESTINY_COLOR;
+        @SpireEnum
+        public static CardColor BUFF_COLOR;
     }
 
     public static class LibColorPatch {
@@ -25,5 +29,9 @@ public class ColorPatch {
         public static LibraryType CARO_COLOR;
         @SpireEnum
         public static LibraryType ULTRA_COLOR;
+        @SpireEnum
+        public static LibraryType WHEEL_OF_DESTINY_COLOR;
+        @SpireEnum
+        public static LibraryType BUFF_COLOR;
     }
 }

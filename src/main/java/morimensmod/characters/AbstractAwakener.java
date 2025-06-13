@@ -3,7 +3,6 @@ package morimensmod.characters;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 // import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -69,12 +68,6 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public int getAscensionMaxHPLoss() {
         return 5;
     }
-
-    @Override
-    public Color getCardTrailColor() {
-        return characterColor.cpy();
-    }
-
     @Override
     public BitmapFont getEnergyNumFont() {
         return FontHelper.energyNumFontRed;
@@ -84,16 +77,6 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public AbstractCard getStartCardForEvent() {
         System.out.println("YOU NEED TO SET getStartCardForEvent() in your " + getClass().getSimpleName() + " file!");
         return null;
-    }
-
-    @Override
-    public Color getCardRenderColor() {
-        return characterColor.cpy();
-    }
-
-    @Override
-    public Color getSlashAttackColor() {
-        return characterColor.cpy();
     }
 
     @Override

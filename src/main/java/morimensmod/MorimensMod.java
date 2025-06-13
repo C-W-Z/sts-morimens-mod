@@ -7,16 +7,16 @@ import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import me.antileaf.signature.utils.SignatureHelper;
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.cards.Defend;
-import morimensmod.cards.Strike;
+import morimensmod.cards.buff.Inspiration;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.chaos.AssaultThesis;
+import morimensmod.cards.chaos.Defend;
 import morimensmod.cards.chaos.FirstDoctrine;
-import morimensmod.cards.chaos.HandOfOblivion;
-import morimensmod.cards.chaos.Inspiration;
 import morimensmod.cards.chaos.QueensSword;
-import morimensmod.cards.chaos.RewindingTime;
+import morimensmod.cards.chaos.Strike;
 import morimensmod.cards.democards.simple.DrawAndShiv;
+import morimensmod.cards.wheel_of_destiny.HandOfOblivion;
+import morimensmod.cards.wheel_of_destiny.RewindingTime;
 import morimensmod.characters.Ramona;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.relics.AbstractEasyRelic;
@@ -41,7 +41,12 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
+import static morimensmod.patches.ColorPatch.CardColorPatch.AEQUOR_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.CARO_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 
 import java.nio.charset.StandardCharsets;
 
@@ -68,8 +73,6 @@ public class MorimensMod implements
         return modID + ":" + idText;
     }
 
-    public static Color characterColor = new Color(1, 1, 1, 1); // This should be changed eventually
-
     private static final String ATTACK_S_ART = makeImagePath("512/attack.png");
     private static final String SKILL_S_ART = makeImagePath("512/skill.png");
     private static final String POWER_S_ART = makeImagePath("512/power.png");
@@ -94,8 +97,32 @@ public class MorimensMod implements
     }
 
     public MorimensMod() {
-        BaseMod.addColor(CHAOS_COLOR, characterColor, characterColor, characterColor,
-                characterColor, characterColor, characterColor, characterColor,
+        BaseMod.addColor(CHAOS_COLOR, new Color(227.0f / 255, 201.0f / 255, 110.0f / 255, 1),
+                ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
+                ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
+                CARD_ENERGY_L, TEXT_ENERGY);
+
+        BaseMod.addColor(AEQUOR_COLOR, new Color(106.0f / 255, 171.0f / 255, 236.0f / 255, 1),
+                ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
+                ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
+                CARD_ENERGY_L, TEXT_ENERGY);
+
+        BaseMod.addColor(CARO_COLOR, new Color(226.0f / 255, 97.0f / 255, 97.0f / 255, 1),
+                ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
+                ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
+                CARD_ENERGY_L, TEXT_ENERGY);
+
+        BaseMod.addColor(ULTRA_COLOR, new Color(194.0f / 255, 146.0f / 255, 236.0f / 255, 1),
+                ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
+                ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
+                CARD_ENERGY_L, TEXT_ENERGY);
+
+        BaseMod.addColor(BUFF_COLOR, new Color(1, 1, 1, 1),
+                ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
+                ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
+                CARD_ENERGY_L, TEXT_ENERGY);
+
+        BaseMod.addColor(WHEEL_OF_DESTINY_COLOR, new Color(148.0f / 255, 155.0f / 255, 165.0f / 255, 1),
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);

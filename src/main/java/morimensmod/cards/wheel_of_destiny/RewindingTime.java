@@ -1,7 +1,7 @@
-package morimensmod.cards.chaos;
+package morimensmod.cards.wheel_of_destiny;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,7 +14,7 @@ public class RewindingTime extends AbstractEasyCard {
     public final static String ID = makeID(RewindingTime.class.getSimpleName());
 
     public RewindingTime() {
-        super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF, WHEEL_OF_DESTINY_COLOR);
         baseMagicNumber = magicNumber = 1; // 每回合最大觸發次數
     }
 

@@ -18,5 +18,15 @@
         "TEXT": [
             "超維界域"
         ]
+    },
+    "BUFF_COLOR": {
+        "TEXT": [
+            "增益"
+        ]
+    },
+    "WHEEL_OF_DESTINY_COLOR": {
+        "TEXT": [
+            "命輪"
+        ]
     }
 }

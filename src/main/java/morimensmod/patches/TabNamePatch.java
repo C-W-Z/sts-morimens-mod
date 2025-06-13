@@ -12,8 +12,10 @@ import javassist.CtBehavior;
 
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.AEQUOR_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CARO_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 
 public class TabNamePatch {
     @SpirePatch2(clz = ColorTabBarFix.Render.class, method = "Insert")
@@ -22,6 +24,8 @@ public class TabNamePatch {
         private static final UIStrings AEQUOR_STRINGS = CardCrawlGame.languagePack.getUIString(AEQUOR_COLOR.name());
         private static final UIStrings CARO_STRINGS = CardCrawlGame.languagePack.getUIString(CARO_COLOR.name());
         private static final UIStrings ULTRA_STRINGS = CardCrawlGame.languagePack.getUIString(ULTRA_COLOR.name());
+        private static final UIStrings BUFF_STRINGS = CardCrawlGame.languagePack.getUIString(BUFF_COLOR.name());
+        private static final UIStrings WHEEL_OF_DESTINY_STRINGS = CardCrawlGame.languagePack.getUIString(WHEEL_OF_DESTINY_COLOR.name());
 
         @SpireInsertPatch(locator = TabNameLocator.class, localvars = { "i", "tabName" })
         public static void InsertFix(int i, @ByRef String[] tabName) {
@@ -35,6 +39,10 @@ public class TabNamePatch {
                 tabName[0] = CARO_STRINGS.TEXT[0];
             else if (modTabs.get(i).color == ULTRA_COLOR)
                 tabName[0] = ULTRA_STRINGS.TEXT[0];
+            else if (modTabs.get(i).color == BUFF_COLOR)
+                tabName[0] = BUFF_STRINGS.TEXT[0];
+            else if (modTabs.get(i).color == WHEEL_OF_DESTINY_COLOR)
+                tabName[0] = WHEEL_OF_DESTINY_STRINGS.TEXT[0];
         }
 
         private static class TabNameLocator extends SpireInsertLocator {
