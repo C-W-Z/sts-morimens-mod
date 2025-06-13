@@ -13,6 +13,7 @@ import morimensmod.cards.Ramona.AssaultThesis;
 import morimensmod.cards.Ramona.FirstDoctrine;
 import morimensmod.cards.Ramona.Inspiration;
 import morimensmod.cards.Ramona.QueensSword;
+import morimensmod.cards.Ramona.RewindingTime;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.democards.simple.DrawAndShiv;
 import morimensmod.characters.Ramona;
@@ -210,6 +211,7 @@ public class MorimensMod implements
         SignatureHelper.unlock(AssaultThesis.ID, true);
         SignatureHelper.unlock(QueensSword.ID, true);
         SignatureHelper.unlock(FirstDoctrine.ID, true);
+        SignatureHelper.unlock(RewindingTime.ID, true);
         SignatureHelper.unlock(Inspiration.ID, true);
     }
 

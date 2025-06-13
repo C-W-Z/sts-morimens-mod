@@ -25,6 +25,6 @@ public class FirstDoctrine extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeSecondMagic(1); // 觸發次數 + 1
+        upgradeBaseCost(2); // cost 3 -> 2
     }
 }
