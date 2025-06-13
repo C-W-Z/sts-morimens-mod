@@ -23,7 +23,7 @@ import static morimensmod.patches.RealmColorPatch.CardColorPatch.CHAOS_COLOR;
 
 import java.util.ArrayList;
 
-public class Ramona extends AbstractAwaker {
+public class Ramona extends AbstractAwakener {
 
     public static final String ID = makeID(Ramona.class.getSimpleName());
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);

@@ -19,9 +19,9 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 
 import static morimensmod.MorimensMod.*;
 
-public abstract class AbstractAwaker extends CustomPlayer {
+public abstract class AbstractAwakener extends CustomPlayer {
 
-    public AbstractAwaker(String name, PlayerClass setClass, String spriterAnimationPath, final String SHOULDER1,
+    public AbstractAwakener(String name, PlayerClass setClass, String spriterAnimationPath, final String SHOULDER1,
             final String SHOULDER2, final String CORPSE) {
         super(
                 name,

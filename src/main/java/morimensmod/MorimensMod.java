@@ -16,7 +16,6 @@ import morimensmod.cards.Ramona.QueensSword;
 import morimensmod.cards.Ramona.RewindingTime;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.democards.simple.DrawAndShiv;
-import morimensmod.characters.AbstractAwaker;
 import morimensmod.characters.Ramona;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.relics.AbstractEasyRelic;

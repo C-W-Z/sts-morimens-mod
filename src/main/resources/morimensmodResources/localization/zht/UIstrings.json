@@ -3,5 +3,20 @@
         "TEXT": [
             "混沌界域"
         ]
+    },
+    "AEQUOR_COLOR": {
+        "TEXT": [
+            "深海界域"
+        ]
+    },
+    "CARO_COLOR": {
+        "TEXT": [
+            "血肉界域"
+        ]
+    },
+    "ULTRA_COLOR": {
+        "TEXT": [
+            "超維界域"
+        ]
     }
 }
