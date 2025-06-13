@@ -2,8 +2,8 @@ package morimensmod.characters;
 
 import morimensmod.cards.Defend;
 import morimensmod.cards.Strike;
-import morimensmod.cards.Ramona.AssaultThesis;
-import morimensmod.cards.Ramona.QueensSword;
+import morimensmod.cards.chaos.AssaultThesis;
+import morimensmod.cards.chaos.QueensSword;
 import morimensmod.relics.TodoItem;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;

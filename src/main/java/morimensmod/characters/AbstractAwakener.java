@@ -26,7 +26,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
         super(
                 name,
                 setClass,
-                new CustomEnergyOrb(orbTextures, makeCharacterPath("Ramona/orb/vfx.png"), null),
+                new CustomEnergyOrb(orbTextures, makeCharacterPath("ChaosRealm/orb/vfx.png"), null),
                 new SpriterAnimation(makeCharacterPath(spriterAnimationPath)));
         initializeClass(
                 null,
@@ -47,17 +47,17 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     private static final String[] orbTextures = {
-            makeCharacterPath("Ramona/orb/layer1.png"),
-            makeCharacterPath("Ramona/orb/layer2.png"),
-            makeCharacterPath("Ramona/orb/layer3.png"),
-            makeCharacterPath("Ramona/orb/layer4.png"),
-            makeCharacterPath("Ramona/orb/layer4.png"),
-            makeCharacterPath("Ramona/orb/layer6.png"),
-            makeCharacterPath("Ramona/orb/layer1d.png"),
-            makeCharacterPath("Ramona/orb/layer2d.png"),
-            makeCharacterPath("Ramona/orb/layer3d.png"),
-            makeCharacterPath("Ramona/orb/layer4d.png"),
-            makeCharacterPath("Ramona/orb/layer5d.png"),
+            makeCharacterPath("ChaosRealm/orb/layer1.png"),
+            makeCharacterPath("ChaosRealm/orb/layer2.png"),
+            makeCharacterPath("ChaosRealm/orb/layer3.png"),
+            makeCharacterPath("ChaosRealm/orb/layer4.png"),
+            makeCharacterPath("ChaosRealm/orb/layer4.png"),
+            makeCharacterPath("ChaosRealm/orb/layer6.png"),
+            makeCharacterPath("ChaosRealm/orb/layer1d.png"),
+            makeCharacterPath("ChaosRealm/orb/layer2d.png"),
+            makeCharacterPath("ChaosRealm/orb/layer3d.png"),
+            makeCharacterPath("ChaosRealm/orb/layer4d.png"),
+            makeCharacterPath("ChaosRealm/orb/layer5d.png"),
     };
 
     @Override

@@ -1,4 +1,4 @@
-package morimensmod.cards.Ramona;
+package morimensmod.cards.chaos;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 // import com.megacrit.cardcrawl.actions.AbstractGameAction;

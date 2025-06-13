@@ -52,12 +52,6 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     }
 
     public AbstractEasyCard(final String cardID, final String textureID, final int cost, final CardType type,
-            final CardRarity rarity,
-            final CardTarget target) {
-        this(cardID, textureID, cost, type, rarity, target, CHAOS_COLOR);
-    }
-
-    public AbstractEasyCard(final String cardID, final String textureID, final int cost, final CardType type,
             final CardRarity rarity, final CardTarget target, final CardColor color) {
         super(cardID, "", getCardTextureString(textureID.replace(modID + ":", ""), type),
                 cost, "", type, color, rarity, target);
