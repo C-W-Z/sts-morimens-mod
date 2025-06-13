@@ -1,6 +1,7 @@
 package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -12,7 +13,7 @@ public class Defend extends AbstractEasyCard {
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public Defend() {
-        super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF, CHAOS_COLOR);
         baseBlock = 5;
         tags.add(CardTags.STARTER_DEFEND);
     }

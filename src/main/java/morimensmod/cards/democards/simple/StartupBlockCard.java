@@ -1,6 +1,7 @@
 package morimensmod.cards.democards.simple;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.util.Wiz.atb;
 
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
@@ -17,7 +18,7 @@ public class StartupBlockCard extends AbstractEasyCard implements StartupCard { 
     // intellij stuff skill, self, uncommon, , , , , ,
 
     public StartupBlockCard() {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY); // This card is a 1 cost Common Skill that targets an enemy.
+        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, BUFF_COLOR); // This card is a 1 cost Common Skill that targets an enemy.
         baseDamage = 7;
         baseMagicNumber = magicNumber = 4;
         isMultiDamage = true; // This card attacks ALL enemies, so isMultiDamage is true...

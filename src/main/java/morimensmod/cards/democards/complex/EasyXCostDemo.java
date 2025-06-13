@@ -1,6 +1,7 @@
 package morimensmod.cards.democards.complex;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.util.Wiz.applyToSelfTop;
 import static morimensmod.util.Wiz.atb;
 
@@ -17,7 +18,7 @@ public class EasyXCostDemo extends AbstractEasyCard {
     // intellij stuff attack, enemy, rare, , , , , 0, 1
 
     public EasyXCostDemo() {
-        super(ID, -1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
+        super(ID, -1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY, BUFF_COLOR);
         baseDamage = 5;
         baseMagicNumber = magicNumber = 0;
         exhaust = true;

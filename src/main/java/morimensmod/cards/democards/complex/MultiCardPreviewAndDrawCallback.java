@@ -4,6 +4,7 @@ import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPrevie
 import morimensmod.cards.AbstractEasyCard;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.util.Wiz.*;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -19,7 +20,7 @@ public class MultiCardPreviewAndDrawCallback extends AbstractEasyCard {
     // intellij stuff skill, self, uncommon, , , , , ,
 
     public MultiCardPreviewAndDrawCallback() {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY); // This card is a 1 cost Uncommon Attack that targets ALL enemies.
+        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY, BUFF_COLOR); // This card is a 1 cost Uncommon Attack that targets ALL enemies.
         baseDamage = 10;
         MultiCardPreview.add(this, new Smite(), new Safety()); // Display both Smite and Safety when you hover this card.
         isMultiDamage = true;

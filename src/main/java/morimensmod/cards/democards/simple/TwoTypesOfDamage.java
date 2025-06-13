@@ -1,6 +1,7 @@
 package morimensmod.cards.democards.simple;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,7 +15,7 @@ public class TwoTypesOfDamage extends AbstractEasyCard {
     // intellij stuff skill, self, uncommon, , , , , ,
 
     public TwoTypesOfDamage() {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY); // This card is a 1 cost Common Attack that targets an Enemy.
+        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, BUFF_COLOR); // This card is a 1 cost Common Attack that targets an Enemy.
         baseDamage = 8;
         baseSecondDamage = 15;
     }

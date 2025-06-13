@@ -21,6 +21,7 @@ import basemod.BaseMod;
 import static morimensmod.MorimensMod.*;
 import static morimensmod.util.Wiz.addCardsIntoPool;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 
 import java.util.ArrayList;
 
@@ -77,6 +78,7 @@ public class Ramona extends AbstractAwakener {
     @Override
     public ArrayList<AbstractCard> getCardPool(ArrayList<AbstractCard> tmpPool) {
         addCardsIntoPool(tmpPool, CHAOS_COLOR);
+        addCardsIntoPool(tmpPool, WHEEL_OF_DESTINY_COLOR);
         return tmpPool;
     }
 

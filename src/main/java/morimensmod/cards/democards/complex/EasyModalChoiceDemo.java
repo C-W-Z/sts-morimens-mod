@@ -11,6 +11,7 @@ import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.EasyModalChoiceCard;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.util.Wiz.*;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class EasyModalChoiceDemo extends AbstractEasyCard {
     // intellij stuff skill, self, uncommon, , , , , ,
 
     public EasyModalChoiceDemo() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, BUFF_COLOR);
         baseMagicNumber = magicNumber = 3;
         baseSecondMagic = secondMagic = 1;
     }

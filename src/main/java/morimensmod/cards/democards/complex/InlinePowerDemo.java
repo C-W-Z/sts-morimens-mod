@@ -1,6 +1,7 @@
 package morimensmod.cards.democards.complex;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.atb;
 
@@ -19,7 +20,7 @@ public class InlinePowerDemo extends AbstractEasyCard {
     // intellij stuff power, self, uncommon
 
     public InlinePowerDemo() {
-        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF, BUFF_COLOR);
         baseMagicNumber = magicNumber = 4;
     }
 

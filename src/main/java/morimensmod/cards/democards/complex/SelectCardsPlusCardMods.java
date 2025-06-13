@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.util.Wiz.*;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class SelectCardsPlusCardMods extends AbstractEasyCard {
     // intellij stuff skill, self, uncommon
 
     public SelectCardsPlusCardMods() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, BUFF_COLOR);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
