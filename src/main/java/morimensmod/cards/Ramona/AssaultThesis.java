@@ -1,6 +1,7 @@
 package morimensmod.cards.Ramona;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.RealmColorPatch.CardColorPatch.CHAOS_COLOR;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -11,13 +12,12 @@ import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.characters.Ramona;
 
 public class AssaultThesis extends AbstractEasyCard {
     public final static String ID = makeID(AssaultThesis.class.getSimpleName());
 
     public AssaultThesis() {
-        super(ID, "Skills/Ramona", 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, Ramona.Enums.RAMONA_COLOR);
+        super(ID, "Skills/Ramona", 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
         this.magicNumber = this.baseMagicNumber = 6; // 降低臨時力量
         this.secondMagic = this.baseSecondMagic = 1; // 抽牌數
     }

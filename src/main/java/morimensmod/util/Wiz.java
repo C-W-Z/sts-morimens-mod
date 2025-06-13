@@ -4,13 +4,11 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.Hitbox;
@@ -19,7 +17,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import static morimensmod.MorimensMod.makeID;
@@ -27,8 +24,6 @@ import static morimensmod.MorimensMod.makeID;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -309,26 +304,7 @@ public class Wiz {
         return AbstractDungeon.player.masterDeck;
     }
 
-    public static ArrayList<AbstractCard> addColorToPool(ArrayList<AbstractCard> tmpPool, AbstractCard.CardColor color) {
-        Iterator<Map.Entry<String, AbstractCard>> var3 = CardLibrary.cards.entrySet().iterator();
-
-        while (true) {
-            Map.Entry<String, AbstractCard> c;
-            AbstractCard card;
-            do {
-                do {
-                    do {
-                        if (!var3.hasNext()) {
-                            return tmpPool;
-                        }
-
-                        c = (Map.Entry<String, AbstractCard>) var3.next();
-                        card = (AbstractCard) c.getValue();
-                    } while (!card.color.equals(color));
-                } while (card.rarity == CardRarity.BASIC);
-            } while (UnlockTracker.isCardLocked((String) c.getKey()) && !Settings.isDailyRun);
-
-            tmpPool.add(card);
-        }
+    public static void addCardsIntoPool(ArrayList<AbstractCard> tmpPool, AbstractCard.CardColor color) {
+        CardLibrary.addCardsIntoPool(tmpPool, color);
     }
 }

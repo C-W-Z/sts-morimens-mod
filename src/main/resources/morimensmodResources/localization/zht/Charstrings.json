@@ -1,4 +1,15 @@
 {
+  "${ModID}:ChoasRealm": {
+    "NAMES": [
+      "混沌界域",
+      "混沌界域"
+    ],
+    "TEXT": [
+      "",
+      "NL TODO: Change this text",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~TODO:~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ]
+  },
   "${ModID}:Ramona": {
     "NAMES": [
       "拉蒙娜",
@@ -6,6 +17,17 @@
     ],
     "TEXT": [
       "德克斯特的養女，主角最信賴的調查夥伴。 NL 從小混跡在學院各個學系的教室中，對融蝕現象、喚醒體等知識有著相當程度的了解。",
+      "NL TODO: Change this text",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~TODO:~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ]
+  },
+  "${ModID}:Lotan": {
+    "NAMES": [
+      "蘿坦",
+      "蘿坦"
+    ],
+    "TEXT": [
+      "",
       "NL TODO: Change this text",
       "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~TODO:~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
     ]

@@ -1,8 +1,6 @@
 package morimensmod.cards;
 
 import me.antileaf.signature.card.AbstractSignatureCard;
-import morimensmod.characters.Ramona;
-import morimensmod.util.CardArtRoller;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -21,7 +19,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static morimensmod.MorimensMod.makeImagePath;
 import static morimensmod.MorimensMod.modID;
+import static morimensmod.patches.RealmColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.*;
+import morimensmod.util.CardArtRoller;
 
 import java.util.function.Consumer;
 
@@ -41,8 +41,9 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     private boolean needsArtRefresh = false;
 
-    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
-        this(cardID, cost, type, rarity, target, Ramona.Enums.RAMONA_COLOR);
+    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity,
+            final CardTarget target) {
+        this(cardID, cost, type, rarity, target, CHAOS_COLOR);
     }
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity,
@@ -50,12 +51,14 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         this(cardID, cardID, cost, type, rarity, target, color);
     }
 
-    public AbstractEasyCard(final String cardID, final String textureID, final int cost, final CardType type, final CardRarity rarity,
+    public AbstractEasyCard(final String cardID, final String textureID, final int cost, final CardType type,
+            final CardRarity rarity,
             final CardTarget target) {
-        this(cardID, textureID, cost, type, rarity, target, Ramona.Enums.RAMONA_COLOR);
+        this(cardID, textureID, cost, type, rarity, target, CHAOS_COLOR);
     }
 
-    public AbstractEasyCard(final String cardID, final String textureID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
+    public AbstractEasyCard(final String cardID, final String textureID, final int cost, final CardType type,
+            final CardRarity rarity, final CardTarget target, final CardColor color) {
         super(cardID, "", getCardTextureString(textureID.replace(modID + ":", ""), type),
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
@@ -118,7 +121,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
             super.applyPowers();
 
             isSecondDamageModified = (secondDamage != baseSecondDamage);
-        } else super.applyPowers();
+        } else
+            super.applyPowers();
     }
 
     @Override
@@ -137,7 +141,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
             super.calculateCardDamage(mo);
 
             isSecondDamageModified = (secondDamage != baseSecondDamage);
-        } else super.calculateCardDamage(mo);
+        } else
+            super.calculateCardDamage(mo);
     }
 
     public void resetAttributes() {
@@ -205,7 +210,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         return result;
     }
 
-    // These shortcuts are specifically for cards. All other shortcuts that aren't specifically for cards can go in Wiz.
+    // These shortcuts are specifically for cards. All other shortcuts that aren't
+    // specifically for cards can go in Wiz.
     protected void dmg(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
         atb(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn), fx));
     }
@@ -230,9 +236,11 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         att(new DamageAction(m, new DamageInfo(AbstractDungeon.player, secondDamage, damageTypeForTurn), fx));
     }
 
-    private AbstractGameAction dmgRandomAction(AbstractGameAction.AttackEffect fx, Consumer<AbstractMonster> extraEffectToTarget, Consumer<AbstractMonster> effectBefore) {
+    private AbstractGameAction dmgRandomAction(AbstractGameAction.AttackEffect fx,
+            Consumer<AbstractMonster> extraEffectToTarget, Consumer<AbstractMonster> effectBefore) {
         return actionify(() -> {
-            AbstractMonster target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+            AbstractMonster target = AbstractDungeon.getMonsters().getRandomMonster(null, true,
+                    AbstractDungeon.cardRandomRng);
             if (target != null) {
                 calculateCardDamage(target);
                 if (extraEffectToTarget != null)
@@ -248,7 +256,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         dmgRandom(fx, null, null);
     }
 
-    protected void dmgRandom(AbstractGameAction.AttackEffect fx, Consumer<AbstractMonster> extraEffectToTarget, Consumer<AbstractMonster> effectBefore) {
+    protected void dmgRandom(AbstractGameAction.AttackEffect fx, Consumer<AbstractMonster> extraEffectToTarget,
+            Consumer<AbstractMonster> effectBefore) {
         atb(dmgRandomAction(fx, extraEffectToTarget, effectBefore));
     }
 
@@ -256,7 +265,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         dmgRandomTop(fx, null, null);
     }
 
-    protected void dmgRandomTop(AbstractGameAction.AttackEffect fx, Consumer<AbstractMonster> extraEffectToTarget, Consumer<AbstractMonster> effectBefore) {
+    protected void dmgRandomTop(AbstractGameAction.AttackEffect fx, Consumer<AbstractMonster> extraEffectToTarget,
+            Consumer<AbstractMonster> effectBefore) {
         att(dmgRandomAction(fx, extraEffectToTarget, effectBefore));
     }
 

@@ -9,15 +9,14 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.RealmColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.discardPile;
 import static morimensmod.util.Wiz.drawPile;
 import static morimensmod.util.Wiz.exhaustPile;
 import static morimensmod.util.Wiz.limbo;
 
 import morimensmod.actions.AttackThenTmpStrAction;
-// import morimensmod.actions.QueensSwordAction;
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.characters.Ramona;
 
 public class QueensSword extends AbstractEasyCard {
     public static final String ID = makeID("QueensSword");
@@ -36,8 +35,7 @@ public class QueensSword extends AbstractEasyCard {
      */
 
     public QueensSword() {
-        super(ID, "Attacks/Ramona", 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY,
-                Ramona.Enums.RAMONA_COLOR);
+        super(ID, "Attacks/Ramona", 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, CHAOS_COLOR);
         this.baseDamage = 3;
         this.magicNumber = this.baseMagicNumber = attackTimesThisCombat;
     }
