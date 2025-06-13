@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.characters.AbstractAwakener;
 
 public class Strike extends AbstractEasyCard {
     public final static String ID = makeID("Strike");
@@ -22,6 +23,7 @@ public class Strike extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.NONE);
+        AbstractAwakener.aliemus += 10;
     }
 
     @Override

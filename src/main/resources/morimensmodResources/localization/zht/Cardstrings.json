@@ -21,15 +21,15 @@
   },
   "${ModID}:RewindingTime": {
     "NAME": "溯洄時計",
-    "DESCRIPTION": "打出 morimensmod:指令卡 後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 !M! 次。"
+    "DESCRIPTION": " morimensmod:命輪 。打出 morimensmod:指令卡 後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 !M! 次。"
   },
   "${ModID}:HandOfOblivion": {
     "NAME": "遺忘之手",
-    "DESCRIPTION": "將 1 張 打擊 加入手中，「 打擊 」的基礎傷害增加 !M! %。"
+    "DESCRIPTION": " morimensmod:命輪 。將 1 張 打擊 加入手中，「 打擊 」的基礎傷害增加 !M! %。"
   },
   "${ModID}:Inspiration": {
     "NAME": "靈感",
-    "DESCRIPTION": "獲得 [E] ，抽 !${ModID}:m2! 張牌。 NL 消耗 ",
+    "DESCRIPTION": " morimensmod:增益 。獲得 [E] ，抽 !${ModID}:m2! 張牌。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": "獲得 [E] [E] ，抽 !${ModID}:m2! 張牌。 NL 消耗 "
   },
   "${ModID}:ExampleTwoAmountPowerCard": {

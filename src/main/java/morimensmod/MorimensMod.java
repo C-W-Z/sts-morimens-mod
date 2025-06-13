@@ -154,6 +154,10 @@ public class MorimensMod implements
         return modID + "Resources/images/cards/" + resourcePath;
     }
 
+    public static String makeUIPath(String resourcePath) {
+        return modID + "Resources/images/ui/" + resourcePath;
+    }
+
     public static void initialize() {
         MorimensMod thismod = new MorimensMod();
     }

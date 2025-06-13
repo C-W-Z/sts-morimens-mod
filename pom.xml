@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>CWZ</groupId>
+    <groupId>${ModID}</groupId>
 
-    <artifactId>MorimensMod</artifactId>
+    <artifactId>${ModID}</artifactId>
     <version>0.0.1</version>
     <name>Morimens Mod</name>
     <description>TODO: Change this description</description>
@@ -23,6 +23,7 @@
         <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
         <Steam.path>D:/SteamLibrary/steamapps/</Steam.path>
 
+        <author>CWZ</author>
     </properties>
 
     <dependencies>

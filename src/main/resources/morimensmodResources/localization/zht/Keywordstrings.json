@@ -15,12 +15,30 @@
     "DESCRIPTION": "效果僅限本回合。"
   },
   {
+    "PROPER_NAME": "增益",
+    "NAMES": [
+      "增益卡",
+      "增益卡牌",
+      "增益"
+    ],
+    "DESCRIPTION": "一種無法常規獲得且對玩家有幫助的卡牌類型。"
+  },
+  {
+    "PROPER_NAME": "命輪",
+    "NAMES": [
+      "命輪卡",
+      "命輪卡牌",
+      "命輪"
+    ],
+    "DESCRIPTION": "一種全是能力卡的特殊卡牌類型。"
+  },
+  {
     "PROPER_NAME": "指令卡",
     "NAMES": [
       "指令卡",
       "指令卡牌",
       "指令"
     ],
-    "DESCRIPTION": "非增益且非命輪的攻擊/技能/能力卡。"
+    "DESCRIPTION": "非 morimensmod:增益 且非 morimensmod:命輪 的攻擊/技能/能力卡。"
   }
 ]
