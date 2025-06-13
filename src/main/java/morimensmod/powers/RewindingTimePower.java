@@ -2,6 +2,7 @@ package morimensmod.powers;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.discardPile;
+import static morimensmod.util.Wiz.isCommandCard;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -34,7 +35,7 @@ public class RewindingTimePower extends AbstractEasyPower {
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         if (amount2 <= 0)
             return;
-        if (card.exhaust || card.type == AbstractCard.CardType.CURSE || card.type == AbstractCard.CardType.STATUS)
+        if (card.exhaust || card.purgeOnUse || !isCommandCard(card))
             return;
         flash();
         addToBot(new AbstractGameAction() {

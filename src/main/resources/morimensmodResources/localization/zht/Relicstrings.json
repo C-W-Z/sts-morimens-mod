@@ -1,9 +1,9 @@
 {
-  "${ModID}:TodoItem": {
-    "NAME": "Todo Item",
-    "FLAVOR": "TODO: make this a sweet relic.",
+  "${ModID}:StellarBrew": {
+    "NAME": "群星之酒",
+    "FLAVOR": "遊走於繁星之間。",
     "DESCRIPTIONS": [
-      "Has no effect."
+      "你每打出的第 8 張 #ymorimensmod:指令卡 會生效兩次。"
     ]
   }
 }

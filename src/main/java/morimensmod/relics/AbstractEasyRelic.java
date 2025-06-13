@@ -19,6 +19,7 @@ public abstract class AbstractEasyRelic extends CustomRelic {
     public AbstractEasyRelic(String setId, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound sfx, AbstractCard.CardColor color) {
         super(setId, TexLoader.getTexture(makeRelicPath(setId.replace(modID + ":", "") + ".png")), tier, sfx);
         outlineImg = TexLoader.getTexture(makeRelicPath(setId.replace(modID + ":", "") + "Outline.png"));
+        largeImg = TexLoader.getTexture(makeRelicPath(("large/" + setId).replace(modID + ":", "") + ".png"));
         this.color = color;
     }
 

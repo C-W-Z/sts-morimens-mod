@@ -4,7 +4,7 @@ import morimensmod.cards.chaos.AssaultThesis;
 import morimensmod.cards.chaos.Defend;
 import morimensmod.cards.chaos.QueensSword;
 import morimensmod.cards.chaos.Strike;
-import morimensmod.relics.TodoItem;
+import morimensmod.relics.StellarBrew;
 
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -71,7 +71,7 @@ public class Ramona extends AbstractAwakener {
     @Override
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(TodoItem.ID);
+        retVal.add(StellarBrew.ID);
         return retVal;
     }
 

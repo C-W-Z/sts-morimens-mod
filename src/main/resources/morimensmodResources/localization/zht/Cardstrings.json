@@ -21,7 +21,7 @@
   },
   "${ModID}:RewindingTime": {
     "NAME": "溯洄時計",
-    "DESCRIPTION": "打出卡牌後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 !M! 次。"
+    "DESCRIPTION": "打出 morimensmod:指令卡 後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 !M! 次。"
   },
   "${ModID}:HandOfOblivion": {
     "NAME": "遺忘之手",

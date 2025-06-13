@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -20,6 +21,8 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -306,5 +309,10 @@ public class Wiz {
 
     public static void addCardsIntoPool(ArrayList<AbstractCard> tmpPool, AbstractCard.CardColor color) {
         CardLibrary.addCardsIntoPool(tmpPool, color);
+    }
+
+    public static boolean isCommandCard(AbstractCard card) {
+        return (card.type == CardType.ATTACK || card.type == CardType.SKILL || card.type == CardType.POWER)
+                && card.color != BUFF_COLOR && card.color != WHEEL_OF_DESTINY_COLOR;
     }
 }
