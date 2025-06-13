@@ -21,19 +21,19 @@ import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import static morimensmod.MorimensMod.*;
 import static morimensmod.characters.Ramona.Enums.RAMONA_COLOR;
+import static morimensmod.util.Wiz.addColorToPool;
 
 import java.util.ArrayList;
 
 public class Ramona extends CustomPlayer {
 
-    static final String ID = makeID("Ramona");
+    static final String ID = makeID(Ramona.class.getSimpleName());
     static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     public static final String[] NAMES = characterStrings.NAMES;
     static final String[] TEXT = characterStrings.TEXT;
@@ -90,19 +90,7 @@ public class Ramona extends CustomPlayer {
 
     @Override
     public ArrayList<AbstractCard> getCardPool(ArrayList<AbstractCard> tmpPool) {
-        CardLibrary.addRedCards(tmpPool);
-        if (ModHelper.isModEnabled("Green Cards")) {
-            CardLibrary.addGreenCards(tmpPool);
-        }
-
-        if (ModHelper.isModEnabled("Blue Cards")) {
-            CardLibrary.addBlueCards(tmpPool);
-        }
-
-        if (ModHelper.isModEnabled("Purple Cards")) {
-            CardLibrary.addPurpleCards(tmpPool);
-        }
-
+        addColorToPool(tmpPool, Enums.RAMONA_COLOR);
         return tmpPool;
     }
 

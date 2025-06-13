@@ -13,7 +13,16 @@
   },
   "${ModID}:QueensSword": {
     "NAME": "女王之劍",
-    "DESCRIPTION": "造成 !D! 點傷害 !M! 次，每次造成傷害後獲得1點 morimensmod:臨時 力量 。打出後使 「女王之劍」 傷害次數+1，最多提高為6次。"
+    "DESCRIPTION": "造成 !D! 點傷害 !M! 次，每次造成傷害後獲得1點 morimensmod:臨時 力量 。打出後使 「女王之劍」 傷害次數 + 1 ，最多提高為 6 次。"
+  },
+  "${ModID}:FirstDoctrine": {
+    "NAME": "第一哲學",
+    "DESCRIPTION": "打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:m2! 次。"
+  },
+  "${ModID}:Inspiration": {
+    "NAME": "靈感",
+    "DESCRIPTION": "獲得 [E] ，抽 !${ModID}:m2! 張牌。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "獲得 [E] [E] ，抽 !${ModID}:m2! 張牌。 NL 消耗 "
   },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",

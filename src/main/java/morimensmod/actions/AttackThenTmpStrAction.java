@@ -19,14 +19,16 @@ public class AttackThenTmpStrAction extends AbstractGameAction {
     private AbstractMonster target;
     private int damage;
     private DamageInfo.DamageType damageType;
+    private AttackEffect effect;
 
-    public AttackThenTmpStrAction(AbstractMonster target, int damage, DamageInfo.DamageType damageType) {
+    public AttackThenTmpStrAction(AbstractMonster target, int damage, DamageInfo.DamageType damageType, AttackEffect effect) {
         this.target = target;
         this.damage = damage;
         this.damageType = damageType;
+        this.effect = effect;
 
         this.duration = Settings.ACTION_DUR_FAST;
-        this.actionType = ActionType.WAIT;
+        this.actionType = ActionType.DAMAGE;
     }
 
     @Override
@@ -40,10 +42,8 @@ public class AttackThenTmpStrAction extends AbstractGameAction {
         // target.currentHealth);
 
         addToTop(new ApplyPowerAction(p(), p(), new LoseStrengthPower(p(), 1), 1));
-
         addToTop(new ApplyPowerAction(p(), p(), new StrengthPower(p(), 1), 1));
-
-        addToTop(new DamageAction(target, new DamageInfo(p(), damage, damageType), AttackEffect.SLASH_HEAVY));
+        addToTop(new DamageAction(target, new DamageInfo(p(), damage, damageType), effect));
 
         isDone = true;
     }

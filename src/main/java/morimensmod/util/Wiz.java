@@ -309,7 +309,7 @@ public class Wiz {
         return AbstractDungeon.player.masterDeck;
     }
 
-    public ArrayList<AbstractCard> addColorToPool(ArrayList<AbstractCard> tmpPool, AbstractCard.CardColor color) {
+    public static ArrayList<AbstractCard> addColorToPool(ArrayList<AbstractCard> tmpPool, AbstractCard.CardColor color) {
         Iterator<Map.Entry<String, AbstractCard>> var3 = CardLibrary.cards.entrySet().iterator();
 
         while (true) {

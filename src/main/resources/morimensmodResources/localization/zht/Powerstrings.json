@@ -6,5 +6,14 @@
       " #yStrength and #b",
       " #yDexterity."
     ]
+  },
+  "${ModID}:FirstDoctrinePower": {
+    "NAME": "第一哲學",
+    "DESCRIPTIONS": [
+      "打出卡牌後，獲得 #b",
+      " 點 [E] ，每回合最多觸發 #b",
+      " 次。當前剩餘 #b",
+      " 次。"
+    ]
   }
 }

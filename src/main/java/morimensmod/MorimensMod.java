@@ -9,6 +9,9 @@ import me.antileaf.signature.utils.SignatureHelper;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.Defend;
 import morimensmod.cards.Strike;
+import morimensmod.cards.Ramona.AssaultThesis;
+import morimensmod.cards.Ramona.FirstDoctrine;
+import morimensmod.cards.Ramona.Inspiration;
 import morimensmod.cards.Ramona.QueensSword;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.democards.simple.DrawAndShiv;
@@ -204,10 +207,14 @@ public class MorimensMod implements
     public void receivePostInitialize() {
         SignatureHelper.unlock(Strike.ID, true);
         SignatureHelper.unlock(Defend.ID, true);
+        SignatureHelper.unlock(AssaultThesis.ID, true);
+        SignatureHelper.unlock(QueensSword.ID, true);
+        SignatureHelper.unlock(FirstDoctrine.ID, true);
+        SignatureHelper.unlock(Inspiration.ID, true);
     }
 
     @Override
     public void receiveOnBattleStart(AbstractRoom arg0) {
-        QueensSword.attackTimesThisCombat = QueensSword.INIT_ATK_TIMES;  // 每場戰鬥重新設定為3
+        QueensSword.attackTimesThisCombat = QueensSword.INIT_ATK_TIMES;  // 每場戰鬥重設
     }
 }

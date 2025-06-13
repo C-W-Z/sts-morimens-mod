@@ -1,5 +1,6 @@
 package morimensmod.cards.Ramona;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 // import com.megacrit.cardcrawl.actions.AbstractGameAction;
 // import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 // import com.megacrit.cardcrawl.powers.StrengthPower;
@@ -21,8 +22,6 @@ import morimensmod.characters.Ramona;
 public class QueensSword extends AbstractEasyCard {
     public static final String ID = makeID("QueensSword");
 
-    private static final int COST = 3;
-    private static final int BASE_DAMAGE = 3;
     private static final int MAX_ATK_TIMES = 6;
     public static final int INIT_ATK_TIMES = 3;
 
@@ -37,9 +36,9 @@ public class QueensSword extends AbstractEasyCard {
      */
 
     public QueensSword() {
-        super(ID, "Attacks/Ramona", COST, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY,
+        super(ID, "Attacks/Ramona", 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY,
                 Ramona.Enums.RAMONA_COLOR);
-        this.baseDamage = BASE_DAMAGE;
+        this.baseDamage = 3;
         this.magicNumber = this.baseMagicNumber = attackTimesThisCombat;
     }
 
@@ -48,7 +47,7 @@ public class QueensSword extends AbstractEasyCard {
         // addToBot(new QueensSwordAction(m, this.damage, attackTimesThisCombat, damageTypeForTurn));
 
         for (int i = 0; i < magicNumber; i++) {
-            addToBot(new AttackThenTmpStrAction(m, damage, damageTypeForTurn));
+            addToBot(new AttackThenTmpStrAction(m, damage, damageTypeForTurn, AttackEffect.SMASH));
             // 每次造成傷害
             // dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
             // 每次造成傷害後獲得1力量（本回合）
