@@ -1,7 +1,7 @@
 package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.RealmColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;

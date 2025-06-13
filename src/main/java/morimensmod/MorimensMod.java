@@ -41,7 +41,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
-import static morimensmod.patches.RealmColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 
 import java.nio.charset.StandardCharsets;
 

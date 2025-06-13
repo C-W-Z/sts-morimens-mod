@@ -19,7 +19,7 @@ import basemod.BaseMod;
 
 import static morimensmod.MorimensMod.*;
 import static morimensmod.util.Wiz.addCardsIntoPool;
-import static morimensmod.patches.RealmColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 
 import java.util.ArrayList;
 

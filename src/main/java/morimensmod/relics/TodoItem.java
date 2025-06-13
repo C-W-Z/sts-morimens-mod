@@ -1,7 +1,7 @@
 package morimensmod.relics;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.RealmColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 
 public class TodoItem extends AbstractEasyRelic {
     public static final String ID = makeID("TodoItem");

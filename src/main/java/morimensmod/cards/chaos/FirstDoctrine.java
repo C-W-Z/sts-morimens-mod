@@ -7,7 +7,7 @@ import morimensmod.cards.AbstractEasyCard;
 import morimensmod.powers.FirstDoctrinePower;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.RealmColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 
 public class FirstDoctrine extends AbstractEasyCard {

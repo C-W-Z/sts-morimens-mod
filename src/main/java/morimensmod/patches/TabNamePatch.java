@@ -10,14 +10,14 @@ import basemod.patches.com.megacrit.cardcrawl.screens.mainMenu.ColorTabBar.Color
 import java.util.ArrayList;
 import javassist.CtBehavior;
 
-import static morimensmod.patches.RealmColorPatch.CardColorPatch.CHAOS_COLOR;
-import static morimensmod.patches.RealmColorPatch.CardColorPatch.AEQUOR_COLOR;
-import static morimensmod.patches.RealmColorPatch.CardColorPatch.CARO_COLOR;
-import static morimensmod.patches.RealmColorPatch.CardColorPatch.ULTRA_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.AEQUOR_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.CARO_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
 
-public class RealmTabNamePatch {
+public class TabNamePatch {
     @SpirePatch2(clz = ColorTabBarFix.Render.class, method = "Insert")
-    public static class TabNamePatch {
+    public static class _TabNamePatch {
         private static final UIStrings CHAOS_STRINGS = CardCrawlGame.languagePack.getUIString(CHAOS_COLOR.name());
         private static final UIStrings AEQUOR_STRINGS = CardCrawlGame.languagePack.getUIString(AEQUOR_COLOR.name());
         private static final UIStrings CARO_STRINGS = CardCrawlGame.languagePack.getUIString(CARO_COLOR.name());
