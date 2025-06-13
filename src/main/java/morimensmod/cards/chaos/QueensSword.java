@@ -13,6 +13,7 @@ import static morimensmod.patches.RealmColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.discardPile;
 import static morimensmod.util.Wiz.drawPile;
 import static morimensmod.util.Wiz.exhaustPile;
+import static morimensmod.util.Wiz.hand;
 import static morimensmod.util.Wiz.limbo;
 
 import morimensmod.actions.AttackThenTmpStrAction;
@@ -85,6 +86,12 @@ public class QueensSword extends AbstractEasyCard {
     }
 
     public static void updateAllAttackTimes() {
+        for (AbstractCard c : hand().group) {
+            if (c instanceof QueensSword) {
+                c.magicNumber = c.baseMagicNumber = QueensSword.attackTimesThisCombat;
+                c.initializeDescription();
+            }
+        }
         for (AbstractCard c : drawPile().group) {
             if (c instanceof QueensSword) {
                 c.magicNumber = c.baseMagicNumber = QueensSword.attackTimesThisCombat;

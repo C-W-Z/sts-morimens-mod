@@ -23,5 +23,12 @@
       " 次。當前剩餘 #b",
       " 次。"
     ]
+  },
+  "${ModID}:HandOfOblivionPower": {
+    "NAME": "遺忘之手",
+    "DESCRIPTIONS": [
+      "「 打擊 」的基礎傷害增加 #b",
+      " %。"
+    ]
   }
 }

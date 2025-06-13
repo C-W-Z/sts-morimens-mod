@@ -46,6 +46,7 @@ public class FirstDoctrinePower extends AbstractEasyPower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + maxUsePerTurn + DESCRIPTIONS[2] + amount2 + DESCRIPTIONS[3];
+        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + maxUsePerTurn + DESCRIPTIONS[2] + amount2
+                + DESCRIPTIONS[3];
     }
 }

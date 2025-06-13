@@ -12,6 +12,7 @@ import morimensmod.cards.Strike;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.chaos.AssaultThesis;
 import morimensmod.cards.chaos.FirstDoctrine;
+import morimensmod.cards.chaos.HandOfOblivion;
 import morimensmod.cards.chaos.Inspiration;
 import morimensmod.cards.chaos.QueensSword;
 import morimensmod.cards.chaos.RewindingTime;
@@ -222,6 +223,7 @@ public class MorimensMod implements
         SignatureHelper.unlock(QueensSword.ID, true);
         SignatureHelper.unlock(FirstDoctrine.ID, true);
         SignatureHelper.unlock(RewindingTime.ID, true);
+        SignatureHelper.unlock(HandOfOblivion.ID, true);
         SignatureHelper.unlock(Inspiration.ID, true);
     }
 

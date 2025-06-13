@@ -53,7 +53,9 @@ def pad_image_to_1024x1024(image_path, output_path, corner_radius=0):
 
 
 # 用法範例
-# pad_image_to_1024x1024("Strike.png", "Strike_s", 30) # attack 30
-# pad_image_to_1024x1024("Defend.png", "Defend_s", 40) # skill 40
-pad_image_to_1024x1024("Inspiration.png", "Inspiration_s", 40) # skill 40
+pad_image_to_1024x1024("Strike.png", "Strike_s", 30) # attack 30
+pad_image_to_1024x1024("Defend.png", "Defend_s", 30) # skill 40
+pad_image_to_1024x1024("Inspiration.png", "Inspiration_s", 30) # skill 40
 # power 50
+pad_image_to_1024x1024("Ramona.png", "Ramona_s", 30)
+pad_image_to_1024x1024("HandOfOblivion.png", "HandOfOblivion_s", 30)

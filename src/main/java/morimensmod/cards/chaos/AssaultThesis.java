@@ -1,4 +1,4 @@
-package morimensmod.cards.Ramona;
+package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.RealmColorPatch.CardColorPatch.CHAOS_COLOR;
