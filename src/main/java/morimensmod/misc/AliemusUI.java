@@ -1,15 +1,30 @@
 package morimensmod.misc;
 
 import basemod.ClickableUIElement;
+import morimensmod.actions.EasyModalChoiceAction;
+import morimensmod.actions.MundusDecreeAction;
+import morimensmod.cards.EasyModalChoiceCard;
+import morimensmod.cards.PileModalSelectCard;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.util.TexLoader;
 import morimensmod.util.WizArt;
 
 import static morimensmod.MorimensMod.makeUIPath;
+import static morimensmod.MorimensMod.modID;
+import static morimensmod.util.Wiz.atb;
+import static morimensmod.util.Wiz.discardPile;
+import static morimensmod.util.Wiz.drawPile;
+import static morimensmod.util.Wiz.makeInHand;
+
+import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -18,44 +33,48 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class AliemusUI extends ClickableUIElement {
     public Hitbox hb;
     private static final float SCALE = Settings.scale * 0.75F;
-    private static final float hb_w = 128F * SCALE;
-    private static final float hb_h = 128F * SCALE;
-    private static final float baseX = 50F * SCALE;
-    private static final float baseY = 400F * SCALE;
-    private static final float centerX = baseX + 64F * SCALE;
-    private static final float centerY = baseY + 64F * SCALE;
+    private static final float hb_w = 120F * SCALE;
+    private static final float hb_h = 120F * SCALE;
+    private static final float baseX = 50F * Settings.scale;
+    private static final float baseY = 400F * Settings.scale;
+    private static final float centerX = baseX + 60F * SCALE;
+    private static final float centerY = baseY + 60F * SCALE;
+    private static final float fontX = baseX + 120F * SCALE + 0F * Settings.scale;
     private final float x = baseX;
     private final float y = baseY;
-    public static float fontScale = 1.0F;
+    public static float fontScale = 1F;
 
-    private static final Texture BACKGROUND = TexLoader.getTexture(makeUIPath("Aliemus.png"));
+    private static final Texture ICON = TexLoader.getTexture(makeUIPath("Aliemus.png"));
     private static final UIStrings TEXT = CardCrawlGame.languagePack.getUIString("ALIEMUS");
 
     public static AliemusUI UI;
 
     public AliemusUI() {
-        super(BACKGROUND, baseX, baseY, hb_w, hb_h);
-        this.image = BACKGROUND;
+        super(ICON, baseX, baseY, hb_w, hb_h);
+        this.image = ICON;
 
         hb = new Hitbox(x, y, hb_w, hb_h); // square hitbox, honestly no idea what the x y does here
         this.setClickable(true);
     }
 
     public void render(SpriteBatch sb, float current_x) {
-        WizArt.drawCentered(sb, BACKGROUND, centerX, centerY, SCALE);
-        FontHelper.renderFontCentered(
+        WizArt.drawCentered(sb, ICON, centerX, centerY, SCALE);
+        FontHelper.energyNumFontBlue.getData().setScale(fontScale);
+        FontHelper.renderFontLeft(
                 sb,
                 FontHelper.energyNumFontBlue,
                 AbstractAwakener.aliemus + "/" + AbstractAwakener.maxAliemus,
-                centerX,
+                fontX,
                 centerY,
-                Color.WHITE,
-                fontScale); // the soul count
+                Color.WHITE);
+        FontHelper.energyNumFontBlue.getData().setScale(1F);
     }
 
     @Override
@@ -74,7 +93,21 @@ public class AliemusUI extends ClickableUIElement {
     }
 
     protected void onRightClick() {
-        System.out.println("狂氣爆發");
+        ArrayList<AbstractCard> cardList = new ArrayList<>();
+
+        for (AbstractCard c : drawPile().group) {
+            System.out.println("c:" + c.name);
+            cardList.add(new PileModalSelectCard(c, () -> atb(new MundusDecreeAction(c))));
+        }
+
+        for (AbstractCard c : discardPile().group) {
+            System.out.println("c:" + c.name);
+            cardList.add(new PileModalSelectCard(c, () -> atb(new MundusDecreeAction(c))));
+        }
+
+        System.out.println("cardList.size" + cardList.size());
+
+        atb(new EasyModalChoiceAction(cardList));
     }
 
     @Override
