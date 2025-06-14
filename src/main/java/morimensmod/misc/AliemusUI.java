@@ -73,8 +73,9 @@ public class AliemusUI extends ClickableUIElement {
         ArrayList<PowerTip> tips = new ArrayList<>();
         tips.add(new PowerTip(TEXT.TEXT[0], TEXT.TEXT[1]));
         if (p() instanceof AbstractAwakener) {
-            tips.add(new PowerTip(((AbstractAwakener)p()).UI_STRINGS.TEXT[0], ((AbstractAwakener)p()).UI_STRINGS.TEXT[1]));
-            tips.add(new PowerTip(((AbstractAwakener)p()).UI_STRINGS.EXTRA_TEXT[0], ((AbstractAwakener)p()).UI_STRINGS.EXTRA_TEXT[1]));
+            AbstractAwakener awaker = (AbstractAwakener) p();
+            tips.add(new PowerTip(awaker.UI_STRINGS.TEXT[0], awaker.UI_STRINGS.TEXT[1]));
+            tips.add(new PowerTip(awaker.UI_STRINGS.EXTRA_TEXT[0], awaker.UI_STRINGS.EXTRA_TEXT[1]));
         }
         TipHelper.queuePowerTips(fontX, y + Settings.yScale * 400f, tips);
     }
@@ -96,14 +97,13 @@ public class AliemusUI extends ClickableUIElement {
 
         if (AbstractAwakener.exaltedThisTurn) {
             AbstractDungeon.effectList.add(
-                new ThoughtBubble(
-                    AbstractDungeon.player.dialogX, // x 座標（通常用 player.dialogX）
-                    AbstractDungeon.player.dialogY, // y 座標（通常用 player.dialogY）
-                    3.0F,                           // 顯示時間秒數
-                    TEXT.EXTRA_TEXT[0],             // 顯示文字
-                    true                            // true = 是玩家；false = 怪物
-                )
-            );
+                    new ThoughtBubble(
+                            AbstractDungeon.player.dialogX, // x 座標（通常用 player.dialogX）
+                            AbstractDungeon.player.dialogY, // y 座標（通常用 player.dialogY）
+                            3.0F, // 顯示時間秒數
+                            TEXT.EXTRA_TEXT[0], // 顯示文字
+                            true // true = 是玩家；false = 怪物
+                    ));
             return;
         }
 
@@ -127,14 +127,12 @@ public class AliemusUI extends ClickableUIElement {
     }
 
     public static boolean loadAliemusUI() {
-        if (CardCrawlGame.dungeon != null && AbstractDungeon.player instanceof AbstractAwakener
-                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            if (UI == null) {
-                UI = new AliemusUI();
-            }
-            return true;
-        }
-        return false;
+        if (CardCrawlGame.dungeon == null || !(AbstractDungeon.player instanceof AbstractAwakener)
+                || AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT)
+            return false;
+        if (UI == null)
+            UI = new AliemusUI();
+        return true;
     }
 
     public static void renderAliemusUI(SpriteBatch sb, float current_x) {

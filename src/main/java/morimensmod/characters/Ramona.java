@@ -8,6 +8,7 @@ import morimensmod.cards.chaos.AssaultThesis;
 import morimensmod.cards.chaos.Defend;
 import morimensmod.cards.chaos.QueensSword;
 import morimensmod.cards.chaos.Strike;
+import morimensmod.misc.SpriteSheetAnimation;
 import morimensmod.relics.StellarBrew;
 
 import com.badlogic.gdx.graphics.Color;
@@ -25,7 +26,6 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
-import GifTheSpire.util.GifAnimation;
 import basemod.BaseMod;
 
 import static morimensmod.MorimensMod.*;
@@ -50,11 +50,10 @@ public class Ramona extends AbstractAwakener {
     private static final String CHARSELECT_BUTTON = makeCharacterPath("Ramona/button.png");
     private static final String CHARSELECT_PORTRAIT = makeCharacterPath("Ramona/charBG.png");
 
-    public static final GifAnimation spriteSheetAni = new GifAnimation(makeCharacterPath("Ramona/sprite_sheet.png"), 15, 7, 0, 0, 1, 1, false, 4);
-
     public Ramona() {
         super(NAMES[0], Enums.RAMONA, "Ramona/main.png", "Ramona/corpse.png");
         UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID + ":Exalt");
+        anim = new SpriteSheetAnimation(makeCharacterPath("Ramona/sprite_sheet.png"), 7, 15, 4, true, 30F);
     }
 
     public static void register() {

@@ -3,6 +3,8 @@ package morimensmod.characters;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
+import morimensmod.misc.SpriteSheetAnimation;
+
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -26,6 +28,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public UIStrings UI_STRINGS = new UIStrings();
 
     public static final int ENERGY_PER_TURN = 5;
+
+    public SpriteSheetAnimation anim = null;
 
     public AbstractAwakener(String name, PlayerClass setClass, String characterImgPath, final String CORPSE) {
         super(name, setClass,

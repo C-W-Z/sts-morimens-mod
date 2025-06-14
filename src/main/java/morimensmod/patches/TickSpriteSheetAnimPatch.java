@@ -1,0 +1,20 @@
+package morimensmod.patches;
+
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+
+import morimensmod.characters.AbstractAwakener;
+
+@SpirePatch2(clz = CardCrawlGame.class, method = "update")
+public class TickSpriteSheetAnimPatch {
+    @SpirePostfixPatch
+    public static void Posfix(CardCrawlGame __instance) {
+        if (CardCrawlGame.dungeon != null && AbstractDungeon.player instanceof AbstractAwakener
+                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
+                && ((AbstractAwakener) AbstractDungeon.player).anim != null)
+            ((AbstractAwakener) AbstractDungeon.player).anim.tick();
+    }
+}
