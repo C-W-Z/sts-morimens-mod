@@ -3,28 +3,21 @@ package morimensmod.misc;
 import basemod.ClickableUIElement;
 import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.actions.MundusDecreeAction;
-import morimensmod.cards.EasyModalChoiceCard;
 import morimensmod.cards.PileModalSelectCard;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.util.TexLoader;
 import morimensmod.util.WizArt;
 
 import static morimensmod.MorimensMod.makeUIPath;
-import static morimensmod.MorimensMod.modID;
 import static morimensmod.util.Wiz.atb;
 import static morimensmod.util.Wiz.discardPile;
 import static morimensmod.util.Wiz.drawPile;
-import static morimensmod.util.Wiz.makeInHand;
-
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -33,8 +26,6 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class AliemusUI extends ClickableUIElement {

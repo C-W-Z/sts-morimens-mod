@@ -20,7 +20,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static morimensmod.MorimensMod.makeImagePath;
 import static morimensmod.MorimensMod.modID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.*;
 
 import morimensmod.util.CardArtRoller;
@@ -43,19 +42,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     private boolean needsArtRefresh = false;
 
-    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity,
-            final CardTarget target) {
-        this(cardID, cost, type, rarity, target, CHAOS_COLOR);
-    }
-
-    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity,
-            final CardTarget target, final CardColor color) {
-        this(cardID, cardID, cost, type, rarity, target, color);
-    }
-
-    public AbstractEasyCard(final String cardID, final String textureID, final int cost, final CardType type,
-            final CardRarity rarity, final CardTarget target, final CardColor color) {
-        super(cardID, "", getCardTextureString(textureID.replace(modID + ":", ""), type),
+    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
+        super(cardID, "", getCardTextureString(cardID.replace(modID + ":", ""), type),
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
         rawDescription = cardStrings.DESCRIPTION;

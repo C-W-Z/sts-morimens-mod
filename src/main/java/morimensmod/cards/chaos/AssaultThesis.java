@@ -17,7 +17,7 @@ public class AssaultThesis extends AbstractEasyCard {
     public final static String ID = makeID(AssaultThesis.class.getSimpleName());
 
     public AssaultThesis() {
-        super(ID, "Skills/Ramona", 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
+        super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
         this.magicNumber = this.baseMagicNumber = 6; // 降低臨時力量
         this.secondMagic = this.baseSecondMagic = 1; // 抽牌數
     }

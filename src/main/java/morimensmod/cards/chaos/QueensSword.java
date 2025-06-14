@@ -36,7 +36,7 @@ public class QueensSword extends AbstractEasyCard {
      */
 
     public QueensSword() {
-        super(ID, "Attacks/Ramona", 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, CHAOS_COLOR);
+        super(ID, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, CHAOS_COLOR);
         this.baseDamage = 3;
         this.magicNumber = this.baseMagicNumber = attackTimesThisCombat;
     }
