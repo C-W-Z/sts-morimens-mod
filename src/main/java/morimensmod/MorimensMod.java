@@ -17,6 +17,7 @@ import morimensmod.cards.chaos.Strike;
 import morimensmod.cards.democards.simple.DrawAndShiv;
 import morimensmod.cards.wheel_of_destiny.HandOfOblivion;
 import morimensmod.cards.wheel_of_destiny.RewindingTime;
+import morimensmod.characters.AbstractAwakener;
 import morimensmod.characters.Ramona;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.relics.AbstractEasyRelic;
@@ -56,6 +57,7 @@ import org.apache.logging.log4j.Logger;
 @SuppressWarnings({ "unused", "WeakerAccess" })
 @SpireInitializer
 public class MorimensMod implements
+        OnPlayerTurnStartPostDrawSubscriber,
         OnStartBattleSubscriber,
         PostInitializeSubscriber,
         EditCardsSubscriber,
@@ -261,5 +263,10 @@ public class MorimensMod implements
     @Override
     public void receiveOnBattleStart(AbstractRoom arg0) {
         QueensSword.attackTimesThisCombat = QueensSword.INIT_ATK_TIMES; // 每場戰鬥重設
+    }
+
+    @Override
+    public void receiveOnPlayerTurnStartPostDraw() {
+        AbstractAwakener.exaltedThisTurn = false; // 每回合重設
     }
 }

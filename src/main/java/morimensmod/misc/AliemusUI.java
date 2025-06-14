@@ -1,6 +1,7 @@
 package morimensmod.misc;
 
 import basemod.ClickableUIElement;
+import morimensmod.actions.AliemusExlatAction;
 import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.actions.MundusDecreeAction;
 import morimensmod.cards.PileModalSelectCard;
@@ -12,6 +13,8 @@ import static morimensmod.MorimensMod.makeUIPath;
 import static morimensmod.util.Wiz.atb;
 import static morimensmod.util.Wiz.discardPile;
 import static morimensmod.util.Wiz.drawPile;
+import static morimensmod.util.Wiz.p;
+
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Color;
@@ -80,25 +83,30 @@ public class AliemusUI extends ClickableUIElement {
 
     @Override
     protected void onClick() {
-        System.out.println("超限爆發");
     }
 
     protected void onRightClick() {
-        ArrayList<AbstractCard> cardList = new ArrayList<>();
+        if (AbstractDungeon.player.currentHealth <= 0 || AbstractDungeon.player.isDeadOrEscaped()
+                || AbstractDungeon.isScreenUp || AbstractDungeon.actionManager.turnHasEnded
+                || !(p() instanceof AbstractAwakener) || AbstractAwakener.aliemus < AbstractAwakener.maxAliemus
+                || AbstractAwakener.exalting)
+            return;
 
-        for (AbstractCard c : drawPile().group) {
-            System.out.println("c:" + c.name);
-            cardList.add(new PileModalSelectCard(c, () -> atb(new MundusDecreeAction(c))));
+        if (AbstractAwakener.exaltedThisTurn) {
+            TipHelper.renderGenericTip(x - Settings.xScale * 20f, y + Settings.yScale * 200f, TEXT.EXTRA_TEXT[0],
+                    TEXT.EXTRA_TEXT[1]);
+            return;
         }
 
-        for (AbstractCard c : discardPile().group) {
-            System.out.println("c:" + c.name);
-            cardList.add(new PileModalSelectCard(c, () -> atb(new MundusDecreeAction(c))));
-        }
+        AbstractAwakener.exalting = true;
+        AbstractAwakener.exaltedThisTurn = true;
 
-        System.out.println("cardList.size" + cardList.size());
+        if (AbstractAwakener.aliemus >= AbstractAwakener.extremeAlimus)
+            ((AbstractAwakener) p()).overExalt();
+        else
+            ((AbstractAwakener) p()).exalt();
 
-        atb(new EasyModalChoiceAction(cardList));
+        atb(new AliemusExlatAction(p(), AbstractAwakener.aliemus >= AbstractAwakener.extremeAlimus));
     }
 
     @Override

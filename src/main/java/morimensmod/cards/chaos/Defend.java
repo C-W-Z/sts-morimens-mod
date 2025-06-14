@@ -6,8 +6,8 @@ import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import morimensmod.actions.AliemusChangeAction;
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.characters.AbstractAwakener;
 
 public class Defend extends AbstractEasyCard {
     public final static String ID = makeID("Defend");
@@ -22,7 +22,7 @@ public class Defend extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
-        AbstractAwakener.aliemus += 10;
+        addToBot(new AliemusChangeAction(p, aliemusNumber));
     }
 
     @Override

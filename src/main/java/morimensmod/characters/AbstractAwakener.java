@@ -20,6 +20,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public static int aliemus = 0;
     public static int maxAliemus = NORMAL_MAX_ALIEMUS; // 普通狂氣上限 狂氣爆發
     public static int extremeAlimus = 2 * NORMAL_MAX_ALIEMUS; // 雙倍上限 超限爆發
+    public static boolean exalting = false;
+    public static boolean exaltedThisTurn = false; // reset at Main Mod File
 
     public static final int ENERGY_PER_TURN = 5;
 
@@ -91,4 +93,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
                 AbstractGameAction.AttackEffect.BLUNT_HEAVY,
                 AbstractGameAction.AttackEffect.FIRE };
     }
+
+    public abstract void exalt();
+
+    public abstract void overExalt();
 }
