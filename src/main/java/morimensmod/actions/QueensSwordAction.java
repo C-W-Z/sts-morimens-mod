@@ -14,20 +14,20 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-public class AttackThenTmpStrAction extends AbstractGameAction {
+public class QueensSwordAction extends AbstractGameAction {
 
     private AbstractMonster target;
     private int damage;
     private DamageInfo.DamageType damageType;
     private AttackEffect effect;
 
-    public AttackThenTmpStrAction(AbstractMonster target, int damage, DamageInfo.DamageType damageType, AttackEffect effect) {
+    public QueensSwordAction(AbstractMonster target, int damage, DamageInfo.DamageType damageType, AttackEffect effect) {
         this.target = target;
         this.damage = damage;
         this.damageType = damageType;
         this.effect = effect;
 
-        this.duration = Settings.ACTION_DUR_FAST;
+        this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = ActionType.DAMAGE;
     }
 

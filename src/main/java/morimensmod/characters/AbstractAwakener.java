@@ -27,8 +27,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public static final int ENERGY_PER_TURN = 5;
 
-    public AbstractAwakener(String name, PlayerClass setClass, String characterImgPath, final String SHOULDER1,
-            final String SHOULDER2, final String CORPSE) {
+    public AbstractAwakener(String name, PlayerClass setClass, String characterImgPath, final String CORPSE) {
         super(name, setClass,
                 new CustomEnergyOrb(orbTextures, makeCharacterPath("ChaosRealm/orb/vfx.png"), null),
                 new AbstractAnimation() {
@@ -39,8 +38,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
                 }
         );
         initializeClass(makeCharacterPath(characterImgPath),
-                makeCharacterPath(SHOULDER1),
-                makeCharacterPath(SHOULDER2),
+                makeCharacterPath("shoulder.png"),
+                makeCharacterPath("shoulder.png"),
                 makeCharacterPath(CORPSE),
                 getLoadout(),
                 20.0F, -10.0F, 250.0F, 328.0F, // Character hitbox. x y position, then width and height.

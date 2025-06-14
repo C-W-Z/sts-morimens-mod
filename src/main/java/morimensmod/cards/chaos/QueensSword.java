@@ -16,7 +16,7 @@ import static morimensmod.util.Wiz.exhaustPile;
 import static morimensmod.util.Wiz.hand;
 import static morimensmod.util.Wiz.limbo;
 
-import morimensmod.actions.AttackThenTmpStrAction;
+import morimensmod.actions.QueensSwordAction;
 import morimensmod.cards.AbstractEasyCard;
 
 public class QueensSword extends AbstractEasyCard {
@@ -46,7 +46,7 @@ public class QueensSword extends AbstractEasyCard {
         // addToBot(new QueensSwordAction(m, this.damage, attackTimesThisCombat, damageTypeForTurn));
 
         for (int i = 0; i < magicNumber; i++) {
-            addToBot(new AttackThenTmpStrAction(m, damage, damageTypeForTurn, AttackEffect.SMASH));
+            addToBot(new QueensSwordAction(m, damage, damageTypeForTurn, AttackEffect.SMASH));
             // 每次造成傷害
             // dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
             // 每次造成傷害後獲得1力量（本回合）

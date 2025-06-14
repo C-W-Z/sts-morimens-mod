@@ -258,6 +258,9 @@ public class MorimensMod implements
         SignatureHelper.unlock(RewindingTime.ID, true);
         SignatureHelper.unlock(HandOfOblivion.ID, true);
         SignatureHelper.unlock(Insight.ID, true);
+
+        Ramona.spriteSheetAni.create();
+        Ramona.spriteSheetAni.addAsCharacterAnimation(Ramona.class.getName());
     }
 
     @Override

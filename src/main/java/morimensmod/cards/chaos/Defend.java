@@ -21,8 +21,8 @@ public class Defend extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        blck();
         addToBot(new AliemusChangeAction(p, aliemusNumber));
+        blck();
     }
 
     @Override

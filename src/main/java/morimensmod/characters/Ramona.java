@@ -25,9 +25,11 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
+import GifTheSpire.util.GifAnimation;
 import basemod.BaseMod;
 
 import static morimensmod.MorimensMod.*;
+import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 import static morimensmod.util.Wiz.addCardsIntoPool;
@@ -48,10 +50,10 @@ public class Ramona extends AbstractAwakener {
     private static final String CHARSELECT_BUTTON = makeCharacterPath("Ramona/button.png");
     private static final String CHARSELECT_PORTRAIT = makeCharacterPath("Ramona/charBG.png");
 
+    public static final GifAnimation spriteSheetAni = new GifAnimation(makeCharacterPath("Ramona/sprite_sheet.png"), 15, 7, 0, 0, 1, 1, false, 4);
+
     public Ramona() {
-        super(NAMES[0], Enums.RAMONA,
-                "Ramona/main.png", "Ramona/shoulder.png",
-                "Ramona/shoulder2.png", "Ramona/corpse.png");
+        super(NAMES[0], Enums.RAMONA, "Ramona/main.png", "Ramona/corpse.png");
         UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID + ":Exalt");
     }
 
@@ -93,6 +95,7 @@ public class Ramona extends AbstractAwakener {
     public ArrayList<AbstractCard> getCardPool(ArrayList<AbstractCard> tmpPool) {
         addCardsIntoPool(tmpPool, CHAOS_COLOR);
         addCardsIntoPool(tmpPool, WHEEL_OF_DESTINY_COLOR);
+        addCardsIntoPool(tmpPool, BUFF_COLOR);
         return tmpPool;
     }
 
