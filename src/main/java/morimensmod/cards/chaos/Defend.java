@@ -16,6 +16,7 @@ public class Defend extends AbstractEasyCard {
     public Defend() {
         super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF, CHAOS_COLOR);
         baseBlock = 5;
+        baseAliemusNumber = 5;
         tags.add(CardTags.STARTER_DEFEND);
     }
 
@@ -27,5 +28,6 @@ public class Defend extends AbstractEasyCard {
     @Override
     public void upp() {
         upgradeBlock(3);
+        upgradeAliemusNumber(5);
     }
 }

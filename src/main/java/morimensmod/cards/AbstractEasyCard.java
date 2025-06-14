@@ -40,6 +40,11 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     public boolean upgradedSecondDamage;
     public boolean isSecondDamageModified;
 
+    public int aliemusNumber;
+    public int baseAliemusNumber;
+    public boolean upgradedAliemusNumber;
+    public boolean isAliemusNumberModified;
+
     private boolean needsArtRefresh = false;
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
@@ -135,6 +140,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         isSecondMagicModified = false;
         secondDamage = baseSecondDamage;
         isSecondDamageModified = false;
+        aliemusNumber = baseAliemusNumber;
+        isAliemusNumberModified = false;
     }
 
     public void displayUpgrades() {
@@ -146,6 +153,10 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         if (upgradedSecondDamage) {
             secondDamage = baseSecondDamage;
             isSecondDamageModified = true;
+        }
+        if (upgradedAliemusNumber) {
+            aliemusNumber = baseAliemusNumber;
+            isAliemusNumberModified = true;
         }
     }
 
@@ -159,6 +170,12 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         baseSecondDamage += amount;
         secondDamage = baseSecondDamage;
         upgradedSecondDamage = true;
+    }
+
+    protected void upgradeAliemusNumber(int amount) {
+        baseAliemusNumber += amount;
+        aliemusNumber = baseAliemusNumber;
+        upgradedAliemusNumber = true;
     }
 
     protected void uDesc() {
@@ -190,6 +207,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
             AbstractEasyCard c = (AbstractEasyCard) result;
             c.baseSecondDamage = c.secondDamage = baseSecondDamage;
             c.baseSecondMagic = c.secondMagic = baseSecondMagic;
+            c.baseAliemusNumber = c.aliemusNumber = baseAliemusNumber;
         }
         return result;
     }

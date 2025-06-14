@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import static morimensmod.misc.AliemusUI.*;
 
 public class AliemusUIPatch {
-    private static boolean Rendering = false;
     @SpirePatch2(clz = EnergyPanel.class, method = "renderOrb", paramtypes = { "com.badlogic.gdx.graphics.g2d.SpriteBatch"})
     public static class RenderPatch{
         public static void Prefix(EnergyPanel __instance, SpriteBatch sb) {

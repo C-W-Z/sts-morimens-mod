@@ -12,11 +12,11 @@ import morimensmod.characters.AbstractAwakener;
 
 public class Strike extends AbstractEasyCard {
     public final static String ID = makeID("Strike");
-    // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public Strike() {
         super(ID, 1, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, CHAOS_COLOR);
         baseDamage = 6;
+        baseAliemusNumber = 5;
         tags.add(CardTags.STRIKE);
         tags.add(CardTags.STARTER_STRIKE);
     }
@@ -29,5 +29,6 @@ public class Strike extends AbstractEasyCard {
     @Override
     public void upp() {
         upgradeDamage(3);
+        upgradeAliemusNumber(5);
     }
 }

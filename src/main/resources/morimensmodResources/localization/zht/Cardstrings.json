@@ -1,19 +1,19 @@
 {
   "${ModID}:Strike": {
     "NAME": "打擊",
-    "DESCRIPTION": "造成 !D! 點傷害。"
+    "DESCRIPTION": "造成 !D! 點傷害。 NL 獲得 !${ModID}:a! 點 ${ModID}:狂氣 。"
   },
   "${ModID}:Defend": {
     "NAME": "防禦",
-    "DESCRIPTION": "獲得 !B! 點 格擋 。"
+    "DESCRIPTION": "獲得 !B! 點 格擋 。 NL 獲得 !${ModID}:a! 點 ${ModID}:狂氣 。"
   },
   "${ModID}:AssaultThesis": {
     "NAME": "攻勢推演",
-    "DESCRIPTION": "使所有敵人 morimensmod:臨時 降低 !M! 點 力量 。抽 !${ModID}:m2! 張牌。"
+    "DESCRIPTION": "使所有敵人 ${ModID}:臨時 降低 !M! 點 力量 。抽 !${ModID}:m2! 張牌。"
   },
   "${ModID}:QueensSword": {
     "NAME": "女王之劍",
-    "DESCRIPTION": "造成 !D! 點傷害 !M! 次，每次造成傷害後獲得 1 點 morimensmod:臨時 力量 。打出後使 「女王之劍」 傷害次數 + 1 ，最多提高為 6 次。"
+    "DESCRIPTION": "造成 !D! 點傷害 !M! 次，每次造成傷害後獲得 1 點 ${ModID}:臨時 力量 。打出後使 「女王之劍」 傷害次數 + 1 ，最多提高為 6 次。"
   },
   "${ModID}:FirstDoctrine": {
     "NAME": "第一哲學",
@@ -21,7 +21,7 @@
   },
   "${ModID}:RewindingTime": {
     "NAME": "溯洄時計",
-    "DESCRIPTION": "打出 morimensmod:指令卡 後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 !M! 次。"
+    "DESCRIPTION": "打出 ${ModID}:指令卡 後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 !M! 次。"
   },
   "${ModID}:HandOfOblivion": {
     "NAME": "遺忘之手",
