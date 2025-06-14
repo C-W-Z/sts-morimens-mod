@@ -5,7 +5,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
 
 public class CustomTags {
     @SpireEnum
-    public static CardTags BUFF_CARD;
+    public static CardTags BUFF;
+    @SpireEnum
+    public static CardTags SYMPTOM;
     @SpireEnum
     public static CardTags WHEEL_OF_DESTINY;
 }

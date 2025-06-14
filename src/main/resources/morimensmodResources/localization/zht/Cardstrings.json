@@ -27,7 +27,7 @@
     "NAME": "遺忘之手",
     "DESCRIPTION": "將 1 張 打擊 加入手中，「 打擊 」的基礎傷害增加 !M! %。"
   },
-  "${ModID}:Inspiration": {
+  "${ModID}:Insight": {
     "NAME": "靈感",
     "DESCRIPTION": "獲得 [E] ，抽 !${ModID}:m2! 張牌。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": "獲得 [E] [E] ，抽 !${ModID}:m2! 張牌。 NL 消耗 "

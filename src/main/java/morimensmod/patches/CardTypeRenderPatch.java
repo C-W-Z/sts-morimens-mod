@@ -18,14 +18,14 @@ import me.antileaf.signature.card.AbstractSignatureCard;
 
 public class CardTypeRenderPatch {
 
-    private static final UIStrings BUFF_STRINGS = CardCrawlGame.languagePack.getUIString(CustomTags.BUFF_CARD.name());
+    private static final UIStrings BUFF_STRINGS = CardCrawlGame.languagePack.getUIString(CustomTags.BUFF.name());
     private static final UIStrings WHEEL_OF_DESTINY_STRINGS = CardCrawlGame.languagePack.getUIString(CustomTags.WHEEL_OF_DESTINY.name());
 
     @SpirePatch2(clz = AbstractCard.class, method = "renderType")
     public static class _CardTypeRenderPatch {
         @SpireInsertPatch(locator = Locator.class, localvars = { "text" })
         public static void Insert(AbstractCard __instance, SpriteBatch sb, @ByRef String[] text) {
-            if (__instance.hasTag(CustomTags.BUFF_CARD))
+            if (__instance.hasTag(CustomTags.BUFF))
                 text[0] = BUFF_STRINGS.TEXT[0];
             else if (__instance.hasTag(CustomTags.WHEEL_OF_DESTINY))
                 text[0] = WHEEL_OF_DESTINY_STRINGS.TEXT[0];
@@ -45,7 +45,7 @@ public class CardTypeRenderPatch {
         @SpireInsertPatch(locator = Locator.class, localvars = { "label" })
         public static void Insert(SingleCardViewPopup __instance, SpriteBatch sb, @ByRef String[] label,
                 AbstractCard ___card) {
-            if (___card.hasTag(CustomTags.BUFF_CARD))
+            if (___card.hasTag(CustomTags.BUFF))
                 label[0] = BUFF_STRINGS.TEXT[0];
             else if (___card.hasTag(CustomTags.WHEEL_OF_DESTINY))
                 label[0] = WHEEL_OF_DESTINY_STRINGS.TEXT[0];
@@ -64,7 +64,7 @@ public class CardTypeRenderPatch {
     public static class SignatureCardTypeRenderPatch {
         @SpireInsertPatch(locator = Locator.class, localvars = { "text" })
         public static void Insert(AbstractSignatureCard __instance, SpriteBatch sb, @ByRef String[] text) {
-            if (__instance.hasTag(CustomTags.BUFF_CARD))
+            if (__instance.hasTag(CustomTags.BUFF))
                 text[0] = BUFF_STRINGS.TEXT[0];
             else if (__instance.hasTag(CustomTags.WHEEL_OF_DESTINY))
                 text[0] = WHEEL_OF_DESTINY_STRINGS.TEXT[0];

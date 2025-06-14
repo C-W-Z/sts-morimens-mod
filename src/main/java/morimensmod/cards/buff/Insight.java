@@ -11,12 +11,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.patches.CustomTags;
 
-public class Inspiration extends AbstractEasyCard {
-    public final static String ID = makeID(Inspiration.class.getSimpleName());
+public class Insight extends AbstractEasyCard {
+    public final static String ID = makeID(Insight.class.getSimpleName());
 
-    public Inspiration() {
+    public Insight() {
         super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE, BUFF_COLOR);
-        tags.add(CustomTags.BUFF_CARD);
+        tags.add(CustomTags.BUFF);
         this.magicNumber = this.baseMagicNumber = 1; // 獲得能量
         this.secondMagic = this.baseSecondMagic = 1; // 抽牌數
         this.exhaust = true;

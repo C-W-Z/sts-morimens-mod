@@ -7,7 +7,7 @@ import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import me.antileaf.signature.utils.SignatureHelper;
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.cards.buff.Inspiration;
+import morimensmod.cards.buff.Insight;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.chaos.AssaultThesis;
 import morimensmod.cards.chaos.Defend;
@@ -257,7 +257,7 @@ public class MorimensMod implements
         SignatureHelper.unlock(FirstDoctrine.ID, true);
         SignatureHelper.unlock(RewindingTime.ID, true);
         SignatureHelper.unlock(HandOfOblivion.ID, true);
-        SignatureHelper.unlock(Inspiration.ID, true);
+        SignatureHelper.unlock(Insight.ID, true);
     }
 
     @Override

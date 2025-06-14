@@ -3,7 +3,7 @@ package morimensmod.characters;
 import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.actions.MundusDecreeAction;
 import morimensmod.cards.PileModalSelectCard;
-import morimensmod.cards.buff.Inspiration;
+import morimensmod.cards.buff.Insight;
 import morimensmod.cards.chaos.AssaultThesis;
 import morimensmod.cards.chaos.Defend;
 import morimensmod.cards.chaos.QueensSword;
@@ -180,7 +180,7 @@ public class Ramona extends AbstractAwakener {
 
         atb(new EasyModalChoiceAction(cardList));
 
-        shuffleIn(new Inspiration());
+        shuffleIn(new Insight());
     }
 
     @Override

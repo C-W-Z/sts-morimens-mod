@@ -30,6 +30,7 @@ import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 public class AliemusUI extends ClickableUIElement {
     public Hitbox hb;
@@ -93,8 +94,15 @@ public class AliemusUI extends ClickableUIElement {
             return;
 
         if (AbstractAwakener.exaltedThisTurn) {
-            TipHelper.renderGenericTip(x - Settings.xScale * 20f, y + Settings.yScale * 200f, TEXT.EXTRA_TEXT[0],
-                    TEXT.EXTRA_TEXT[1]);
+            AbstractDungeon.effectList.add(
+                new ThoughtBubble(
+                    AbstractDungeon.player.dialogX, // x 座標（通常用 player.dialogX）
+                    AbstractDungeon.player.dialogY, // y 座標（通常用 player.dialogY）
+                    3.0F,                           // 顯示時間秒數
+                    TEXT.EXTRA_TEXT[0],             // 顯示文字
+                    true                            // true = 是玩家；false = 怪物
+                )
+            );
             return;
         }
 
