@@ -19,7 +19,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
+// import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
@@ -162,11 +162,11 @@ public class Ramona extends AbstractAwakener {
     public static class Enums {
         @SpireEnum
         public static AbstractPlayer.PlayerClass RAMONA;
-        @SpireEnum(name = "RAMONA_COLOR")
-        public static AbstractCard.CardColor RAMONA_COLOR;
-        @SpireEnum(name = "RAMONA_COLOR")
-        @SuppressWarnings("unused")
-        public static CardLibrary.LibraryType LIBRARY_COLOR;
+        // @SpireEnum(name = "RAMONA_COLOR")
+        // public static AbstractCard.CardColor RAMONA_COLOR;
+        // @SpireEnum(name = "RAMONA_COLOR")
+        // @SuppressWarnings("unused")
+        // public static CardLibrary.LibraryType LIBRARY_COLOR;
     }
 
     public void exalt() {

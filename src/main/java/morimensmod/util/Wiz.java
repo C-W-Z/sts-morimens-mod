@@ -23,8 +23,6 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import morimensmod.patches.CustomTags;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 
 import java.util.ArrayList;
 import java.util.Arrays;
