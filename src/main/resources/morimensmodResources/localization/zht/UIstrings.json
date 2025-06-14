@@ -24,7 +24,17 @@
             "增益"
         ]
     },
+    "BUFF_CARD": {
+        "TEXT": [
+            "增益"
+        ]
+    },
     "WHEEL_OF_DESTINY_COLOR": {
+        "TEXT": [
+            "命輪"
+        ]
+    },
+    "WHEEL_OF_DESTINY": {
         "TEXT": [
             "命輪"
         ]

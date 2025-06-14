@@ -39,6 +39,6 @@
       "指令卡牌",
       "指令"
     ],
-    "DESCRIPTION": "非 morimensmod:增益 且非 morimensmod:命輪 的攻擊/技能/能力卡。"
+    "DESCRIPTION": "非增益且非命輪的攻擊/技能/能力卡。"
   }
 ]
