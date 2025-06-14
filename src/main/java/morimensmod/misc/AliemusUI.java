@@ -2,17 +2,12 @@ package morimensmod.misc;
 
 import basemod.ClickableUIElement;
 import morimensmod.actions.AliemusExlatAction;
-import morimensmod.actions.EasyModalChoiceAction;
-import morimensmod.actions.MundusDecreeAction;
-import morimensmod.cards.PileModalSelectCard;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.util.TexLoader;
 import morimensmod.util.WizArt;
 
 import static morimensmod.MorimensMod.makeUIPath;
 import static morimensmod.util.Wiz.atb;
-import static morimensmod.util.Wiz.discardPile;
-import static morimensmod.util.Wiz.drawPile;
 import static morimensmod.util.Wiz.p;
 
 import java.util.ArrayList;
@@ -20,12 +15,12 @@ import java.util.ArrayList;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
@@ -75,7 +70,13 @@ public class AliemusUI extends ClickableUIElement {
     @Override
     protected void onHover() {
         // popup text
-        TipHelper.renderGenericTip(x - Settings.xScale * 20f, y + Settings.yScale * 200f, TEXT.TEXT[0], TEXT.TEXT[1]);
+        ArrayList<PowerTip> tips = new ArrayList<>();
+        tips.add(new PowerTip(TEXT.TEXT[0], TEXT.TEXT[1]));
+        if (p() instanceof AbstractAwakener) {
+            tips.add(new PowerTip(((AbstractAwakener)p()).UI_STRINGS.TEXT[0], ((AbstractAwakener)p()).UI_STRINGS.TEXT[1]));
+            tips.add(new PowerTip(((AbstractAwakener)p()).UI_STRINGS.EXTRA_TEXT[0], ((AbstractAwakener)p()).UI_STRINGS.EXTRA_TEXT[1]));
+        }
+        TipHelper.queuePowerTips(fontX, y + Settings.yScale * 400f, tips);
     }
 
     @Override

@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.localization.UIStrings;
 
 import static morimensmod.MorimensMod.*;
 
@@ -22,6 +23,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public static int extremeAlimus = 2 * NORMAL_MAX_ALIEMUS; // 雙倍上限 超限爆發
     public static boolean exalting = false;
     public static boolean exaltedThisTurn = false; // reset at Main Mod File
+    public UIStrings UI_STRINGS = new UIStrings();
 
     public static final int ENERGY_PER_TURN = 5;
 

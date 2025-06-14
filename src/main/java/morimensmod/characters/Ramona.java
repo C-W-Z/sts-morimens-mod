@@ -52,6 +52,7 @@ public class Ramona extends AbstractAwakener {
         super(NAMES[0], Enums.RAMONA,
                 "Ramona/main.png", "Ramona/shoulder.png",
                 "Ramona/shoulder2.png", "Ramona/corpse.png");
+        UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID + ":Exalt");
     }
 
     public static void register() {
@@ -97,7 +98,7 @@ public class Ramona extends AbstractAwakener {
 
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return Enums.RAMONA_COLOR;
+        return CHAOS_COLOR;
     }
 
     @Override
