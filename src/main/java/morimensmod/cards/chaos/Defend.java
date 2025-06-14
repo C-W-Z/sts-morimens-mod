@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.patches.CustomTags;
 
 public class Defend extends AbstractEasyCard {
     public final static String ID = makeID("Defend");
@@ -15,9 +16,10 @@ public class Defend extends AbstractEasyCard {
 
     public Defend() {
         super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF, CHAOS_COLOR);
+        tags.add(CustomTags.COMMAND);
+        tags.add(CardTags.STARTER_DEFEND);
         baseBlock = 5;
         baseAliemusNumber = 5;
-        tags.add(CardTags.STARTER_DEFEND);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

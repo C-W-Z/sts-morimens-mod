@@ -312,7 +312,6 @@ public class Wiz {
     }
 
     public static boolean isCommandCard(AbstractCard card) {
-        return (card.type == CardType.ATTACK || card.type == CardType.SKILL || card.type == CardType.POWER)
-                && !card.hasTag(CustomTags.BUFF) && !card.hasTag(CustomTags.WHEEL_OF_DESTINY);
+        return card.hasTag(CustomTags.COMMAND);
     }
 }

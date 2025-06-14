@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.patches.CustomTags;
 import morimensmod.powers.FirstDoctrinePower;
 
 import static morimensmod.MorimensMod.makeID;
@@ -15,6 +16,7 @@ public class FirstDoctrine extends AbstractEasyCard {
 
     public FirstDoctrine() {
         super(ID, 3, CardType.POWER, CardRarity.UNCOMMON, CardTarget.NONE, CHAOS_COLOR);
+        tags.add(CustomTags.ROUSE);
         baseMagicNumber = magicNumber = 1; // 每次獲得的能量
         baseSecondMagic = secondMagic = 3; // 每回合最大觸發次數
     }

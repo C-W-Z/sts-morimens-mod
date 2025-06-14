@@ -18,6 +18,7 @@ import static morimensmod.util.Wiz.limbo;
 
 import morimensmod.actions.QueensSwordAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.patches.CustomTags;
 
 public class QueensSword extends AbstractEasyCard {
     public static final String ID = makeID("QueensSword");
@@ -37,6 +38,7 @@ public class QueensSword extends AbstractEasyCard {
 
     public QueensSword() {
         super(ID, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, CHAOS_COLOR);
+        tags.add(CustomTags.COMMAND);
         this.baseDamage = 3;
         this.magicNumber = this.baseMagicNumber = attackTimesThisCombat;
     }

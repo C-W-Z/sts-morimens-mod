@@ -24,19 +24,39 @@
             "增益"
         ]
     },
-    "BUFF": {
-        "TEXT": [
-            "增益"
-        ]
-    },
     "WHEEL_OF_DESTINY_COLOR": {
         "TEXT": [
             "命輪"
         ]
     },
+    "SYMPTOM_COLOR": {
+        "TEXT": [
+            "症狀"
+        ]
+    },
+    "COMMAND": {
+        "TEXT": [
+            "指令"
+        ]
+    },
+    "ROUSE": {
+        "TEXT": [
+            "覺醒"
+        ]
+    },
+    "BUFF": {
+        "TEXT": [
+            "增益"
+        ]
+    },
     "WHEEL_OF_DESTINY": {
         "TEXT": [
             "命輪"
+        ]
+    },
+    "SYMPTOM": {
+        "TEXT": [
+            "症狀"
         ]
     },
     "ALIEMUS": {

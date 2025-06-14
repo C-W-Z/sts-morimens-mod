@@ -18,17 +18,26 @@ import me.antileaf.signature.card.AbstractSignatureCard;
 
 public class CardTypeRenderPatch {
 
+    private static final UIStrings COMMAND_STRINGS = CardCrawlGame.languagePack.getUIString(CustomTags.COMMAND.name());
+    private static final UIStrings ROUSE_STRINGS = CardCrawlGame.languagePack.getUIString(CustomTags.ROUSE.name());
     private static final UIStrings BUFF_STRINGS = CardCrawlGame.languagePack.getUIString(CustomTags.BUFF.name());
     private static final UIStrings WHEEL_OF_DESTINY_STRINGS = CardCrawlGame.languagePack.getUIString(CustomTags.WHEEL_OF_DESTINY.name());
+    private static final UIStrings SYMPTOM_STRINGS = CardCrawlGame.languagePack.getUIString(CustomTags.SYMPTOM.name());
 
     @SpirePatch2(clz = AbstractCard.class, method = "renderType")
     public static class _CardTypeRenderPatch {
         @SpireInsertPatch(locator = Locator.class, localvars = { "text" })
         public static void Insert(AbstractCard __instance, SpriteBatch sb, @ByRef String[] text) {
-            if (__instance.hasTag(CustomTags.BUFF))
+            if (__instance.hasTag(CustomTags.COMMAND))
+                text[0] = COMMAND_STRINGS.TEXT[0];
+            else if (__instance.hasTag(CustomTags.ROUSE))
+                text[0] = ROUSE_STRINGS.TEXT[0];
+            else if (__instance.hasTag(CustomTags.BUFF))
                 text[0] = BUFF_STRINGS.TEXT[0];
             else if (__instance.hasTag(CustomTags.WHEEL_OF_DESTINY))
                 text[0] = WHEEL_OF_DESTINY_STRINGS.TEXT[0];
+            else if (__instance.hasTag(CustomTags.SYMPTOM))
+                text[0] = SYMPTOM_STRINGS.TEXT[0];
         }
 
         private static class Locator extends SpireInsertLocator {
@@ -45,10 +54,16 @@ public class CardTypeRenderPatch {
         @SpireInsertPatch(locator = Locator.class, localvars = { "label" })
         public static void Insert(SingleCardViewPopup __instance, SpriteBatch sb, @ByRef String[] label,
                 AbstractCard ___card) {
-            if (___card.hasTag(CustomTags.BUFF))
+            if (___card.hasTag(CustomTags.COMMAND))
+                label[0] = COMMAND_STRINGS.TEXT[0];
+            else if (___card.hasTag(CustomTags.ROUSE))
+                label[0] = ROUSE_STRINGS.TEXT[0];
+            else if (___card.hasTag(CustomTags.BUFF))
                 label[0] = BUFF_STRINGS.TEXT[0];
             else if (___card.hasTag(CustomTags.WHEEL_OF_DESTINY))
                 label[0] = WHEEL_OF_DESTINY_STRINGS.TEXT[0];
+            else if (___card.hasTag(CustomTags.SYMPTOM))
+                label[0] = SYMPTOM_STRINGS.TEXT[0];
         }
 
         private static class Locator extends SpireInsertLocator {
@@ -64,10 +79,16 @@ public class CardTypeRenderPatch {
     public static class SignatureCardTypeRenderPatch {
         @SpireInsertPatch(locator = Locator.class, localvars = { "text" })
         public static void Insert(AbstractSignatureCard __instance, SpriteBatch sb, @ByRef String[] text) {
-            if (__instance.hasTag(CustomTags.BUFF))
+            if (__instance.hasTag(CustomTags.COMMAND))
+                text[0] = COMMAND_STRINGS.TEXT[0];
+            else if (__instance.hasTag(CustomTags.ROUSE))
+                text[0] = ROUSE_STRINGS.TEXT[0];
+            else if (__instance.hasTag(CustomTags.BUFF))
                 text[0] = BUFF_STRINGS.TEXT[0];
             else if (__instance.hasTag(CustomTags.WHEEL_OF_DESTINY))
                 text[0] = WHEEL_OF_DESTINY_STRINGS.TEXT[0];
+            else if (__instance.hasTag(CustomTags.SYMPTOM))
+                text[0] = SYMPTOM_STRINGS.TEXT[0];
         }
 
         private static class Locator extends SpireInsertLocator {

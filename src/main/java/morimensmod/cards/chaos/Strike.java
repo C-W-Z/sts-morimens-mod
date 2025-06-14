@@ -9,16 +9,18 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.patches.CustomTags;
 
 public class Strike extends AbstractEasyCard {
     public final static String ID = makeID("Strike");
 
     public Strike() {
         super(ID, 1, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, CHAOS_COLOR);
-        baseDamage = 6;
-        baseAliemusNumber = 5;
+        tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STRIKE);
         tags.add(CardTags.STARTER_STRIKE);
+        baseDamage = 6;
+        baseAliemusNumber = 5;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

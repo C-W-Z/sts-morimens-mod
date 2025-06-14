@@ -21,7 +21,7 @@
       "增益卡牌",
       "增益"
     ],
-    "DESCRIPTION": "一種無法常規獲得且對玩家有幫助的卡牌類型。"
+    "DESCRIPTION": "一種無法常規獲得且通常對玩家有益的卡牌類型。"
   },
   {
     "PROPER_NAME": " #y命輪 ",
@@ -33,13 +33,31 @@
     "DESCRIPTION": "一種全是 #y能力 卡的特殊卡牌類型。"
   },
   {
-    "PROPER_NAME": " #y指令卡 ",
+    "PROPER_NAME": " #y指令 ",
     "NAMES": [
       "指令卡",
       "指令卡牌",
       "指令"
     ],
-    "DESCRIPTION": "非 #y增益 且非 #y命輪 的 #y攻擊 / #y技能 / #y能力 卡。"
+    "DESCRIPTION": "忘卻前夜中，非 #y增益 且非 #y命輪 的 #y攻擊 / #y技能 卡。"
+  },
+  {
+    "PROPER_NAME": " #y覺醒 ",
+    "NAMES": [
+      "覺醒卡",
+      "覺醒卡牌",
+      "覺醒"
+    ],
+    "DESCRIPTION": "忘卻前夜中，非 #y增益 且非 #y命輪 的 #y能力 卡。"
+  },
+  {
+    "PROPER_NAME": " #y症狀 ",
+    "NAMES": [
+      "症狀卡",
+      "症狀卡牌",
+      "症狀"
+    ],
+    "DESCRIPTION": "一種無法常規獲得且通常對玩家有害的卡牌類型。"
   },
   {
     "PROPER_NAME": " #y狂氣 ",

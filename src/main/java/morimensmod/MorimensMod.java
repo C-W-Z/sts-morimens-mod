@@ -5,6 +5,7 @@ import basemod.BaseMod;
 import basemod.abstracts.DynamicVariable;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
+import basemod.patches.com.megacrit.cardcrawl.saveAndContinue.SaveFile.ModSaves.ArrayListOfString;
 import me.antileaf.signature.utils.SignatureHelper;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.buff.Insight;
@@ -250,14 +251,21 @@ public class MorimensMod implements
 
     @Override
     public void receivePostInitialize() {
-        SignatureHelper.unlock(Strike.ID, true);
-        SignatureHelper.unlock(Defend.ID, true);
-        SignatureHelper.unlock(AssaultThesis.ID, true);
-        SignatureHelper.unlock(QueensSword.ID, true);
-        SignatureHelper.unlock(FirstDoctrine.ID, true);
-        SignatureHelper.unlock(RewindingTime.ID, true);
-        SignatureHelper.unlock(HandOfOblivion.ID, true);
-        SignatureHelper.unlock(Insight.ID, true);
+        String[] list = {
+                Strike.ID,
+                Defend.ID,
+                AssaultThesis.ID,
+                QueensSword.ID,
+                FirstDoctrine.ID,
+                RewindingTime.ID,
+                HandOfOblivion.ID,
+                Insight.ID
+        };
+
+        for (String id : list) {
+            SignatureHelper.unlock(id, true);
+            SignatureHelper.enable(id, true);
+        }
     }
 
     @Override

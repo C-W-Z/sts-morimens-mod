@@ -5,6 +5,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
 
 public class CustomTags {
     @SpireEnum
+    public static CardTags COMMAND;
+    @SpireEnum
+    public static CardTags ROUSE;
+    @SpireEnum
     public static CardTags BUFF;
     @SpireEnum
     public static CardTags SYMPTOM;
