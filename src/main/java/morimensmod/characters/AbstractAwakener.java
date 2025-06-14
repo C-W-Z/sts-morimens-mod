@@ -46,7 +46,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
                 makeCharacterPath("shoulder.png"),
                 makeCharacterPath(CORPSE),
                 getLoadout(),
-                20.0F, -10.0F, 250.0F, 328.0F, // Character hitbox. x y position, then width and height.
+                0F, -20F, 300F, 400F, // Character hitbox. x y position, then width and height.
                 new EnergyManager(ENERGY_PER_TURN));
 
         dialogX = (drawX + 0.0F * Settings.scale);

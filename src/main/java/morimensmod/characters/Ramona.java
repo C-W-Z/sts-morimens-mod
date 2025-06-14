@@ -51,9 +51,10 @@ public class Ramona extends AbstractAwakener {
     private static final String CHARSELECT_PORTRAIT = makeCharacterPath("Ramona/charBG.png");
 
     public Ramona() {
-        super(NAMES[0], Enums.RAMONA, "Ramona/main.png", "Ramona/corpse.png");
+        super(NAMES[0], Enums.RAMONA, "Ramona/main.png", "Ramona/main.png");
         UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID + ":Exalt");
-        anim = new SpriteSheetAnimation(makeCharacterPath("Ramona/sprite_sheet.png"), 7, 15, 4, true, 30F);
+        anim = new SpriteSheetAnimation(makeCharacterPath("Ramona/Idle_1.png"),
+                6, 17, 1, true, 30F, -22, -10);
     }
 
     public static void register() {

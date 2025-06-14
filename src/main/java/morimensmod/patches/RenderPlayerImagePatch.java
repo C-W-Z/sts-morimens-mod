@@ -21,24 +21,26 @@ public class RenderPlayerImagePatch {
         @SpirePrefixPatch
         public static SpireReturn<Void> Prefix(AbstractPlayer __instance, SpriteBatch sb) {
             // logger.info("RenderPlayerImagePatch:" + __instance.getClass().getSimpleName());
-            if (__instance instanceof AbstractAwakener && ((AbstractAwakener) __instance).anim != null) {
-                ((AbstractAwakener) __instance).anim.renderPlayerImage(sb, __instance);
-                return SpireReturn.Return();
-            }
-            return SpireReturn.Continue();
+            if (!(__instance instanceof AbstractAwakener) || ((AbstractAwakener) __instance).anim == null)
+                return SpireReturn.Continue();
+
+            ((AbstractAwakener) __instance).anim.renderPlayerImage(sb, __instance);
+            return SpireReturn.Return();
         }
     }
 
     @SpirePatch2(clz = AbstractPlayer.class, method = "render")
     public static class ReplaceFallbackRenderPatch {
         @SpireInsertPatch(locator = DrawLocator.class)
-        public static SpireReturn<Void> patch(AbstractPlayer __instance, SpriteBatch sb) {
-            // logger.info("ReplaceFallbackRenderPatch:" + __instance.getClass().getSimpleName());
-            if (__instance instanceof AbstractAwakener && ((AbstractAwakener) __instance).anim != null) {
-                ((AbstractAwakener) __instance).anim.renderPlayerImage(sb, __instance);
-                return SpireReturn.Return();
-            }
-            return SpireReturn.Continue();
+        public static SpireReturn<Void> patch(AbstractPlayer __instance, SpriteBatch sb, boolean ___renderCorpse) {
+            // logger.info("ReplaceFallbackRenderPatch:" + __instance.getClass().getSimpleName() + ", " + !(__instance instanceof AbstractAwakener) + ", " + (((AbstractAwakener) __instance).anim == null));
+            if (/*___renderCorpse || */!(__instance instanceof AbstractAwakener) || ((AbstractAwakener) __instance).anim == null)
+                return SpireReturn.Continue();
+
+            ((AbstractAwakener) __instance).anim.renderPlayerImage(sb, __instance);
+            __instance.hb.render(sb);
+            __instance.healthHb.render(sb);
+            return SpireReturn.Return();
         }
 
         private static class DrawLocator extends SpireInsertLocator {

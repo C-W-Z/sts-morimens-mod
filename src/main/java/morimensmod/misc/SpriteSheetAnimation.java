@@ -22,15 +22,11 @@ public class SpriteSheetAnimation {
     private float stateTime;
     private boolean loop;
 
-    // private int rows;
-    // private int cols;
-    // private int emptyFrames;
+    private float xOffset = 0;
+    private float yOffset = 0;
 
-    public SpriteSheetAnimation(String imgurl, int rows, int columns, int emptyFrames, boolean loop, float fps) {
-        // this.rows = rows;
-        // this.cols = columns;
-        // this.emptyFrames = emptyFrames;
-
+    public SpriteSheetAnimation(String imgurl, int rows, int columns, int emptyFrames, boolean loop, float fps,
+            float xOffset, float yOffset) {
         Texture tmpTexture = TexLoader.getTexture(imgurl);
 
         logger.info(imgurl + ", width:" + tmpTexture.getWidth() + ", hieght:" + tmpTexture.getHeight());
@@ -51,6 +47,9 @@ public class SpriteSheetAnimation {
         this.stateTime = 0F;
         this.loop = loop;
 
+        this.xOffset = xOffset;
+        this.yOffset = yOffset;
+
         logger.info("create:" + index);
     }
 
@@ -62,28 +61,17 @@ public class SpriteSheetAnimation {
     public void renderPlayerImage(SpriteBatch sb, AbstractPlayer player) {
         TextureRegion currentFrame = anim.getKeyFrame(stateTime, loop);
         sb.setColor(Color.WHITE);
-        // sb.draw(currentFrame,
-        // drawX - (float) currentFrame.getRegionWidth() * Settings.scale / 2.0F +
-        // animX,
-        // drawY,
-        // (float) currentFrame.getRegionWidth() * Settings.scale,
-        // (float) currentFrame.getRegionHeight() * Settings.scale,
-        // 0,
-        // 0,
-        // currentFrame.getRegionWidth(),
-        // currentFrame.getRegionHeight(),
-        // false,
-        // false);
         sb.draw(currentFrame,
-                player.drawX - (float) currentFrame.getRegionWidth() * Settings.scale / 2.0F + player.animX,
-                player.drawY,
+                xOffset + player.drawX - (float) currentFrame.getRegionWidth() * Settings.scale / 2.0F + player.animX,
+                yOffset + player.drawY,
                 (float) currentFrame.getRegionWidth() * Settings.scale,
                 (float) currentFrame.getRegionHeight() * Settings.scale);
 
-        logger.info("x:" + (player.drawX - (float) currentFrame.getRegionWidth() * Settings.scale / 2.0F + player.animX)
-                + ", y:" + player.drawY
-                + ", w:" + (float) currentFrame.getRegionWidth() * Settings.scale
-                + ", h:" + (float) currentFrame.getRegionHeight() * Settings.scale);
+        // logger.info("x:" + (player.drawX - (float) currentFrame.getRegionWidth() *
+        // Settings.scale / 2.0F + player.animX)
+        // + ", y:" + player.drawY
+        // + ", w:" + (float) currentFrame.getRegionWidth() * Settings.scale
+        // + ", h:" + (float) currentFrame.getRegionHeight() * Settings.scale);
 
         if (!anim.isAnimationFinished(stateTime))
             return;
