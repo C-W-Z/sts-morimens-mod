@@ -2,7 +2,7 @@ package morimensmod.characters;
 
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
-import basemod.animations.SpriterAnimation;
+import basemod.animations.AbstractAnimation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -21,19 +21,26 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public static int maxAliemus = NORMAL_MAX_ALIEMUS; // 普通狂氣上限 狂氣爆發
     public static int extremeAlimus = 2 * NORMAL_MAX_ALIEMUS; // 雙倍上限 超限爆發
 
-    public AbstractAwakener(String name, PlayerClass setClass, String spriterAnimationPath, final String SHOULDER1,
+    public static final int ENERGY_PER_TURN = 5;
+
+    public AbstractAwakener(String name, PlayerClass setClass, String characterImgPath, final String SHOULDER1,
             final String SHOULDER2, final String CORPSE) {
-        super(
-                name,
-                setClass,
+        super(name, setClass,
                 new CustomEnergyOrb(orbTextures, makeCharacterPath("ChaosRealm/orb/vfx.png"), null),
-                new SpriterAnimation(makeCharacterPath(spriterAnimationPath)));
-        initializeClass(
-                null,
+                new AbstractAnimation() {
+                    @Override
+                    public Type type() {
+                        return Type.NONE;
+                    }
+                }
+        );
+        initializeClass(makeCharacterPath(characterImgPath),
                 makeCharacterPath(SHOULDER1),
                 makeCharacterPath(SHOULDER2),
                 makeCharacterPath(CORPSE),
-                getLoadout(), 20.0F, -10.0F, 166.0F, 327.0F, new EnergyManager(5));
+                getLoadout(),
+                20.0F, -10.0F, 250.0F, 328.0F, // Character hitbox. x y position, then width and height.
+                new EnergyManager(ENERGY_PER_TURN));
 
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 240.0F * Settings.scale);
@@ -71,6 +78,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public int getAscensionMaxHPLoss() {
         return 5;
     }
+
     @Override
     public BitmapFont getEnergyNumFont() {
         return FontHelper.energyNumFontRed;

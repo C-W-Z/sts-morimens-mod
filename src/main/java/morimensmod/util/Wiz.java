@@ -20,6 +20,8 @@ import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
+import morimensmod.patches.CustomTags;
+
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
@@ -313,6 +315,6 @@ public class Wiz {
 
     public static boolean isCommandCard(AbstractCard card) {
         return (card.type == CardType.ATTACK || card.type == CardType.SKILL || card.type == CardType.POWER)
-                && card.color != BUFF_COLOR && card.color != WHEEL_OF_DESTINY_COLOR;
+                && !card.hasTag(CustomTags.BUFF_CARD) && !card.hasTag(CustomTags.WHEEL_OF_DESTINY);
     }
 }

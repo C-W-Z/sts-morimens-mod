@@ -37,7 +37,7 @@ public class Ramona extends AbstractAwakener {
 
     public Ramona() {
         super(NAMES[0], Enums.RAMONA,
-                "Ramona/static.scml", "Ramona/shoulder.png",
+                "Ramona/main.png", "Ramona/shoulder.png",
                 "Ramona/shoulder2.png", "Ramona/corpse.png");
     }
 

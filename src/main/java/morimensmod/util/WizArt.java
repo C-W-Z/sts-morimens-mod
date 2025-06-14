@@ -13,12 +13,11 @@ import com.badlogic.gdx.graphics.glutils.GLFrameBuffer;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.megacrit.cardcrawl.core.Settings;
 
-
 public class WizArt {
 
-    //draw helpers
+    // draw helpers
     public static void draw(SpriteBatch sb, TextureRegion tex, float x, float y, float scale) {
-        sb.draw(tex, x, y, 0, 0, tex.getRegionWidth(),tex.getRegionHeight(),scale, scale, 0f);
+        sb.draw(tex, x, y, 0, 0, tex.getRegionWidth(), tex.getRegionHeight(), scale, scale, 0f);
     }
 
     public static void drawCentered(SpriteBatch sb, TextureRegion tex, float cX, float cY, float scale) {
@@ -34,7 +33,26 @@ public class WizArt {
                 0f);
     }
 
-    //SpriteBatch settings helpers
+    public static void drawCentered(SpriteBatch sb, Texture tex, float cX, float cY, float scale) {
+        sb.draw(tex,
+                cX - tex.getWidth() / 2f,
+                cY - tex.getHeight() / 2f,
+                tex.getWidth() / 2f,
+                tex.getHeight() / 2f,
+                tex.getWidth(),
+                tex.getHeight(),
+                scale,
+                scale,
+                0,
+                0,
+                0,
+                tex.getWidth(),
+                tex.getHeight(),
+                false,
+                false);
+    }
+
+    // SpriteBatch settings helpers
     public static void clearAllSettings(SpriteBatch sb) {
         sb.setColor(Color.WHITE);
         sb.setShader(null);
@@ -49,17 +67,17 @@ public class WizArt {
         sb.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_DST_ALPHA);
     }
 
-    //textures drawn with this functions follow the alpha channel of what is already drawn
+    // textures drawn with this functions follow the alpha channel of what is
+    // already drawn
     public static void setToMaskBlend(SpriteBatch sb) {
         sb.setBlendFunction(GL20.GL_DST_ALPHA, GL20.GL_ONE_MINUS_DST_ALPHA);
     }
 
+    // buffer helpers
 
-
-    //buffer helpers
-
-    //basic fbo over the whole screen. I think one global fbo like this actually covers most fbo uses.
-    //other uses can just use their own
+    // basic fbo over the whole screen. I think one global fbo like this actually
+    // covers most fbo uses.
+    // other uses can just use their own
     public static FrameBuffer fbo = null;
 
     public static void beginFbo() {
@@ -87,11 +105,13 @@ public class WizArt {
         Gdx.gl20.glColorMask(true, true, true, true);
     }
 
-    //uses reflection to change the buffer's colorTexture.
-    //that way, the original texture isn't disposed at the same time as the buffer, and can be kept for later use
-    //the original texture will also survive the buffer being cleared
-    //this isn't ideal since it requires creating a new texture that might never be used, but use cases exist
-    //and there is no alternative in this version of LibGdx as far as I can tell
+    // uses reflection to change the buffer's colorTexture.
+    // that way, the original texture isn't disposed at the same time as the buffer,
+    // and can be kept for later use
+    // the original texture will also survive the buffer being cleared
+    // this isn't ideal since it requires creating a new texture that might never be
+    // used, but use cases exist
+    // and there is no alternative in this version of LibGdx as far as I can tell
     public static void swapColorTexture(FrameBuffer fb, Texture tex, boolean isBufferBound) {
         ReflectionHacks.setPrivate(fb, GLFrameBuffer.class, "colorTexture", tex);
         if (!isBufferBound) {
@@ -121,9 +141,10 @@ public class WizArt {
         clearCurrentBuffer();
     }
 
-
-    //SpriteBatch state save (only one at a time)
-    //saves the current SpriteBatch settings to load them back after you're done, to make sure you're not disturbing anything that happens around what you're doing
+    // SpriteBatch state save (only one at a time)
+    // saves the current SpriteBatch settings to load them back after you're done,
+    // to make sure you're not disturbing anything that happens around what you're
+    // doing
     private static final StateData stateSave = new StateData();
 
     public static void saveState(SpriteBatch sb) {
