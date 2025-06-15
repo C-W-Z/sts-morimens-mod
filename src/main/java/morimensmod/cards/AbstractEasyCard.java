@@ -18,7 +18,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static morimensmod.MorimensMod.makeImagePath;
-import static morimensmod.MorimensMod.modID;
 import static morimensmod.util.Wiz.*;
 
 import morimensmod.characters.AbstractAwakener;
@@ -66,7 +65,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity,
             final CardTarget target, final CardColor color) {
-        super(cardID, "", getCardTextureString(cardID.replace(modID + ":", ""), type),
+        super(cardID, "", getCardTextureString(removeModID(cardID), type),
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
         rawDescription = cardStrings.DESCRIPTION;

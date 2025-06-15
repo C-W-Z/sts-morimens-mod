@@ -22,7 +22,7 @@ public class DemoPotion extends AbstractEasyPotion {
     }
 
     public void use(AbstractCreature creature) {
-        applyToSelf(new StrengthPower(adp(), potency));
+        applyToSelf(new StrengthPower(p(), potency));
     }
 
     public String getDescription() {

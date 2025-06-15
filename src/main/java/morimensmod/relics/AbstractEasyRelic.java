@@ -4,7 +4,7 @@ import basemod.abstracts.CustomRelic;
 import morimensmod.util.TexLoader;
 
 import static morimensmod.MorimensMod.makeRelicPath;
-import static morimensmod.MorimensMod.modID;
+import static morimensmod.util.Wiz.removeModID;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -17,9 +17,9 @@ public abstract class AbstractEasyRelic extends CustomRelic {
     }
 
     public AbstractEasyRelic(String setId, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound sfx, AbstractCard.CardColor color) {
-        super(setId, TexLoader.getTexture(makeRelicPath(setId.replace(modID + ":", "") + ".png")), tier, sfx);
-        outlineImg = TexLoader.getTexture(makeRelicPath(setId.replace(modID + ":", "") + "Outline.png"));
-        largeImg = TexLoader.getTexture(makeRelicPath(("large/" + setId).replace(modID + ":", "") + ".png"));
+        super(setId, TexLoader.getTexture(makeRelicPath(removeModID(setId) + ".png")), tier, sfx);
+        outlineImg = TexLoader.getTexture(makeRelicPath(removeModID(setId) + "Outline.png"));
+        largeImg = TexLoader.getTexture(makeRelicPath(removeModID("large/" + setId) + ".png"));
         this.color = color;
     }
 

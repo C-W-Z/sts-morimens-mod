@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import morimensmod.patches.CustomTags;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.MorimensMod.modID;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,8 +35,8 @@ public class Wiz {
     // The wonderful Wizard of Oz allows access to most easy compilations of data,
     // or functions.
 
-    public static AbstractPlayer adp() {
-        return AbstractDungeon.player;
+    public static String removeModID(String id) {
+        return id.replace(modID + ":", "");
     }
 
     public static void forAllCardsInList(Consumer<AbstractCard> consumer, ArrayList<AbstractCard> cardsList) {
@@ -186,7 +187,7 @@ public class Wiz {
     }
 
     public static void discard(int amount, boolean isRandom) {
-        atb(new DiscardAction(adp(), adp(), amount, isRandom));
+        atb(new DiscardAction(p(), p(), amount, isRandom));
     }
 
     public static void discard(int amount) {
