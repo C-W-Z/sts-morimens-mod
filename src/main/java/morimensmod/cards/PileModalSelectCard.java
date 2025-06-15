@@ -46,6 +46,7 @@ public class PileModalSelectCard extends AbstractEasyCard {
             this.baseDraw = this.draw = c.baseDraw;
             this.baseAttackCount = this.attackCount = c.baseAttackCount;
             this.baseSecondMagic = this.secondMagic = c.baseSecondMagic;
+            this.baseThirdMagic = this.thirdMagic = baseThirdMagic;
             this.baseAliemus = this.aliemus = c.baseAliemus;
         }
     }

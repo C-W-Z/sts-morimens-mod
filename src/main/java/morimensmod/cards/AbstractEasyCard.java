@@ -36,6 +36,11 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     public boolean upgradedSecondMagic;
     public boolean isSecondMagicModified;
 
+    public int thirdMagic;
+    public int baseThirdMagic;
+    public boolean upgradedThirdMagic;
+    public boolean isThirdMagicModified;
+
     public int attackCount;
     public int baseAttackCount;
     public boolean upgradedAttackCount;
@@ -190,6 +195,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         isDrawModified = false;
         secondMagic = baseSecondMagic;
         isSecondMagicModified = false;
+        thirdMagic = baseThirdMagic;
+        isThirdMagicModified = false;
         attackCount = baseAttackCount;
         isAttackCountModified = false;
         aliemus = baseAliemus;
@@ -209,6 +216,10 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         if (upgradedSecondMagic) {
             secondMagic = baseSecondMagic;
             isSecondMagicModified = true;
+        }
+        if (upgradedThirdMagic) {
+            thirdMagic = baseThirdMagic;
+            isThirdMagicModified = true;
         }
         if (upgradedAttackCount) {
             attackCount = baseAttackCount;
@@ -236,6 +247,12 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         baseSecondMagic += amount;
         secondMagic = baseSecondMagic;
         upgradedSecondMagic = true;
+    }
+
+    protected void upgradeThirdMagic(int amount) {
+        baseThirdMagic += amount;
+        thirdMagic = baseThirdMagic;
+        upgradedThirdMagic = true;
     }
 
     protected void upgradeAttackCount(int amount) {
@@ -281,6 +298,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
             c.baseDraw = c.draw = baseDraw;
             c.baseAttackCount = c.attackCount = baseAttackCount;
             c.baseSecondMagic = c.secondMagic = baseSecondMagic;
+            c.baseThirdMagic = c.thirdMagic = baseThirdMagic;
             c.baseAliemus = c.aliemus = baseAliemus;
         }
         return result;

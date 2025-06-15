@@ -3,11 +3,11 @@ package morimensmod.powers;
 import static morimensmod.MorimensMod.makeID;
 
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class FirstDoctrinePower extends AbstractEasyPower {
 
@@ -18,8 +18,8 @@ public class FirstDoctrinePower extends AbstractEasyPower {
 
     private int maxUsePerTurn = 3;
 
-    public FirstDoctrinePower(AbstractCreature owner, int maxUsePerTurn) {
-        super(POWER_ID, NAME, PowerType.BUFF, false, owner, 1);
+    public FirstDoctrinePower(AbstractCreature owner, int amount, int maxUsePerTurn) {
+        super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
         this.maxUsePerTurn = maxUsePerTurn;
 
         isTwoAmount = true;
@@ -35,7 +35,7 @@ public class FirstDoctrinePower extends AbstractEasyPower {
     }
 
     @Override
-    public void onPlayCard(AbstractCard card, AbstractMonster m) {
+    public void onUseCard(AbstractCard card, UseCardAction action) {
         if (amount2 <= 0)
             return;
         flash();

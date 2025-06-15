@@ -7,24 +7,10 @@ import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import basemod.patches.com.megacrit.cardcrawl.saveAndContinue.SaveFile.ModSaves.ArrayListOfString;
 import me.antileaf.signature.utils.SignatureHelper;
+import me.antileaf.signature.utils.internal.SignatureHelperInternal;
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.cards.buff.Insight;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
-import morimensmod.cards.chaos.AssaultThesis;
-import morimensmod.cards.chaos.BattleThirst;
-import morimensmod.cards.chaos.BladeOfDefiance;
-import morimensmod.cards.chaos.Defend;
-import morimensmod.cards.chaos.EquivalentExchange;
-import morimensmod.cards.chaos.FirstDoctrine;
-import morimensmod.cards.chaos.FleshDetached;
-import morimensmod.cards.chaos.OuterSurgery;
 import morimensmod.cards.chaos.QueensSword;
-import morimensmod.cards.chaos.Strike;
-import morimensmod.cards.chaos.TidesOfHubris;
-import morimensmod.cards.democards.simple.DrawAndShiv;
-import morimensmod.cards.wheel_of_destiny.HandOfOblivion;
-import morimensmod.cards.wheel_of_destiny.ManikinOfOblivion;
-import morimensmod.cards.wheel_of_destiny.RewindingTime;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.characters.Ramona;
 import morimensmod.exalts.AbstractExalt;
@@ -259,28 +245,16 @@ public class MorimensMod implements
 
     @Override
     public void receivePostInitialize() {
-        String[] list = {
-                Strike.ID,
-                Defend.ID,
-                FirstDoctrine.ID,
-                AssaultThesis.ID,
-                QueensSword.ID,
-                FleshDetached.ID,
-                OuterSurgery.ID,
-                EquivalentExchange.ID,
-                BattleThirst.ID,
-                BladeOfDefiance.ID,
-                TidesOfHubris.ID,
-                RewindingTime.ID,
-                ManikinOfOblivion.ID,
-                HandOfOblivion.ID,
-                Insight.ID
-        };
-
-        for (String id : list) {
-            SignatureHelper.unlock(id, true);
-            SignatureHelper.enable(id, true);
-        }
+        new AutoAdd(modID)
+                .packageFilter(AbstractEasyCard.class)
+                .any(AbstractEasyCard.class, (info, var) -> {
+                    if (!SignatureHelperInternal.hasSignature(var))
+                        return;
+                    String ID = makeID(var.getClass().getSimpleName());
+                    logger.info("unlock signature:" + ID);
+                    SignatureHelper.unlock(ID, true);
+                    SignatureHelper.enable(ID, true);
+                });
     }
 
     @Override

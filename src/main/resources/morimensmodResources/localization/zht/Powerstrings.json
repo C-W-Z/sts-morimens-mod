@@ -30,6 +30,15 @@
       " 次。"
     ]
   },
+  "${ModID}:KnightsZealPower": {
+    "NAME": "騎士熱誠",
+    "DESCRIPTIONS": [
+      "每打出 #b",
+      " 張 #y指令卡 後，獲得 #b",
+      " 點 #y力量 。當前還需要 #b",
+      " 張。"
+    ]
+  },
   "${ModID}:RewindingTimePower": {
     "NAME": "溯洄時計",
     "DESCRIPTIONS": [

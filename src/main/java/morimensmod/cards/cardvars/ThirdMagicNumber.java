@@ -6,17 +6,17 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 
 import morimensmod.cards.AbstractEasyCard;
 
-public class SecondMagicNumber extends AbstractEasyDynamicVariable {
+public class ThirdMagicNumber extends AbstractEasyDynamicVariable {
 
     @Override
     public String key() {
-        return makeID("M2");
+        return makeID("M3");
     }
 
     @Override
     public boolean isModified(AbstractCard card) {
         if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).isSecondMagicModified;
+            return ((AbstractEasyCard) card).isThirdMagicModified;
         }
         return false;
     }
@@ -24,21 +24,21 @@ public class SecondMagicNumber extends AbstractEasyDynamicVariable {
     @Override
     public int value(AbstractCard card) {
         if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).secondMagic;
+            return ((AbstractEasyCard) card).thirdMagic;
         }
         return -1;
     }
 
     public void setIsModified(AbstractCard card, boolean v) {
         if (card instanceof AbstractEasyCard) {
-            ((AbstractEasyCard) card).isSecondMagicModified = v;
+            ((AbstractEasyCard) card).isThirdMagicModified = v;
         }
     }
 
     @Override
     public int baseValue(AbstractCard card) {
         if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).baseSecondMagic;
+            return ((AbstractEasyCard) card).baseThirdMagic;
         }
         return -1;
     }
@@ -46,7 +46,7 @@ public class SecondMagicNumber extends AbstractEasyDynamicVariable {
     @Override
     public boolean upgraded(AbstractCard card) {
         if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).upgradedSecondMagic;
+            return ((AbstractEasyCard) card).upgradedThirdMagic;
         }
         return false;
     }

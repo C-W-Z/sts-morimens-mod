@@ -64,9 +64,13 @@ def pad_image_to_1024x1024(image_path, output_path, corner_radius=0, mask=False,
 
 
 # 用法範例
-pad_image_to_1024x1024("Strike.png", "Strike_s", 30) # attack 30
-pad_image_to_1024x1024("Defend.png", "Defend_s", 30) # skill 40
-pad_image_to_1024x1024("Inspiration.png", "Inspiration_s", 30) # skill 40
+# pad_image_to_1024x1024("Strike.png", "Strike_s", 0, True, "Card_Skill_Frame.png")
+# pad_image_to_1024x1024("Defend.png", "Defend_s", 0, True, "Card_Skill_Frame.png")
+# pad_image_to_1024x1024("Inspiration.png", "Inspiration_s", 0, True, "Card_Skill_Frame.png")
 
-pad_image_to_1024x1024("Ramona.png", "Ramona_s", 0, True, "Card_Skill_Frame.png")
-pad_image_to_1024x1024("HandOfOblivion.png", "HandOfOblivion_s", 30)
+# pad_image_to_1024x1024("Ramona.png", "Ramona_s", 0, True, "Card_Skill_Frame.png")
+# pad_image_to_1024x1024("Lotan.png", "Lotan_s", 0, True, "Card_Power_Frame.png")
+# pad_image_to_1024x1024("Doll.png", "Doll_s", 0, True, "Card_Skill_Frame.png")
+pad_image_to_1024x1024("Ogier.png", "Ogier_s", 0, True, "Card_Skill_Frame.png")
+# pad_image_to_1024x1024("HandOfOblivion.png", "HandOfOblivion_s", 30)
+# pad_image_to_1024x1024("ManikinOfOblivion.png", "ManikinOfOblivion_s", 30)

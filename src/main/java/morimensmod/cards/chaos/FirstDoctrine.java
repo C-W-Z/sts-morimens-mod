@@ -24,7 +24,7 @@ public class FirstDoctrine extends AbstractEasyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new FirstDoctrinePower(p, secondMagic));
+        applyToSelf(new FirstDoctrinePower(p, magicNumber, secondMagic));
     }
 
     @Override

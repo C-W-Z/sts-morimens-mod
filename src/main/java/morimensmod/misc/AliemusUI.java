@@ -5,7 +5,6 @@ import morimensmod.actions.AliemusExhaustAction;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.interfaces.OnBeforeExalt;
 import morimensmod.interfaces.OnBeforeExaltTipRender;
-import morimensmod.interfaces.OnBeforeUseCard;
 import morimensmod.util.TexLoader;
 
 import static morimensmod.MorimensMod.makeUIPath;
@@ -133,10 +132,10 @@ public class AliemusUI extends ClickableUIElement {
                 ((OnBeforeExalt) p).onBeforeExalt(awaker);
         // 呼叫所有遺物的 hook
         for (AbstractRelic r : awaker.relics)
-            if (r instanceof OnBeforeUseCard)
+            if (r instanceof OnBeforeExalt)
                 ((OnBeforeExalt) r).onBeforeExalt(awaker);
         // 呼叫姿態（Stance）的 hook
-        if (awaker.stance instanceof OnBeforeUseCard)
+        if (awaker.stance instanceof OnBeforeExalt)
             ((OnBeforeExalt) awaker.stance).onBeforeExalt(awaker);
 
         if (AbstractAwakener.aliemus >= AbstractAwakener.extremeAlimus)

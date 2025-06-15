@@ -10,7 +10,7 @@ public class Heal extends AbstractEasyDynamicVariable {
 
     @Override
     public String key() {
-        return makeID("h");
+        return makeID("H");
     }
 
     @Override

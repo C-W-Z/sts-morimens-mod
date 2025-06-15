@@ -10,7 +10,7 @@ public class AttackCount extends AbstractEasyDynamicVariable {
 
     @Override
     public String key() {
-        return makeID("ac");
+        return makeID("AC");
     }
 
     @Override

@@ -1,24 +1,24 @@
 {
   "${ModID}:Strike": {
     "NAME": "打擊",
-    "DESCRIPTION": "造成 !D! 點傷害。 NL 獲得 !${ModID}:a! 點 ${ModID}:狂氣 。"
+    "DESCRIPTION": "造成 !D! 點傷害。 NL 獲得 !${ModID}:A! 點 ${ModID}:狂氣 。"
   },
   "${ModID}:Defend": {
     "NAME": "防禦",
-    "DESCRIPTION": "獲得 !B! 點 格擋 。 NL 獲得 !${ModID}:a! 點 ${ModID}:狂氣 。"
+    "DESCRIPTION": "獲得 !B! 點 格擋 。 NL 獲得 !${ModID}:A! 點 ${ModID}:狂氣 。"
   },
   "${ModID}:FirstDoctrine": {
     "NAME": "第一哲學",
-    "DESCRIPTION": "打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:m2! 次。 NL ${ModID}:保留 ",
-    "UPGRADE_DESCRIPTION": "打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:m2! 次。 NL 固有 \u3000 ${ModID}:保留"
+    "DESCRIPTION": "打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:M2! 次。 NL ${ModID}:保留 ",
+    "UPGRADE_DESCRIPTION": "打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:M2! 次。 NL 固有 \u3000 ${ModID}:保留"
   },
   "${ModID}:AssaultThesis": {
     "NAME": "攻勢推演",
-    "DESCRIPTION": "使所有敵人 ${ModID}:臨時 降低 !M! 點 力量 。抽 !${ModID}:dr! 張牌。抽到的牌每有 1 點 [E] 消耗，獲得 35 點 ${ModID}:銀鑰能量 。"
+    "DESCRIPTION": "使所有敵人 ${ModID}:臨時 降低 !M! 點 力量 。抽 !${ModID}:DR! 張牌。抽到的牌每有 1 點 [E] 消耗，獲得 35 點 ${ModID}:銀鑰能量 。"
   },
   "${ModID}:QueensSword": {
     "NAME": "女王之劍",
-    "DESCRIPTION": "造成 !D! 點傷害 !${ModID}:m2! 次，每次造成傷害後獲得 1 點 ${ModID}:臨時 力量 。打出後使 「女王之劍」 傷害次數 + 1 ，最多提高為 6 次。 ${ModID}:餘波 ：獲得和打出相等的 ${ModID}:銀鑰能量 。"
+    "DESCRIPTION": "造成 !D! 點傷害 !${ModID}:M2! 次，每次造成傷害後獲得 1 點 ${ModID}:臨時 力量 。打出後使 「女王之劍」 傷害次數 + 1 ，最多提高為 6 次。 ${ModID}:餘波 ：獲得和打出相等的 ${ModID}:銀鑰能量 。"
   },
   "${ModID}:FleshDetached": {
     "NAME": "靈肉兩分",
@@ -27,25 +27,25 @@
   },
   "${ModID}:OuterSurgery": {
     "NAME": "域外手術",
-    "DESCRIPTION": "回復 !${ModID}:h! 點生命。對所有敵人造成 !M! 層 虛弱 。"
+    "DESCRIPTION": "回復 !${ModID}:H! 點生命。對所有敵人造成 !M! 層 虛弱 。"
   },
   "${ModID}:EquivalentExchange": {
     "NAME": "等價交換",
-    "DESCRIPTION": "回復 !${ModID}:h! 點生命。棄掉所有手牌，每棄 1 張手牌額外回復 !M! 點生命並獲得等量 格擋 。",
-    "UPGRADE_DESCRIPTION": "回復 !${ModID}:h! 點生命。棄掉所有手牌，每棄 1 張手牌額外回復 !M! 點生命並獲得等量 格擋 。 NL ${ModID}:保留 ",
+    "DESCRIPTION": "回復 !${ModID}:H! 點生命。棄掉所有手牌，每棄 1 張手牌額外回復 !M! 點生命並獲得等量 格擋 。",
+    "UPGRADE_DESCRIPTION": "回復 !${ModID}:H! 點生命。棄掉所有手牌，每棄 1 張手牌額外回復 !M! 點生命並獲得等量 格擋 。 NL ${ModID}:保留 ",
     "EXTENDED_DESCRIPTION": [
-      "回復 !${ModID}:h! 點生命並獲得 !B! 點 格擋 。棄掉所有手牌。",
-      "回復 !${ModID}:h! 點生命並獲得 !B! 點 格擋 。棄掉所有手牌。 NL ${ModID}:保留 "
+      "回復 !${ModID}:H! 點生命並獲得 !B! 點 格擋 。棄掉所有手牌。",
+      "回復 !${ModID}:H! 點生命並獲得 !B! 點 格擋 。棄掉所有手牌。 NL ${ModID}:保留 "
     ]
   },
   "${ModID}:BattleThirst": {
     "NAME": "戰欲難平",
-    "DESCRIPTION": " ${ModID}:指令卡 的傷害次數提高 !${ModID}:ac! 次。 NL ${ModID}:保留 ",
-    "UPGRADE_DESCRIPTION": "${ModID}:指令卡 的傷害次數提高 !${ModID}:ac! 次。 NL 固有 \u3000 ${ModID}:保留 "
+    "DESCRIPTION": " ${ModID}:指令卡 的傷害次數提高 !${ModID}:AC! 次。 NL ${ModID}:保留 ",
+    "UPGRADE_DESCRIPTION": "${ModID}:指令卡 的傷害次數提高 !${ModID}:AC! 次。 NL 固有 \u3000 ${ModID}:保留 "
   },
   "${ModID}:BladeOfDefiance": {
     "NAME": "桀驁之刃",
-    "DESCRIPTION": "對隨機1名敵人造成 !D! 點傷害，重複 !${ModID}:ac! 次。在本回合中每打出一張「 打擊 」， [E] 消耗減少 1 點。 NL 視為「 打擊 」"
+    "DESCRIPTION": "對隨機1名敵人造成 !D! 點傷害，重複 !${ModID}:AC! 次。在本回合中每打出一張「 打擊 」， [E] 消耗減少 1 點。 NL 視為「 打擊 」"
   },
   "${ModID}:TidesOfHubris": {
     "NAME": "恣睢之浪",
@@ -53,15 +53,16 @@
   },
   "${ModID}:KnightsZeal": {
     "NAME": "騎士熱誠",
-    "DESCRIPTION": "獲得 !M! 點 力量 ，打出 ${ModID}:指令卡 後，獲得 !${ModID}:m2! 點 力量 。"
+    "DESCRIPTION": "獲得 !M! 點 力量 ，每打出 !${ModID}:M3! 張 ${ModID}:指令卡 後，獲得 !${ModID}:M2! 點 力量 。 NL ${ModID}:保留 ",
+    "UPGRADE_DESCRIPTION": "獲得 !M! 點 力量 ，每打出 !${ModID}:M3! 張 ${ModID}:指令卡 後，獲得 !${ModID}:M2! 點 力量 。 NL 固有 \u3000 ${ModID}:保留 "
   },
   "${ModID}:UnstableBarrier": {
     "NAME": "不定壁壘",
-    "DESCRIPTION": "獲得 !B! 點 格擋 X + 1 次。每消耗 1 點 [E] ，獲得 !${ModID}:a! 點 ${ModID}:狂氣。獲得 !M! 點 力量 。"
+    "DESCRIPTION": "獲得 !B! 點 格擋 X + 1 次。每消耗 1 點 [E] ，獲得 !${ModID}:A! 點 ${ModID}:狂氣。獲得 !M! 點 力量 。"
   },
   "${ModID}:PiercingStrike": {
     "NAME": "穿刺之槍",
-    "DESCRIPTION": "造成 !D! 點 ${ModID}:穿刺傷害 ，施加 !M! 回合 易傷 ，享受 !${ModID}:m2! 倍 力量 加成。"
+    "DESCRIPTION": "造成 !D! 點 ${ModID}:穿刺傷害 ，施加 !M! 回合 易傷 ，享受 !${ModID}:M2! 倍 力量 加成。"
   },
   "${ModID}:DuskAndDawn": {
     "NAME": "黃昏與破曉",
@@ -165,12 +166,12 @@
   },
   "${ModID}:Insight": {
     "NAME": "靈感",
-    "DESCRIPTION": "獲得 [E] ，抽 !${ModID}:m2! 張牌。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "獲得 [E] [E] ，抽 !${ModID}:m2! 張牌。 NL 消耗 "
+    "DESCRIPTION": "獲得 [E] ，抽 !${ModID}:M2! 張牌。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "獲得 [E] [E] ，抽 !${ModID}:M2! 張牌。 NL 消耗 "
   },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",
-    "DESCRIPTION": "At the start of your turn, gain !M! Strength and !${ModID}:m2! Dexterity."
+    "DESCRIPTION": "At the start of your turn, gain !M! Strength and !${ModID}:M2! Dexterity."
   },
   "${ModID}:InlinePowerDemo": {
     "NAME": "Inline Power",
@@ -195,7 +196,7 @@
   },
   "${ModID}:EasyModalChoiceDemo": {
     "NAME": "Easy Modal Choice",
-    "DESCRIPTION": "Choose one: Draw !M! cards or gain !${ModID}:m2! Strength.",
+    "DESCRIPTION": "Choose one: Draw !M! cards or gain !${ModID}:M2! Strength.",
     "EXTENDED_DESCRIPTION": [
       "Draw",
       "Draw ",

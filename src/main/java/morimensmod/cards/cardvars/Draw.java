@@ -10,7 +10,7 @@ public class Draw extends AbstractEasyDynamicVariable {
 
     @Override
     public String key() {
-        return makeID("dr");
+        return makeID("DR");
     }
 
     @Override
