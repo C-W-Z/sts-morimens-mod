@@ -20,12 +20,14 @@ public class Strike extends AbstractEasyCard {
         tags.add(CardTags.STRIKE);
         tags.add(CardTags.STARTER_STRIKE);
         baseDamage = 6;
+        baseAttackCount = 1;
         baseAliemusNumber = 5;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new AliemusChangeAction(p, aliemusNumber));
-        dmg(m, AbstractGameAction.AttackEffect.NONE);
+        for (int i = 0; i < attackCount; i++)
+            dmg(m, AbstractGameAction.AttackEffect.NONE);
     }
 
     @Override

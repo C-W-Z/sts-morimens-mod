@@ -23,31 +23,33 @@ import morimensmod.patches.CustomTags;
 public class QueensSword extends AbstractEasyCard {
     public static final String ID = makeID("QueensSword");
 
-    private static final int MAX_ATK_TIMES = 6;
-    public static final int INIT_ATK_TIMES = 3;
+    private static final int MAX_EXTRA_ATKCOUNT = 3;
+    public static final int INIT_EXTRA_ATKCOUNT = 0;
 
-    public static int attackTimesThisCombat = INIT_ATK_TIMES;
+    public static int extraAtkCountThisCombat = INIT_EXTRA_ATKCOUNT;
 
     /* see Main Mod File */
     /**
      * @Override
      * public void receiveOnBattleStart() {
-     * QueensSword.attackTimesThisCombat = INIT_ATK_TIMES; // 每場戰鬥重新設定為3
+     * QueensSword.extraAtkCountThisCombat = INIT_EXTRA_ATKCOUNT; // 每場戰鬥重設
      * }
      */
 
     public QueensSword() {
         super(ID, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
-        this.baseDamage = 3;
-        this.magicNumber = this.baseMagicNumber = attackTimesThisCombat;
+        baseDamage = 3;
+        baseAttackCount = 3;
+        baseMagicNumber = extraAtkCountThisCombat;
+        baseSecondMagic = baseAttackCount + baseMagicNumber; // only for display
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         // addToBot(new QueensSwordAction(m, this.damage, attackTimesThisCombat, damageTypeForTurn));
 
-        for (int i = 0; i < magicNumber; i++) {
+        for (int i = 0; i < attackCount + magicNumber; i++) {
             addToBot(new QueensSwordAction(m, damage, damageTypeForTurn, AttackEffect.SMASH));
             // 每次造成傷害
             // dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
@@ -56,68 +58,55 @@ public class QueensSword extends AbstractEasyCard {
             // addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, 1), 1));
         }
 
-        // 打出後將 hits 次數 +1（最多 6）
-        if (attackTimesThisCombat < MAX_ATK_TIMES) {
-            attackTimesThisCombat++;
+        // 打出後將額外攻擊次數 +1（最多 3）
+        if (extraAtkCountThisCombat < MAX_EXTRA_ATKCOUNT) {
+            extraAtkCountThisCombat++;
             updateAllAttackTimes();
         }
     }
 
     @Override
     public void applyPowers() {
-        this.magicNumber = this.baseMagicNumber = attackTimesThisCombat;
+        magicNumber = baseMagicNumber = extraAtkCountThisCombat;
+        secondMagic = baseSecondMagic = attackCount + extraAtkCountThisCombat;
         super.applyPowers();
     }
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
-        this.magicNumber = this.baseMagicNumber = attackTimesThisCombat;
+        magicNumber = baseMagicNumber = extraAtkCountThisCombat;
+        secondMagic = baseSecondMagic = attackCount + extraAtkCountThisCombat;
         super.calculateCardDamage(mo);
     }
 
     @Override
     public void upp() {
-        upgradeDamage(1); // 升級後每擊 +1 傷害（可調整）
-    }
-
-    @Override
-    public AbstractCard makeCopy() {
-        QueensSword copy = new QueensSword();
-        copy.magicNumber = copy.baseMagicNumber = attackTimesThisCombat;
-        return copy;
+        upgradeAttackCount(1); // 升級後攻擊次數+1
     }
 
     public static void updateAllAttackTimes() {
-        for (AbstractCard c : hand().group) {
-            if (c instanceof QueensSword) {
-                c.magicNumber = c.baseMagicNumber = QueensSword.attackTimesThisCombat;
-                c.initializeDescription();
-            }
-        }
-        for (AbstractCard c : drawPile().group) {
-            if (c instanceof QueensSword) {
-                c.magicNumber = c.baseMagicNumber = QueensSword.attackTimesThisCombat;
-                c.initializeDescription();
-            }
-        }
-        for (AbstractCard c : discardPile().group) {
-            if (c instanceof QueensSword) {
-                c.magicNumber = c.baseMagicNumber = QueensSword.attackTimesThisCombat;
-                c.initializeDescription();
-            }
-        }
+        for (AbstractCard c : hand().group)
+            if (c instanceof QueensSword)
+                updateExtraAtkCount(c);
+        for (AbstractCard c : drawPile().group)
+            if (c instanceof QueensSword)
+                updateExtraAtkCount(c);
+        for (AbstractCard c : discardPile().group)
+            if (c instanceof QueensSword)
+                updateExtraAtkCount(c);
         // 可選：更新手牌以外的 zones（如 exhaustPile、limbo 等）
-        for (AbstractCard c : exhaustPile().group) {
-            if (c instanceof QueensSword) {
-                c.magicNumber = c.baseMagicNumber = QueensSword.attackTimesThisCombat;
-                c.initializeDescription();
-            }
-        }
-        for (AbstractCard c : limbo().group) {
-            if (c instanceof QueensSword) {
-                c.magicNumber = c.baseMagicNumber = QueensSword.attackTimesThisCombat;
-                c.initializeDescription();
-            }
-        }
+        for (AbstractCard c : exhaustPile().group)
+            if (c instanceof QueensSword)
+                updateExtraAtkCount(c);
+        for (AbstractCard c : limbo().group)
+            if (c instanceof QueensSword)
+                updateExtraAtkCount(c);
+    }
+
+    private static void updateExtraAtkCount(AbstractCard c) {
+        AbstractEasyCard card = (AbstractEasyCard) c;
+        card.magicNumber = card.baseMagicNumber = extraAtkCountThisCombat;
+        card.secondMagic = card.baseSecondMagic = card.attackCount + extraAtkCountThisCombat;
+        card.initializeDescription();
     }
 }

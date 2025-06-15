@@ -40,6 +40,11 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     public boolean upgradedSecondDamage;
     public boolean isSecondDamageModified;
 
+    public int attackCount;
+    public int baseAttackCount;
+    public boolean upgradedAttackCount;
+    public boolean isAttackCountModified;
+
     public int aliemusNumber;
     public int baseAliemusNumber;
     public boolean upgradedAliemusNumber;
@@ -140,6 +145,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         isSecondMagicModified = false;
         secondDamage = baseSecondDamage;
         isSecondDamageModified = false;
+        attackCount = baseAttackCount;
+        isAttackCountModified = false;
         aliemusNumber = baseAliemusNumber;
         isAliemusNumberModified = false;
     }
@@ -153,6 +160,10 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         if (upgradedSecondDamage) {
             secondDamage = baseSecondDamage;
             isSecondDamageModified = true;
+        }
+        if (upgradedAttackCount) {
+            attackCount = baseAttackCount;
+            isAttackCountModified = true;
         }
         if (upgradedAliemusNumber) {
             aliemusNumber = baseAliemusNumber;
@@ -170,6 +181,12 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         baseSecondDamage += amount;
         secondDamage = baseSecondDamage;
         upgradedSecondDamage = true;
+    }
+
+    protected void upgradeAttackCount(int amount) {
+        baseAttackCount += amount;
+        attackCount = baseAttackCount;
+        upgradedAttackCount = true;
     }
 
     protected void upgradeAliemusNumber(int amount) {
@@ -206,6 +223,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         if (result instanceof AbstractEasyCard) {
             AbstractEasyCard c = (AbstractEasyCard) result;
             c.baseSecondDamage = c.secondDamage = baseSecondDamage;
+            c.baseAttackCount = c.attackCount = baseAttackCount;
             c.baseSecondMagic = c.secondMagic = baseSecondMagic;
             c.baseAliemusNumber = c.aliemusNumber = baseAliemusNumber;
         }

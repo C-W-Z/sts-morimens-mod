@@ -270,7 +270,7 @@ public class MorimensMod implements
 
     @Override
     public void receiveOnBattleStart(AbstractRoom arg0) {
-        QueensSword.attackTimesThisCombat = QueensSword.INIT_ATK_TIMES; // 每場戰鬥重設
+        QueensSword.extraAtkCountThisCombat = QueensSword.INIT_EXTRA_ATKCOUNT; // 每場戰鬥重設
     }
 
     @Override
