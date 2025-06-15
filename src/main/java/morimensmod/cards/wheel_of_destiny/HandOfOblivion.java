@@ -19,7 +19,7 @@ public class HandOfOblivion extends AbstractEasyCard {
     public HandOfOblivion() {
         super(ID, 2, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF, WHEEL_OF_DESTINY_COLOR);
         tags.add(CustomTags.WHEEL_OF_DESTINY);
-        baseMagicNumber = magicNumber = 40; // 打擊增傷%數
+        magicNumber = baseMagicNumber = 40; // 打擊增傷%數
         cardsToPreview = new Strike(); // Preview a Strike when hovering over this card.
     }
 

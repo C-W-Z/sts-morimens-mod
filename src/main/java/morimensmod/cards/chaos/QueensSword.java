@@ -39,9 +39,9 @@ public class QueensSword extends AbstractEasyCard {
     public QueensSword() {
         super(ID, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
-        baseDamage = 3;
-        baseAttackCount = 3;
-        baseMagicNumber = extraAtkCountThisCombat;
+        damage = baseDamage = 3;
+        attackCount = baseAttackCount = 3;
+        magicNumber = baseMagicNumber = extraAtkCountThisCombat;
         baseSecondMagic = baseAttackCount + baseMagicNumber; // only for display
     }
 
@@ -50,7 +50,7 @@ public class QueensSword extends AbstractEasyCard {
         // addToBot(new QueensSwordAction(m, this.damage, attackTimesThisCombat, damageTypeForTurn));
 
         for (int i = 0; i < attackCount + magicNumber; i++) {
-            addToBot(new QueensSwordAction(m, damage, damageTypeForTurn, AttackEffect.SMASH));
+            addToBot(new QueensSwordAction(m, damage, damageTypeForTurn, AttackEffect.SLASH_HEAVY));
             // 每次造成傷害
             // dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
             // 每次造成傷害後獲得1力量（本回合）

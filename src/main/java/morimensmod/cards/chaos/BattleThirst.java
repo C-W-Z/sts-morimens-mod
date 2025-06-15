@@ -5,26 +5,25 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.patches.CustomTags;
-import morimensmod.powers.FirstDoctrinePower;
+import morimensmod.powers.BattleThirstPower;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 
-public class FirstDoctrine extends AbstractEasyCard {
-    public final static String ID = makeID(FirstDoctrine.class.getSimpleName());
+public class BattleThirst extends AbstractEasyCard {
+    public final static String ID = makeID(BattleThirst.class.getSimpleName());
 
-    public FirstDoctrine() {
-        super(ID, 3, CardType.POWER, CardRarity.UNCOMMON, CardTarget.NONE, CHAOS_COLOR);
+    public BattleThirst() {
+        super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.NONE, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
-        magicNumber = baseMagicNumber = 1; // 每次獲得的能量
-        secondMagic = baseSecondMagic = 3; // 每回合最大觸發次數
+        magicNumber = baseMagicNumber = 1; // 攻擊次數 + 1
         selfRetain = true; // 保留
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new FirstDoctrinePower(p, secondMagic));
+        applyToSelf(new BattleThirstPower(p, magicNumber));
     }
 
     @Override

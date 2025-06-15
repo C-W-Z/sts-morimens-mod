@@ -16,6 +16,13 @@
       " 次。"
     ]
   },
+  "${ModID}:BattleThirstPower": {
+    "NAME": "戰欲難平",
+    "DESCRIPTIONS": [
+      "指令卡的傷害次數提高 #b",
+      " 次。"
+    ]
+  },
   "${ModID}:RewindingTimePower": {
     "NAME": "溯洄時計",
     "DESCRIPTIONS": [

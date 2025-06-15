@@ -20,8 +20,8 @@ public class AssaultThesis extends AbstractEasyCard {
     public AssaultThesis() {
         super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
-        this.magicNumber = this.baseMagicNumber = 6; // 降低臨時力量
-        this.secondMagic = this.baseSecondMagic = 1; // 抽牌數
+        magicNumber = baseMagicNumber = 6; // 降低臨時力量
+        secondMagic = baseSecondMagic = 1; // 抽牌數
     }
 
     @Override

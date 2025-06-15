@@ -17,7 +17,7 @@ public class RewindingTime extends AbstractEasyCard {
     public RewindingTime() {
         super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF, WHEEL_OF_DESTINY_COLOR);
         tags.add(CustomTags.WHEEL_OF_DESTINY);
-        baseMagicNumber = magicNumber = 1; // 每回合最大觸發次數
+        magicNumber = baseMagicNumber = 1; // 每回合最大觸發次數
     }
 
     @Override

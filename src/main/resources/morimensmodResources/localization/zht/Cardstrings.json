@@ -17,7 +17,11 @@
   },
   "${ModID}:FirstDoctrine": {
     "NAME": "第一哲學",
-    "DESCRIPTION": "打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:m2! 次。"
+    "DESCRIPTION": "打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:m2! 次。 NL ${ModID}:保留 "
+  },
+  "${ModID}:BattleThirst": {
+    "NAME": "戰欲難平",
+    "DESCRIPTION": "指令卡的傷害次數提高 !M! 次。 NL ${ModID}:保留 "
   },
   "${ModID}:RewindingTime": {
     "NAME": "溯洄時計",

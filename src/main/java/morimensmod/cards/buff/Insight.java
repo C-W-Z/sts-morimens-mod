@@ -17,9 +17,9 @@ public class Insight extends AbstractEasyCard {
     public Insight() {
         super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE, BUFF_COLOR);
         tags.add(CustomTags.BUFF);
-        this.magicNumber = this.baseMagicNumber = 1; // 獲得能量
-        this.secondMagic = this.baseSecondMagic = 1; // 抽牌數
-        this.exhaust = true;
+        magicNumber = baseMagicNumber = 1; // 獲得能量
+        secondMagic = baseSecondMagic = 1; // 抽牌數
+        exhaust = true;
     }
 
     @Override

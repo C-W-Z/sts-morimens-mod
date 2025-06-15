@@ -19,9 +19,9 @@ public class Strike extends AbstractEasyCard {
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STRIKE);
         tags.add(CardTags.STARTER_STRIKE);
-        baseDamage = 6;
-        baseAttackCount = 1;
-        baseAliemusNumber = 5;
+        damage = baseDamage = 6;
+        attackCount = baseAttackCount = 1;
+        aliemusNumber = baseAliemusNumber = 5;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

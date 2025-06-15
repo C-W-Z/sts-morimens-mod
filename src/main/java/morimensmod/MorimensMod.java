@@ -11,6 +11,7 @@ import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.buff.Insight;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.chaos.AssaultThesis;
+import morimensmod.cards.chaos.BattleThirst;
 import morimensmod.cards.chaos.Defend;
 import morimensmod.cards.chaos.FirstDoctrine;
 import morimensmod.cards.chaos.QueensSword;
@@ -257,6 +258,7 @@ public class MorimensMod implements
                 AssaultThesis.ID,
                 QueensSword.ID,
                 FirstDoctrine.ID,
+                BattleThirst.ID,
                 RewindingTime.ID,
                 HandOfOblivion.ID,
                 Insight.ID

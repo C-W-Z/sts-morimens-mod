@@ -18,8 +18,8 @@ public class Defend extends AbstractEasyCard {
         super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STARTER_DEFEND);
-        baseBlock = 5;
-        baseAliemusNumber = 5;
+        block = baseBlock = 5;
+        aliemusNumber = baseAliemusNumber = 5;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
