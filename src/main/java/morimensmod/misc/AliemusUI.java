@@ -3,6 +3,7 @@ package morimensmod.misc;
 import basemod.ClickableUIElement;
 import morimensmod.actions.AliemusExhaustAction;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.interfaces.OnAfterExalt;
 import morimensmod.interfaces.OnBeforeExalt;
 import morimensmod.interfaces.OnBeforeExaltTipRender;
 import morimensmod.interfaces.OnBeforeUseCard;
@@ -148,6 +149,18 @@ public class AliemusUI extends ClickableUIElement {
             awaker.exalt.exalt();
 
         atb(new AliemusExhaustAction(awaker, AbstractAwakener.aliemus >= AbstractAwakener.extremeAlimus));
+
+        // 呼叫所有 Power 的 hook
+        for (AbstractPower p : awaker.powers)
+            if (p instanceof OnAfterExalt)
+                ((OnAfterExalt) p).onAfterExalt(awaker);
+        // 呼叫所有遺物的 hook
+        for (AbstractRelic r : awaker.relics)
+            if (r instanceof OnAfterExalt)
+                ((OnAfterExalt) r).onAfterExalt(awaker);
+        // 呼叫姿態（Stance）的 hook
+        if (awaker.stance instanceof OnAfterExalt)
+            ((OnAfterExalt) awaker.stance).onAfterExalt(awaker);
     }
 
     @Override

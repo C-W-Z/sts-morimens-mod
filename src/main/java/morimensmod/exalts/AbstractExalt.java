@@ -1,11 +1,6 @@
 package morimensmod.exalts;
 
-import com.megacrit.cardcrawl.localization.UIStrings;
-
 public abstract class AbstractExalt {
-
-    protected UIStrings UI_STRINGS;
-
     public int damage;
     public int baseDamage;
 

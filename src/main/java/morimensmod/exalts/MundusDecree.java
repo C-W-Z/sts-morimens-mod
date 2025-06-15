@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
@@ -23,10 +24,7 @@ import morimensmod.cards.buff.Insight;
 public class MundusDecree extends AbstractExalt {
 
     public static final String ID = makeID(MundusDecree.class.getSimpleName());
-
-    public MundusDecree() {
-        UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID);
-    }
+    private static final UIStrings UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID);
 
     @Override
     public void exalt() {
