@@ -30,7 +30,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     // percent
     public static int baseDamageAmplify;
-    public static int baseAliemusNumberAmplify = 0;
+    public static int baseAliemusNumberAmplify;
+    public static int baseHealAmplify;
+    public static int basePoisonAmplify;
 
     public static final int ENERGY_PER_TURN = 5;
 

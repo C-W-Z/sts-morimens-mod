@@ -5,7 +5,6 @@ import me.antileaf.signature.card.AbstractSignatureCard;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -40,6 +39,11 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     public int baseAttackCount;
     public boolean upgradedAttackCount;
     public boolean isAttackCountModified;
+
+    // public int heal;
+    // public int baseHeal;
+    public boolean upgradedHeal;
+    public boolean isHealModified;
 
     public int aliemusNumber;
     public int baseAliemusNumber;
@@ -115,7 +119,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     }
 
     private void applyedBaseDamageAmplifies() {
-        float multiply = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
+        int multiply = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
         if (this.hasTag(CardTags.STRIKE))
             multiply += baseStrikeDamageAmplify;
 
@@ -123,26 +127,27 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
             AbstractCard tmp = CardLibrary.getCard(cardID).makeCopy();
             for (int i = 0; i < timesUpgraded; ++i)
                 tmp.upgrade();
-            baseDamage = MathUtils.ceil(tmp.baseDamage * multiply / 100F);
+            baseDamage = tmp.baseDamage * multiply / 100;
         } else
-            baseDamage = MathUtils.ceil(CardLibrary.getCard(cardID).baseDamage * multiply / 100F);
+            baseDamage = CardLibrary.getCard(cardID).baseDamage * multiply / 100;
     }
 
     private void applyedBaseAliemusNumberAmplifies() {
-        float multiply = 100 + baseAliemusNumberAmplify + AbstractAwakener.baseAliemusNumberAmplify;
+        int multiply = 100 + baseAliemusNumberAmplify + AbstractAwakener.baseAliemusNumberAmplify;
 
         if (upgradedAliemusNumber) {
             AbstractEasyCard tmp = (AbstractEasyCard) CardLibrary.getCard(cardID).makeCopy();
             for (int i = 0; i < timesUpgraded; ++i)
                 tmp.upgrade();
-            baseAliemusNumber = MathUtils.ceil(tmp.baseAliemusNumber * multiply / 100F);
+            baseAliemusNumber = tmp.baseAliemusNumber * multiply / 100;
         } else
-            baseAliemusNumber = MathUtils
-                    .ceil(((AbstractEasyCard) CardLibrary.getCard(cardID)).baseAliemusNumber * multiply / 100F);
+            baseAliemusNumber = ((AbstractEasyCard) CardLibrary.getCard(cardID)).baseAliemusNumber * multiply / 100;
     }
 
     public void resetAttributes() {
         super.resetAttributes();
+        heal = baseHeal;
+        isHealModified = false;
         secondMagic = baseSecondMagic;
         isSecondMagicModified = false;
         attackCount = baseAttackCount;
@@ -153,6 +158,10 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     public void displayUpgrades() {
         super.displayUpgrades();
+        if (upgradedHeal) {
+            heal = baseHeal;
+            isHealModified = true;
+        }
         if (upgradedSecondMagic) {
             secondMagic = baseSecondMagic;
             isSecondMagicModified = true;
@@ -165,6 +174,12 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
             aliemusNumber = baseAliemusNumber;
             isAliemusNumberModified = true;
         }
+    }
+
+    protected void upgradeHeal(int amount) {
+        baseHeal += amount;
+        heal = baseHeal;
+        upgradedHeal = true;
     }
 
     protected void upgradeSecondMagic(int amount) {
@@ -212,6 +227,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         AbstractCard result = super.makeStatEquivalentCopy();
         if (result instanceof AbstractEasyCard) {
             AbstractEasyCard c = (AbstractEasyCard) result;
+            c.baseHeal = c.heal = baseHeal;
             c.baseAttackCount = c.attackCount = baseAttackCount;
             c.baseSecondMagic = c.secondMagic = baseSecondMagic;
             c.baseAliemusNumber = c.aliemusNumber = baseAliemusNumber;
