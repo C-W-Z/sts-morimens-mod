@@ -12,8 +12,9 @@ import morimensmod.characters.AbstractAwakener;
 public class TickSpriteSheetAnimPatch {
     @SpirePostfixPatch
     public static void Posfix(CardCrawlGame __instance) {
-        if (CardCrawlGame.dungeon != null && AbstractDungeon.player instanceof AbstractAwakener
+        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null
                 && !(AbstractDungeon.getCurrRoom() instanceof RestRoom)
+                && AbstractDungeon.player instanceof AbstractAwakener
                 && ((AbstractAwakener) AbstractDungeon.player).anim != null)
             ((AbstractAwakener) AbstractDungeon.player).anim.tick();
     }

@@ -21,7 +21,7 @@ import morimensmod.cards.AbstractEasyCard;
 import morimensmod.patches.CustomTags;
 
 public class QueensSword extends AbstractEasyCard {
-    public static final String ID = makeID("QueensSword");
+    public static final String ID = makeID(QueensSword.class.getSimpleName());
 
     private static final int MAX_EXTRA_ATKCOUNT = 3;
     public static final int INIT_EXTRA_ATKCOUNT = 0;

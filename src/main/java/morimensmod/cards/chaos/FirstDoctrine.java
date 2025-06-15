@@ -29,6 +29,6 @@ public class FirstDoctrine extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeBaseCost(2); // cost 3 -> 2
+        isInnate = true;
     }
 }

@@ -12,10 +12,12 @@ import morimensmod.cards.buff.Insight;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.chaos.AssaultThesis;
 import morimensmod.cards.chaos.BattleThirst;
+import morimensmod.cards.chaos.BladeOfDefiance;
 import morimensmod.cards.chaos.Defend;
 import morimensmod.cards.chaos.FirstDoctrine;
 import morimensmod.cards.chaos.QueensSword;
 import morimensmod.cards.chaos.Strike;
+import morimensmod.cards.chaos.TidesOfHubris;
 import morimensmod.cards.democards.simple.DrawAndShiv;
 import morimensmod.cards.wheel_of_destiny.HandOfOblivion;
 import morimensmod.cards.wheel_of_destiny.RewindingTime;
@@ -255,10 +257,12 @@ public class MorimensMod implements
         String[] list = {
                 Strike.ID,
                 Defend.ID,
+                FirstDoctrine.ID,
                 AssaultThesis.ID,
                 QueensSword.ID,
-                FirstDoctrine.ID,
                 BattleThirst.ID,
+                BladeOfDefiance.ID,
+                TidesOfHubris.ID,
                 RewindingTime.ID,
                 HandOfOblivion.ID,
                 Insight.ID

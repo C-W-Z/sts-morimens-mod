@@ -15,7 +15,7 @@ public class BattleThirst extends AbstractEasyCard {
     public final static String ID = makeID(BattleThirst.class.getSimpleName());
 
     public BattleThirst() {
-        super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.NONE, CHAOS_COLOR);
+        super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.NONE, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
         magicNumber = baseMagicNumber = 1; // 攻擊次數 + 1
         selfRetain = true; // 保留
@@ -28,6 +28,6 @@ public class BattleThirst extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeBaseCost(2); // cost 3 -> 2
+        isInnate = true;
     }
 }

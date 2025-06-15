@@ -11,7 +11,7 @@ import morimensmod.cards.AbstractEasyCard;
 import morimensmod.patches.CustomTags;
 
 public class Defend extends AbstractEasyCard {
-    public final static String ID = makeID("Defend");
+    public final static String ID = makeID(Defend.class.getSimpleName());
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public Defend() {

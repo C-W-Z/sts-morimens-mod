@@ -25,7 +25,7 @@ public class QueensSwordAction extends AbstractGameAction {
         this.target = target;
         this.damage = damage;
         this.damageType = damageType;
-        this.effect = effect;
+        this.attackEffect = effect;
 
         this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = ActionType.DAMAGE;

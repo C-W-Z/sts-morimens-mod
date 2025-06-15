@@ -7,6 +7,11 @@
     "NAME": "防禦",
     "DESCRIPTION": "獲得 !B! 點 格擋 。 NL 獲得 !${ModID}:a! 點 ${ModID}:狂氣 。"
   },
+  "${ModID}:FirstDoctrine": {
+    "NAME": "第一哲學",
+    "DESCRIPTION": "打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:m2! 次。 NL ${ModID}:保留 ",
+    "UPGRADE_DESCRIPTION": "打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:m2! 次。 NL 固有 \u3000 ${ModID}:保留"
+  },
   "${ModID}:AssaultThesis": {
     "NAME": "攻勢推演",
     "DESCRIPTION": "使所有敵人 ${ModID}:臨時 降低 !M! 點 力量 。抽 !${ModID}:m2! 張牌。抽到的牌每有 1 點 [E] 消耗，獲得 35 點 ${ModID}:銀鑰能量 。"
@@ -15,13 +20,18 @@
     "NAME": "女王之劍",
     "DESCRIPTION": "造成 !D! 點傷害 !${ModID}:m2! 次，每次造成傷害後獲得 1 點 ${ModID}:臨時 力量 。打出後使 「女王之劍」 傷害次數 + 1 ，最多提高為 6 次。 ${ModID}:餘波 ：獲得和打出相等的 ${ModID}:銀鑰能量 。"
   },
-  "${ModID}:FirstDoctrine": {
-    "NAME": "第一哲學",
-    "DESCRIPTION": "打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:m2! 次。 NL ${ModID}:保留 "
-  },
   "${ModID}:BattleThirst": {
     "NAME": "戰欲難平",
-    "DESCRIPTION": "指令卡的傷害次數提高 !M! 次。 NL ${ModID}:保留 "
+    "DESCRIPTION": " ${ModID}:指令卡 的傷害次數提高 !M! 次。 NL ${ModID}:保留 ",
+    "UPGRADE_DESCRIPTION": "${ModID}:指令卡 的傷害次數提高 !M! 次。 NL 固有 \u3000 ${ModID}:保留 "
+  },
+  "${ModID}:BladeOfDefiance": {
+    "NAME": "桀驁之刃",
+    "DESCRIPTION": "對隨機1名敵人造成 !D! 點傷害，重複 !${ModID}:ac! 次。在本回合中每打出一張「 打擊 」， [E] 消耗減少 1 點。 NL 視為「 打擊 」"
+  },
+  "${ModID}:TidesOfHubris": {
+    "NAME": "恣睢之浪",
+    "DESCRIPTION": "對所有敵人造成 !D! 點傷害，獲得 !M! 點 力量 。 NL 視為「 打擊 」"
   },
   "${ModID}:RewindingTime": {
     "NAME": "溯洄時計",
