@@ -30,8 +30,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     // percent
     public static int baseDamageAmplify;
-    public static int baseAliemusNumberAmplify;
+    public static int baseBlockAmplify;
     public static int baseHealAmplify;
+    public static int baseAliemusAmplify;
     public static int basePoisonAmplify;
 
     public static final int ENERGY_PER_TURN = 5;
@@ -109,7 +110,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
     // called in Main Mod File
     public static void onBattleStart() {
         baseDamageAmplify = 0;
-        baseAliemusNumberAmplify = 0;
+        baseAliemusAmplify = 0;
     }
 
     // called in Main Mod File

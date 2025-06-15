@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 
 import morimensmod.cards.AbstractEasyCard;
 
-public class AliemusNumber extends AbstractEasyDynamicVariable {
+public class Aliemus extends AbstractEasyDynamicVariable {
 
     @Override
     public String key() {
@@ -16,7 +16,7 @@ public class AliemusNumber extends AbstractEasyDynamicVariable {
     @Override
     public boolean isModified(AbstractCard card) {
         if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).isAliemusNumberModified;
+            return ((AbstractEasyCard) card).isAliemusModified;
         }
         return false;
     }
@@ -24,21 +24,21 @@ public class AliemusNumber extends AbstractEasyDynamicVariable {
     @Override
     public int value(AbstractCard card) {
         if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).aliemusNumber;
+            return ((AbstractEasyCard) card).aliemus;
         }
         return -1;
     }
 
     public void setIsModified(AbstractCard card, boolean v) {
         if (card instanceof AbstractEasyCard) {
-            ((AbstractEasyCard) card).isAliemusNumberModified = v;
+            ((AbstractEasyCard) card).isAliemusModified = v;
         }
     }
 
     @Override
     public int baseValue(AbstractCard card) {
         if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).baseAliemusNumber;
+            return ((AbstractEasyCard) card).baseAliemus;
         }
         return -1;
     }
@@ -46,7 +46,7 @@ public class AliemusNumber extends AbstractEasyDynamicVariable {
     @Override
     public boolean upgraded(AbstractCard card) {
         if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).upgradedAliemusNumber;
+            return ((AbstractEasyCard) card).upgradedAliemus;
         }
         return false;
     }

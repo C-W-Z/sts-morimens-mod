@@ -21,11 +21,11 @@ public class Strike extends AbstractEasyCard {
         tags.add(CardTags.STARTER_STRIKE);
         damage = baseDamage = 6;
         attackCount = baseAttackCount = 1;
-        aliemusNumber = baseAliemusNumber = 5;
+        aliemus = baseAliemus = 5;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AliemusChangeAction(p, aliemusNumber));
+        addToBot(new AliemusChangeAction(p, aliemus));
         for (int i = 0; i < attackCount; i++)
             dmg(m, AbstractGameAction.AttackEffect.NONE);
     }
@@ -33,6 +33,6 @@ public class Strike extends AbstractEasyCard {
     @Override
     public void upp() {
         upgradeDamage(3);
-        upgradeAliemusNumber(5);
+        upgradeAliemus(5);
     }
 }

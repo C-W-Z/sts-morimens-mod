@@ -50,15 +50,17 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     public boolean upgradedDraw;
     public boolean isDrawModified;
 
-    public int aliemusNumber;
-    public int baseAliemusNumber;
-    public boolean upgradedAliemusNumber;
-    public boolean isAliemusNumberModified;
+    public int aliemus;
+    public int baseAliemus;
+    public boolean upgradedAliemus;
+    public boolean isAliemusModified;
 
     // percent
     public static int baseDamageAmplify;
     public static int baseStrikeDamageAmplify;
-    public static int baseAliemusNumberAmplify;
+    public static int baseBlockAmplify;
+    public static int baseHealAmplify;
+    public static int baseAliemusAmplify;
 
     private boolean needsArtRefresh = false;
 
@@ -112,8 +114,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     @Override
     public void applyPowers() {
-        applyedBaseDamageAmplifies();
-        applyedBaseAliemusNumberAmplifies();
+        applyedBaseAmplifies();
         super.applyPowers();
     }
 
@@ -124,29 +125,39 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     }
 
     private void applyedBaseDamageAmplifies() {
-        int multiply = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
+        int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
         if (this.hasTag(CardTags.STRIKE))
-            multiply += baseStrikeDamageAmplify;
+            damageAmplify += baseStrikeDamageAmplify;
+        if (damageAmplify == 100)
+            return;
 
+        AbstractCard tmp = CardLibrary.getCard(cardID);
         if (upgradedDamage) {
-            AbstractCard tmp = CardLibrary.getCard(cardID).makeCopy();
+            tmp = tmp.makeCopy();
             for (int i = 0; i < timesUpgraded; ++i)
                 tmp.upgrade();
-            baseDamage = tmp.baseDamage * multiply / 100;
-        } else
-            baseDamage = CardLibrary.getCard(cardID).baseDamage * multiply / 100;
+        }
+        baseDamage = tmp.baseDamage * damageAmplify / 100;
     }
 
-    private void applyedBaseAliemusNumberAmplifies() {
-        int multiply = 100 + baseAliemusNumberAmplify + AbstractAwakener.baseAliemusNumberAmplify;
+    private void applyedBaseAmplifies() {
+        int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
+        if (this.hasTag(CardTags.STRIKE))
+            damageAmplify += baseStrikeDamageAmplify;
+        int blockAmplify = 100 + baseBlockAmplify + AbstractAwakener.baseBlockAmplify;
+        int healAmplify = 100 + baseHealAmplify + AbstractAwakener.baseHealAmplify;
+        int aliemusAmplify = 100 + baseAliemusAmplify + AbstractAwakener.baseAliemusAmplify;
 
-        if (upgradedAliemusNumber) {
-            AbstractEasyCard tmp = (AbstractEasyCard) CardLibrary.getCard(cardID).makeCopy();
+        AbstractEasyCard tmp = (AbstractEasyCard) CardLibrary.getCard(cardID);
+        if (upgraded) {
+            tmp = (AbstractEasyCard) tmp.makeCopy();
             for (int i = 0; i < timesUpgraded; ++i)
                 tmp.upgrade();
-            baseAliemusNumber = tmp.baseAliemusNumber * multiply / 100;
-        } else
-            baseAliemusNumber = ((AbstractEasyCard) CardLibrary.getCard(cardID)).baseAliemusNumber * multiply / 100;
+        }
+        baseDamage = tmp.baseDamage * damageAmplify / 100;
+        baseBlock = tmp.baseBlock * blockAmplify / 100;
+        baseHeal = tmp.baseHeal * healAmplify / 100;
+        baseAliemus = tmp.baseAliemus * aliemusAmplify / 100;
     }
 
     public void resetAttributes() {
@@ -159,8 +170,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         isSecondMagicModified = false;
         attackCount = baseAttackCount;
         isAttackCountModified = false;
-        aliemusNumber = baseAliemusNumber;
-        isAliemusNumberModified = false;
+        aliemus = baseAliemus;
+        isAliemusModified = false;
     }
 
     public void displayUpgrades() {
@@ -181,9 +192,9 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
             attackCount = baseAttackCount;
             isAttackCountModified = true;
         }
-        if (upgradedAliemusNumber) {
-            aliemusNumber = baseAliemusNumber;
-            isAliemusNumberModified = true;
+        if (upgradedAliemus) {
+            aliemus = baseAliemus;
+            isAliemusModified = true;
         }
     }
 
@@ -211,10 +222,10 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         upgradedAttackCount = true;
     }
 
-    protected void upgradeAliemusNumber(int amount) {
-        baseAliemusNumber += amount;
-        aliemusNumber = baseAliemusNumber;
-        upgradedAliemusNumber = true;
+    protected void upgradeAliemus(int amount) {
+        baseAliemus += amount;
+        aliemus = baseAliemus;
+        upgradedAliemus = true;
     }
 
     protected void uDesc() {
@@ -248,7 +259,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
             c.baseDraw = c.draw = baseDraw;
             c.baseAttackCount = c.attackCount = baseAttackCount;
             c.baseSecondMagic = c.secondMagic = baseSecondMagic;
-            c.baseAliemusNumber = c.aliemusNumber = baseAliemusNumber;
+            c.baseAliemus = c.aliemus = baseAliemus;
         }
         return result;
     }
@@ -325,6 +336,6 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     public static void onBattleStart() {
         baseDamageAmplify = 0;
         baseStrikeDamageAmplify = 0;
-        baseAliemusNumberAmplify = 0;
+        baseAliemusAmplify = 0;
     }
 }

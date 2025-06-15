@@ -19,17 +19,17 @@ public class Defend extends AbstractEasyCard {
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STARTER_DEFEND);
         block = baseBlock = 5;
-        aliemusNumber = baseAliemusNumber = 5;
+        aliemus = baseAliemus = 5;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AliemusChangeAction(p, aliemusNumber));
+        addToBot(new AliemusChangeAction(p, aliemus));
         blck();
     }
 
     @Override
     public void upp() {
         upgradeBlock(3);
-        upgradeAliemusNumber(5);
+        upgradeAliemus(5);
     }
 }
