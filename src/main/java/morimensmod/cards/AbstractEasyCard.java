@@ -45,6 +45,11 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     public boolean upgradedHeal;
     public boolean isHealModified;
 
+    // public int draw;
+    // public int baseDraw;
+    public boolean upgradedDraw;
+    public boolean isDrawModified;
+
     public int aliemusNumber;
     public int baseAliemusNumber;
     public boolean upgradedAliemusNumber;
@@ -148,6 +153,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         super.resetAttributes();
         heal = baseHeal;
         isHealModified = false;
+        draw = baseDraw;
+        isDrawModified = false;
         secondMagic = baseSecondMagic;
         isSecondMagicModified = false;
         attackCount = baseAttackCount;
@@ -161,6 +168,10 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         if (upgradedHeal) {
             heal = baseHeal;
             isHealModified = true;
+        }
+        if (upgradedDraw) {
+            draw = baseDraw;
+            isDrawModified = true;
         }
         if (upgradedSecondMagic) {
             secondMagic = baseSecondMagic;
@@ -180,6 +191,12 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         baseHeal += amount;
         heal = baseHeal;
         upgradedHeal = true;
+    }
+
+    protected void upgradeDraw(int amount) {
+        baseDraw += amount;
+        draw = baseDraw;
+        upgradedDraw = true;
     }
 
     protected void upgradeSecondMagic(int amount) {
@@ -228,6 +245,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         if (result instanceof AbstractEasyCard) {
             AbstractEasyCard c = (AbstractEasyCard) result;
             c.baseHeal = c.heal = baseHeal;
+            c.baseDraw = c.draw = baseDraw;
             c.baseAttackCount = c.attackCount = baseAttackCount;
             c.baseSecondMagic = c.secondMagic = baseSecondMagic;
             c.baseAliemusNumber = c.aliemusNumber = baseAliemusNumber;

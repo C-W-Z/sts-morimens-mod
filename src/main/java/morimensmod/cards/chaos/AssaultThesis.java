@@ -21,7 +21,7 @@ public class AssaultThesis extends AbstractEasyCard {
         super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         magicNumber = baseMagicNumber = 6; // 降低臨時力量
-        secondMagic = baseSecondMagic = 1; // 抽牌數
+        draw = baseDraw = 1; // 抽牌數
     }
 
     @Override
@@ -37,7 +37,7 @@ public class AssaultThesis extends AbstractEasyCard {
         }
 
         // 抽一張牌
-        addToBot(new DrawCardAction(p, secondMagic));
+        addToBot(new DrawCardAction(p, draw));
     }
 
     @Override

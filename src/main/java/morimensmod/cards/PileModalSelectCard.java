@@ -43,6 +43,7 @@ public class PileModalSelectCard extends AbstractEasyCard {
         if (card instanceof AbstractEasyCard) {
             AbstractEasyCard c = (AbstractEasyCard) card;
             this.baseHeal = this.heal = c.baseHeal;
+            this.baseDraw = this.draw = c.baseDraw;
             this.baseAttackCount = this.attackCount = c.baseAttackCount;
             this.baseSecondMagic = this.secondMagic = c.baseSecondMagic;
             this.baseAliemusNumber = this.aliemusNumber = c.baseAliemusNumber;
