@@ -64,28 +64,32 @@
     "NAMES": [
       "生命回復",
       "治療",
-      "回血"
+      "回血",
+      "回復"
     ],
     "DESCRIPTION": "生命回復。"
   },
   {
     "PROPER_NAME": " #y狂氣 ",
     "NAMES": [
-      "狂氣"
+      "狂氣",
+      "Aliemus"
     ],
     "DESCRIPTION": "達到上限時可以釋放 #y狂氣爆發 ，達到兩倍上限的  #y狂氣 時可以釋放 #r超限爆發 。通常一回合只能釋放一次 #y狂氣爆發 或 #r超限爆發 。"
   },
   {
     "PROPER_NAME": " #y狂氣爆發 ",
     "NAMES": [
-      "狂氣爆發"
+      "狂氣爆發",
+      "Exalt"
     ],
     "DESCRIPTION": "透過消耗狂氣釋放的能力。"
   },
   {
     "PROPER_NAME": " #r超限爆發 ",
     "NAMES": [
-      "超限爆發"
+      "超限爆發",
+      "Over-Exaltation"
     ],
     "DESCRIPTION": "加強版的狂氣爆發。"
   },
@@ -94,29 +98,42 @@
     "NAMES": [
       "銀鑰能量",
       "鑰能",
-      "銀鑰"
+      "銀鑰",
+      "Keyflare"
     ],
     "DESCRIPTION": "消耗 [E] 時可以獲得 #y銀鑰能量 ， #y銀鑰充能 屬性決定每消耗 1 點 [E] 時獲得的 #y鑰能 。"
   },
   {
     "PROPER_NAME": " [#D3D3D3]鑰令[] ",
     "NAMES": [
-      "鑰令"
+      "鑰令",
+      "Posse"
     ],
     "DESCRIPTION": "#y銀鑰能量 達到 [#D3D3D3]1000[] 時可以釋放攜帶的 #y鑰令 。每回合可以釋放兩次 #y鑰令，但第二次會改為從3個隨機 #y鑰令 中選擇一個釋放，且選擇的 #y鑰令 在本次探索中無法再被選擇。"
   },
   {
     "PROPER_NAME": " #r保留 ",
     "NAMES": [
-      "保留"
+      "保留",
+      "Retain"
     ],
     "DESCRIPTION": "卡牌不會在棄牌階段進入棄牌堆，而是 #r保留 在手牌中並觸發後續效果。"
   },
   {
     "PROPER_NAME": " #b餘波 ",
     "NAMES": [
-      "餘波"
+      "餘波",
+      "Aftershock"
     ],
     "DESCRIPTION": "此卡牌被棄置時，觸發 #b餘波 效果。"
+  },
+  {
+    "PROPER_NAME": " #y穿刺傷害 ",
+    "NAMES": [
+      "穿刺傷害",
+      "穿刺攻擊",
+      "PierceDMG"
+    ],
+    "DESCRIPTION": "同時對 #y格擋 與生命造成傷害。無法被阻擋。"
   }
 ]

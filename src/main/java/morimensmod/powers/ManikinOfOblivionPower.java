@@ -86,6 +86,7 @@ public class ManikinOfOblivionPower extends AbstractEasyPower implements OnBefor
         // int aliemusAmplify = 100 + AbstractAwakener.baseAliemusAmplify;
         // gainedAliemus = MathUtils.ceil(gainedAliemus * aliemusAmplify / 100F);
 
+        flash();
         addToBot(new AliemusChangeAction(awaker, gainedAliemus));
 
         logger.info("diffAliemus:" + diffAliemus + ", gainedAliemus:" + gainedAliemus);

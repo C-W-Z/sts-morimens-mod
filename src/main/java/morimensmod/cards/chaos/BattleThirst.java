@@ -17,13 +17,13 @@ public class BattleThirst extends AbstractEasyCard {
     public BattleThirst() {
         super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.NONE, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
-        magicNumber = baseMagicNumber = 1; // 攻擊次數 + 1
+        attackCount = baseAttackCount = 1; // 攻擊次數 + 1
         selfRetain = true; // 保留
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new BattleThirstPower(p, magicNumber));
+        applyToSelf(new BattleThirstPower(p, attackCount));
     }
 
     @Override

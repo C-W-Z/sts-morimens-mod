@@ -1,5 +1,6 @@
 package morimensmod.actions;
 
+import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.p;
 
 import com.badlogic.gdx.graphics.Color;
@@ -13,7 +14,7 @@ import morimensmod.characters.AbstractAwakener;
 
 public class AliemusChangeAction extends AbstractGameAction {
 
-    static final String TEXT = CardCrawlGame.languagePack.getUIString("ALIEMUS").TEXT[0];
+    static final String TEXT = CardCrawlGame.languagePack.getUIString(makeID(AliemusChangeAction.class.getSimpleName())).TEXT[0];
 
     AbstractAwakener awaker;
 
