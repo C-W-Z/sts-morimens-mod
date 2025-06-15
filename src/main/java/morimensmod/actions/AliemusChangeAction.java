@@ -1,11 +1,19 @@
 package morimensmod.actions;
 
+import static morimensmod.util.Wiz.p;
+
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 
 import morimensmod.characters.AbstractAwakener;
 
 public class AliemusChangeAction extends AbstractGameAction {
+
+    static final String TEXT = CardCrawlGame.languagePack.getUIString("ALIEMUS").TEXT[0];
 
     AbstractAwakener awaker;
 
@@ -27,6 +35,14 @@ public class AliemusChangeAction extends AbstractGameAction {
                 AbstractAwakener.aliemus = AbstractAwakener.extremeAlimus;
             }
 
+            // addToTop(new TextAboveCreatureAction(p(), "+" + amount));
+            AbstractDungeon.effectList.add(
+                    new TextAboveCreatureEffect(
+                            p().hb.cX - p().animX,
+                            p().hb.cY + p().hb.height / 2.0F,
+                            "+" + amount + TEXT,
+                            Color.GOLD.cpy()));
+
         } else if (amount < 0) {
 
             AbstractAwakener.aliemus += amount;
@@ -34,6 +50,13 @@ public class AliemusChangeAction extends AbstractGameAction {
                 AbstractAwakener.aliemus = 0;
             }
 
+            // addToTop(new TextAboveCreatureAction(p(), "" + amount));
+            AbstractDungeon.effectList.add(
+                    new TextAboveCreatureEffect(
+                            p().hb.cX - p().animX,
+                            p().hb.cY + p().hb.height / 2.0F,
+                            amount + TEXT,
+                            Color.GOLD.cpy()));
         }
 
         isDone = true;

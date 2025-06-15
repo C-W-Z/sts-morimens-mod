@@ -5,6 +5,7 @@ import me.antileaf.signature.card.AbstractSignatureCard;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -17,6 +18,7 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+// import static morimensmod.MorimensMod.logger;
 import static morimensmod.MorimensMod.makeImagePath;
 import static morimensmod.util.Wiz.*;
 
@@ -113,20 +115,48 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     @Override
     public void applyPowers() {
-        applyedBaseAmplifies();
+        int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
+        if (this.hasTag(CardTags.STRIKE))
+            damageAmplify += baseStrikeDamageAmplify;
+        int blockAmplify = 100 + baseBlockAmplify + AbstractAwakener.baseBlockAmplify;
+        int healAmplify = 100 + baseHealAmplify + AbstractAwakener.baseHealAmplify;
+        int aliemusAmplify = 100 + baseAliemusAmplify + AbstractAwakener.baseAliemusAmplify;
+
+        applyedBaseAmplifies(damageAmplify, blockAmplify, healAmplify, aliemusAmplify);
+
         super.applyPowers();
+
+        if (damageAmplify != 100)
+            isDamageModified = true;
+        if (blockAmplify != 100)
+            isBlockModified = true;
+        if (healAmplify != 100) {
+            isHealModified = true;
+            heal = baseHeal;
+        }
+        if (aliemusAmplify != 100) {
+            isAliemusModified = true;
+            aliemus = baseAliemus;
+        }
+
+        // logger.info("aliemusAmplify: " + aliemusAmplify + ", baseAliemus: " + baseAliemus);
     }
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
-        applyedBaseDamageAmplifies();
-        super.calculateCardDamage(mo);
-    }
-
-    private void applyedBaseDamageAmplifies() {
         int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
         if (this.hasTag(CardTags.STRIKE))
             damageAmplify += baseStrikeDamageAmplify;
+
+        applyedBaseDamageAmplifies(damageAmplify);
+
+        super.calculateCardDamage(mo);
+
+        if (damageAmplify != 100)
+            isDamageModified = true;
+    }
+
+    private void applyedBaseDamageAmplifies(int damageAmplify) {
         if (damageAmplify == 100)
             return;
 
@@ -136,27 +166,20 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
             for (int i = 0; i < timesUpgraded; ++i)
                 tmp.upgrade();
         }
-        baseDamage = tmp.baseDamage * damageAmplify / 100;
+        baseDamage = MathUtils.ceil(tmp.baseDamage * damageAmplify / 100F);
     }
 
-    private void applyedBaseAmplifies() {
-        int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
-        if (this.hasTag(CardTags.STRIKE))
-            damageAmplify += baseStrikeDamageAmplify;
-        int blockAmplify = 100 + baseBlockAmplify + AbstractAwakener.baseBlockAmplify;
-        int healAmplify = 100 + baseHealAmplify + AbstractAwakener.baseHealAmplify;
-        int aliemusAmplify = 100 + baseAliemusAmplify + AbstractAwakener.baseAliemusAmplify;
-
+    private void applyedBaseAmplifies(int damageAmplify, int blockAmplify, int healAmplify, int aliemusAmplify) {
         AbstractEasyCard tmp = (AbstractEasyCard) CardLibrary.getCard(cardID);
         if (upgraded) {
             tmp = (AbstractEasyCard) tmp.makeCopy();
             for (int i = 0; i < timesUpgraded; ++i)
                 tmp.upgrade();
         }
-        baseDamage = tmp.baseDamage * damageAmplify / 100;
-        baseBlock = tmp.baseBlock * blockAmplify / 100;
-        baseHeal = tmp.baseHeal * healAmplify / 100;
-        baseAliemus = tmp.baseAliemus * aliemusAmplify / 100;
+        baseDamage = MathUtils.ceil(tmp.baseDamage * damageAmplify / 100F);
+        baseBlock = MathUtils.ceil(tmp.baseBlock * blockAmplify / 100F);
+        baseHeal = MathUtils.ceil(tmp.baseHeal * healAmplify / 100F);
+        baseAliemus = MathUtils.ceil(tmp.baseAliemus * aliemusAmplify / 100F);
     }
 
     public void resetAttributes() {

@@ -20,6 +20,7 @@ import morimensmod.cards.chaos.Strike;
 import morimensmod.cards.chaos.TidesOfHubris;
 import morimensmod.cards.democards.simple.DrawAndShiv;
 import morimensmod.cards.wheel_of_destiny.HandOfOblivion;
+import morimensmod.cards.wheel_of_destiny.ManikinOfOblivion;
 import morimensmod.cards.wheel_of_destiny.RewindingTime;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.characters.Ramona;
@@ -265,6 +266,7 @@ public class MorimensMod implements
                 BladeOfDefiance.ID,
                 TidesOfHubris.ID,
                 RewindingTime.ID,
+                ManikinOfOblivion.ID,
                 HandOfOblivion.ID,
                 Insight.ID
         };
