@@ -5,6 +5,7 @@ import me.antileaf.signature.card.AbstractSignatureCard;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -17,11 +18,11 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-
 import static morimensmod.MorimensMod.makeImagePath;
 import static morimensmod.MorimensMod.modID;
 import static morimensmod.util.Wiz.*;
 
+import morimensmod.characters.AbstractAwakener;
 import morimensmod.util.CardArtRoller;
 
 import java.util.function.Consumer;
@@ -35,11 +36,6 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     public boolean upgradedSecondMagic;
     public boolean isSecondMagicModified;
 
-    public int secondDamage;
-    public int baseSecondDamage;
-    public boolean upgradedSecondDamage;
-    public boolean isSecondDamageModified;
-
     public int attackCount;
     public int baseAttackCount;
     public boolean upgradedAttackCount;
@@ -50,9 +46,15 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     public boolean upgradedAliemusNumber;
     public boolean isAliemusNumberModified;
 
+    // percent
+    public static int baseDamageMultiply;
+    public static int baseStrikeDamageMultiply;
+    public static int baseAliemusNumberMultiply;
+
     private boolean needsArtRefresh = false;
 
-    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
+    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity,
+            final CardTarget target, final CardColor color) {
         super(cardID, "", getCardTextureString(cardID.replace(modID + ":", ""), type),
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
@@ -101,50 +103,48 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     @Override
     public void applyPowers() {
-        if (baseSecondDamage > -1) {
-            secondDamage = baseSecondDamage;
-
-            int tmp = baseDamage;
-            baseDamage = baseSecondDamage;
-
-            super.applyPowers();
-
-            secondDamage = damage;
-            baseDamage = tmp;
-
-            super.applyPowers();
-
-            isSecondDamageModified = (secondDamage != baseSecondDamage);
-        } else
-            super.applyPowers();
+        applyedBaseDamageMultiplies();
+        applyedBaseAliemusNumberMultiplies();
+        super.applyPowers();
     }
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
-        if (baseSecondDamage > -1) {
-            secondDamage = baseSecondDamage;
+        applyedBaseDamageMultiplies();
+        super.calculateCardDamage(mo);
+    }
 
-            int tmp = baseDamage;
-            baseDamage = baseSecondDamage;
+    private void applyedBaseDamageMultiplies() {
+        float multiply = 100 + baseDamageMultiply + AbstractAwakener.baseDamageMultiply;
+        if (this.hasTag(CardTags.STRIKE))
+            multiply += baseStrikeDamageMultiply;
 
-            super.calculateCardDamage(mo);
-
-            secondDamage = damage;
-            baseDamage = tmp;
-
-            super.calculateCardDamage(mo);
-
-            isSecondDamageModified = (secondDamage != baseSecondDamage);
+        if (upgradedDamage) {
+            AbstractCard tmp = CardLibrary.getCard(cardID).makeCopy();
+            for (int i = 0; i < timesUpgraded; ++i)
+                tmp.upgrade();
+            baseDamage = MathUtils.ceil(tmp.baseDamage * multiply / 100F);
         } else
-            super.calculateCardDamage(mo);
+            baseDamage = MathUtils.ceil(CardLibrary.getCard(cardID).baseDamage * multiply / 100F);
+    }
+
+    private void applyedBaseAliemusNumberMultiplies() {
+        float multiply = 100 + baseAliemusNumberMultiply + AbstractAwakener.baseAliemusNumberMultiply;
+
+        if (upgradedAliemusNumber) {
+            AbstractEasyCard tmp = (AbstractEasyCard) CardLibrary.getCard(cardID).makeCopy();
+            for (int i = 0; i < timesUpgraded; ++i)
+                tmp.upgrade();
+            baseAliemusNumber = MathUtils.ceil(tmp.baseAliemusNumber * multiply / 100F);
+        } else
+            baseAliemusNumber = MathUtils
+                    .ceil(((AbstractEasyCard) CardLibrary.getCard(cardID)).baseAliemusNumber * multiply / 100F);
     }
 
     public void resetAttributes() {
         super.resetAttributes();
         secondMagic = baseSecondMagic;
         isSecondMagicModified = false;
-        secondDamage = baseSecondDamage;
-        isSecondDamageModified = false;
         attackCount = baseAttackCount;
         isAttackCountModified = false;
         aliemusNumber = baseAliemusNumber;
@@ -156,10 +156,6 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         if (upgradedSecondMagic) {
             secondMagic = baseSecondMagic;
             isSecondMagicModified = true;
-        }
-        if (upgradedSecondDamage) {
-            secondDamage = baseSecondDamage;
-            isSecondDamageModified = true;
         }
         if (upgradedAttackCount) {
             attackCount = baseAttackCount;
@@ -175,12 +171,6 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         baseSecondMagic += amount;
         secondMagic = baseSecondMagic;
         upgradedSecondMagic = true;
-    }
-
-    protected void upgradeSecondDamage(int amount) {
-        baseSecondDamage += amount;
-        secondDamage = baseSecondDamage;
-        upgradedSecondDamage = true;
     }
 
     protected void upgradeAttackCount(int amount) {
@@ -222,7 +212,6 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         AbstractCard result = super.makeStatEquivalentCopy();
         if (result instanceof AbstractEasyCard) {
             AbstractEasyCard c = (AbstractEasyCard) result;
-            c.baseSecondDamage = c.secondDamage = baseSecondDamage;
             c.baseAttackCount = c.attackCount = baseAttackCount;
             c.baseSecondMagic = c.secondMagic = baseSecondMagic;
             c.baseAliemusNumber = c.aliemusNumber = baseAliemusNumber;
@@ -246,14 +235,6 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     protected void allDmgTop(AbstractGameAction.AttackEffect fx) {
         att(new DamageAllEnemiesAction(AbstractDungeon.player, multiDamage, damageTypeForTurn, fx));
-    }
-
-    protected void altDmg(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
-        atb(new DamageAction(m, new DamageInfo(AbstractDungeon.player, secondDamage, damageTypeForTurn), fx));
-    }
-
-    protected void altDmgTop(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
-        att(new DamageAction(m, new DamageInfo(AbstractDungeon.player, secondDamage, damageTypeForTurn), fx));
     }
 
     private AbstractGameAction dmgRandomAction(AbstractGameAction.AttackEffect fx,
@@ -304,5 +285,12 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     public CardArtRoller.ReskinInfo reskinInfo(String ID) {
         return null;
+    }
+
+    // called in Main Mod File
+    public static void onBattleStart() {
+        baseDamageMultiply = 0;
+        baseStrikeDamageMultiply = 0;
+        baseAliemusNumberMultiply = 0;
     }
 }

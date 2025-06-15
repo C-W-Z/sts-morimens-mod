@@ -23,6 +23,7 @@ import morimensmod.cards.wheel_of_destiny.HandOfOblivion;
 import morimensmod.cards.wheel_of_destiny.RewindingTime;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.characters.Ramona;
+import morimensmod.exalts.AbstractExalt;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.relics.AbstractEasyRelic;
 import morimensmod.util.ProAudio;
@@ -277,6 +278,9 @@ public class MorimensMod implements
     @Override
     public void receiveOnBattleStart(AbstractRoom arg0) {
         QueensSword.onBattleStart();
+        AbstractAwakener.onBattleStart();
+        AbstractEasyCard.onBattleStart();
+        AbstractExalt.onBattleStart();
     }
 
     @Override

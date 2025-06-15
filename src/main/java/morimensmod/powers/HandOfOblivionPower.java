@@ -1,18 +1,11 @@
 package morimensmod.powers;
 
+import static morimensmod.MorimensMod.logger;
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.util.Wiz.discardPile;
-import static morimensmod.util.Wiz.drawPile;
-import static morimensmod.util.Wiz.exhaustPile;
-import static morimensmod.util.Wiz.hand;
-import static morimensmod.util.Wiz.limbo;
-
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import morimensmod.cards.AbstractEasyCard;
 
 public class HandOfOblivionPower extends AbstractEasyPower {
     public final static String POWER_ID = makeID(HandOfOblivionPower.class.getSimpleName());
@@ -22,60 +15,32 @@ public class HandOfOblivionPower extends AbstractEasyPower {
 
     public HandOfOblivionPower(AbstractCreature owner, int percent) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, percent);
-        updateDescription();
-        updateExistingStrikes();
-    }
+        AbstractEasyCard.baseStrikeDamageMultiply += percent;
 
-    public void stackPower(int stackAmount) {
-        super.stackPower(stackAmount);
-        updateExistingStrikes();
-    }
-
-    private void updateExistingStrikes() {
-        for (AbstractCard c : hand().group) {
-            if (!c.hasTag(CardTags.STRIKE))
-                continue;
-            c.baseDamage = applyedBaseDamage(c);
-        }
-        for (AbstractCard c : drawPile().group) {
-            if (!c.hasTag(CardTags.STRIKE))
-                continue;
-            c.baseDamage = applyedBaseDamage(c);
-        }
-        for (AbstractCard c : discardPile().group) {
-            if (!c.hasTag(CardTags.STRIKE))
-                continue;
-            c.baseDamage = applyedBaseDamage(c);
-        }
-        for (AbstractCard c : exhaustPile().group) {
-            if (!c.hasTag(CardTags.STRIKE))
-                continue;
-            c.baseDamage = applyedBaseDamage(c);
-        }
-        for (AbstractCard c : limbo().group) {
-            if (!c.hasTag(CardTags.STRIKE))
-                continue;
-            c.baseDamage = applyedBaseDamage(c);
-        }
+        logger.info("HandOfOblivionPower, AbstractEasyCard.baseStrikeDamageMultiply:" + AbstractEasyCard.baseStrikeDamageMultiply);
     }
 
     @Override
-    public void onDrawOrDiscard() {
-        for (AbstractCard c : hand().group) {
-            if (!c.hasTag(CardTags.STRIKE))
-                continue;
-            c.baseDamage = applyedBaseDamage(c);
-        }
+    public void stackPower(int stackAmount) {
+        super.stackPower(stackAmount);
+        // A new Power() must be called before stack, so the baseStrikeDamageMultiply increment will be done in the constructor
+        // AbstractEasyCard.baseStrikeDamageMultiply += stackAmount;
+        // logger.info("stackPower, AbstractEasyCard.baseStrikeDamageMultiply:" + AbstractEasyCard.baseStrikeDamageMultiply);
     }
 
-    private int applyedBaseDamage(AbstractCard c) {
-        if (c.upgradedDamage) {
-            AbstractCard tmp = CardLibrary.getCard(c.cardID).makeCopy();
-            for (int i = 0; i < c.timesUpgraded; ++i)
-                tmp.upgrade();
-            return tmp.baseDamage * (100 + amount) / 100;
-        }
-        return CardLibrary.getCard(c.cardID).baseDamage * (100 + amount) / 100;
+    @Override
+    public void reducePower(int reduceAmount) {
+        super.reducePower(reduceAmount);
+        AbstractEasyCard.baseStrikeDamageMultiply -= reduceAmount;
+
+        logger.info("reducePower, AbstractEasyCard.baseStrikeDamageMultiply:" + AbstractEasyCard.baseStrikeDamageMultiply);
+    }
+
+    @Override
+    public void onRemove() {
+        AbstractEasyCard.baseStrikeDamageMultiply -= amount;
+
+        logger.info("onRemove, AbstractEasyCard.baseStrikeDamageMultiply:" + AbstractEasyCard.baseStrikeDamageMultiply);
     }
 
     @Override

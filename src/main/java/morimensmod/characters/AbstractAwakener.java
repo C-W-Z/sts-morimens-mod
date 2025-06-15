@@ -28,6 +28,10 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public static int maxExaltedPerTurn = 1; // reset at Main Mod File
     public AbstractExalt exalt;
 
+    // percent
+    public static int baseDamageMultiply;
+    public static int baseAliemusNumberMultiply = 0;
+
     public static final int ENERGY_PER_TURN = 5;
 
     public SpriteSheetAnimation anim = null;
@@ -98,6 +102,12 @@ public abstract class AbstractAwakener extends CustomPlayer {
                 AbstractGameAction.AttackEffect.FIRE,
                 AbstractGameAction.AttackEffect.BLUNT_HEAVY,
                 AbstractGameAction.AttackEffect.FIRE };
+    }
+
+    // called in Main Mod File
+    public static void onBattleStart() {
+        baseDamageMultiply = 0;
+        baseAliemusNumberMultiply = 0;
     }
 
     // called in Main Mod File
