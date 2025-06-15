@@ -2,21 +2,19 @@ package morimensmod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.Settings;
 
 import morimensmod.characters.AbstractAwakener;
 
-public class AliemusExlatAction extends AbstractGameAction {
+public class AliemusExhaustAction extends AbstractGameAction {
 
     AbstractAwakener awaker;
     boolean overExalt;
 
-    public AliemusExlatAction(AbstractPlayer awaker) {
+    public AliemusExhaustAction(AbstractPlayer awaker) {
         this(awaker, false);
     }
 
-    public AliemusExlatAction(AbstractPlayer awaker, boolean overExalt) {
-        this.duration = Settings.ACTION_DUR_XFAST;
+    public AliemusExhaustAction(AbstractPlayer awaker, boolean overExalt) {
         this.actionType = ActionType.SPECIAL;
         if (awaker instanceof AbstractAwakener)
             this.awaker = (AbstractAwakener) awaker;

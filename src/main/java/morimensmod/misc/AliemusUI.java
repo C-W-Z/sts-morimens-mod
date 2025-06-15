@@ -1,8 +1,11 @@
 package morimensmod.misc;
 
 import basemod.ClickableUIElement;
-import morimensmod.actions.AliemusExlatAction;
+import morimensmod.actions.AliemusExhaustAction;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.interfaces.OnBeforeExalt;
+import morimensmod.interfaces.OnBeforeExaltTipRender;
+import morimensmod.interfaces.OnBeforeUseCard;
 import morimensmod.util.TexLoader;
 import morimensmod.util.WizArt;
 
@@ -24,6 +27,8 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
@@ -74,8 +79,21 @@ public class AliemusUI extends ClickableUIElement {
         tips.add(new PowerTip(TEXT.TEXT[0], TEXT.TEXT[1]));
         if (p() instanceof AbstractAwakener) {
             AbstractAwakener awaker = (AbstractAwakener) p();
-            tips.add(new PowerTip(awaker.UI_STRINGS.TEXT[0], awaker.UI_STRINGS.TEXT[1]));
-            tips.add(new PowerTip(awaker.UI_STRINGS.EXTRA_TEXT[0], awaker.UI_STRINGS.EXTRA_TEXT[1]));
+
+            // 呼叫所有 Power 的 hook
+            for (AbstractPower p : awaker.powers)
+                if (p instanceof OnBeforeExaltTipRender)
+                    ((OnBeforeExaltTipRender) p).onBeforeExaltTipRender(awaker);
+            // 呼叫所有遺物的 hook
+            for (AbstractRelic r : awaker.relics)
+                if (r instanceof OnBeforeExaltTipRender)
+                    ((OnBeforeExaltTipRender) r).onBeforeExaltTipRender(awaker);
+            // 呼叫姿態（Stance）的 hook
+            if (awaker.stance instanceof OnBeforeExaltTipRender)
+                ((OnBeforeExaltTipRender) awaker.stance).onBeforeExaltTipRender(awaker);
+
+            tips.add(new PowerTip(awaker.exalt.getExaltTitle(), awaker.exalt.getExaltDescription()));
+            tips.add(new PowerTip(awaker.exalt.getOverExaltTitle(), awaker.exalt.getOverExaltDescription()));
         }
         TipHelper.queuePowerTips(fontX, y + Settings.yScale * 400f, tips);
     }
@@ -89,17 +107,17 @@ public class AliemusUI extends ClickableUIElement {
     }
 
     protected void onRightClick() {
-        if (AbstractDungeon.player.currentHealth <= 0 || AbstractDungeon.player.isDeadOrEscaped()
+        if (p().currentHealth <= 0 || p().isDeadOrEscaped()
                 || AbstractDungeon.isScreenUp || AbstractDungeon.actionManager.turnHasEnded
                 || !(p() instanceof AbstractAwakener) || AbstractAwakener.aliemus < AbstractAwakener.maxAliemus
                 || AbstractAwakener.exalting)
             return;
 
-        if (AbstractAwakener.exaltedThisTurn) {
+        if (AbstractAwakener.exaltedThisTurn >= AbstractAwakener.maxExaltedPerTurn) {
             AbstractDungeon.effectList.add(
                     new ThoughtBubble(
-                            AbstractDungeon.player.dialogX, // x 座標（通常用 player.dialogX）
-                            AbstractDungeon.player.dialogY, // y 座標（通常用 player.dialogY）
+                            p().dialogX, // x 座標（通常用 player.dialogX）
+                            p().dialogY, // y 座標（通常用 player.dialogY）
                             3.0F, // 顯示時間秒數
                             TEXT.EXTRA_TEXT[0], // 顯示文字
                             true // true = 是玩家；false = 怪物
@@ -108,14 +126,28 @@ public class AliemusUI extends ClickableUIElement {
         }
 
         AbstractAwakener.exalting = true;
-        AbstractAwakener.exaltedThisTurn = true;
+        AbstractAwakener.exaltedThisTurn++;
+
+        AbstractAwakener awaker = (AbstractAwakener) p();
+
+        // 呼叫所有 Power 的 hook
+        for (AbstractPower p : awaker.powers)
+            if (p instanceof OnBeforeExalt)
+                ((OnBeforeExalt) p).onBeforeExalt(awaker);
+        // 呼叫所有遺物的 hook
+        for (AbstractRelic r : awaker.relics)
+            if (r instanceof OnBeforeUseCard)
+                ((OnBeforeExalt) r).onBeforeExalt(awaker);
+        // 呼叫姿態（Stance）的 hook
+        if (awaker.stance instanceof OnBeforeUseCard)
+            ((OnBeforeExalt) awaker.stance).onBeforeExalt(awaker);
 
         if (AbstractAwakener.aliemus >= AbstractAwakener.extremeAlimus)
-            ((AbstractAwakener) p()).overExalt();
+            awaker.exalt.overExalt();
         else
-            ((AbstractAwakener) p()).exalt();
+            awaker.exalt.exalt();
 
-        atb(new AliemusExlatAction(p(), AbstractAwakener.aliemus >= AbstractAwakener.extremeAlimus));
+        atb(new AliemusExhaustAction(awaker, AbstractAwakener.aliemus >= AbstractAwakener.extremeAlimus));
     }
 
     @Override

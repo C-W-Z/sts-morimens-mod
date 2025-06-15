@@ -3,6 +3,7 @@ package morimensmod.characters;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
+import morimensmod.exalts.AbstractExalt;
 import morimensmod.misc.SpriteSheetAnimation;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -13,7 +14,6 @@ import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
-import com.megacrit.cardcrawl.localization.UIStrings;
 
 import static morimensmod.MorimensMod.*;
 
@@ -24,8 +24,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public static int maxAliemus = NORMAL_MAX_ALIEMUS; // 普通狂氣上限 狂氣爆發
     public static int extremeAlimus = 2 * NORMAL_MAX_ALIEMUS; // 雙倍上限 超限爆發
     public static boolean exalting = false;
-    public static boolean exaltedThisTurn = false; // reset at Main Mod File
-    public UIStrings UI_STRINGS = new UIStrings();
+    public static int exaltedThisTurn = 0; // reset at Main Mod File
+    public static int maxExaltedPerTurn = 1; // reset at Main Mod File
+    public AbstractExalt exalt;
 
     public static final int ENERGY_PER_TURN = 5;
 
@@ -99,7 +100,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
                 AbstractGameAction.AttackEffect.FIRE };
     }
 
-    public abstract void exalt();
-
-    public abstract void overExalt();
+    // called in Main Mod File
+    public static void onPlayerTurnStartPostDraw() {
+        exaltedThisTurn = 0;
+        maxExaltedPerTurn = 1;
+    }
 }

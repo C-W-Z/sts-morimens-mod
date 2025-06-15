@@ -2,7 +2,6 @@ package morimensmod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.Settings;
 
 import morimensmod.characters.AbstractAwakener;
 
@@ -11,7 +10,6 @@ public class AliemusChangeAction extends AbstractGameAction {
     AbstractAwakener awaker;
 
     public AliemusChangeAction(AbstractPlayer awaker, int amount) {
-        this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = ActionType.SPECIAL;
         this.amount = amount;
         if (awaker instanceof AbstractAwakener)

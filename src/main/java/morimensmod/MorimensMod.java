@@ -276,11 +276,11 @@ public class MorimensMod implements
 
     @Override
     public void receiveOnBattleStart(AbstractRoom arg0) {
-        QueensSword.extraAtkCountThisCombat = QueensSword.INIT_EXTRA_ATKCOUNT; // 每場戰鬥重設
+        QueensSword.onBattleStart();
     }
 
     @Override
     public void receiveOnPlayerTurnStartPostDraw() {
-        AbstractAwakener.exaltedThisTurn = false; // 每回合重設
+        AbstractAwakener.onPlayerTurnStartPostDraw(); // 每回合重設
     }
 }

@@ -12,6 +12,7 @@ public class MundusDecreeAction extends AbstractGameAction {
 
     public MundusDecreeAction(AbstractCard card) {
         this.card = card;
+        this.actionType = ActionType.CARD_MANIPULATION;
     }
 
     @Override

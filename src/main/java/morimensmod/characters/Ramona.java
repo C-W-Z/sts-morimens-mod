@@ -1,29 +1,20 @@
 package morimensmod.characters;
 
-import morimensmod.actions.EasyModalChoiceAction;
-import morimensmod.actions.MundusDecreeAction;
-import morimensmod.cards.PileModalSelectCard;
-import morimensmod.cards.buff.Insight;
 import morimensmod.cards.chaos.AssaultThesis;
 import morimensmod.cards.chaos.Defend;
 import morimensmod.cards.chaos.QueensSword;
 import morimensmod.cards.chaos.Strike;
+import morimensmod.exalts.MundusDecree;
 import morimensmod.misc.SpriteSheetAnimation;
 import morimensmod.relics.StellarBrew;
 
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-// import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import basemod.BaseMod;
@@ -33,11 +24,6 @@ import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 import static morimensmod.util.Wiz.addCardsIntoPool;
-import static morimensmod.util.Wiz.atb;
-import static morimensmod.util.Wiz.discardPile;
-import static morimensmod.util.Wiz.drawPile;
-import static morimensmod.util.Wiz.shuffleIn;
-
 import java.util.ArrayList;
 
 public class Ramona extends AbstractAwakener {
@@ -52,9 +38,9 @@ public class Ramona extends AbstractAwakener {
 
     public Ramona() {
         super(NAMES[0], Enums.RAMONA, "Ramona/main.png", "Ramona/main.png");
-        UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID + ":Exalt");
         anim = new SpriteSheetAnimation(makeCharacterPath("Ramona/Idle_1.png"),
                 6, 17, 1, true, 30F, -22, -10);
+        exalt = new MundusDecree();
     }
 
     public static void register() {
@@ -167,38 +153,5 @@ public class Ramona extends AbstractAwakener {
         // @SpireEnum(name = "RAMONA_COLOR")
         // @SuppressWarnings("unused")
         // public static CardLibrary.LibraryType LIBRARY_COLOR;
-    }
-
-    public void exalt() {
-        ArrayList<AbstractCard> cardList = new ArrayList<>();
-
-        for (AbstractCard c : drawPile().group) {
-            System.out.println("c:" + c.name);
-            cardList.add(new PileModalSelectCard(c, () -> atb(new MundusDecreeAction(c))));
-        }
-
-        for (AbstractCard c : discardPile().group) {
-            System.out.println("c:" + c.name);
-            cardList.add(new PileModalSelectCard(c, () -> atb(new MundusDecreeAction(c))));
-        }
-
-        atb(new EasyModalChoiceAction(cardList));
-
-        shuffleIn(new Insight());
-    }
-
-    @Override
-    public void overExalt() {
-        // 使所有敵人虛弱易傷一回合
-        for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
-            if (!mo.isDeadOrEscaped()) {
-                atb(new ApplyPowerAction(mo, this, new WeakPower(mo, 1, false), 1));
-                atb(new ApplyPowerAction(mo, this, new VulnerablePower(mo, 1, false), 1));
-            }
-        }
-
-        exalt();
-
-        // TODO: 使下次鑰令生效兩次
     }
 }

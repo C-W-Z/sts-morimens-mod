@@ -28,13 +28,10 @@ public class QueensSword extends AbstractEasyCard {
 
     public static int extraAtkCountThisCombat = INIT_EXTRA_ATKCOUNT;
 
-    /* see Main Mod File */
-    /**
-     * @Override
-     * public void receiveOnBattleStart() {
-     * QueensSword.extraAtkCountThisCombat = INIT_EXTRA_ATKCOUNT; // 每場戰鬥重設
-     * }
-     */
+    // called in Main Mod File
+    public static void onBattleStart() {
+        extraAtkCountThisCombat = INIT_EXTRA_ATKCOUNT; // 每場戰鬥重設
+    }
 
     public QueensSword() {
         super(ID, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, CHAOS_COLOR);
@@ -50,7 +47,7 @@ public class QueensSword extends AbstractEasyCard {
         // addToBot(new QueensSwordAction(m, this.damage, attackTimesThisCombat, damageTypeForTurn));
 
         for (int i = 0; i < attackCount + magicNumber; i++) {
-            addToBot(new QueensSwordAction(m, damage, damageTypeForTurn, AttackEffect.SLASH_HEAVY));
+            addToBot(new QueensSwordAction(m, damage, damageTypeForTurn, AttackEffect.SLASH_HORIZONTAL));
             // 每次造成傷害
             // dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
             // 每次造成傷害後獲得1力量（本回合）
