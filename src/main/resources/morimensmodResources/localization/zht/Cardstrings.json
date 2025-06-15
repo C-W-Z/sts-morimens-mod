@@ -20,7 +20,7 @@
     "NAME": "女王之劍",
     "DESCRIPTION": "造成 !D! 點傷害 !${ModID}:m2! 次，每次造成傷害後獲得 1 點 ${ModID}:臨時 力量 。打出後使 「女王之劍」 傷害次數 + 1 ，最多提高為 6 次。 ${ModID}:餘波 ：獲得和打出相等的 ${ModID}:銀鑰能量 。"
   },
-  "${ModID}:FleahDetached": {
+  "${ModID}:FleshDetached": {
     "NAME": "靈肉兩分",
     "DESCRIPTION": "造成 ${ModID}:回復 時，獲得 !B! 點 格擋 。"
   },
