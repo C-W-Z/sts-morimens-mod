@@ -5,25 +5,25 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.patches.CustomTags;
-import morimensmod.powers.BattleThirstPower;
+import morimensmod.powers.FleshDetachedPower;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 
-public class BattleThirst extends AbstractEasyCard {
-    public final static String ID = makeID(BattleThirst.class.getSimpleName());
+public class FleshDetached extends AbstractEasyCard {
+    public final static String ID = makeID(FleshDetached.class.getSimpleName());
 
-    public BattleThirst() {
-        super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF, CHAOS_COLOR);
+    public FleshDetached() {
+        super(ID, 2, CardType.POWER, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
-        attackCount = baseAttackCount = 1; // 攻擊次數 + 1
+        block = baseBlock = 5;
         selfRetain = true; // 保留
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new BattleThirstPower(p, attackCount));
+        applyToSelf(new FleshDetachedPower(p, block));
     }
 
     @Override

@@ -15,7 +15,7 @@ public class FirstDoctrine extends AbstractEasyCard {
     public final static String ID = makeID(FirstDoctrine.class.getSimpleName());
 
     public FirstDoctrine() {
-        super(ID, 3, CardType.POWER, CardRarity.UNCOMMON, CardTarget.NONE, CHAOS_COLOR);
+        super(ID, 3, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
         magicNumber = baseMagicNumber = 1; // 每次獲得的能量
         secondMagic = baseSecondMagic = 3; // 每回合最大觸發次數
