@@ -22,7 +22,8 @@
   },
   "${ModID}:FleshDetached": {
     "NAME": "靈肉兩分",
-    "DESCRIPTION": "造成 ${ModID}:回復 時，獲得 !B! 點 格擋 。"
+    "DESCRIPTION": "造成 ${ModID}:回復 時，獲得 !B! 點 格擋 。 NL ${ModID}:保留",
+    "UPGRADE_DESCRIPTION": "造成 ${ModID}:回復 時，獲得 !B! 點 格擋 。 NL 固有 \u3000 ${ModID}:保留"
   },
   "${ModID}:OuterSurgery": {
     "NAME": "域外手術",

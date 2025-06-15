@@ -16,6 +16,13 @@
       " 次。"
     ]
   },
+  "${ModID}:FleshDetachedPower": {
+    "NAME": "靈肉兩分",
+    "DESCRIPTIONS": [
+      "造成 #g回復 時，獲得 #b",
+      " 點 #y格擋 。"
+    ]
+  },
   "${ModID}:BattleThirstPower": {
     "NAME": "戰欲難平",
     "DESCRIPTIONS": [

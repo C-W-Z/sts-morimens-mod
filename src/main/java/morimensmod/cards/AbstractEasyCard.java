@@ -156,7 +156,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
             isDamageModified = true;
     }
 
-    private void applyedBaseDamageAmplifies(int damageAmplify) {
+    protected void applyedBaseDamageAmplifies(int damageAmplify) {
         if (damageAmplify == 100)
             return;
 
@@ -169,7 +169,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         baseDamage = MathUtils.ceil(tmp.baseDamage * damageAmplify / 100F);
     }
 
-    private void applyedBaseAmplifies(int damageAmplify, int blockAmplify, int healAmplify, int aliemusAmplify) {
+    protected void applyedBaseAmplifies(int damageAmplify, int blockAmplify, int healAmplify, int aliemusAmplify) {
         AbstractEasyCard tmp = (AbstractEasyCard) CardLibrary.getCard(cardID);
         if (upgraded) {
             tmp = (AbstractEasyCard) tmp.makeCopy();

@@ -14,7 +14,10 @@ import morimensmod.cards.chaos.AssaultThesis;
 import morimensmod.cards.chaos.BattleThirst;
 import morimensmod.cards.chaos.BladeOfDefiance;
 import morimensmod.cards.chaos.Defend;
+import morimensmod.cards.chaos.EquivalentExchange;
 import morimensmod.cards.chaos.FirstDoctrine;
+import morimensmod.cards.chaos.FleshDetached;
+import morimensmod.cards.chaos.OuterSurgery;
 import morimensmod.cards.chaos.QueensSword;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.cards.chaos.TidesOfHubris;
@@ -262,6 +265,9 @@ public class MorimensMod implements
                 FirstDoctrine.ID,
                 AssaultThesis.ID,
                 QueensSword.ID,
+                FleshDetached.ID,
+                OuterSurgery.ID,
+                EquivalentExchange.ID,
                 BattleThirst.ID,
                 BladeOfDefiance.ID,
                 TidesOfHubris.ID,
