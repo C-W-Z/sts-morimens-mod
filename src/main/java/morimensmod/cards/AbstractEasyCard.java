@@ -47,9 +47,9 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     public boolean isAliemusNumberModified;
 
     // percent
-    public static int baseDamageMultiply;
-    public static int baseStrikeDamageMultiply;
-    public static int baseAliemusNumberMultiply;
+    public static int baseDamageAmplify;
+    public static int baseStrikeDamageAmplify;
+    public static int baseAliemusNumberAmplify;
 
     private boolean needsArtRefresh = false;
 
@@ -103,21 +103,21 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     @Override
     public void applyPowers() {
-        applyedBaseDamageMultiplies();
-        applyedBaseAliemusNumberMultiplies();
+        applyedBaseDamageAmplifies();
+        applyedBaseAliemusNumberAmplifies();
         super.applyPowers();
     }
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
-        applyedBaseDamageMultiplies();
+        applyedBaseDamageAmplifies();
         super.calculateCardDamage(mo);
     }
 
-    private void applyedBaseDamageMultiplies() {
-        float multiply = 100 + baseDamageMultiply + AbstractAwakener.baseDamageMultiply;
+    private void applyedBaseDamageAmplifies() {
+        float multiply = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
         if (this.hasTag(CardTags.STRIKE))
-            multiply += baseStrikeDamageMultiply;
+            multiply += baseStrikeDamageAmplify;
 
         if (upgradedDamage) {
             AbstractCard tmp = CardLibrary.getCard(cardID).makeCopy();
@@ -128,8 +128,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
             baseDamage = MathUtils.ceil(CardLibrary.getCard(cardID).baseDamage * multiply / 100F);
     }
 
-    private void applyedBaseAliemusNumberMultiplies() {
-        float multiply = 100 + baseAliemusNumberMultiply + AbstractAwakener.baseAliemusNumberMultiply;
+    private void applyedBaseAliemusNumberAmplifies() {
+        float multiply = 100 + baseAliemusNumberAmplify + AbstractAwakener.baseAliemusNumberAmplify;
 
         if (upgradedAliemusNumber) {
             AbstractEasyCard tmp = (AbstractEasyCard) CardLibrary.getCard(cardID).makeCopy();
@@ -289,8 +289,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     // called in Main Mod File
     public static void onBattleStart() {
-        baseDamageMultiply = 0;
-        baseStrikeDamageMultiply = 0;
-        baseAliemusNumberMultiply = 0;
+        baseDamageAmplify = 0;
+        baseStrikeDamageAmplify = 0;
+        baseAliemusNumberAmplify = 0;
     }
 }

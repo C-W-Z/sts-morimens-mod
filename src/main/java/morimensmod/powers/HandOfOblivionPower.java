@@ -15,9 +15,9 @@ public class HandOfOblivionPower extends AbstractEasyPower {
 
     public HandOfOblivionPower(AbstractCreature owner, int percent) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, percent);
-        AbstractEasyCard.baseStrikeDamageMultiply += percent;
+        AbstractEasyCard.baseStrikeDamageAmplify += percent;
 
-        logger.info("HandOfOblivionPower, AbstractEasyCard.baseStrikeDamageMultiply:" + AbstractEasyCard.baseStrikeDamageMultiply);
+        logger.info("HandOfOblivionPower, AbstractEasyCard.baseStrikeDamageMultiply:" + AbstractEasyCard.baseStrikeDamageAmplify);
     }
 
     @Override
@@ -31,16 +31,16 @@ public class HandOfOblivionPower extends AbstractEasyPower {
     @Override
     public void reducePower(int reduceAmount) {
         super.reducePower(reduceAmount);
-        AbstractEasyCard.baseStrikeDamageMultiply -= reduceAmount;
+        AbstractEasyCard.baseStrikeDamageAmplify -= reduceAmount;
 
-        logger.info("reducePower, AbstractEasyCard.baseStrikeDamageMultiply:" + AbstractEasyCard.baseStrikeDamageMultiply);
+        logger.info("reducePower, AbstractEasyCard.baseStrikeDamageMultiply:" + AbstractEasyCard.baseStrikeDamageAmplify);
     }
 
     @Override
     public void onRemove() {
-        AbstractEasyCard.baseStrikeDamageMultiply -= amount;
+        AbstractEasyCard.baseStrikeDamageAmplify -= amount;
 
-        logger.info("onRemove, AbstractEasyCard.baseStrikeDamageMultiply:" + AbstractEasyCard.baseStrikeDamageMultiply);
+        logger.info("onRemove, AbstractEasyCard.baseStrikeDamageMultiply:" + AbstractEasyCard.baseStrikeDamageAmplify);
     }
 
     @Override

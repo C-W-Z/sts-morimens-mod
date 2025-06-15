@@ -8,11 +8,12 @@ import morimensmod.interfaces.OnBeforeExalt;
 import morimensmod.interfaces.OnBeforeExaltTipRender;
 import morimensmod.interfaces.OnBeforeUseCard;
 import morimensmod.util.TexLoader;
-import morimensmod.util.WizArt;
 
 import static morimensmod.MorimensMod.makeUIPath;
 import static morimensmod.util.Wiz.atb;
 import static morimensmod.util.Wiz.p;
+import static morimensmod.util.WizArt.drawCentered;
+import static morimensmod.util.WizArt.showThoughtBubble;
 
 import java.util.ArrayList;
 
@@ -31,7 +32,6 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 public class AliemusUI extends ClickableUIElement {
     public Hitbox hb;
@@ -61,7 +61,7 @@ public class AliemusUI extends ClickableUIElement {
     }
 
     public void render(SpriteBatch sb, float current_x) {
-        WizArt.drawCentered(sb, ICON, centerX, centerY, SCALE);
+        drawCentered(sb, ICON, centerX, centerY, SCALE);
         FontHelper.energyNumFontBlue.getData().setScale(fontScale);
         FontHelper.renderFontLeft(
                 sb,
@@ -110,19 +110,16 @@ public class AliemusUI extends ClickableUIElement {
     protected void onRightClick() {
         if (p().currentHealth <= 0 || p().isDeadOrEscaped()
                 || AbstractDungeon.isScreenUp || AbstractDungeon.actionManager.turnHasEnded
-                || !(p() instanceof AbstractAwakener) || AbstractAwakener.aliemus < AbstractAwakener.maxAliemus
-                || AbstractAwakener.exalting)
+                || !(p() instanceof AbstractAwakener) || AbstractAwakener.exalting)
             return;
 
         if (AbstractAwakener.exaltedThisTurn >= AbstractAwakener.maxExaltedPerTurn) {
-            AbstractDungeon.effectList.add(
-                    new ThoughtBubble(
-                            p().dialogX, // x 座標（通常用 player.dialogX）
-                            p().dialogY, // y 座標（通常用 player.dialogY）
-                            3.0F, // 顯示時間秒數
-                            TEXT.EXTRA_TEXT[0], // 顯示文字
-                            true // true = 是玩家；false = 怪物
-                    ));
+            showThoughtBubble(TEXT.EXTRA_TEXT[1], 3.0F);
+            return;
+        }
+
+        if (AbstractAwakener.aliemus < AbstractAwakener.maxAliemus) {
+            showThoughtBubble(TEXT.EXTRA_TEXT[0], 3.0F);
             return;
         }
 

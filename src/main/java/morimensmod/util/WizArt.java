@@ -1,6 +1,9 @@
 package morimensmod.util;
 
 import basemod.ReflectionHacks;
+
+import static morimensmod.util.Wiz.p;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -12,6 +15,8 @@ import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.graphics.glutils.GLFrameBuffer;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 public class WizArt {
 
@@ -50,6 +55,17 @@ public class WizArt {
                 tex.getHeight(),
                 false,
                 false);
+    }
+
+    public static void showThoughtBubble(String message, float duration) {
+        AbstractDungeon.effectList.add(
+                new ThoughtBubble(
+                        p().dialogX, // x 座標（通常用 player.dialogX）
+                        p().dialogY, // y 座標（通常用 player.dialogY）
+                        duration, // 顯示時間秒數
+                        message, // 顯示文字
+                        true // true = 是玩家；false = 怪物
+                ));
     }
 
     // SpriteBatch settings helpers

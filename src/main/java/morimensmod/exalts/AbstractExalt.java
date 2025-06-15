@@ -4,7 +4,11 @@ public abstract class AbstractExalt {
     public int damage;
     public int baseDamage;
 
-    public static int baseDamageMultiply;
+    public int aliemusNumber;
+    public int baseAliemusNumber;
+
+    public static int baseDamageAmplify;
+    public static int baseAliemusNumberAmplify;
 
     public abstract void exalt();
     public abstract void overExalt();
@@ -14,6 +18,7 @@ public abstract class AbstractExalt {
     public abstract String getOverExaltDescription();
 
     public static void onBattleStart() {
-        baseDamageMultiply = 0;
+        baseDamageAmplify = 0;
+        baseAliemusNumberAmplify = 0;
     }
 }
