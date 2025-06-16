@@ -6,6 +6,7 @@ import morimensmod.characters.AbstractAwakener;
 import morimensmod.interfaces.OnBeforeExaltTipRender;
 import morimensmod.util.TexLoader;
 
+import static morimensmod.MorimensMod.makeID;
 import static morimensmod.MorimensMod.makeUIPath;
 import static morimensmod.util.Wiz.atb;
 import static morimensmod.util.Wiz.p;
@@ -45,7 +46,7 @@ public class AliemusUI extends ClickableUIElement {
     public static float fontScale = 1F;
 
     private static final Texture ICON = TexLoader.getTexture(makeUIPath("Aliemus.png"));
-    private static final UIStrings TEXT = CardCrawlGame.languagePack.getUIString("ALIEMUS");
+    private static final UIStrings TEXT = CardCrawlGame.languagePack.getUIString(makeID(AliemusUI.class.getSimpleName()));
 
     public static AliemusUI UI;
 
@@ -74,7 +75,7 @@ public class AliemusUI extends ClickableUIElement {
     protected void onHover() {
         // popup text
         ArrayList<PowerTip> tips = new ArrayList<>();
-        tips.add(new PowerTip(TEXT.TEXT[0], TEXT.TEXT[1]));
+        tips.add(new PowerTip(TEXT.EXTRA_TEXT[0], TEXT.EXTRA_TEXT[1]));
         if (p() instanceof AbstractAwakener) {
             AbstractAwakener awaker = (AbstractAwakener) p();
 
@@ -90,8 +91,8 @@ public class AliemusUI extends ClickableUIElement {
             if (awaker.stance instanceof OnBeforeExaltTipRender)
                 ((OnBeforeExaltTipRender) awaker.stance).onBeforeExaltTipRender(awaker);
 
-            tips.add(new PowerTip(awaker.exalt.getExaltTitle(), awaker.exalt.getExaltDescription()));
-            tips.add(new PowerTip(awaker.exalt.getOverExaltTitle(), awaker.exalt.getOverExaltDescription()));
+            tips.add(new PowerTip(TEXT.TEXT[0] + awaker.exalt.getExaltTitle() + TEXT.TEXT[1], awaker.exalt.getExaltDescription()));
+            tips.add(new PowerTip(TEXT.TEXT[2] + awaker.exalt.getOverExaltTitle() + TEXT.TEXT[3], awaker.exalt.getOverExaltDescription()));
         }
         TipHelper.queuePowerTips(fontX, y + Settings.yScale * 400f, tips);
     }
@@ -111,12 +112,12 @@ public class AliemusUI extends ClickableUIElement {
             return;
 
         if (AbstractAwakener.exaltedThisTurn >= AbstractAwakener.maxExaltedPerTurn) {
-            showThoughtBubble(TEXT.EXTRA_TEXT[1], 3.0F);
+            showThoughtBubble(TEXT.EXTRA_TEXT[2], 3.0F);
             return;
         }
 
         if (AbstractAwakener.aliemus < AbstractAwakener.maxAliemus) {
-            showThoughtBubble(TEXT.EXTRA_TEXT[0], 3.0F);
+            showThoughtBubble(TEXT.EXTRA_TEXT[3], 3.0F);
             return;
         }
 
