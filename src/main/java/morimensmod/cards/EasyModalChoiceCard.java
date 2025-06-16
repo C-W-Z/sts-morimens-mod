@@ -2,8 +2,6 @@ package morimensmod.cards;
 
 import basemod.AutoAdd;
 
-import static morimensmod.MorimensMod.makeID;
-
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -15,8 +13,8 @@ public class EasyModalChoiceCard extends AbstractEasyCard {
     private String passedName;
     private String passedDesc;
 
-    public EasyModalChoiceCard(String name, String description, Runnable onUseOrChosen) {
-        super(makeID(name), -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, CardColor.COLORLESS);
+    public EasyModalChoiceCard(String cardID, String name, String description, Runnable onUseOrChosen) {
+        super(cardID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, CardColor.COLORLESS);
         this.name = this.originalName = passedName = name;
         this.rawDescription = passedDesc = description;
         this.onUseOrChosen = onUseOrChosen;
@@ -50,6 +48,6 @@ public class EasyModalChoiceCard extends AbstractEasyCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return new EasyModalChoiceCard(passedName, passedDesc, onUseOrChosen);
+        return new EasyModalChoiceCard(cardID, passedName, passedDesc, onUseOrChosen);
     }
 }

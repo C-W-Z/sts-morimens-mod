@@ -3,10 +3,9 @@ package morimensmod.cards.chaos;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
@@ -26,17 +25,8 @@ public class AssaultThesis extends AbstractEasyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // 降低所有敵人的力量 6（這回合）
-        for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
-            if (!mo.isDeadOrEscaped()) {
-                // 給負面力量（減攻擊力
-                addToBot(new ApplyPowerAction(mo, p, new StrengthPower(mo, -magicNumber), -magicNumber));
-                // 同時添加 GainStrengthPower 讓效果只持續一回合
-                addToBot(new ApplyPowerAction(mo, p, new GainStrengthPower(mo, magicNumber), magicNumber));
-            }
-        }
-
-        // 抽一張牌
+        addToBot(new AllEnemyApplyPowerAction(p, -magicNumber, (mo) -> new StrengthPower(mo, -magicNumber)));
+        addToBot(new AllEnemyApplyPowerAction(p, magicNumber, (mo) -> new GainStrengthPower(mo, magicNumber)));
         addToBot(new DrawCardAction(p, draw));
     }
 

@@ -28,8 +28,14 @@ public class EasyModalChoiceDemo extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         ArrayList<AbstractCard> easyCardList = new ArrayList<>();
-        easyCardList.add(new EasyModalChoiceCard(cardStrings.EXTENDED_DESCRIPTION[0], cardStrings.EXTENDED_DESCRIPTION[1] + magicNumber + cardStrings.EXTENDED_DESCRIPTION[2], () -> att(new DrawCardAction(magicNumber))));
-        easyCardList.add(new EasyModalChoiceCard(cardStrings.EXTENDED_DESCRIPTION[3], cardStrings.EXTENDED_DESCRIPTION[4]+ secondMagic + cardStrings.EXTENDED_DESCRIPTION[5], () -> applyToSelfTop(new StrengthPower(p, secondMagic))));
+        easyCardList
+                .add(new EasyModalChoiceCard(cardStrings.EXTENDED_DESCRIPTION[0], cardStrings.EXTENDED_DESCRIPTION[0],
+                        cardStrings.EXTENDED_DESCRIPTION[1] + magicNumber + cardStrings.EXTENDED_DESCRIPTION[2],
+                        () -> att(new DrawCardAction(magicNumber))));
+        easyCardList
+                .add(new EasyModalChoiceCard(cardStrings.EXTENDED_DESCRIPTION[3], cardStrings.EXTENDED_DESCRIPTION[3],
+                        cardStrings.EXTENDED_DESCRIPTION[4] + secondMagic + cardStrings.EXTENDED_DESCRIPTION[5],
+                        () -> applyToSelfTop(new StrengthPower(p, secondMagic))));
         atb(new EasyModalChoiceAction(easyCardList));
     }
 
