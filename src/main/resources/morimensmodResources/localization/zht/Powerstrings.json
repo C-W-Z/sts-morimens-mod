@@ -66,7 +66,7 @@
   "${ModID}:ManikinOfOblivionPower": {
     "NAME": "墜入虛無的人偶",
     "DESCRIPTIONS": [
-      "造成的 #y狂氣 、 基礎 #p中毒 、 基礎 #g治療 提高 #b",
+      "造成的基礎 #y狂氣 、基礎 #p中毒 、基礎 #g治療 提高 #b",
       "% 。 NL 釋放 #y狂氣爆發 或 #r超限爆發 後，獲得本次 #y狂氣 消耗 #b",
       "% 的 #y狂氣 。"
     ]

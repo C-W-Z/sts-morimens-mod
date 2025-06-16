@@ -39,10 +39,7 @@ public class SelfDestruct extends AbstractEasyCard {
                 ID,
                 cardStrings.EXTENDED_DESCRIPTION[0],
                 cardStrings.EXTENDED_DESCRIPTION[1],
-                () -> {
-                    addToBot(new AllEnemyApplyPowerAction(p, magicNumber, (mo) -> new VulnerablePower(mo, magicNumber, false)));
-                    applyToSelf(new ElationPower(p, secondMagic));
-                });
+                () -> useElation(p));
 
         elation.magicNumber = elation.baseMagicNumber = magicNumber;
         elation.secondMagic = elation.baseSecondMagic = secondMagic;
@@ -51,11 +48,7 @@ public class SelfDestruct extends AbstractEasyCard {
                 ID,
                 cardStrings.EXTENDED_DESCRIPTION[2],
                 cardStrings.EXTENDED_DESCRIPTION[3],
-                () -> {
-                    addToBot(new AllEnemyApplyPowerAction(p, magicNumber, (mo) -> new WeakPower(mo, magicNumber, false)));
-                    addToBot(new AllEnemyApplyPowerAction(p, -thirdMagic, (mo) -> new StrengthPower(mo, -thirdMagic)));
-                    addToBot(new AllEnemyApplyPowerAction(p, thirdMagic, (mo) -> new GainStrengthPower(mo, thirdMagic)));
-                });
+                () -> useCurse(p));
 
         curse.magicNumber = curse.baseMagicNumber = magicNumber;
         curse.thirdMagic = curse.baseThirdMagic = thirdMagic;
@@ -63,6 +56,19 @@ public class SelfDestruct extends AbstractEasyCard {
         easyCardList.add(elation);
         easyCardList.add(curse);
         atb(new EasyModalChoiceAction(easyCardList));
+    }
+
+    private void useElation(AbstractPlayer p) {
+        addToBot(new AllEnemyApplyPowerAction(p, magicNumber,
+                (mo) -> new VulnerablePower(mo, magicNumber, false)));
+        applyToSelf(new ElationPower(p, secondMagic));
+    }
+
+    private void useCurse(AbstractPlayer p) {
+        addToBot(new AllEnemyApplyPowerAction(p, magicNumber,
+                (mo) -> new WeakPower(mo, magicNumber, false)));
+        addToBot(new AllEnemyApplyPowerAction(p, -thirdMagic, (mo) -> new StrengthPower(mo, -thirdMagic)));
+        addToBot(new AllEnemyApplyPowerAction(p, thirdMagic, (mo) -> new GainStrengthPower(mo, thirdMagic)));
     }
 
     @Override

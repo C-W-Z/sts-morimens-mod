@@ -186,7 +186,7 @@
   },
   "${ModID}:ManikinOfOblivion": {
     "NAME": "墜入虛無的人偶",
-    "DESCRIPTION": "造成的 ${ModID}:狂氣 、基礎 中毒 、基礎 ${ModID}:治療 提高 !M! %。 NL 釋放 ${ModID}:狂氣爆發 後，獲得本次 ${ModID}:狂氣 消耗20%的 ${ModID}:狂氣 。"
+    "DESCRIPTION": "造成的基礎 ${ModID}:狂氣 、基礎 中毒 、基礎 ${ModID}:治療 提高 !M! %。 NL 釋放 ${ModID}:狂氣爆發 後，獲得本次 ${ModID}:狂氣 消耗20%的 ${ModID}:狂氣 。"
   },
   "${ModID}:HandOfOblivion": {
     "NAME": "遺忘之手",

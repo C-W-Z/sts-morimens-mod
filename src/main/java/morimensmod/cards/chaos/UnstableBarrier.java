@@ -29,9 +29,8 @@ public class UnstableBarrier extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new EasyXCostAction(this, (effect, params) -> {
             addToTop(new AliemusChangeAction(p, aliemus * (effect + params[0])));
-            for (int i = 0; i < effect + params[0] + 1; i++) {
+            for (int i = 0; i < effect + params[0] + 1; i++)
                 addToTop(new GainBlockAction(p, block));
-            }
             return true;
         }, 0));
         applyToSelf(new StrengthPower(p, magicNumber));
