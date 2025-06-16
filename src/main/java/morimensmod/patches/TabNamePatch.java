@@ -28,7 +28,7 @@ public class TabNamePatch {
     private static final UIStrings WHEEL_OF_DESTINY_STRINGS = CardCrawlGame.languagePack.getUIString(WHEEL_OF_DESTINY_COLOR.name());
     private static final UIStrings SYMPTOM_STRINGS = CardCrawlGame.languagePack.getUIString(SYMPTOM_COLOR.name());
 
-    @SpireInsertPatch(locator = TabNameLocator.class, localvars = { "i", "tabName" })
+    @SpireInsertPatch(locator = Locator.class, localvars = { "i", "tabName" })
     public static void InsertFix(int i, @ByRef String[] tabName) {
         ArrayList<ColorTabBarFix.ModColorTab> modTabs = ReflectionHacks
                 .getPrivateStatic(ColorTabBarFix.Fields.class, "modTabs");
@@ -48,7 +48,7 @@ public class TabNamePatch {
             tabName[0] = SYMPTOM_STRINGS.TEXT[0];
     }
 
-    private static class TabNameLocator extends SpireInsertLocator {
+    private static class Locator extends SpireInsertLocator {
         @Override
         public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
             Matcher.MethodCallMatcher methodCallMatcher = new Matcher.MethodCallMatcher(FontHelper.class,

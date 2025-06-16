@@ -147,6 +147,10 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         // logger.info("aliemusAmplify: " + aliemusAmplify + ", baseAliemus: " + baseAliemus);
     }
 
+    protected void applySuperPower() {
+        super.applyPowers();
+    }
+
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
         int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
@@ -159,6 +163,10 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
         if (damageAmplify != 100)
             isDamageModified = true;
+    }
+
+    protected void calculateSuperCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
     }
 
     protected void applyedBaseDamageAmplifies(int damageAmplify) {

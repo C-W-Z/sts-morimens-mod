@@ -7,27 +7,28 @@ import morimensmod.actions.AliemusChangeAction;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.CustomTags;
-import morimensmod.powers.FleshDetachedPower;
+import morimensmod.powers.SoulblightPower;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 
-public class FleshDetached extends AbstractEasyCard {
-    public final static String ID = makeID(FleshDetached.class.getSimpleName());
+public class Soulblight extends AbstractEasyCard {
+    public final static String ID = makeID(Soulblight.class.getSimpleName());
 
-    public FleshDetached() {
-        super(ID, 2, CardType.POWER, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
+    public Soulblight() {
+        super(ID, 3, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
         aliemus = baseAliemus = 30;
-        block = baseBlock = 5;
+        heal = baseHeal = 5;
+        magicNumber = baseMagicNumber = 50;
         selfRetain = true; // 保留
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new AliemusChangeAction(p, aliemus));
-        applyToSelf(new FleshDetachedPower(p, block));
+        applyToSelf(new SoulblightPower(p, heal));
     }
 
     @Override
@@ -38,7 +39,7 @@ public class FleshDetached extends AbstractEasyCard {
 
     @Override
     public void applyPowers() {
-        // 只有直接獲得的狂氣在這裡計算加成，格擋在Power中計算加成
+        // 只有直接獲得的狂氣在這裡計算加成，回血、回狂和中毒在Power中計算加成
         int aliemusAmplify = 100 + baseAliemusAmplify + AbstractAwakener.baseAliemusAmplify;
         applyedBaseAmplifies(100, 100, 100, aliemusAmplify);
         if (aliemusAmplify != 100) {

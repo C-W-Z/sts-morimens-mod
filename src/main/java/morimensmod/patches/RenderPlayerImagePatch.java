@@ -31,7 +31,7 @@ public class RenderPlayerImagePatch {
 
     @SpirePatch2(clz = AbstractPlayer.class, method = "render")
     public static class ReplaceFallbackRenderPatch {
-        @SpireInsertPatch(locator = DrawLocator.class)
+        @SpireInsertPatch(locator = Locator.class)
         public static SpireReturn<Void> patch(AbstractPlayer __instance, SpriteBatch sb, boolean ___renderCorpse) {
             // logger.info("ReplaceFallbackRenderPatch:" + __instance.getClass().getSimpleName() + ", " + !(__instance instanceof AbstractAwakener) + ", " + (((AbstractAwakener) __instance).anim == null));
             if (/*___renderCorpse || */!(__instance instanceof AbstractAwakener) || ((AbstractAwakener) __instance).anim == null)
@@ -43,7 +43,7 @@ public class RenderPlayerImagePatch {
             return SpireReturn.Return();
         }
 
-        private static class DrawLocator extends SpireInsertLocator {
+        private static class Locator extends SpireInsertLocator {
             @Override
             public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
                 // 精準找到 sb.draw(this.img, ...) 呼叫的位置

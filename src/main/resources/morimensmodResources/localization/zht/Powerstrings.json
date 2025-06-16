@@ -7,6 +7,13 @@
       " #yDexterity."
     ]
   },
+  "${ModID}:ElationPower": {
+    "NAME": "興奮",
+    "DESCRIPTIONS": [
+      "造成的基礎傷害、基礎 中毒 、基礎 反擊 提高 #b",
+      " %。"
+    ]
+  },
   "${ModID}:FirstDoctrinePower": {
     "NAME": "第一哲學",
     "DESCRIPTIONS": [
@@ -37,6 +44,15 @@
       " 張 #y指令卡 後，獲得 #b",
       " 點 #y力量 。當前還需要 #b",
       " 張。"
+    ]
+  },
+  "${ModID}:SoulblightPower": {
+    "NAME": "靈魂瘟疫",
+    "DESCRIPTIONS": [
+      "回合結束時， #g回復 #b",
+      " 點生命並獲得 #b",
+      " 點 #y狂氣 。 NL 「 #p終末型態 」：不再 #g回復生命 ，改為觸發所有敵人 #b",
+      " %的 #p中毒 。"
     ]
   },
   "${ModID}:RewindingTimePower": {

@@ -19,6 +19,12 @@ import static morimensmod.MorimensMod.*;
 
 public abstract class AbstractAwakener extends CustomPlayer {
 
+    public static int aliemusRegen = 0;
+    public static int baseAliemusRegen = 5;
+
+    public static int keyflareRegen = 0;
+    public static int baseKeyflareRegen = 0;
+
     public static final int NORMAL_MAX_ALIEMUS = 100;
     public static int aliemus = 0;
     public static int maxAliemus = NORMAL_MAX_ALIEMUS; // 普通狂氣上限 狂氣爆發
@@ -34,6 +40,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public static int baseHealAmplify;
     public static int baseAliemusAmplify;
     public static int basePoisonAmplify;
+    public static int baseCounterAmplify;
 
     public static final int ENERGY_PER_TURN = 5;
 
@@ -109,8 +116,18 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     // called in Main Mod File
     public static void onBattleStart() {
+        maxAliemus = NORMAL_MAX_ALIEMUS;
+        extremeAlimus = 2 * NORMAL_MAX_ALIEMUS;
+
+        aliemusRegen = baseAliemusRegen;
+        keyflareRegen = baseKeyflareRegen;
+
         baseDamageAmplify = 0;
+        baseBlockAmplify = 0;
+        baseHealAmplify = 0;
         baseAliemusAmplify = 0;
+        basePoisonAmplify = 0;
+        baseCounterAmplify = 0;
     }
 
     // called in Main Mod File

@@ -1,13 +1,19 @@
 package morimensmod.powers;
 
-import static morimensmod.MorimensMod.logger;
 import static morimensmod.MorimensMod.makeID;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import morimensmod.cards.AbstractEasyCard;
 
 public class HandOfOblivionPower extends AbstractEasyPower {
+
+    public static final Logger logger = LogManager.getLogger(HandOfOblivionPower.class);
+
     public final static String POWER_ID = makeID(HandOfOblivionPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static final String NAME = powerStrings.NAME;
@@ -15,17 +21,19 @@ public class HandOfOblivionPower extends AbstractEasyPower {
 
     public HandOfOblivionPower(AbstractCreature owner, int percent) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, percent);
-        AbstractEasyCard.baseStrikeDamageAmplify += percent;
+    }
 
-        logger.info("HandOfOblivionPower, AbstractEasyCard.baseStrikeDamageMultiply:" + AbstractEasyCard.baseStrikeDamageAmplify);
+    @Override
+    public void onInitialApplication() {
+        AbstractEasyCard.baseStrikeDamageAmplify += amount;
+        logger.info("onInitialApplication, AbstractEasyCard.baseStrikeDamageAmplify:" + AbstractEasyCard.baseStrikeDamageAmplify);
     }
 
     @Override
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        // A new Power() must be called before stack, so the baseStrikeDamageMultiply increment will be done in the constructor
-        // AbstractEasyCard.baseStrikeDamageMultiply += stackAmount;
-        // logger.info("stackPower, AbstractEasyCard.baseStrikeDamageMultiply:" + AbstractEasyCard.baseStrikeDamageMultiply);
+        AbstractEasyCard.baseStrikeDamageAmplify += stackAmount;
+        logger.info("stackPower, AbstractEasyCard.baseStrikeDamageAmplify:" + AbstractEasyCard.baseStrikeDamageAmplify);
     }
 
     @Override
@@ -33,14 +41,14 @@ public class HandOfOblivionPower extends AbstractEasyPower {
         super.reducePower(reduceAmount);
         AbstractEasyCard.baseStrikeDamageAmplify -= reduceAmount;
 
-        logger.info("reducePower, AbstractEasyCard.baseStrikeDamageMultiply:" + AbstractEasyCard.baseStrikeDamageAmplify);
+        logger.info("reducePower, AbstractEasyCard.baseStrikeDamageAmplify:" + AbstractEasyCard.baseStrikeDamageAmplify);
     }
 
     @Override
     public void onRemove() {
         AbstractEasyCard.baseStrikeDamageAmplify -= amount;
 
-        logger.info("onRemove, AbstractEasyCard.baseStrikeDamageMultiply:" + AbstractEasyCard.baseStrikeDamageAmplify);
+        logger.info("onRemove, AbstractEasyCard.baseStrikeDamageAmplify:" + AbstractEasyCard.baseStrikeDamageAmplify);
     }
 
     @Override
