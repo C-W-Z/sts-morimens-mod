@@ -7,6 +7,7 @@ import static morimensmod.util.Wiz.applyToEnemy;
 import static morimensmod.util.Wiz.p;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -32,7 +33,7 @@ public class PiercingStrike extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < attackCount; i++)
-            addToBot(new PierceDamageAction(m, p, damage, AttackEffect.BLUNT_HEAVY));
+            addToBot(new PierceDamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_HEAVY));
         applyToEnemy(m, new VulnerablePower(m, magicNumber, false));
     }
 

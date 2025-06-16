@@ -32,7 +32,7 @@ public class QueensSwordAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        if (target == null || target.currentHealth <= 0 || target.isDeadOrEscaped()) {
+        if (shouldCancelAction()) {
             isDone = true;
             return;
         }
