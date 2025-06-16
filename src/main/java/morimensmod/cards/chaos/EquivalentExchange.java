@@ -38,8 +38,6 @@ public class EquivalentExchange extends AbstractEasyCard {
 
     @Override
     public void applyPowers() {
-        // TODO:
-
         baseBlock = (p().hand.size() - 1) * magicNumber;
         heal = baseHeal + baseBlock;
 
