@@ -3,6 +3,7 @@ package morimensmod.cards.chaos;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import morimensmod.actions.AliemusChangeAction;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.patches.CustomTags;
 import morimensmod.powers.FleshDetachedPower;
@@ -17,17 +18,20 @@ public class FleshDetached extends AbstractEasyCard {
     public FleshDetached() {
         super(ID, 2, CardType.POWER, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
+        aliemus = baseAliemus = 30;
         block = baseBlock = 5;
         selfRetain = true; // 保留
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new AliemusChangeAction(p, aliemus));
         applyToSelf(new FleshDetachedPower(p, block));
     }
 
     @Override
     public void upp() {
+        upgradeAliemus(20);
         isInnate = true;
     }
 }

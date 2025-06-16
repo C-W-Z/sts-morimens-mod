@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
+import morimensmod.actions.AliemusChangeAction;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.patches.CustomTags;
 import morimensmod.powers.KnightsZealPower;
@@ -18,6 +19,7 @@ public class KnightsZeal extends AbstractEasyCard {
     public KnightsZeal() {
         super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
+        aliemus = baseAliemus = 30;
         magicNumber = baseMagicNumber = 2; // 力量
         secondMagic = baseSecondMagic = 1; // 每次獲得多少力量
         thirdMagic = baseThirdMagic = 3; // 每幾張指令卡獲得力量
@@ -26,12 +28,14 @@ public class KnightsZeal extends AbstractEasyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new AliemusChangeAction(p, aliemus));
         applyToSelf(new StrengthPower(p, magicNumber));
         applyToSelf(new KnightsZealPower(p, secondMagic, thirdMagic));
     }
 
     @Override
     public void upp() {
+        upgradeAliemus(20);
         isInnate = true;
     }
 }
