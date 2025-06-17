@@ -14,9 +14,6 @@ import static morimensmod.util.WizArt.showThoughtBubble;
 
 import java.util.ArrayList;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -24,7 +21,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
@@ -33,35 +29,27 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class KeyflareUI extends ClickableUIElement {
 
-    private static final Logger logger = LogManager.getLogger(KeyflareUI.class);
-
-    public Hitbox hb;
     private static final float SCALE = Settings.scale * 0.75F;
     private static final float hb_w = 120F * SCALE;
     private static final float hb_h = 120F * SCALE;
     private static final float baseX = 50F * Settings.scale;
-    private static final float baseY = 200F * Settings.scale;
+    private static final float baseY = 300F * Settings.scale;
     private static final float centerX = baseX + 60F * SCALE;
     private static final float centerY = baseY + 60F * SCALE;
     private static final float fontX = baseX + 120F * SCALE + 0F * Settings.scale;
-    private final float x = baseX;
-    private final float y = baseY;
-    public static float fontScale = 1F;
+    private static final float fontScale = 1F;
 
     private static final Texture ICON = TexLoader.getTexture(makeUIPath("Keyflare.png"));
     private static final UIStrings TEXT = CardCrawlGame.languagePack.getUIString(makeID(KeyflareUI.class.getSimpleName()));
 
-    public static KeyflareUI UI;
+    private static KeyflareUI UI;
 
     public KeyflareUI() {
         super(ICON, baseX, baseY, hb_w, hb_h);
-        this.image = ICON;
-
-        hb = new Hitbox(x, y, hb_w, hb_h); // square hitbox, honestly no idea what the x y does here
         this.setClickable(true);
     }
 
-    public void render(SpriteBatch sb, float current_x) {
+    private void render(SpriteBatch sb, float current_x) {
         drawCentered(sb, ICON, centerX, centerY, SCALE);
         FontHelper.energyNumFontBlue.getData().setScale(fontScale);
 
@@ -88,7 +76,7 @@ public class KeyflareUI extends ClickableUIElement {
             AbstractAwakener awaker = (AbstractAwakener) p();
             tips.add(new PowerTip(TEXT.TEXT[0] + awaker.getPosseTitle() + TEXT.TEXT[1], awaker.getPosseDescription()));
         }
-        TipHelper.queuePowerTips(fontX, y + Settings.yScale * 400f, tips);
+        TipHelper.queuePowerTips(fontX, baseY + Settings.yScale * 400f, tips);
     }
 
     @Override
@@ -118,10 +106,6 @@ public class KeyflareUI extends ClickableUIElement {
         PosseType type = PosseType.REGULAR;
         if (!AbstractAwakener.enoughRegularPosseCountThisTurn() && AbstractAwakener.enoughExtraPosseCountThisTurn())
             type = PosseType.EXTRA;
-        else {
-            logger.error("Something Wrong When Trying trigger Posse");
-            return;
-        }
 
         atb(new PosseAction((AbstractAwakener) p(), type));
     }

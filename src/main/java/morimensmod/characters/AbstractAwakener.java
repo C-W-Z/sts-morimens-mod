@@ -21,11 +21,11 @@ import static morimensmod.MorimensMod.*;
 
 public abstract class AbstractAwakener extends CustomPlayer {
 
-    public static int aliemusRegen = 0;
-    public static int baseAliemusRegen = 5;
+    public static int baseAliemusRegen = 0;
+    public static int aliemusRegen = baseAliemusRegen;
 
-    public static int keyflareRegen = 0;
-    public static int baseKeyflareRegen = 0;
+    public static int baseKeyflareRegen = 60;
+    public static int keyflareRegen = baseKeyflareRegen;
 
     public static final int NORMAL_ALIEMUS_LIMIT = 100;
     protected static int aliemus = 0;
@@ -83,6 +83,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
         dialogY = (drawY + 240.0F * Settings.scale);
 
         aliemus = 0;
+        keyflare = 0;
     }
 
     @Override

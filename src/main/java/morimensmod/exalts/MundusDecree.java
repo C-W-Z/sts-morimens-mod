@@ -6,8 +6,10 @@ import static morimensmod.util.Wiz.*;
 import java.util.ArrayList;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
@@ -40,6 +42,8 @@ public class MundusDecree extends AbstractExalt {
         }
 
         att(new EasyModalChoiceAction(cardList));
+
+        att(new WaitAction(Settings.ACTION_DUR_MED));
 
         att(new KeyflareChangeAction(p(), 200));
     }
