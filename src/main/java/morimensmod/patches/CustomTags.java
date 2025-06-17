@@ -14,4 +14,6 @@ public class CustomTags {
     public static CardTags SYMPTOM;
     @SpireEnum
     public static CardTags WHEEL_OF_DESTINY;
+    @SpireEnum
+    public static CardTags POSSE;
 }

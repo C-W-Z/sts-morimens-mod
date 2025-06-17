@@ -33,7 +33,7 @@ public class SelfDestruct extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> easyCardList = new ArrayList<>();
+        ArrayList<AbstractCard> choiceCardList = new ArrayList<>();
 
         EasyModalChoiceCard elation = new EasyModalChoiceCard(
                 ID,
@@ -53,9 +53,9 @@ public class SelfDestruct extends AbstractEasyCard {
         curse.magicNumber = curse.baseMagicNumber = magicNumber;
         curse.thirdMagic = curse.baseThirdMagic = thirdMagic;
 
-        easyCardList.add(elation);
-        easyCardList.add(curse);
-        atb(new EasyModalChoiceAction(easyCardList));
+        choiceCardList.add(elation);
+        choiceCardList.add(curse);
+        atb(new EasyModalChoiceAction(choiceCardList));
     }
 
     private void useElation(AbstractPlayer p) {

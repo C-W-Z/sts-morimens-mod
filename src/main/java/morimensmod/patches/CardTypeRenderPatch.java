@@ -23,6 +23,7 @@ public class CardTypeRenderPatch {
     private static final UIStrings BUFF_STRINGS = CardCrawlGame.languagePack.getUIString(CustomTags.BUFF.name());
     private static final UIStrings WHEEL_OF_DESTINY_STRINGS = CardCrawlGame.languagePack.getUIString(CustomTags.WHEEL_OF_DESTINY.name());
     private static final UIStrings SYMPTOM_STRINGS = CardCrawlGame.languagePack.getUIString(CustomTags.SYMPTOM.name());
+    private static final UIStrings POSSE_STRINGS = CardCrawlGame.languagePack.getUIString(CustomTags.POSSE.name());
 
     @SpirePatch2(clz = AbstractCard.class, method = "renderType")
     public static class _CardTypeRenderPatch {
@@ -38,6 +39,8 @@ public class CardTypeRenderPatch {
                 text[0] = WHEEL_OF_DESTINY_STRINGS.TEXT[0];
             else if (__instance.hasTag(CustomTags.SYMPTOM))
                 text[0] = SYMPTOM_STRINGS.TEXT[0];
+            else if (__instance.hasTag(CustomTags.POSSE))
+                text[0] = POSSE_STRINGS.TEXT[0];
         }
 
         private static class Locator extends SpireInsertLocator {

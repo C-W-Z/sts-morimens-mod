@@ -41,6 +41,8 @@ import static morimensmod.patches.ColorPatch.CardColorPatch.AEQUOR_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CARO_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.POSSE_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 
@@ -114,15 +116,26 @@ public class MorimensMod implements
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);
 
+        BaseMod.addColor(WHEEL_OF_DESTINY_COLOR, new Color(148.0f / 255, 155.0f / 255, 165.0f / 255, 1),
+                ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
+                ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
+                CARD_ENERGY_L, TEXT_ENERGY);
+
         BaseMod.addColor(BUFF_COLOR, new Color(1, 1, 1, 1),
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);
 
-        BaseMod.addColor(WHEEL_OF_DESTINY_COLOR, new Color(148.0f / 255, 155.0f / 255, 165.0f / 255, 1),
+        BaseMod.addColor(SYMPTOM_COLOR, new Color(1, 1, 1, 1),
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);
+
+        BaseMod.addColor(POSSE_COLOR, new Color(1, 1, 1, 1),
+                ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
+                ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
+                CARD_ENERGY_L, TEXT_ENERGY);
+
 
         BaseMod.subscribe(this);
     }
@@ -250,10 +263,9 @@ public class MorimensMod implements
                 .any(AbstractEasyCard.class, (info, var) -> {
                     if (!SignatureHelperInternal.hasSignature(var))
                         return;
-                    String ID = makeID(var.getClass().getSimpleName());
-                    logger.info("unlock signature:" + ID);
-                    SignatureHelper.unlock(ID, true);
-                    SignatureHelper.enable(ID, true);
+                    logger.info("unlock signature:" + var.cardID);
+                    SignatureHelper.unlock(var.cardID, true);
+                    SignatureHelper.enable(var.cardID, true);
                 });
     }
 

@@ -3,7 +3,9 @@ package morimensmod.characters;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
+import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.actions.PosseAction;
+import morimensmod.cards.posses.VoicesInYourHeadCard;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.misc.PosseType;
 import morimensmod.misc.SpriteSheetAnimation;
@@ -12,6 +14,7 @@ import morimensmod.posses.AbstractPosse;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
@@ -20,6 +23,8 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 
 import static morimensmod.MorimensMod.*;
 import static morimensmod.util.Wiz.atb;
+
+import java.util.ArrayList;
 
 public abstract class AbstractAwakener extends CustomPlayer {
 
@@ -64,7 +69,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public SpriteSheetAnimation anim = null;
 
-    public AbstractAwakener(String name, PlayerClass setClass, String characterImgPath, final String CORPSE, AbstractExalt exalt, AbstractPosse posse) {
+    public AbstractAwakener(String name, PlayerClass setClass, String characterImgPath, final String CORPSE,
+            AbstractExalt exalt, AbstractPosse posse) {
         super(name, setClass,
                 new CustomEnergyOrb(orbTextures, makeCharacterPath("ChaosRealm/orb/vfx.png"), null),
                 new AbstractAnimation() {
@@ -330,6 +336,12 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public void addExtraPosseActionToBottom() {
         // TODO
+
+        ArrayList<AbstractCard> choiceCardList = new ArrayList<>();
+        choiceCardList.add(new VoicesInYourHeadCard(this, PosseType.EXTRA));
+        choiceCardList.add(new VoicesInYourHeadCard(this, PosseType.EXTRA));
+
+        atb(new EasyModalChoiceAction(choiceCardList));
     }
 
     public static void upgradeMaxKeyflare(int amount) {
