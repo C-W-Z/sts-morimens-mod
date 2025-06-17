@@ -9,7 +9,7 @@ import morimensmod.characters.AbstractAwakener;
 import morimensmod.interfaces.OnAfterPosse;
 import morimensmod.interfaces.OnBeforePosse;
 import morimensmod.misc.PosseType;
-import morimensmod.posses.AbstractPosse;
+import morimensmod.cards.AbstractPosse;
 import morimensmod.powers.PosseTwicePower;
 
 public class PosseAction extends AbstractGameAction {

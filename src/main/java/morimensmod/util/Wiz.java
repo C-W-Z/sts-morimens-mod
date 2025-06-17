@@ -19,10 +19,12 @@ import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
+import morimensmod.cards.AbstractPosse;
 import morimensmod.patches.CustomTags;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.MorimensMod.modID;
+import static morimensmod.patches.ColorPatch.CardColorPatch.POSSE_COLOR;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -313,5 +315,13 @@ public class Wiz {
 
     public static boolean isCommandCard(AbstractCard card) {
         return card.hasTag(CustomTags.COMMAND);
+    }
+
+    public static ArrayList<AbstractPosse> getAllPosses() {
+        ArrayList<AbstractPosse> pool = new ArrayList<>();
+        for (AbstractCard c : CardLibrary.getAllCards())
+            if (c.color == POSSE_COLOR)
+                pool.add((AbstractPosse) c.makeCopy());
+        return pool;
     }
 }

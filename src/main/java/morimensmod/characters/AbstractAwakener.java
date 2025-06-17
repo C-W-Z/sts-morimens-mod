@@ -5,11 +5,10 @@ import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
 import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.actions.PosseAction;
-import morimensmod.cards.posses.VoicesInYourHeadCard;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.misc.PosseType;
 import morimensmod.misc.SpriteSheetAnimation;
-import morimensmod.posses.AbstractPosse;
+import morimensmod.cards.AbstractPosse;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -18,15 +17,25 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 
 import static morimensmod.MorimensMod.*;
+import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.atb;
+import static morimensmod.util.Wiz.getAllPosses;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public abstract class AbstractAwakener extends CustomPlayer {
+
+    private static final Logger logger = LogManager.getLogger(AbstractAwakener.class);
 
     public static int baseAliemusRegen = 0;
     public static int aliemusRegen = baseAliemusRegen;
@@ -69,8 +78,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public SpriteSheetAnimation anim = null;
 
-    public AbstractAwakener(String name, PlayerClass setClass, String characterImgPath, final String CORPSE,
-            AbstractExalt exalt, AbstractPosse posse) {
+    public AbstractAwakener(String name, PlayerClass setClass, String characterImgPath, final String CORPSE) {
         super(name, setClass,
                 new CustomEnergyOrb(orbTextures, makeCharacterPath("ChaosRealm/orb/vfx.png"), null),
                 new AbstractAnimation() {
@@ -92,6 +100,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
         aliemus = 0;
         keyflare = 0;
+    }
+
+    protected void setExaltAndPosse(AbstractExalt exalt, AbstractPosse posse) {
         this.exalt = exalt;
         this.posse = posse;
     }
@@ -321,12 +332,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     public void triggerPosse(PosseType type, AbstractPosse posse) {
-        if (type == PosseType.REGULAR) {
+        if (type == PosseType.REGULAR)
             assert this.posse == posse;
-            this.posse.activate();
-        } else {
-            posse.activate();
-        }
+        posse.activate();
         possing = false;
     }
 
@@ -337,9 +345,24 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public void addExtraPosseActionToBottom() {
         // TODO
 
-        ArrayList<AbstractCard> choiceCardList = new ArrayList<>();
-        choiceCardList.add(new VoicesInYourHeadCard(this, PosseType.EXTRA));
-        choiceCardList.add(new VoicesInYourHeadCard(this, PosseType.EXTRA));
+        ArrayList<AbstractPosse> posses = getAllPosses();
+        logger.debug("num_posses:" + posses.size());
+
+        for (AbstractPosse p : posses)
+            p.set(this, PosseType.EXTRA);
+
+        ArrayList<AbstractCard> choiceCardList;
+        if (getCardColor() == CHAOS_COLOR) {
+            choiceCardList = new ArrayList<>(posses);
+        }
+        else {
+            Collections.shuffle(posses, new Random(AbstractDungeon.miscRng.randomLong()));
+            choiceCardList = new ArrayList<>(posses.subList(0, Math.min(3, posses.size())));
+        }
+
+        // ArrayList<AbstractCard> choiceCardList = new ArrayList<>();
+        // choiceCardList.add(new VoicesInYourHead(this, PosseType.EXTRA));
+        // choiceCardList.add(new VoicesInYourHead(this, PosseType.EXTRA));
 
         atb(new EasyModalChoiceAction(choiceCardList));
     }
@@ -353,10 +376,10 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     public String getPosseTitle() {
-        return posse.getTitle();
+        return posse.getUITitle();
     }
 
     public String getPosseDescription() {
-        return posse.getDescription();
+        return posse.getUIDescription();
     }
 }

@@ -1,7 +1,6 @@
 package morimensmod.cards;
 
 import static morimensmod.patches.ColorPatch.CardColorPatch.POSSE_COLOR;
-import static morimensmod.util.Wiz.atb;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -9,29 +8,34 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import morimensmod.actions.PosseAction;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.misc.PosseType;
-import morimensmod.posses.AbstractPosse;
+import morimensmod.patches.CustomTags;
 
-public abstract class AbstractPosseCard extends AbstractEasyCard {
+public abstract class AbstractPosse extends AbstractEasyCard {
 
-    protected Runnable onUseOrChosen;
+    protected AbstractAwakener p;
+    protected PosseType type;
 
-    public AbstractPosseCard(String cardID, AbstractAwakener p, PosseType type, AbstractPosse posse) {
-        this(cardID, () -> atb(new PosseAction(p, type, posse)));
-    }
-
-    public AbstractPosseCard(String cardID, Runnable onUseOrChosen) {
+    public AbstractPosse(String cardID, AbstractAwakener p, PosseType type) {
         super(cardID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, POSSE_COLOR);
-        this.onUseOrChosen = onUseOrChosen;
+        tags.add(CustomTags.POSSE);
+        set(p, type);
     }
+
+    public abstract void activate();
 
     @Override
     public void onChoseThisOption() {
-        onUseOrChosen.run();
+        addToBot(new PosseAction(p, type, this));
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        onUseOrChosen.run();
+        onChoseThisOption();
+    }
+
+    public void set(AbstractAwakener p, PosseType type) {
+        this.p = p;
+        this.type = type;
     }
 
     @Override
@@ -47,8 +51,11 @@ public abstract class AbstractPosseCard extends AbstractEasyCard {
     public void upgrade() {
     }
 
-    // @Override
-    // public AbstractCard makeCopy() {
-    // return new AbstractPosseCard(cardID, onUseOrChosen);
-    // }
+    public String getUITitle() {
+        return cardStrings.NAME;
+    }
+
+    public String getUIDescription() {
+        return cardStrings.EXTENDED_DESCRIPTION[0];
+    }
 }

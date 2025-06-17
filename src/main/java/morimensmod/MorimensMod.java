@@ -9,6 +9,7 @@ import basemod.patches.com.megacrit.cardcrawl.saveAndContinue.SaveFile.ModSaves.
 import me.antileaf.signature.utils.SignatureHelper;
 import me.antileaf.signature.utils.internal.SignatureHelperInternal;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.AbstractPosse;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.chaos.QueensSword;
 import morimensmod.characters.AbstractAwakener;
@@ -45,8 +46,10 @@ import static morimensmod.patches.ColorPatch.CardColorPatch.POSSE_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
+import static morimensmod.util.Wiz.getAllPosses;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
