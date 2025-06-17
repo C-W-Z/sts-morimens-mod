@@ -2,6 +2,7 @@ package morimensmod.cards.chaos;
 
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.actions.AliemusChangeAction;
@@ -29,7 +30,7 @@ public class FatesDescent extends AbstractEasyCard {
         int aliemusBefore = AbstractAwakener.getAliemus();
         addToBot(new AliemusChangeAction(p, aliemus));
         for (int i = 0; i < 1 + (aliemusBefore / magicNumber); i++) {
-            addToBot(new HealAction(p, p, heal));
+            addToBot(new HealAction(p, p, heal, Settings.ACTION_DUR_FASTER));
         }
     }
 

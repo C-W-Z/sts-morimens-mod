@@ -15,12 +15,21 @@ import static morimensmod.util.Wiz.drawPile;
 import static morimensmod.util.Wiz.exhaustPile;
 import static morimensmod.util.Wiz.hand;
 import static morimensmod.util.Wiz.limbo;
+import static morimensmod.util.Wiz.p;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.actions.QueensSwordAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.CustomTags;
 
 public class QueensSword extends AbstractEasyCard {
+
+    private static final Logger logger = LogManager.getLogger(QueensSword.class);
+
     public static final String ID = makeID(QueensSword.class.getSimpleName());
 
     private static final int MAX_EXTRA_ATKCOUNT = 3;
@@ -63,6 +72,18 @@ public class QueensSword extends AbstractEasyCard {
     }
 
     @Override
+    public void onMoveToDiscard() {
+        logger.debug("onMoveToDiscard:" + costForTurn * AbstractAwakener.keyflareRegen);
+        addToBot(new KeyflareChangeAction(p(), costForTurn * AbstractAwakener.keyflareRegen));
+    }
+
+    @Override
+    public void triggerOnManualDiscard() {
+        logger.debug("triggerOnManualDiscard:" + costForTurn * AbstractAwakener.keyflareRegen);
+        addToBot(new KeyflareChangeAction(p(), costForTurn * AbstractAwakener.keyflareRegen));
+    }
+
+    @Override
     public void applyPowers() {
         magicNumber = baseMagicNumber = extraAtkCountThisCombat;
         secondMagic = baseSecondMagic = attackCount + extraAtkCountThisCombat;
@@ -78,7 +99,7 @@ public class QueensSword extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeAttackCount(1); // 升級後攻擊次數+1
+        upgradeDamage(1);
     }
 
     public static void updateAllAttackTimes() {

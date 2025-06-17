@@ -17,13 +17,19 @@ public class PosseAction extends AbstractGameAction {
     AbstractAwakener awaker;
     PosseType type;
     AbstractPosse posse;
+    boolean purgeOnUse;
     int exhaustKeyflare;
 
     public PosseAction(AbstractAwakener awaker, PosseType type, AbstractPosse posse) {
+        this(awaker, type, posse, false);
+    }
+
+    public PosseAction(AbstractAwakener awaker, PosseType type, AbstractPosse posse, boolean purgeOnUse) {
         this.actionType = ActionType.SPECIAL;
         this.awaker = awaker;
         this.type = type;
         this.posse = posse;
+        this.purgeOnUse = purgeOnUse;
 
         exhaustKeyflare = AbstractAwakener.exhaustKeyflareForPosse(type);
     }
@@ -44,8 +50,8 @@ public class PosseAction extends AbstractGameAction {
 
         awaker.triggerPosse(type, posse);
 
-        if (awaker.hasPower(PosseTwicePower.POWER_ID)) {
-            addToTop(new PosseAction(awaker, PosseType.UNLIMITED, posse));
+        if (!purgeOnUse && awaker.hasPower(PosseTwicePower.POWER_ID)) {
+            addToTop(new PosseAction(awaker, PosseType.UNLIMITED, posse, true));
             addToTop(new ReducePowerAction(awaker, awaker, PosseTwicePower.POWER_ID, 1));
         }
 

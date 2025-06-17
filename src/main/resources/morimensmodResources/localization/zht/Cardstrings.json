@@ -14,7 +14,7 @@
   },
   "${ModID}:AssaultThesis": {
     "NAME": "攻勢推演",
-    "DESCRIPTION": "使所有敵人 ${ModID}:臨時 降低 !M! 點 力量 。抽 !${ModID}:DR! 張牌。抽到的牌每有 1 點 [E] 消耗，獲得 35 點 ${ModID}:銀鑰能量 。"
+    "DESCRIPTION": "使所有敵人 ${ModID}:臨時 降低 !M! 點 力量 。抽 !${ModID}:DR! 張牌。抽到的牌每有 1 點 [E] 消耗，獲得 !${ModID}:M2! 點 ${ModID}:銀鑰能量 。"
   },
   "${ModID}:QueensSword": {
     "NAME": "女王之劍",
