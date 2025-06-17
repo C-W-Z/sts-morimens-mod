@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import morimensmod.actions.PierceDamageAction;
@@ -51,7 +52,7 @@ public class PiercingStrike extends AbstractEasyCard {
     @Override
     public void applyPowers() {
         int originalStrength = 0;
-        AbstractPower str = p().getPower("Strength");
+        AbstractPower str = p().getPower(StrengthPower.POWER_ID);
         if (str != null) {
             originalStrength = str.amount;
             // 暫時修改力量為 ×3
@@ -74,7 +75,7 @@ public class PiercingStrike extends AbstractEasyCard {
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
         int originalStrength = 0;
-        AbstractPower str = p().getPower("Strength");
+        AbstractPower str = p().getPower(StrengthPower.POWER_ID);
         if (str != null) {
             originalStrength = str.amount;
             str.amount *= secondMagic;

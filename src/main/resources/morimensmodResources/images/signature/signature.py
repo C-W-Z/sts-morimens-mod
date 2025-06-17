@@ -71,6 +71,15 @@ def pad_image_to_1024x1024(image_path, output_path, corner_radius=0, mask=False,
 # pad_image_to_1024x1024("Ramona.png", "Ramona_s", 0, True, "Card_Skill_Frame.png")
 # pad_image_to_1024x1024("Lotan.png", "Lotan_s", 0, True, "Card_Power_Frame.png")
 # pad_image_to_1024x1024("Doll.png", "Doll_s", 0, True, "Card_Skill_Frame.png")
-pad_image_to_1024x1024("Ogier.png", "Ogier_s", 0, True, "Card_Skill_Frame.png")
+# pad_image_to_1024x1024("Ogier.png", "Ogier_s", 0, True, "Card_Skill_Frame.png")
+# pad_image_to_1024x1024("DollInferno.png", "DollInferno_s", 0, True, "Card_Power_Frame.png")
+
 # pad_image_to_1024x1024("HandOfOblivion.png", "HandOfOblivion_s", 30)
 # pad_image_to_1024x1024("ManikinOfOblivion.png", "ManikinOfOblivion_s", 30)
+
+# pad_image_to_1024x1024("VoicesInYourHead.png", "VoicesInYourHead_s", 0, True, "Card_Skill_Frame.png")
+# pad_image_to_1024x1024("TinyWish.png", "TinyWish_s", 0, True, "Card_Skill_Frame.png")
+# pad_image_to_1024x1024("AMousesWisdom.png", "AMousesWisdom_s", 0, True, "Card_Skill_Frame.png")
+pad_image_to_1024x1024("EncounterInPureWhite.png", "EncounterInPureWhite_s", 0, True, "Card_Skill_Frame.png")
+pad_image_to_1024x1024("WardedInjection.png", "WardedInjection_s", 0, True, "Card_Skill_Frame.png")
+pad_image_to_1024x1024("ObsessionEternal.png", "ObsessionEternal_s", 0, True, "Card_Skill_Frame.png")

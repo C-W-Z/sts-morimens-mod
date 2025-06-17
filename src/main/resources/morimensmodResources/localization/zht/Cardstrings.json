@@ -20,6 +20,27 @@
       "獲得 #b3 點 [E] 。"
     ]
   },
+  "${ModID}:EncounterInPureWhite": {
+    "NAME": "純白初遇",
+    "DESCRIPTION": "棄掉所有手牌，抽取棄掉數量 +2 的牌。",
+    "EXTENDED_DESCRIPTION": [
+      "棄掉所有手牌，抽取棄掉數量 #b+2 的牌。"
+    ]
+  },
+  "${ModID}:WardedInjection": {
+    "NAME": "注射守護",
+    "DESCRIPTION": "獲得 10 點 格擋 ，當前生命若低於 25% ， ${ModID}:回復 10 點生命。",
+    "EXTENDED_DESCRIPTION": [
+      "獲得 #b10 點 #y格擋 ，當前生命若低於 #b25% ， #g回復 #b10 點生命。"
+    ]
+  },
+  "${ModID}:ObsessionEternal": {
+    "NAME": "永世執念",
+    "DESCRIPTION": "獲得 3 點 力量 ，額外獲得等同於永久 力量 25% 的 ${ModID}:臨時 力量 。",
+    "EXTENDED_DESCRIPTION": [
+      "獲得 #b3 點 #y力量 ，額外獲得等同於永久 #y力量 #b25% 的 #y臨時 #y力量 。"
+    ]
+  },
   "${ModID}:Strike": {
     "NAME": "打擊",
     "DESCRIPTION": "造成 !D! 點傷害。 NL 獲得 !${ModID}:A! 點 ${ModID}:狂氣 。"

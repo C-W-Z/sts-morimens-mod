@@ -343,8 +343,6 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     public void addExtraPosseActionToBottom() {
-        // TODO
-
         ArrayList<AbstractPosse> posses = getAllPosses();
         logger.debug("num_posses:" + posses.size());
 

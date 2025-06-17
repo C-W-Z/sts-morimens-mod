@@ -29,16 +29,16 @@ public class VoicesInYourHead extends AbstractPosse {
         super(ID, p, type);
     }
 
-    private static final int debuffAmount = 1;
-    private static final int stealStrength = 1;
+    private static final int DEBUFF_AMOUNT = 1;
+    private static final int STEAL_STR = 1;
 
     @Override
     public void activate() {
-        applyToSelfTop(new LoseStrengthPower(p(), stealStrength));
-        applyToSelfTop(new StrengthPower(p(), stealStrength));
-        att(new AllEnemyApplyPowerAction(p(), stealStrength, (mo) -> new GainStrengthPower(mo, stealStrength)));
-        att(new AllEnemyApplyPowerAction(p(), -stealStrength, (mo) -> new StrengthPower(mo, -stealStrength)));
-        att(new AllEnemyApplyPowerAction(p(), debuffAmount, (mo) -> new VulnerablePower(mo, debuffAmount, false)));
-        att(new AllEnemyApplyPowerAction(p(), debuffAmount, (mo) -> new WeakPower(mo, debuffAmount, false)));
+        applyToSelfTop(new LoseStrengthPower(p(), STEAL_STR));
+        applyToSelfTop(new StrengthPower(p(), STEAL_STR));
+        att(new AllEnemyApplyPowerAction(p(), STEAL_STR, (mo) -> new GainStrengthPower(mo, STEAL_STR)));
+        att(new AllEnemyApplyPowerAction(p(), -STEAL_STR, (mo) -> new StrengthPower(mo, -STEAL_STR)));
+        att(new AllEnemyApplyPowerAction(p(), DEBUFF_AMOUNT, (mo) -> new VulnerablePower(mo, DEBUFF_AMOUNT, false)));
+        att(new AllEnemyApplyPowerAction(p(), DEBUFF_AMOUNT, (mo) -> new WeakPower(mo, DEBUFF_AMOUNT, false)));
     }
 }

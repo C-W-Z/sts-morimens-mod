@@ -196,7 +196,7 @@ public class Wiz {
         discard(amount, false);
     }
 
-    public static int pwrAmt(AbstractCreature check, String ID) {
+    public static int powerAmount(AbstractCreature check, String ID) {
         AbstractPower found = check.getPower(ID);
         if (found != null)
             return found.amount;
