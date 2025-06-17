@@ -58,13 +58,20 @@ public class AliemusUI extends ClickableUIElement {
     public void render(SpriteBatch sb, float current_x) {
         drawCentered(sb, ICON, centerX, centerY, SCALE);
         FontHelper.energyNumFontBlue.getData().setScale(fontScale);
+
+        Color textColor = Color.GRAY;
+        if (AbstractAwakener.aliemus >= AbstractAwakener.extremeAlimus)
+            textColor = Color.RED;
+        else if (AbstractAwakener.aliemus >= AbstractAwakener.aliemusLimit)
+            textColor = Color.GOLD;
+
         FontHelper.renderFontLeft(
                 sb,
                 FontHelper.energyNumFontBlue,
-                AbstractAwakener.aliemus + "/" + AbstractAwakener.maxAliemus,
+                AbstractAwakener.aliemus + "/" + AbstractAwakener.aliemusLimit,
                 fontX,
                 centerY,
-                Color.WHITE);
+                textColor);
         FontHelper.energyNumFontBlue.getData().setScale(1F);
     }
 
@@ -95,12 +102,12 @@ public class AliemusUI extends ClickableUIElement {
                 || !(p() instanceof AbstractAwakener) || AbstractAwakener.exalting)
             return;
 
-        if (AbstractAwakener.exaltedThisTurn >= AbstractAwakener.maxExaltedPerTurn) {
+        if (AbstractAwakener.exaltedThisTurn >= AbstractAwakener.maxExaltPerTurn) {
             showThoughtBubble(TEXT.EXTRA_TEXT[2], 3.0F);
             return;
         }
 
-        if (AbstractAwakener.aliemus < AbstractAwakener.maxAliemus) {
+        if (AbstractAwakener.aliemus < AbstractAwakener.aliemusLimit) {
             showThoughtBubble(TEXT.EXTRA_TEXT[3], 3.0F);
             return;
         }

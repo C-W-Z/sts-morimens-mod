@@ -1,0 +1,78 @@
+package morimensmod.actions;
+
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+
+import morimensmod.characters.AbstractAwakener;
+import morimensmod.interfaces.OnAfterPosse;
+import morimensmod.interfaces.OnBeforePosse;
+import morimensmod.misc.PosseType;
+import morimensmod.posses.AbstractPosse;
+
+public class PosseAction extends AbstractGameAction {
+
+    AbstractAwakener awaker;
+    PosseType type;
+    AbstractPosse posse;
+    int exhaustKeyflare;
+
+    public PosseAction(AbstractAwakener awaker, PosseType type, AbstractPosse posse) {
+        this.actionType = ActionType.SPECIAL;
+        this.awaker = awaker;
+        this.type = type;
+        this.posse = posse;
+
+        AbstractAwakener.possing = true;
+        if (type == PosseType.REGULAR) {
+            AbstractAwakener.possedThisTurn++;
+            AbstractAwakener.keyflare -= AbstractAwakener.posseKeyflare;
+            exhaustKeyflare = AbstractAwakener.posseKeyflare;
+        }
+        else if (type == PosseType.EXTRA) {
+            AbstractAwakener.extraPossedThisTurn++;
+            AbstractAwakener.keyflare -= AbstractAwakener.posseKeyflare;
+            exhaustKeyflare = AbstractAwakener.posseKeyflare;
+        }
+        else if (type == PosseType.UNLIMITED) {
+            AbstractAwakener.unlimitedPosseThisTurn++;
+            exhaustKeyflare = 0;
+        }
+
+        if (AbstractAwakener.keyflare < 0)
+            AbstractAwakener.keyflare = 0;
+    }
+
+    @Override
+    public void update() {
+        // 呼叫所有 Power 的 hook
+        for (AbstractPower p : awaker.powers)
+            if (p instanceof OnBeforePosse)
+                ((OnBeforePosse) p).onBeforePosse(awaker, exhaustKeyflare, type);
+        // 呼叫所有遺物的 hook
+        for (AbstractRelic r : awaker.relics)
+            if (r instanceof OnBeforePosse)
+                ((OnBeforePosse) r).onBeforePosse(awaker, exhaustKeyflare, type);
+        // 呼叫姿態（Stance）的 hook
+        if (awaker.stance instanceof OnBeforePosse)
+            ((OnBeforePosse) awaker.stance).onBeforePosse(awaker, exhaustKeyflare, type);
+
+        posse.activate();
+
+        AbstractAwakener.possing = false;
+
+        isDone = true;
+
+        // 呼叫所有 Power 的 hook
+        for (AbstractPower p : awaker.powers)
+            if (p instanceof OnAfterPosse)
+                ((OnAfterPosse) p).onAfterPosse(awaker, exhaustKeyflare, type);
+        // 呼叫所有遺物的 hook
+        for (AbstractRelic r : awaker.relics)
+            if (r instanceof OnAfterPosse)
+                ((OnAfterPosse) r).onAfterPosse(awaker, exhaustKeyflare, type);
+        // 呼叫姿態（Stance）的 hook
+        if (awaker.stance instanceof OnAfterPosse)
+            ((OnAfterPosse) awaker.stance).onAfterPosse(awaker, exhaustKeyflare, type);
+    }
+}

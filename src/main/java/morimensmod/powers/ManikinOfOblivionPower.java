@@ -13,9 +13,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.interfaces.OnAfterExalt;
-import morimensmod.interfaces.OnBeforeExalt;
 
-public class ManikinOfOblivionPower extends AbstractEasyPower implements OnBeforeExalt, OnAfterExalt {
+public class ManikinOfOblivionPower extends AbstractEasyPower implements OnAfterExalt {
 
     public static final Logger logger = LogManager.getLogger(ManikinOfOblivionPower.class);
 
@@ -23,8 +22,6 @@ public class ManikinOfOblivionPower extends AbstractEasyPower implements OnBefor
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-
-    private int aliemusBeforeExalt;
 
     public ManikinOfOblivionPower(AbstractCreature owner, int percent) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, percent);
@@ -76,19 +73,11 @@ public class ManikinOfOblivionPower extends AbstractEasyPower implements OnBefor
     }
 
     @Override
-    public void onBeforeExalt(AbstractAwakener awaker) {
-        aliemusBeforeExalt = AbstractAwakener.aliemus;
-
-        logger.info("aliemusBeforeExalt:" + aliemusBeforeExalt);
-    }
-
-    @Override
-    public void onAfterExalt(AbstractAwakener awaker) {
-        int diffAliemus = aliemusBeforeExalt - AbstractAwakener.aliemus;
-        if (diffAliemus <= 0)
+    public void onAfterExalt(AbstractAwakener awaker, int exhaustAliemus, boolean overExalt) {
+        if (exhaustAliemus <= 0)
             return;
 
-        int aliemus = diffAliemus * amount2 / 100;
+        int aliemus = exhaustAliemus * amount2 / 100;
 
         int aliemusAmplify = 100 + AbstractAwakener.baseAliemusAmplify;
         aliemus = MathUtils.ceil(aliemus * aliemusAmplify / 100F);
@@ -96,6 +85,6 @@ public class ManikinOfOblivionPower extends AbstractEasyPower implements OnBefor
         flash();
         addToBot(new AliemusChangeAction(awaker, aliemus));
 
-        logger.info("diffAliemus:" + diffAliemus + ", gainedAliemus:" + aliemus);
+        logger.info("exhaustAliemus:" + exhaustAliemus + ", gainedAliemus:" + aliemus);
     }
 }

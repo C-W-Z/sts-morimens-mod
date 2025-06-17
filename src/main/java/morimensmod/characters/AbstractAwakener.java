@@ -5,6 +5,7 @@ import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.misc.SpriteSheetAnimation;
+import morimensmod.posses.AbstractPosse;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -25,14 +26,27 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public static int keyflareRegen = 0;
     public static int baseKeyflareRegen = 0;
 
-    public static final int NORMAL_MAX_ALIEMUS = 100;
+    public static final int NORMAL_ALIEMUS_LIMIT = 100;
     public static int aliemus = 0;
-    public static int maxAliemus = NORMAL_MAX_ALIEMUS; // 普通狂氣上限 狂氣爆發
-    public static int extremeAlimus = 2 * NORMAL_MAX_ALIEMUS; // 雙倍上限 超限爆發
+    public static int aliemusLimit = NORMAL_ALIEMUS_LIMIT; // 普通狂氣上限 狂氣爆發
+    public static int extremeAlimus = 2 * NORMAL_ALIEMUS_LIMIT; // 雙倍上限 超限爆發
     public static boolean exalting = false;
     public static int exaltedThisTurn = 0; // reset at Main Mod File
-    public static int maxExaltedPerTurn = 1; // reset at Main Mod File
+    public static int maxExaltPerTurn = 1; // reset at Main Mod File
     public AbstractExalt exalt;
+
+    public static final int NORMAL_KEYFLARE_LIMIT = 1000;
+    public static int keyflare = 0;
+    public static int posseKeyflare = NORMAL_KEYFLARE_LIMIT;
+    public static int maxKeyflare = 2 * NORMAL_KEYFLARE_LIMIT;
+    public static boolean possing = false;
+    public static int possedThisTurn = 0;           // reset at Main Mod File
+    public static int extraPossedThisTurn = 0;      // reset at Main Mod File
+    public static int unlimitedPosseThisTurn = 0;   // reset at Main Mod File
+    public static int maxPoseePerTurn = 1;          // reset at Main Mod File
+    public static int maxExtraPoseePerTurn = 1;     // reset at Main Mod File
+    public static int possedThisBattle = 0;         // reset at Main Mod File
+    public AbstractPosse posse;
 
     // percent
     public static int baseDamageAmplify;
@@ -116,8 +130,11 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     // called in Main Mod File
     public static void onBattleStart() {
-        maxAliemus = NORMAL_MAX_ALIEMUS;
-        extremeAlimus = 2 * NORMAL_MAX_ALIEMUS;
+        aliemusLimit = NORMAL_ALIEMUS_LIMIT;
+        extremeAlimus = 2 * NORMAL_ALIEMUS_LIMIT;
+
+        posseKeyflare = NORMAL_KEYFLARE_LIMIT;
+        maxKeyflare = 2 * NORMAL_KEYFLARE_LIMIT;
 
         aliemusRegen = baseAliemusRegen;
         keyflareRegen = baseKeyflareRegen;
@@ -133,6 +150,6 @@ public abstract class AbstractAwakener extends CustomPlayer {
     // called in Main Mod File
     public static void onPlayerTurnStartPostDraw() {
         exaltedThisTurn = 0;
-        maxExaltedPerTurn = 1;
+        maxExaltPerTurn = 1;
     }
 }

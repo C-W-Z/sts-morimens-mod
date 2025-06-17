@@ -12,34 +12,38 @@ public class ExaltAction extends AbstractGameAction {
 
     AbstractAwakener awaker;
     boolean overExalt;
+    int exhaustAliemus;
 
     public ExaltAction(AbstractAwakener awaker) {
         this.actionType = ActionType.SPECIAL;
         this.awaker = awaker;
         this.overExalt = AbstractAwakener.aliemus >= AbstractAwakener.extremeAlimus;
+
         AbstractAwakener.exalting = true;
         AbstractAwakener.exaltedThisTurn++;
-    }
 
-    @Override
-    public void update() {
-        AbstractAwakener.aliemus -= overExalt ? AbstractAwakener.extremeAlimus : AbstractAwakener.maxAliemus;
+        int aliemusBefore = AbstractAwakener.aliemus;
+        AbstractAwakener.aliemus -= overExalt ? AbstractAwakener.extremeAlimus : AbstractAwakener.aliemusLimit;
         if (AbstractAwakener.aliemus < 0)
             AbstractAwakener.aliemus = 0;
         else if (AbstractAwakener.aliemus > 0)
             AbstractAwakener.aliemus /= 2;
+        exhaustAliemus = aliemusBefore - AbstractAwakener.aliemus;
+    }
 
+    @Override
+    public void update() {
         // 呼叫所有 Power 的 hook
         for (AbstractPower p : awaker.powers)
             if (p instanceof OnBeforeExalt)
-                ((OnBeforeExalt) p).onBeforeExalt(awaker);
+                ((OnBeforeExalt) p).onBeforeExalt(awaker, exhaustAliemus, overExalt);
         // 呼叫所有遺物的 hook
         for (AbstractRelic r : awaker.relics)
             if (r instanceof OnBeforeExalt)
-                ((OnBeforeExalt) r).onBeforeExalt(awaker);
+                ((OnBeforeExalt) r).onBeforeExalt(awaker, exhaustAliemus, overExalt);
         // 呼叫姿態（Stance）的 hook
         if (awaker.stance instanceof OnBeforeExalt)
-            ((OnBeforeExalt) awaker.stance).onBeforeExalt(awaker);
+            ((OnBeforeExalt) awaker.stance).onBeforeExalt(awaker, exhaustAliemus, overExalt);
 
         if (overExalt)
             awaker.exalt.overExalt();
@@ -53,13 +57,13 @@ public class ExaltAction extends AbstractGameAction {
         // 呼叫所有 Power 的 hook
         for (AbstractPower p : awaker.powers)
             if (p instanceof OnAfterExalt)
-                ((OnAfterExalt) p).onAfterExalt(awaker);
+                ((OnAfterExalt) p).onAfterExalt(awaker, exhaustAliemus, overExalt);
         // 呼叫所有遺物的 hook
         for (AbstractRelic r : awaker.relics)
             if (r instanceof OnAfterExalt)
-                ((OnAfterExalt) r).onAfterExalt(awaker);
+                ((OnAfterExalt) r).onAfterExalt(awaker, exhaustAliemus, overExalt);
         // 呼叫姿態（Stance）的 hook
         if (awaker.stance instanceof OnAfterExalt)
-            ((OnAfterExalt) awaker.stance).onAfterExalt(awaker);
+            ((OnAfterExalt) awaker.stance).onAfterExalt(awaker, exhaustAliemus, overExalt);
     }
 }
