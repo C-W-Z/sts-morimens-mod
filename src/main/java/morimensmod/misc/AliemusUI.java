@@ -3,7 +3,6 @@ package morimensmod.misc;
 import basemod.ClickableUIElement;
 import morimensmod.actions.ExaltAction;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.interfaces.OnBeforeExaltTipRender;
 import morimensmod.util.TexLoader;
 
 import static morimensmod.MorimensMod.makeID;
@@ -27,8 +26,6 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class AliemusUI extends ClickableUIElement {
@@ -78,19 +75,6 @@ public class AliemusUI extends ClickableUIElement {
         tips.add(new PowerTip(TEXT.EXTRA_TEXT[0], TEXT.EXTRA_TEXT[1]));
         if (p() instanceof AbstractAwakener) {
             AbstractAwakener awaker = (AbstractAwakener) p();
-
-            // 呼叫所有 Power 的 hook
-            for (AbstractPower p : awaker.powers)
-                if (p instanceof OnBeforeExaltTipRender)
-                    ((OnBeforeExaltTipRender) p).onBeforeExaltTipRender(awaker);
-            // 呼叫所有遺物的 hook
-            for (AbstractRelic r : awaker.relics)
-                if (r instanceof OnBeforeExaltTipRender)
-                    ((OnBeforeExaltTipRender) r).onBeforeExaltTipRender(awaker);
-            // 呼叫姿態（Stance）的 hook
-            if (awaker.stance instanceof OnBeforeExaltTipRender)
-                ((OnBeforeExaltTipRender) awaker.stance).onBeforeExaltTipRender(awaker);
-
             tips.add(new PowerTip(TEXT.TEXT[0] + awaker.exalt.getExaltTitle() + TEXT.TEXT[1], awaker.exalt.getExaltDescription()));
             tips.add(new PowerTip(TEXT.TEXT[2] + awaker.exalt.getOverExaltTitle() + TEXT.TEXT[3], awaker.exalt.getOverExaltDescription()));
         }
