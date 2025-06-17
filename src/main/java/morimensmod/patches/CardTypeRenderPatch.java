@@ -67,6 +67,8 @@ public class CardTypeRenderPatch {
                 label[0] = WHEEL_OF_DESTINY_STRINGS.TEXT[0];
             else if (___card.hasTag(CustomTags.SYMPTOM))
                 label[0] = SYMPTOM_STRINGS.TEXT[0];
+            else if (___card.hasTag(CustomTags.POSSE))
+                label[0] = POSSE_STRINGS.TEXT[0];
         }
 
         private static class Locator extends SpireInsertLocator {
@@ -92,6 +94,8 @@ public class CardTypeRenderPatch {
                 text[0] = WHEEL_OF_DESTINY_STRINGS.TEXT[0];
             else if (__instance.hasTag(CustomTags.SYMPTOM))
                 text[0] = SYMPTOM_STRINGS.TEXT[0];
+            else if (__instance.hasTag(CustomTags.POSSE))
+                text[0] = POSSE_STRINGS.TEXT[0];
         }
 
         private static class Locator extends SpireInsertLocator {

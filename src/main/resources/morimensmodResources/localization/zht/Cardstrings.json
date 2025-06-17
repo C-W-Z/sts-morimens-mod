@@ -6,6 +6,20 @@
       "對所有敵人造成 #b1 回合 #g虛弱 和 #r易傷 並偷取 #b1 點 #g臨時 #y力量 。"
     ]
   },
+  "${ModID}:TinyWish": {
+    "NAME": "小小心願",
+    "DESCRIPTION": "獲得 35 點 ${ModID}:狂氣 。",
+    "EXTENDED_DESCRIPTION": [
+      "獲得 #b35 點 #y狂氣 。"
+    ]
+  },
+  "${ModID}:AMousesWisdom": {
+    "NAME": "鼠鼠的智慧",
+    "DESCRIPTION": "獲得 3 點 [E] 。",
+    "EXTENDED_DESCRIPTION": [
+      "獲得 #b3 點 [E] 。"
+    ]
+  },
   "${ModID}:Strike": {
     "NAME": "打擊",
     "DESCRIPTION": "造成 !D! 點傷害。 NL 獲得 !${ModID}:A! 點 ${ModID}:狂氣 。"

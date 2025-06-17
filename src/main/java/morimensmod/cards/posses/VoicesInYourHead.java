@@ -1,8 +1,8 @@
 package morimensmod.cards.posses;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.util.Wiz.applyToSelf;
-import static morimensmod.util.Wiz.atb;
+import static morimensmod.util.Wiz.applyToSelfTop;
+import static morimensmod.util.Wiz.att;
 import static morimensmod.util.Wiz.p;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
@@ -34,11 +34,11 @@ public class VoicesInYourHead extends AbstractPosse {
 
     @Override
     public void activate() {
-        atb(new AllEnemyApplyPowerAction(p(), debuffAmount, (mo) -> new WeakPower(mo, debuffAmount, false)));
-        atb(new AllEnemyApplyPowerAction(p(), debuffAmount, (mo) -> new VulnerablePower(mo, debuffAmount, false)));
-        atb(new AllEnemyApplyPowerAction(p(), -stealStrength, (mo) -> new StrengthPower(mo, -stealStrength)));
-        atb(new AllEnemyApplyPowerAction(p(), stealStrength, (mo) -> new GainStrengthPower(mo, stealStrength)));
-        applyToSelf(new StrengthPower(p(), stealStrength));
-        applyToSelf(new LoseStrengthPower(p(), stealStrength));
+        applyToSelfTop(new LoseStrengthPower(p(), stealStrength));
+        applyToSelfTop(new StrengthPower(p(), stealStrength));
+        att(new AllEnemyApplyPowerAction(p(), stealStrength, (mo) -> new GainStrengthPower(mo, stealStrength)));
+        att(new AllEnemyApplyPowerAction(p(), -stealStrength, (mo) -> new StrengthPower(mo, -stealStrength)));
+        att(new AllEnemyApplyPowerAction(p(), debuffAmount, (mo) -> new VulnerablePower(mo, debuffAmount, false)));
+        att(new AllEnemyApplyPowerAction(p(), debuffAmount, (mo) -> new WeakPower(mo, debuffAmount, false)));
     }
 }
