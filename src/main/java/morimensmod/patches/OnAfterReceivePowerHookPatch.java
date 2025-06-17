@@ -1,6 +1,7 @@
 package morimensmod.patches;
 
-import static morimensmod.MorimensMod.logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;
@@ -18,18 +19,21 @@ import morimensmod.interfaces.OnAfterReceivePower;
 
 @SpirePatch2(clz = ApplyPowerAction.class, method = "update")
 public class OnAfterReceivePowerHookPatch {
+
+    private static final Logger logger = LogManager.getLogger(OnAfterReceivePowerHookPatch.class);
+
     @SpireInsertPatch(locator = Locator.class)
     public static void afterReceivePower(ApplyPowerAction __instance, AbstractPower ___powerToApply) {
         AbstractCreature target = __instance.target;
         AbstractCreature source = __instance.source;
         AbstractPower power = ___powerToApply;
 
-        logger.info("afterReceivePowerPatch");
+        logger.debug("afterReceivePowerPatch");
 
         if (power != null && target != null) {
-            logger.info(", power:" + ___powerToApply.name + "target:" + target.name);
+            logger.debug(", power:" + ___powerToApply.name + "target:" + target.name);
             if (source != null)
-                logger.info(", source:" + source.name);
+                logger.debug(", source:" + source.name);
             // if (target instanceof OnAfterReceivePower)
             //     ((OnAfterReceivePower) target).onAfterReceivePower(power, target, source);
             for (AbstractPower p : target.powers)

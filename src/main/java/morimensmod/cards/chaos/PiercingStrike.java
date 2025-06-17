@@ -1,10 +1,12 @@
 package morimensmod.cards.chaos;
 
-import static morimensmod.MorimensMod.logger;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.applyToEnemy;
 import static morimensmod.util.Wiz.p;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -19,6 +21,9 @@ import morimensmod.cards.AbstractEasyCard;
 import morimensmod.patches.CustomTags;
 
 public class PiercingStrike extends AbstractEasyCard {
+
+    private static final Logger logger = LogManager.getLogger(PiercingStrike.class);
+
     public final static String ID = makeID(PiercingStrike.class.getSimpleName());
 
     public PiercingStrike() {
@@ -62,7 +67,7 @@ public class PiercingStrike extends AbstractEasyCard {
 
         initializeDescription(); // 更新描述中的 !D!
 
-        logger.info("PiercingStrike.applyPowers: damage=" + damage + ", str.amount=" + originalStrength);
+        logger.debug("PiercingStrike.applyPowers: damage=" + damage + ", str.amount=" + originalStrength);
     }
 
     // 針對單一目標計算最終傷害（例如精英或 Boss）
@@ -83,6 +88,6 @@ public class PiercingStrike extends AbstractEasyCard {
 
         initializeDescription();
 
-        logger.info("PiercingStrike.calculateCardDamage: damage=" + damage + ", str.amount=" + originalStrength);
+        logger.debug("PiercingStrike.calculateCardDamage: damage=" + damage + ", str.amount=" + originalStrength);
     }
 }

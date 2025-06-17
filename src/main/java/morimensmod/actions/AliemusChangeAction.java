@@ -17,7 +17,7 @@ import morimensmod.characters.AbstractAwakener;
 
 public class AliemusChangeAction extends AbstractGameAction {
 
-    public static final Logger logger = LogManager.getLogger(AliemusChangeAction.class);
+    private static final Logger logger = LogManager.getLogger(AliemusChangeAction.class);
 
     static final String TEXT = CardCrawlGame.languagePack.getUIString(makeID(AliemusChangeAction.class.getSimpleName())).TEXT[0];
 

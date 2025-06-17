@@ -17,7 +17,7 @@ import morimensmod.characters.AbstractAwakener;
 
 public class KeyflareChangeAction extends AbstractGameAction {
 
-    public static final Logger logger = LogManager.getLogger(KeyflareChangeAction.class);
+    private static final Logger logger = LogManager.getLogger(KeyflareChangeAction.class);
 
     static final String TEXT = CardCrawlGame.languagePack.getUIString(makeID(KeyflareChangeAction.class.getSimpleName())).TEXT[0];
 

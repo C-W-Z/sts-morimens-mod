@@ -14,14 +14,18 @@ public class PosseAction extends AbstractGameAction {
 
     AbstractAwakener awaker;
     PosseType type;
-    AbstractPosse posse;
+    AbstractPosse unlimitedPosse;
     int exhaustKeyflare;
 
-    public PosseAction(AbstractAwakener awaker, PosseType type, AbstractPosse posse) {
+    public PosseAction(AbstractAwakener awaker, PosseType type) {
+        this(awaker, type, null);
+    }
+
+    public PosseAction(AbstractAwakener awaker, PosseType type, AbstractPosse unlimitedPosse) {
         this.actionType = ActionType.SPECIAL;
         this.awaker = awaker;
         this.type = type;
-        this.posse = posse;
+        this.unlimitedPosse = unlimitedPosse;
 
         exhaustKeyflare = AbstractAwakener.exhaustKeyflareForPosse(type);
     }
@@ -40,7 +44,7 @@ public class PosseAction extends AbstractGameAction {
         if (awaker.stance instanceof OnBeforePosse)
             ((OnBeforePosse) awaker.stance).onBeforePosse(awaker, exhaustKeyflare, type);
 
-        awaker.triggerPosse(type, posse);
+        awaker.triggerPosse(type, unlimitedPosse);
 
         isDone = true;
 

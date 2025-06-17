@@ -62,7 +62,7 @@ public class MorimensMod implements
         EditCharactersSubscriber,
         AddAudioSubscriber {
 
-    public static final Logger logger = LogManager.getLogger(MorimensMod.class);
+    private static final Logger logger = LogManager.getLogger(MorimensMod.class);
 
     public static final String modID = "morimensmod";
 

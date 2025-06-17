@@ -16,7 +16,7 @@ import morimensmod.util.TexLoader;
 
 public class SpriteSheetAnimation {
 
-    public static final Logger logger = LogManager.getLogger(SpriteSheetAnimation.class);
+    private static final Logger logger = LogManager.getLogger(SpriteSheetAnimation.class);
 
     private Animation<TextureRegion> anim;
     private float stateTime;
@@ -29,7 +29,7 @@ public class SpriteSheetAnimation {
             float xOffset, float yOffset) {
         Texture tmpTexture = TexLoader.getTexture(imgurl);
 
-        logger.info(imgurl + ", width:" + tmpTexture.getWidth() + ", hieght:" + tmpTexture.getHeight());
+        logger.debug(imgurl + ", width:" + tmpTexture.getWidth() + ", hieght:" + tmpTexture.getHeight());
 
         TextureRegion[][] tmp = TextureRegion.split(
                 tmpTexture,
@@ -50,12 +50,12 @@ public class SpriteSheetAnimation {
         this.xOffset = xOffset;
         this.yOffset = yOffset;
 
-        logger.info("create:" + index);
+        logger.debug("create:" + index);
     }
 
     public void tick() {
         stateTime += Gdx.graphics.getDeltaTime();
-        // logger.info("stateTime:" + stateTime);
+        // logger.debug("stateTime:" + stateTime);
     }
 
     public void renderPlayerImage(SpriteBatch sb, AbstractPlayer player) {
@@ -67,7 +67,7 @@ public class SpriteSheetAnimation {
                 (float) currentFrame.getRegionWidth() * Settings.scale,
                 (float) currentFrame.getRegionHeight() * Settings.scale);
 
-        // logger.info("x:" + (player.drawX - (float) currentFrame.getRegionWidth() *
+        // logger.debug("x:" + (player.drawX - (float) currentFrame.getRegionWidth() *
         // Settings.scale / 2.0F + player.animX)
         // + ", y:" + player.drawY
         // + ", w:" + (float) currentFrame.getRegionWidth() * Settings.scale
@@ -77,6 +77,6 @@ public class SpriteSheetAnimation {
             return;
         if (loop)
             stateTime = 0F;
-        logger.info("finish:" + stateTime);
+        logger.debug("finish:" + stateTime);
     }
 }

@@ -16,7 +16,7 @@ import morimensmod.interfaces.OnAfterExalt;
 
 public class ManikinOfOblivionPower extends AbstractEasyPower implements OnAfterExalt {
 
-    public static final Logger logger = LogManager.getLogger(ManikinOfOblivionPower.class);
+    private static final Logger logger = LogManager.getLogger(ManikinOfOblivionPower.class);
 
     public final static String POWER_ID = makeID(ManikinOfOblivionPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -35,7 +35,7 @@ public class ManikinOfOblivionPower extends AbstractEasyPower implements OnAfter
         AbstractAwakener.baseAliemusAmplify += amount;
         AbstractAwakener.baseHealAmplify += amount;
         AbstractAwakener.basePoisonAmplify += amount;
-        logger.info("onInitialApplication, AbstractAwakener.baseAliemusAmplify:" + AbstractAwakener.baseAliemusAmplify);
+        logger.debug("onInitialApplication, AbstractAwakener.baseAliemusAmplify:" + AbstractAwakener.baseAliemusAmplify);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class ManikinOfOblivionPower extends AbstractEasyPower implements OnAfter
         AbstractAwakener.baseAliemusAmplify += stackAmount;
         AbstractAwakener.baseHealAmplify += stackAmount;
         AbstractAwakener.basePoisonAmplify += stackAmount;
-        logger.info("stackPower, AbstractAwakener.baseAliemusAmplify:" + AbstractAwakener.baseAliemusAmplify);
+        logger.debug("stackPower, AbstractAwakener.baseAliemusAmplify:" + AbstractAwakener.baseAliemusAmplify);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class ManikinOfOblivionPower extends AbstractEasyPower implements OnAfter
         AbstractAwakener.baseHealAmplify -= reduceAmount;
         AbstractAwakener.basePoisonAmplify -= reduceAmount;
 
-        logger.info("reducePower, AbstractAwakener.baseAliemusAmplify:" + AbstractAwakener.baseAliemusAmplify);
+        logger.debug("reducePower, AbstractAwakener.baseAliemusAmplify:" + AbstractAwakener.baseAliemusAmplify);
     }
 
     @Override
@@ -64,7 +64,7 @@ public class ManikinOfOblivionPower extends AbstractEasyPower implements OnAfter
         AbstractAwakener.baseHealAmplify -= amount;
         AbstractAwakener.basePoisonAmplify -= amount;
 
-        logger.info("onRemove, AbstractAwakener.baseAliemusAmplify:" + AbstractAwakener.baseAliemusAmplify);
+        logger.debug("onRemove, AbstractAwakener.baseAliemusAmplify:" + AbstractAwakener.baseAliemusAmplify);
     }
 
     @Override
@@ -85,6 +85,6 @@ public class ManikinOfOblivionPower extends AbstractEasyPower implements OnAfter
         flash();
         addToBot(new AliemusChangeAction(awaker, aliemus));
 
-        logger.info("exhaustAliemus:" + exhaustAliemus + ", gainedAliemus:" + aliemus);
+        logger.debug("exhaustAliemus:" + exhaustAliemus + ", gainedAliemus:" + aliemus);
     }
 }

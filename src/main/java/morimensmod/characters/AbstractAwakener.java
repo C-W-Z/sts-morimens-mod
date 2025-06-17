@@ -269,6 +269,10 @@ public abstract class AbstractAwakener extends CustomPlayer {
         return extraPossedThisTurn < MAX_EXTRA_POSSE_PER_TURN;
     }
 
+    public static boolean enoughLimitedPosseCountThisTurn() {
+        return enoughRegularPosseCountThisTurn() || enoughExtraPosseCountThisTurn();
+    }
+
     public static boolean enoughKeyflareForLimitedPosse() {
         return keyflare >= posseNeededKeyflare;
     }
@@ -279,6 +283,10 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public static boolean canExtraPosse() {
         return !isPossing() && enoughExtraPosseCountThisTurn() && enoughKeyflareForLimitedPosse();
+    }
+
+    public static boolean canLimitedPosse() {
+        return canRegularePosse() || canExtraPosse();
     }
 
     public static boolean canUnlimitedPosse() {
@@ -315,5 +323,17 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public static void upgradeMaxKeyflare(int amount) {
         maxKeyflare += amount;
+    }
+
+    public static String getKeyflareUIText() {
+        return keyflare + "/" + posseNeededKeyflare;
+    }
+
+    public String getPosseTitle() {
+        return posse.getTitle();
+    }
+
+    public String getPosseDescription() {
+        return posse.getDescription();
     }
 }
