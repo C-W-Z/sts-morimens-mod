@@ -1,13 +1,12 @@
 package morimensmod.misc;
 
 import basemod.ClickableUIElement;
-import morimensmod.actions.PosseAction;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.util.TexLoader;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.MorimensMod.makeUIPath;
-import static morimensmod.util.Wiz.atb;
+
 import static morimensmod.util.Wiz.p;
 import static morimensmod.util.WizArt.drawCentered;
 import static morimensmod.util.WizArt.showThoughtBubble;
@@ -103,11 +102,10 @@ public class KeyflareUI extends ClickableUIElement {
             return;
         }
 
-        PosseType type = PosseType.REGULAR;
-        if (!AbstractAwakener.enoughRegularPosseCountThisTurn() && AbstractAwakener.enoughExtraPosseCountThisTurn())
-            type = PosseType.EXTRA;
-
-        atb(new PosseAction((AbstractAwakener) p(), type));
+        if (AbstractAwakener.enoughRegularPosseCountThisTurn())
+            ((AbstractAwakener) p()).addRegularPosseActionToBottom();
+        else if (AbstractAwakener.enoughExtraPosseCountThisTurn())
+            ((AbstractAwakener) p()).addExtraPosseActionToBottom();
     }
 
     @Override

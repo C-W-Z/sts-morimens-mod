@@ -3,6 +3,7 @@ package morimensmod.characters;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
+import morimensmod.actions.PosseAction;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.misc.PosseType;
 import morimensmod.misc.SpriteSheetAnimation;
@@ -18,6 +19,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 
 import static morimensmod.MorimensMod.*;
+import static morimensmod.util.Wiz.atb;
 
 public abstract class AbstractAwakener extends CustomPlayer {
 
@@ -62,7 +64,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public SpriteSheetAnimation anim = null;
 
-    public AbstractAwakener(String name, PlayerClass setClass, String characterImgPath, final String CORPSE) {
+    public AbstractAwakener(String name, PlayerClass setClass, String characterImgPath, final String CORPSE, AbstractExalt exalt, AbstractPosse posse) {
         super(name, setClass,
                 new CustomEnergyOrb(orbTextures, makeCharacterPath("ChaosRealm/orb/vfx.png"), null),
                 new AbstractAnimation() {
@@ -84,6 +86,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
         aliemus = 0;
         keyflare = 0;
+        this.exalt = exalt;
+        this.posse = posse;
     }
 
     @Override
@@ -310,16 +314,22 @@ public abstract class AbstractAwakener extends CustomPlayer {
         return 0;
     }
 
-    public void triggerPosse(PosseType type, AbstractPosse unlimitedPosse) {
-        if (type == PosseType.REGULAR)
-            posse.activate();
-        else if (type == PosseType.UNLIMITED)
-            unlimitedPosse.activate();
-        else if (type == PosseType.EXTRA) {
-            // TODO:
+    public void triggerPosse(PosseType type, AbstractPosse posse) {
+        if (type == PosseType.REGULAR) {
+            assert this.posse == posse;
+            this.posse.activate();
+        } else {
             posse.activate();
         }
         possing = false;
+    }
+
+    public void addRegularPosseActionToBottom() {
+        atb(new PosseAction(this, PosseType.REGULAR, posse));
+    }
+
+    public void addExtraPosseActionToBottom() {
+        // TODO
     }
 
     public static void upgradeMaxKeyflare(int amount) {

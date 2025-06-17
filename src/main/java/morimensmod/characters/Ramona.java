@@ -38,11 +38,10 @@ public class Ramona extends AbstractAwakener {
     private static final String CHARSELECT_PORTRAIT = makeCharacterPath("Ramona/charBG.png");
 
     public Ramona() {
-        super(NAMES[0], Enums.RAMONA, "Ramona/main.png", "Ramona/main.png");
+        super(NAMES[0], Enums.RAMONA, "Ramona/main.png", "Ramona/main.png",
+                new MundusDecree(), new VoicesInYourHead());
         anim = new SpriteSheetAnimation(makeCharacterPath("Ramona/Idle_1.png"),
                 6, 17, 1, true, 30F, -22, -10);
-        exalt = new MundusDecree();
-        posse = new VoicesInYourHead();
     }
 
     public static void register() {

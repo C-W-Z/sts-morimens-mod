@@ -7,6 +7,13 @@
       " #yDexterity."
     ]
   },
+  "${ModID}:PosseTwicePower": {
+    "NAME": "鑰令生效2次",
+    "DESCRIPTIONS": [
+      "使下 #b",
+      " 次釋放的鑰令生效 #b2 次。"
+    ]
+  },
   "${ModID}:ElationPower": {
     "NAME": "興奮",
     "DESCRIPTIONS": [

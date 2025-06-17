@@ -1,6 +1,7 @@
 package morimensmod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
@@ -9,23 +10,20 @@ import morimensmod.interfaces.OnAfterPosse;
 import morimensmod.interfaces.OnBeforePosse;
 import morimensmod.misc.PosseType;
 import morimensmod.posses.AbstractPosse;
+import morimensmod.powers.PosseTwicePower;
 
 public class PosseAction extends AbstractGameAction {
 
     AbstractAwakener awaker;
     PosseType type;
-    AbstractPosse unlimitedPosse;
+    AbstractPosse posse;
     int exhaustKeyflare;
 
-    public PosseAction(AbstractAwakener awaker, PosseType type) {
-        this(awaker, type, null);
-    }
-
-    public PosseAction(AbstractAwakener awaker, PosseType type, AbstractPosse unlimitedPosse) {
+    public PosseAction(AbstractAwakener awaker, PosseType type, AbstractPosse posse) {
         this.actionType = ActionType.SPECIAL;
         this.awaker = awaker;
         this.type = type;
-        this.unlimitedPosse = unlimitedPosse;
+        this.posse = posse;
 
         exhaustKeyflare = AbstractAwakener.exhaustKeyflareForPosse(type);
     }
@@ -44,7 +42,12 @@ public class PosseAction extends AbstractGameAction {
         if (awaker.stance instanceof OnBeforePosse)
             ((OnBeforePosse) awaker.stance).onBeforePosse(awaker, exhaustKeyflare, type);
 
-        awaker.triggerPosse(type, unlimitedPosse);
+        awaker.triggerPosse(type, posse);
+
+        if (awaker.hasPower(PosseTwicePower.POWER_ID)) {
+            addToTop(new PosseAction(awaker, PosseType.UNLIMITED, posse));
+            addToTop(new ReducePowerAction(awaker, awaker, PosseTwicePower.POWER_ID, 1));
+        }
 
         isDone = true;
 

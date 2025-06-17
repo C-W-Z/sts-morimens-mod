@@ -19,6 +19,7 @@ import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.actions.MundusDecreeAction;
 import morimensmod.cards.PileModalSelectCard;
 import morimensmod.cards.buff.Insight;
+import morimensmod.powers.PosseTwicePower;
 
 public class MundusDecree extends AbstractExalt {
 
@@ -50,7 +51,8 @@ public class MundusDecree extends AbstractExalt {
 
     @Override
     public void overExalt() {
-        // TODO: 使下次鑰令生效兩次
+        // 使下次鑰令生效兩次
+        applyToSelfTop(new PosseTwicePower(p(), 1));
 
         // 使所有敵人虛弱易傷一回合
         att(new AllEnemyApplyPowerAction(p(), 1, (mo) -> new VulnerablePower(mo, 1, false)));

@@ -3,7 +3,6 @@ package morimensmod.powers;
 import static morimensmod.MorimensMod.makeID;
 
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -39,11 +38,7 @@ public class ElationPower extends AbstractEasyPower {
 
     @Override
     public void atStartOfTurn() {
-        if (amount == 1) {
-            addToTop(new RemoveSpecificPowerAction(owner, owner, this));
-        } else {
-            addToTop(new ReducePowerAction(owner, owner, this, 1));
-        }
+        addToTop(new ReducePowerAction(owner, owner, this, 1));
     }
 
     @Override
