@@ -17,18 +17,8 @@ public class ExaltAction extends AbstractGameAction {
     public ExaltAction(AbstractAwakener awaker) {
         this.actionType = ActionType.SPECIAL;
         this.awaker = awaker;
-        this.overExalt = AbstractAwakener.aliemus >= AbstractAwakener.extremeAlimus;
-
-        AbstractAwakener.exalting = true;
-        AbstractAwakener.exaltedThisTurn++;
-
-        int aliemusBefore = AbstractAwakener.aliemus;
-        AbstractAwakener.aliemus -= overExalt ? AbstractAwakener.extremeAlimus : AbstractAwakener.aliemusLimit;
-        if (AbstractAwakener.aliemus < 0)
-            AbstractAwakener.aliemus = 0;
-        else if (AbstractAwakener.aliemus > 0)
-            AbstractAwakener.aliemus /= 2;
-        exhaustAliemus = aliemusBefore - AbstractAwakener.aliemus;
+        overExalt = AbstractAwakener.enoughAliemusForOverExalt();
+        exhaustAliemus = AbstractAwakener.exhaustAliemusForExalt(overExalt);
     }
 
     @Override
@@ -45,12 +35,7 @@ public class ExaltAction extends AbstractGameAction {
         if (awaker.stance instanceof OnBeforeExalt)
             ((OnBeforeExalt) awaker.stance).onBeforeExalt(awaker, exhaustAliemus, overExalt);
 
-        if (overExalt)
-            awaker.exalt.overExalt();
-        else
-            awaker.exalt.exalt();
-
-        AbstractAwakener.exalting = false;
+        awaker.triggerExalt(overExalt);
 
         isDone = true;
 

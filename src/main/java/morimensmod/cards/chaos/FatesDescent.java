@@ -26,7 +26,7 @@ public class FatesDescent extends AbstractEasyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int aliemusBefore = AbstractAwakener.aliemus;
+        int aliemusBefore = AbstractAwakener.getAliemus();
         addToBot(new AliemusChangeAction(p, aliemus));
         for (int i = 0; i < 1 + (aliemusBefore / magicNumber); i++) {
             addToBot(new HealAction(p, p, heal));

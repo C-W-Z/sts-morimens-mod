@@ -23,24 +23,7 @@ public class PosseAction extends AbstractGameAction {
         this.type = type;
         this.posse = posse;
 
-        AbstractAwakener.possing = true;
-        if (type == PosseType.REGULAR) {
-            AbstractAwakener.possedThisTurn++;
-            AbstractAwakener.keyflare -= AbstractAwakener.posseKeyflare;
-            exhaustKeyflare = AbstractAwakener.posseKeyflare;
-        }
-        else if (type == PosseType.EXTRA) {
-            AbstractAwakener.extraPossedThisTurn++;
-            AbstractAwakener.keyflare -= AbstractAwakener.posseKeyflare;
-            exhaustKeyflare = AbstractAwakener.posseKeyflare;
-        }
-        else if (type == PosseType.UNLIMITED) {
-            AbstractAwakener.unlimitedPosseThisTurn++;
-            exhaustKeyflare = 0;
-        }
-
-        if (AbstractAwakener.keyflare < 0)
-            AbstractAwakener.keyflare = 0;
+        exhaustKeyflare = AbstractAwakener.exhaustKeyflareForPosse(type);
     }
 
     @Override
@@ -57,9 +40,7 @@ public class PosseAction extends AbstractGameAction {
         if (awaker.stance instanceof OnBeforePosse)
             ((OnBeforePosse) awaker.stance).onBeforePosse(awaker, exhaustKeyflare, type);
 
-        posse.activate();
-
-        AbstractAwakener.possing = false;
+        awaker.triggerPosse(type, posse);
 
         isDone = true;
 

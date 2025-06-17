@@ -4,6 +4,7 @@ import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
 import morimensmod.exalts.AbstractExalt;
+import morimensmod.misc.PosseType;
 import morimensmod.misc.SpriteSheetAnimation;
 import morimensmod.posses.AbstractPosse;
 
@@ -27,26 +28,27 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public static int baseKeyflareRegen = 0;
 
     public static final int NORMAL_ALIEMUS_LIMIT = 100;
-    public static int aliemus = 0;
-    public static int aliemusLimit = NORMAL_ALIEMUS_LIMIT; // 普通狂氣上限 狂氣爆發
-    public static int extremeAlimus = 2 * NORMAL_ALIEMUS_LIMIT; // 雙倍上限 超限爆發
-    public static boolean exalting = false;
-    public static int exaltedThisTurn = 0; // reset at Main Mod File
-    public static int maxExaltPerTurn = 1; // reset at Main Mod File
-    public AbstractExalt exalt;
+    protected static int aliemus = 0;
+    protected static int aliemusLimit = NORMAL_ALIEMUS_LIMIT; // 普通狂氣上限 狂氣爆發
+    protected static int extremeAlimus = 2 * NORMAL_ALIEMUS_LIMIT; // 雙倍上限 超限爆發
+    protected static boolean exalting = false;
+    protected static int exaltedThisTurn = 0; // reset at Main Mod File
+    public static final int NORMAL_MAX_EXALT_PER_TURN = 1;
+    protected static int maxExaltPerTurn = NORMAL_MAX_EXALT_PER_TURN; // reset at Main Mod File
+    protected AbstractExalt exalt;
 
     public static final int NORMAL_KEYFLARE_LIMIT = 1000;
-    public static int keyflare = 0;
-    public static int posseKeyflare = NORMAL_KEYFLARE_LIMIT;
-    public static int maxKeyflare = 2 * NORMAL_KEYFLARE_LIMIT;
-    public static boolean possing = false;
-    public static int possedThisTurn = 0;           // reset at Main Mod File
-    public static int extraPossedThisTurn = 0;      // reset at Main Mod File
-    public static int unlimitedPosseThisTurn = 0;   // reset at Main Mod File
-    public static int maxPoseePerTurn = 1;          // reset at Main Mod File
-    public static int maxExtraPoseePerTurn = 1;     // reset at Main Mod File
-    public static int possedThisBattle = 0;         // reset at Main Mod File
-    public AbstractPosse posse;
+    protected static int keyflare = 0;
+    protected static int posseNeededKeyflare = NORMAL_KEYFLARE_LIMIT;
+    protected static int maxKeyflare = 2 * NORMAL_KEYFLARE_LIMIT;
+    protected static boolean possing = false;
+    protected static int regularPossedThisTurn = 0; // reset at Main Mod File
+    protected static int extraPossedThisTurn = 0; // reset at Main Mod File
+    protected static int unlimitedPosseThisTurn = 0; // reset at Main Mod File
+    public static final int MAX_REGULAR_POSSE_PER_TURN = 1;
+    public static final int MAX_EXTRA_POSSE_PER_TURN = 1;
+    protected static int possedThisBattle = 0; // reset at Main Mod File
+    protected AbstractPosse posse;
 
     // percent
     public static int baseDamageAmplify;
@@ -68,8 +70,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
                     public Type type() {
                         return Type.NONE;
                     }
-                }
-        );
+                });
         initializeClass(makeCharacterPath(characterImgPath),
                 makeCharacterPath("shoulder.png"),
                 makeCharacterPath("shoulder.png"),
@@ -133,8 +134,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
         aliemusLimit = NORMAL_ALIEMUS_LIMIT;
         extremeAlimus = 2 * NORMAL_ALIEMUS_LIMIT;
 
-        posseKeyflare = NORMAL_KEYFLARE_LIMIT;
+        posseNeededKeyflare = NORMAL_KEYFLARE_LIMIT;
         maxKeyflare = 2 * NORMAL_KEYFLARE_LIMIT;
+        possedThisBattle = 0;
 
         aliemusRegen = baseAliemusRegen;
         keyflareRegen = baseKeyflareRegen;
@@ -150,6 +152,168 @@ public abstract class AbstractAwakener extends CustomPlayer {
     // called in Main Mod File
     public static void onPlayerTurnStartPostDraw() {
         exaltedThisTurn = 0;
-        maxExaltPerTurn = 1;
+        maxExaltPerTurn = NORMAL_MAX_EXALT_PER_TURN;
+
+        regularPossedThisTurn = 0;
+        extraPossedThisTurn = 0;
+        unlimitedPosseThisTurn = 0;
+    }
+
+    public static int getAliemus() {
+        return aliemus;
+    }
+
+    public static int changeAliemus(int amount) {
+        aliemus += amount;
+        if (aliemus > extremeAlimus)
+            aliemus = extremeAlimus;
+        else if (aliemus < 0)
+            aliemus = 0;
+        return aliemus;
+    }
+
+    public static boolean isExalting() {
+        return exalting;
+    }
+
+    public static boolean enoughExaltCountThisTurn() {
+        return exaltedThisTurn < maxExaltPerTurn;
+    }
+
+    public static boolean enoughAliemusForExalt() {
+        return aliemus >= aliemusLimit;
+    }
+
+    public static boolean enoughAliemusForOverExalt() {
+        return aliemus >= extremeAlimus;
+    }
+
+    public static boolean canExalt() {
+        return !isExalting() && enoughExaltCountThisTurn() && enoughAliemusForExalt();
+    }
+
+    public static boolean canOverExalt() {
+        return !isExalting() && enoughExaltCountThisTurn() && enoughAliemusForOverExalt();
+    }
+
+    public static int exhaustAliemusForExalt(boolean overExalt) {
+        exalting = true;
+        exaltedThisTurn++;
+        if (overExalt) {
+            changeAliemus(-extremeAlimus);
+            return extremeAlimus;
+        }
+        // else if (!overExalt)
+        int aliemusBefore = aliemus;
+        changeAliemus(-aliemusLimit);
+        changeAliemus(-MathUtils.ceil(aliemus / 2F));
+        return aliemusBefore - aliemus;
+    }
+
+    public void triggerExalt(boolean overExalt) {
+        if (overExalt)
+            exalt.overExalt();
+        else
+            exalt.exalt();
+
+        exalting = false;
+    }
+
+    public static void upgradeAliemusLimit(int amount) {
+        aliemusLimit += amount;
+        extremeAlimus += 2 * amount;
+    }
+
+    public static String getAliemusUIText() {
+        return aliemus + "/" + aliemusLimit;
+    }
+
+    public String getExaltTitle() {
+        return exalt.getExaltTitle();
+    }
+
+    public String getExaltDescription() {
+        return exalt.getExaltDescription();
+    }
+
+    public String getOverExaltTitle() {
+        return exalt.getOverExaltTitle();
+    }
+
+    public String getOverExaltDescription() {
+        return exalt.getOverExaltDescription();
+    }
+
+    public static int getKeyflare() {
+        return keyflare;
+    }
+
+    public static int changeKeyflare(int amount) {
+        keyflare += amount;
+        if (keyflare > maxKeyflare)
+            keyflare = maxKeyflare;
+        else if (keyflare < 0)
+            keyflare = 0;
+        return keyflare;
+    }
+
+    public static boolean isPossing() {
+        return possing;
+    }
+
+    public static boolean enoughRegularPosseCountThisTurn() {
+        return regularPossedThisTurn < MAX_REGULAR_POSSE_PER_TURN;
+    }
+
+    public static boolean enoughExtraPosseCountThisTurn() {
+        return extraPossedThisTurn < MAX_EXTRA_POSSE_PER_TURN;
+    }
+
+    public static boolean enoughKeyflareForLimitedPosse() {
+        return keyflare >= posseNeededKeyflare;
+    }
+
+    public static boolean canRegularePosse() {
+        return !isPossing() && enoughRegularPosseCountThisTurn() && enoughKeyflareForLimitedPosse();
+    }
+
+    public static boolean canExtraPosse() {
+        return !isPossing() && enoughExtraPosseCountThisTurn() && enoughKeyflareForLimitedPosse();
+    }
+
+    public static boolean canUnlimitedPosse() {
+        return true;
+    }
+
+    public static int exhaustKeyflareForPosse(PosseType type) {
+        possing = true;
+        if (type == PosseType.REGULAR) {
+            regularPossedThisTurn++;
+            changeKeyflare(-posseNeededKeyflare);
+            return posseNeededKeyflare;
+        } else if (type == PosseType.EXTRA) {
+            extraPossedThisTurn++;
+            changeKeyflare(-posseNeededKeyflare);
+            return posseNeededKeyflare;
+        }
+        // else if (type == PosseType.UNLIMITED)
+        unlimitedPosseThisTurn++;
+        return 0;
+    }
+
+    public void triggerPosse(PosseType type, AbstractPosse unlimitedPosse) {
+        if (type == PosseType.REGULAR)
+            posse.activate();
+        else if (type == PosseType.UNLIMITED)
+            unlimitedPosse.activate();
+        else if (type == PosseType.EXTRA) {
+            // TODO:
+            posse.activate();
+        }
+        possing = false;
+    }
+
+    public static void upgradeMaxKeyflare(int amount) {
+        maxKeyflare += amount;
     }
 }

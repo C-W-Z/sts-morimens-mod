@@ -60,15 +60,15 @@ public class AliemusUI extends ClickableUIElement {
         FontHelper.energyNumFontBlue.getData().setScale(fontScale);
 
         Color textColor = Color.GRAY;
-        if (AbstractAwakener.aliemus >= AbstractAwakener.extremeAlimus)
+        if (AbstractAwakener.enoughAliemusForOverExalt())
             textColor = Color.RED;
-        else if (AbstractAwakener.aliemus >= AbstractAwakener.aliemusLimit)
+        else if (AbstractAwakener.enoughAliemusForExalt())
             textColor = Color.GOLD;
 
         FontHelper.renderFontLeft(
                 sb,
                 FontHelper.energyNumFontBlue,
-                AbstractAwakener.aliemus + "/" + AbstractAwakener.aliemusLimit,
+                AbstractAwakener.getAliemusUIText(),
                 fontX,
                 centerY,
                 textColor);
@@ -82,8 +82,8 @@ public class AliemusUI extends ClickableUIElement {
         tips.add(new PowerTip(TEXT.EXTRA_TEXT[0], TEXT.EXTRA_TEXT[1]));
         if (p() instanceof AbstractAwakener) {
             AbstractAwakener awaker = (AbstractAwakener) p();
-            tips.add(new PowerTip(TEXT.TEXT[0] + awaker.exalt.getExaltTitle() + TEXT.TEXT[1], awaker.exalt.getExaltDescription()));
-            tips.add(new PowerTip(TEXT.TEXT[2] + awaker.exalt.getOverExaltTitle() + TEXT.TEXT[3], awaker.exalt.getOverExaltDescription()));
+            tips.add(new PowerTip(TEXT.TEXT[0] + awaker.getExaltTitle() + TEXT.TEXT[1], awaker.getExaltDescription()));
+            tips.add(new PowerTip(TEXT.TEXT[2] + awaker.getOverExaltTitle() + TEXT.TEXT[3], awaker.getOverExaltDescription()));
         }
         TipHelper.queuePowerTips(fontX, y + Settings.yScale * 400f, tips);
     }
@@ -99,15 +99,15 @@ public class AliemusUI extends ClickableUIElement {
     protected void onRightClick() {
         if (p().currentHealth <= 0 || p().isDeadOrEscaped()
                 || AbstractDungeon.isScreenUp || AbstractDungeon.actionManager.turnHasEnded
-                || !(p() instanceof AbstractAwakener) || AbstractAwakener.exalting)
+                || !(p() instanceof AbstractAwakener) || AbstractAwakener.isExalting())
             return;
 
-        if (AbstractAwakener.exaltedThisTurn >= AbstractAwakener.maxExaltPerTurn) {
+        if (!AbstractAwakener.enoughExaltCountThisTurn()) {
             showThoughtBubble(TEXT.EXTRA_TEXT[2], 3.0F);
             return;
         }
 
-        if (AbstractAwakener.aliemus < AbstractAwakener.aliemusLimit) {
+        if (!AbstractAwakener.enoughAliemusForExalt()) {
             showThoughtBubble(TEXT.EXTRA_TEXT[3], 3.0F);
             return;
         }

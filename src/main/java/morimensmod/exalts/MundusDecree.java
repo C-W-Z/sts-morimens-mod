@@ -1,11 +1,7 @@
 package morimensmod.exalts;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.util.Wiz.atb;
-import static morimensmod.util.Wiz.discardPile;
-import static morimensmod.util.Wiz.drawPile;
-import static morimensmod.util.Wiz.p;
-import static morimensmod.util.Wiz.shuffleIn;
+import static morimensmod.util.Wiz.*;
 
 import java.util.ArrayList;
 
@@ -17,6 +13,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import morimensmod.actions.EasyModalChoiceAction;
+import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.actions.MundusDecreeAction;
 import morimensmod.cards.PileModalSelectCard;
 import morimensmod.cards.buff.Insight;
@@ -28,32 +25,34 @@ public class MundusDecree extends AbstractExalt {
 
     @Override
     public void exalt() {
+        shuffleInTop(new Insight());
+
         ArrayList<AbstractCard> cardList = new ArrayList<>();
 
         for (AbstractCard c : drawPile().group) {
             System.out.println("c:" + c.name);
-            cardList.add(new PileModalSelectCard(c, () -> atb(new MundusDecreeAction(c))));
+            cardList.add(new PileModalSelectCard(c, () -> att(new MundusDecreeAction(c))));
         }
 
         for (AbstractCard c : discardPile().group) {
             System.out.println("c:" + c.name);
-            cardList.add(new PileModalSelectCard(c, () -> atb(new MundusDecreeAction(c))));
+            cardList.add(new PileModalSelectCard(c, () -> att(new MundusDecreeAction(c))));
         }
 
-        atb(new EasyModalChoiceAction(cardList));
+        att(new EasyModalChoiceAction(cardList));
 
-        shuffleIn(new Insight());
+        att(new KeyflareChangeAction(p(), 200));
     }
 
     @Override
     public void overExalt() {
-        exalt();
+        // TODO: 使下次鑰令生效兩次
 
         // 使所有敵人虛弱易傷一回合
-        atb(new AllEnemyApplyPowerAction(p(), 1, (mo) -> new WeakPower(mo, 1, false)));
-        atb(new AllEnemyApplyPowerAction(p(), 1, (mo) -> new VulnerablePower(mo, 1, false)));
+        att(new AllEnemyApplyPowerAction(p(), 1, (mo) -> new VulnerablePower(mo, 1, false)));
+        att(new AllEnemyApplyPowerAction(p(), 1, (mo) -> new WeakPower(mo, 1, false)));
 
-        // TODO: 使下次鑰令生效兩次
+        exalt();
     }
 
     @Override

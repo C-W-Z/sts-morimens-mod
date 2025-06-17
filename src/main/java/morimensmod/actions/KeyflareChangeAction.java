@@ -15,22 +15,22 @@ import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 
 import morimensmod.characters.AbstractAwakener;
 
-public class AliemusChangeAction extends AbstractGameAction {
+public class KeyflareChangeAction extends AbstractGameAction {
 
-    public static final Logger logger = LogManager.getLogger(AliemusChangeAction.class);
+    public static final Logger logger = LogManager.getLogger(KeyflareChangeAction.class);
 
-    static final String TEXT = CardCrawlGame.languagePack.getUIString(makeID(AliemusChangeAction.class.getSimpleName())).TEXT[0];
+    static final String TEXT = CardCrawlGame.languagePack.getUIString(makeID(KeyflareChangeAction.class.getSimpleName())).TEXT[0];
 
     AbstractAwakener awaker;
 
-    public AliemusChangeAction(AbstractPlayer awaker, int amount) {
+    public KeyflareChangeAction(AbstractPlayer awaker, int amount) {
         this.actionType = ActionType.SPECIAL;
         this.amount = amount;
         if (awaker instanceof AbstractAwakener)
             this.awaker = (AbstractAwakener) awaker;
         else {
             this.awaker = null;
-            logger.error("awaker passed to AliemusChangeAction is NOT an instance of AbstractAwakener");
+            logger.error("awaker passed to KeyflareChangeAction is NOT an instance of AbstractAwakener");
         }
     }
 
@@ -38,7 +38,7 @@ public class AliemusChangeAction extends AbstractGameAction {
     public void update() {
         if (amount > 0) {
 
-            AbstractAwakener.changeAliemus(amount);
+            AbstractAwakener.changeKeyflare(amount);
 
             // addToTop(new TextAboveCreatureAction(p(), "+" + amount));
             AbstractDungeon.effectList.add(
@@ -46,11 +46,11 @@ public class AliemusChangeAction extends AbstractGameAction {
                             p().hb.cX - p().animX,
                             p().hb.cY + p().hb.height / 2.0F,
                             "+" + amount + TEXT,
-                            Color.GOLD));
+                            Color.WHITE));
 
         } else if (amount < 0) {
 
-            AbstractAwakener.changeAliemus(amount);
+            AbstractAwakener.changeKeyflare(amount);
 
             // addToTop(new TextAboveCreatureAction(p(), "" + amount));
             AbstractDungeon.effectList.add(
@@ -58,7 +58,7 @@ public class AliemusChangeAction extends AbstractGameAction {
                             p().hb.cX - p().animX,
                             p().hb.cY + p().hb.height / 2.0F,
                             amount + TEXT,
-                            Color.GOLD));
+                            Color.WHITE));
         }
 
         isDone = true;
