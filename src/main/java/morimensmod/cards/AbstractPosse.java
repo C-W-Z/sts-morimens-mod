@@ -14,6 +14,7 @@ public abstract class AbstractPosse extends AbstractEasyCard {
 
     protected AbstractAwakener p;
     protected PosseType type;
+    protected int effectCount = 1;
 
     public AbstractPosse(String cardID, AbstractAwakener p, PosseType type) {
         super(cardID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, POSSE_COLOR);
@@ -25,7 +26,8 @@ public abstract class AbstractPosse extends AbstractEasyCard {
 
     @Override
     public void onChoseThisOption() {
-        addToBot(new PosseAction(p, type, this));
+        for (int index = 0; index < effectCount; index++)
+            addToBot(new PosseAction(p, type, this));
     }
 
     @Override
@@ -36,6 +38,12 @@ public abstract class AbstractPosse extends AbstractEasyCard {
     public void set(AbstractAwakener p, PosseType type) {
         this.p = p;
         this.type = type;
+    }
+
+    public void set(AbstractAwakener p, PosseType type, int effectCount) {
+        this.p = p;
+        this.type = type;
+        this.effectCount = effectCount;
     }
 
     @Override

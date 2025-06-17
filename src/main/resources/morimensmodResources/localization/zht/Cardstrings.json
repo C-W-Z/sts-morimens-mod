@@ -215,8 +215,12 @@
   },
   "${ModID}:Insight": {
     "NAME": "靈感",
-    "DESCRIPTION": "獲得 [E] ，抽 !${ModID}:M2! 張牌。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "獲得 [E] [E] ，抽 !${ModID}:M2! 張牌。 NL 消耗 "
+    "DESCRIPTION": "獲得 [E] ，抽 !${ModID}:M2! 張牌。 NL 消耗 \u3000 ${ModID}:保留 ",
+    "UPGRADE_DESCRIPTION": "獲得 [E] [E] ，抽 !${ModID}:M2! 張牌。 NL 消耗 \u3000 ${ModID}:保留 "
+  },
+  "${ModID}:SilverKeyDawn": {
+    "NAME": "銀鑰曦光",
+    "DESCRIPTION": "從隨機 !M! 個 ${ModID}:鑰令 中，選擇 1 個立刻釋放，並生效 2 次。 NL 消耗 \u3000 ${ModID}:保留 "
   },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",

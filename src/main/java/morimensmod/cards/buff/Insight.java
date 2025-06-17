@@ -20,6 +20,7 @@ public class Insight extends AbstractEasyCard {
         magicNumber = baseMagicNumber = 1; // 獲得能量
         secondMagic = baseSecondMagic = 1; // 抽牌數
         exhaust = true;
+        selfRetain = true;
     }
 
     @Override

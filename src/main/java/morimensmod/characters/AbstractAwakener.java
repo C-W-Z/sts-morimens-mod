@@ -360,10 +360,6 @@ public abstract class AbstractAwakener extends CustomPlayer {
             choiceCardList = new ArrayList<>(posses.subList(0, Math.min(3, posses.size())));
         }
 
-        // ArrayList<AbstractCard> choiceCardList = new ArrayList<>();
-        // choiceCardList.add(new VoicesInYourHead(this, PosseType.EXTRA));
-        // choiceCardList.add(new VoicesInYourHead(this, PosseType.EXTRA));
-
         atb(new EasyModalChoiceAction(choiceCardList));
     }
 
