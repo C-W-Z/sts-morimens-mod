@@ -324,4 +324,8 @@ public class Wiz {
                 pool.add((AbstractPosse) c.makeCopy());
         return pool;
     }
+
+    public static boolean hasModifier(AbstractCard card) {
+        return card.exhaust || card.isEthereal || card.isInnate || card.selfRetain || card.retain;
+    }
 }

@@ -105,6 +105,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
     protected void setExaltAndPosse(AbstractExalt exalt, AbstractPosse posse) {
         this.exalt = exalt;
         this.posse = posse;
+        this.posse.set(this, PosseType.REGULAR);
     }
 
     @Override
@@ -317,6 +318,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public static int exhaustKeyflareForPosse(PosseType type) {
         possing = true;
+        possedThisBattle++;
         if (type == PosseType.REGULAR) {
             regularPossedThisTurn++;
             changeKeyflare(-posseNeededKeyflare);

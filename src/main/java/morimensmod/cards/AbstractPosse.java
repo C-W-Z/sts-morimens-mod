@@ -15,6 +15,7 @@ public abstract class AbstractPosse extends AbstractEasyCard {
     protected AbstractAwakener p;
     protected PosseType type;
     protected int effectCount = 1;
+    protected boolean purgeOnUse = false;
 
     public AbstractPosse(String cardID, AbstractAwakener p, PosseType type) {
         super(cardID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, POSSE_COLOR);
@@ -26,13 +27,22 @@ public abstract class AbstractPosse extends AbstractEasyCard {
 
     @Override
     public void onChoseThisOption() {
-        for (int index = 0; index < effectCount; index++)
-            addToBot(new PosseAction(p, type, this));
+        for (int index = 0; index < effectCount - 1; index++)
+            addToTop(new PosseAction(p, PosseType.UNLIMITED, this, true));
+        addToTop(new PosseAction(p, type, this));
     }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         onChoseThisOption();
+    }
+
+    public AbstractAwakener getAwakener() {
+        return p;
+    }
+
+    public PosseType getType() {
+        return type;
     }
 
     public void set(AbstractAwakener p, PosseType type) {
@@ -44,6 +54,14 @@ public abstract class AbstractPosse extends AbstractEasyCard {
         this.p = p;
         this.type = type;
         this.effectCount = effectCount;
+    }
+
+    public boolean getPurgeOnUse() {
+        return purgeOnUse;
+    }
+
+    public void setPurgeOnUse(boolean purgeOnUse) {
+        this.purgeOnUse = purgeOnUse;
     }
 
     @Override

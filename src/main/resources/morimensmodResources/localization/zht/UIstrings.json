@@ -105,6 +105,18 @@
             " #r鑰能不足 。"
         ]
     },
+    "${ModID}:ExhaustModifier": {
+        "TEXT": [
+            "%s\u3000 消耗 ",
+            "%s NL 消耗 "
+        ]
+    },
+    "${ModID}:EtherealModifier": {
+        "TEXT": [
+            "%s\u3000 虛無 ",
+            "%s NL 虛無 "
+        ]
+    },
     "${ModID}:VoicesInYourHead": {
         "TEXT": [
             "腦中之音",
@@ -169,7 +181,7 @@
     "${ModID}:EphemeralEternity": {
         "TEXT": [
             "短暫的永恆",
-            "獲得 #b1 點 [E] 。將 #b1 張「 #y打擊 」與 #b1 張「 #y防禦 」的原始複製置入手中，並使他們獲得 #y消耗 、 #y虛無 。若當前界域為 「超維」，則額外獲得 #b2 點 #g臨時 #y力量 與 #b1 點 #g臨時 #y敏捷"
+            "獲得 #b1 點 [E] 。將 #b1 張「 #y打擊 」與 #b1 張「 #y防禦 」的原始複製置入手中，並使他們獲得 #y消耗 、 #y虛無 。若當前界域為 「 #p超維 」，則額外獲得 #b2 點 #g臨時 #y力量 與 #b1 點 #g臨時 #y敏捷。"
         ]
     },
     "${ModID}:FeastOfDecay": {

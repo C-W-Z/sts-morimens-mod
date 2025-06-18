@@ -1,8 +1,7 @@
 package morimensmod.interfaces;
 
-import morimensmod.characters.AbstractAwakener;
-import morimensmod.misc.PosseType;
+import morimensmod.cards.AbstractPosse;
 
 public interface OnAfterPosse {
-    void onAfterPosse(AbstractAwakener awaker, int exhaustKeyflare, PosseType type);
+    void onAfterPosse(AbstractPosse posse, int exhaustKeyflare);
 }

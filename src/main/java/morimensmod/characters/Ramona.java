@@ -6,7 +6,6 @@ import morimensmod.cards.chaos.QueensSword;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.cards.posses.VoicesInYourHead;
 import morimensmod.exalts.MundusDecree;
-import morimensmod.misc.PosseType;
 import morimensmod.misc.SpriteSheetAnimation;
 import morimensmod.relics.StellarBrew;
 
@@ -42,7 +41,7 @@ public class Ramona extends AbstractAwakener {
         super(NAMES[0], Enums.RAMONA, "Ramona/main.png", "Ramona/main.png");
         anim = new SpriteSheetAnimation(makeCharacterPath("Ramona/Idle_1.png"),
                 6, 17, 1, true, 30F, -22, -10);
-        setExaltAndPosse(new MundusDecree(), new VoicesInYourHead(this, PosseType.REGULAR));
+        setExaltAndPosse(new MundusDecree(), new VoicesInYourHead());
     }
 
     public static void register() {

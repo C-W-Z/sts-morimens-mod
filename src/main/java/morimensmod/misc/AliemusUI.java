@@ -93,6 +93,9 @@ public class AliemusUI extends ClickableUIElement {
     }
 
     protected void onRightClick() {
+        // TODO: 在CardQueue有東西時不能點，因為狂氣爆發無法被排進CardQueue
+        // 這樣的話應該就可以把狂氣爆發的activate裡的效果都改成addToBottom了
+
         if (p().currentHealth <= 0 || p().isDeadOrEscaped()
                 || AbstractDungeon.isScreenUp || AbstractDungeon.actionManager.turnHasEnded
                 || !(p() instanceof AbstractAwakener) || AbstractAwakener.isExalting())
