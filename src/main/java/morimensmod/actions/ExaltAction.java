@@ -19,6 +19,8 @@ public class ExaltAction extends AbstractGameAction {
         this.awaker = awaker;
         overExalt = AbstractAwakener.enoughAliemusForOverExalt();
         exhaustAliemus = AbstractAwakener.exhaustAliemusForExalt(overExalt);
+
+        AbstractAwakener.lockPlayerActions++;
     }
 
     @Override
@@ -37,8 +39,6 @@ public class ExaltAction extends AbstractGameAction {
 
         awaker.triggerExalt(overExalt);
 
-        isDone = true;
-
         // 呼叫所有 Power 的 hook
         for (AbstractPower p : awaker.powers)
             if (p instanceof OnAfterExalt)
@@ -50,5 +50,9 @@ public class ExaltAction extends AbstractGameAction {
         // 呼叫姿態（Stance）的 hook
         if (awaker.stance instanceof OnAfterExalt)
             ((OnAfterExalt) awaker.stance).onAfterExalt(awaker, exhaustAliemus, overExalt);
+
+        isDone = true;
+
+        AbstractAwakener.lockPlayerActions--;
     }
 }

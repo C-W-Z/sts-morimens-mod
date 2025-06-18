@@ -39,7 +39,8 @@ public class KeyflareUI extends ClickableUIElement {
     private static final float fontScale = 1F;
 
     private static final Texture ICON = TexLoader.getTexture(makeUIPath("Keyflare.png"));
-    private static final UIStrings TEXT = CardCrawlGame.languagePack.getUIString(makeID(KeyflareUI.class.getSimpleName()));
+    private static final UIStrings TEXT = CardCrawlGame.languagePack
+            .getUIString(makeID(KeyflareUI.class.getSimpleName()));
 
     private static KeyflareUI UI;
 
@@ -92,8 +93,14 @@ public class KeyflareUI extends ClickableUIElement {
 
         if (p().currentHealth <= 0 || p().isDeadOrEscaped()
                 || AbstractDungeon.isScreenUp || AbstractDungeon.actionManager.turnHasEnded
-                || !(p() instanceof AbstractAwakener) || AbstractAwakener.isPossing())
+                || !(p() instanceof AbstractAwakener))
             return;
+
+        if (AbstractAwakener.isPossing() || AbstractAwakener.isExalting()
+                || !AbstractDungeon.actionManager.cardQueue.isEmpty()) {
+            showThoughtBubble(TEXT.EXTRA_TEXT[4], 3.0F);
+            return;
+        }
 
         if (!AbstractAwakener.enoughLimitedPosseCountThisTurn()) {
             showThoughtBubble(TEXT.EXTRA_TEXT[2], 3.0F);
@@ -102,6 +109,11 @@ public class KeyflareUI extends ClickableUIElement {
 
         if (!AbstractAwakener.enoughKeyflareForLimitedPosse()) {
             showThoughtBubble(TEXT.EXTRA_TEXT[3], 3.0F);
+            return;
+        }
+
+        if (!AbstractDungeon.actionManager.cardQueue.isEmpty()) {
+            showThoughtBubble(TEXT.EXTRA_TEXT[4], 3.0F);
             return;
         }
 

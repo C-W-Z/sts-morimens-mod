@@ -66,6 +66,18 @@ public abstract class AbstractAwakener extends CustomPlayer {
     protected static int possedThisBattle = 0; // reset at Main Mod File
     protected AbstractPosse posse;
 
+    /**
+     * TODO: cardQueue.clear()時要檢查是不是需要減少lock層數
+     * 或者不要鎖，就用它原版的機制，允許先打出牌再取消
+     *
+     * 在做出某些事之後防止玩家在動畫播完/效果跑完之前做事
+     * 舉例：
+     * 如果快速打牌，中間一張是銀鑰曦光，然後輪到動畫播放到曦光的時候，選了純白初遇
+     * 剩下還沒播放完動畫也還沒生效但已經被打出去的牌會一起被洗掉
+     * 雖然被洗掉是合理的，但是那些被洗掉的牌原本應該是不可以被打出去的
+     */
+    public static int lockPlayerActions = 0;
+
     // percent
     public static int baseDamageAmplify;
     public static int baseBlockAmplify;
@@ -154,6 +166,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     // called in Main Mod File
     public static void onBattleStart() {
+        lockPlayerActions = 0;
+
         aliemusLimit = NORMAL_ALIEMUS_LIMIT;
         extremeAlimus = 2 * NORMAL_ALIEMUS_LIMIT;
 
@@ -170,6 +184,11 @@ public abstract class AbstractAwakener extends CustomPlayer {
         baseAliemusAmplify = 0;
         basePoisonAmplify = 0;
         baseCounterAmplify = 0;
+    }
+
+    // called in Main Mod File
+    public static void onPlayerTurnStart() {
+        lockPlayerActions = 0;
     }
 
     // called in Main Mod File
@@ -317,7 +336,6 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     public static int exhaustKeyflareForPosse(PosseType type) {
-        possing = true;
         possedThisBattle++;
         if (type == PosseType.REGULAR) {
             regularPossedThisTurn++;
@@ -341,10 +359,13 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     public void addRegularPosseActionToBottom() {
+        possing = true;
         atb(new PosseAction(this, PosseType.REGULAR, posse));
     }
 
     public void addExtraPosseActionToBottom() {
+        possing = true;
+
         ArrayList<AbstractPosse> posses = getAllPosses();
         logger.debug("num_posses:" + posses.size());
 

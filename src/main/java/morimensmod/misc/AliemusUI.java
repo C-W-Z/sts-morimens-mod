@@ -98,8 +98,15 @@ public class AliemusUI extends ClickableUIElement {
 
         if (p().currentHealth <= 0 || p().isDeadOrEscaped()
                 || AbstractDungeon.isScreenUp || AbstractDungeon.actionManager.turnHasEnded
-                || !(p() instanceof AbstractAwakener) || AbstractAwakener.isExalting())
+                || !(p() instanceof AbstractAwakener))
             return;
+
+        if (AbstractAwakener.isPossing() || AbstractAwakener.isExalting()
+                || AbstractAwakener.lockPlayerActions > 0
+                || !AbstractDungeon.actionManager.cardQueue.isEmpty()) {
+            showThoughtBubble(TEXT.EXTRA_TEXT[4], 3.0F);
+            return;
+        }
 
         if (!AbstractAwakener.enoughExaltCountThisTurn()) {
             showThoughtBubble(TEXT.EXTRA_TEXT[2], 3.0F);
