@@ -79,11 +79,6 @@
             "銀鑰能量"
         ]
     },
-    "${ModID}:LockPlayCardPatch": {
-        "TEXT": [
-            "你太著急了， #r請等一下再釋放。 "
-        ]
-    },
     "${ModID}:AliemusUI": {
         "TEXT": [
             " #y",

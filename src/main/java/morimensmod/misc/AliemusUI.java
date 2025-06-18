@@ -102,7 +102,6 @@ public class AliemusUI extends ClickableUIElement {
             return;
 
         if (AbstractAwakener.isPossing() || AbstractAwakener.isExalting()
-                || AbstractAwakener.lockPlayerActions > 0
                 || !AbstractDungeon.actionManager.cardQueue.isEmpty()) {
             showThoughtBubble(TEXT.EXTRA_TEXT[4], 3.0F);
             return;

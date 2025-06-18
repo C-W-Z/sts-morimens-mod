@@ -22,8 +22,6 @@ public class PosseAction extends AbstractGameAction {
         this.actionType = ActionType.SPECIAL;
         this.posse = posse;
         exhaustKeyflare = AbstractAwakener.exhaustKeyflareForPosse(posse.getType());
-
-        AbstractAwakener.lockPlayerActions++;
     }
 
     public PosseAction(AbstractAwakener awaker, PosseType type, AbstractPosse posse) {
@@ -42,8 +40,6 @@ public class PosseAction extends AbstractGameAction {
             this.posse = posse;
 
         exhaustKeyflare = AbstractAwakener.exhaustKeyflareForPosse(type);
-
-        AbstractAwakener.lockPlayerActions++;
     }
 
     @Override
@@ -67,6 +63,8 @@ public class PosseAction extends AbstractGameAction {
         // addToTop(new ReducePowerAction(awaker, awaker, PosseTwicePower.POWER_ID, 1));
         // }
 
+        isDone = true;
+
         // 呼叫所有 Power 的 hook
         for (AbstractPower p : awaker.powers)
             if (p instanceof OnAfterPosse)
@@ -78,9 +76,5 @@ public class PosseAction extends AbstractGameAction {
         // 呼叫姿態（Stance）的 hook
         if (awaker.stance instanceof OnAfterPosse)
             ((OnAfterPosse) awaker.stance).onAfterPosse(posse, exhaustKeyflare);
-
-        isDone = true;
-
-        AbstractAwakener.lockPlayerActions--;
     }
 }

@@ -9,9 +9,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -25,9 +22,6 @@ import morimensmod.misc.PosseType;
 import morimensmod.patches.CustomTags;
 
 public class SilverKeyDawn extends AbstractEasyCard {
-
-    private static final Logger logger = LogManager.getLogger(SilverKeyDawn.class);
-
     public final static String ID = makeID(SilverKeyDawn.class.getSimpleName());
 
     public SilverKeyDawn() {
@@ -36,8 +30,6 @@ public class SilverKeyDawn extends AbstractEasyCard {
         magicNumber = baseMagicNumber = 3; // 幾個隨機鑰令中選1個
         exhaust = true;
         selfRetain = true;
-
-        willLockPlayerActions = true;
     }
 
     @Override
@@ -51,10 +43,6 @@ public class SilverKeyDawn extends AbstractEasyCard {
         ArrayList<AbstractCard> choiceCardList = new ArrayList<>(posses.subList(0, Math.min(magicNumber, posses.size())));
 
         atb(new EasyModalChoiceAction(choiceCardList));
-
-        logger.debug("Before lockPlayerActions: ", AbstractAwakener.lockPlayerActions);
-        AbstractAwakener.lockPlayerActions--;
-        logger.debug("After lockPlayerActions: ", AbstractAwakener.lockPlayerActions);
     }
 
     @Override

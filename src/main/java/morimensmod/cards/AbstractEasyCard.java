@@ -70,9 +70,6 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     private boolean needsArtRefresh = false;
 
-    // see AbstractAwakener.lockPlayerActions
-    public boolean willLockPlayerActions = false;
-
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity,
             final CardTarget target, final CardColor color) {
         super(cardID, "", getCardTextureString(removeModID(cardID), type),
