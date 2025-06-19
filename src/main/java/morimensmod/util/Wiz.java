@@ -20,7 +20,7 @@ import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
-import morimensmod.cards.AbstractPosse;
+import morimensmod.cards.posses.AbstractPosse;
 import morimensmod.patches.CustomTags;
 
 import static morimensmod.MorimensMod.makeID;

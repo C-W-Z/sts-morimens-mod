@@ -14,7 +14,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.actions.KeyflareChangeAction;
-import morimensmod.cards.AbstractPosse;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.misc.PosseType;
 

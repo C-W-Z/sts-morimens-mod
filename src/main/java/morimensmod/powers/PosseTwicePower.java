@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
 import morimensmod.actions.PosseAction;
-import morimensmod.cards.AbstractPosse;
+import morimensmod.cards.posses.AbstractPosse;
 import morimensmod.interfaces.OnAfterPosse;
 import morimensmod.misc.PosseType;
 

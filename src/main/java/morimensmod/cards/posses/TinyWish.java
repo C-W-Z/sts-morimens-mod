@@ -5,7 +5,6 @@ import static morimensmod.util.Wiz.atb;
 import static morimensmod.util.Wiz.p;
 
 import morimensmod.actions.AliemusChangeAction;
-import morimensmod.cards.AbstractPosse;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.misc.PosseType;
 

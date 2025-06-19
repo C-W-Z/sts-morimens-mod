@@ -7,7 +7,6 @@ import static morimensmod.util.Wiz.p;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 
-import morimensmod.cards.AbstractPosse;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.misc.PosseType;
 

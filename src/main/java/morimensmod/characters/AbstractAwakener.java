@@ -8,7 +8,7 @@ import morimensmod.actions.PosseAction;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.misc.PosseType;
 import morimensmod.misc.SpriteSheetAnimation;
-import morimensmod.cards.AbstractPosse;
+import morimensmod.cards.posses.AbstractPosse;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;

@@ -9,7 +9,6 @@ import basemod.patches.com.megacrit.cardcrawl.saveAndContinue.SaveFile.ModSaves.
 import me.antileaf.signature.utils.SignatureHelper;
 import me.antileaf.signature.utils.internal.SignatureHelperInternal;
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.cards.AbstractPosse;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.chaos.QueensSword;
 import morimensmod.characters.AbstractAwakener;

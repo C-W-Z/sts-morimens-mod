@@ -8,7 +8,6 @@ import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 
-import morimensmod.cards.AbstractPosse;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.misc.PosseType;
 

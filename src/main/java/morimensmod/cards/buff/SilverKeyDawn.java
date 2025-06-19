@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.cards.AbstractPosse;
+import morimensmod.cards.posses.AbstractPosse;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.misc.PosseType;
 import morimensmod.patches.CustomTags;

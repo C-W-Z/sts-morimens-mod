@@ -5,7 +5,6 @@ import static morimensmod.util.Wiz.atb;
 
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 
-import morimensmod.cards.AbstractPosse;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.misc.PosseType;
 

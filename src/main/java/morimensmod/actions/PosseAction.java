@@ -11,7 +11,7 @@ import morimensmod.characters.AbstractAwakener;
 import morimensmod.interfaces.OnAfterPosse;
 import morimensmod.interfaces.OnBeforePosse;
 import morimensmod.misc.PosseType;
-import morimensmod.cards.AbstractPosse;
+import morimensmod.cards.posses.AbstractPosse;
 
 public class PosseAction extends AbstractGameAction {
 
@@ -50,11 +50,6 @@ public class PosseAction extends AbstractGameAction {
         logger.debug("PosseType: " + posse.getType());
 
         posse.getAwakener().triggerPosse(posse);
-
-        // if (!purgeOnUse && awaker.hasPower(PosseTwicePower.POWER_ID)) {
-        // addToTop(new PosseAction(awaker, PosseType.UNLIMITED, posse, true));
-        // addToTop(new ReducePowerAction(awaker, awaker, PosseTwicePower.POWER_ID, 1));
-        // }
 
         isDone = true;
 

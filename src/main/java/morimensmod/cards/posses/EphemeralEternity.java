@@ -17,7 +17,6 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import basemod.helpers.CardModifierManager;
 import morimensmod.cardmodifiers.EtherealModifier;
 import morimensmod.cardmodifiers.ExhaustModifier;
-import morimensmod.cards.AbstractPosse;
 import morimensmod.cards.chaos.Defend;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.characters.AbstractAwakener;
