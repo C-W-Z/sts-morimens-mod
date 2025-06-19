@@ -11,7 +11,14 @@
     "NAME": "雙發鑰令",
     "DESCRIPTIONS": [
       "使下 #b",
-      " 次釋放的鑰令生效 #b2 次。"
+      " 次透過消耗 #y銀鑰能量 釋放的 #y鑰令 生效 #b2 次。"
+    ]
+  },
+  "${ModID}:OnlyUnlimitedPosseTwicePower": {
+    "NAME": "雙發鑰令",
+    "DESCRIPTIONS": [
+      "使下 #b",
+      " 次並非透過消耗 #y銀鑰能量 釋放的 #y鑰令 生效 #b2 次。"
     ]
   },
   "${ModID}:ElationPower": {

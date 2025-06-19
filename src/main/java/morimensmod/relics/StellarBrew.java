@@ -1,7 +1,6 @@
 package morimensmod.relics;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.isCommandCard;
 
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -15,7 +14,7 @@ public class StellarBrew extends AbstractEasyRelic {
     public static final String ID = makeID(StellarBrew.class.getSimpleName());
 
     public StellarBrew() {
-        super(ID, RelicTier.STARTER, LandingSound.CLINK, CHAOS_COLOR);
+        super(ID, RelicTier.STARTER, LandingSound.CLINK);
         counter = 0;
      }
 

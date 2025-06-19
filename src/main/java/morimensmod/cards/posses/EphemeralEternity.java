@@ -2,8 +2,8 @@ package morimensmod.cards.posses;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
-import static morimensmod.util.Wiz.applyToSelfTop;
-import static morimensmod.util.Wiz.att;
+import static morimensmod.util.Wiz.applyToSelf;
+import static morimensmod.util.Wiz.atb;
 import static morimensmod.util.Wiz.p;
 
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
@@ -38,21 +38,23 @@ public class EphemeralEternity extends AbstractPosse {
 
     @Override
     public void activate() {
-        if (p().getCardColor() == ULTRA_COLOR) {
-            applyToSelfTop(new LoseDexterityPower(p(), 1));
-            applyToSelfTop(new DexterityPower(p(), 1));
-            applyToSelfTop(new LoseStrengthPower(p(), 2));
-            applyToSelfTop(new StrengthPower(p(), 2));
-        }
+        atb(new GainEnergyAction(1));
 
         AbstractCard strike = new Strike();
-        AbstractCard defend = new Defend();
         CardModifierManager.addModifier(strike, new ExhaustModifier());
         CardModifierManager.addModifier(strike, new EtherealModifier());
+        atb(new MakeTempCardInHandAction(strike));
+
+        AbstractCard defend = new Defend();
         CardModifierManager.addModifier(defend, new ExhaustModifier());
         CardModifierManager.addModifier(defend, new EtherealModifier());
-        att(new MakeTempCardInHandAction(defend));
-        att(new MakeTempCardInHandAction(strike));
-        att(new GainEnergyAction(1));
+        atb(new MakeTempCardInHandAction(defend));
+
+        if (p().getCardColor() == ULTRA_COLOR) {
+            applyToSelf(new StrengthPower(p(), 2));
+            applyToSelf(new LoseStrengthPower(p(), 2));
+            applyToSelf(new DexterityPower(p(), 1));
+            applyToSelf(new LoseDexterityPower(p(), 1));
+        }
     }
 }

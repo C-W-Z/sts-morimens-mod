@@ -2,6 +2,7 @@ package morimensmod.cards.buff;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
+import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.atb;
 import static morimensmod.util.Wiz.getAllPosses;
 
@@ -20,6 +21,7 @@ import morimensmod.cards.AbstractPosse;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.misc.PosseType;
 import morimensmod.patches.CustomTags;
+import morimensmod.powers.OnlyUnlimitedPosseTwicePower;
 
 public class SilverKeyDawn extends AbstractEasyCard {
     public final static String ID = makeID(SilverKeyDawn.class.getSimpleName());
@@ -34,10 +36,12 @@ public class SilverKeyDawn extends AbstractEasyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        applyToSelf(new OnlyUnlimitedPosseTwicePower(p, 1));
+
         ArrayList<AbstractPosse> posses = getAllPosses();
 
         for (AbstractPosse posse : posses)
-            posse.set((AbstractAwakener) p, PosseType.UNLIMITED, 2);
+            posse.set((AbstractAwakener) p, PosseType.UNLIMITED);
 
         Collections.shuffle(posses, new Random(AbstractDungeon.miscRng.randomLong()));
         ArrayList<AbstractCard> choiceCardList = new ArrayList<>(posses.subList(0, Math.min(magicNumber, posses.size())));

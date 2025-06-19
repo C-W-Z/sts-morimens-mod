@@ -88,8 +88,6 @@ public class KeyflareUI extends ClickableUIElement {
     }
 
     protected void onRightClick() {
-        // TODO: 鑰令的activate裡的效果必須維持addToTop，否則會出事
-
         if (p().currentHealth <= 0 || p().isDeadOrEscaped()
                 || AbstractDungeon.isScreenUp || AbstractDungeon.actionManager.turnHasEnded
                 || !(p() instanceof AbstractAwakener))

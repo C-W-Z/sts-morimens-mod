@@ -1,7 +1,7 @@
 package morimensmod.cards.posses;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.util.Wiz.att;
+import static morimensmod.util.Wiz.atb;
 import static morimensmod.util.Wiz.p;
 
 import com.badlogic.gdx.math.MathUtils;
@@ -27,8 +27,8 @@ public class WardedInjection extends AbstractPosse {
 
     @Override
     public void activate() {
+        atb(new GainBlockAction(p(), p(), 10));
         if (p().currentHealth < MathUtils.ceil(p().maxHealth * 0.25F))
-            att(new HealAction(p(), p(), 10));
-        att(new GainBlockAction(p(), p(), 10));
+            atb(new HealAction(p(), p(), 10));
     }
 }

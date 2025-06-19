@@ -93,8 +93,6 @@ public class AliemusUI extends ClickableUIElement {
     }
 
     protected void onRightClick() {
-        // TODO: 可以把狂氣爆發的activate裡的效果都改成addToBottom了
-
         if (p().currentHealth <= 0 || p().isDeadOrEscaped()
                 || AbstractDungeon.isScreenUp || AbstractDungeon.actionManager.turnHasEnded
                 || !(p() instanceof AbstractAwakener))

@@ -39,16 +39,23 @@ public class ExaltAction extends AbstractGameAction {
 
         isDone = true;
 
-        // 呼叫所有 Power 的 hook
-        for (AbstractPower p : awaker.powers)
-            if (p instanceof OnAfterExalt)
-                ((OnAfterExalt) p).onAfterExalt(awaker, exhaustAliemus, overExalt);
-        // 呼叫所有遺物的 hook
-        for (AbstractRelic r : awaker.relics)
-            if (r instanceof OnAfterExalt)
-                ((OnAfterExalt) r).onAfterExalt(awaker, exhaustAliemus, overExalt);
-        // 呼叫姿態（Stance）的 hook
-        if (awaker.stance instanceof OnAfterExalt)
-            ((OnAfterExalt) awaker.stance).onAfterExalt(awaker, exhaustAliemus, overExalt);
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                // 呼叫所有 Power 的 hook
+                for (AbstractPower p : awaker.powers)
+                    if (p instanceof OnAfterExalt)
+                        ((OnAfterExalt) p).onAfterExalt(awaker, exhaustAliemus, overExalt);
+                // 呼叫所有遺物的 hook
+                for (AbstractRelic r : awaker.relics)
+                    if (r instanceof OnAfterExalt)
+                        ((OnAfterExalt) r).onAfterExalt(awaker, exhaustAliemus, overExalt);
+                // 呼叫姿態（Stance）的 hook
+                if (awaker.stance instanceof OnAfterExalt)
+                    ((OnAfterExalt) awaker.stance).onAfterExalt(awaker, exhaustAliemus, overExalt);
+
+                isDone = true;
+            }
+        });
     }
 }

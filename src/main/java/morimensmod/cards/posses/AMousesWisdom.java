@@ -1,7 +1,7 @@
 package morimensmod.cards.posses;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.util.Wiz.att;
+import static morimensmod.util.Wiz.atb;
 
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 
@@ -24,6 +24,6 @@ public class AMousesWisdom extends AbstractPosse {
 
     @Override
     public void activate() {
-        att(new GainEnergyAction(3));
+        atb(new GainEnergyAction(3));
     }
 }

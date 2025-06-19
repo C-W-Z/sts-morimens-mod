@@ -1,8 +1,8 @@
 package morimensmod.cards.posses;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.util.Wiz.applyToSelfTop;
-import static morimensmod.util.Wiz.att;
+import static morimensmod.util.Wiz.applyToSelf;
+import static morimensmod.util.Wiz.atb;
 import static morimensmod.util.Wiz.p;
 import static morimensmod.util.Wiz.powerAmount;
 
@@ -30,16 +30,16 @@ public class ObsessionEternal extends AbstractPosse {
 
     @Override
     public void activate() {
-        att(new AbstractGameAction() {
+        applyToSelf(new StrengthPower(p(), 3));
+        atb(new AbstractGameAction() {
             @Override
             public void update() {
                 int str = powerAmount(p(), StrengthPower.POWER_ID) - powerAmount(p(), LoseStrengthPower.POWER_ID);
                 int tmpStr = MathUtils.ceil(str * 0.25F);
-                applyToSelfTop(new LoseStrengthPower(p(), tmpStr));
-                applyToSelfTop(new StrengthPower(p(), tmpStr));
+                applyToSelf(new StrengthPower(p(), tmpStr));
+                applyToSelf(new LoseStrengthPower(p(), tmpStr));
                 isDone = true;
             }
         });
-        applyToSelfTop(new StrengthPower(p(), 3));
     }
 }

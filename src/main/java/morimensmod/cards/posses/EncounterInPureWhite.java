@@ -1,7 +1,7 @@
 package morimensmod.cards.posses;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.util.Wiz.att;
+import static morimensmod.util.Wiz.atb;
 import static morimensmod.util.Wiz.p;
 
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
@@ -27,7 +27,7 @@ public class EncounterInPureWhite extends AbstractPosse {
     @Override
     public void activate() {
         int handSize = p().hand.size();
-        att(new DrawCardAction(p(), handSize + 2));
-        att(new DiscardAction(p(), p(), handSize, false));
+        atb(new DiscardAction(p(), p(), handSize, false));
+        atb(new DrawCardAction(p(), handSize + 2));
     }
 }

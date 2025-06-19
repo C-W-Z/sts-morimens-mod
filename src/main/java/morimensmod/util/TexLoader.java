@@ -24,6 +24,12 @@ public class TexLoader {
             try {
                 loadTexture(textureString, true);
             } catch (GdxRuntimeException e) {
+                if (textureString.contains("/powers/")) {
+                    if (textureString.contains("84.png"))
+                        return getTexture(makeImagePath("powers/missing84.png"));
+                    else if (textureString.contains("32.png"))
+                        return getTexture(makeImagePath("powers/missing32.png"));
+                }
                 return getTexture(makeImagePath("ui/missing.png"));
             }
         }
