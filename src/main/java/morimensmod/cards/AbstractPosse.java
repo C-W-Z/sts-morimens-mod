@@ -14,7 +14,6 @@ public abstract class AbstractPosse extends AbstractEasyCard {
 
     protected AbstractAwakener awaker;
     protected PosseType type;
-    protected boolean purgeOnUse = false;
 
     public AbstractPosse(String cardID, AbstractAwakener awaker, PosseType type) {
         super(cardID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, POSSE_COLOR);
@@ -27,7 +26,7 @@ public abstract class AbstractPosse extends AbstractEasyCard {
     @Override
     public void onChoseThisOption() {
         // 用addToTop是因為，被選擇之後就應該要立即觸發
-        addToTop(new PosseAction(awaker, type, this));
+        addToTop(new PosseAction(this));
     }
 
     @Override
@@ -46,14 +45,6 @@ public abstract class AbstractPosse extends AbstractEasyCard {
     public void set(AbstractAwakener awaker, PosseType type) {
         this.awaker = awaker;
         this.type = type;
-    }
-
-    public boolean getPurgeOnUse() {
-        return purgeOnUse;
-    }
-
-    public void setPurgeOnUse(boolean purgeOnUse) {
-        this.purgeOnUse = purgeOnUse;
     }
 
     @Override

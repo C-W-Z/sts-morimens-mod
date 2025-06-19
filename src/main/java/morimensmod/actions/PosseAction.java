@@ -17,10 +17,7 @@ public class PosseAction extends AbstractGameAction {
 
     private static final Logger logger = LogManager.getLogger(PosseAction.class);
 
-    AbstractAwakener awaker;
-    PosseType type;
     AbstractPosse posse;
-    boolean purgeOnUse;
     int exhaustKeyflare;
 
     public PosseAction(AbstractPosse posse) {
@@ -30,39 +27,29 @@ public class PosseAction extends AbstractGameAction {
     }
 
     public PosseAction(AbstractAwakener awaker, PosseType type, AbstractPosse posse) {
-        this(awaker, type, posse, false);
-    }
-
-    public PosseAction(AbstractAwakener awaker, PosseType type, AbstractPosse posse, boolean purgeOnUse) {
         this.actionType = ActionType.SPECIAL;
-        this.awaker = awaker;
-        this.type = type;
-        if (purgeOnUse) {
-            this.posse = (AbstractPosse) posse.makeCopy();
-            this.posse.setPurgeOnUse(purgeOnUse);
-        } else
-            this.posse = posse;
-
+        this.posse = (AbstractPosse) posse.makeCopy();
+        this.posse.set(awaker, type);
         exhaustKeyflare = AbstractAwakener.exhaustKeyflareForPosse(type);
     }
 
     @Override
     public void update() {
         // 呼叫所有 Power 的 hook
-        for (AbstractPower p : awaker.powers)
+        for (AbstractPower p : posse.getAwakener().powers)
             if (p instanceof OnBeforePosse)
                 ((OnBeforePosse) p).onBeforePosse(posse, exhaustKeyflare);
         // 呼叫所有遺物的 hook
-        for (AbstractRelic r : awaker.relics)
+        for (AbstractRelic r : posse.getAwakener().relics)
             if (r instanceof OnBeforePosse)
                 ((OnBeforePosse) r).onBeforePosse(posse, exhaustKeyflare);
         // 呼叫姿態（Stance）的 hook
-        if (awaker.stance instanceof OnBeforePosse)
-            ((OnBeforePosse) awaker.stance).onBeforePosse(posse, exhaustKeyflare);
+        if (posse.getAwakener().stance instanceof OnBeforePosse)
+            ((OnBeforePosse) posse.getAwakener().stance).onBeforePosse(posse, exhaustKeyflare);
 
-        logger.debug("PosseType: " + type);
+        logger.debug("PosseType: " + posse.getType());
 
-        awaker.triggerPosse(type, posse);
+        posse.getAwakener().triggerPosse(posse);
 
         // if (!purgeOnUse && awaker.hasPower(PosseTwicePower.POWER_ID)) {
         // addToTop(new PosseAction(awaker, PosseType.UNLIMITED, posse, true));
@@ -76,16 +63,16 @@ public class PosseAction extends AbstractGameAction {
             @Override
             public void update() {
                 // 呼叫所有 Power 的 hook
-                for (AbstractPower p : awaker.powers)
+                for (AbstractPower p : posse.getAwakener().powers)
                     if (p instanceof OnAfterPosse)
                         ((OnAfterPosse) p).onAfterPosse(posse, exhaustKeyflare);
                 // 呼叫所有遺物的 hook
-                for (AbstractRelic r : awaker.relics)
+                for (AbstractRelic r : posse.getAwakener().relics)
                     if (r instanceof OnAfterPosse)
                         ((OnAfterPosse) r).onAfterPosse(posse, exhaustKeyflare);
                 // 呼叫姿態（Stance）的 hook
-                if (awaker.stance instanceof OnAfterPosse)
-                    ((OnAfterPosse) awaker.stance).onAfterPosse(posse, exhaustKeyflare);
+                if (posse.getAwakener().stance instanceof OnAfterPosse)
+                    ((OnAfterPosse) posse.getAwakener().stance).onAfterPosse(posse, exhaustKeyflare);
 
                 isDone = true;
             }

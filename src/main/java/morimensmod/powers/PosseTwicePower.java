@@ -41,6 +41,6 @@ public class PosseTwicePower extends AbstractEasyPower implements OnAfterPosse {
         logger.debug("type: " + posse.getType() + ", posse:" + posse.cardID);
 
         addToBot(new ReducePowerAction(posse.getAwakener(), posse.getAwakener(), this, 1));
-        addToBot(new PosseAction(posse.getAwakener(), PosseType.TMP, posse, true));
+        addToBot(new PosseAction(posse.getAwakener(), PosseType.TMP, posse));
     }
 }

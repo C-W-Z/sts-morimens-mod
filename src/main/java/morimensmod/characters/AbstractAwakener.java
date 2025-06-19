@@ -336,21 +336,21 @@ public abstract class AbstractAwakener extends CustomPlayer {
         return 0;
     }
 
-    public void triggerPosse(PosseType type, AbstractPosse posse) {
-        if (type == PosseType.REGULAR) {
+    public void triggerPosse(AbstractPosse posse) {
+        if (posse.getType() == PosseType.REGULAR) {
             assert this.posse == posse;
             regularPossedThisTurn++;
         }
-        else if (type == PosseType.EXTRA) {
+        else if (posse.getType() == PosseType.EXTRA) {
             extraPossedThisTurn++;
         }
-        else if (type == PosseType.UNLIMITED)
+        else if (posse.getType() == PosseType.UNLIMITED)
             unlimitedPosseThisTurn++;
-        else if (type != PosseType.TMP)
+        else if (posse.getType() != PosseType.TMP)
             tmpPosseThisTurn++;
 
         allPossedThisBattle++;
-        if (type != PosseType.TMP)
+        if (posse.getType() != PosseType.TMP)
             possedThisBattle++;
 
         posse.activate();
