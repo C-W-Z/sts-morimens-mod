@@ -23,12 +23,17 @@ public abstract class AbstractPosse extends AbstractEasyCard {
         set(p, type);
     }
 
+    /**
+     * 裡面的效果必須要用addToTop排進action queue，不可以用addToBottom
+     * (注意想要後發生的效果要先addToTop，才會後發生)
+     */
     public abstract void activate();
 
     @Override
     public void onChoseThisOption() {
+        // 用addToTop是因為，被選擇之後就應該要立即觸發
         for (int index = 0; index < effectCount - 1; index++)
-            addToTop(new PosseAction(p, PosseType.UNLIMITED, this, true));
+            addToTop(new PosseAction(p, PosseType.TMP, this, true));
         addToTop(new PosseAction(p, type, this));
     }
 

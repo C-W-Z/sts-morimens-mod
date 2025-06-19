@@ -28,10 +28,13 @@ public class MundusDecree extends AbstractExalt {
 
     @Override
     public void exalt() {
-        shuffleInTop(new Insight());
+        atb(new KeyflareChangeAction(p(), 200));
+
+        atb(new WaitAction(Settings.ACTION_DUR_MED));
 
         ArrayList<AbstractCard> cardList = new ArrayList<>();
 
+        // 選擇的牌要用att，才會在"靈感洗入抽牌堆"之前被放入手中
         for (AbstractCard c : drawPile().group) {
             System.out.println("c:" + c.name);
             cardList.add(new PileModalSelectCard(c, () -> att(new MundusDecreeAction(c))));
@@ -42,23 +45,21 @@ public class MundusDecree extends AbstractExalt {
             cardList.add(new PileModalSelectCard(c, () -> att(new MundusDecreeAction(c))));
         }
 
-        att(new EasyModalChoiceAction(cardList));
+        atb(new EasyModalChoiceAction(cardList));
 
-        att(new WaitAction(Settings.ACTION_DUR_MED));
-
-        att(new KeyflareChangeAction(p(), 200));
+        shuffleIn(new Insight());
     }
 
     @Override
     public void overExalt() {
-        // 使下次鑰令生效兩次
-        applyToSelfTop(new PosseTwicePower(p(), 1));
+        exalt();
 
         // 使所有敵人虛弱易傷一回合
-        att(new AllEnemyApplyPowerAction(p(), 1, (mo) -> new VulnerablePower(mo, 1, false)));
-        att(new AllEnemyApplyPowerAction(p(), 1, (mo) -> new WeakPower(mo, 1, false)));
+        atb(new AllEnemyApplyPowerAction(p(), 1, (mo) -> new VulnerablePower(mo, 1, false)));
+        atb(new AllEnemyApplyPowerAction(p(), 1, (mo) -> new WeakPower(mo, 1, false)));
 
-        exalt();
+        // 使下次鑰令生效兩次
+        applyToSelf(new PosseTwicePower(p(), 1));
     }
 
     @Override

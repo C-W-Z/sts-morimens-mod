@@ -88,8 +88,7 @@ public class KeyflareUI extends ClickableUIElement {
     }
 
     protected void onRightClick() {
-        // TODO: 在CardQueue有東西時不能點，因為鑰令無法被排進CardQueue
-        // 這樣的話應該就可以把鑰令的activate裡的效果都改成addToBottom了，雙發鑰令也可以變成afterPosse了
+        // TODO: 鑰令的activate裡的效果必須維持addToTop，否則會出事
 
         if (p().currentHealth <= 0 || p().isDeadOrEscaped()
                 || AbstractDungeon.isScreenUp || AbstractDungeon.actionManager.turnHasEnded
@@ -109,11 +108,6 @@ public class KeyflareUI extends ClickableUIElement {
 
         if (!AbstractAwakener.enoughKeyflareForLimitedPosse()) {
             showThoughtBubble(TEXT.EXTRA_TEXT[3], 3.0F);
-            return;
-        }
-
-        if (!AbstractDungeon.actionManager.cardQueue.isEmpty()) {
-            showThoughtBubble(TEXT.EXTRA_TEXT[4], 3.0F);
             return;
         }
 

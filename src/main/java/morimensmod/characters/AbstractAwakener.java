@@ -61,9 +61,11 @@ public abstract class AbstractAwakener extends CustomPlayer {
     protected static int regularPossedThisTurn = 0; // reset at Main Mod File
     protected static int extraPossedThisTurn = 0; // reset at Main Mod File
     protected static int unlimitedPosseThisTurn = 0; // reset at Main Mod File
+    protected static int tmpPosseThisTurn = 0; // reset at Main Mod File
     public static final int MAX_REGULAR_POSSE_PER_TURN = 1;
     public static final int MAX_EXTRA_POSSE_PER_TURN = 1;
     protected static int possedThisBattle = 0; // reset at Main Mod File
+    protected static int allPossedThisBattle = 0; // reset at Main Mod File
     protected AbstractPosse posse;
 
     // percent
@@ -160,6 +162,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
         posseNeededKeyflare = NORMAL_KEYFLARE_LIMIT;
         maxKeyflare = 2 * NORMAL_KEYFLARE_LIMIT;
         possedThisBattle = 0;
+        allPossedThisBattle = 0;
 
         aliemusRegen = baseAliemusRegen;
         keyflareRegen = baseKeyflareRegen;
@@ -180,6 +183,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
         regularPossedThisTurn = 0;
         extraPossedThisTurn = 0;
         unlimitedPosseThisTurn = 0;
+        tmpPosseThisTurn = 0;
     }
 
     public static int getAliemus() {
@@ -317,9 +321,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     public static int exhaustKeyflareForPosse(PosseType type) {
-        possedThisBattle++;
         if (type == PosseType.REGULAR) {
-            regularPossedThisTurn++;
             changeKeyflare(-posseNeededKeyflare);
             return posseNeededKeyflare;
         } else if (type == PosseType.EXTRA) {
@@ -327,14 +329,30 @@ public abstract class AbstractAwakener extends CustomPlayer {
             changeKeyflare(-posseNeededKeyflare);
             return posseNeededKeyflare;
         }
-        // else if (type == PosseType.UNLIMITED)
-        unlimitedPosseThisTurn++;
+        else if (type == PosseType.UNLIMITED)
+            unlimitedPosseThisTurn++;
+        else
+            tmpPosseThisTurn++;
         return 0;
     }
 
     public void triggerPosse(PosseType type, AbstractPosse posse) {
-        if (type == PosseType.REGULAR)
+        if (type == PosseType.REGULAR) {
             assert this.posse == posse;
+            regularPossedThisTurn++;
+        }
+        else if (type == PosseType.EXTRA) {
+            extraPossedThisTurn++;
+        }
+        else if (type == PosseType.UNLIMITED)
+            unlimitedPosseThisTurn++;
+        else if (type != PosseType.TMP)
+            tmpPosseThisTurn++;
+
+        allPossedThisBattle++;
+        if (type != PosseType.TMP)
+            possedThisBattle++;
+
         posse.activate();
         possing = false;
     }
