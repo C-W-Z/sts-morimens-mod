@@ -6,6 +6,10 @@ import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.atb;
 import static morimensmod.util.Wiz.p;
 
+import java.util.ArrayList;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -27,13 +31,21 @@ public class EphemeralEternity extends AbstractPosse {
 
     public final static String ID = makeID(EphemeralEternity.class.getSimpleName());
 
+    private ArrayList<AbstractCard> previews = new ArrayList<>();
+    private int previewIndex = 0;
+    private float rotationTimer = 0.0F;
+    private static final float CARD_PREVIEW_TIME = 1.0F; // second
+
     // for register to CardLibrary
     public EphemeralEternity() {
-        super(ID, null, PosseType.UNLIMITED);
+        this(null, PosseType.UNLIMITED);
     }
 
-    public EphemeralEternity(AbstractAwakener p, PosseType type) {
-        super(ID, p, type);
+    public EphemeralEternity(AbstractAwakener awaker, PosseType type) {
+        super(ID, awaker, type);
+        previews.add(new Strike());
+        previews.add(new Defend());
+        this.cardsToPreview = previews.get(0);
     }
 
     @Override
@@ -55,6 +67,29 @@ public class EphemeralEternity extends AbstractPosse {
             applyToSelf(new LoseStrengthPower(p(), 2));
             applyToSelf(new DexterityPower(p(), 1));
             applyToSelf(new LoseDexterityPower(p(), 1));
+        }
+    }
+
+   @Override
+    public void renderCardPreview(SpriteBatch sb) {
+        super.renderCardPreview(sb);
+        updateCardPreview();
+    }
+
+    @Override
+    public void renderCardPreviewInSingleView(SpriteBatch sb) {
+        super.renderCardPreviewInSingleView(sb);
+        updateCardPreview();
+    }
+
+    private void updateCardPreview() {
+        if (!this.previews.isEmpty()) {
+            this.rotationTimer -= Gdx.graphics.getDeltaTime();
+            if (this.rotationTimer <= 0.0F) {
+                this.rotationTimer = CARD_PREVIEW_TIME; // 每秒切換一次
+                this.previewIndex = (this.previewIndex + 1) % this.previews.size();
+                this.cardsToPreview = this.previews.get(this.previewIndex);
+            }
         }
     }
 }

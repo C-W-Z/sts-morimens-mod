@@ -18,11 +18,11 @@ public class WardedInjection extends AbstractPosse {
 
     // for register to CardLibrary
     public WardedInjection() {
-        super(ID, null, PosseType.UNLIMITED);
+        this(null, PosseType.UNLIMITED);
     }
 
-    public WardedInjection(AbstractAwakener p, PosseType type) {
-        super(ID, p, type);
+    public WardedInjection(AbstractAwakener awaker, PosseType type) {
+        super(ID, awaker, type);
     }
 
     @Override

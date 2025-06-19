@@ -21,11 +21,11 @@ public class ObsessionEternal extends AbstractPosse {
 
     // for register to CardLibrary
     public ObsessionEternal() {
-        super(ID, null, PosseType.UNLIMITED);
+        this(null, PosseType.UNLIMITED);
     }
 
-    public ObsessionEternal(AbstractAwakener p, PosseType type) {
-        super(ID, p, type);
+    public ObsessionEternal(AbstractAwakener awaker, PosseType type) {
+        super(ID, awaker, type);
     }
 
     @Override

@@ -22,11 +22,11 @@ public class VoicesInYourHead extends AbstractPosse {
 
     // for register to CardLibrary
     public VoicesInYourHead() {
-        super(ID, null, PosseType.UNLIMITED);
+        this(null, PosseType.UNLIMITED);
     }
 
-    public VoicesInYourHead(AbstractAwakener p, PosseType type) {
-        super(ID, p, type);
+    public VoicesInYourHead(AbstractAwakener awaker, PosseType type) {
+        super(ID, awaker, type);
     }
 
     private static final int DEBUFF_AMOUNT = 1;

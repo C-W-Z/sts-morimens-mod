@@ -15,11 +15,11 @@ public class AMousesWisdom extends AbstractPosse {
 
     // for register to CardLibrary
     public AMousesWisdom() {
-        super(ID, null, PosseType.UNLIMITED);
+        this(null, PosseType.UNLIMITED);
     }
 
-    public AMousesWisdom(AbstractAwakener p, PosseType type) {
-        super(ID, p, type);
+    public AMousesWisdom(AbstractAwakener awaker, PosseType type) {
+        super(ID, awaker, type);
     }
 
     @Override

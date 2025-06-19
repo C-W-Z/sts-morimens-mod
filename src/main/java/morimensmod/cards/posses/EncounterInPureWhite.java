@@ -17,11 +17,11 @@ public class EncounterInPureWhite extends AbstractPosse {
 
     // for register to CardLibrary
     public EncounterInPureWhite() {
-        super(ID, null, PosseType.UNLIMITED);
+        this(null, PosseType.UNLIMITED);
     }
 
-    public EncounterInPureWhite(AbstractAwakener p, PosseType type) {
-        super(ID, p, type);
+    public EncounterInPureWhite(AbstractAwakener awaker, PosseType type) {
+        super(ID, awaker, type);
     }
 
     @Override

@@ -15,11 +15,11 @@ public class TinyWish extends AbstractPosse {
 
     // for register to CardLibrary
     public TinyWish() {
-        super(ID, null, PosseType.UNLIMITED);
+        this(null, PosseType.UNLIMITED);
     }
 
-    public TinyWish(AbstractAwakener p, PosseType type) {
-        super(ID, p, type);
+    public TinyWish(AbstractAwakener awaker, PosseType type) {
+        super(ID, awaker, type);
     }
 
     @Override
