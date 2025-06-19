@@ -4,6 +4,7 @@ import basemod.abstracts.AbstractCardModifier;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.hasModifier;
+import static morimensmod.util.Wiz.modifierCount;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,11 +25,12 @@ public class ExhaustModifier extends AbstractCardModifier {
 
     public String modifyDescription(String rawDescription, AbstractCard card) {
         String newDescription;
-        if (hasModifier(card))
+        logger.debug("modifierCount before modifyDescription: " + modifierCount(card));
+        // 此時已經被加上exhuast了
+        if (hasModifier(rawDescription))
             newDescription = String.format(UI_STRINGS.TEXT[0], rawDescription);
         else
             newDescription = String.format(UI_STRINGS.TEXT[1], rawDescription);
-        logger.debug("after modifyDescription:" + newDescription);
         return newDescription;
     }
 

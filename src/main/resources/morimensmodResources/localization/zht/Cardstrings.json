@@ -43,9 +43,9 @@
   },
   "${ModID}:EphemeralEternity": {
     "NAME": "短暫的永恆",
-    "DESCRIPTION": "獲得 1 點 [E] 。將 1 張「 打擊 」與 1 張「 防禦 」的原始複製置入手中，並使他們獲得 消耗 、 虛無 。若當前界域為 「 ${ModID}:超維 」，則額外獲得 2 點 ${ModID}:臨時 力量 與 1 點 ${ModID}:臨時 敏捷 。",
+    "DESCRIPTION": "獲得 1 點 [E] 。將 1 張「 打擊 」與 1 張「 防禦 」的原始複製置入手中，並使他們獲得 消耗 、 虛無 。 NL 若當前界域為 「 ${ModID}:超維 」，則額外獲得 2 點 ${ModID}:臨時 力量 與 1 點 ${ModID}:臨時 敏捷 。",
     "EXTENDED_DESCRIPTION": [
-      "獲得 #b1 點 [E] 。將 #b1 張「 #y打擊 」與 #b1 張「 #y防禦 」的原始複製置入手中，並使他們獲得 #y消耗 、 #y虛無 。若當前界域為 「 #p超維 」，則額外獲得 #b2 點 #g臨時 #y力量 與 #b1 點 #g臨時 #y敏捷 。"
+      "獲得 #b1 點 [E] 。將 #b1 張「 #y打擊 」與 #b1 張「 #y防禦 」的原始複製置入手中，並使他們獲得 #y消耗 、 #y虛無 。 NL 若當前界域為 「 #p超維 」，則額外獲得 #b2 點 #g臨時 #y力量 與 #b1 點 #g臨時 #y敏捷 。"
     ]
   },
   "${ModID}:Strike": {
@@ -58,8 +58,8 @@
   },
   "${ModID}:FirstDoctrine": {
     "NAME": "第一哲學",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:M2! 次。 NL ${ModID}:保留 ",
-    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:M2! 次。 NL 固有 \u3000 ${ModID}:保留"
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:M2! 次。 NL 保留 ",
+    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:M2! 次。 NL 固有 \u2002 保留 "
   },
   "${ModID}:AssaultThesis": {
     "NAME": "攻勢推演",
@@ -71,8 +71,8 @@
   },
   "${ModID}:FleshDetached": {
     "NAME": "靈肉兩分",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 造成 ${ModID}:回復 時，獲得 !B! 點 格擋 。 NL ${ModID}:保留",
-    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 造成 ${ModID}:回復 時，獲得 !B! 點 格擋 。 NL 固有 \u3000 ${ModID}:保留"
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 造成 ${ModID}:回復 時，獲得 !B! 點 格擋 。 NL 保留 ",
+    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 造成 ${ModID}:回復 時，獲得 !B! 點 格擋 。 NL 固有 \u2002 保留 "
   },
   "${ModID}:OuterSurgery": {
     "NAME": "域外手術",
@@ -81,16 +81,16 @@
   "${ModID}:EquivalentExchange": {
     "NAME": "等價交換",
     "DESCRIPTION": "回復 !${ModID}:H! 點生命。棄掉所有手牌，每棄 1 張手牌額外回復 !M! 點生命並獲得等量 格擋 。",
-    "UPGRADE_DESCRIPTION": "回復 !${ModID}:H! 點生命。棄掉所有手牌，每棄 1 張手牌額外回復 !M! 點生命並獲得等量 格擋 。 NL ${ModID}:保留 ",
+    "UPGRADE_DESCRIPTION": "回復 !${ModID}:H! 點生命。棄掉所有手牌，每棄 1 張手牌額外回復 !M! 點生命並獲得等量 格擋 。 NL 保留 ",
     "EXTENDED_DESCRIPTION": [
       "回復 !${ModID}:H! 點生命並獲得 !B! 點 格擋 。棄掉所有手牌。",
-      "回復 !${ModID}:H! 點生命並獲得 !B! 點 格擋 。棄掉所有手牌。 NL ${ModID}:保留 "
+      "回復 !${ModID}:H! 點生命並獲得 !B! 點 格擋 。棄掉所有手牌。 NL 保留 "
     ]
   },
   "${ModID}:BattleThirst": {
     "NAME": "戰欲難平",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL ${ModID}:指令卡 的傷害次數提高 !M! 次。 NL ${ModID}:保留 ",
-    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL ${ModID}:指令卡 的傷害次數提高 !${ModID}:M! 次。 NL 固有 \u3000 ${ModID}:保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL ${ModID}:指令卡 的傷害次數提高 !M! 次。 NL 保留 ",
+    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL ${ModID}:指令卡 的傷害次數提高 !${ModID}:M! 次。 NL 固有 \u2002 保留 "
   },
   "${ModID}:BladeOfDefiance": {
     "NAME": "桀驁之刃",
@@ -102,8 +102,8 @@
   },
   "${ModID}:KnightsZeal": {
     "NAME": "騎士熱誠",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 獲得 !M! 點 力量 ，每打出 !${ModID}:M3! 張 ${ModID}:指令卡 後，獲得 !${ModID}:M2! 點 力量 。 NL ${ModID}:保留 ",
-    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 獲得 !M! 點 力量 ，每打出 !${ModID}:M3! 張 ${ModID}:指令卡 後，獲得 !${ModID}:M2! 點 力量 。 NL 固有 \u3000 ${ModID}:保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 獲得 !M! 點 力量 ，每打出 !${ModID}:M3! 張 ${ModID}:指令卡 後，獲得 !${ModID}:M2! 點 力量 。 NL 保留 ",
+    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 獲得 !M! 點 力量 ，每打出 !${ModID}:M3! 張 ${ModID}:指令卡 後，獲得 !${ModID}:M2! 點 力量 。 NL 固有 \u2002 保留 "
   },
   "${ModID}:UnstableBarrier": {
     "NAME": "不定壁壘",
@@ -115,8 +115,8 @@
   },
   "${ModID}:Soulblight": {
     "NAME": "靈魂瘟疫",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 回合結束時， ${ModID}:回復 !${ModID}:H! 點生命並獲得等同於自身 ${ModID}:狂氣回充 的 ${ModID}:狂氣 。 NL 「 ${ModID}:終末型態 」：不再 ${ModID}:回復生命 ，改為觸發所有敵人 !M! %的 中毒 。 NL ${ModID}:保留 ",
-    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 回合結束時， ${ModID}:回復 !${ModID}:H! 點生命並獲得等同於自身 ${ModID}:狂氣回充 的 ${ModID}:狂氣 。 NL 「 ${ModID}:終末型態 」：不再 ${ModID}:回復生命 ，改為觸發所有敵人 !M! %的 中毒 。 NL 固有 \u3000 ${ModID}:保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 回合結束時， ${ModID}:回復 !${ModID}:H! 點生命並獲得等同於自身 ${ModID}:狂氣回充 的 ${ModID}:狂氣 。 NL 「 ${ModID}:終末型態 」：不再 ${ModID}:回復生命 ，改為觸發所有敵人 !M! %的 中毒 。 NL 保留 ",
+    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 回合結束時， ${ModID}:回復 !${ModID}:H! 點生命並獲得等同於自身 ${ModID}:狂氣回充 的 ${ModID}:狂氣 。 NL 「 ${ModID}:終末型態 」：不再 ${ModID}:回復生命 ，改為觸發所有敵人 !M! %的 中毒 。 NL 固有 \u2002 保留 "
   },
   "${ModID}:SelfDestruct": {
     "NAME": "自毀改造",
@@ -243,12 +243,12 @@
   },
   "${ModID}:Insight": {
     "NAME": "靈感",
-    "DESCRIPTION": "獲得 [E] ，抽 !${ModID}:M2! 張牌。 NL 消耗 \u3000 ${ModID}:保留 ",
-    "UPGRADE_DESCRIPTION": "獲得 [E] [E] ，抽 !${ModID}:M2! 張牌。 NL 消耗 \u3000 ${ModID}:保留 "
+    "DESCRIPTION": "獲得 [E] ，抽 !${ModID}:M2! 張牌。 NL 消耗 \u2002 保留 ",
+    "UPGRADE_DESCRIPTION": "獲得 [E] [E] ，抽 !${ModID}:M2! 張牌。 NL 消耗 \u2002 保留 "
   },
   "${ModID}:SilverKeyDawn": {
     "NAME": "銀鑰曦光",
-    "DESCRIPTION": "從隨機 !M! 個 ${ModID}:鑰令 中，選擇 1 個立刻釋放，並生效 2 次。 NL 消耗 \u3000 ${ModID}:保留 "
+    "DESCRIPTION": "從隨機 !M! 個 ${ModID}:鑰令 中，選擇 1 個立刻釋放，並生效 2 次。 NL 消耗 \u2002 保留 "
   },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",

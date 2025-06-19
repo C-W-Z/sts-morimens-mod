@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
@@ -33,7 +34,13 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Wiz {
+
+    private static final Logger logger = LogManager.getLogger(Wiz.class);
+
     // The wonderful Wizard of Oz allows access to most easy compilations of data,
     // or functions.
 
@@ -325,7 +332,31 @@ public class Wiz {
         return pool;
     }
 
-    public static boolean hasModifier(AbstractCard card) {
-        return card.exhaust || card.isEthereal || card.isInnate || card.selfRetain || card.retain;
+    public static int modifierCount(AbstractCard card) {
+        logger.debug("exhaust: " + card.exhaust + ", isEthereal: " + card.isEthereal + ", isInnate" + card.isInnate
+                + ", selfRetain" + card.selfRetain + ", retain: " + card.retain);
+
+        int count = 0;
+        if (card.exhaust)
+            count++;
+        if (card.isEthereal)
+            count++;
+        if (card.isInnate)
+            count++;
+        if (card.selfRetain)
+            count++;
+        if (card.retain)
+            count++;
+
+        return count;
+    }
+
+    private static final UIStrings MODIFIER_STRINGS = CardCrawlGame.languagePack.getUIString(makeID("CardModifiers"));
+
+    public static boolean hasModifier(String rawDescription) {
+        for (String text : MODIFIER_STRINGS.TEXT)
+            if (rawDescription.contains(text))
+                return true;
+        return false;
     }
 }
