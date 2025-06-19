@@ -5,6 +5,7 @@ import me.antileaf.signature.card.AbstractSignatureCard;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -25,6 +26,7 @@ import static morimensmod.util.Wiz.*;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.util.CardArtRoller;
 
+import java.util.ArrayList;
 import java.util.function.Consumer;
 
 public abstract class AbstractEasyCard extends AbstractSignatureCard {
@@ -69,6 +71,12 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     public static int baseAliemusAmplify;
 
     private boolean needsArtRefresh = false;
+
+    // for multiple cards to preview
+    protected ArrayList<AbstractCard> previewCards = new ArrayList<>();
+    protected int cardPreviewIndex = 0;
+    protected float cardPreviewTimer = 0.0F;
+    protected static final float CARD_PREVIEW_TIME = 1.0F; // second
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity,
             final CardTarget target, final CardColor color) {
@@ -378,6 +386,29 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     public CardArtRoller.ReskinInfo reskinInfo(String ID) {
         return null;
+    }
+
+    @Override
+    public void renderCardPreview(SpriteBatch sb) {
+        super.renderCardPreview(sb);
+        updateCardPreview();
+    }
+
+    @Override
+    public void renderCardPreviewInSingleView(SpriteBatch sb) {
+        super.renderCardPreviewInSingleView(sb);
+        updateCardPreview();
+    }
+
+    protected void updateCardPreview() {
+        if (this.previewCards.isEmpty())
+            return;
+        this.cardPreviewTimer -= Gdx.graphics.getDeltaTime();
+        if (this.cardPreviewTimer <= 0.0F) {
+            this.cardPreviewTimer = CARD_PREVIEW_TIME; // 每秒切換一次
+            this.cardPreviewIndex = (this.cardPreviewIndex + 1) % this.previewCards.size();
+            this.cardsToPreview = this.previewCards.get(this.cardPreviewIndex);
+        }
     }
 
     // called in Main Mod File
