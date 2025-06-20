@@ -1,8 +1,6 @@
 package morimensmod.cards.posses;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.util.Wiz.atb;
-import static morimensmod.util.Wiz.att;
 import static morimensmod.util.Wiz.hand;
 import static morimensmod.util.Wiz.isCommandCard;
 
@@ -36,10 +34,10 @@ public class TheLoneSeed extends AbstractPosse {
 
         for (AbstractCard c : hand().group) {
             if (isCommandCard(c))
-                cardList.add(new PileModalSelectCard(c, () -> att(new TheLoneSeedAction(c))));
+                cardList.add(new PileModalSelectCard(c, () -> addToTop(new TheLoneSeedAction(c))));
         }
 
-        atb(new EasyModalChoiceAction(cardList));
+        addToBot(new EasyModalChoiceAction(cardList));
 
         addToBot(new AliemusChangeAction(awaker, 15));
     }

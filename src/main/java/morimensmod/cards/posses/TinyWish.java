@@ -1,7 +1,6 @@
 package morimensmod.cards.posses;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.util.Wiz.atb;
 
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.characters.AbstractAwakener;
@@ -22,6 +21,6 @@ public class TinyWish extends AbstractPosse {
 
     @Override
     public void activate() {
-        atb(new AliemusChangeAction(awaker, 35));
+        addToBot(new AliemusChangeAction(awaker, 35));
     }
 }

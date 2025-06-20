@@ -62,6 +62,13 @@
       "從隨機的 #b3 個 #y鑰令 中選擇一個，觸發其效果並獲得 #b200 點 #y銀鑰能量 。"
     ]
   },
+  "${ModID}:FestivalOfTides": {
+    "NAME": "海之祭",
+    "DESCRIPTION": "抽 2 張牌，獲得 2 點 [E] ，失去 5 點 ${ModID}:狂氣 。若當前處於「 ${ModID}:靜海 」姿態，對所有敵人施加 5 層 中毒 ，在首領戰中發揮 3 倍效果。",
+    "EXTENDED_DESCRIPTION": [
+      "抽 #b2 張牌，獲得 #b2 點 [E] ，失去 #b5 點 #y狂氣 。若當前處於「 #y靜海 」姿態，對所有敵人施加 #b5 層 #p中毒 ，在首領戰中發揮 #b3 倍效果。"
+    ]
+  },
   "${ModID}:Strike": {
     "NAME": "打擊",
     "DESCRIPTION": "造成 !D! 點傷害。 NL 獲得 !${ModID}:A! 點 ${ModID}:狂氣 。"

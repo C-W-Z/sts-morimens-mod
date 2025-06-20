@@ -1,9 +1,7 @@
 package morimensmod.cards.posses;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.util.Wiz.att;
 import static morimensmod.util.Wiz.getAllPosses;
-import static morimensmod.util.Wiz.p;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,17 +30,17 @@ public class TheGatedAnswer extends AbstractPosse {
 
     @Override
     public void activate() {
-        att(new KeyflareChangeAction(p(), 200));
+        addToTop(new KeyflareChangeAction(awaker, 200));
 
         ArrayList<AbstractPosse> posses = getAllPosses();
 
         for (AbstractPosse p : posses)
-            p.set((AbstractAwakener) p(), PosseType.TMP);
+            p.set((AbstractAwakener) awaker, PosseType.TMP);
 
         Collections.shuffle(posses, new Random(AbstractDungeon.miscRng.randomLong()));
         ArrayList<AbstractCard> choiceCardList = new ArrayList<>(posses.subList(0, Math.min(3, posses.size())));
         // ArrayList<AbstractCard> choiceCardList = new ArrayList<>(posses);
 
-        att(new EasyModalChoiceAction(choiceCardList));
+        addToTop(new EasyModalChoiceAction(choiceCardList));
     }
 }
