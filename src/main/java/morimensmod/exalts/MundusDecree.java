@@ -36,12 +36,10 @@ public class MundusDecree extends AbstractExalt {
 
         // 選擇的牌要用att，才會在"靈感洗入抽牌堆"之前被放入手中
         for (AbstractCard c : drawPile().group) {
-            System.out.println("c:" + c.name);
             cardList.add(new PileModalSelectCard(c, () -> att(new MundusDecreeAction(c))));
         }
 
         for (AbstractCard c : discardPile().group) {
-            System.out.println("c:" + c.name);
             cardList.add(new PileModalSelectCard(c, () -> att(new MundusDecreeAction(c))));
         }
 

@@ -65,6 +65,9 @@ public class SpriteSheetAnimation {
         float width = (float) currentFrame.getRegionWidth() * Settings.scale;
         float height = (float) currentFrame.getRegionHeight() * Settings.scale;
 
+        float x = (player.flipHorizontal ? -xOffset : xOffset) + player.drawX - width / 2.0F + player.animX;
+        float y = yOffset + player.drawY;
+
         // sb.draw(currentFrame,
         //         xOffset + player.drawX - width / 2.0F + player.animX,
         //         yOffset + player.drawY,
@@ -72,8 +75,8 @@ public class SpriteSheetAnimation {
         //         height);
 
         sb.draw(currentFrame.getTexture(),
-                xOffset + player.drawX - width / 2.0F + player.animX,
-                yOffset + player.drawY,
+                x,
+                y,
                 0,
                 0,
                 width,

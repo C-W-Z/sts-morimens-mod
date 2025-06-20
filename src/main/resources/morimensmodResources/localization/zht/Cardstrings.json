@@ -41,6 +41,13 @@
       "獲得 #b3 點 #y力量 ，額外獲得等同於永久 #y力量 #b25% 的 #y臨時 #y力量 。"
     ]
   },
+  "${ModID}:TheLoneSeed": {
+    "NAME": "唯一的種子",
+    "DESCRIPTION": "選擇 1 張手中的 ${ModID}:指令卡 ，獲得 1 張附加 消耗 的原始複製，並獲得 15 點 ${ModID}:狂氣 。",
+    "EXTENDED_DESCRIPTION": [
+      "選擇 #b1 張手中的 #b指令卡 ，獲得 #b1 張附加 #y消耗 的原始複製，並獲得 #b15 點 #y狂氣 。"
+    ]
+  },
   "${ModID}:EphemeralEternity": {
     "NAME": "短暫的永恆",
     "DESCRIPTION": "獲得 1 點 [E] 。將 1 張「打擊」與 1 張「防禦」的原始複製置入手中，並使他們獲得 消耗 、 虛無 。 NL 若當前界域為 「 ${ModID}:超維 」，則額外獲得 2 點 ${ModID}:臨時 力量 與 1 點 ${ModID}:臨時 敏捷 。",

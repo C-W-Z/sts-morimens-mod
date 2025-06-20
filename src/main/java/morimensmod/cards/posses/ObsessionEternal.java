@@ -3,7 +3,6 @@ package morimensmod.cards.posses;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.atb;
-import static morimensmod.util.Wiz.p;
 import static morimensmod.util.Wiz.powerAmount;
 
 import com.badlogic.gdx.math.MathUtils;
@@ -29,14 +28,14 @@ public class ObsessionEternal extends AbstractPosse {
 
     @Override
     public void activate() {
-        applyToSelf(new StrengthPower(p(), 3));
+        applyToSelf(new StrengthPower(awaker, 3));
         atb(new AbstractGameAction() {
             @Override
             public void update() {
-                int str = powerAmount(p(), StrengthPower.POWER_ID) - powerAmount(p(), LoseStrengthPower.POWER_ID);
+                int str = powerAmount(awaker, StrengthPower.POWER_ID) - powerAmount(awaker, LoseStrengthPower.POWER_ID);
                 int tmpStr = MathUtils.ceil(str * 0.25F);
-                applyToSelf(new StrengthPower(p(), tmpStr));
-                applyToSelf(new LoseStrengthPower(p(), tmpStr));
+                applyToSelf(new StrengthPower(awaker, tmpStr));
+                applyToSelf(new LoseStrengthPower(awaker, tmpStr));
                 isDone = true;
             }
         });

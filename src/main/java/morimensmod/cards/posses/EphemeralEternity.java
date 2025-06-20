@@ -4,8 +4,6 @@ import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.atb;
-import static morimensmod.util.Wiz.p;
-
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -52,11 +50,11 @@ public class EphemeralEternity extends AbstractPosse {
         CardModifierManager.addModifier(defend, new EtherealModifier());
         atb(new MakeTempCardInHandAction(defend));
 
-        if (p().getCardColor() == ULTRA_COLOR) {
-            applyToSelf(new StrengthPower(p(), 2));
-            applyToSelf(new LoseStrengthPower(p(), 2));
-            applyToSelf(new DexterityPower(p(), 1));
-            applyToSelf(new LoseDexterityPower(p(), 1));
+        if (awaker.getCardColor() == ULTRA_COLOR) {
+            applyToSelf(new StrengthPower(awaker, 2));
+            applyToSelf(new LoseStrengthPower(awaker, 2));
+            applyToSelf(new DexterityPower(awaker, 1));
+            applyToSelf(new LoseDexterityPower(awaker, 1));
         }
     }
 }
