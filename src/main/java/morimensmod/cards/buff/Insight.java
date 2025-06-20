@@ -21,6 +21,7 @@ public class Insight extends AbstractEasyCard {
         secondMagic = baseSecondMagic = 1; // 抽牌數
         exhaust = true;
         selfRetain = true;
+        upgradedName = cardStrings.EXTENDED_DESCRIPTION[0];
     }
 
     @Override

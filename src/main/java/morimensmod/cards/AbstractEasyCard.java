@@ -72,6 +72,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     private boolean needsArtRefresh = false;
 
+    protected String upgradedName = "";
+
     // for multiple cards to preview
     protected ArrayList<AbstractCard> previewCards = new ArrayList<>();
     protected int cardPreviewIndex = 0;
@@ -286,6 +288,17 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     protected void uDesc() {
         this.rawDescription = this.cardStrings.UPGRADE_DESCRIPTION;
         this.initializeDescription();
+    }
+
+    @Override
+    protected void upgradeName() {
+        ++this.timesUpgraded;
+        this.upgraded = true;
+        if (upgradedName.isEmpty())
+            this.name = this.name + "+";
+        else
+            this.name = upgradedName;
+        this.initializeTitle();
     }
 
     public void upgrade() {

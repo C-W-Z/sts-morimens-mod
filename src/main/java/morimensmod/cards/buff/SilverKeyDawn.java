@@ -32,11 +32,13 @@ public class SilverKeyDawn extends AbstractEasyCard {
         magicNumber = baseMagicNumber = 3; // 幾個隨機鑰令中選1個
         exhaust = true;
         selfRetain = true;
+        upgradedName = cardStrings.EXTENDED_DESCRIPTION[0];
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new OnlyUnlimitedPosseTwicePower(p, 1));
+        if (upgraded)
+            applyToSelf(new OnlyUnlimitedPosseTwicePower(p, 1));
 
         ArrayList<AbstractPosse> posses = getAllPosses();
 
@@ -51,6 +53,6 @@ public class SilverKeyDawn extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeMagicNumber(2);
+        // upgradeMagicNumber(2);
     }
 }
