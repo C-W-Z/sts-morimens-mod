@@ -14,7 +14,13 @@ public class EasyModalChoiceCard extends AbstractEasyCard {
     private String passedDesc;
 
     public EasyModalChoiceCard(String cardID, String name, String description, Runnable onUseOrChosen) {
-        super(cardID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, CardColor.COLORLESS);
+        this(cardID, name, description, onUseOrChosen, CardColor.COLORLESS, null);
+    }
+
+    public EasyModalChoiceCard(String cardID, String name, String description, Runnable onUseOrChosen, CardColor color, CardTags tag) {
+        super(cardID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, color);
+        if (tag != null)
+            tags.add(tag);
         this.name = this.originalName = passedName = name;
         this.rawDescription = passedDesc = description;
         this.onUseOrChosen = onUseOrChosen;

@@ -61,11 +61,32 @@ public class SpriteSheetAnimation {
     public void renderPlayerImage(SpriteBatch sb, AbstractPlayer player) {
         TextureRegion currentFrame = anim.getKeyFrame(stateTime, loop);
         sb.setColor(Color.WHITE);
-        sb.draw(currentFrame,
-                xOffset + player.drawX - (float) currentFrame.getRegionWidth() * Settings.scale / 2.0F + player.animX,
+
+        float width = (float) currentFrame.getRegionWidth() * Settings.scale;
+        float height = (float) currentFrame.getRegionHeight() * Settings.scale;
+
+        // sb.draw(currentFrame,
+        //         xOffset + player.drawX - width / 2.0F + player.animX,
+        //         yOffset + player.drawY,
+        //         width,
+        //         height);
+
+        sb.draw(currentFrame.getTexture(),
+                xOffset + player.drawX - width / 2.0F + player.animX,
                 yOffset + player.drawY,
-                (float) currentFrame.getRegionWidth() * Settings.scale,
-                (float) currentFrame.getRegionHeight() * Settings.scale);
+                0,
+                0,
+                width,
+                height,
+                1,
+                1,
+                0,
+                currentFrame.getRegionX(),
+                currentFrame.getRegionY(),
+                currentFrame.getRegionWidth(),
+                currentFrame.getRegionHeight(),
+                player.flipHorizontal,
+                player.flipVertical);
 
         // logger.debug("x:" + (player.drawX - (float) currentFrame.getRegionWidth() *
         // Settings.scale / 2.0F + player.animX)

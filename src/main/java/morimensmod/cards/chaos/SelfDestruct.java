@@ -39,7 +39,9 @@ public class SelfDestruct extends AbstractEasyCard {
                 ID,
                 cardStrings.EXTENDED_DESCRIPTION[0],
                 cardStrings.EXTENDED_DESCRIPTION[1],
-                () -> useElation(p));
+                () -> useElation(p),
+                CHAOS_COLOR,
+                CustomTags.COMMAND);
 
         elation.magicNumber = elation.baseMagicNumber = magicNumber;
         elation.secondMagic = elation.baseSecondMagic = secondMagic;
@@ -48,7 +50,9 @@ public class SelfDestruct extends AbstractEasyCard {
                 ID,
                 cardStrings.EXTENDED_DESCRIPTION[2],
                 cardStrings.EXTENDED_DESCRIPTION[3],
-                () -> useCurse(p));
+                () -> useCurse(p),
+                CHAOS_COLOR,
+                CustomTags.COMMAND);
 
         curse.magicNumber = curse.baseMagicNumber = magicNumber;
         curse.thirdMagic = curse.baseThirdMagic = thirdMagic;
