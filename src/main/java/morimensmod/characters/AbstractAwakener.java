@@ -4,6 +4,7 @@ import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
 import morimensmod.actions.EasyModalChoiceAction;
+import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.actions.PosseAction;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.misc.PosseType;
@@ -24,7 +25,9 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import static morimensmod.MorimensMod.*;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.atb;
+import static morimensmod.util.Wiz.att;
 import static morimensmod.util.Wiz.getAllPosses;
+import static morimensmod.util.Wiz.p;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -37,11 +40,13 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     private static final Logger logger = LogManager.getLogger(AbstractAwakener.class);
 
-    public static int baseAliemusRegen = 0;
+    protected static int baseAliemusRegen = 0;
     public static int aliemusRegen = baseAliemusRegen;
 
-    public static int baseKeyflareRegen = 60;
+    protected static int baseKeyflareRegen = 60;
     public static int keyflareRegen = baseKeyflareRegen;
+
+    protected static int lastUsedEnergy = 0;
 
     public static final int NORMAL_ALIEMUS_LIMIT = 100;
     protected static int aliemus = 0;
@@ -167,6 +172,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
         aliemusRegen = baseAliemusRegen;
         keyflareRegen = baseKeyflareRegen;
 
+        lastUsedEnergy = 0;
+
         baseDamageAmplify = 0;
         baseBlockAmplify = 0;
         baseHealAmplify = 0;
@@ -184,6 +191,21 @@ public abstract class AbstractAwakener extends CustomPlayer {
         extraPossedThisTurn = 0;
         unlimitedPosseThisTurn = 0;
         tmpPosseThisTurn = 0;
+    }
+
+    // called in UseCardActionPatch
+    public static void onAfterCardUsed() {
+        logger.debug("lastUsedEnergy: " + lastUsedEnergy);
+        att(new KeyflareChangeAction((AbstractAwakener) p(), lastUsedEnergy * keyflareRegen));
+        lastUsedEnergy = 0;
+    }
+
+    public static int getLastUsedEnergy() {
+        return lastUsedEnergy;
+    }
+
+    public static void addLastUsedEnergy(int amount) {
+        lastUsedEnergy += amount;
     }
 
     public static int getAliemus() {
@@ -385,6 +407,10 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public static void upgradeMaxKeyflare(int amount) {
         maxKeyflare += amount;
+    }
+
+    public static int getPossedThisBattle() {
+        return possedThisBattle;
     }
 
     public static String getKeyflareUIText() {

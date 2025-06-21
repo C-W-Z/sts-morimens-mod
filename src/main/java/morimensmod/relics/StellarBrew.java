@@ -16,7 +16,7 @@ public class StellarBrew extends AbstractEasyRelic {
     public StellarBrew() {
         super(ID, RelicTier.STARTER, LandingSound.CLINK);
         counter = 0;
-     }
+    }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {

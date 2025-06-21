@@ -52,7 +52,7 @@ public class EntropyUndonePower extends AbstractEasyPower {
     }
 
     @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
+    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         if (amount2 <= 0)
             return;
         if (!card.hasTag(CustomTags.LOOP))

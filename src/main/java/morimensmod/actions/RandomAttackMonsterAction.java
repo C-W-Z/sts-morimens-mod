@@ -24,7 +24,7 @@ public class RandomAttackMonsterAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        AbstractMonster m = AbstractDungeon.getMonsters().getRandomMonster(true);
+        AbstractMonster m = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
         if (m != null)
             addToTop(new DamageAction(m, info, attackEffect));
         isDone = true;

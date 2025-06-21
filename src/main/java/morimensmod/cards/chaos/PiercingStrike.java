@@ -62,9 +62,8 @@ public class PiercingStrike extends AbstractEasyCard {
         super.applyPowers();
 
         // 還原力量
-        if (str != null) {
+        if (str != null)
             str.amount = originalStrength;
-        }
 
         initializeDescription(); // 更新描述中的 !D!
 
@@ -83,9 +82,8 @@ public class PiercingStrike extends AbstractEasyCard {
 
         super.calculateCardDamage(mo);
 
-        if (str != null) {
+        if (str != null)
             str.amount = originalStrength;
-        }
 
         initializeDescription();
 

@@ -278,7 +278,7 @@ public class MorimensMod implements
     }
 
     @Override
-    public void receiveOnBattleStart(AbstractRoom arg0) {
+    public void receiveOnBattleStart(AbstractRoom room) {
         QueensSword.onBattleStart();
         AbstractAwakener.onBattleStart();
         AbstractEasyCard.onBattleStart();
