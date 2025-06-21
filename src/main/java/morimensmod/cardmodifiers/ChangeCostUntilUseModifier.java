@@ -15,6 +15,10 @@ public class ChangeCostUntilUseModifier extends AbstractCardModifier {
         this.amount = amount;
     }
 
+    public boolean shouldApply(AbstractCard card) {
+        return card.cost >= 0;
+    }
+
     public void onInitialApplication(AbstractCard card) {
         if (card.cost <= 0)
         {
@@ -27,6 +31,8 @@ public class ChangeCostUntilUseModifier extends AbstractCardModifier {
     }
 
     public void onRemove(AbstractCard card) {
+        if (amount == 0)
+            return;
         card.updateCost(-amount);
         card.isCostModifiedForTurn = (card.costForTurn != card.cost);
         AbstractCard tmp = CardLibrary.getCopy(card.cardID, card.timesUpgraded, card.misc);
