@@ -57,6 +57,7 @@ import static morimensmod.patches.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 import static morimensmod.util.Wiz.*;
+import static morimensmod.util.General.*;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;

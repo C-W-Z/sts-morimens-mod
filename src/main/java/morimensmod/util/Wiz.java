@@ -24,7 +24,6 @@ import morimensmod.cards.posses.AbstractPosse;
 import morimensmod.patches.CustomTags;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.MorimensMod.modID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.POSSE_COLOR;
 
 import java.util.ArrayList;
@@ -43,21 +42,6 @@ public class Wiz {
 
     // The wonderful Wizard of Oz allows access to most easy compilations of data,
     // or functions.
-
-    public static String removeModID(String id) {
-        return id.replace(modID + ":", "");
-    }
-
-    public static String arrToString(String[] arr) {
-        if (arr == null)
-            return null;
-        if (arr.length == 0)
-            return "";
-        String s = arr[0];
-        for (int i = 1; i < arr.length; ++i)
-            s += ", " + arr[i];
-        return s;
-    }
 
     public static void forAllCardsInList(Consumer<AbstractCard> consumer, ArrayList<AbstractCard> cardsList) {
         cardsList.forEach(c -> consumer.accept(c));
@@ -362,6 +346,7 @@ public class Wiz {
         return count;
     }
 
+    // Wiz.* must used after receiveEditStrings() !
     private static final UIStrings MODIFIER_STRINGS = CardCrawlGame.languagePack.getUIString(makeID("CardModifiers"));
 
     public static boolean hasModifier(String rawDescription) {

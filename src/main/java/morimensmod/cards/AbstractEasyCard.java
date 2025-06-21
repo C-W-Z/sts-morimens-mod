@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 // import static morimensmod.MorimensMod.logger;
 import static morimensmod.MorimensMod.makeImagePath;
 import static morimensmod.util.Wiz.*;
+import static morimensmod.util.General.*;
 
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.util.CardArtRoller;

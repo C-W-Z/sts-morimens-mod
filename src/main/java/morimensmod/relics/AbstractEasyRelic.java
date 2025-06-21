@@ -4,7 +4,7 @@ import basemod.abstracts.CustomRelic;
 import morimensmod.util.TexLoader;
 
 import static morimensmod.MorimensMod.makeRelicPath;
-import static morimensmod.util.Wiz.removeModID;
+import static morimensmod.util.General.removeModID;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
