@@ -13,6 +13,9 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import morimensmod.actions.EasyXCostAction;
 import morimensmod.cards.AbstractEasyCard;
 
+import basemod.AutoAdd;
+
+@AutoAdd.Ignore
 public class EasyXCostDemo extends AbstractEasyCard {
     public final static String ID = makeID(EasyXCostDemo.class.getSimpleName());
     // intellij stuff attack, enemy, rare, , , , , 0, 1

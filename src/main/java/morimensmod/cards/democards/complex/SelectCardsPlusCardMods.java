@@ -18,6 +18,9 @@ import static morimensmod.util.Wiz.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import basemod.AutoAdd;
+
+@AutoAdd.Ignore
 public class SelectCardsPlusCardMods extends AbstractEasyCard {
 
     public final static String ID = makeID(SelectCardsPlusCardMods.class.getSimpleName());

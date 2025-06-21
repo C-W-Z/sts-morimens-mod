@@ -15,6 +15,9 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.powers.LambdaPower;
 
+import basemod.AutoAdd;
+
+@AutoAdd.Ignore
 public class InlinePowerDemo extends AbstractEasyCard {
     public final static String ID = makeID(InlinePowerDemo.class.getSimpleName());
     // intellij stuff power, self, uncommon

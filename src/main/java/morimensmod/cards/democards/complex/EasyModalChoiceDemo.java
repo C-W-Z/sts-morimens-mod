@@ -16,6 +16,9 @@ import static morimensmod.util.Wiz.*;
 
 import java.util.ArrayList;
 
+import basemod.AutoAdd;
+
+@AutoAdd.Ignore
 public class EasyModalChoiceDemo extends AbstractEasyCard {
     public final static String ID = makeID(EasyModalChoiceDemo.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , ,

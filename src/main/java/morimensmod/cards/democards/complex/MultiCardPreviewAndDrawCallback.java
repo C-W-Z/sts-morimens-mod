@@ -15,6 +15,9 @@ import com.megacrit.cardcrawl.cards.tempCards.Smite;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import basemod.AutoAdd;
+
+@AutoAdd.Ignore
 public class MultiCardPreviewAndDrawCallback extends AbstractEasyCard {
     public final static String ID = makeID(MultiCardPreviewAndDrawCallback.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , ,

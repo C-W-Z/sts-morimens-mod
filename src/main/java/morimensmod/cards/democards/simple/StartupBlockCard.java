@@ -13,6 +13,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
 
+import basemod.AutoAdd;
+
+@AutoAdd.Ignore
 public class StartupBlockCard extends AbstractEasyCard implements StartupCard { // This card implements StartupCard, an extra 'type' of card that adds the ability to trigger at the start of combat.
     public final static String ID = makeID(StartupBlockCard.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , ,

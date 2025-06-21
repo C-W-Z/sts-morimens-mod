@@ -11,6 +11,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
 
+import basemod.AutoAdd;
+
+@AutoAdd.Ignore
 public class DrawAndShiv extends AbstractEasyCard {
     public final static String ID = makeID(DrawAndShiv.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , ,
