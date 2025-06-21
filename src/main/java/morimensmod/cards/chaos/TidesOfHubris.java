@@ -3,7 +3,7 @@ package morimensmod.cards.chaos;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -21,6 +21,7 @@ public class TidesOfHubris extends AbstractEasyCard {
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STRIKE);
         damage = baseDamage = 5;
+        isMultiDamage = true; // 攻擊多個目標
         attackCount = baseAttackCount = 1;
         magicNumber = baseMagicNumber = 1; // 獲得力量
     }
@@ -28,7 +29,14 @@ public class TidesOfHubris extends AbstractEasyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < attackCount; i++)
-            addToBot(new DamageAllEnemiesAction(p, damage, damageTypeForTurn, AttackEffect.SLASH_HORIZONTAL));
+            addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    calculateCardDamage(m);
+                    addToTop(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.SLASH_HORIZONTAL));
+                    isDone = true;
+                }
+            });
         addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
     }
 

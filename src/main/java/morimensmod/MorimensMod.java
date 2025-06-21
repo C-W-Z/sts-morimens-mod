@@ -302,6 +302,6 @@ public class MorimensMod implements
 
     @Override
     public void receivePostBattle(AbstractRoom room) {
-        // AbstractAwakener.onPostBattle();
+        AbstractAwakener.onPostBattle();
     }
 }

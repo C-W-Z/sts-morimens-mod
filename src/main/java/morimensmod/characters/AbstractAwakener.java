@@ -10,6 +10,7 @@ import morimensmod.actions.PosseAction;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.misc.PosseType;
 import morimensmod.misc.SpriteSheetAnimation;
+import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.util.PersistentPowerLib;
 import morimensmod.cards.posses.AbstractPosse;
 
@@ -23,6 +24,8 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+
 import static morimensmod.MorimensMod.*;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.*;
@@ -201,17 +204,19 @@ public abstract class AbstractAwakener extends CustomPlayer {
         tmpPosseThisTurn = 0;
     }
 
-    // // called in Main Mod File
-    // public static void onPostBattle() {
+    // called in Main Mod File
+    public static void onPostBattle() {
 
-    //     logger.debug("onPostBattle, p().powers.size: " + p().powers.size());
+        logger.debug("onPostBattle, p().powers.size: " + p().powers.size());
 
-    //     for (AbstractPower p : p().powers)
-    //         if (p instanceof AbstractPersistentPower) {
-    //             logger.debug("onPostBattle, ID: " + p.ID + ", amount: " + p.amount);
-    //             persistentPowers.add(new Pair<>(p.ID, p.amount));
-    //         }
-    // }
+        persistentPowers.clear();
+
+        for (AbstractPower p : p().powers)
+            if (p instanceof AbstractPersistentPower && p.amount != 0) {
+                logger.debug("onPostBattle, ID: " + p.ID + ", amount: " + p.amount);
+                persistentPowers.add(new Pair<>(p.ID, p.amount));
+            }
+    }
 
     // called in UseCardActionPatch
     public static void onAfterCardUsed() {

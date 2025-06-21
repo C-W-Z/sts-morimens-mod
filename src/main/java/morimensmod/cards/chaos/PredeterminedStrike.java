@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
@@ -78,15 +77,16 @@ public class PredeterminedStrike extends AbstractEasyCard {
             atb(new EasyModalChoiceAction(choiceCardList));
         }
 
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                for (int i = 0; i < attackCount; i++)
-                    addToTop(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn),
+        for (int i = 0; i < attackCount; i++)
+            addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    calculateCardDamage(m);
+                    addToTop(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
                             AttackEffect.SLASH_VERTICAL));
-                isDone = true;
-            }
-        });
+                    isDone = true;
+                }
+            });
     }
 
     private void useRebirthTribunal(AbstractPlayer p) {
@@ -94,7 +94,7 @@ public class PredeterminedStrike extends AbstractEasyCard {
     }
 
     private void useOdeToTomorrow(AbstractPlayer p) {
-        damage *= 2;
+        misc = 2;
         AbstractAwakener.addLastUsedEnergy(AbstractAwakener.getLastUsedEnergy() * (thirdMagic - 1));
         exhaustOnUseOnce = true;
     }
@@ -124,6 +124,10 @@ public class PredeterminedStrike extends AbstractEasyCard {
         if (str != null)
             str.amount = originalStrength;
 
+        // 雙倍傷害
+        if (misc > 0)
+            damage *= misc;
+
         initializeDescription(); // 更新描述中的 !D!
 
         logger.debug("PredeterminedStrike.applyPowers: damage=" + damage + ", str.amount=" + originalStrength);
@@ -145,6 +149,10 @@ public class PredeterminedStrike extends AbstractEasyCard {
 
         if (str != null)
             str.amount = originalStrength;
+
+        // 雙倍傷害
+        if (misc > 0)
+            damage *= misc;
 
         initializeDescription();
 
