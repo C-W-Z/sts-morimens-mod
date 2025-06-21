@@ -48,6 +48,17 @@ public class Wiz {
         return id.replace(modID + ":", "");
     }
 
+    public static String arrToString(String[] arr) {
+        if (arr == null)
+            return null;
+        if (arr.length == 0)
+            return "";
+        String s = arr[0];
+        for (int i = 1; i < arr.length; ++i)
+            s += ", " + arr[i];
+        return s;
+    }
+
     public static void forAllCardsInList(Consumer<AbstractCard> consumer, ArrayList<AbstractCard> cardsList) {
         cardsList.forEach(c -> consumer.accept(c));
     }

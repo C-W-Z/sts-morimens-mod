@@ -2,7 +2,7 @@
   "modid": "${ModID}",
   "name": "${project.name}",
   "author_list": [
-    "Anonymous, as of yet!"
+    "Icya(C-W-Z)"
   ],
   "description": "${project.description}",
   "version": "${project.version}",
@@ -10,7 +10,7 @@
   "mts_version": "${ModTheSpire.version}",
   "dependencies": [
     "basemod",
-    "stslib"
+    "stslib",
+    "SignatureLib"
   ]
 }
-
