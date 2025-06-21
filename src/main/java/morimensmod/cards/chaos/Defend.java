@@ -16,6 +16,7 @@ public class Defend extends AbstractEasyCard {
     public Defend() {
         super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
+        tags.add(CustomTags.DEFEND);
         tags.add(CardTags.STARTER_DEFEND);
         block = baseBlock = 5;
         aliemus = baseAliemus = 5;

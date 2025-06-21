@@ -3,6 +3,7 @@ package morimensmod;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.abstracts.DynamicVariable;
+import basemod.helpers.CardBorderGlowManager;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import basemod.patches.com.megacrit.cardcrawl.saveAndContinue.SaveFile.ModSaves.ArrayListOfString;
@@ -14,6 +15,7 @@ import morimensmod.cards.chaos.QueensSword;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.characters.Ramona;
 import morimensmod.exalts.AbstractExalt;
+import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.relics.AbstractEasyRelic;
 import morimensmod.util.ProAudio;
@@ -46,6 +48,8 @@ import static morimensmod.patches.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 import static morimensmod.util.Wiz.getAllPosses;
+import static morimensmod.util.Wiz.p;
+import static morimensmod.util.Wiz.powerAmount;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -137,7 +141,6 @@ public class MorimensMod implements
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);
-
 
         BaseMod.subscribe(this);
     }
@@ -269,6 +272,9 @@ public class MorimensMod implements
                     SignatureHelper.unlock(var.cardID, true);
                     SignatureHelper.enable(var.cardID, true);
                 });
+        new AutoAdd(modID)
+                .packageFilter(AbstractGlowInfo.class)
+                .any(AbstractGlowInfo.class, (info, var) -> CardBorderGlowManager.addGlowInfo(var));
     }
 
     @Override
