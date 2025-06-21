@@ -13,11 +13,11 @@ import org.apache.logging.log4j.Logger;
 
 import com.google.gson.reflect.TypeToken;
 
-public class SavablePersistentPowers implements CustomSavable<ArrayList<Pair<String, Integer>>> {
+public class SavePersistentPowers implements CustomSavable<ArrayList<Pair<String, Integer>>> {
 
-    private static final Logger logger = LogManager.getLogger(SavablePersistentPowers.class);
+    private static final Logger logger = LogManager.getLogger(SavePersistentPowers.class);
 
-    public static final String ID = makeID(SavablePersistentPowers.class.getSimpleName());
+    public static final String ID = makeID(SavePersistentPowers.class.getSimpleName());
 
     @Override
     public Type savedType() {

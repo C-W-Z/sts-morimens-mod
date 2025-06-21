@@ -85,14 +85,20 @@ public class QueensSword extends AbstractEasyCard {
         if (!isEndTurnDiscard)
             return;
         isEndTurnDiscard = false;
-        logger.debug("onMoveToDiscard:" + costForTurn * AbstractAwakener.keyflareRegen);
-        addToTop(new KeyflareChangeAction(p(), costForTurn * AbstractAwakener.keyflareRegen));
+        if (!(p() instanceof AbstractAwakener))
+            return;
+        AbstractAwakener awaker = (AbstractAwakener) p();
+        logger.debug("onMoveToDiscard:" + costForTurn * awaker.keyflareRegen);
+        addToTop(new KeyflareChangeAction(p(), costForTurn * awaker.keyflareRegen));
     }
 
     @Override
     public void triggerOnManualDiscard() {
-        logger.debug("triggerOnManualDiscard:" + costForTurn * AbstractAwakener.keyflareRegen);
-        addToTop(new KeyflareChangeAction(p(), costForTurn * AbstractAwakener.keyflareRegen));
+        if (!(p() instanceof AbstractAwakener))
+            return;
+        AbstractAwakener awaker = (AbstractAwakener) p();
+        logger.debug("triggerOnManualDiscard:" + costForTurn * awaker.keyflareRegen);
+        addToTop(new KeyflareChangeAction(p(), costForTurn * awaker.keyflareRegen));
     }
 
     @Override

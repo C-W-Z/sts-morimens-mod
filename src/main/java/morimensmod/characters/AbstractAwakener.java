@@ -40,11 +40,11 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     private static final Logger logger = LogManager.getLogger(AbstractAwakener.class);
 
-    protected static int baseAliemusRegen = 0;
-    public static int aliemusRegen = baseAliemusRegen;
+    public int baseAliemusRegen = 0;
+    public int aliemusRegen = baseAliemusRegen;
 
-    protected static int baseKeyflareRegen = 60;
-    public static int keyflareRegen = baseKeyflareRegen;
+    public int baseKeyflareRegen = 15;
+    public int keyflareRegen = baseKeyflareRegen;
 
     protected static int lastUsedEnergy = 0;
 
@@ -173,8 +173,11 @@ public abstract class AbstractAwakener extends CustomPlayer {
         possedThisBattle = 0;
         allPossedThisBattle = 0;
 
-        aliemusRegen = baseAliemusRegen;
-        keyflareRegen = baseKeyflareRegen;
+        if (p() instanceof AbstractAwakener) {
+            AbstractAwakener awaker = (AbstractAwakener) p();
+            awaker.aliemusRegen = awaker.baseAliemusRegen;
+            awaker.keyflareRegen = awaker.baseKeyflareRegen;
+        }
 
         lastUsedEnergy = 0;
 
@@ -221,9 +224,10 @@ public abstract class AbstractAwakener extends CustomPlayer {
     // called in UseCardActionPatch
     public static void onAfterCardUsed() {
         logger.debug("lastUsedEnergy: " + lastUsedEnergy);
-        if (lastUsedEnergy == 0)
+        if (lastUsedEnergy == 0 || !(p() instanceof AbstractAwakener))
             return;
-        att(new KeyflareChangeAction(p(), lastUsedEnergy * keyflareRegen));
+        AbstractAwakener awaker = (AbstractAwakener) p();
+        att(new KeyflareChangeAction(awaker, lastUsedEnergy * awaker.keyflareRegen));
         lastUsedEnergy = 0;
     }
 
@@ -239,13 +243,17 @@ public abstract class AbstractAwakener extends CustomPlayer {
         return aliemus;
     }
 
-    public static int changeAliemus(int amount) {
-        aliemus += amount;
+    public static int setAliemus(int amount) {
+        aliemus = amount;
         if (aliemus > extremeAlimus)
             aliemus = extremeAlimus;
         else if (aliemus < 0)
             aliemus = 0;
         return aliemus;
+    }
+
+    public static int changeAliemus(int amount) {
+        return setAliemus(aliemus + amount);
     }
 
     public static boolean isExalting() {
@@ -324,13 +332,17 @@ public abstract class AbstractAwakener extends CustomPlayer {
         return keyflare;
     }
 
-    public static int changeKeyflare(int amount) {
-        keyflare += amount;
+    public static int setKeyflare(int amount) {
+        keyflare = amount;
         if (keyflare > maxKeyflare)
             keyflare = maxKeyflare;
         else if (keyflare < 0)
             keyflare = 0;
         return keyflare;
+    }
+
+    public static int changeKeyflare(int amount) {
+        return setKeyflare(keyflare + amount);
     }
 
     public static boolean isPossing() {

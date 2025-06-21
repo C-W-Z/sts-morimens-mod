@@ -42,6 +42,8 @@ public class Ramona extends AbstractAwakener {
         anim = new SpriteSheetAnimation(makeCharacterPath("Ramona/Idle_1.png"),
                 6, 17, 1, true, 30F, -22, -10);
         setExaltAndPosse(new MundusDecree(), new VoicesInYourHead());
+        baseAliemusRegen = 0;
+        baseKeyflareRegen = 60;
     }
 
     public static void register() {

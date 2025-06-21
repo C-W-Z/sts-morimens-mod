@@ -19,7 +19,8 @@ import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.relics.AbstractEasyRelic;
-import morimensmod.savables.SavablePersistentPowers;
+import morimensmod.savables.SaveAwakenerProperties;
+import morimensmod.savables.SavePersistentPowers;
 import morimensmod.util.PersistentPowerLib;
 import morimensmod.util.ProAudio;
 
@@ -284,7 +285,8 @@ public class MorimensMod implements
                 .any(AbstractPersistentPower.class, (info, var) -> {
                     PersistentPowerLib.addPower(var);
                 });
-        BaseMod.addSaveField(SavablePersistentPowers.ID, new SavablePersistentPowers());
+        BaseMod.addSaveField(SavePersistentPowers.ID, new SavePersistentPowers());
+        BaseMod.addSaveField(SaveAwakenerProperties.ID, new SaveAwakenerProperties());
     }
 
     @Override

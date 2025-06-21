@@ -1,6 +1,7 @@
 package morimensmod.powers;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.util.Wiz.p;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.HealAction;
@@ -57,8 +58,10 @@ public class SoulblightPower extends AbstractEasyPower implements OnAfterReceive
     private void applyPowers() {
         int healAmplify = 100 + AbstractAwakener.baseHealAmplify;
         heal = MathUtils.ceil(amount * healAmplify / 100F);
-        int aliemusAmplify = 100 + AbstractAwakener.baseAliemusAmplify;
-        aliemus = MathUtils.ceil(AbstractAwakener.aliemusRegen * aliemusAmplify / 100F);
+        if (p() instanceof AbstractAwakener) {
+            int aliemusAmplify = 100 + AbstractAwakener.baseAliemusAmplify;
+            aliemus = MathUtils.ceil(((AbstractAwakener) p()).aliemusRegen * aliemusAmplify / 100F);
+        }
         updateDescription();
     }
 
