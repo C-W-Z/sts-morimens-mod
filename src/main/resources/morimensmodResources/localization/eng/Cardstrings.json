@@ -1,63 +1,80 @@
 {
-  "${ModID}:Strike": {
-    "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage."
-  },
-  "${ModID}:Defend": {
-    "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! Block."
-  },
-  "${ModID}:ExampleTwoAmountPowerCard": {
-    "NAME": "Two Amount Power",
-    "DESCRIPTION": "At the start of your turn, gain !M! Strength and !${ModID}:m2! Dexterity."
-  },
-  "${ModID}:InlinePowerDemo": {
-    "NAME": "Inline Power",
-    "DESCRIPTION": "Strikes deal !M! more damage. NL At the end of your turn, gain !M! Block.",
+  "${ModID}:Insight": {
+    "NAME": "Insight",
+    "DESCRIPTION": "Obtain [E] , and draw !${ModID}:M2! cards. NL Exhaust Retain ",
+    "UPGRADE_DESCRIPTION": "Obtain [E] [E] , and draw !${ModID}:M2! cards. NL Exhaust Retain ",
     "EXTENDED_DESCRIPTION": [
-      "Strike+, Block+",
-      "#yStrikes deal #b",
-      " additional damage. At the end of your turn, gain #b",
-      " #yBlock."
+      "Adv. Insight"
     ]
   },
-  "${ModID}:SelectCardsPlusCardMods": {
-    "NAME": "Cool Card Stuff",
-    "DESCRIPTION": "Choose from 1 of 3 cost 0 cards from any class. NL Add it into your hand. NL It gains Ethereal and Exhaust.",
+  "${ModID}:SilverKeyDawn": {
+    "NAME": "Silver Key Glimed",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
-      "Choose a card to add into your hand with Ethereal and Exhaust."
+      "Silver Key Dawn"
     ]
   },
-  "${ModID}:EasyXCostDemo": {
-    "NAME": "Easy X Cost",
-    "DESCRIPTION": "{@@}Deal !D! damage X{!M!|>0=+!M!} times. NL Gain X{!M!|>0=+!M!} Strength. NL Exhaust."
+  "${ModID}:InnocentReturnGift": {
+    "NAME": "Innocent Return Gift",
+    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus ."
   },
-  "${ModID}:EasyModalChoiceDemo": {
-    "NAME": "Easy Modal Choice",
-    "DESCRIPTION": "Choose one: Draw !M! cards or gain !${ModID}:m2! Strength.",
+  "${ModID}:OctahedronDice": {
+    "NAME": "Octahedron Die",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": "Roll a 6-sided die, gain ${ModID}:Temporary Strength equal to the die roll × 1 . If the roll is 4 or higher, Inflict Weakness and Vulnerable on all enemys for 1 turn. If the roll is 6, doubled the gained ${ModID}:Temporary Strength and obtain [E] . NL Exhaust Retain ",
     "EXTENDED_DESCRIPTION": [
-      "Draw",
-      "Draw ",
-      " cards.",
-      "Strength",
-      "Gain ",
-      " Strength."
+      "Shining Octahedron Die"
     ]
   },
-  "${ModID}:DrawAndShiv": {
-    "NAME": "Draw and Shiv",
-    "DESCRIPTION": "Draw 1 card. NL Add 1 *Shiv into your hand."
+  "${ModID}:SymphonyOfHarmony": {
+    "NAME": "Symphony of Harmony",
+    "DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "Ascending Scale",
+      "The next ${ModID}:Command Card you play has +2 [E] Cost, and take effect twice.",
+      "Descending Scale",
+      "The next ${ModID}:Command Card you play has it [E] Cost reduced by 2"
+    ]
   },
-  "${ModID}:TwoTypesOfDamage": {
-    "NAME": "Two Damage Values",
-    "DESCRIPTION": "Deal !D! damage. NL If you're Vulnerable, deal !${ModID}:sd! damage instead."
+  "${ModID}:UtopianVeil": {
+    "NAME": "Utopian Veil",
+    "DESCRIPTION": "View 3 uncarried ${ModID}:Posse , choose 1 to release immediately. Obtain [E] , dispel your own Poison , ${ModID}:Sealed , ${ModID}:Stagnation state. NL Exhaust Retain "
   },
-  "${ModID}:StartupBlockCard": {
-    "NAME": "Startup And AOE",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Startup: Gain !M! Block."
+  "${ModID}:HoneyMead": {
+    "NAME": "Honey Mead",
+    "DESCRIPTION": "Obtain 2 stacks of ${ModID}:Barrier . NL Exhaust Retain "
   },
-  "${ModID}:MultiCardPreviewAndDrawCallback": {
-    "NAME": "Previews and Callbacks",
-    "DESCRIPTION": "{@@}Shuffle *Smite{!Upgrades!|>0=+} and *Safety{!Upgrades!|>0=+} into your draw pile. NL Draw 1 card. NL If it's Colorless, deal !D! damage to ALL enemies."
+  "${ModID}:FaithOfTheDivineRealm": {
+    "NAME": "Faith of the Divine Realm",
+    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus . Weakness and Vulnerable all enemies for 1 turn. NL Exhaust Retain "
+  },
+  "${ModID}:SymptomDelusion": {
+    "NAME": "Symptom: Delusion",
+    "DESCRIPTION": "Lose !M! HP, gain [E] [E] . Cannot be sold ."
+  },
+  "${ModID}:SymptomObedience": {
+    "NAME": "Symptom: Obedience",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Stagger": {
+    "NAME": "Stagger",
+    "DESCRIPTION": "State Card. NL Exhaust "
+  },
+  "${ModID}:Soffocation": {
+    "NAME": "Soffocation",
+    "DESCRIPTION": "At the end of the turn, if in hand, obtain !M! stacks of Poison ."
+  },
+  "${ModID}:CryOut": {
+    "NAME": "Cry Out",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:MutatedHeart": {
+    "NAME": "Mutated Heart",
+    "DESCRIPTION": "Discard all your cards, then draw a number of cards equal to the number of discarded cards + 3 . NL Exhaust Retain "
+  },
+  "${ModID}:Unrestrained": {
+    "NAME": "Unrestrained",
+    "DESCRIPTION": "Gain 10 ${ModID}:Temporary Strength . All enemies gain 5 ${ModID}:Temporary Strength . Remains in the deck after the battle. NL Exhaust Retain Destroy "
   }
 }

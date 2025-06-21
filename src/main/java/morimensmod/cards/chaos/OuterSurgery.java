@@ -18,8 +18,8 @@ public class OuterSurgery extends AbstractEasyCard {
     public OuterSurgery() {
         super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
-        heal = baseHeal = 10;
-        magicNumber = baseMagicNumber = 2; // 虛弱
+        heal = baseHeal = 8;
+        magicNumber = baseMagicNumber = 1; // 虛弱
     }
 
     @Override
@@ -30,6 +30,6 @@ public class OuterSurgery extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeHeal(5);
+        upgradeMagicNumber(1);
     }
 }

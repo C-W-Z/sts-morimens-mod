@@ -15,7 +15,7 @@ public class Insight extends AbstractEasyCard {
     public final static String ID = makeID(Insight.class.getSimpleName());
 
     public Insight() {
-        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE, BUFF_COLOR);
+        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE, BUFF_COLOR);
         tags.add(CustomTags.BUFF);
         magicNumber = baseMagicNumber = 1; // 獲得能量
         secondMagic = baseSecondMagic = 1; // 抽牌數

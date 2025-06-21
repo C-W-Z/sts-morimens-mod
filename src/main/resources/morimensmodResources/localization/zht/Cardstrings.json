@@ -297,6 +297,66 @@
       "銀鑰曦光"
     ]
   },
+  "${ModID}:InnocentReturnGift": {
+    "NAME": "天真的回禮",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:OctahedronDice": {
+    "NAME": "偏方骰子",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "閃耀偏方骰子"
+    ]
+  },
+  "${ModID}:SymphonyOfHarmony": {
+    "NAME": "協樂的交響",
+    "DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "上行音",
+      "下行音"
+    ]
+  },
+  "${ModID}:UtopianVeil": {
+    "NAME": "",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:HoneyMead": {
+    "NAME": "",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:FaithOfTheDivineRealm": {
+    "NAME": "",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:SymptomDelusion": {
+    "NAME": "症狀：妄想",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:SymptomObedience": {
+    "NAME": "症狀：盲從",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Stagger": {
+    "NAME": "",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Soffocation": {
+    "NAME": "窒息",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:CryOut": {
+    "NAME": "哭喊",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:MutatedHeart": {
+    "NAME": "畸變之心",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Unrestrained": {
+    "NAME": "狂放",
+    "DESCRIPTION": ""
+  },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",
     "DESCRIPTION": "At the start of your turn, gain !M! Strength and !${ModID}:M2! Dexterity."
