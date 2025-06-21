@@ -17,7 +17,10 @@ import morimensmod.characters.Ramona;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.potions.AbstractEasyPotion;
+import morimensmod.powers.PersistentPower;
 import morimensmod.relics.AbstractEasyRelic;
+import morimensmod.savables.SavablePersistentPowers;
+import morimensmod.util.PersistentPowerLib;
 import morimensmod.util.ProAudio;
 
 import com.badlogic.gdx.Gdx;
@@ -61,6 +64,7 @@ import org.apache.logging.log4j.Logger;
 @SpireInitializer
 public class MorimensMod implements
         OnPlayerTurnStartPostDrawSubscriber,
+        PostBattleSubscriber,
         OnStartBattleSubscriber,
         PostInitializeSubscriber,
         EditCardsSubscriber,
@@ -275,18 +279,38 @@ public class MorimensMod implements
         new AutoAdd(modID)
                 .packageFilter(AbstractGlowInfo.class)
                 .any(AbstractGlowInfo.class, (info, var) -> CardBorderGlowManager.addGlowInfo(var));
+        new AutoAdd(modID)
+                .packageFilter(PersistentPower.class)
+                .any(PersistentPower.class, (info, var) -> {
+                    PersistentPowerLib.addPower(var);
+                });
+        BaseMod.addSaveField(SavablePersistentPowers.ID, new SavablePersistentPowers());
     }
 
     @Override
     public void receiveOnBattleStart(AbstractRoom room) {
         QueensSword.onBattleStart();
-        AbstractAwakener.onBattleStart();
-        AbstractEasyCard.onBattleStart();
-        AbstractExalt.onBattleStart();
+        if (p() instanceof AbstractAwakener) {
+            AbstractAwakener awaker = (AbstractAwakener) p();
+            awaker.onBattleStart();
+            AbstractEasyCard.onBattleStart();
+            AbstractExalt.onBattleStart();
+        }
     }
 
     @Override
     public void receiveOnPlayerTurnStartPostDraw() {
-        AbstractAwakener.onPlayerTurnStartPostDraw(); // 每回合重設
+        if (p() instanceof AbstractAwakener) {
+            AbstractAwakener awaker = (AbstractAwakener) p();
+            awaker.onPlayerTurnStartPostDraw(); // 每回合重設
+        }
+    }
+
+    @Override
+    public void receivePostBattle(AbstractRoom room) {
+        if (p() instanceof AbstractAwakener) {
+            AbstractAwakener awaker = (AbstractAwakener) p();
+            awaker.onPostBattle();
+        }
     }
 }

@@ -1,5 +1,6 @@
 package morimensmod.characters;
 
+import basemod.Pair;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
@@ -9,6 +10,8 @@ import morimensmod.actions.PosseAction;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.misc.PosseType;
 import morimensmod.misc.SpriteSheetAnimation;
+import morimensmod.powers.PersistentPower;
+import morimensmod.util.PersistentPowerLib;
 import morimensmod.cards.posses.AbstractPosse;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -21,14 +24,11 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static morimensmod.MorimensMod.*;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
-import static morimensmod.util.Wiz.atb;
-import static morimensmod.util.Wiz.att;
-import static morimensmod.util.Wiz.getAllPosses;
-import static morimensmod.util.Wiz.p;
-
+import static morimensmod.util.Wiz.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -85,6 +85,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public SpriteSheetAnimation anim = null;
 
+    public ArrayList<Pair<String, Integer>> persistentPowers;
+
     public AbstractAwakener(String name, PlayerClass setClass, String characterImgPath, final String CORPSE) {
         super(name, setClass,
                 new CustomEnergyOrb(orbTextures, makeCharacterPath("ChaosRealm/orb/vfx.png"), null),
@@ -107,6 +109,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
         aliemus = 0;
         keyflare = 0;
+
+        persistentPowers = new ArrayList<>();
     }
 
     protected void setExaltAndPosse(AbstractExalt exalt, AbstractPosse posse) {
@@ -160,7 +164,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     // called in Main Mod File
-    public static void onBattleStart() {
+    public void onBattleStart() {
         aliemusLimit = NORMAL_ALIEMUS_LIMIT;
         extremeAlimus = 2 * NORMAL_ALIEMUS_LIMIT;
 
@@ -180,10 +184,16 @@ public abstract class AbstractAwakener extends CustomPlayer {
         baseAliemusAmplify = 0;
         basePoisonAmplify = 0;
         baseCounterAmplify = 0;
+
+        for (Pair<String, Integer> pair : this.persistentPowers) {
+            logger.debug("onBattleStart, ID: " + pair.getKey() + ", amount: " + pair.getValue());
+            applyToSelf(PersistentPowerLib.getPower(pair.getKey(), this, pair.getValue()));
+        }
+        this.persistentPowers.clear();
     }
 
     // called in Main Mod File
-    public static void onPlayerTurnStartPostDraw() {
+    public void onPlayerTurnStartPostDraw() {
         exaltedThisTurn = 0;
         maxExaltPerTurn = NORMAL_MAX_EXALT_PER_TURN;
 
@@ -193,10 +203,22 @@ public abstract class AbstractAwakener extends CustomPlayer {
         tmpPosseThisTurn = 0;
     }
 
+    // called in Main Mod File
+    public void onPostBattle() {
+
+        logger.debug("onPostBattle, p().powers.size: " + this.powers.size());
+
+        for (AbstractPower p : this.powers)
+            if (p instanceof PersistentPower) {
+                logger.debug("onPostBattle, ID: " + p.ID + ", amount: " + p.amount);
+                this.persistentPowers.add(new Pair<>(p.ID, p.amount));
+            }
+    }
+
     // called in UseCardActionPatch
-    public static void onAfterCardUsed() {
+    public void onAfterCardUsed() {
         logger.debug("lastUsedEnergy: " + lastUsedEnergy);
-        att(new KeyflareChangeAction((AbstractAwakener) p(), lastUsedEnergy * keyflareRegen));
+        att(new KeyflareChangeAction(this, lastUsedEnergy * keyflareRegen));
         lastUsedEnergy = 0;
     }
 
@@ -350,8 +372,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
             extraPossedThisTurn++;
             changeKeyflare(-posseNeededKeyflare);
             return posseNeededKeyflare;
-        }
-        else if (type == PosseType.UNLIMITED)
+        } else if (type == PosseType.UNLIMITED)
             unlimitedPosseThisTurn++;
         else
             tmpPosseThisTurn++;
@@ -362,11 +383,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
         if (posse.getType() == PosseType.REGULAR) {
             assert this.posse == posse;
             regularPossedThisTurn++;
-        }
-        else if (posse.getType() == PosseType.EXTRA) {
+        } else if (posse.getType() == PosseType.EXTRA) {
             extraPossedThisTurn++;
-        }
-        else if (posse.getType() == PosseType.UNLIMITED)
+        } else if (posse.getType() == PosseType.UNLIMITED)
             unlimitedPosseThisTurn++;
         else if (posse.getType() != PosseType.TMP)
             tmpPosseThisTurn++;
@@ -396,8 +415,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
         ArrayList<AbstractCard> choiceCardList;
         if (getCardColor() == CHAOS_COLOR) {
             choiceCardList = new ArrayList<>(posses);
-        }
-        else {
+        } else {
             Collections.shuffle(posses, new Random(AbstractDungeon.miscRng.randomLong()));
             choiceCardList = new ArrayList<>(posses.subList(0, Math.min(3, posses.size())));
         }
