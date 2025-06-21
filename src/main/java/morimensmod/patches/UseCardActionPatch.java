@@ -24,7 +24,7 @@ public class UseCardActionPatch {
             __instance.exhaustCard = true;
         if (__instance.exhaustCard)
             __instance.actionType = ActionType.EXHAUST;
-        ((AbstractAwakener) p()).onAfterCardUsed();
+        AbstractAwakener.onAfterCardUsed();
     }
 
     private static class Locator extends SpireInsertLocator {

@@ -1,10 +1,6 @@
 package morimensmod.cards.chaos;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
-// import com.megacrit.cardcrawl.actions.AbstractGameAction;
-// import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-// import com.megacrit.cardcrawl.powers.StrengthPower;
-// import com.megacrit.cardcrawl.powers.LoseStrengthPower;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -37,6 +33,8 @@ public class QueensSword extends AbstractEasyCard {
 
     public static int extraAtkCountThisCombat = INIT_EXTRA_ATKCOUNT;
 
+    private boolean isEndTurnDiscard = false;
+
     // called in Main Mod File
     public static void onBattleStart() {
         extraAtkCountThisCombat = INIT_EXTRA_ATKCOUNT; // 每場戰鬥重設
@@ -53,15 +51,18 @@ public class QueensSword extends AbstractEasyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // addToBot(new QueensSwordAction(m, this.damage, attackTimesThisCombat, damageTypeForTurn));
+        // addToBot(new QueensSwordAction(m, this.damage, attackTimesThisCombat,
+        // damageTypeForTurn));
 
         for (int i = 0; i < attackCount + magicNumber; i++) {
-            addToBot(new QueensSwordAction(m, damage, damageTypeForTurn, AttackEffect.SLASH_HORIZONTAL));
-            // 每次造成傷害
-            // dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-            // 每次造成傷害後獲得1力量（本回合）
-            // addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 1), 1));
-            // addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, 1), 1));
+            addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    calculateCardDamage(m);
+                    addToTop(new QueensSwordAction(m, damage, damageTypeForTurn, AttackEffect.SLASH_HORIZONTAL));
+                    isDone = true;
+                }
+            });
         }
 
         // 打出後將額外攻擊次數 +1（最多 3）
@@ -72,15 +73,26 @@ public class QueensSword extends AbstractEasyCard {
     }
 
     @Override
+    public void triggerOnEndOfPlayerTurn() {
+        super.triggerOnEndOfPlayerTurn();
+        if (hand().group.contains(this))
+            isEndTurnDiscard = true;
+        logger.debug("triggerOnEndOfPlayerTurn: " + isEndTurnDiscard);
+    }
+
+    @Override
     public void onMoveToDiscard() {
+        if (!isEndTurnDiscard)
+            return;
+        isEndTurnDiscard = false;
         logger.debug("onMoveToDiscard:" + costForTurn * AbstractAwakener.keyflareRegen);
-        addToBot(new KeyflareChangeAction(p(), costForTurn * AbstractAwakener.keyflareRegen));
+        addToTop(new KeyflareChangeAction(p(), costForTurn * AbstractAwakener.keyflareRegen));
     }
 
     @Override
     public void triggerOnManualDiscard() {
         logger.debug("triggerOnManualDiscard:" + costForTurn * AbstractAwakener.keyflareRegen);
-        addToBot(new KeyflareChangeAction(p(), costForTurn * AbstractAwakener.keyflareRegen));
+        addToTop(new KeyflareChangeAction(p(), costForTurn * AbstractAwakener.keyflareRegen));
     }
 
     @Override

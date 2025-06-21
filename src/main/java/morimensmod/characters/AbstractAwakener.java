@@ -85,7 +85,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public SpriteSheetAnimation anim = null;
 
-    public ArrayList<Pair<String, Integer>> persistentPowers;
+    public static ArrayList<Pair<String, Integer>> persistentPowers;
 
     public AbstractAwakener(String name, PlayerClass setClass, String characterImgPath, final String CORPSE) {
         super(name, setClass,
@@ -164,7 +164,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     // called in Main Mod File
-    public void onBattleStart() {
+    public static void onBattleStart() {
         aliemusLimit = NORMAL_ALIEMUS_LIMIT;
         extremeAlimus = 2 * NORMAL_ALIEMUS_LIMIT;
 
@@ -185,15 +185,15 @@ public abstract class AbstractAwakener extends CustomPlayer {
         basePoisonAmplify = 0;
         baseCounterAmplify = 0;
 
-        for (Pair<String, Integer> pair : this.persistentPowers) {
+        for (Pair<String, Integer> pair : persistentPowers) {
             logger.debug("onBattleStart, ID: " + pair.getKey() + ", amount: " + pair.getValue());
-            applyToSelf(PersistentPowerLib.getPower(pair.getKey(), this, pair.getValue()));
+            applyToSelf(PersistentPowerLib.getPower(pair.getKey(), p(), pair.getValue()));
         }
-        this.persistentPowers.clear();
+        persistentPowers.clear();
     }
 
     // called in Main Mod File
-    public void onPlayerTurnStartPostDraw() {
+    public static void onPlayerTurnStartPostDraw() {
         exaltedThisTurn = 0;
         maxExaltPerTurn = NORMAL_MAX_EXALT_PER_TURN;
 
@@ -204,21 +204,23 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     // called in Main Mod File
-    public void onPostBattle() {
+    public static void onPostBattle() {
 
-        logger.debug("onPostBattle, p().powers.size: " + this.powers.size());
+        logger.debug("onPostBattle, p().powers.size: " + p().powers.size());
 
-        for (AbstractPower p : this.powers)
+        for (AbstractPower p : p().powers)
             if (p instanceof PersistentPower) {
                 logger.debug("onPostBattle, ID: " + p.ID + ", amount: " + p.amount);
-                this.persistentPowers.add(new Pair<>(p.ID, p.amount));
+                persistentPowers.add(new Pair<>(p.ID, p.amount));
             }
     }
 
     // called in UseCardActionPatch
-    public void onAfterCardUsed() {
+    public static void onAfterCardUsed() {
         logger.debug("lastUsedEnergy: " + lastUsedEnergy);
-        att(new KeyflareChangeAction(this, lastUsedEnergy * keyflareRegen));
+        if (lastUsedEnergy == 0)
+            return;
+        att(new KeyflareChangeAction(p(), lastUsedEnergy * keyflareRegen));
         lastUsedEnergy = 0;
     }
 

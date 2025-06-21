@@ -63,6 +63,7 @@ import org.apache.logging.log4j.Logger;
 @SuppressWarnings({ "unused", "WeakerAccess" })
 @SpireInitializer
 public class MorimensMod implements
+        PreStartGameSubscriber,
         OnPlayerTurnStartPostDrawSubscriber,
         PostBattleSubscriber,
         OnStartBattleSubscriber,
@@ -290,27 +291,24 @@ public class MorimensMod implements
     @Override
     public void receiveOnBattleStart(AbstractRoom room) {
         QueensSword.onBattleStart();
-        if (p() instanceof AbstractAwakener) {
-            AbstractAwakener awaker = (AbstractAwakener) p();
-            awaker.onBattleStart();
-            AbstractEasyCard.onBattleStart();
-            AbstractExalt.onBattleStart();
-        }
+        AbstractAwakener.onBattleStart();
+        AbstractEasyCard.onBattleStart();
+        AbstractExalt.onBattleStart();
     }
 
     @Override
     public void receiveOnPlayerTurnStartPostDraw() {
-        if (p() instanceof AbstractAwakener) {
-            AbstractAwakener awaker = (AbstractAwakener) p();
-            awaker.onPlayerTurnStartPostDraw(); // 每回合重設
-        }
+        AbstractAwakener.onPlayerTurnStartPostDraw(); // 每回合重設
     }
 
     @Override
     public void receivePostBattle(AbstractRoom room) {
-        if (p() instanceof AbstractAwakener) {
-            AbstractAwakener awaker = (AbstractAwakener) p();
-            awaker.onPostBattle();
-        }
+        AbstractAwakener.onPostBattle();
     }
+
+    @Override
+    public void receivePreStartGame() {
+        // AbstractAwakener.preStartGame();
+    }
+
 }
