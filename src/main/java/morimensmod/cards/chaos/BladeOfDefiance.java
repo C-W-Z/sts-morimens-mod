@@ -33,16 +33,9 @@ public class BladeOfDefiance extends AbstractEasyCard {
 
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) {
-        if (c.hasTag(CardTags.STRIKE) && this.costForTurn > 0) {
-            this.costForTurn--;
-            this.isCostModifiedForTurn = true;
+        if (c.hasTag(CardTags.STRIKE)) {
+            setCostForTurn(costForTurn - 1);
         }
-    }
-
-    @Override
-    public void atTurnStart() {
-        this.costForTurn = this.cost; // 重設費用
-        this.isCostModifiedForTurn = false;
     }
 
     @Override

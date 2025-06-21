@@ -134,6 +134,25 @@
     "NAME": "穿刺之槍",
     "DESCRIPTION": "造成 !D! 點 ${ModID}:穿刺傷害 ，施加 !M! 回合 易傷 ，享受 !${ModID}:M2! 倍 力量 加成。"
   },
+  "${ModID}:EntropyUndone": {
+    "NAME": "熵增逆轉",
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 打出擁有卻未觸發 ${ModID}:回環 效果的卡牌時，獲得 !M! 層 ${ModID}:負熵 和 !${ModID}:M2! 點 ${ModID}:銀鑰能量 ，每回合最多觸發 !${ModID}:M3! 次。 NL 保留 ",
+    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 打出擁有卻未觸發 ${ModID}:回環 效果的卡牌時，獲得 !M! 層 ${ModID}:負熵 和 !${ModID}:M2! 點 ${ModID}:銀鑰能量 ，每回合最多觸發 !${ModID}:M3! 次。 NL 固有 \u2002 保留 "
+  },
+  "${ModID}:PredeterminedStrike": {
+    "NAME": "命定之劍",
+    "DESCRIPTION": "造成 !D! 點傷害， 力量 在「命定之劍」上發揮 !M! 倍效果。每次使用 ${ModID}:鑰令 時， 力量 倍率在本場戰鬥中提高一倍。 ${ModID}:回環 ：選擇「輪迴之庭」或「未來謳歌」。 NL 輪迴之庭：獲得 !${ModID}:M2! 點 [E] 。 NL 未來謳歌：造成雙倍傷害並獲得 !${ModID}:M3! 倍 ${ModID}:銀鑰能量 ，但打出後 消耗 。",
+    "EXTENDED_DESCRIPTION": [
+      "輪迴之庭",
+      "獲得 !${ModID}:M2! 點 [E] 。",
+      "未來謳歌",
+      "造成雙倍傷害並獲得 !${ModID}:M3! 倍 ${ModID}:銀鑰能量 ，但打出後 消耗 。"
+    ]
+  },
+  "${ModID}:SightUnbound": {
+    "NAME": "超越之目",
+    "DESCRIPTION": "獲得 !M! 點 力量 ，選擇 !${ModID}:M2! 張抽牌堆的牌置入手中並使其 [E] 消耗- !${ModID}:M3! 。 ${ModID}:回環 ：改為選擇 !${ModID}:M2! 張抽牌堆或棄牌堆的牌置入手中，使其 [E] 消耗變為 0 。"
+  },
   "${ModID}:Soulblight": {
     "NAME": "靈魂瘟疫",
     "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 回合結束時， ${ModID}:回復 !${ModID}:H! 點生命並獲得等同於自身 ${ModID}:狂氣回充 的 ${ModID}:狂氣 。 NL 「 ${ModID}:終末型態 」：不再 ${ModID}:回復生命 ，改為觸發所有敵人 !M! %的 中毒 。 NL 保留 ",
