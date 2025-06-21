@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
-public class NegentropyPower extends PersistentPower {
+public class NegentropyPower extends AbstractPersistentPower {
 
     public final static String POWER_ID = makeID(NegentropyPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -30,7 +30,7 @@ public class NegentropyPower extends PersistentPower {
     }
 
     @Override
-    public PersistentPower newPower(AbstractCreature owner, int amount) {
+    public AbstractPersistentPower newPower(AbstractCreature owner, int amount) {
         return new NegentropyPower(owner, amount);
     }
 }

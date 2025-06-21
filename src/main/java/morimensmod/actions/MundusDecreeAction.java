@@ -19,12 +19,14 @@ public class MundusDecreeAction extends AbstractGameAction {
     public void update() {
         if (drawPile().group.contains(card))
         {
-            card.freeToPlayOnce = true;
+            if (card.cost >= 0)
+                card.freeToPlayOnce = true;
             drawPile().moveToHand(card);
         }
         else if (discardPile().group.contains(card))
         {
-            card.freeToPlayOnce = true;
+            if (card.cost >= 0)
+                card.freeToPlayOnce = true;
             discardPile().moveToHand(card);
         }
         isDone = true;

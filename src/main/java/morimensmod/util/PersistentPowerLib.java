@@ -7,20 +7,20 @@ import org.apache.logging.log4j.Logger;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
-import morimensmod.powers.PersistentPower;
+import morimensmod.powers.AbstractPersistentPower;
 
 public class PersistentPowerLib {
 
     private static final Logger logger = LogManager.getLogger(PersistentPowerLib.class);
 
-    private static HashMap<String, PersistentPower> powers = new HashMap<>();
+    private static HashMap<String, AbstractPersistentPower> powers = new HashMap<>();
 
-    public static void addPower(PersistentPower power) {
+    public static void addPower(AbstractPersistentPower power) {
         logger.debug("Register PersistentPower: " + power.ID, power);
         powers.put(power.ID, power);
     }
 
-    public static PersistentPower getPower(String powerID, AbstractCreature owner, int amount) {
+    public static AbstractPersistentPower getPower(String powerID, AbstractCreature owner, int amount) {
         return powers.get(powerID).newPower(owner, amount);
     }
 }

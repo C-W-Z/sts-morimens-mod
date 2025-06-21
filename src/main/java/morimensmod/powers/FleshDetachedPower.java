@@ -23,6 +23,10 @@ public class FleshDetachedPower extends AbstractEasyPower implements OnAfterRece
 
     public FleshDetachedPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
+    }
+
+    @Override
+    public void onInitialApplication() {
         applyPowers();
     }
 

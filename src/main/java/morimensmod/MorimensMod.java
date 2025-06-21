@@ -17,7 +17,7 @@ import morimensmod.characters.Ramona;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.potions.AbstractEasyPotion;
-import morimensmod.powers.PersistentPower;
+import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.relics.AbstractEasyRelic;
 import morimensmod.savables.SavablePersistentPowers;
 import morimensmod.util.PersistentPowerLib;
@@ -63,7 +63,6 @@ import org.apache.logging.log4j.Logger;
 @SuppressWarnings({ "unused", "WeakerAccess" })
 @SpireInitializer
 public class MorimensMod implements
-        PreStartGameSubscriber,
         OnPlayerTurnStartPostDrawSubscriber,
         PostBattleSubscriber,
         OnStartBattleSubscriber,
@@ -281,8 +280,8 @@ public class MorimensMod implements
                 .packageFilter(AbstractGlowInfo.class)
                 .any(AbstractGlowInfo.class, (info, var) -> CardBorderGlowManager.addGlowInfo(var));
         new AutoAdd(modID)
-                .packageFilter(PersistentPower.class)
-                .any(PersistentPower.class, (info, var) -> {
+                .packageFilter(AbstractPersistentPower.class)
+                .any(AbstractPersistentPower.class, (info, var) -> {
                     PersistentPowerLib.addPower(var);
                 });
         BaseMod.addSaveField(SavablePersistentPowers.ID, new SavablePersistentPowers());
@@ -303,12 +302,6 @@ public class MorimensMod implements
 
     @Override
     public void receivePostBattle(AbstractRoom room) {
-        AbstractAwakener.onPostBattle();
+        // AbstractAwakener.onPostBattle();
     }
-
-    @Override
-    public void receivePreStartGame() {
-        // AbstractAwakener.preStartGame();
-    }
-
 }
