@@ -1,4 +1,4 @@
-package morimensmod.cards.buff;
+package morimensmod.cards.buffs;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;

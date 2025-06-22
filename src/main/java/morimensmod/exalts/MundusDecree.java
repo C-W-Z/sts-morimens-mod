@@ -18,7 +18,7 @@ import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.actions.MundusDecreeAction;
 import morimensmod.cards.PileModalSelectCard;
-import morimensmod.cards.buff.Insight;
+import morimensmod.cards.buffs.Insight;
 import morimensmod.powers.PosseTwicePower;
 
 public class MundusDecree extends AbstractExalt {

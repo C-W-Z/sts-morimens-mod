@@ -331,11 +331,11 @@
   },
   "${ModID}:SymptomDelusion": {
     "NAME": "症狀：妄想",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "失去 !M! 點生命，獲得 [E] [E] 。無法出售。"
   },
   "${ModID}:SymptomObedience": {
     "NAME": "症狀：盲從",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "回合結束時將 !M! 張隨機 ${ModID}:症狀卡 加入抽牌堆中。 NL 保留 "
   },
   "${ModID}:Stagger": {
     "NAME": "",
