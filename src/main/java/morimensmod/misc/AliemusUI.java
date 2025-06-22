@@ -45,7 +45,7 @@ public class AliemusUI extends ClickableUIElement {
     private static AliemusUI UI;
 
     public AliemusUI() {
-        super(ICON, baseX, baseY, hb_w, hb_h);
+        super(ICON, baseX / Settings.scale, baseY / Settings.scale, hb_w / Settings.scale, hb_h / Settings.scale);
         this.setClickable(true);
     }
 
