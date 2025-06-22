@@ -1,5 +1,6 @@
 package morimensmod.potions;
 
+import basemod.AutoAdd;
 import basemod.BaseMod;
 
 import static morimensmod.MorimensMod.makeID;
@@ -10,11 +11,13 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
+@AutoAdd.Ignore
 public class DemoPotion extends AbstractEasyPotion {
     public static String ID = makeID("DemoPotion");
 
     public DemoPotion() {
-        super(ID, PotionRarity.COMMON, PotionSize.ANVIL, new Color(0.2f, 0.4f, 0.9f, 1f), new Color(0.6f, 0.8f, 1.0f, 1f), null);
+        super(ID, PotionRarity.COMMON, PotionSize.ANVIL, new Color(0.2f, 0.4f, 0.9f, 1f),
+                new Color(0.6f, 0.8f, 1.0f, 1f), null);
     }
 
     public int getPotency(int ascensionlevel) {
