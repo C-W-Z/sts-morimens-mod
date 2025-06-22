@@ -369,6 +369,22 @@
     "NAME": "症狀：興奮",
     "DESCRIPTION": ""
   },
+  "${ModID}:Wound": {
+    "NAME": "傷口",
+    "DESCRIPTION": "一點小傷，無傷大體。受到 !M! 點傷害，抽 !${ModID}:DR! 張牌。 NL 消耗 棄掉時移除 "
+  },
+  "${ModID}:Convulsion": {
+    "NAME": "驚厥",
+    "DESCRIPTION": " ${ModID}:狀態卡 。 NL 無法打出 棄掉時移除 "
+  },
+  "${ModID}:StickyWax": {
+    "NAME": "黏糊糊的蠟油",
+    "DESCRIPTION": " 消耗 \u2002 保留 \u2002 ${ModID}:永久保留 \u2002 ${ModID}:銷毀 "
+  },
+  "${ModID}:DimensionLock": {
+    "NAME": "維度閉鎖",
+    "DESCRIPTION": "釋放 ${ModID}:狂氣爆發 後， ${ModID}:封印 !M! 回合。 NL 無法打出 "
+  },
   "${ModID}:Stagger": {
     "NAME": "蹣跚",
     "DESCRIPTION": " ${ModID}:狀態卡 。 NL 消耗 "
@@ -391,7 +407,7 @@
   },
   "${ModID}:Unrestrained": {
     "NAME": "狂放",
-    "DESCRIPTION": "獲得 !M! 點 ${ModID}:臨時 力量 ，所有敵人獲得 !${ModID}:M2! 點 ${ModID}:臨時 力量 。戰鬥結束後仍會保存在牌庫中。 NL 消耗 \u2002 保留 \u2002 ${ModID}:銷毀 "
+    "DESCRIPTION": "獲得 !M! 點 ${ModID}:臨時 力量 ，所有敵人獲得 !${ModID}:M2! 點 ${ModID}:臨時 力量 。 NL 消耗 \u2002 保留 \u2002 ${ModID}:永久保留 \u2002 ${ModID}:銷毀 "
   },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",

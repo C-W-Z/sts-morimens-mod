@@ -6,5 +6,12 @@
       " #yStrength and #b",
       " #yDexterity."
     ]
+  },
+  "${ModID}:Trauma": {
+    "NAME": "Trauma",
+    "DESCRIPTIONS": [
+      "Each time a \"#yStrike\" card is played, add #b2",
+      " \"#yWound\" cards on top of the draw pile."
+    ]
   }
 }

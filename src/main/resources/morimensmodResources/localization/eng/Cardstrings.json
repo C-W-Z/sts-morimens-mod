@@ -1,8 +1,8 @@
 {
   "${ModID}:Insight": {
     "NAME": "Insight",
-    "DESCRIPTION": "Obtain [E] , and draw !${ModID}:M2! cards. NL Exhaust Retain ",
-    "UPGRADE_DESCRIPTION": "Obtain [E] [E] , and draw !${ModID}:M2! cards. NL Exhaust Retain ",
+    "DESCRIPTION": "Obtain [E] , and draw !${ModID}:M2! cards. NL Exhaust. Retain.",
+    "UPGRADE_DESCRIPTION": "Obtain [E] [E] , and draw !${ModID}:M2! cards. NL Exhaust. Retain.",
     "EXTENDED_DESCRIPTION": [
       "Adv. Insight"
     ]
@@ -22,7 +22,7 @@
   "${ModID}:OctahedronDice": {
     "NAME": "Octahedron Die",
     "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": "Roll a 6-sided die, gain ${ModID}:Temporary Strength equal to the die roll × 1 . If the roll is 4 or higher, Inflict Weakness and Vulnerable on all enemys for 1 turn. If the roll is 6, doubled the gained ${ModID}:Temporary Strength and obtain [E] . NL Exhaust Retain ",
+    "UPGRADE_DESCRIPTION": "Roll a 6-sided die, gain ${ModID}:Temporary Strength equal to the die roll × 1 . If the roll is 4 or higher, Inflict Weakness and Vulnerable on all enemys for 1 turn. If the roll is 6, doubled the gained ${ModID}:Temporary Strength and obtain [E] . NL Exhaust. Retain.",
     "EXTENDED_DESCRIPTION": [
       "Shining Octahedron Die"
     ]
@@ -39,27 +39,43 @@
   },
   "${ModID}:UtopianVeil": {
     "NAME": "Utopian Veil",
-    "DESCRIPTION": "View 3 uncarried ${ModID}:Posse , choose 1 to release immediately. Obtain [E] , dispel your own Poison , ${ModID}:Sealed , ${ModID}:Stagnation state. NL Exhaust Retain "
+    "DESCRIPTION": "View 3 uncarried ${ModID}:Posse , choose 1 to release immediately. Obtain [E] , dispel your own Poison , ${ModID}:Sealed , ${ModID}:Stagnation state. NL Exhaust. Retain."
   },
   "${ModID}:HoneyMead": {
     "NAME": "Honey Mead",
-    "DESCRIPTION": "Obtain 2 stacks of ${ModID}:Barrier . NL Exhaust Retain "
+    "DESCRIPTION": "Obtain 2 stacks of ${ModID}:Barrier . NL Exhaust. Retain."
   },
   "${ModID}:FaithOfTheDivineRealm": {
     "NAME": "Faith of the Divine Realm",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus . Weakness and Vulnerable all enemies for 1 turn. NL Exhaust Retain "
+    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus . Weakness and Vulnerable all enemies for 1 turn. NL Exhaust. Retain."
   },
   "${ModID}:SymptomDelusion": {
     "NAME": "Symptom: Delusion",
-    "DESCRIPTION": "Lose !M! HP, gain [E] [E] . Cannot be sold ."
+    "DESCRIPTION": "Lose !M! HP, gain [E] [E] . Unremovable In Shop."
   },
   "${ModID}:SymptomObedience": {
     "NAME": "Symptom: Obedience",
     "DESCRIPTION": ""
   },
+  "${ModID}:Wound": {
+    "NAME": "Wound",
+    "DESCRIPTION": "A minor injury, nothing serious. Take !M! damage. draw !${ModID}:DR! cards. NL Exhaust. Removed When Discarded."
+  },
+  "${ModID}:Convulsion": {
+    "NAME": "Convulsion",
+    "DESCRIPTION": " ${ModID}:State Card 。 NL Unplayable. Removed When Discarded."
+  },
+  "${ModID}:StickyWax": {
+    "NAME": "Sticky Wax",
+    "DESCRIPTION": " Exhaust. ${ModID}:Persistent. Retain. ${ModID}:Destroy."
+  },
+  "${ModID}:DimensionLock": {
+    "NAME": "Dimension Lock",
+    "DESCRIPTION": "After unleashing ${ModID}:Exalt, sealed for 2 turns. NL Unplayable."
+  },
   "${ModID}:Stagger": {
     "NAME": "Stagger",
-    "DESCRIPTION": "State Card. NL Exhaust "
+    "DESCRIPTION": " ${ModID}:State Card. NL Exhaust."
   },
   "${ModID}:Soffocation": {
     "NAME": "Soffocation",

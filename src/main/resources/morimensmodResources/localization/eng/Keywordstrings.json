@@ -6,5 +6,12 @@
       "todos"
     ],
     "DESCRIPTION": "TODO: Make your own epic keywords"
+  },
+  {
+    "PROPER_NAME": " #yPersistent ",
+    "NAMES": [
+      "Persistent"
+    ],
+    "DESCRIPTION": "Remain in the deck after the battle ends."
   }
 ]
