@@ -26,4 +26,8 @@ public class CustomTags {
     public static CardTags UNREMOVABLE;
     @SpireEnum
     public static CardTags UNREMOVABLE_IN_SHOP;
+    @SpireEnum
+    public static CardTags RETAIN_IN_DECK;
+    @SpireEnum
+    public static CardTags DESTROYABLE;
 }

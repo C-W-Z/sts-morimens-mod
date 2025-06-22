@@ -4,10 +4,9 @@ import basemod.abstracts.AbstractCardModifier;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.hasModifier;
-import static morimensmod.util.Wiz.modifierCount;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+// import org.apache.logging.log4j.LogManager;
+// import org.apache.logging.log4j.Logger;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,7 +14,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 
 public class EtherealModifier extends AbstractCardModifier {
 
-    private static final Logger logger = LogManager.getLogger(EtherealModifier.class);
+    // private static final Logger logger = LogManager.getLogger(EtherealModifier.class);
 
     public static final String ID = makeID(EtherealModifier.class.getSimpleName());
     private static final UIStrings UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID);
@@ -25,7 +24,7 @@ public class EtherealModifier extends AbstractCardModifier {
 
     public String modifyDescription(String rawDescription, AbstractCard card) {
         String newDescription;
-        logger.debug("modifierCount before modifyDescription: " + modifierCount(card));
+        // logger.debug("modifierCount before modifyDescription: " + modifierCount(card));
         // 此時已經被加上isEthereal了
         if (hasModifier(rawDescription))
             newDescription = String.format(UI_STRINGS.TEXT[0], rawDescription);

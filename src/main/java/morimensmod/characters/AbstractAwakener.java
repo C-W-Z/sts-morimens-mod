@@ -223,7 +223,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     // called in UseCardActionPatch
-    public static void onAfterCardUsed(AbstractCard card) {
+    public static void onAfterUseCard(AbstractCard card) {
         logger.debug("lastUsedEnergy: " + lastUsedEnergy);
         if (lastUsedEnergy == 0 || !(p() instanceof AbstractAwakener))
             return;

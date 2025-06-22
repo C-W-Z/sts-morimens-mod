@@ -24,7 +24,9 @@ import static morimensmod.MorimensMod.makeImagePath;
 import static morimensmod.util.Wiz.*;
 import static morimensmod.util.General.*;
 
+import morimensmod.actions.DestroyCardAction;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.patches.CustomTags;
 import morimensmod.util.CardArtRoller;
 
 import java.util.ArrayList;
@@ -411,5 +413,25 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         baseDamageAmplify = 0;
         baseStrikeDamageAmplify = 0;
         baseAliemusAmplify = 0;
+    }
+
+    // called in Main Mod File
+    public static void onPostBattle() {
+        for (AbstractCard card : hand().group)
+            if (card.hasTag(CustomTags.RETAIN_IN_DECK) && !isInDeck(card.uuid))
+                deck().addToBottom(card.makeSameInstanceOf());
+        for (AbstractCard card : drawPile().group)
+            if (card.hasTag(CustomTags.RETAIN_IN_DECK) && !isInDeck(card.uuid))
+                deck().addToBottom(card.makeSameInstanceOf());
+        for (AbstractCard card : discardPile().group)
+            if (card.hasTag(CustomTags.RETAIN_IN_DECK) && !isInDeck(card.uuid))
+                deck().addToBottom(card.makeSameInstanceOf());
+    }
+
+    // called in UseCardActionPatch
+    public static void onAfterUseCard(AbstractCard card) {
+        if (card.hasTag(CustomTags.DESTROYABLE)) {
+            att(new DestroyCardAction(card));
+        }
     }
 }
