@@ -87,7 +87,7 @@
   "${ModID}:FirstDoctrine": {
     "NAME": "第一哲學",
     "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:M2! 次。 NL 保留 ",
-    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:M2! 次。 NL 固有 \u2002 保留 "
+    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:M2! 次。 NL 保留 "
   },
   "${ModID}:AssaultThesis": {
     "NAME": "攻勢推演",
@@ -102,7 +102,7 @@
   "${ModID}:FleshDetached": {
     "NAME": "靈肉兩分",
     "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 造成 ${ModID}:回復 時，獲得 !B! 點 格擋 。 NL 保留 ",
-    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 造成 ${ModID}:回復 時，獲得 !B! 點 格擋 。 NL 固有 \u2002 保留 "
+    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 造成 ${ModID}:回復 時，獲得 !B! 點 格擋 。 NL 保留 "
   },
   "${ModID}:OuterSurgery": {
     "NAME": "域外手術",
@@ -120,7 +120,7 @@
   "${ModID}:BattleThirst": {
     "NAME": "戰欲難平",
     "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL ${ModID}:指令卡 的傷害次數提高 !M! 次。 NL 保留 ",
-    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL ${ModID}:指令卡 的傷害次數提高 !M! 次。 NL 固有 \u2002 保留 "
+    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL ${ModID}:指令卡 的傷害次數提高 !M! 次。 NL 保留 "
   },
   "${ModID}:BladeOfDefiance": {
     "NAME": "桀驁之刃",
@@ -133,7 +133,7 @@
   "${ModID}:KnightsZeal": {
     "NAME": "騎士熱誠",
     "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 獲得 !M! 點 力量 ，每打出 !${ModID}:M3! 張 ${ModID}:指令卡 後，獲得 !${ModID}:M2! 點 力量 。 NL 保留 ",
-    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 獲得 !M! 點 力量 ，每打出 !${ModID}:M3! 張 ${ModID}:指令卡 後，獲得 !${ModID}:M2! 點 力量 。 NL 固有 \u2002 保留 "
+    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 獲得 !M! 點 力量 ，每打出 !${ModID}:M3! 張 ${ModID}:指令卡 後，獲得 !${ModID}:M2! 點 力量 。 NL 保留 "
   },
   "${ModID}:UnstableBarrier": {
     "NAME": "不定壁壘",
@@ -146,7 +146,7 @@
   "${ModID}:EntropyUndone": {
     "NAME": "熵增逆轉",
     "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 打出擁有卻未觸發 ${ModID}:回環 效果的卡牌時，獲得 !M! 層 ${ModID}:負熵 和 !${ModID}:M2! 點 ${ModID}:銀鑰能量 ，每回合最多觸發 !${ModID}:M3! 次。 NL 保留 ",
-    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 打出擁有卻未觸發 ${ModID}:回環 效果的卡牌時，獲得 !M! 層 ${ModID}:負熵 和 !${ModID}:M2! 點 ${ModID}:銀鑰能量 ，每回合最多觸發 !${ModID}:M3! 次。 NL 固有 \u2002 保留 "
+    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 打出擁有卻未觸發 ${ModID}:回環 效果的卡牌時，獲得 !M! 層 ${ModID}:負熵 和 !${ModID}:M2! 點 ${ModID}:銀鑰能量 ，每回合最多觸發 !${ModID}:M3! 次。 NL 保留 "
   },
   "${ModID}:PredeterminedStrike": {
     "NAME": "命定之劍",
@@ -165,7 +165,7 @@
   "${ModID}:Soulblight": {
     "NAME": "靈魂瘟疫",
     "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 回合結束時， ${ModID}:回復 !${ModID}:H! 點生命並獲得等同於自身 ${ModID}:狂氣回充 的 ${ModID}:狂氣 。 NL 「 ${ModID}:終末型態 」：不再 ${ModID}:回復生命 ，改為觸發所有敵人 !M! %的 中毒 。 NL 保留 ",
-    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 回合結束時， ${ModID}:回復 !${ModID}:H! 點生命並獲得等同於自身 ${ModID}:狂氣回充 的 ${ModID}:狂氣 。 NL 「 ${ModID}:終末型態 」：不再 ${ModID}:回復生命 ，改為觸發所有敵人 !M! %的 中毒 。 NL 固有 \u2002 保留 "
+    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 回合結束時， ${ModID}:回復 !${ModID}:H! 點生命並獲得等同於自身 ${ModID}:狂氣回充 的 ${ModID}:狂氣 。 NL 「 ${ModID}:終末型態 」：不再 ${ModID}:回復生命 ，改為觸發所有敵人 !M! %的 中毒 。 NL 保留 "
   },
   "${ModID}:SelfDestruct": {
     "NAME": "自毀改造",
@@ -190,7 +190,7 @@
   "${ModID}:LaudableMasterpiece": {
     "NAME": "此曲應得稱頌",
     "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。回合開始時，將一張「協樂的交響」置入手中。 NL 保留 ",
-    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。回合開始時，將一張「協樂的交響」置入手中。 NL 固有 \u2002 保留 "
+    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。回合開始時，將一張「協樂的交響」置入手中。 NL 保留 "
   },
   "${ModID}:SoulOverture": {
     "NAME": "靈魂序曲",

@@ -32,6 +32,6 @@ public class BattleThirst extends AbstractEasyCard {
     @Override
     public void upp() {
         upgradeAliemus(20);
-        isInnate = true;
+        upgradeBaseCost(1);
     }
 }

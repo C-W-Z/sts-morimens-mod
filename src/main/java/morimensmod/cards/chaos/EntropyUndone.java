@@ -34,6 +34,6 @@ public class EntropyUndone extends AbstractEasyCard {
     @Override
     public void upp() {
         upgradeAliemus(20);
-        isInnate = true;
+        upgradeBaseCost(2);
     }
 }

@@ -21,7 +21,7 @@ public class Soulblight extends AbstractEasyCard {
         tags.add(CustomTags.ROUSE);
         aliemus = baseAliemus = 30;
         heal = baseHeal = 5;
-        magicNumber = baseMagicNumber = 50;
+        magicNumber = baseMagicNumber = 50; // 觸發中毒%
         selfRetain = true; // 保留
     }
 
@@ -34,7 +34,7 @@ public class Soulblight extends AbstractEasyCard {
     @Override
     public void upp() {
         upgradeAliemus(20);
-        isInnate = true;
+        upgradeBaseCost(2);
     }
 
     @Override
