@@ -17,6 +17,8 @@ public class ManikinOfOblivion extends AbstractEasyCard {
         super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF, WHEEL_OF_DESTINY_COLOR);
         tags.add(CustomTags.WHEEL_OF_DESTINY);
         magicNumber = baseMagicNumber = 10; // 狂氣、中毒、治療提升%數
+        selfRetain = true;
+        prepare = 1;
     }
 
     @Override

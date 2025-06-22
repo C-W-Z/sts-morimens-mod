@@ -201,7 +201,7 @@
       "預備",
       "Prepare"
     ],
-    "DESCRIPTION": "回合結束時若 #y保留 在手中，減少 #bX 點 [E] 消耗。棄掉時也會觸發此效果。"
+    "DESCRIPTION": "回合結束後 [E] 消耗減少 #bX 點。被棄掉時也會觸發此效果。"
   },
   {
     "PROPER_NAME": " #b餘波 ",
@@ -218,7 +218,7 @@
       "穿刺攻擊",
       "PierceDMG"
     ],
-    "DESCRIPTION": "同時對 #y格擋 與生命造成傷害。無法被阻擋。"
+    "DESCRIPTION": "同時對 #y格擋 與生命造成傷害。無視屏障。"
   },
   {
     "PROPER_NAME": " #y被動 ",

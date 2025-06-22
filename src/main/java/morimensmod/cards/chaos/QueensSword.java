@@ -83,6 +83,7 @@ public class QueensSword extends AbstractEasyCard {
 
     @Override
     public void onMoveToDiscard() {
+        super.onMoveToDiscard();
         if (!isEndTurnDiscard)
             return;
         isEndTurnDiscard = false;
@@ -95,6 +96,7 @@ public class QueensSword extends AbstractEasyCard {
 
     @Override
     public void triggerOnManualDiscard() {
+        super.triggerOnManualDiscard();
         if (!(p() instanceof AbstractAwakener))
             return;
         AbstractAwakener awaker = (AbstractAwakener) p();

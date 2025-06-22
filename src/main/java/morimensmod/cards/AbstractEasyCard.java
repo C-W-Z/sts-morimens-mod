@@ -19,12 +19,14 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-// import static morimensmod.MorimensMod.logger;
+import basemod.helpers.CardModifierManager;
+
 import static morimensmod.MorimensMod.makeImagePath;
 import static morimensmod.util.Wiz.*;
 import static morimensmod.util.General.*;
 
 import morimensmod.actions.DestroyCardAction;
+import morimensmod.cardmodifiers.ChangeCostUntilUseModifier;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.CustomTags;
 import morimensmod.util.CardArtRoller;
@@ -76,6 +78,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     private boolean needsArtRefresh = false;
 
     protected String upgradedName = "";
+
+    public int prepare = 0;
 
     // for multiple cards to preview
     protected ArrayList<AbstractCard> previewCards = new ArrayList<>();
@@ -406,6 +410,22 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
             this.cardPreviewIndex = (this.cardPreviewIndex + 1) % this.previewCards.size();
             this.cardsToPreview = this.previewCards.get(this.cardPreviewIndex);
         }
+    }
+
+    @Override
+    public void onRetained() {
+        super.onRetained();
+        if (prepare <= 0)
+            return;
+        CardModifierManager.addModifier(this, new ChangeCostUntilUseModifier(-prepare));
+    }
+
+    @Override
+    public void triggerOnManualDiscard() {
+        super.triggerOnManualDiscard();
+        if (prepare <= 0)
+            return;
+        CardModifierManager.addModifier(this, new ChangeCostUntilUseModifier(-prepare));
     }
 
     // called in Main Mod File

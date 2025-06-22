@@ -21,6 +21,8 @@ public class HandOfOblivion extends AbstractEasyCard {
         tags.add(CustomTags.WHEEL_OF_DESTINY);
         magicNumber = baseMagicNumber = 40; // 打擊增傷%數
         cardsToPreview = new Strike(); // Preview a Strike when hovering over this card.
+        selfRetain = true;
+        prepare = 1;
     }
 
     @Override
