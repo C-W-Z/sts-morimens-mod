@@ -30,4 +30,6 @@ public class CustomTags {
     public static CardTags RETAIN_IN_DECK;
     @SpireEnum
     public static CardTags DESTROYABLE;
+    @SpireEnum
+    public static CardTags FORCE_PLAYABLE;
 }

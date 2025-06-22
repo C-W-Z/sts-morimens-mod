@@ -2,21 +2,20 @@ package morimensmod.glowinfos;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.p;
-import static morimensmod.util.Wiz.powerAmount;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import morimensmod.patches.CustomTags;
-import morimensmod.powers.NegentropyPower;
 
-public class LoopCardGlowInfo extends AbstractGlowInfo {
+public class ForcePlayableCardGlowInfo extends AbstractGlowInfo {
 
-    public static final String ID = makeID(LoopCardGlowInfo.class.getSimpleName());
+    public static final String ID = makeID(ForcePlayableCardGlowInfo.class.getSimpleName());
 
     @Override
     public Color getColor(AbstractCard card) {
-        return Color.GOLD.cpy();
+        return Color.RED.cpy();
     }
 
     @Override
@@ -27,7 +26,8 @@ public class LoopCardGlowInfo extends AbstractGlowInfo {
     @Override
     public boolean test(AbstractCard card) {
         return (p() != null &&
-                card.hasTag(CustomTags.LOOP) &&
-                powerAmount(p(), NegentropyPower.POWER_ID) >= NegentropyPower.INVOKE_AMOUNT);
+                card.hasTag(CustomTags.FORCE_PLAYABLE) &&
+                !(EnergyPanel.totalCount >= card.costForTurn || card.freeToPlay() || card.isInAutoplay) &&
+                card.hasEnoughEnergy());
     }
 }

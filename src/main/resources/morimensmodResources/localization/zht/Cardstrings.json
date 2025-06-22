@@ -180,17 +180,17 @@
     ]
   },
   "${ModID}:LaudableMasterpiece": {
-    "NAME": "",
-    "DESCRIPTION": "。 NL 保留 ",
-    "UPGRADE_DESCRIPTION": "。 NL 固有 \u2002 保留 "
+    "NAME": "此曲應得稱頌",
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。回合開始時，將一張「協樂的交響」置入手中。 NL 保留 ",
+    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。回合開始時，將一張「協樂的交響」置入手中。 NL 固有 \u2002 保留 "
   },
   "${ModID}:SoulOverture": {
-    "NAME": "",
-    "DESCRIPTION": ""
+    "NAME": "靈魂序曲",
+    "DESCRIPTION": "隨機造成 !${ModID}:AC! 次 !D! 點 ${ModID}:穿刺傷害 ，每次造成傷害都有 50% 機率對目標隨機施加 1 種 ${ModID}:奇妙負面效果 。若打出時 [E] 消耗為0，額外造成 !M! 次傷害。 NL ${ModID}:預備 1 \u2002 保留 "
   },
   "${ModID}:MemoryRondo": {
     "NAME": "追憶迴旋曲",
-    "DESCRIPTION": "獲得 !M! 點 力量 。"
+    "DESCRIPTION": "獲得 !M! 點 力量 ，將 !${ModID}:M2! 張「靈感」置入手中。 NL [E] 不足時仍可強行打出，效果改為將 !${ModID}:M2! 張「靈感」洗入抽牌堆。"
   },
   "${ModID}:DuskAndDawn": {
     "NAME": "極夜與破曉",
