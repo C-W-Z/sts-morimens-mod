@@ -333,21 +333,57 @@
     "NAME": "症狀：妄想",
     "DESCRIPTION": "失去 !M! 點生命，獲得 [E] [E] 。 NL 無法在商店移除 "
   },
+  "${ModID}:SymptomEpilepsy": {
+    "NAME": "症狀：癲癇",
+    "DESCRIPTION": "失去 !M! 點生命，抽 !${ModID}:DR! 張牌。 NL 無法在商店移除 "
+  },
+  "${ModID}:SymptomMadness": {
+    "NAME": "症狀：瘋狂",
+    "DESCRIPTION": "失去 !M! 點生命，獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 無法在商店移除 "
+  },
+  "${ModID}:SymptomWeakness": {
+    "NAME": "症狀：衰弱",
+    "DESCRIPTION": "回合結束時若在手中，自身 虛弱 !M! 回合。使用後 虛弱 所有敵人 !M! 回合。 NL 無法在商店移除 "
+  },
+  "${ModID}:SymptomBreakdown": {
+    "NAME": "症狀：崩潰",
+    "DESCRIPTION": "回合結束時若在手中，自身 脆弱 !M! 回合。使用後 易傷 所有敵人 !M! 回合。 NL 無法在商店移除 "
+  },
+  "${ModID}:SymptomClaustrophobia": {
+    "NAME": "症狀：幽閉",
+    "DESCRIPTION": "失去 !M! 點生命，獲得雙倍於該值的 格擋 。 NL 無法在商店移除 "
+  },
+  "${ModID}:SymptomSomniloquy": {
+    "NAME": "症狀：囈語",
+    "DESCRIPTION": "抽 !${ModID}:DR! 張牌，將 !M! 張「症狀：囈語」加入棄牌堆中。 NL 無法在商店移除 "
+  },
+  "${ModID}:SymptomHysteria": {
+    "NAME": "症狀：癔想",
+    "DESCRIPTION": "獲得 [E] ，將 !M! 張「症狀：癔想」加入棄牌堆中。 NL 無法在商店移除 "
+  },
   "${ModID}:SymptomObedience": {
     "NAME": "症狀：盲從",
-    "DESCRIPTION": "回合結束時將 !M! 張隨機 ${ModID}:症狀卡 加入抽牌堆中。 NL 保留 "
+    "DESCRIPTION": "回合結束時若在手中，將 !M! 張隨機 ${ModID}:症狀卡 加入抽牌堆。 NL 保留 "
+  },
+  "${ModID}:SymptomExcitement": {
+    "NAME": "症狀：興奮",
+    "DESCRIPTION": ""
   },
   "${ModID}:Stagger": {
-    "NAME": "",
-    "DESCRIPTION": ""
+    "NAME": "蹣跚",
+    "DESCRIPTION": " ${ModID}:狀態卡 。 NL 消耗 "
   },
   "${ModID}:Soffocation": {
     "NAME": "窒息",
     "DESCRIPTION": "回合結束時若在手中，獲得 !M! 層 中毒 。"
   },
+  "${ModID}:PainOfUnfulfilledDesires": {
+    "NAME": "未被滿足之痛",
+    "DESCRIPTION": "對自身造成 !M! 點傷害，獲得 !${ModID}:M2! 點 ${ModID}:臨時 力量 ，抽 !${ModID}:DR! 張牌。 NL 消耗 \u2002 保留 "
+  },
   "${ModID}:CryOut": {
     "NAME": "哭喊",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "降低所有敵人 !M! 點 ${ModID}:臨時 力量 ，將 !${ModID}:M2! 張「症狀：妄想」置入手牌。 NL \"很痛嗎？真可憐……哭出來就好啦！\" NL 消耗 \u2002 保留 "
   },
   "${ModID}:MutatedHeart": {
     "NAME": "畸變之心",
@@ -355,7 +391,7 @@
   },
   "${ModID}:Unrestrained": {
     "NAME": "狂放",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "獲得 !M! 點 ${ModID}:臨時 力量 ，所有敵人獲得 !${ModID}:M2! 點 ${ModID}:臨時 力量 。戰鬥結束後仍會保存在牌庫中。 NL 消耗 \u2002 保留 ${ModID}:銷毀 "
   },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",

@@ -18,6 +18,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
@@ -222,10 +223,14 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     // called in UseCardActionPatch
-    public static void onAfterCardUsed() {
+    public static void onAfterCardUsed(AbstractCard card) {
         logger.debug("lastUsedEnergy: " + lastUsedEnergy);
         if (lastUsedEnergy == 0 || !(p() instanceof AbstractAwakener))
             return;
+        if (card.type == CardType.CURSE || card.type == CardType.STATUS) {
+            lastUsedEnergy = 0;
+            return;
+        }
         AbstractAwakener awaker = (AbstractAwakener) p();
         att(new KeyflareChangeAction(awaker, lastUsedEnergy * awaker.keyflareRegen));
         lastUsedEnergy = 0;

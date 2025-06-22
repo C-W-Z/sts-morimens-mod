@@ -75,6 +75,6 @@
   },
   "${ModID}:Unrestrained": {
     "NAME": "Unrestrained",
-    "DESCRIPTION": "Gain 10 ${ModID}:Temporary Strength . All enemies gain 5 ${ModID}:Temporary Strength . Remains in the deck after the battle. NL Exhaust Retain Destroy "
+    "DESCRIPTION": "Gain !M! ${ModID}:Temporary Strength . All enemies gain !${ModID}:M2! ${ModID}:Temporary Strength . Remains in the deck after the battle. NL Exhaust Retain Destroy "
   }
 }
