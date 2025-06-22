@@ -191,7 +191,8 @@
   },
   "${ModID}:KnellOfDeath": {
     "NAME": "喪鐘遙鳴",
-    "DESCRIPTION": "對所有敵人施加 !M! 層 中毒 ，施加 !${ModID}:M2! 虛弱 和 易傷 ，獲得 !B! 點 格擋 。"
+    "DESCRIPTION": "對所有敵人施加 !M! 層 中毒 ，施加 !${ModID}:M2! 層 虛弱 和 易傷 。",
+    "UPGRADE_DESCRIPTION": "對所有敵人施加 !M! 層 中毒 ，施加 !${ModID}:M2! 層 虛弱 和 易傷 ，獲得 !B! 點 格擋 。"
   },
   "${ModID}:MaintenanceExpert": {
     "NAME": "維修大師",
