@@ -41,12 +41,13 @@ public class QueensSword extends AbstractEasyCard {
     }
 
     public QueensSword() {
-        super(ID, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, CHAOS_COLOR);
+        super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         damage = baseDamage = 3;
-        attackCount = baseAttackCount = 3;
+        attackCount = baseAttackCount = 2;
         magicNumber = baseMagicNumber = extraAtkCountThisCombat;
-        baseSecondMagic = baseAttackCount + baseMagicNumber; // only for display
+        secondMagic = baseSecondMagic = attackCount + extraAtkCountThisCombat; // only for display
+        thirdMagic = baseThirdMagic = attackCount + MAX_EXTRA_ATKCOUNT; // only for display
     }
 
     @Override
@@ -105,6 +106,7 @@ public class QueensSword extends AbstractEasyCard {
     public void applyPowers() {
         magicNumber = baseMagicNumber = extraAtkCountThisCombat;
         secondMagic = baseSecondMagic = attackCount + extraAtkCountThisCombat;
+        thirdMagic = baseThirdMagic = attackCount + MAX_EXTRA_ATKCOUNT;
         super.applyPowers();
     }
 
@@ -112,12 +114,18 @@ public class QueensSword extends AbstractEasyCard {
     public void calculateCardDamage(AbstractMonster mo) {
         magicNumber = baseMagicNumber = extraAtkCountThisCombat;
         secondMagic = baseSecondMagic = attackCount + extraAtkCountThisCombat;
+        thirdMagic = baseThirdMagic = attackCount + MAX_EXTRA_ATKCOUNT;
         super.calculateCardDamage(mo);
     }
 
     @Override
     public void upp() {
-        upgradeDamage(1);
+        upgradeAttackCount(1);
+        magicNumber = baseMagicNumber = extraAtkCountThisCombat;
+        secondMagic = baseSecondMagic = attackCount + extraAtkCountThisCombat;
+        thirdMagic = baseThirdMagic = attackCount + MAX_EXTRA_ATKCOUNT;
+        upgradedSecondMagic = true;
+        upgradedThirdMagic = true;
     }
 
     public static void updateAllAttackTimes() {
@@ -143,6 +151,7 @@ public class QueensSword extends AbstractEasyCard {
         AbstractEasyCard card = (AbstractEasyCard) c;
         card.magicNumber = card.baseMagicNumber = extraAtkCountThisCombat;
         card.secondMagic = card.baseSecondMagic = card.attackCount + extraAtkCountThisCombat;
+        card.thirdMagic = card.baseThirdMagic = card.attackCount + MAX_EXTRA_ATKCOUNT;
         card.initializeDescription();
     }
 }

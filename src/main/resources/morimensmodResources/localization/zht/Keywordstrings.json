@@ -196,6 +196,14 @@
     "DESCRIPTION": "打出後將其從牌庫中永久移除。"
   },
   {
+    "PROPER_NAME": " #y預備（Ｘ） ",
+    "NAMES": [
+      "預備",
+      "Prepare"
+    ],
+    "DESCRIPTION": "回合結束時若 #y保留 在手中，減少 #bX 點 [E] 消耗。棄掉時也會觸發此效果。"
+  },
+  {
     "PROPER_NAME": " #b餘波 ",
     "NAMES": [
       "餘波",

@@ -84,11 +84,12 @@
   },
   "${ModID}:AssaultThesis": {
     "NAME": "攻勢推演",
-    "DESCRIPTION": "使所有敵人 ${ModID}:臨時 降低 !M! 點 力量 。抽 !${ModID}:DR! 張牌。抽到的牌每有 1 點 [E] 消耗，獲得 !${ModID}:M2! 點 ${ModID}:銀鑰能量 。"
+    "DESCRIPTION": "使所有敵人 ${ModID}:臨時 降低 !M! 點 力量 。抽 !${ModID}:DR! 張牌。",
+    "UPGRADE_DESCRIPTION": "使所有敵人 ${ModID}:臨時 降低 !M! 點 力量 。抽 !${ModID}:DR! 張牌。抽到的牌每有 1 點 [E] 消耗，獲得 !${ModID}:M2! 點 ${ModID}:銀鑰能量 。"
   },
   "${ModID}:QueensSword": {
     "NAME": "女王之劍",
-    "DESCRIPTION": "造成 !D! 點傷害 !${ModID}:M2! 次，每次造成傷害後獲得 1 點 ${ModID}:臨時 力量 。打出後使 「女王之劍」 傷害次數 + 1 ，最多提高為 6 次。 ${ModID}:餘波 ：獲得和打出相等的 ${ModID}:銀鑰能量 。"
+    "DESCRIPTION": "造成 !D! 點傷害 !${ModID}:M2! 次，每次造成傷害後獲得 1 點 ${ModID}:臨時 力量 。打出後使 「女王之劍」 傷害次數 + 1 ，最多提高為 !${ModID}:M3! 次。 ${ModID}:餘波 ：獲得和打出相等的 ${ModID}:銀鑰能量 。"
   },
   "${ModID}:FleshDetached": {
     "NAME": "靈肉兩分",
@@ -177,6 +178,19 @@
       "宿命坍縮‧終末",
       "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。對所有敵人施加 !${ModID}M2! 層 中毒 ，自身當前每擁有 !M! 點 ${ModID}:狂氣 ，額外施加 1 次 中毒 。"
     ]
+  },
+  "${ModID}:LaudableMasterpiece": {
+    "NAME": "",
+    "DESCRIPTION": "。 NL 保留 ",
+    "UPGRADE_DESCRIPTION": "。 NL 固有 \u2002 保留 "
+  },
+  "${ModID}:SoulOverture": {
+    "NAME": "",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:MemoryRondo": {
+    "NAME": "追憶迴旋曲",
+    "DESCRIPTION": "獲得 !M! 點 力量 。"
   },
   "${ModID}:DuskAndDawn": {
     "NAME": "極夜與破曉",
