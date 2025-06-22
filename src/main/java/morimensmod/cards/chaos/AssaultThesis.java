@@ -23,7 +23,7 @@ public class AssaultThesis extends AbstractEasyCard {
     public AssaultThesis() {
         super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
-        magicNumber = baseMagicNumber = 6; // 降低臨時力量
+        magicNumber = baseMagicNumber = 4; // 降低臨時力量
         draw = baseDraw = 1; // 抽牌數
         secondMagic = baseSecondMagic = 35; // 銀鑰能量 per 抽到牌的費用
     }
@@ -52,6 +52,6 @@ public class AssaultThesis extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeMagicNumber(3); // 升級後力量減少變 9
+        upgradeMagicNumber(2);
     }
 }

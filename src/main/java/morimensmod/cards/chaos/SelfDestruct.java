@@ -29,7 +29,7 @@ public class SelfDestruct extends AbstractEasyCard {
         tags.add(CustomTags.COMMAND);
         magicNumber = baseMagicNumber = 1; // 1回合 易傷/虛弱
         secondMagic = baseSecondMagic = 1; // 1回合 興奮
-        thirdMagic = baseThirdMagic = 5; // 降低 5 臨時力量
+        thirdMagic = baseThirdMagic = 4; // 降低 臨時力量
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -77,6 +77,6 @@ public class SelfDestruct extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeThirdMagic(5);
+        upgradeThirdMagic(2);
     }
 }

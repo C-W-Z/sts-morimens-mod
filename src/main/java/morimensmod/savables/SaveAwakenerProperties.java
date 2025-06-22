@@ -6,13 +6,13 @@ import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.p;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.google.gson.reflect.TypeToken;
 
-public class SaveAwakenerProperties implements CustomSavable<ArrayList<Integer>> {
+public class SaveAwakenerProperties implements CustomSavable<HashMap<String, Integer>> {
 
     private static final Logger logger = LogManager.getLogger(SaveAwakenerProperties.class);
 
@@ -20,33 +20,37 @@ public class SaveAwakenerProperties implements CustomSavable<ArrayList<Integer>>
 
     @Override
     public Type savedType() {
-        return new TypeToken<ArrayList<Integer>>() {
+        return new TypeToken<HashMap<String, Integer>>() {
         }.getType();
     }
 
     @Override
-    public ArrayList<Integer> onSave() {
+    public HashMap<String, Integer> onSave() {
         logger.debug("onSave, aliemus: " + AbstractAwakener.getAliemus() + ", keyflare: " + AbstractAwakener.getKeyflare());
-        ArrayList<Integer> props = new ArrayList<>();
+        HashMap<String, Integer> props = new HashMap<>();
         if (!(p() instanceof AbstractAwakener))
             return props;
         AbstractAwakener awaker = (AbstractAwakener) p();
-        props.add(AbstractAwakener.getAliemus());
-        props.add(AbstractAwakener.getKeyflare());
-        props.add(awaker.baseAliemusRegen);
-        props.add(awaker.baseKeyflareRegen);
+        props.put("aliemus", AbstractAwakener.getAliemus());
+        props.put("keyflare", AbstractAwakener.getKeyflare());
+        props.put("baseAliemusRegen", awaker.baseAliemusRegen);
+        props.put("baseKeyflareRegen", awaker.baseKeyflareRegen);
         return props;
     }
 
     @Override
-    public void onLoad(ArrayList<Integer> props) {
-        logger.debug("onLoad, aliemus: " + props.get(0) + ", keyflare: " + props.get(1));
+    public void onLoad(HashMap<String, Integer> props) {
         if (!(p() instanceof AbstractAwakener))
             return;
+        logger.debug("onLoad, aliemus: " + optionalToInt(props.get("aliemus")) + ", keyflare: " + optionalToInt(props.get("keyflare")));
         AbstractAwakener awaker = (AbstractAwakener) p();
-        AbstractAwakener.setAliemus(props.get(0));
-        AbstractAwakener.setKeyflare(props.get(1));
-        awaker.baseAliemusRegen = props.get(2);
-        awaker.baseKeyflareRegen = props.get(3);
+        AbstractAwakener.setAliemus(optionalToInt(props.get("aliemus")));
+        AbstractAwakener.setKeyflare(optionalToInt(props.get("keyflare")));
+        awaker.baseAliemusRegen = optionalToInt(props.get("baseAliemusRegen"));
+        awaker.baseKeyflareRegen = optionalToInt(props.get("baseKeyflareRegen"));
+    }
+
+    private int optionalToInt(Integer i) {
+        return i == null ? 0 : i;
     }
 }

@@ -111,7 +111,7 @@
   "${ModID}:BattleThirst": {
     "NAME": "戰欲難平",
     "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL ${ModID}:指令卡 的傷害次數提高 !M! 次。 NL 保留 ",
-    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL ${ModID}:指令卡 的傷害次數提高 !${ModID}:M! 次。 NL 固有 \u2002 保留 "
+    "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL ${ModID}:指令卡 的傷害次數提高 !M! 次。 NL 固有 \u2002 保留 "
   },
   "${ModID}:BladeOfDefiance": {
     "NAME": "桀驁之刃",
