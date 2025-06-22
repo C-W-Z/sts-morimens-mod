@@ -143,27 +143,27 @@ public class MorimensMod implements
     }
 
     public MorimensMod() {
-        BaseMod.addColor(CHAOS_COLOR, new Color(227.0f / 255, 201.0f / 255, 110.0f / 255, 1),
+        BaseMod.addColor(CHAOS_COLOR, new Color(227 / 255F, 201 / 255F, 110 / 255F, 1),
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);
 
-        BaseMod.addColor(AEQUOR_COLOR, new Color(106.0f / 255, 171.0f / 255, 236.0f / 255, 1),
+        BaseMod.addColor(AEQUOR_COLOR, new Color(106 / 255F, 171 / 255F, 236 / 255F, 1),
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);
 
-        BaseMod.addColor(CARO_COLOR, new Color(226.0f / 255, 97.0f / 255, 97.0f / 255, 1),
+        BaseMod.addColor(CARO_COLOR, new Color(226 / 255F, 97 / 255F, 97 / 255F, 1),
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);
 
-        BaseMod.addColor(ULTRA_COLOR, new Color(194.0f / 255, 146.0f / 255, 236.0f / 255, 1),
+        BaseMod.addColor(ULTRA_COLOR, new Color(194 / 255F, 146 / 255F, 236 / 255F, 1),
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);
 
-        BaseMod.addColor(WHEEL_OF_DESTINY_COLOR, new Color(148.0f / 255, 155.0f / 255, 165.0f / 255, 1),
+        BaseMod.addColor(WHEEL_OF_DESTINY_COLOR, new Color(148 / 255F, 155 / 255F, 165 / 255F, 1),
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);
@@ -173,7 +173,7 @@ public class MorimensMod implements
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);
 
-        BaseMod.addColor(SYMPTOM_COLOR, new Color(1, 1, 1, 1),
+        BaseMod.addColor(SYMPTOM_COLOR, new Color(30 / 255F, 30 / 255F, 34 / 255F, 1),
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);

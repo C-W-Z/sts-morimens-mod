@@ -83,7 +83,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity,
             final CardTarget target, final CardColor color) {
-        super(cardID, "", getCardTextureString(removeModID(cardID), type),
+        super(cardID, "", getCardTextureString(removeModID(cardID)),
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
         rawDescription = cardStrings.DESCRIPTION;
@@ -108,20 +108,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         }
     }
 
-    public static String getCardTextureString(final String cardName, final AbstractCard.CardType cardType) {
-        String textureString;
-
-        switch (cardType) {
-            case ATTACK:
-            case POWER:
-            case SKILL:
-                textureString = makeImagePath("cards/" + cardName + ".png");
-                break;
-            default:
-                textureString = makeImagePath("ui/missing.png");
-                break;
-        }
-
+    public static String getCardTextureString(final String cardName) {
+        String textureString = makeImagePath("cards/" + cardName + ".png");
         FileHandle h = Gdx.files.internal(textureString);
         if (!h.exists()) {
             textureString = makeImagePath("ui/missing.png");
