@@ -166,6 +166,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     // called in Main Mod File
     public static void onBattleStart() {
+        logger.debug("onBattleStart");
+
         aliemusLimit = NORMAL_ALIEMUS_LIMIT;
         extremeAlimus = 2 * NORMAL_ALIEMUS_LIMIT;
 
@@ -190,7 +192,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
         baseCounterAmplify = 0;
 
         for (Pair<String, Integer> pair : persistentPowers) {
-            logger.debug("onBattleStart, ID: " + pair.getKey() + ", amount: " + pair.getValue());
+            logger.debug("persistentPowers, ID: " + pair.getKey() + ", amount: " + pair.getValue());
             if (pair.getValue() != 0)
                 applyToSelf(PersistentPowerLib.getPower(pair.getKey(), p(), pair.getValue()));
         }
