@@ -21,6 +21,8 @@ public class ColorPatch {
         @SpireEnum
         public static CardColor SYMPTOM_COLOR;
         @SpireEnum
+        public static CardColor STATUS_COLOR;
+        @SpireEnum
         public static CardColor POSSE_COLOR;
     }
 
@@ -39,6 +41,8 @@ public class ColorPatch {
         public static LibraryType BUFF_COLOR;
         @SpireEnum
         public static LibraryType SYMPTOM_COLOR;
+        @SpireEnum
+        public static LibraryType STATUS_COLOR;
         @SpireEnum
         public static LibraryType POSSE_COLOR;
     }

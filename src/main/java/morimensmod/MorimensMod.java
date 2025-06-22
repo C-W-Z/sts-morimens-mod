@@ -53,6 +53,7 @@ import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CARO_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.POSSE_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.STATUS_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
@@ -174,6 +175,11 @@ public class MorimensMod implements
                 CARD_ENERGY_L, TEXT_ENERGY);
 
         BaseMod.addColor(SYMPTOM_COLOR, new Color(30 / 255F, 30 / 255F, 34 / 255F, 1),
+                ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
+                ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
+                CARD_ENERGY_L, TEXT_ENERGY);
+
+        BaseMod.addColor(STATUS_COLOR, new Color(47 / 255F, 28 / 255F, 27 / 255F, 1),
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);

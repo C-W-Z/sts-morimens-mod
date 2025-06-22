@@ -343,7 +343,7 @@
   },
   "${ModID}:Soffocation": {
     "NAME": "窒息",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "回合結束時若在手中，獲得 !M! 層 中毒 。"
   },
   "${ModID}:CryOut": {
     "NAME": "哭喊",

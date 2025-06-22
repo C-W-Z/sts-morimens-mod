@@ -12,6 +12,7 @@ import javassist.CtBehavior;
 
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.POSSE_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.STATUS_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.AEQUOR_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
@@ -28,6 +29,7 @@ public class TabNamePatch {
     private static final UIStrings BUFF_STRINGS = CardCrawlGame.languagePack.getUIString(BUFF_COLOR.name());
     private static final UIStrings WHEEL_OF_DESTINY_STRINGS = CardCrawlGame.languagePack.getUIString(WHEEL_OF_DESTINY_COLOR.name());
     private static final UIStrings SYMPTOM_STRINGS = CardCrawlGame.languagePack.getUIString(SYMPTOM_COLOR.name());
+    private static final UIStrings STATUS_STRINGS = CardCrawlGame.languagePack.getUIString(STATUS_COLOR.name());
     private static final UIStrings POSSE_STRINGS = CardCrawlGame.languagePack.getUIString(POSSE_COLOR.name());
 
     @SpireInsertPatch(locator = Locator.class, localvars = { "i", "tabName" })
@@ -48,6 +50,8 @@ public class TabNamePatch {
             tabName[0] = WHEEL_OF_DESTINY_STRINGS.TEXT[0];
         else if (modTabs.get(i).color == SYMPTOM_COLOR)
             tabName[0] = SYMPTOM_STRINGS.TEXT[0];
+        else if (modTabs.get(i).color == STATUS_COLOR)
+            tabName[0] = STATUS_STRINGS.TEXT[0];
         else if (modTabs.get(i).color == POSSE_COLOR)
             tabName[0] = POSSE_STRINGS.TEXT[0];
     }

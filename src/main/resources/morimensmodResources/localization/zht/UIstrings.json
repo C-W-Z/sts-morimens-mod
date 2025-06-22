@@ -34,6 +34,11 @@
             "症狀"
         ]
     },
+    "STATUS_COLOR": {
+        "TEXT": [
+            "狀態"
+        ]
+    },
     "POSSE_COLOR": {
         "TEXT": [
             "鑰令"
@@ -62,6 +67,11 @@
     "SYMPTOM": {
         "TEXT": [
             "症狀"
+        ]
+    },
+    "STATUS": {
+        "TEXT": [
+            "狀態"
         ]
     },
     "POSSE": {

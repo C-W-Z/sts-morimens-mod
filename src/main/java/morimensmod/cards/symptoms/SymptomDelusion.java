@@ -31,4 +31,8 @@ public class SymptomDelusion extends AbstractEasyCard {
     @Override
     public void upp() {
     }
+
+    @Override
+    public void upgrade() {
+    }
 }

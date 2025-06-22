@@ -83,7 +83,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity,
             final CardTarget target, final CardColor color) {
-        super(cardID, "", getCardTextureString(removeModID(cardID)),
+        super(cardID, "", getCardTextureString(removeModID(cardID), type),
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
         rawDescription = cardStrings.DESCRIPTION;
@@ -108,8 +108,10 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         }
     }
 
-    public static String getCardTextureString(final String cardName) {
-        String textureString = makeImagePath("cards/" + cardName + ".png");
+    public static String getCardTextureString(final String cardName, final CardType type) {
+        String textureString = type != CardType.STATUS
+                ? makeImagePath("cards/" + cardName + ".png")
+                : makeImagePath("cards/status.png");
         FileHandle h = Gdx.files.internal(textureString);
         if (!h.exists()) {
             textureString = makeImagePath("ui/missing.png");
@@ -143,7 +145,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
             aliemus = baseAliemus;
         }
 
-        // logger.info("aliemusAmplify: " + aliemusAmplify + ", baseAliemus: " + baseAliemus);
+        // logger.info("aliemusAmplify: " + aliemusAmplify + ", baseAliemus: " +
+        // baseAliemus);
     }
 
     protected void applySuperPower() {

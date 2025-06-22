@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
@@ -23,8 +24,9 @@ import basemod.BaseMod;
 import static morimensmod.MorimensMod.*;
 import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
-import static morimensmod.util.Wiz.addCardsIntoPool;
+
 import java.util.ArrayList;
 
 public class Ramona extends AbstractAwakener {
@@ -82,9 +84,11 @@ public class Ramona extends AbstractAwakener {
 
     @Override
     public ArrayList<AbstractCard> getCardPool(ArrayList<AbstractCard> tmpPool) {
-        addCardsIntoPool(tmpPool, CHAOS_COLOR);
-        addCardsIntoPool(tmpPool, WHEEL_OF_DESTINY_COLOR);
-        addCardsIntoPool(tmpPool, BUFF_COLOR);
+        CardLibrary.addCardsIntoPool(tmpPool, CHAOS_COLOR);
+        CardLibrary.addCardsIntoPool(tmpPool, WHEEL_OF_DESTINY_COLOR);
+        CardLibrary.addCardsIntoPool(tmpPool, BUFF_COLOR);
+        CardLibrary.addCardsIntoPool(tmpPool, SYMPTOM_COLOR);
+        CardLibrary.addCardsIntoPool(tmpPool, SYMPTOM_COLOR);
         return tmpPool;
     }
 

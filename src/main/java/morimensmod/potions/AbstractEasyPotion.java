@@ -1,6 +1,9 @@
 package morimensmod.potions;
 
 import basemod.abstracts.CustomPotion;
+
+import java.lang.reflect.InvocationTargetException;
+
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -45,8 +48,8 @@ public abstract class AbstractEasyPotion extends CustomPotion {
 
     public AbstractPotion makeCopy() {
         try {
-            return getClass().newInstance();
-        } catch (IllegalAccessException | InstantiationException e) {
+            return getClass().getConstructor().newInstance();
+        } catch (IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
             throw new RuntimeException("BaseMod failed to auto-generate makeCopy for potion: " + ID);
         }
     }

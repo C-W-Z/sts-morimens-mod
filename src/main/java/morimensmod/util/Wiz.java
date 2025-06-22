@@ -311,10 +311,6 @@ public class Wiz {
         return AbstractDungeon.player.masterDeck;
     }
 
-    public static void addCardsIntoPool(ArrayList<AbstractCard> tmpPool, AbstractCard.CardColor color) {
-        CardLibrary.addCardsIntoPool(tmpPool, color);
-    }
-
     public static boolean isCommandCard(AbstractCard card) {
         return card.hasTag(CustomTags.COMMAND);
     }
