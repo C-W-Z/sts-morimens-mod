@@ -2,6 +2,7 @@ package morimensmod.cards.chaos;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static morimensmod.MorimensMod.makeID;
@@ -44,10 +45,10 @@ public class QueensSword extends AbstractEasyCard {
         super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         damage = baseDamage = 3;
-        attackCount = baseAttackCount = 2;
+        attackCount = baseAttackCount = 3;
         magicNumber = baseMagicNumber = extraAtkCountThisCombat;
         secondMagic = baseSecondMagic = attackCount + extraAtkCountThisCombat; // only for display
-        thirdMagic = baseThirdMagic = attackCount + MAX_EXTRA_ATKCOUNT; // only for display
+        thirdMagic = baseThirdMagic = 0; // 臨力
     }
 
     @Override
@@ -60,7 +61,11 @@ public class QueensSword extends AbstractEasyCard {
                 @Override
                 public void update() {
                     calculateCardDamage(m);
-                    addToTop(new QueensSwordAction(m, damage, damageTypeForTurn, AttackEffect.SLASH_HORIZONTAL));
+                    addToTop(new QueensSwordAction(
+                            m,
+                            new DamageInfo(p, damage, damageTypeForTurn),
+                            thirdMagic,
+                            AttackEffect.SLASH_HORIZONTAL));
                     isDone = true;
                 }
             });
@@ -108,7 +113,6 @@ public class QueensSword extends AbstractEasyCard {
     public void applyPowers() {
         magicNumber = baseMagicNumber = extraAtkCountThisCombat;
         secondMagic = baseSecondMagic = attackCount + extraAtkCountThisCombat;
-        thirdMagic = baseThirdMagic = attackCount + MAX_EXTRA_ATKCOUNT;
         super.applyPowers();
     }
 
@@ -116,18 +120,12 @@ public class QueensSword extends AbstractEasyCard {
     public void calculateCardDamage(AbstractMonster mo) {
         magicNumber = baseMagicNumber = extraAtkCountThisCombat;
         secondMagic = baseSecondMagic = attackCount + extraAtkCountThisCombat;
-        thirdMagic = baseThirdMagic = attackCount + MAX_EXTRA_ATKCOUNT;
         super.calculateCardDamage(mo);
     }
 
     @Override
     public void upp() {
-        upgradeAttackCount(1);
-        magicNumber = baseMagicNumber = extraAtkCountThisCombat;
-        secondMagic = baseSecondMagic = attackCount + extraAtkCountThisCombat;
-        thirdMagic = baseThirdMagic = attackCount + MAX_EXTRA_ATKCOUNT;
-        upgradedSecondMagic = true;
-        upgradedThirdMagic = true;
+        upgradeThirdMagic(1);
     }
 
     public static void updateAllAttackTimes() {
@@ -153,7 +151,6 @@ public class QueensSword extends AbstractEasyCard {
         AbstractEasyCard card = (AbstractEasyCard) c;
         card.magicNumber = card.baseMagicNumber = extraAtkCountThisCombat;
         card.secondMagic = card.baseSecondMagic = card.attackCount + extraAtkCountThisCombat;
-        card.thirdMagic = card.baseThirdMagic = card.attackCount + MAX_EXTRA_ATKCOUNT;
         card.initializeDescription();
     }
 }

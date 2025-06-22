@@ -77,6 +77,6 @@ public class SelfDestruct extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeThirdMagic(3);
+        upgradeThirdMagic(4);
     }
 }

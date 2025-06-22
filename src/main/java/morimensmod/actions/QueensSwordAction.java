@@ -1,6 +1,5 @@
 package morimensmod.actions;
 
-import static morimensmod.util.Wiz.p;
 
 // import static morimensmod.MorimensMod.logger;
 
@@ -15,19 +14,21 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 public class QueensSwordAction extends AbstractGameAction {
 
-    public QueensSwordAction(AbstractCreature target, int damage, DamageInfo.DamageType damageType, AttackEffect effect) {
-        this(target, p(), damage, damageType, effect, Settings.ACTION_DUR_XFAST);
+    int strength;
+
+    public QueensSwordAction(AbstractCreature target, DamageInfo damageInfo, int strength, AttackEffect effect) {
+        this(target, damageInfo, strength, effect, Settings.ACTION_DUR_XFAST);
     }
 
-    public QueensSwordAction(AbstractCreature target, AbstractCreature source, int damage,
-            DamageInfo.DamageType damageType, AttackEffect effect, float duration) {
-        this.source = source;
+    public QueensSwordAction(AbstractCreature target, DamageInfo damageInfo, int strength, AttackEffect effect, float duration) {
+        this.source = damageInfo.owner;
         this.target = target;
-        this.amount = damage;
-        this.damageType = damageType;
+        this.amount = damageInfo.base;
+        this.damageType = damageInfo.type;
         this.attackEffect = effect;
         this.actionType = ActionType.DAMAGE;
         this.duration = duration;
+        this.strength = strength;
     }
 
     @Override
@@ -40,8 +41,10 @@ public class QueensSwordAction extends AbstractGameAction {
         // logger.info("target.isDeadOrEscaped=" + target.isDeadOrEscaped() + "HP=" +
         // target.currentHealth);
 
-        addToTop(new ApplyPowerAction(source, source, new LoseStrengthPower(source, 1), 1));
-        addToTop(new ApplyPowerAction(source, source, new StrengthPower(source, 1), 1));
+        if (strength > 0) {
+            addToTop(new ApplyPowerAction(source, source, new LoseStrengthPower(source, strength), strength));
+            addToTop(new ApplyPowerAction(source, source, new StrengthPower(source, strength), strength));
+        }
         addToTop(new DamageAction(target, new DamageInfo(source, amount, damageType), attackEffect));
 
         isDone = true;

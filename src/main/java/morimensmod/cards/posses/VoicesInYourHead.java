@@ -4,6 +4,7 @@ import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.applyToSelf;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
@@ -31,11 +32,15 @@ public class VoicesInYourHead extends AbstractPosse {
 
     @Override
     public void activate() {
-        addToBot(new AllEnemyApplyPowerAction(awaker, DEBUFF_AMOUNT, (mo) -> new WeakPower(mo, DEBUFF_AMOUNT, false)));
-        addToBot(new AllEnemyApplyPowerAction(awaker, DEBUFF_AMOUNT, (mo) -> new VulnerablePower(mo, DEBUFF_AMOUNT, false)));
-        addToBot(new AllEnemyApplyPowerAction(awaker, -STEAL_STR, (mo) -> new StrengthPower(mo, -STEAL_STR)));
-        addToBot(new AllEnemyApplyPowerAction(awaker, STEAL_STR, (mo) -> new GainStrengthPower(mo, STEAL_STR)));
-        applyToSelf(new LoseStrengthPower(awaker, STEAL_STR));
-        applyToSelf(new StrengthPower(awaker, STEAL_STR));
+        addToBot(new AllEnemyApplyPowerAction(awaker, DEBUFF_AMOUNT, m -> new WeakPower(m, DEBUFF_AMOUNT, false)));
+        addToBot(new AllEnemyApplyPowerAction(awaker, DEBUFF_AMOUNT, m -> new VulnerablePower(m, DEBUFF_AMOUNT, false)));
+        addToBot(new AllEnemyApplyPowerAction(awaker, -STEAL_STR, m -> new StrengthPower(m, -STEAL_STR)));
+        addToBot(new AllEnemyApplyPowerAction(awaker, STEAL_STR, m -> new GainStrengthPower(m, STEAL_STR)));
+
+        int n_monsters = (int) AbstractDungeon.getMonsters().monsters.stream().filter((m) -> {
+            return !m.isDeadOrEscaped();
+        }).count();
+        applyToSelf(new LoseStrengthPower(awaker, STEAL_STR * n_monsters));
+        applyToSelf(new StrengthPower(awaker, STEAL_STR * n_monsters));
     }
 }
