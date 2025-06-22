@@ -20,4 +20,8 @@ public class CustomTags {
     public static CardTags DEFEND;
     @SpireEnum
     public static CardTags LOOP;
+    @SpireEnum
+    public static CardTags UNREMOVABLE;
+    @SpireEnum
+    public static CardTags UNREMOVABLE_IN_SHOP;
 }

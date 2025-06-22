@@ -17,6 +17,7 @@ public class SymptomDelusion extends AbstractEasyCard {
     public SymptomDelusion() {
         super(ID, 0, CardType.CURSE, CardRarity.CURSE, CardTarget.SELF, SYMPTOM_COLOR);
         tags.add(CustomTags.SYMPTOM);
+        tags.add(CustomTags.UNREMOVABLE_IN_SHOP);
         magicNumber = baseMagicNumber = 15; // 失去生命
         secondMagic = baseSecondMagic = 2; // 獲得能量
     }

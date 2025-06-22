@@ -331,7 +331,7 @@
   },
   "${ModID}:SymptomDelusion": {
     "NAME": "症狀：妄想",
-    "DESCRIPTION": "失去 !M! 點生命，獲得 [E] [E] 。無法出售。"
+    "DESCRIPTION": "失去 !M! 點生命，獲得 [E] [E] 。 NL 無法在商店移除 "
   },
   "${ModID}:SymptomObedience": {
     "NAME": "症狀：盲從",
