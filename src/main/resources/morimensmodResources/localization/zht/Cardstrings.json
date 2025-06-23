@@ -194,6 +194,10 @@
     "DESCRIPTION": "對所有敵人施加 !M! 層 中毒 ，施加 !${ModID}:M2! 層 虛弱 和 易傷 。",
     "UPGRADE_DESCRIPTION": "對所有敵人施加 !M! 層 中毒 ，施加 !${ModID}:M2! 層 虛弱 和 易傷 ，獲得 !B! 點 格擋 。"
   },
+  "${ModID}:ToxicMiasma": {
+    "NAME": "溺毒瀰漫",
+    "DESCRIPTION": "使所有敵人的 中毒 翻倍。將 !M! 張「窒息」置入手中。"
+  },
   "${ModID}:MaintenanceExpert": {
     "NAME": "維修大師",
     "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。造成的 格擋 和 荊棘 提高 !M! %。 NL 保留 "
