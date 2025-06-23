@@ -37,6 +37,9 @@ public class SavePersistentPowers implements CustomSavable<ArrayList<Pair<String
 
     @Override
     public void onLoad(ArrayList<Pair<String, Integer>> ID_Amount_Pairs) {
+        if (ID_Amount_Pairs == null)
+            return;
+
         logger.debug("onLoad");
 
         for (Pair<String, Integer> pair : ID_Amount_Pairs)

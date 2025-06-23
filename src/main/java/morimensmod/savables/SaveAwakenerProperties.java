@@ -41,7 +41,7 @@ public class SaveAwakenerProperties implements CustomSavable<HashMap<String, Int
 
     @Override
     public void onLoad(HashMap<String, Integer> props) {
-        if (!(p() instanceof AbstractAwakener))
+        if (!(p() instanceof AbstractAwakener) || props == null)
             return;
         logger.debug("onLoad, aliemus: " + optionalToInt(props.get("aliemus")) + ", keyflare: " + optionalToInt(props.get("keyflare")));
         AbstractAwakener awaker = (AbstractAwakener) p();

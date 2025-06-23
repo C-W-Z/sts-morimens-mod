@@ -37,7 +37,7 @@ public class SaveAwakenerFloatProperties implements CustomSavable<HashMap<String
 
     @Override
     public void onLoad(HashMap<String, Float> props) {
-        if (!(p() instanceof AbstractAwakener))
+        if (!(p() instanceof AbstractAwakener) || props == null)
             return;
         logger.debug("onLoad, ");
         AbstractAwakener awaker = (AbstractAwakener) p();
