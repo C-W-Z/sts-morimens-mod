@@ -19,7 +19,7 @@ public class FleshDetached extends AbstractEasyCard {
     public FleshDetached() {
         super(ID, 2, CardType.POWER, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
-        aliemus = baseAliemus = 30;
+        aliemus = baseAliemus = 25;
         block = baseBlock = 5;
         selfRetain = true; // 保留
     }
@@ -32,7 +32,7 @@ public class FleshDetached extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeAliemus(20);
+        upgradeAliemus(25);
         upgradeBaseCost(1);
     }
 

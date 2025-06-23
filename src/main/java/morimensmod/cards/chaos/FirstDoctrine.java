@@ -18,7 +18,7 @@ public class FirstDoctrine extends AbstractEasyCard {
     public FirstDoctrine() {
         super(ID, 3, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
-        aliemus = baseAliemus = 30;
+        aliemus = baseAliemus = 25;
         magicNumber = baseMagicNumber = 1; // 每次獲得的能量
         secondMagic = baseSecondMagic = 3; // 每回合最大觸發次數
         selfRetain = true; // 保留
@@ -32,7 +32,7 @@ public class FirstDoctrine extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeAliemus(20);
+        upgradeAliemus(25);
         upgradeBaseCost(2);
     }
 }

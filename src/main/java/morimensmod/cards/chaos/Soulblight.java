@@ -19,7 +19,7 @@ public class Soulblight extends AbstractEasyCard {
     public Soulblight() {
         super(ID, 3, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
-        aliemus = baseAliemus = 30;
+        aliemus = baseAliemus = 25;
         heal = baseHeal = 5;
         magicNumber = baseMagicNumber = 50; // 觸發中毒%
         selfRetain = true; // 保留
@@ -33,7 +33,7 @@ public class Soulblight extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeAliemus(20);
+        upgradeAliemus(25);
         upgradeBaseCost(2);
     }
 

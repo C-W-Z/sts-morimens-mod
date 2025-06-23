@@ -18,7 +18,7 @@ public class BattleThirst extends AbstractEasyCard {
     public BattleThirst() {
         super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
-        aliemus = baseAliemus = 30;
+        aliemus = baseAliemus = 25;
         magicNumber = baseMagicNumber = 1; // 攻擊次數 + 1
         selfRetain = true; // 保留
     }
@@ -31,7 +31,7 @@ public class BattleThirst extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeAliemus(20);
+        upgradeAliemus(25);
         upgradeBaseCost(1);
     }
 }
