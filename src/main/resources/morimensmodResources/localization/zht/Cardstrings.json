@@ -187,7 +187,7 @@
   },
   "${ModID}:MidnightTide": {
     "NAME": "夜潮洶湧",
-    "DESCRIPTION": "對生命最高的敵人造成 !D! 點傷害並施加等同於 !M! %傷害的 中毒 ，享受 !${ModID}:M2! 倍 力量 加成。"
+    "DESCRIPTION": "對生命最高的敵人造成 !D! 點傷害並施加等同於 !M! %傷害的 中毒 。"
   },
   "${ModID}:KnellOfDeath": {
     "NAME": "喪鐘遙鳴",
