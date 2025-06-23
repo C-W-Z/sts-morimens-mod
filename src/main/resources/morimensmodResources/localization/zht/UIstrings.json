@@ -89,6 +89,11 @@
             "銀鑰能量"
         ]
     },
+    "${ModID}:DeathResistancePatch": {
+        "TEXT": [
+            "死亡抵抗！"
+        ]
+    },
     "${ModID}:AliemusUI": {
         "TEXT": [
             " #y",

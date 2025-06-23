@@ -1,5 +1,6 @@
 package morimensmod.patches;
 
+import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.p;
 
 import com.badlogic.gdx.graphics.Color;
@@ -11,6 +12,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 
@@ -19,6 +21,9 @@ import morimensmod.characters.AbstractAwakener;
 
 @SpirePatch2(clz = AbstractPlayer.class, method = "damage")
 public class DeathResistancePatch {
+
+    private static final String TEXT = CardCrawlGame.languagePack.getUIString(makeID(DeathResistancePatch.class.getSimpleName())).TEXT[0];
+
     @SpireInsertPatch(locator = Locator.class)
     public static SpireReturn<Void> interceptDeath(AbstractPlayer __instance, DamageInfo info) {
         if (__instance instanceof AbstractAwakener && ((AbstractAwakener) __instance).tryResistDeath()) {
@@ -30,7 +35,7 @@ public class DeathResistancePatch {
                     new TextAboveCreatureEffect(
                             p().hb.cX - p().animX,
                             p().hb.cY + p().hb.height / 2.0F,
-                            "死亡抵抗！",
+                            TEXT,
                             Color.RED));
             return SpireReturn.Return();
         }

@@ -41,7 +41,10 @@ public class SaveAwakenerFloatProperties implements CustomSavable<HashMap<String
             return;
         logger.debug("onLoad, ");
         AbstractAwakener awaker = (AbstractAwakener) p();
-        awaker.setDeathResistance(props.get("deathResistance"));
+        awaker.setDeathResistance(optionalToFloat(props.get("deathResistance")));
     }
 
+    private float optionalToFloat(Float i) {
+        return i == null ? 0 : i;
+    }
 }

@@ -49,7 +49,7 @@ public class SaveAwakenerProperties implements CustomSavable<HashMap<String, Int
         AbstractAwakener.setKeyflare(optionalToInt(props.get("keyflare")));
         awaker.baseAliemusRegen = optionalToInt(props.get("baseAliemusRegen"));
         awaker.baseKeyflareRegen = optionalToInt(props.get("baseKeyflareRegen"));
-        awaker.setDeathResistanceCount(props.get("deathResistanceCount"));
+        awaker.setDeathResistanceCount(optionalToInt(props.get("deathResistanceCount")));
     }
 
     private int optionalToInt(Integer i) {
