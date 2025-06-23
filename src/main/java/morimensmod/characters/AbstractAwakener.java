@@ -41,6 +41,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     private static final Logger logger = LogManager.getLogger(AbstractAwakener.class);
 
+    protected float deathResistance = 0;
+    protected int deathResistanceCount = 0;
+
     public int baseAliemusRegen = 0;
     public int aliemusRegen = baseAliemusRegen;
 
@@ -465,5 +468,46 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public String getPosseDescription() {
         return posse.getUIDescription();
+    }
+
+    public float getDeathResistance() {
+        return deathResistance;
+    }
+
+    public int getDeathResistanceCount() {
+        return deathResistanceCount;
+    }
+
+    public float setDeathResistance(float amount) {
+        deathResistance = amount;
+        if (deathResistance <= 0)
+            deathResistance = 0;
+        return deathResistance;
+    }
+
+    public float changeDeathResistance(float amount) {
+        return setDeathResistance(deathResistance + amount);
+    }
+
+    public float setDeathResistanceCount(int amount) {
+        deathResistanceCount = amount;
+        if (deathResistanceCount <= 0)
+            deathResistanceCount = 0;
+        return deathResistanceCount;
+    }
+
+    public boolean tryResistDeath() {
+        boolean success = AbstractDungeon.miscRng.randomBoolean(deathResistance / 100F);
+        if (success) {
+            logger.info("Death Resistance Success with change=" + deathResistance);
+            setDeathResistance(deathResistance / 2F);
+            logger.info("Now deathResistance become " + deathResistance);
+            deathResistanceCount++;
+            logger.info("deathResistanceCount=" + deathResistanceCount);
+        }
+        else {
+            logger.info("Death Resistance Failed with change=" + deathResistance);
+        }
+        return success;
     }
 }

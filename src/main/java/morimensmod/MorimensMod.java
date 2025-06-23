@@ -19,6 +19,7 @@ import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.relics.AbstractEasyRelic;
+import morimensmod.savables.SaveAwakenerFloatProperties;
 import morimensmod.savables.SaveAwakenerProperties;
 import morimensmod.savables.SavePersistentPowers;
 import morimensmod.util.PersistentPowerLib;
@@ -339,6 +340,7 @@ public class MorimensMod implements
                 });
         BaseMod.addSaveField(SavePersistentPowers.ID, new SavePersistentPowers());
         BaseMod.addSaveField(SaveAwakenerProperties.ID, new SaveAwakenerProperties());
+        BaseMod.addSaveField(SaveAwakenerFloatProperties.ID, new SaveAwakenerFloatProperties());
     }
 
     @Override

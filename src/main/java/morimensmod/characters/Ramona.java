@@ -46,6 +46,7 @@ public class Ramona extends AbstractAwakener {
         setExaltAndPosse(new MundusDecree(), new VoicesInYourHead());
         baseAliemusRegen = 0;
         baseKeyflareRegen = 60;
+        deathResistance = 100;
     }
 
     public static void register() {
