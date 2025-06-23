@@ -18,7 +18,7 @@ public class DrowningInSorrow extends AbstractEasyCard {
     public DrowningInSorrow() {
         super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
-        aliemus = baseAliemus = 5;
+        aliemus = baseAliemus = 20;
         magicNumber = baseMagicNumber = 2; // 每回合結束施加中毒
         secondMagic = baseSecondMagic = 4; // 狂氣倍數 only for display
         selfRetain = true; // 保留
