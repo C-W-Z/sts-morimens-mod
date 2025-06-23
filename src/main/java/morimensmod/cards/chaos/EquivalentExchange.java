@@ -20,7 +20,7 @@ public class EquivalentExchange extends AbstractEasyCard {
     public EquivalentExchange() {
         super(ID, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
-        heal = baseHeal = 10;
+        heal = baseHeal = 3;
         magicNumber = baseMagicNumber = 2;
     }
 

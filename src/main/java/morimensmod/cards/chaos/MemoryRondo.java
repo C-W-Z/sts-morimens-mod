@@ -48,6 +48,7 @@ public class MemoryRondo extends AbstractEasyCard {
             normalUse(p, m);
             islastUseForcedPlay = false;
         } else {
+            freeToPlayOnce = true;
             forceUse(p, m);
             islastUseForcedPlay = true;
         }

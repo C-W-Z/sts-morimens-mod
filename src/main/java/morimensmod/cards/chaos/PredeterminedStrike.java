@@ -34,6 +34,8 @@ public class PredeterminedStrike extends AbstractEasyCard {
 
     public final static String ID = makeID(PredeterminedStrike.class.getSimpleName());
 
+    static final int DMG_SCALE = 2;
+
     public PredeterminedStrike() {
         super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
@@ -94,7 +96,7 @@ public class PredeterminedStrike extends AbstractEasyCard {
     }
 
     private void useOdeToTomorrow(AbstractPlayer p) {
-        misc = 2;
+        misc = DMG_SCALE;
         AbstractAwakener.addLastUsedEnergy(AbstractAwakener.getLastUsedEnergy() * (thirdMagic - 1));
         exhaustOnUseOnce = true;
     }

@@ -18,8 +18,7 @@ public class RewindingTimePower extends AbstractEasyPower {
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     public RewindingTimePower(AbstractCreature owner, int maxUsePerTurn) {
-        super(POWER_ID, NAME, PowerType.BUFF, false, owner, 1);
-        // amount == maxUsePerTurn
+        super(POWER_ID, NAME, PowerType.BUFF, false, owner, maxUsePerTurn);
         isTwoAmount = true;
         amount2 = amount; // remainUsesThisTurn
         updateDescription();

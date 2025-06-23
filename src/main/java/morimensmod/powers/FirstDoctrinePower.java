@@ -16,21 +16,18 @@ public class FirstDoctrinePower extends AbstractEasyPower {
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private int maxUsePerTurn = 3;
+    private static final int MAX_USE_PER_TURN = 3;
 
-    public FirstDoctrinePower(AbstractCreature owner, int amount, int maxUsePerTurn) {
+    public FirstDoctrinePower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
-        this.maxUsePerTurn = maxUsePerTurn;
-
         isTwoAmount = true;
-        amount2 = maxUsePerTurn; // remainUsesThisTurn
-
+        amount2 = MAX_USE_PER_TURN; // remainUsesThisTurn
         updateDescription();
     }
 
     @Override
     public void atStartOfTurn() {
-        amount2 = maxUsePerTurn;
+        amount2 = MAX_USE_PER_TURN;
         updateDescription();
     }
 
@@ -46,7 +43,7 @@ public class FirstDoctrinePower extends AbstractEasyPower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + maxUsePerTurn + DESCRIPTIONS[2] + amount2
+        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + MAX_USE_PER_TURN + DESCRIPTIONS[2] + amount2
                 + DESCRIPTIONS[3];
     }
 }

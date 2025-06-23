@@ -18,7 +18,7 @@ public class BattleThirst extends AbstractEasyCard {
     public BattleThirst() {
         super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
-        aliemus = baseAliemus = 30;
+        aliemus = baseAliemus = 5;
         magicNumber = baseMagicNumber = 1; // 攻擊次數 + 1
         selfRetain = true; // 保留
     }

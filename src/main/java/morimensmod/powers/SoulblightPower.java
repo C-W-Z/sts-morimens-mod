@@ -23,7 +23,7 @@ public class SoulblightPower extends AbstractEasyPower implements OnAfterReceive
 
     private int heal;
     private int aliemus;
-    private static final int invokePoisonPercentPerRound = 50;
+    private static final int INVOKE_POISON_PERCENT = 50;
 
     public SoulblightPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
@@ -67,6 +67,6 @@ public class SoulblightPower extends AbstractEasyPower implements OnAfterReceive
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + heal + DESCRIPTIONS[1] + aliemus + DESCRIPTIONS[2] + invokePoisonPercentPerRound + DESCRIPTIONS[3];
+        this.description = DESCRIPTIONS[0] + heal + DESCRIPTIONS[1] + aliemus + DESCRIPTIONS[2] + INVOKE_POISON_PERCENT + DESCRIPTIONS[3];
     }
 }

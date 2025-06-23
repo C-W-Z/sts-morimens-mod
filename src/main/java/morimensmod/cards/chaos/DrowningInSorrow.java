@@ -6,33 +6,33 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.patches.CustomTags;
-import morimensmod.powers.FirstDoctrinePower;
+import morimensmod.powers.DrowningInSorrowPower;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 
-public class FirstDoctrine extends AbstractEasyCard {
-    public final static String ID = makeID(FirstDoctrine.class.getSimpleName());
+public class DrowningInSorrow extends AbstractEasyCard {
+    public final static String ID = makeID(DrowningInSorrow.class.getSimpleName());
 
-    public FirstDoctrine() {
-        super(ID, 3, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
+    public DrowningInSorrow() {
+        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
         aliemus = baseAliemus = 5;
-        magicNumber = baseMagicNumber = 1; // 每次獲得的能量
-        secondMagic = baseSecondMagic = 3; // 每回合最大觸發次數 only for display
+        magicNumber = baseMagicNumber = 2; // 每回合結束施加中毒
+        secondMagic = baseSecondMagic = 4; // 狂氣倍數 only for display
         selfRetain = true; // 保留
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new AliemusChangeAction(p, aliemus));
-        applyToSelf(new FirstDoctrinePower(p, magicNumber));
+        applyToSelf(new DrowningInSorrowPower(p, magicNumber));
     }
 
     @Override
     public void upp() {
         upgradeAliemus(20);
-        upgradeBaseCost(2);
+        upgradeBaseCost(0);
     }
 }

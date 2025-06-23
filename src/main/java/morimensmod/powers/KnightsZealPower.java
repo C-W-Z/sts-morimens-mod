@@ -18,13 +18,12 @@ public class KnightsZealPower extends AbstractEasyPower {
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private int nCardsToGainStrength;
+    private static final int GAIN_STR_PER_N_CARD = 3;
 
-    public KnightsZealPower(AbstractCreature owner, int amount, int nCardsToGainStrength) {
+    public KnightsZealPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
-        this.nCardsToGainStrength = nCardsToGainStrength;
         isTwoAmount = true;
-        amount2 = nCardsToGainStrength;
+        amount2 = GAIN_STR_PER_N_CARD;
         updateDescription();
     }
 
@@ -39,12 +38,12 @@ public class KnightsZealPower extends AbstractEasyPower {
         }
         flash();
         addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount), amount));
-        amount2 = nCardsToGainStrength;
+        amount2 = GAIN_STR_PER_N_CARD;
         updateDescription();
     }
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + nCardsToGainStrength + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2] + amount2 + DESCRIPTIONS[3];
+        this.description = DESCRIPTIONS[0] + GAIN_STR_PER_N_CARD + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2] + amount2 + DESCRIPTIONS[3];
     }
 }
