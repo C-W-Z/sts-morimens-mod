@@ -16,10 +16,11 @@ public class DrowningInSorrow extends AbstractEasyCard {
     public final static String ID = makeID(DrowningInSorrow.class.getSimpleName());
 
     public DrowningInSorrow() {
-        super(ID, 2, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
         aliemus = baseAliemus = 5;
-        magicNumber = baseMagicNumber = 2; // 每次獲得的狂氣
+        magicNumber = baseMagicNumber = 2; // 每回合結束施加中毒
+        secondMagic = baseSecondMagic = 4; // 狂氣倍數 only for display
         selfRetain = true; // 保留
     }
 
@@ -32,6 +33,6 @@ public class DrowningInSorrow extends AbstractEasyCard {
     @Override
     public void upp() {
         upgradeAliemus(20);
-        upgradeBaseCost(1);
+        upgradeBaseCost(0);
     }
 }

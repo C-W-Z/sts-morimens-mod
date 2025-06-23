@@ -22,7 +22,7 @@ public class KnightsZeal extends AbstractEasyCard {
         aliemus = baseAliemus = 5;
         magicNumber = baseMagicNumber = 1; // 力量
         secondMagic = baseSecondMagic = 1; // 每次獲得多少力量
-        thirdMagic = baseThirdMagic = 3; // 每幾張指令卡獲得力量
+        thirdMagic = baseThirdMagic = 3; // 每幾張指令卡獲得力量 only for display
         selfRetain = true; // 保留
     }
 
@@ -30,7 +30,7 @@ public class KnightsZeal extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new AliemusChangeAction(p, aliemus));
         applyToSelf(new StrengthPower(p, magicNumber));
-        applyToSelf(new KnightsZealPower(p, secondMagic, thirdMagic));
+        applyToSelf(new KnightsZealPower(p, secondMagic));
     }
 
     @Override

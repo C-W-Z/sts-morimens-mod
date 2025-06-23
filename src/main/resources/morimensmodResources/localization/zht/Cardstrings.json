@@ -183,7 +183,7 @@
   },
   "${ModID}:DrowningInSorrow": {
     "NAME": "沉逝苦海",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。打出卡牌後，獲得 !M! 點 ${ModID}:狂氣 。 NL 保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。回合結束時，對所有生物施加 !M! 點 中毒 ，然後獲得等於自身 中毒 層數 !${ModID}:M2! 倍的 ${ModID}:狂氣 。 NL 保留 "
   },
   "${ModID}:MidnightTide": {
     "NAME": "夜潮洶湧",

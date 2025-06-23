@@ -19,8 +19,8 @@ public class FatesDescent extends AbstractEasyCard {
     public FatesDescent() {
         super(ID, 3, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
-        aliemus = baseAliemus = 30;
-        heal = baseHeal = 2;
+        aliemus = baseAliemus = 25;
+        heal = baseHeal = 1;
         magicNumber = baseMagicNumber = 50; // 每有50點狂氣重複一次
         secondMagic = baseSecondMagic = 2; // 施加中毒
     }
@@ -36,7 +36,7 @@ public class FatesDescent extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeAliemus(20);
+        upgradeAliemus(25);
         upgradeSecondMagic(1);
     }
 }

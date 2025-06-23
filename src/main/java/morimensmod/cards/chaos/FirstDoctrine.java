@@ -20,14 +20,14 @@ public class FirstDoctrine extends AbstractEasyCard {
         tags.add(CustomTags.ROUSE);
         aliemus = baseAliemus = 5;
         magicNumber = baseMagicNumber = 1; // 每次獲得的能量
-        secondMagic = baseSecondMagic = 3; // 每回合最大觸發次數
+        secondMagic = baseSecondMagic = 3; // 每回合最大觸發次數 only for display
         selfRetain = true; // 保留
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new AliemusChangeAction(p, aliemus));
-        applyToSelf(new FirstDoctrinePower(p, magicNumber, secondMagic));
+        applyToSelf(new FirstDoctrinePower(p, magicNumber));
     }
 
     @Override

@@ -23,10 +23,10 @@ public class ManikinOfOblivionPower extends AbstractEasyPower implements OnAfter
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
+    private static final int RECHARGE_ALIEMUS_PERCENT = 20;
+
     public ManikinOfOblivionPower(AbstractCreature owner, int percent) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, percent);
-        // isTwoAmount = true;
-        amount2 = 20;
         updateDescription();
     }
 
@@ -69,7 +69,7 @@ public class ManikinOfOblivionPower extends AbstractEasyPower implements OnAfter
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount2 + DESCRIPTIONS[2];
+        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + RECHARGE_ALIEMUS_PERCENT + DESCRIPTIONS[2];
     }
 
     @Override
@@ -77,7 +77,7 @@ public class ManikinOfOblivionPower extends AbstractEasyPower implements OnAfter
         if (exhaustAliemus <= 0)
             return;
 
-        int aliemus = exhaustAliemus * amount2 / 100;
+        int aliemus = exhaustAliemus * RECHARGE_ALIEMUS_PERCENT / 100;
 
         int aliemusAmplify = 100 + AbstractAwakener.baseAliemusAmplify;
         aliemus = MathUtils.ceil(aliemus * aliemusAmplify / 100F);

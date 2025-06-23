@@ -22,24 +22,22 @@ public class EntropyUndonePower extends AbstractEasyPower {
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private int negentropyGain = 1;
-    private int maxUsePerTurn = 3;
+    private static final int NEGENTROPY_GAIN = 1;
+    private static final int MAX_USE_PER_TURN = 3;
     private int negentropyAmountBeforeUseCard = 0;
 
-    public EntropyUndonePower(AbstractCreature owner, int negentropyGain, int amount, int maxUsePerTurn) {
+    public EntropyUndonePower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
-        this.negentropyGain = negentropyGain;
-        this.maxUsePerTurn = maxUsePerTurn;
 
         isTwoAmount = true;
-        amount2 = maxUsePerTurn; // remainUsesThisTurn
+        amount2 = MAX_USE_PER_TURN; // remainUsesThisTurn
 
         updateDescription();
     }
 
     @Override
     public void atStartOfTurn() {
-        amount2 = maxUsePerTurn;
+        amount2 = MAX_USE_PER_TURN;
         updateDescription();
     }
 
@@ -61,7 +59,7 @@ public class EntropyUndonePower extends AbstractEasyPower {
         if (negentropyAmountBeforeUseCard >= NegentropyPower.INVOKE_AMOUNT)
             return;
         flash();
-        applyToSelf(new NegentropyPower(p(), negentropyGain));
+        applyToSelf(new NegentropyPower(p(), NEGENTROPY_GAIN));
         addToBot(new KeyflareChangeAction(p(), amount));
         amount2--;
         updateDescription();
@@ -69,7 +67,7 @@ public class EntropyUndonePower extends AbstractEasyPower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + 1 + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2] + maxUsePerTurn
+        this.description = DESCRIPTIONS[0] + 1 + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2] + MAX_USE_PER_TURN
                 + DESCRIPTIONS[3] + amount2 + DESCRIPTIONS[4];
     }
 }
