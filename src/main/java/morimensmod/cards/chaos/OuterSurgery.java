@@ -18,7 +18,7 @@ public class OuterSurgery extends AbstractEasyCard {
     public OuterSurgery() {
         super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
-        heal = baseHeal = 8;
+        heal = baseHeal = 2;
         magicNumber = baseMagicNumber = 1; // 虛弱
     }
 
