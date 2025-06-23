@@ -39,7 +39,7 @@ public class KnellOfDeath extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeBlock(4);
+        upgradeBlock(3);
     }
 
     @Override
