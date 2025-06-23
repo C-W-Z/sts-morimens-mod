@@ -18,7 +18,7 @@ public class EntropyUndone extends AbstractEasyCard {
     public EntropyUndone() {
         super(ID, 3, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
-        aliemus = baseAliemus = 5;
+        aliemus = baseAliemus = 20;
         magicNumber = baseMagicNumber = 1; // 每次獲得的負熵 only for display
         secondMagic = baseSecondMagic = 50; // 每次獲得的銀鑰能量
         thirdMagic = baseThirdMagic = 3; // 每回合最大觸發次數 only for display

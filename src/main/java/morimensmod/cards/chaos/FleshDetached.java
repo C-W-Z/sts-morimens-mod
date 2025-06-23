@@ -19,7 +19,7 @@ public class FleshDetached extends AbstractEasyCard {
     public FleshDetached() {
         super(ID, 2, CardType.POWER, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
-        aliemus = baseAliemus = 5;
+        aliemus = baseAliemus = 20;
         block = baseBlock = 4;
         selfRetain = true; // 保留
     }
