@@ -19,7 +19,7 @@ public class KnightsZeal extends AbstractEasyCard {
     public KnightsZeal() {
         super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
-        aliemus = baseAliemus = 25;
+        aliemus = baseAliemus = 5;
         magicNumber = baseMagicNumber = 1; // 力量
         secondMagic = baseSecondMagic = 1; // 每次獲得多少力量
         thirdMagic = baseThirdMagic = 3; // 每幾張指令卡獲得力量
@@ -35,7 +35,7 @@ public class KnightsZeal extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeAliemus(25);
+        upgradeAliemus(20);
         upgradeMagicNumber(1);
         upgradeBaseCost(1);
     }
