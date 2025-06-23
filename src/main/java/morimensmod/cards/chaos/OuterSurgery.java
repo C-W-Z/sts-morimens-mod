@@ -30,6 +30,7 @@ public class OuterSurgery extends AbstractEasyCard {
 
     @Override
     public void upp() {
+        upgradeHeal(1);
         upgradeMagicNumber(1);
     }
 }
