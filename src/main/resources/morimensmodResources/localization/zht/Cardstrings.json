@@ -183,7 +183,7 @@
   },
   "${ModID}:DrowningInSorrow": {
     "NAME": "沉逝苦海",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。打出卡牌後，獲得 !M! 點狂氣。 NL 保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。打出卡牌後，獲得 !M! 點 ${ModID}:狂氣 。 NL 保留 "
   },
   "${ModID}:MidnightTide": {
     "NAME": "夜潮洶湧",

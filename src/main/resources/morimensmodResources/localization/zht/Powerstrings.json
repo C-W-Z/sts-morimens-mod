@@ -98,6 +98,13 @@
       "% 的 #p中毒 。"
     ]
   },
+  "${ModID}:DrowningInSorrowPower": {
+    "NAME": "沉逝苦海",
+    "DESCRIPTIONS": [
+      "打出卡牌後，獲得 #b",
+      "  點 #y狂氣 。"
+    ]
+  },
   "${ModID}:RewindingTimePower": {
     "NAME": "溯洄時計",
     "DESCRIPTIONS": [
