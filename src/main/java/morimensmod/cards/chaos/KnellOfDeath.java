@@ -23,7 +23,7 @@ public class KnellOfDeath extends AbstractEasyCard {
     public KnellOfDeath() {
         super(ID, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
-        magicNumber = baseMagicNumber = 3; // 中毒
+        magicNumber = baseMagicNumber = 4; // 中毒
         secondMagic = baseSecondMagic = 1; // 虛弱 易傷
         block = baseBlock = 0;
     }
@@ -39,6 +39,7 @@ public class KnellOfDeath extends AbstractEasyCard {
 
     @Override
     public void upp() {
+        upgradeMagicNumber(2);
         upgradeBlock(4);
     }
 

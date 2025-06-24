@@ -14,7 +14,7 @@ public class StellarBrew extends AbstractEasyRelic {
     public static final String ID = makeID(StellarBrew.class.getSimpleName());
 
     public StellarBrew() {
-        super(ID, RelicTier.STARTER, LandingSound.CLINK);
+        super(ID, RelicTier.BOSS, LandingSound.CLINK);
         counter = 0;
     }
 

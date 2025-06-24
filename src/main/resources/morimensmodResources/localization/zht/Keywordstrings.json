@@ -109,6 +109,13 @@
     "DESCRIPTION": "基礎 #y防禦 牌以及所有視為「 #y防禦 」的牌。"
   },
   {
+    "PROPER_NAME": " #g界域精通 ",
+    "NAMES": [
+      "界域精通"
+    ],
+    "DESCRIPTION": "提升界域初始遺物的效果。"
+  },
+  {
     "PROPER_NAME": " #y狂氣 ",
     "NAMES": [
       "狂氣",
@@ -148,7 +155,7 @@
       "銀鑰",
       "Keyflare"
     ],
-    "DESCRIPTION": "消耗 [E] 時可以獲得 #y銀鑰能量 ， #y銀鑰充能 屬性決定每消耗 1 點 [E] 時獲得的 #y銀鑰能量 。"
+    "DESCRIPTION": "消耗 [E] 時可以獲得 #y銀鑰能量 ， #y銀鑰充能 屬性決定每消耗 #b1 點 [E] 時獲得的 #y銀鑰能量 。"
   },
   {
     "PROPER_NAME": " [#D3D3D3]銀鑰充能[] ",
@@ -156,7 +163,7 @@
       "銀鑰充能",
       "Keyflare-Regen"
     ],
-    "DESCRIPTION": " #y銀鑰充能 屬性決定每消耗 1 點 [E] 時獲得的 #y銀鑰能量 。"
+    "DESCRIPTION": " #y銀鑰充能 屬性決定每消耗 #b1 點 [E] 時獲得的 #y銀鑰能量 。"
   },
   {
     "PROPER_NAME": " [#D3D3D3]鑰令[] ",

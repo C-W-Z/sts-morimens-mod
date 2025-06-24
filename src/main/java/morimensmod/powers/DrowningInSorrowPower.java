@@ -17,18 +17,30 @@ import morimensmod.actions.AliemusChangeAction;
 public class DrowningInSorrowPower extends AbstractEasyPower {
 
     public final static String POWER_ID = makeID(DrowningInSorrowPower.class.getSimpleName());
-    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-    private static final String NAME = powerStrings.NAME;
-    private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    private static PowerStrings powerStrings;
+    private static String[] DESCRIPTIONS;
+
+    /**
+     * PoisonPowerPatch會在CardCrawlGame.languagePack準備好之前就調用DrowningInSorrowPower.POWER_ID，導致static initialize時出錯，因此必須延後載入
+     * @return PowerStrings
+     */
+    public static PowerStrings getStrings() {
+        if (powerStrings == null) {
+            powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+            DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+        }
+        return powerStrings;
+    }
 
     private static final int POISON_ALIEMUS_SCALE = 4;
 
     public DrowningInSorrowPower(AbstractCreature owner, int amount) {
-        super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
+        super(POWER_ID, getStrings().NAME, PowerType.BUFF, false, owner, amount);
+        priority = 4;
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
+    public void atStartOfTurn() {
         flash();
         applyToSelf(new PoisonPower(owner, owner, amount));
         addToBot(new AllEnemyApplyPowerAction(owner, amount, m -> new PoisonPower(m, owner, amount)));

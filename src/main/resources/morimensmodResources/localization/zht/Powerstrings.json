@@ -101,9 +101,9 @@
   "${ModID}:DrowningInSorrowPower": {
     "NAME": "沉逝苦海",
     "DESCRIPTIONS": [
-      "每回合結束時，對所有生物施加 #b",
+      "每回合開始後，對所有生物施加 #b",
       " 點 #p中毒 ，然後獲得等於自身 #p中毒 層數 #b",
-      " 倍的 #y狂氣 。"
+      " 倍的 #y狂氣 。你可以 #y格擋 #p中毒 傷害。"
     ]
   },
   "${ModID}:RewindingTimePower": {

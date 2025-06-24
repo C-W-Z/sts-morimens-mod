@@ -40,7 +40,8 @@ public class AliemusUI extends ClickableUIElement {
     private static final float fontScale = 1F;
 
     private static final Texture ICON = TexLoader.getTexture(makeUIPath("Aliemus.png"));
-    private static final UIStrings TEXT = CardCrawlGame.languagePack.getUIString(makeID(AliemusUI.class.getSimpleName()));
+    private static final UIStrings TEXT = CardCrawlGame.languagePack
+            .getUIString(makeID(AliemusUI.class.getSimpleName()));
 
     private static AliemusUI UI;
 
@@ -73,14 +74,15 @@ public class AliemusUI extends ClickableUIElement {
 
     @Override
     protected void onHover() {
+        if (!(p() instanceof AbstractAwakener))
+            return;
         // popup text
         ArrayList<PowerTip> tips = new ArrayList<>();
-        tips.add(new PowerTip(TEXT.EXTRA_TEXT[0], TEXT.EXTRA_TEXT[1]));
-        if (p() instanceof AbstractAwakener) {
-            AbstractAwakener awaker = (AbstractAwakener) p();
-            tips.add(new PowerTip(TEXT.TEXT[0] + awaker.getExaltTitle() + TEXT.TEXT[1], awaker.getExaltDescription()));
-            tips.add(new PowerTip(TEXT.TEXT[2] + awaker.getOverExaltTitle() + TEXT.TEXT[3], awaker.getOverExaltDescription()));
-        }
+        AbstractAwakener awaker = (AbstractAwakener) p();
+        tips.add(new PowerTip(TEXT.EXTRA_TEXT[0], TEXT.EXTRA_TEXT[1] + awaker.aliemusRegen + " "));
+        tips.add(new PowerTip(TEXT.TEXT[0] + awaker.getExaltTitle() + TEXT.TEXT[1], awaker.getExaltDescription()));
+        tips.add(new PowerTip(TEXT.TEXT[2] + awaker.getOverExaltTitle() + TEXT.TEXT[3],
+                awaker.getOverExaltDescription()));
         TipHelper.queuePowerTips(fontX, baseY + Settings.yScale * 400f, tips);
     }
 

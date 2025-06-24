@@ -7,7 +7,7 @@ import morimensmod.cards.chaos.Strike;
 import morimensmod.cards.posses.VoicesInYourHead;
 import morimensmod.exalts.MundusDecree;
 import morimensmod.misc.SpriteSheetAnimation;
-import morimensmod.relics.StellarBrew;
+import morimensmod.relics.ChaosRelic;
 
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -46,6 +46,8 @@ public class Ramona extends AbstractAwakener {
         setExaltAndPosse(new MundusDecree(), new VoicesInYourHead());
         baseAliemusRegen = 0;
         baseKeyflareRegen = 60;
+        deathResistance = 100;
+        baseRealmMastery = 50;
     }
 
     public static void register() {
@@ -78,7 +80,7 @@ public class Ramona extends AbstractAwakener {
     @Override
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(StellarBrew.ID);
+        retVal.add(ChaosRelic.ID);
         return retVal;
     }
 

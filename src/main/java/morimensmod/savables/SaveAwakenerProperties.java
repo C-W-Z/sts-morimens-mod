@@ -35,12 +35,13 @@ public class SaveAwakenerProperties implements CustomSavable<HashMap<String, Int
         props.put("keyflare", AbstractAwakener.getKeyflare());
         props.put("baseAliemusRegen", awaker.baseAliemusRegen);
         props.put("baseKeyflareRegen", awaker.baseKeyflareRegen);
+        props.put("deathResistanceCount", awaker.getDeathResistanceCount());
         return props;
     }
 
     @Override
     public void onLoad(HashMap<String, Integer> props) {
-        if (!(p() instanceof AbstractAwakener))
+        if (!(p() instanceof AbstractAwakener) || props == null)
             return;
         logger.debug("onLoad, aliemus: " + optionalToInt(props.get("aliemus")) + ", keyflare: " + optionalToInt(props.get("keyflare")));
         AbstractAwakener awaker = (AbstractAwakener) p();
@@ -48,6 +49,7 @@ public class SaveAwakenerProperties implements CustomSavable<HashMap<String, Int
         AbstractAwakener.setKeyflare(optionalToInt(props.get("keyflare")));
         awaker.baseAliemusRegen = optionalToInt(props.get("baseAliemusRegen"));
         awaker.baseKeyflareRegen = optionalToInt(props.get("baseKeyflareRegen"));
+        awaker.setDeathResistanceCount(optionalToInt(props.get("deathResistanceCount")));
     }
 
     private int optionalToInt(Integer i) {

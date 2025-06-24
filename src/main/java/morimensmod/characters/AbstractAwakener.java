@@ -10,6 +10,7 @@ import morimensmod.actions.PosseAction;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.misc.PosseType;
 import morimensmod.misc.SpriteSheetAnimation;
+import morimensmod.patches.CustomTags;
 import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.util.PersistentPowerLib;
 import morimensmod.cards.posses.AbstractPosse;
@@ -40,6 +41,12 @@ import org.apache.logging.log4j.Logger;
 public abstract class AbstractAwakener extends CustomPlayer {
 
     private static final Logger logger = LogManager.getLogger(AbstractAwakener.class);
+
+    protected static float deathResistance = 0;
+    protected static int deathResistanceCount = 0;
+
+    protected static int baseRealmMastery = 0;
+    protected static int realmMastery = 0;
 
     public int baseAliemusRegen = 0;
     public int aliemusRegen = baseAliemusRegen;
@@ -182,6 +189,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
             awaker.keyflareRegen = awaker.baseKeyflareRegen;
         }
 
+        realmMastery = baseRealmMastery;
+
         lastUsedEnergy = 0;
 
         baseDamageAmplify = 0;
@@ -229,7 +238,10 @@ public abstract class AbstractAwakener extends CustomPlayer {
         logger.debug("lastUsedEnergy: " + lastUsedEnergy);
         if (lastUsedEnergy == 0 || !(p() instanceof AbstractAwakener))
             return;
-        if (card.type == CardType.CURSE || card.type == CardType.STATUS) {
+        if (card.type == CardType.CURSE || card.type == CardType.STATUS
+                || card.hasTag(CustomTags.BUFF)
+                || card.hasTag(CustomTags.SYMPTOM)
+                || card.hasTag(CustomTags.STATUS)) {
             lastUsedEnergy = 0;
             return;
         }
@@ -465,5 +477,60 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public String getPosseDescription() {
         return posse.getUIDescription();
+    }
+
+    public float getDeathResistance() {
+        return deathResistance;
+    }
+
+    public int getDeathResistanceCount() {
+        return deathResistanceCount;
+    }
+
+    public float setDeathResistance(float amount) {
+        deathResistance = amount;
+        if (deathResistance <= 0)
+            deathResistance = 0;
+        return deathResistance;
+    }
+
+    public float changeDeathResistance(float amount) {
+        return setDeathResistance(deathResistance + amount);
+    }
+
+    public float setDeathResistanceCount(int amount) {
+        deathResistanceCount = amount;
+        if (deathResistanceCount <= 0)
+            deathResistanceCount = 0;
+        return deathResistanceCount;
+    }
+
+    public float addDeathResistance(float amount) {
+        for (int i = 0; i < deathResistanceCount; i++)
+            amount /= 2;
+        changeDeathResistance(amount);
+        return amount;
+    }
+
+    public boolean tryResistDeath() {
+        boolean success = AbstractDungeon.miscRng.randomBoolean(deathResistance / 100F);
+        if (success) {
+            logger.info("Death Resistance Success with change=" + deathResistance);
+            setDeathResistance(deathResistance / 2F);
+            logger.info("Now deathResistance become " + deathResistance);
+            deathResistanceCount++;
+            logger.info("deathResistanceCount=" + deathResistanceCount);
+        } else {
+            logger.info("Death Resistance Failed with change=" + deathResistance);
+        }
+        return success;
+    }
+
+    public static String getDeathResistanceUIText() {
+        return deathResistance + "%";
+    }
+
+    public int getRealmMastry() {
+        return realmMastery;
     }
 }
