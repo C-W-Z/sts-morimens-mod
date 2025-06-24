@@ -25,10 +25,11 @@ public class DrowningInSorrowPower extends AbstractEasyPower {
 
     public DrowningInSorrowPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
+        priority = 4;
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
+    public void atStartOfTurn() {
         flash();
         applyToSelf(new PoisonPower(owner, owner, amount));
         addToBot(new AllEnemyApplyPowerAction(owner, amount, m -> new PoisonPower(m, owner, amount)));
