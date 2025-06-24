@@ -50,6 +50,10 @@ public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse {
     }
 
     @Override
+    public void renderCounter(SpriteBatch sb, boolean inTopPanel) {
+    }
+
+    @Override
     public void renderTip(SpriteBatch sb) {
         if (this.hb.hovered) {
             this.description = getUpdatedDescription();
