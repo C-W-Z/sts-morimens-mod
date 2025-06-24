@@ -42,8 +42,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     private static final Logger logger = LogManager.getLogger(AbstractAwakener.class);
 
-    protected float deathResistance = 0;
-    protected int deathResistanceCount = 0;
+    protected static float deathResistance = 0;
+    protected static int deathResistanceCount = 0;
 
     public int baseAliemusRegen = 0;
     public int aliemusRegen = baseAliemusRegen;
@@ -512,5 +512,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
             logger.info("Death Resistance Failed with change=" + deathResistance);
         }
         return success;
+    }
+
+    public static String getDeathResistanceUIText() {
+        return deathResistance + "%";
     }
 }
