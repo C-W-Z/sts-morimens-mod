@@ -4,17 +4,23 @@ import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertLocator;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInstrumentPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.unique.PoisonLoseHpAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 
+import javassist.CannotCompileException;
 import javassist.CtBehavior;
+import javassist.expr.ExprEditor;
+import javassist.expr.NewExpr;
 import morimensmod.powers.DrowningInSorrowPower;
 import static morimensmod.util.Wiz.atb;
 
@@ -59,6 +65,30 @@ public class PoisonPowerPatch {
             logger.debug("apply poison action atEndOfTurn");
             __instance.flashWithoutSound();
             atb(new PoisonLoseHpAction(__instance.owner, __instance.owner, __instance.amount, AttackEffect.POISON));
+        }
+    }
+
+    /**
+     * See DrowningInSorrowPower.getStrings()
+     */
+    @SpirePatch(clz = PoisonLoseHpAction.class, method = "update")
+    public static class PoisonDamageTypeByTargetPatch {
+        @SpireInstrumentPatch
+        public static ExprEditor patch() {
+            return new ExprEditor() {
+                @Override
+                public void edit(NewExpr e) throws CannotCompileException {
+                    if (e.getClassName().equals(DamageInfo.class.getName())) {
+                        e.replace("{" +
+                                        "  if (this.target.hasPower(\"" + DrowningInSorrowPower.POWER_ID + "\")) {" +
+                                        "    $_ = new com.megacrit.cardcrawl.cards.DamageInfo($1, $2, com.megacrit.cardcrawl.cards.DamageInfo.DamageType.THORNS);" +
+                                        "  } else {" +
+                                        "    $_ = new com.megacrit.cardcrawl.cards.DamageInfo($1, $2, com.megacrit.cardcrawl.cards.DamageInfo.DamageType.HP_LOSS);" +
+                                        "  }" +
+                                        "}");
+                    }
+                }
+            };
         }
     }
 }
