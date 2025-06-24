@@ -36,6 +36,7 @@ public class SaveAwakenerProperties implements CustomSavable<HashMap<String, Int
         props.put("baseAliemusRegen", awaker.baseAliemusRegen);
         props.put("baseKeyflareRegen", awaker.baseKeyflareRegen);
         props.put("deathResistanceCount", awaker.getDeathResistanceCount());
+        props.put("baseRealmMastery", awaker.getBaseRealmMastry());
         return props;
     }
 
@@ -50,6 +51,7 @@ public class SaveAwakenerProperties implements CustomSavable<HashMap<String, Int
         awaker.baseAliemusRegen = optionalToInt(props.get("baseAliemusRegen"));
         awaker.baseKeyflareRegen = optionalToInt(props.get("baseKeyflareRegen"));
         awaker.setDeathResistanceCount(optionalToInt(props.get("deathResistanceCount")));
+        awaker.setBaseRealmMastry(optionalToInt(props.get("baseRealmMastery")));
     }
 
     private int optionalToInt(Integer i) {
