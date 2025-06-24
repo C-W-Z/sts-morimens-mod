@@ -69,13 +69,13 @@ public class KeyflareUI extends ClickableUIElement {
 
     @Override
     protected void onHover() {
+        if (!(p() instanceof AbstractAwakener))
+            return;
         // popup text
         ArrayList<PowerTip> tips = new ArrayList<>();
-        tips.add(new PowerTip(TEXT.EXTRA_TEXT[0], TEXT.EXTRA_TEXT[1]));
-        if (p() instanceof AbstractAwakener) {
-            AbstractAwakener awaker = (AbstractAwakener) p();
-            tips.add(new PowerTip(TEXT.TEXT[0] + awaker.getPosseTitle() + TEXT.TEXT[1], awaker.getPosseDescription()));
-        }
+        AbstractAwakener awaker = (AbstractAwakener) p();
+        tips.add(new PowerTip(TEXT.EXTRA_TEXT[0], TEXT.EXTRA_TEXT[1] + awaker.keyflareRegen + " "));
+        tips.add(new PowerTip(TEXT.TEXT[0] + awaker.getPosseTitle() + TEXT.TEXT[1], awaker.getPosseDescription()));
         TipHelper.queuePowerTips(fontX, baseY + Settings.yScale * 300f, tips);
     }
 

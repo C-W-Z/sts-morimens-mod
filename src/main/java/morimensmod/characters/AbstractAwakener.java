@@ -45,6 +45,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
     protected static float deathResistance = 0;
     protected static int deathResistanceCount = 0;
 
+    protected static int baseRealmMastery = 0;
+    protected static int realmMastery = 0;
+
     public int baseAliemusRegen = 0;
     public int aliemusRegen = baseAliemusRegen;
 
@@ -185,6 +188,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
             awaker.aliemusRegen = awaker.baseAliemusRegen;
             awaker.keyflareRegen = awaker.baseKeyflareRegen;
         }
+
+        realmMastery = baseRealmMastery;
 
         lastUsedEnergy = 0;
 
@@ -498,6 +503,13 @@ public abstract class AbstractAwakener extends CustomPlayer {
         if (deathResistanceCount <= 0)
             deathResistanceCount = 0;
         return deathResistanceCount;
+    }
+
+    public float addDeathResistance(float amount) {
+        for (int i = 0; i < deathResistanceCount; i++)
+            amount /= 2;
+        changeDeathResistance(amount);
+        return amount;
     }
 
     public boolean tryResistDeath() {
