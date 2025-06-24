@@ -10,6 +10,7 @@ import morimensmod.actions.PosseAction;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.misc.PosseType;
 import morimensmod.misc.SpriteSheetAnimation;
+import morimensmod.patches.CustomTags;
 import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.util.PersistentPowerLib;
 import morimensmod.cards.posses.AbstractPosse;
@@ -232,7 +233,10 @@ public abstract class AbstractAwakener extends CustomPlayer {
         logger.debug("lastUsedEnergy: " + lastUsedEnergy);
         if (lastUsedEnergy == 0 || !(p() instanceof AbstractAwakener))
             return;
-        if (card.type == CardType.CURSE || card.type == CardType.STATUS) {
+        if (card.type == CardType.CURSE || card.type == CardType.STATUS
+                || card.hasTag(CustomTags.BUFF)
+                || card.hasTag(CustomTags.SYMPTOM)
+                || card.hasTag(CustomTags.STATUS)) {
             lastUsedEnergy = 0;
             return;
         }
@@ -504,8 +508,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
             logger.info("Now deathResistance become " + deathResistance);
             deathResistanceCount++;
             logger.info("deathResistanceCount=" + deathResistanceCount);
-        }
-        else {
+        } else {
             logger.info("Death Resistance Failed with change=" + deathResistance);
         }
         return success;
