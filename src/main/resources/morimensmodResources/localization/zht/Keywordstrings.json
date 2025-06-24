@@ -109,6 +109,13 @@
     "DESCRIPTION": "基礎 #y防禦 牌以及所有視為「 #y防禦 」的牌。"
   },
   {
+    "PROPER_NAME": " #g界域精通 ",
+    "NAMES": [
+      "界域精通"
+    ],
+    "DESCRIPTION": "提升界域初始遺物的效果。"
+  },
+  {
     "PROPER_NAME": " #y狂氣 ",
     "NAMES": [
       "狂氣",

@@ -529,4 +529,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public static String getDeathResistanceUIText() {
         return deathResistance + "%";
     }
+
+    public int getRealmMastry() {
+        return realmMastery;
+    }
 }
