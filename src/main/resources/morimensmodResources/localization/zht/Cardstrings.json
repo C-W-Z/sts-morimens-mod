@@ -69,6 +69,13 @@
       "獲得 #b1 點 [E] 。將 #b1 張「 #y打擊 」與 #b1 張「 #y防禦 」的原始複製置入手中，並使他們獲得 #y消耗 、 #y虛無 。 NL 若當前界域為 「 #p超維 」，則額外獲得 #b2 點 #g臨時 #y力量 與 #b1 點 #g臨時 #y敏捷 。"
     ]
   },
+  "${ModID}:GatewayOfRetrospection": {
+    "NAME": "跨越回溯之扉",
+    "DESCRIPTION": "從抽牌堆選擇 1 張牌加入手中，並使其 [E] 消耗降低 1 點。",
+    "EXTENDED_DESCRIPTION": [
+      "從抽牌堆選擇 #b1 張牌加入手中，並使其 [E] 消耗降低 #b1 點。"
+    ]
+  },
   "${ModID}:FestivalOfTides": {
     "NAME": "海之祭",
     "DESCRIPTION": "抽 2 張牌，獲得 2 點 [E] ，失去 5 點 ${ModID}:狂氣 。若當前處於「 ${ModID}:靜海 」姿態，對所有敵人施加 5 層 中毒 ，在首領戰中發揮 3 倍效果。",
