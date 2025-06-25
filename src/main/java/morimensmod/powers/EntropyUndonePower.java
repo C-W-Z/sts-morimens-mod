@@ -42,8 +42,6 @@ public class EntropyUndonePower extends AbstractEasyPower {
     }
 
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        if (amount2 <= 0)
-            return;
         if (!card.hasTag(CustomTags.LOOP))
             return;
         negentropyAmountBeforeUseCard = powerAmount(p(), NegentropyPower.POWER_ID);
@@ -51,23 +49,25 @@ public class EntropyUndonePower extends AbstractEasyPower {
 
     @Override
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        if (amount2 <= 0)
-            return;
-        if (!card.hasTag(CustomTags.LOOP))
-            return;
-        // 打出有回環效果的牌且負熵層數>=3則必定觸發回環
-        if (negentropyAmountBeforeUseCard >= NegentropyPower.INVOKE_AMOUNT)
-            return;
-        flash();
-        applyToSelf(new NegentropyPower(p(), NEGENTROPY_GAIN));
-        addToBot(new KeyflareChangeAction(p(), amount));
-        amount2--;
-        updateDescription();
+        boolean flashed = false;
+        if (amount2 > 0 && card.hasTag(CustomTags.COMMAND)) {
+            flash();
+            flashed = true;
+            addToBot(new KeyflareChangeAction(p(), amount));
+            amount2--;
+            updateDescription();
+        }
+        if (card.hasTag(CustomTags.LOOP) && negentropyAmountBeforeUseCard < NegentropyPower.INVOKE_AMOUNT) {
+            // 打出有回環效果的牌且負熵層數>=3則必定觸發回環
+            if (!flashed)
+                flash();
+            applyToSelf(new NegentropyPower(p(), NEGENTROPY_GAIN));
+        }
     }
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + 1 + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2] + MAX_USE_PER_TURN
-                + DESCRIPTIONS[3] + amount2 + DESCRIPTIONS[4];
+        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + MAX_USE_PER_TURN + DESCRIPTIONS[2] + amount2
+                + DESCRIPTIONS[3] + 1 + DESCRIPTIONS[4];
     }
 }

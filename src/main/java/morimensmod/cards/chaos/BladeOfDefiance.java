@@ -20,7 +20,7 @@ public class BladeOfDefiance extends AbstractEasyCard {
         super(ID, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STRIKE);
-        damage = baseDamage = 5;
+        damage = baseDamage = 6;
         attackCount = baseAttackCount = 3;
     }
 

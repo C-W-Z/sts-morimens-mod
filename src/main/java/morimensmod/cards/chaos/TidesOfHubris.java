@@ -20,10 +20,10 @@ public class TidesOfHubris extends AbstractEasyCard {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STRIKE);
-        damage = baseDamage = 5;
+        damage = baseDamage = 6;
         isMultiDamage = true; // 攻擊多個目標
         attackCount = baseAttackCount = 1;
-        magicNumber = baseMagicNumber = 1; // 獲得力量
+        magicNumber = baseMagicNumber = 0; // 獲得力量
     }
 
     @Override
@@ -42,7 +42,7 @@ public class TidesOfHubris extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeDamage(3);
+        upgradeDamage(4);
         upgradeMagicNumber(1);
     }
 }
