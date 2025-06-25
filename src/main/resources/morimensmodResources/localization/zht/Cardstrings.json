@@ -216,7 +216,7 @@
   },
   "${ModID}:ShortTermMemory": {
     "NAME": "短期記憶",
-    "DESCRIPTION": "獲得 !B! 點 格擋 。獲得 !${ModID}:A! 點 ${ModID}:狂氣 。"
+    "DESCRIPTION": "獲得 !B! 點 格擋 。 NL 獲得 !${ModID}:A! 點 ${ModID}:狂氣 。"
   },
   "${ModID}:GiveAndTake": {
     "NAME": "施與受",

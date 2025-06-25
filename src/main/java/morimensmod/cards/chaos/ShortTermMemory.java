@@ -16,7 +16,7 @@ public class ShortTermMemory extends AbstractEasyCard {
     public ShortTermMemory() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
-        block = baseBlock = 5;
+        block = baseBlock = 4;
         aliemus = baseAliemus = 10;
     }
 
@@ -27,7 +27,7 @@ public class ShortTermMemory extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeBlock(1);
+        upgradeBlock(2);
         upgradeAliemus(10);
     }
 }
