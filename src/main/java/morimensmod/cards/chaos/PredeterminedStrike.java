@@ -103,7 +103,7 @@ public class PredeterminedStrike extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeDamage(3);
+        upgradeMagicNumber(1);
     }
 
     // 讓卡面顯示的傷害包含三倍力量加成

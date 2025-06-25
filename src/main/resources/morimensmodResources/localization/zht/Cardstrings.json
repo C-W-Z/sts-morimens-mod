@@ -257,7 +257,8 @@
   },
   "${ModID}:MemoryRondo": {
     "NAME": "追憶迴旋曲",
-    "DESCRIPTION": "獲得 !M! 點 力量 ，將 !${ModID}:M2! 張「靈感」置入手中。 NL [E] 不足時仍可強行打出，效果改為將 !${ModID}:M2! 張「靈感」洗入抽牌堆。"
+    "DESCRIPTION": "獲得 !M! 點 力量 ，將 !${ModID}:M2! 張「靈感」置入手中。 NL [E] 不足時仍可強行打出，效果改為將 !${ModID}:M2! 張「靈感」洗入抽牌堆。",
+    "UPGRADE_DESCRIPTION": "獲得 !M! 點 力量 ，將 !${ModID}:M2! 張「靈感」置入手中。 NL [E] 不足時仍可強行打出，效果改為獲得 !M! 點 力量 ，將 !${ModID}:M2! 張「靈感」洗入抽牌堆。"
   },
   "${ModID}:DuskAndDawn": {
     "NAME": "極夜與破曉",
