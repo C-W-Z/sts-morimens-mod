@@ -1,12 +1,13 @@
 package morimensmod.cards.chaos;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.discardPile;
 import static morimensmod.util.Wiz.drawPile;
 import static morimensmod.util.Wiz.exhaustPile;
@@ -57,17 +58,13 @@ public class QueensSword extends AbstractEasyCard {
         // damageTypeForTurn));
 
         for (int i = 0; i < attackCount + magicNumber; i++) {
-            addToBot(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    calculateCardDamage(m);
-                    addToTop(new QueensSwordAction(
-                            m,
-                            new DamageInfo(p, damage, damageTypeForTurn),
-                            thirdMagic,
-                            AttackEffect.SLASH_HORIZONTAL));
-                    isDone = true;
-                }
+            actB(() -> {
+                calculateCardDamage(m);
+                addToTop(new QueensSwordAction(
+                        m,
+                        new DamageInfo(p, damage, damageTypeForTurn),
+                        thirdMagic,
+                        AttackEffect.SLASH_HORIZONTAL));
             });
         }
 

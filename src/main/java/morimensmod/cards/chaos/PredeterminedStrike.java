@@ -1,6 +1,6 @@
 package morimensmod.cards.chaos;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
@@ -80,14 +80,10 @@ public class PredeterminedStrike extends AbstractEasyCard {
         }
 
         for (int i = 0; i < attackCount; i++)
-            addToBot(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    calculateCardDamage(m);
-                    addToTop(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
-                            AttackEffect.SLASH_VERTICAL));
-                    isDone = true;
-                }
+            actB(() -> {
+                calculateCardDamage(m);
+                addToTop(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
+                        AttackEffect.SLASH_VERTICAL));
             });
     }
 

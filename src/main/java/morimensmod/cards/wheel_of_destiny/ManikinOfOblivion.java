@@ -2,11 +2,11 @@ package morimensmod.cards.wheel_of_destiny;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
+import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.p;
 
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -40,14 +40,8 @@ public class ManikinOfOblivion extends AbstractEasyCard implements StartupCard {
 
     @Override
     public boolean atBattleStartPreDraw() {
-        if (upgraded)
-            addToBot(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    ((AbstractAwakener) p()).aliemusRegen += magicNumber;
-                    isDone = true;
-                }
-            });
+        if (upgraded && p() instanceof AbstractAwakener)
+            actB(() -> ((AbstractAwakener) p()).aliemusRegen += magicNumber);
         return upgraded;
     }
 }

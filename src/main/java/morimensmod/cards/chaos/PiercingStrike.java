@@ -2,13 +2,14 @@ package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.applyToEnemy;
 import static morimensmod.util.Wiz.p;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -39,13 +40,9 @@ public class PiercingStrike extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < attackCount; i++)
-            addToBot(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    calculateCardDamage(m);
-                    addToTop(new PierceDamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_HEAVY));
-                    isDone = true;
-                }
+            actB(() -> {
+                calculateCardDamage(m);
+                addToTop(new PierceDamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_HEAVY));
             });
         applyToEnemy(m, new VulnerablePower(m, magicNumber, false));
     }

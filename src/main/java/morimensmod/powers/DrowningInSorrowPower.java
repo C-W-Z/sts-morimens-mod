@@ -1,11 +1,11 @@
 package morimensmod.powers;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.powerAmount;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -21,7 +21,9 @@ public class DrowningInSorrowPower extends AbstractEasyPower {
     private static String[] DESCRIPTIONS;
 
     /**
-     * PoisonPowerPatch會在CardCrawlGame.languagePack準備好之前就調用DrowningInSorrowPower.POWER_ID，導致static initialize時出錯，因此必須延後載入
+     * PoisonPowerPatch會在CardCrawlGame.languagePack準備好之前就調用DrowningInSorrowPower.POWER_ID，導致static
+     * initialize時出錯，因此必須延後載入
+     *
      * @return PowerStrings
      */
     public static PowerStrings getStrings() {
@@ -44,15 +46,11 @@ public class DrowningInSorrowPower extends AbstractEasyPower {
         flash();
         applyToSelf(new PoisonPower(owner, owner, amount));
         addToBot(new AllEnemyApplyPowerAction(owner, amount, m -> new PoisonPower(m, owner, amount)));
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                if (owner instanceof AbstractPlayer) {
-                    int poisonAmount = powerAmount(owner, PoisonPower.POWER_ID);
-                    addToTop(new AliemusChangeAction((AbstractPlayer) owner, poisonAmount * POISON_ALIEMUS_SCALE));
-                }
-                isDone = true;
-            };
+        actB(() -> {
+            if (owner instanceof AbstractPlayer) {
+                int poisonAmount = powerAmount(owner, PoisonPower.POWER_ID);
+                addToTop(new AliemusChangeAction((AbstractPlayer) owner, poisonAmount * POISON_ALIEMUS_SCALE));
+            }
         });
     }
 

@@ -1,5 +1,6 @@
 package morimensmod.actions;
 
+import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.hand;
 
 import org.apache.logging.log4j.LogManager;
@@ -61,27 +62,22 @@ public class PosseAction extends AbstractGameAction {
         isDone = true;
 
         // 讓PosseTwicePower在鑰令的activate裡的addToTop都被執行完之後再執行
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                // 呼叫所有遺物的 hook
-                for (AbstractRelic r : posse.getAwakener().relics)
-                    if (r instanceof OnAfterPosse)
-                        ((OnAfterPosse) r).onAfterPosse(posse, exhaustKeyflare);
-                // 呼叫所有 Power 的 hook
-                for (AbstractPower p : posse.getAwakener().powers)
-                    if (p instanceof OnAfterPosse)
-                        ((OnAfterPosse) p).onAfterPosse(posse, exhaustKeyflare);
-                // 呼叫姿態（Stance）的 hook
-                if (posse.getAwakener().stance instanceof OnAfterPosse)
-                    ((OnAfterPosse) posse.getAwakener().stance).onAfterPosse(posse, exhaustKeyflare);
-                // 呼叫所有手牌的 hook
-                for (AbstractCard c : hand().group)
-                    if (c instanceof OnAfterPosse)
-                        ((OnAfterPosse) c).onAfterPosse(posse, exhaustKeyflare);
-
-                isDone = true;
-            }
+        actB(() -> {
+            // 呼叫所有遺物的 hook
+            for (AbstractRelic r : posse.getAwakener().relics)
+                if (r instanceof OnAfterPosse)
+                    ((OnAfterPosse) r).onAfterPosse(posse, exhaustKeyflare);
+            // 呼叫所有 Power 的 hook
+            for (AbstractPower p : posse.getAwakener().powers)
+                if (p instanceof OnAfterPosse)
+                    ((OnAfterPosse) p).onAfterPosse(posse, exhaustKeyflare);
+            // 呼叫姿態（Stance）的 hook
+            if (posse.getAwakener().stance instanceof OnAfterPosse)
+                ((OnAfterPosse) posse.getAwakener().stance).onAfterPosse(posse, exhaustKeyflare);
+            // 呼叫所有手牌的 hook
+            for (AbstractCard c : hand().group)
+                if (c instanceof OnAfterPosse)
+                    ((OnAfterPosse) c).onAfterPosse(posse, exhaustKeyflare);
         });
     }
 }
