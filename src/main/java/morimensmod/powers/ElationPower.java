@@ -16,7 +16,7 @@ public class ElationPower extends AbstractEasyPower {
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final int amplifyPercent = 50;
+    private static final int AMPLIFY_PERCENT = 50;
 
     public ElationPower(AbstractCreature owner, int turns) {
         super(POWER_ID, NAME, PowerType.BUFF, true, owner, turns);
@@ -24,16 +24,16 @@ public class ElationPower extends AbstractEasyPower {
 
     @Override
     public void onInitialApplication() {
-        AbstractAwakener.baseDamageAmplify += amplifyPercent;
-        AbstractAwakener.basePoisonAmplify += amplifyPercent;
-        AbstractAwakener.baseCounterAmplify += amplifyPercent;
+        AbstractAwakener.baseDamageAmplify += AMPLIFY_PERCENT;
+        AbstractAwakener.basePoisonAmplify += AMPLIFY_PERCENT;
+        AbstractAwakener.baseCounterAmplify += AMPLIFY_PERCENT;
     }
 
     @Override
     public void onRemove() {
-        AbstractAwakener.baseDamageAmplify -= amplifyPercent;
-        AbstractAwakener.basePoisonAmplify -= amplifyPercent;
-        AbstractAwakener.baseCounterAmplify -= amplifyPercent;
+        AbstractAwakener.baseDamageAmplify -= AMPLIFY_PERCENT;
+        AbstractAwakener.basePoisonAmplify -= AMPLIFY_PERCENT;
+        AbstractAwakener.baseCounterAmplify -= AMPLIFY_PERCENT;
     }
 
     @Override
@@ -43,6 +43,6 @@ public class ElationPower extends AbstractEasyPower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amplifyPercent + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + AMPLIFY_PERCENT + DESCRIPTIONS[1];
     }
 }

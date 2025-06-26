@@ -128,8 +128,7 @@
   },
   "${ModID}:PhysiologicalAnalysis": {
     "NAME": "生理剖析",
-    "DESCRIPTION": "隨機移除自身一種負面狀態。",
-    "UPGRADE_DESCRIPTION": "移除自身層數最高的負面狀態。"
+    "DESCRIPTION": "使自身所有負面狀態減少 !M! 層。"
   },
   "${ModID}:BattleThirst": {
     "NAME": "戰欲難平",

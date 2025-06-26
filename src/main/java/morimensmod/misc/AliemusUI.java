@@ -3,6 +3,7 @@ package morimensmod.misc;
 import basemod.ClickableUIElement;
 import morimensmod.actions.ExaltAction;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.powers.SealPower;
 import morimensmod.util.TexLoader;
 
 import static morimensmod.MorimensMod.makeID;
@@ -99,6 +100,11 @@ public class AliemusUI extends ClickableUIElement {
                 || AbstractDungeon.isScreenUp || AbstractDungeon.actionManager.turnHasEnded
                 || !(p() instanceof AbstractAwakener))
             return;
+
+        if (p().hasPower(SealPower.POWER_ID)) {
+            showThoughtBubble(TEXT.EXTRA_TEXT[5], 3.0F);
+            return;
+        }
 
         if (AbstractAwakener.isPossing() || AbstractAwakener.isExalting()
                 || !AbstractDungeon.actionManager.cardQueue.isEmpty()) {
