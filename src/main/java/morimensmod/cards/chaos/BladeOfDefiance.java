@@ -37,9 +37,8 @@ public class BladeOfDefiance extends AbstractEasyCard {
 
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) {
-        if (c.hasTag(CardTags.STRIKE)) {
+        if (c.hasTag(CardTags.STRIKE))
             setCostForTurn(costForTurn - 1);
-        }
     }
 
     @Override
