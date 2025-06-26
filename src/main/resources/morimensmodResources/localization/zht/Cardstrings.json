@@ -105,6 +105,10 @@
     "DESCRIPTION": "造成 !D! 點傷害 !${ModID}:M2! 次。打出後使 「女王之劍」 傷害次數 + 1 ，最多提高為 6 次。 ${ModID}:餘波 ：獲得和打出相等的 ${ModID}:銀鑰能量 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 點傷害 !${ModID}:M2! 次，每次造成傷害後獲得 !${ModID}:M3! 點 ${ModID}:臨時 力量 。打出後使 「女王之劍」 傷害次數 + 1 ，最多提高為 6 次。 ${ModID}:餘波 ：獲得和打出相等的 ${ModID}:銀鑰能量 。"
   },
+  "${ModID}:EchoedSimulation": {
+    "NAME": "模擬演繹",
+    "DESCRIPTION": "在手牌中時，視為本回合上次打出的 ${ModID}:指令卡 。"
+  },
   "${ModID}:FleshDetached": {
     "NAME": "靈肉兩分",
     "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 造成生命回復 時，獲得 !B! 點 格擋 。 NL 保留 "
@@ -122,6 +126,11 @@
       "回復 !${ModID}:H! 點生命並獲得 !B! 點 格擋 。棄掉所有手牌。 NL 保留 "
     ]
   },
+  "${ModID}:PhysiologicalAnalysis": {
+    "NAME": "生理剖析",
+    "DESCRIPTION": "隨機移除自身一種負面狀態。",
+    "UPGRADE_DESCRIPTION": "移除自身層數最高的負面狀態。"
+  },
   "${ModID}:BattleThirst": {
     "NAME": "戰欲難平",
     "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL ${ModID}:指令卡 的傷害次數提高 !M! 次。 NL 保留 "
@@ -135,6 +144,10 @@
     "DESCRIPTION": "對所有敵人造成 !D! 點傷害。 NL 視為「 打擊 」 ",
     "UPGRADE_DESCRIPTION": "對所有敵人造成 !D! 點傷害，獲得 !M! 點 力量 。 NL 視為「 打擊 」 "
   },
+  "${ModID}:LoopingSwordplay": {
+    "NAME": "廻環劍技",
+    "DESCRIPTION": "造成 !D! 點傷害，若 斬殺 任何敵人，此卡傷害永久提升 !M! ，將一張附加 消耗 的複製置入手中。 NL 視為「 打擊 」"
+  },
   "${ModID}:KnightsZeal": {
     "NAME": "騎士熱誠",
     "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 獲得 !M! 點 力量 ，每打出 !${ModID}:M3! 張 ${ModID}:指令卡 後，獲得 !${ModID}:M2! 點 力量 。 NL 保留 "
@@ -146,6 +159,10 @@
   "${ModID}:PiercingStrike": {
     "NAME": "穿刺之槍",
     "DESCRIPTION": "造成 !D! 點 ${ModID}:穿刺傷害 ，施加 !M! 回合 易傷 ，享受 !${ModID}:M2! 倍 力量 加成。"
+  },
+  "${ModID}:FrontlineTactics": {
+    "NAME": "前陣戰術",
+    "DESCRIPTION": "獲得 !M! 點 敏捷 。"
   },
   "${ModID}:EntropyUndone": {
     "NAME": "熵增逆轉",
@@ -164,6 +181,10 @@
   "${ModID}:SightUnbound": {
     "NAME": "超越之目",
     "DESCRIPTION": "獲得 !M! 點 力量 ，選擇 !${ModID}:M2! 張抽牌堆的牌置入手中並使其 [E] 消耗- !${ModID}:M3! 。 ${ModID}:回環 ：改為選擇 !${ModID}:M2! 張抽牌堆或棄牌堆的牌置入手中，使其 [E] 消耗變為 0 。"
+  },
+  "${ModID}:RealityImitation": {
+    "NAME": "現實模仿",
+    "DESCRIPTION": "查看隨機 !M! 張 ${ModID}:指令卡 ，將一張附加 消耗 且 [E] 消耗為 0 的原始複製置入手中。"
   },
   "${ModID}:Soulblight": {
     "NAME": "靈魂瘟疫",
@@ -188,6 +209,11 @@
       "宿命坍縮‧終末",
       "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。對所有敵人施加 !${ModID}M2! 層 中毒 ，自身當前每擁有 !M! 點 ${ModID}:狂氣 ，額外施加 1 次 中毒 。"
     ]
+  },
+  "${ModID}:GeniusForesight": {
+    "NAME": "天才的遠見",
+    "DESCRIPTION": "抽 !${ModID}:DR! 張牌。",
+    "UPGRADE_DESCRIPTION": "選擇：獲得 !M! 點 [E] 或 抽 !${ModID}:DR! 張牌。"
   },
   "${ModID}:DrowningInSorrow": {
     "NAME": "沉逝苦海",
@@ -217,6 +243,10 @@
   "${ModID}:ShortTermMemory": {
     "NAME": "短期記憶",
     "DESCRIPTION": "獲得 !B! 點 格擋 。 NL 獲得 !${ModID}:A! 點 ${ModID}:狂氣 。"
+  },
+  "${ModID}:ArtisanOfFate": {
+    "NAME": "命運工匠",
+    "DESCRIPTION": "抽 !${ModID}:DR! 張牌。若抽到的牌是 ${ModID}:命輪 ，則使其 [E] 消耗變為 0 ，否則將其一張附加 消耗 的原始複製置入手中。"
   },
   "${ModID}:GiveAndTake": {
     "NAME": "施與受",
@@ -254,6 +284,14 @@
     "NAME": "靜默守望",
     "DESCRIPTION": ""
   },
+  "${ModID}:PainConversion": {
+    "NAME": "",
+    "DESCRIPTION": " 易傷 自身，本回合每受到一次主動攻擊，獲得 !${ModID}:A! 點 ${ModID}:狂氣 。"
+  },
+  "${ModID}:TenRingsPlay": {
+    "NAME": "十環出牌",
+    "DESCRIPTION": "對隨機敵人造成 !${ModID}:AC! 次 !D! 傷害。 NL ${ModID}:幻影 "
+  },
   "${ModID}:LaudableMasterpiece": {
     "NAME": "此曲應得稱頌",
     "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。回合開始時，將一張「協樂的交響」置入手中。 NL 保留 "
@@ -266,6 +304,15 @@
     "NAME": "追憶迴旋曲",
     "DESCRIPTION": "獲得 !M! 點 力量 ，將 !${ModID}:M2! 張「靈感」置入手中。 NL [E] 不足時仍可強行打出，效果改為將 !${ModID}:M2! 張「靈感」洗入抽牌堆。",
     "UPGRADE_DESCRIPTION": "獲得 !M! 點 力量 ，將 !${ModID}:M2! 張「靈感」置入手中。 NL [E] 不足時仍可強行打出，效果改為獲得 !M! 點 力量 ，將 !${ModID}:M2! 張「靈感」洗入抽牌堆。"
+  },
+  "${ModID}:StunningTone": {
+    "NAME": "驚愕強音",
+    "DESCRIPTION": "造成 !D! 點傷害。"
+  },
+  "${ModID}:GreatSacrifice": {
+    "NAME": "偉大的犧牲",
+    "DESCRIPTION": " 易傷 自身， ${ModID}:延遲 ：抽 !${ModID}:DR! 張牌。",
+    "UPGRADE_DESCRIPTION": " 易傷 自身，抽 !${ModID}:DR! 張牌並使其獲得 ${ModID}:臨時 保留 。"
   },
   "${ModID}:DuskAndDawn": {
     "NAME": "極夜與破曉",

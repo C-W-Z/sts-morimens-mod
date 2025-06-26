@@ -47,7 +47,7 @@ public class SelfDestruct extends AbstractEasyCard {
         elation.secondMagic = elation.baseSecondMagic = secondMagic;
 
         EasyModalChoiceCard curse = new EasyModalChoiceCard(
-                ID,
+                FatesDescent.ID,
                 cardStrings.EXTENDED_DESCRIPTION[2],
                 cardStrings.EXTENDED_DESCRIPTION[3],
                 () -> useCurse(p),

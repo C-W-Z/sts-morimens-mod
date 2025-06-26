@@ -79,6 +79,11 @@
             "鑰令"
         ]
     },
+    "${ModID}:EasyModalChoiceAction": {
+        "TEXT": [
+            "選擇"
+        ]
+    },
     "${ModID}:AliemusChangeAction": {
         "TEXT": [
             "狂氣"
@@ -137,7 +142,10 @@
             "永久保留",
             "銷毀",
             "無法打出",
-            "棄掉時移除"
+            "棄掉時移除",
+            "視為「 打擊 」",
+            "視為「 ${ModID}:防禦 」",
+            "${ModID}:幻影"
         ]
     },
     "${ModID}:ExhaustModifier": {

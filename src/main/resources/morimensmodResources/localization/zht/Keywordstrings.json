@@ -231,6 +231,20 @@
     "DESCRIPTION": "戰鬥開始時，自動觸發 #y被動 效果。"
   },
   {
+    "PROPER_NAME": " #y延遲 ",
+    "NAMES": [
+      "延遲"
+    ],
+    "DESCRIPTION": "下回合開始時發動效果。"
+  },
+  {
+    "PROPER_NAME": " #y幻影 ",
+    "NAMES": [
+      "幻影"
+    ],
+    "DESCRIPTION": "每次打出其他牌時使此牌下次打出時 [E] 消耗 #b-1 ，打出此牌後將此牌返還至手中並使其 [E] 消耗 #b+1 。"
+  },
+  {
     "PROPER_NAME": " #b靜海 ",
     "NAMES": [
       "靜海",
