@@ -3,7 +3,6 @@ package morimensmod.cards.buffs;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
-import static morimensmod.util.Wiz.atb;
 import static morimensmod.util.Wiz.getAllPosses;
 
 import java.util.ArrayList;
@@ -48,7 +47,7 @@ public class SilverKeyDawn extends AbstractEasyCard {
         Collections.shuffle(posses, new Random(AbstractDungeon.miscRng.randomLong()));
         ArrayList<AbstractCard> choiceCardList = new ArrayList<>(posses.subList(0, Math.min(magicNumber, posses.size())));
 
-        atb(new EasyModalChoiceAction(choiceCardList));
+        addToBot(new EasyModalChoiceAction(choiceCardList));
     }
 
     @Override

@@ -59,7 +59,7 @@ public class SelfDestruct extends AbstractEasyCard {
 
         choiceCardList.add(elation);
         choiceCardList.add(curse);
-        atb(new EasyModalChoiceAction(choiceCardList));
+        addToBot(new EasyModalChoiceAction(choiceCardList));
     }
 
     private void useElation(AbstractPlayer p) {
