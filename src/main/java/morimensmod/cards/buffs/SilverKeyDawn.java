@@ -2,13 +2,13 @@ package morimensmod.cards.buffs;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
-import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.getAllPosses;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -37,7 +37,7 @@ public class SilverKeyDawn extends AbstractEasyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (upgraded)
-            applyToSelf(new OnlyUnlimitedPosseTwicePower(p, 1));
+            addToBot(new ApplyPowerAction(p, null, new OnlyUnlimitedPosseTwicePower(p, 1)));
 
         ArrayList<AbstractPosse> posses = getAllPosses();
 

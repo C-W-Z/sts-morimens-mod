@@ -2,9 +2,9 @@ package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.util.Wiz.applyToSelf;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -38,7 +38,7 @@ public class TidesOfHubris extends AbstractEasyCard {
                 }
             });
         if (magicNumber > 0)
-            addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
+            applyToSelf(new StrengthPower(p, magicNumber));
     }
 
     @Override
