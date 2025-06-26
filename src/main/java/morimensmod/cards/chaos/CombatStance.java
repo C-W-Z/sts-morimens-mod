@@ -29,6 +29,7 @@ public class CombatStance extends AbstractEasyCard implements StartupCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
         misc = 0;
+        applyPowers();
     }
 
     @Override
