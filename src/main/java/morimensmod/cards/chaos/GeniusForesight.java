@@ -20,7 +20,7 @@ public class GeniusForesight extends AbstractEasyCard {
     public final static String ID = makeID(GeniusForesight.class.getSimpleName());
 
     public GeniusForesight() {
-        super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         draw = baseDraw = 1;
         magicNumber = baseMagicNumber = 1; // 能量
