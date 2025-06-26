@@ -16,7 +16,7 @@ public class DimensionLock extends AbstractEasyCard implements OnAfterExalt {
     public final static String ID = makeID(DimensionLock.class.getSimpleName());
 
     public DimensionLock() {
-        super(ID, -1, CardType.STATUS, CardRarity.COMMON, CardTarget.NONE, STATUS_COLOR);
+        super(ID, -2, CardType.STATUS, CardRarity.COMMON, CardTarget.NONE, STATUS_COLOR);
         tags.add(CustomTags.STATUS);
         magicNumber = baseMagicNumber = 2; // 封印
     }

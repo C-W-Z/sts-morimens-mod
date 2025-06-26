@@ -50,6 +50,9 @@ public class KeyflareUI extends ClickableUIElement {
     }
 
     private void render(SpriteBatch sb, float current_x) {
+        if (!(p() instanceof AbstractAwakener))
+            return;
+
         drawCentered(sb, ICON, centerX, centerY, SCALE);
         FontHelper.energyNumFontBlue.getData().setScale(fontScale);
 

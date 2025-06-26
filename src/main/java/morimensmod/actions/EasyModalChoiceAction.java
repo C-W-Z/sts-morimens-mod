@@ -4,12 +4,14 @@ import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsCenteredAct
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 
+import static morimensmod.MorimensMod.makeID;
+
 import java.util.ArrayList;
 
 public class EasyModalChoiceAction extends SelectCardsCenteredAction {
 
     private static final String TEXT[] = CardCrawlGame.languagePack
-            .getUIString(EasyModalChoiceAction.class.getSimpleName()).TEXT;
+            .getUIString(makeID(EasyModalChoiceAction.class.getSimpleName())).TEXT;
 
     public EasyModalChoiceAction(ArrayList<AbstractCard> list, int amount, String textforSelect) {
         super(list, amount, textforSelect, (cards) -> {

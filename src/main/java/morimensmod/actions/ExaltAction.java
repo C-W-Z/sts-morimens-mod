@@ -39,8 +39,8 @@ public class ExaltAction extends AbstractGameAction {
             ((OnBeforeExalt) awaker.stance).onBeforeExalt(awaker, exhaustAliemus, overExalt);
         // 呼叫所有手牌的 hook
         for (AbstractCard c : hand().group)
-            if (c instanceof OnAfterExalt)
-                ((OnAfterExalt) c).onAfterExalt(awaker, exhaustAliemus, overExalt);
+            if (c instanceof OnBeforeExalt)
+                ((OnBeforeExalt) c).onBeforeExalt(awaker, exhaustAliemus, overExalt);
 
         awaker.triggerExalt(overExalt);
 

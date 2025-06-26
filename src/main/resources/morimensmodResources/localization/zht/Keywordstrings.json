@@ -137,7 +137,7 @@
       "狂氣爆發",
       "Exalt"
     ],
-    "DESCRIPTION": "透過消耗狂氣釋放的能力。"
+    "DESCRIPTION": "透過消耗 #y狂氣 釋放的能力。"
   },
   {
     "PROPER_NAME": " #r超限爆發 ",
@@ -145,7 +145,7 @@
       "超限爆發",
       "Over-Exaltation"
     ],
-    "DESCRIPTION": "加強版的狂氣爆發。"
+    "DESCRIPTION": "加強版的 #y狂氣爆發 。"
   },
   {
     "PROPER_NAME": " [#D3D3D3]銀鑰能量[] ",

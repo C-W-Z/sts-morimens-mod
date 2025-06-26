@@ -52,11 +52,14 @@ public class AliemusUI extends ClickableUIElement {
     }
 
     private void render(SpriteBatch sb, float current_x) {
+        if (!(p() instanceof AbstractAwakener))
+            return;
+
         drawCentered(sb, ICON, centerX, centerY, SCALE);
         FontHelper.energyNumFontBlue.getData().setScale(fontScale);
 
         Color textColor = Color.GRAY;
-        if (AbstractAwakener.enoughExaltCountThisTurn()) {
+        if (AbstractAwakener.enoughExaltCountThisTurn() && !p().hasPower(SealPower.POWER_ID)) {
             if (AbstractAwakener.enoughAliemusForOverExalt())
                 textColor = Color.RED;
             else if (AbstractAwakener.enoughAliemusForExalt())

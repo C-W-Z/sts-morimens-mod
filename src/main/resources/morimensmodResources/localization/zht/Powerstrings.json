@@ -7,13 +7,13 @@
       " #yDexterity."
     ]
   },
-  "${ModID}:Seal": {
+  "${ModID}:SealPower": {
     "NAME": "封印",
     "DESCRIPTIONS": [
       "無法釋放 #y狂氣爆發 。回合開始時減少 #b1 層。"
     ]
   },
-  "${ModID}:Trauma": {
+  "${ModID}:TraumaPower": {
     "NAME": "創傷",
     "DESCRIPTIONS": [
       "每打出一張 #y打擊 後，在抽牌堆頂部添加 #b2",
