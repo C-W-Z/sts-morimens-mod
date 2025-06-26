@@ -81,7 +81,8 @@
     },
     "${ModID}:EasyModalChoiceAction": {
         "TEXT": [
-            "選擇"
+            "選擇 ",
+            " 個"
         ]
     },
     "${ModID}:AliemusChangeAction": {
