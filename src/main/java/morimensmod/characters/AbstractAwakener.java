@@ -530,7 +530,18 @@ public abstract class AbstractAwakener extends CustomPlayer {
         return deathResistance + "%";
     }
 
+    public int getBaseRealmMastry() {
+        return baseRealmMastery;
+    }
+
     public int getRealmMastry() {
         return realmMastery;
+    }
+
+    public int setBaseRealmMastry(int amount) {
+        baseRealmMastery = amount;
+        if (baseRealmMastery < 0)
+            baseRealmMastery = 0;
+        return baseRealmMastery;
     }
 }

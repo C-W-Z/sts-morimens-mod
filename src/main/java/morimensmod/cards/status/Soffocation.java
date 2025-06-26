@@ -2,8 +2,8 @@ package morimensmod.cards.status;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.STATUS_COLOR;
-import static morimensmod.util.Wiz.applyToSelf;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -31,7 +31,7 @@ public class Soffocation extends AbstractEasyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (this.dontTriggerOnUseCard)
-            applyToSelf(new PoisonPower(p, p, magicNumber));
+            addToBot(new ApplyPowerAction(p, null, new PoisonPower(p, null, magicNumber)));
     }
 
     @Override

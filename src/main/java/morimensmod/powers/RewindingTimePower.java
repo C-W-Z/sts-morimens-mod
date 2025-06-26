@@ -1,10 +1,10 @@
 package morimensmod.powers;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.discardPile;
 import static morimensmod.util.Wiz.isCommandCard;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -37,15 +37,11 @@ public class RewindingTimePower extends AbstractEasyPower {
         if (card.exhaust || card.purgeOnUse || !isCommandCard(card))
             return;
         flash();
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                if (discardPile().group.contains(card)) {
-                    discardPile().moveToHand(card);
-                    amount2--;
-                    updateDescription();
-                }
-                isDone = true;
+        actB(() -> {
+            if (discardPile().group.contains(card)) {
+                discardPile().moveToHand(card);
+                amount2--;
+                updateDescription();
             }
         });
     }

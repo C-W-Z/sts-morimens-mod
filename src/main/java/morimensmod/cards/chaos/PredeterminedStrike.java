@@ -1,6 +1,6 @@
 package morimensmod.cards.chaos;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
@@ -43,7 +43,7 @@ public class PredeterminedStrike extends AbstractEasyCard {
         damageType = DamageType.NORMAL; // 必須是normal才能享受力量加成
         damage = baseDamage = 6;
         attackCount = baseAttackCount = 1;
-        magicNumber = baseMagicNumber = 3; // 3倍力量
+        magicNumber = baseMagicNumber = 2; // 2倍力量
         secondMagic = baseSecondMagic = 3; // 3能量
         thirdMagic = baseThirdMagic = 3; // 3倍銀鑰能量
     }
@@ -80,14 +80,10 @@ public class PredeterminedStrike extends AbstractEasyCard {
         }
 
         for (int i = 0; i < attackCount; i++)
-            addToBot(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    calculateCardDamage(m);
-                    addToTop(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
-                            AttackEffect.SLASH_VERTICAL));
-                    isDone = true;
-                }
+            actB(() -> {
+                calculateCardDamage(m);
+                addToTop(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
+                        AttackEffect.SLASH_VERTICAL));
             });
     }
 
@@ -103,7 +99,7 @@ public class PredeterminedStrike extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeDamage(3);
+        upgradeMagicNumber(1);
     }
 
     // 讓卡面顯示的傷害包含三倍力量加成

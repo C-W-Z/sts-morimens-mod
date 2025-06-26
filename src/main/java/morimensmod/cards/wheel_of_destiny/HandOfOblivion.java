@@ -2,11 +2,11 @@ package morimensmod.cards.wheel_of_destiny;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
+import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.makeInHand;
 
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -21,7 +21,7 @@ public class HandOfOblivion extends AbstractEasyCard implements StartupCard {
     public HandOfOblivion() {
         super(ID, 2, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF, WHEEL_OF_DESTINY_COLOR);
         tags.add(CustomTags.WHEEL_OF_DESTINY);
-        magicNumber = baseMagicNumber = 14; // 打擊增傷%數
+        magicNumber = baseMagicNumber = 28; // 打擊增傷%數
         secondMagic = baseSecondMagic = 40; // 打擊增傷%數
         cardsToPreview = new Strike(); // Preview a Strike when hovering over this card.
         selfRetain = true;
@@ -42,13 +42,7 @@ public class HandOfOblivion extends AbstractEasyCard implements StartupCard {
     @Override
     public boolean atBattleStartPreDraw() {
         if (upgraded)
-            addToBot(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    AbstractEasyCard.baseStrikeDamageAmplify += magicNumber;
-                    isDone = true;
-                }
-            });
+            actB(() -> AbstractEasyCard.baseStrikeDamageAmplify += magicNumber);
         return upgraded;
     }
 }

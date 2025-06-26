@@ -19,16 +19,16 @@ public class EntropyUndone extends AbstractEasyCard {
         super(ID, 3, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.ROUSE);
         aliemus = baseAliemus = 20;
-        magicNumber = baseMagicNumber = 1; // 每次獲得的負熵 only for display
-        secondMagic = baseSecondMagic = 50; // 每次獲得的銀鑰能量
-        thirdMagic = baseThirdMagic = 3; // 每回合最大觸發次數 only for display
+        magicNumber = baseMagicNumber = 50; // 每次獲得的銀鑰能量
+        secondMagic = baseSecondMagic = 3; // 每回合最大觸發次數 only for display
+        thirdMagic = baseThirdMagic = 1; // 每次獲得的負熵 only for display
         selfRetain = true; // 保留
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new AliemusChangeAction(p, aliemus));
-        applyToSelf(new EntropyUndonePower(p, secondMagic));
+        applyToSelf(new EntropyUndonePower(p, magicNumber));
     }
 
     @Override

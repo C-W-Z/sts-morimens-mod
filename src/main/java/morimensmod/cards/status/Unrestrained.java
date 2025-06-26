@@ -2,9 +2,9 @@ package morimensmod.cards.status;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.STATUS_COLOR;
-import static morimensmod.util.Wiz.applyToSelf;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
@@ -30,10 +30,10 @@ public class Unrestrained extends AbstractEasyCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new StrengthPower(p, magicNumber));
-        applyToSelf(new LoseStrengthPower(p, magicNumber));
-        addToBot(new AllEnemyApplyPowerAction(p, magicNumber, (mo) -> new StrengthPower(mo, magicNumber)));
-        addToBot(new AllEnemyApplyPowerAction(p, magicNumber, (mo) -> new LoseStrengthPower(mo, magicNumber)));
+        addToBot(new ApplyPowerAction(p, null, new StrengthPower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, null, new LoseStrengthPower(p, magicNumber)));
+        addToBot(new AllEnemyApplyPowerAction(null, magicNumber, (mo) -> new StrengthPower(mo, magicNumber)));
+        addToBot(new AllEnemyApplyPowerAction(null, magicNumber, (mo) -> new LoseStrengthPower(mo, magicNumber)));
         addToBot(new DestroyCardAction(this));
     }
 

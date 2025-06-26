@@ -2,10 +2,10 @@ package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.util.Wiz.actionify;
 import static morimensmod.util.Wiz.p;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -32,22 +32,18 @@ public class AssaultThesis extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new AllEnemyApplyPowerAction(p, -magicNumber, (mo) -> new StrengthPower(mo, -magicNumber)));
         addToBot(new AllEnemyApplyPowerAction(p, magicNumber, (mo) -> new GainStrengthPower(mo, magicNumber)));
-        addToBot(new DrawCardAction(draw, new AbstractGameAction() {
-            @Override
-            public void update() {
-                if (upgraded && !DrawCardAction.drawnCards.isEmpty()) {
-                    AbstractCard drawn = DrawCardAction.drawnCards.get(0);
+        addToBot(new DrawCardAction(draw, actionify(() -> {
+            if (upgraded && !DrawCardAction.drawnCards.isEmpty()) {
+                AbstractCard drawn = DrawCardAction.drawnCards.get(0);
 
-                    int effectiveCost = drawn.costForTurn;
-                    if (drawn.freeToPlayOnce || effectiveCost < 0)
-                        effectiveCost = 0; // 免費或 X 費當成 0
+                int effectiveCost = drawn.costForTurn;
+                if (drawn.freeToPlayOnce || effectiveCost < 0)
+                    effectiveCost = 0; // 免費或 X 費當成 0
 
-                    if (effectiveCost > 0)
-                        addToTop(new KeyflareChangeAction(p(), effectiveCost * secondMagic));
-                }
-                isDone = true;
+                if (effectiveCost > 0)
+                    addToTop(new KeyflareChangeAction(p(), effectiveCost * secondMagic));
             }
-        }));
+        })));
     }
 
     @Override

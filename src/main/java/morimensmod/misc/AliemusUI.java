@@ -3,6 +3,7 @@ package morimensmod.misc;
 import basemod.ClickableUIElement;
 import morimensmod.actions.ExaltAction;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.powers.SealPower;
 import morimensmod.util.TexLoader;
 
 import static morimensmod.MorimensMod.makeID;
@@ -51,11 +52,14 @@ public class AliemusUI extends ClickableUIElement {
     }
 
     private void render(SpriteBatch sb, float current_x) {
+        if (!(p() instanceof AbstractAwakener))
+            return;
+
         drawCentered(sb, ICON, centerX, centerY, SCALE);
         FontHelper.energyNumFontBlue.getData().setScale(fontScale);
 
         Color textColor = Color.GRAY;
-        if (AbstractAwakener.enoughExaltCountThisTurn()) {
+        if (AbstractAwakener.enoughExaltCountThisTurn() && !p().hasPower(SealPower.POWER_ID)) {
             if (AbstractAwakener.enoughAliemusForOverExalt())
                 textColor = Color.RED;
             else if (AbstractAwakener.enoughAliemusForExalt())
@@ -99,6 +103,11 @@ public class AliemusUI extends ClickableUIElement {
                 || AbstractDungeon.isScreenUp || AbstractDungeon.actionManager.turnHasEnded
                 || !(p() instanceof AbstractAwakener))
             return;
+
+        if (p().hasPower(SealPower.POWER_ID)) {
+            showThoughtBubble(TEXT.EXTRA_TEXT[5], 3.0F);
+            return;
+        }
 
         if (AbstractAwakener.isPossing() || AbstractAwakener.isExalting()
                 || !AbstractDungeon.actionManager.cardQueue.isEmpty()) {

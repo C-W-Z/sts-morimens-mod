@@ -60,7 +60,8 @@ public class MemoryRondo extends AbstractEasyCard {
     }
 
     public void forceUse(AbstractPlayer p, AbstractMonster m) {
-        // applyToSelf(new StrengthPower(p, magicNumber));
+        if (upgraded)
+            applyToSelf(new StrengthPower(p, magicNumber));
         shuffleIn(cardsToPreview, secondMagic);
     }
 
@@ -101,6 +102,5 @@ public class MemoryRondo extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeMagicNumber(1);
     }
 }

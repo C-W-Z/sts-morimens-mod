@@ -7,13 +7,13 @@
       " #yDexterity."
     ]
   },
-  "${ModID}:Seal": {
+  "${ModID}:SealPower": {
     "NAME": "封印",
     "DESCRIPTIONS": [
       "無法釋放 #y狂氣爆發 。回合開始時減少 #b1 層。"
     ]
   },
-  "${ModID}:Trauma": {
+  "${ModID}:TraumaPower": {
     "NAME": "創傷",
     "DESCRIPTIONS": [
       "每打出一張 #y打擊 後，在抽牌堆頂部添加 #b2",
@@ -82,11 +82,11 @@
   "${ModID}:EntropyUndonePower": {
     "NAME": "熵增逆轉",
     "DESCRIPTIONS": [
-      "打出擁有卻未觸發 #y回環 效果的卡牌時，獲得 #b",
-      " 層 #y負熵 和 #b",
+      "打出 #y指令卡 後，獲得 #b",
       " 點 #y銀鑰能量 ，每回合最多觸發 #b",
-      " 次。當前剩餘 #b",
-      " 次。"
+      " 次。次。當前剩餘 #b",
+      " 次。打出擁有卻未觸發 #y回環 效果的卡牌時，獲得 #b",
+      " 層 #y負熵 。"
     ]
   },
   "${ModID}:SoulblightPower": {

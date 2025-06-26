@@ -2,12 +2,13 @@ package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.applyToEnemyTop;
 import static morimensmod.util.Wiz.getEnemies;
 import java.util.Comparator;
 
 import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -29,18 +30,15 @@ public class MidnightTide extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractMonster targetMonster = getEnemies().stream().max(Comparator.comparingInt((_m) -> _m.currentHealth)).orElse(null);
+        AbstractMonster targetMonster = getEnemies().stream().max(Comparator.comparingInt((_m) -> _m.currentHealth))
+                .orElse(null);
         if (targetMonster == null)
             return;
         for (int i = 0; i < attackCount; i++)
-            addToBot(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    calculateCardDamage(targetMonster);
-                    applyToEnemyTop(targetMonster, new PoisonPower(targetMonster, p, MathUtils.ceil(damage * magicNumber / 100F)));
-                    dmgTop(targetMonster, AttackEffect.NONE);
-                    isDone = true;
-                }
+            actB(() -> {
+                calculateCardDamage(targetMonster);
+                applyToEnemyTop(targetMonster, new PoisonPower(targetMonster, p, MathUtils.ceil(damage * magicNumber / 100F)));
+                dmgTop(targetMonster, AttackEffect.NONE);
             });
     }
 

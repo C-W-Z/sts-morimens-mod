@@ -208,6 +208,7 @@ public class Wiz {
 
     public static AbstractGameAction actionify(Runnable todo) {
         return new AbstractGameAction() {
+            @Override
             public void update() {
                 isDone = true;
                 todo.run();
@@ -321,6 +322,13 @@ public class Wiz {
 
     public static boolean isCommandCard(AbstractCard card) {
         return card.hasTag(CustomTags.COMMAND);
+    }
+
+    public static AbstractCard getCleanCopy(AbstractCard card) {
+        AbstractCard c = CardLibrary.getCopy(card.cardID);
+        for (int i = 0; i < card.timesUpgraded; i++)
+            c.upgrade();
+        return c;
     }
 
     public static ArrayList<AbstractPosse> getAllPosses() {
