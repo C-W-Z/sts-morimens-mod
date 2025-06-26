@@ -270,11 +270,23 @@
   },
   "${ModID}:CombatStance": {
     "NAME": "臨戰體勢",
-    "DESCRIPTION": "獲得 !B! 點 格擋 。回合結束時若在手中，獲得的 格擋 提高 !M! 點。驅散 ${ModID}:封印 狀態。 NL 視為「 ${ModID}:防禦 」 "
+    "DESCRIPTION": "獲得 !B! 點 格擋 。回合結束時若在手中，獲得的 格擋 提高 !M! 點。驅散 ${ModID}:封印 狀態。 NL 視為「 ${ModID}:防禦 」 保留 "
   },
   "${ModID}:PrecisionSlash": {
     "NAME": "心眼利刃",
     "DESCRIPTION": "造成 !D! 點傷害。每 !M! 點 格擋 使傷害提高 1 點。在本回合中每打出 1 張「 ${ModID}:防禦 」， [E] 消耗減少 1 點。 NL 視為「 打擊 」 "
+  },
+  "${ModID}:DefensiveStance": {
+    "NAME": "防禦姿態",
+    "DESCRIPTION": "使 格擋 翻倍。"
+  },
+  "${ModID}:BattlefieldGuardian": {
+    "NAME": "戰地守護",
+    "DESCRIPTION": "獲得 !M! 張「心眼打擊」。"
+  },
+  "${ModID}:InsightStrike": {
+    "NAME": "心眼打擊",
+    "DESCRIPTION": "對生命與 格擋 總和最高的敵方造成 !D! 點傷害，獲得傷害量 !M! %的 格擋 。 NL 視為「 打擊 」"
   },
   "${ModID}:DanceOfTheGibbousMoon": {
     "NAME": "凸月之舞",
