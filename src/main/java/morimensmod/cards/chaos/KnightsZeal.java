@@ -22,7 +22,7 @@ public class KnightsZeal extends AbstractEasyCard {
         aliemus = baseAliemus = 20;
         magicNumber = baseMagicNumber = 1; // 力量
         secondMagic = baseSecondMagic = 1; // 每次獲得多少力量
-        thirdMagic = baseThirdMagic = 3; // 每幾張指令卡獲得力量 only for display
+        thirdMagic = baseThirdMagic = 4; // 每幾張指令卡獲得力量 only for display
         selfRetain = true; // 保留
     }
 

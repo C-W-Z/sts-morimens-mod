@@ -24,7 +24,7 @@ public class TidesOfHubris extends AbstractEasyCard {
         damage = baseDamage = 7;
         isMultiDamage = true; // 攻擊多個目標
         attackCount = baseAttackCount = 1;
-        magicNumber = baseMagicNumber = 0; // 獲得力量
+        magicNumber = baseMagicNumber = 1; // 獲得力量
     }
 
     @Override
