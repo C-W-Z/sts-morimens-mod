@@ -277,11 +277,8 @@
   },
   "${ModID}:DefensiveStance": {
     "NAME": "防禦姿態",
-    "DESCRIPTION": "使 格擋 翻倍。"
-  },
-  "${ModID}:BattlefieldGuardian": {
-    "NAME": "戰地守護",
-    "DESCRIPTION": "獲得 !M! 張「心眼打擊」。"
+    "DESCRIPTION": "使 格擋 翻倍。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "使 格擋 翻倍。 NL 消耗 \u2002 保留 "
   },
   "${ModID}:InsightStrike": {
     "NAME": "心眼打擊",

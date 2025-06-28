@@ -33,7 +33,7 @@ public class PrecisionSlash extends AbstractEasyCard {
         for (int i = 0; i < attackCount; i++)
             actB(() -> {
                 calculateCardDamage(m);
-                dmgTop(m, AttackEffect.NONE);
+                dmgTop(m, AttackEffect.SLASH_HEAVY);
             });
     }
 
