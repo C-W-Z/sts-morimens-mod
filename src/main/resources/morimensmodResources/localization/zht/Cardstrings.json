@@ -76,6 +76,13 @@
       "從抽牌堆選擇 #b1 張牌加入手中，並使其 [E] 消耗降低 #b1 點。"
     ]
   },
+  "${ModID}:AGunsCry": {
+    "NAME": "一聲槍響",
+    "DESCRIPTION": "將 1 枚「閃耀偏方骰子」置入手中，獲得 1 點 ${ModID}:臨時 力量 。",
+    "EXTENDED_DESCRIPTION": [
+      "將 #b1 枚「 #y閃耀偏方骰子 」置入手中，獲得 #b1 點 #g臨時 #y力量 。"
+    ]
+  },
   "${ModID}:FestivalOfTides": {
     "NAME": "海之祭",
     "DESCRIPTION": "抽 2 張牌，獲得 2 點 [E] ，失去 5 點 ${ModID}:狂氣 。若當前處於「 ${ModID}:靜海 」姿態，對所有敵人施加 5 層 中毒 ，在首領戰中發揮 3 倍效果。",

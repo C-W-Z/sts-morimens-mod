@@ -53,6 +53,6 @@ public class OctahedronDice extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeMagicNumber(50);
+        upgradeMagicNumber(20);
     }
 }
