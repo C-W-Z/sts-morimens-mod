@@ -22,7 +22,8 @@ public class MoveFromDrawPileAndChangeCostAction extends AbstractGameAction {
     public void update() {
         if (drawPile().group.contains(card))
         {
-            CardModifierManager.addModifier(card, new ChangeCostUntilUseModifier(amount));
+            if (amount != 0)
+                CardModifierManager.addModifier(card, new ChangeCostUntilUseModifier(amount));
             drawPile().moveToHand(card);
         }
         isDone = true;
