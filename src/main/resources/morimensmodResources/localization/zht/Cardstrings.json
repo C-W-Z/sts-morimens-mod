@@ -265,7 +265,7 @@
   },
   "${ModID}:OutstandingVeteran": {
     "NAME": "戰地卓識",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。獲得 !M! 點 敏捷 。 打擊 造成的傷害享受 !${ModID}:M2! % 格擋 加成。 NL 保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。獲得 !M! 點 敏捷 。 打擊 造成的傷害享受 !${ModID}:M2! 倍 格擋 加成。 NL 保留 "
   },
   "${ModID}:CombatStance": {
     "NAME": "臨戰體勢",
