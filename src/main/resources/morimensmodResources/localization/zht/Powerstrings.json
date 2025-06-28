@@ -106,6 +106,13 @@
       " 倍的 #y狂氣 。你可以 #y格擋 #p中毒 傷害。"
     ]
   },
+  "${ModID}:OutstandingVeteranPower": {
+    "NAME": "戰地卓識",
+    "DESCRIPTIONS": [
+      "#y打擊 造成的傷害享受 #b",
+      " 倍 #y格擋 加成。"
+    ]
+  },
   "${ModID}:RewindingTimePower": {
     "NAME": "溯洄時計",
     "DESCRIPTIONS": [

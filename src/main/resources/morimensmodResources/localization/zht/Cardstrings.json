@@ -76,6 +76,13 @@
       "從抽牌堆選擇 #b1 張牌加入手中，並使其 [E] 消耗降低 #b1 點。"
     ]
   },
+  "${ModID}:AGunsCry": {
+    "NAME": "一聲槍響",
+    "DESCRIPTION": "將 1 枚「閃耀偏方骰子」置入手中，獲得 1 點 ${ModID}:臨時 力量 。",
+    "EXTENDED_DESCRIPTION": [
+      "將 #b1 枚「 #y閃耀偏方骰子 」置入手中，獲得 #b1 點 #g臨時 #y力量 。"
+    ]
+  },
   "${ModID}:FestivalOfTides": {
     "NAME": "海之祭",
     "DESCRIPTION": "抽 2 張牌，獲得 2 點 [E] ，失去 5 點 ${ModID}:狂氣 。若當前處於「 ${ModID}:靜海 」姿態，對所有敵人施加 5 層 中毒 ，在首領戰中發揮 3 倍效果。",
@@ -140,8 +147,7 @@
   },
   "${ModID}:TidesOfHubris": {
     "NAME": "恣睢之浪",
-    "DESCRIPTION": "對所有敵人造成 !D! 點傷害。 NL 視為「 打擊 」 ",
-    "UPGRADE_DESCRIPTION": "對所有敵人造成 !D! 點傷害，獲得 !M! 點 力量 。 NL 視為「 打擊 」 "
+    "DESCRIPTION": "對所有敵人造成 !D! 點傷害，獲得 !M! 點 力量 。 NL 視為「 打擊 」 "
   },
   "${ModID}:LoopingSwordplay": {
     "NAME": "廻環劍技",
@@ -225,12 +231,12 @@
   },
   "${ModID}:MidnightTide": {
     "NAME": "夜潮洶湧",
-    "DESCRIPTION": "對生命最高的敵人造成 !D! 點傷害並施加等同於 !M! %傷害的 中毒 。"
+    "DESCRIPTION": "對生命最高的敵人造成 !D! 點傷害並施加等同於 !M! %傷害的 中毒 。享受 !${ModID}:M2! 倍 ${ModID}:永久力量 加成。"
   },
   "${ModID}:KnellOfDeath": {
     "NAME": "喪鐘遙鳴",
-    "DESCRIPTION": "對所有敵人施加 !M! 層 中毒 ，施加 !${ModID}:M2! 層 虛弱 和 易傷 。",
-    "UPGRADE_DESCRIPTION": "對所有敵人施加 !M! 層 中毒 ，施加 !${ModID}:M2! 層 虛弱 和 易傷 ，獲得 !B! 點 格擋 。"
+    "DESCRIPTION": "對所有敵人施加 !M! 層 中毒 ，享受 !${ModID}:M2! 倍 自身 中毒 層數加成。施加 !${ModID}:M2! 層 虛弱 和 易傷 。",
+    "UPGRADE_DESCRIPTION": "對所有敵人施加 !M! 層 中毒 ，享受 !${ModID}:M2! 倍 自身 中毒 層數加成。施加 !${ModID}:M2! 層 虛弱 和 易傷 。獲得 !B! 點 格擋 。"
   },
   "${ModID}:ToxicMiasma": {
     "NAME": "溺毒瀰漫",
@@ -266,7 +272,7 @@
   },
   "${ModID}:OutstandingVeteran": {
     "NAME": "戰地卓識",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。獲得 !M! 點 敏捷 。 打擊 造成的傷害享受 !${ModID}:M2! % 格擋 加成。 NL 保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。獲得 !M! 點 敏捷 。 打擊 造成的傷害享受 !${ModID}:M2! 倍 格擋 加成。 NL 保留 "
   },
   "${ModID}:CombatStance": {
     "NAME": "臨戰體勢",
@@ -278,11 +284,8 @@
   },
   "${ModID}:DefensiveStance": {
     "NAME": "防禦姿態",
-    "DESCRIPTION": "使 格擋 翻倍。"
-  },
-  "${ModID}:BattlefieldGuardian": {
-    "NAME": "戰地守護",
-    "DESCRIPTION": "獲得 !M! 張「心眼打擊」。"
+    "DESCRIPTION": "使 格擋 翻倍。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "使 格擋 翻倍。 NL 消耗 \u2002 保留 "
   },
   "${ModID}:InsightStrike": {
     "NAME": "心眼打擊",
@@ -301,8 +304,22 @@
     "DESCRIPTION": ""
   },
   "${ModID}:PainConversion": {
-    "NAME": "",
+    "NAME": "疼痛轉化",
     "DESCRIPTION": " 易傷 自身，本回合每受到一次主動攻擊，獲得 !${ModID}:A! 點 ${ModID}:狂氣 。"
+  },
+  "${ModID}:ExceptionalLuck": {
+    "NAME": "絕佳運氣",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:UnexpectedGain": {
+    "NAME": "意外收穫",
+    "DESCRIPTION": "造成 !D! 點傷害。選擇 1 張抽牌堆的牌置入手中， !M! %機率使其 [E] 消耗-1。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 點傷害。選擇 1 張抽牌堆的牌置入手中， !M! %機率使其 [E] 消耗-1， !${ModID}:M2! %機率使其 [E] 消耗-2。"
+  },
+  "${ModID}:Showdown": {
+    "NAME": "攤牌時刻",
+    "DESCRIPTION": "造成 !D! 點傷害 1~ !${ModID}:AC! 次，獲得 !${ModID}:A! 點 ${ModID}:狂氣 。若造成 6 次或以上傷害，獲得 !M! 張 [E] 消耗為0且附加 消耗 的「意外收穫」。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 點傷害 1~ !${ModID}:AC! 次，獲得 !${ModID}:A! 點 ${ModID}:狂氣 ，每造成1次傷害，額外獲得 !${ModID}:M2! 點 ${ModID}:狂氣 。若造成 6 次或以上傷害，獲得 !M! 張 [E] 消耗為0且附加 消耗 的「意外收穫」。"
   },
   "${ModID}:TenRingsPlay": {
     "NAME": "十環出牌",
@@ -458,8 +475,8 @@
   },
   "${ModID}:OctahedronDice": {
     "NAME": "偏方骰子",
-    "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": "",
+    "DESCRIPTION": "投一顆 6 面骰子，獲得等同於骰子點數的 ${ModID}:臨時 力量 。若點數為 4 或更高， 易傷 所有敵人 1 回合。若點數為 6 或更高，獲得的 ${ModID}:臨時 力量 翻倍。 NL 消耗 \u2002 保留 ",
+    "UPGRADE_DESCRIPTION": "投一顆 6 面骰子，獲得等同於骰子點數 !M! %的 ${ModID}:臨時 力量 。若點數為 4 或更高， 虛弱 和 易傷 所有敵人 1 回合。若點數為 6 或更高，獲得的 ${ModID}:臨時 力量 翻倍並獲得 [E] 。 NL 消耗 \u2002 保留 ",
     "EXTENDED_DESCRIPTION": [
       "閃耀偏方骰子"
     ]

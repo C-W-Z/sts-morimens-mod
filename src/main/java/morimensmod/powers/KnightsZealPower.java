@@ -18,7 +18,7 @@ public class KnightsZealPower extends AbstractEasyPower {
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final int GAIN_STR_PER_N_CARD = 3;
+    private static final int GAIN_STR_PER_N_CARD = 4;
 
     public KnightsZealPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);

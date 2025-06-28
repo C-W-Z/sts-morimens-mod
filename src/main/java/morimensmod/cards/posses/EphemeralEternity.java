@@ -3,8 +3,9 @@ package morimensmod.cards.posses;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
+import static morimensmod.util.Wiz.makeInHand;
+
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
@@ -32,6 +33,10 @@ public class EphemeralEternity extends AbstractPosse {
         super(ID, awaker, type);
         previewCards.add(new Strike());
         previewCards.add(new Defend());
+        for (AbstractCard c : previewCards) {
+            CardModifierManager.addModifier(c, new ExhaustModifier());
+            CardModifierManager.addModifier(c, new EtherealModifier());
+        }
         cardsToPreview = previewCards.get(0);
     }
 
@@ -39,15 +44,8 @@ public class EphemeralEternity extends AbstractPosse {
     public void activate() {
         addToBot(new GainEnergyAction(1));
 
-        AbstractCard strike = new Strike();
-        CardModifierManager.addModifier(strike, new ExhaustModifier());
-        CardModifierManager.addModifier(strike, new EtherealModifier());
-        addToBot(new MakeTempCardInHandAction(strike));
-
-        AbstractCard defend = new Defend();
-        CardModifierManager.addModifier(defend, new ExhaustModifier());
-        CardModifierManager.addModifier(defend, new EtherealModifier());
-        addToBot(new MakeTempCardInHandAction(defend));
+        for (AbstractCard c : previewCards)
+            makeInHand(c);
 
         if (awaker.getCardColor() == ULTRA_COLOR) {
             applyToSelf(new StrengthPower(awaker, 2));

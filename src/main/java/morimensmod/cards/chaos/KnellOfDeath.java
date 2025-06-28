@@ -2,12 +2,14 @@ package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.util.Wiz.getCleanCopy;
+import static morimensmod.util.Wiz.p;
+import static morimensmod.util.Wiz.powerAmount;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
@@ -24,15 +26,16 @@ public class KnellOfDeath extends AbstractEasyCard {
         super(ID, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         magicNumber = baseMagicNumber = 4; // 中毒
-        secondMagic = baseSecondMagic = 1; // 虛弱 易傷
+        secondMagic = baseSecondMagic = 2; // 2倍自身中毒加成
+        thirdMagic = baseThirdMagic = 1; // 虛弱 易傷
         block = baseBlock = 0;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new AllEnemyApplyPowerAction(p, magicNumber, (mo) -> new PoisonPower(mo, p, magicNumber)));
-        addToBot(new AllEnemyApplyPowerAction(p, secondMagic, (mo) -> new WeakPower(mo, secondMagic, false)));
-        addToBot(new AllEnemyApplyPowerAction(p, secondMagic, (mo) -> new VulnerablePower(mo, secondMagic, false)));
+        addToBot(new AllEnemyApplyPowerAction(p, thirdMagic, (mo) -> new WeakPower(mo, thirdMagic, false)));
+        addToBot(new AllEnemyApplyPowerAction(p, thirdMagic, (mo) -> new VulnerablePower(mo, thirdMagic, false)));
         if (upgraded)
             addToBot(new GainBlockAction(p, p, block));
     }
@@ -49,12 +52,12 @@ public class KnellOfDeath extends AbstractEasyCard {
 
         // 計算中毒加成
         int poisonAmplify = 100 + AbstractAwakener.basePoisonAmplify;
-        AbstractEasyCard tmp = (AbstractEasyCard) CardLibrary.getCopy(cardID, timesUpgraded, misc);
-        baseMagicNumber = MathUtils.ceil(tmp.baseMagicNumber * poisonAmplify / 100F);
+        AbstractEasyCard tmp = (AbstractEasyCard) getCleanCopy(this);
+        magicNumber = baseMagicNumber = MathUtils.ceil(tmp.baseMagicNumber * poisonAmplify / 100F);
 
-        if (poisonAmplify != 100) {
+        magicNumber += secondMagic * powerAmount(p(), PoisonPower.POWER_ID);
+
+        if (magicNumber != tmp.baseMagicNumber)
             isMagicNumberModified = true;
-            magicNumber = baseMagicNumber;
-        }
     }
 }

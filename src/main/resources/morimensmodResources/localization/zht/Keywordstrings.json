@@ -40,13 +40,6 @@
     "DESCRIPTION": "四大界域之一。"
   },
   {
-    "PROPER_NAME": " #g臨時 ",
-    "NAMES": [
-      "臨時"
-    ],
-    "DESCRIPTION": "效果僅限本回合。"
-  },
-  {
     "PROPER_NAME": " #y增益 ",
     "NAMES": [
       "增益卡",
@@ -172,6 +165,20 @@
       "Posse"
     ],
     "DESCRIPTION": "#y銀鑰能量 達到 [#D3D3D3]1000[] 時可以釋放攜帶的 #y鑰令 。每回合可以釋放 #b2 次 #y鑰令 ，但第 #b2 次會改為從 #b3 個隨機 #y鑰令 中選擇 #b1 個釋放，且選擇的 #y鑰令 在本次戰鬥中無法再被選擇。"
+  },
+  {
+    "PROPER_NAME": " #g臨時 ",
+    "NAMES": [
+      "臨時"
+    ],
+    "DESCRIPTION": "效果僅限本回合。"
+  },
+  {
+    "PROPER_NAME": " #g永久力量 ",
+    "NAMES": [
+      "永久力量"
+    ],
+    "DESCRIPTION": "非 #g臨時 #y力量 ，也就是 #y力量 層數減 #y活動肌肉 層數。"
   },
   {
     "PROPER_NAME": " #y封印 ",

@@ -16,7 +16,7 @@ public class ChangeCostUntilUseModifier extends AbstractCardModifier {
     }
 
     public boolean shouldApply(AbstractCard card) {
-        return card.cost >= 0;
+        return card.cost >= 0 && amount != 0;
     }
 
     public void onInitialApplication(AbstractCard card) {
