@@ -311,7 +311,8 @@
   },
   "${ModID}:Showdown": {
     "NAME": "攤牌時刻",
-    "DESCRIPTION": "造成 !D! 點傷害 1~ !${ModID}:AC! 次，獲得 !${ModID}:A! 點 ${ModID}:狂氣 。若造成 6 次或以上傷害，獲得 !M! 張 [E] 消耗為0且附加 消耗 的「意外收穫」。"
+    "DESCRIPTION": "造成 !D! 點傷害 1~ !${ModID}:AC! 次，獲得 !${ModID}:A! 點 ${ModID}:狂氣 。若造成 6 次或以上傷害，獲得 !M! 張 [E] 消耗為0且附加 消耗 的「意外收穫」。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 點傷害 1~ !${ModID}:AC! 次，獲得 !${ModID}:A! 點 ${ModID}:狂氣 ，每造成1次傷害，額外獲得 !${ModID}:M2! 點 ${ModID}:狂氣 。若造成 6 次或以上傷害，獲得 !M! 張 [E] 消耗為0且附加 消耗 的「意外收穫」。"
   },
   "${ModID}:TenRingsPlay": {
     "NAME": "十環出牌",
