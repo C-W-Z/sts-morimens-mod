@@ -20,6 +20,7 @@ import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.relics.AbstractEasyRelic;
 import morimensmod.savables.SaveAwakenerFloatProperties;
+import morimensmod.savables.SaveAwakenerPosse;
 import morimensmod.savables.SaveAwakenerProperties;
 import morimensmod.savables.SavePersistentPowers;
 import morimensmod.util.PersistentPowerLib;
@@ -78,6 +79,7 @@ public class MorimensMod implements
         OnPlayerTurnStartPostDrawSubscriber,
         PostBattleSubscriber,
         OnStartBattleSubscriber,
+        PostDungeonInitializeSubscriber,
         PostInitializeSubscriber,
         EditCardsSubscriber,
         EditRelicsSubscriber,
@@ -341,6 +343,7 @@ public class MorimensMod implements
         BaseMod.addSaveField(SavePersistentPowers.ID, new SavePersistentPowers());
         BaseMod.addSaveField(SaveAwakenerProperties.ID, new SaveAwakenerProperties());
         BaseMod.addSaveField(SaveAwakenerFloatProperties.ID, new SaveAwakenerFloatProperties());
+        BaseMod.addSaveField(SaveAwakenerPosse.ID, new SaveAwakenerPosse());
     }
 
     @Override
@@ -360,5 +363,11 @@ public class MorimensMod implements
     public void receivePostBattle(AbstractRoom room) {
         AbstractAwakener.onPostBattle();
         AbstractEasyCard.onPostBattle();
+    }
+
+    @Override
+    public void receivePostDungeonInitialize() {
+        if (p() instanceof AbstractAwakener)
+            ((AbstractAwakener) p()).choosePosse();
     }
 }

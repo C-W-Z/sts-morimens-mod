@@ -16,6 +16,7 @@ import morimensmod.util.PersistentPowerLib;
 import morimensmod.cards.posses.AbstractPosse;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -27,6 +28,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import static morimensmod.MorimensMod.*;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
@@ -64,7 +66,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
     protected static int exaltedThisTurn = 0; // reset at Main Mod File
     public static final int NORMAL_MAX_EXALT_PER_TURN = 1;
     protected static int maxExaltPerTurn = NORMAL_MAX_EXALT_PER_TURN; // reset at Main Mod File
-    protected AbstractExalt exalt;
+    protected AbstractExalt exalt = null;
 
     public static final int NORMAL_KEYFLARE_LIMIT = 1000;
     protected static int keyflare = 0;
@@ -79,7 +81,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public static final int MAX_EXTRA_POSSE_PER_TURN = 1;
     protected static int possedThisBattle = 0; // reset at Main Mod File
     protected static int allPossedThisBattle = 0; // reset at Main Mod File
-    protected AbstractPosse posse;
+    protected AbstractPosse posse = null;
 
     // percent
     public static int baseDamageAmplify;
@@ -121,10 +123,13 @@ public abstract class AbstractAwakener extends CustomPlayer {
         persistentPowers = new ArrayList<>();
     }
 
-    protected void setExaltAndPosse(AbstractExalt exalt, AbstractPosse posse) {
-        this.exalt = exalt;
+    public void setPosse(AbstractPosse posse) {
         this.posse = posse;
         this.posse.set(this, PosseType.REGULAR);
+    }
+
+    public String getPosseID() {
+        return posse == null ? null : posse.cardID;
     }
 
     @Override
@@ -187,6 +192,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
             AbstractAwakener awaker = (AbstractAwakener) p();
             awaker.aliemusRegen = awaker.baseAliemusRegen;
             awaker.keyflareRegen = awaker.baseKeyflareRegen;
+            if (awaker.posse == null)
+                awaker.choosePosse();
         }
 
         realmMastery = baseRealmMastery;
@@ -248,6 +255,44 @@ public abstract class AbstractAwakener extends CustomPlayer {
         AbstractAwakener awaker = (AbstractAwakener) p();
         att(new KeyflareChangeAction(awaker, lastUsedEnergy * awaker.keyflareRegen));
         lastUsedEnergy = 0;
+    }
+
+    // called in Main File
+    public void choosePosse() {
+        logger.debug("choosePosse");
+
+        AbstractDungeon.topLevelEffects.add(new AbstractGameEffect() {
+            private boolean opened = false;
+
+            @Override
+            public void update() {
+
+                logger.debug("choosePosse update()");
+
+                if (!opened) {
+                    opened = true;
+                    ArrayList<AbstractCard> choices = new ArrayList<>();
+                    choices.addAll(getAllPosses());
+                    AbstractDungeon.cardRewardScreen.customCombatOpen(
+                            choices,
+                            "選擇攜帶的鑰令（滾動以查看更多）",
+                            false);
+                } else if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
+                    logger.debug("choosePosse: " + AbstractDungeon.cardRewardScreen.discoveryCard.cardID);
+
+                    setPosse((AbstractPosse) AbstractDungeon.cardRewardScreen.discoveryCard);
+                    isDone = true;
+                }
+            }
+
+            @Override
+            public void render(SpriteBatch sb) {
+            }
+
+            @Override
+            public void dispose() {
+            }
+        });
     }
 
     public static int getLastUsedEnergy() {
