@@ -19,7 +19,7 @@ public class InsightStrike extends AbstractEasyCard {
     public final static String ID = makeID(InsightStrike.class.getSimpleName());
 
     public InsightStrike() {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
+        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STRIKE);
         damage = baseDamage = 4;

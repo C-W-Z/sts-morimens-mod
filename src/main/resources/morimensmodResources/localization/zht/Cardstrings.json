@@ -300,6 +300,19 @@
     "NAME": "",
     "DESCRIPTION": " 易傷 自身，本回合每受到一次主動攻擊，獲得 !${ModID}:A! 點 ${ModID}:狂氣 。"
   },
+  "${ModID}:ExceptionalLuck": {
+    "NAME": "",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:UnexpectedGain": {
+    "NAME": "意外收穫",
+    "DESCRIPTION": "造成 !D! 點傷害。選擇 1 張抽牌堆的牌置入手中， !M! %機率使其 [E] 消耗-1。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 點傷害。選擇 1 張抽牌堆的牌置入手中， !M! %機率使其 [E] 消耗-1， !${ModID}:M2! %機率使其 [E] 消耗-2。"
+  },
+  "${ModID}:Showdown": {
+    "NAME": "攤牌時刻",
+    "DESCRIPTION": ""
+  },
   "${ModID}:TenRingsPlay": {
     "NAME": "十環出牌",
     "DESCRIPTION": "對隨機敵人造成 !${ModID}:AC! 次 !D! 傷害。 NL ${ModID}:幻影 "
