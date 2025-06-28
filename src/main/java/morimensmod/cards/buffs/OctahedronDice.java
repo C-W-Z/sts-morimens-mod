@@ -3,6 +3,7 @@ package morimensmod.cards.buffs;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
+import static morimensmod.util.WizArt.showThoughtBubble;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
@@ -39,14 +40,20 @@ public class OctahedronDice extends AbstractEasyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int dice = AbstractDungeon.cardRandomRng.random(1, MAX_DICE);
+
+        showThoughtBubble("" + dice, 1.0F);
+
         int tmpStr = ((dice >= MAX_DICE) ? TMP_STR_SCALE : 1) * MathUtils.ceil(dice * magicNumber / 100F);
         applyToSelf(new StrengthPower(p, tmpStr));
         applyToSelf(new LoseStrengthPower(p, tmpStr));
+
         if (dice >= MEDIEM_DICE) {
             if (upgraded)
                 addToBot(new AllEnemyApplyPowerAction(p, DEBUFF_ROUND, (mo) -> new WeakPower(mo, DEBUFF_ROUND, false)));
-            addToBot(new AllEnemyApplyPowerAction(p, DEBUFF_ROUND, (mo) -> new VulnerablePower(mo, DEBUFF_ROUND, false)));
+            addToBot(new AllEnemyApplyPowerAction(p, DEBUFF_ROUND,
+                    (mo) -> new VulnerablePower(mo, DEBUFF_ROUND, false)));
         }
+
         if (dice >= MAX_DICE)
             addToBot(new GainEnergyAction(ENERGY_GAIN));
     }

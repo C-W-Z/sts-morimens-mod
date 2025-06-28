@@ -4,6 +4,7 @@ import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.makeInHand;
+import static morimensmod.util.WizArt.showThoughtBubble;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
@@ -42,6 +43,8 @@ public class Showdown extends AbstractEasyCard {
         addToBot(new AliemusChangeAction(p, aliemus));
 
         attackCount = AbstractDungeon.cardRandomRng.random(1, attackCount);
+
+        showThoughtBubble("" + attackCount, 1.0F);
 
         for (int i = 0; i < attackCount; i++)
             actB(() -> {
