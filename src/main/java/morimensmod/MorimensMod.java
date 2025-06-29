@@ -13,6 +13,7 @@ import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.chaos.QueensSword;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.characters.Lotan;
 import morimensmod.characters.Ramona;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.glowinfos.AbstractGlowInfo;
@@ -230,6 +231,7 @@ public class MorimensMod implements
     @Override
     public void receiveEditCharacters() {
         Ramona.register();
+        Lotan.register();
 
         new AutoAdd(modID)
                 .packageFilter(AbstractEasyPotion.class)

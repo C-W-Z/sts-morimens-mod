@@ -1,13 +1,12 @@
 package morimensmod.characters;
 
-import morimensmod.cards.chaos.AssaultThesis;
+import morimensmod.cards.chaos.BladeOfDefiance;
 import morimensmod.cards.chaos.Defend;
-import morimensmod.cards.chaos.QueensSword;
 import morimensmod.cards.chaos.Strike;
+import morimensmod.cards.chaos.TidesOfHubris;
 import morimensmod.exalts.MundusDecree;
 import morimensmod.misc.SpriteSheetAnimation;
 import morimensmod.relics.ChaosRelic;
-import morimensmod.relics.RamonaRelic;
 
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -30,36 +29,36 @@ import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COL
 
 import java.util.ArrayList;
 
-public class Ramona extends AbstractAwakener {
+public class Lotan extends AbstractAwakener {
 
-    public static final String ID = makeID(Ramona.class.getSimpleName());
+    public static final String ID = makeID(Lotan.class.getSimpleName());
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     public static final String[] NAMES = characterStrings.NAMES;
     private static final String[] TEXT = characterStrings.TEXT;
 
-    private static final String CHARSELECT_BUTTON = makeCharacterPath("Ramona/button.png");
-    private static final String CHARSELECT_PORTRAIT = makeCharacterPath("Ramona/charBG.png");
+    private static final String CHARSELECT_BUTTON = makeCharacterPath("Lotan/button.png");
+    private static final String CHARSELECT_PORTRAIT = makeCharacterPath("Lotan/charBG.png");
 
-    public Ramona() {
-        super(NAMES[0], Enums.RAMONA, "Ramona/main.png", "Ramona/main.png");
-        anim = new SpriteSheetAnimation(makeCharacterPath("Ramona/Idle_1.png"),
-                6, 17, 1, true, 30F, -22, -10);
+    public Lotan() {
+        super(NAMES[0], Enums.LOTAN, "Lotan/main.png", "Lotan/main.png");
+        anim = new SpriteSheetAnimation(makeCharacterPath("Lotan/Idle_1.png"),
+                9, 7, 2, true, 30F, -1, -12);
         exalt = new MundusDecree();
         baseAliemusRegen = 0;
-        baseKeyflareRegen = 60;
+        baseKeyflareRegen = 30;
         deathResistance = 100;
         baseRealmMastery = 50;
     }
 
     public static void register() {
-        BaseMod.addCharacter(new Ramona(), CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, Enums.RAMONA);
+        BaseMod.addCharacter(new Lotan(), CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, Enums.LOTAN);
     }
 
     @Override
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(
                 NAMES[0], TEXT[0],
-                60, 60, 0, 99, 5,
+                75, 75, 0, 99, 5,
                 this, getStartingRelics(),
                 getStartingDeck(), false);
     }
@@ -71,8 +70,8 @@ public class Ramona extends AbstractAwakener {
             retVal.add(Strike.ID);
         for (int i = 0; i < 4; i++)
             retVal.add(Defend.ID);
-        retVal.add(AssaultThesis.ID);
-        retVal.add(QueensSword.ID);
+        retVal.add(TidesOfHubris.ID);
+        retVal.add(BladeOfDefiance.ID);
         return retVal;
     }
 
@@ -80,7 +79,6 @@ public class Ramona extends AbstractAwakener {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add(ChaosRelic.ID);
-        retVal.add(RamonaRelic.ID);
         return retVal;
     }
 
@@ -106,8 +104,6 @@ public class Ramona extends AbstractAwakener {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        // System.out.println("YOU NEED TO SET getStartCardForEvent() in your " +
-        // getClass().getSimpleName() + " file!");
         return new Strike();
     }
 
@@ -118,7 +114,7 @@ public class Ramona extends AbstractAwakener {
 
     @Override
     public AbstractPlayer newInstance() {
-        return new Ramona();
+        return new Lotan();
     }
 
     @Override
@@ -156,11 +152,6 @@ public class Ramona extends AbstractAwakener {
 
     public static class Enums {
         @SpireEnum
-        public static AbstractPlayer.PlayerClass RAMONA;
-        // @SpireEnum(name = "RAMONA_COLOR")
-        // public static AbstractCard.CardColor RAMONA_COLOR;
-        // @SpireEnum(name = "RAMONA_COLOR")
-        // @SuppressWarnings("unused")
-        // public static CardLibrary.LibraryType LIBRARY_COLOR;
+        public static AbstractPlayer.PlayerClass LOTAN;
     }
 }
