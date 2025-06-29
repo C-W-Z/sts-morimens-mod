@@ -9,7 +9,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
@@ -47,10 +46,7 @@ public class CardRewardPatch {
             AbstractCard card = null;
             while (containsDupe) {
                 containsDupe = false;
-                if (AbstractDungeon.player.hasRelic("PrismaticShard"))
-                    card = CardLibrary.getAnyColorCard(rarity);
-                else
-                    card = AbstractDungeon.getCard(rarity);
+                card = AbstractDungeon.getCard(rarity);
                 if (contains(retVal, card.cardID) ||
                     (shouldNotRepeat(card) && contains(AbstractDungeon.player.masterDeck.group, card.cardID)))
                     containsDupe = true;
