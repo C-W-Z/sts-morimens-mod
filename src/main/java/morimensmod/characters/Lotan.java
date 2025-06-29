@@ -4,7 +4,7 @@ import morimensmod.cards.chaos.BladeOfDefiance;
 import morimensmod.cards.chaos.Defend;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.cards.chaos.TidesOfHubris;
-import morimensmod.exalts.MundusDecree;
+import morimensmod.exalts.BeastOfChaos;
 import morimensmod.misc.SpriteSheetAnimation;
 import morimensmod.relics.ChaosRelic;
 
@@ -43,9 +43,9 @@ public class Lotan extends AbstractAwakener {
         super(NAMES[0], Enums.LOTAN, "Lotan/main.png", "Lotan/main.png");
         anim = new SpriteSheetAnimation(makeCharacterPath("Lotan/Idle_1.png"),
                 9, 7, 2, true, 30F, -1, -12);
-        exalt = new MundusDecree();
+        exalt = new BeastOfChaos();
         baseAliemusRegen = 0;
-        baseKeyflareRegen = 30;
+        baseKeyflareRegen = 25;
         deathResistance = 100;
         baseRealmMastery = 50;
     }
@@ -58,7 +58,7 @@ public class Lotan extends AbstractAwakener {
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(
                 NAMES[0], TEXT[0],
-                75, 75, 0, 99, 5,
+                70, 70, 0, 99, 5,
                 this, getStartingRelics(),
                 getStartingDeck(), false);
     }

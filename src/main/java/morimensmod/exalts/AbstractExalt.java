@@ -1,8 +1,11 @@
 package morimensmod.exalts;
 
+import com.megacrit.cardcrawl.cards.AbstractCard;
+
 public abstract class AbstractExalt {
     public int damage;
     public int baseDamage;
+    public int[] multiDamage;
 
     public int block;
     public int baseBlock;
@@ -18,7 +21,6 @@ public abstract class AbstractExalt {
     public static int baseHealAmplify;
     public static int baseAliemusAmplify;
 
-
     public abstract void exalt();
     public abstract void overExalt();
     public abstract String getExaltTitle();
@@ -26,10 +28,12 @@ public abstract class AbstractExalt {
     public abstract String getOverExaltTitle();
     public abstract String getOverExaltDescription();
 
-    public static void onBattleStart() {
+    public void onBattleStart() {
         baseDamageAmplify = 0;
         baseBlockAmplify = 0;
         baseAliemusAmplify = 0;
         baseHealAmplify = 0;
     }
+
+    public void onCardUse(AbstractCard card) {}
 }

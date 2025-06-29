@@ -364,6 +364,10 @@ public abstract class AbstractAwakener extends CustomPlayer {
         return aliemus + "/" + aliemusLimit;
     }
 
+    public AbstractExalt getExalt() {
+        return exalt;
+    }
+
     public String getExaltTitle() {
         return exalt.getExaltTitle();
     }

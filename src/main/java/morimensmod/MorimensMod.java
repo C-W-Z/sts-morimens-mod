@@ -38,6 +38,7 @@ import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.evacipated.cardcrawl.modthespire.Patcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -77,6 +78,7 @@ import org.scannotation.AnnotationDB;
 @SuppressWarnings({ "unused", "WeakerAccess" })
 @SpireInitializer
 public class MorimensMod implements
+        OnCardUseSubscriber,
         OnPlayerTurnStartPostDrawSubscriber,
         PostBattleSubscriber,
         OnStartBattleSubscriber,
@@ -353,7 +355,8 @@ public class MorimensMod implements
         QueensSword.onBattleStart();
         AbstractAwakener.onBattleStart();
         AbstractEasyCard.onBattleStart();
-        AbstractExalt.onBattleStart();
+        if (p() instanceof AbstractAwakener)
+            ((AbstractAwakener) p()).getExalt().onBattleStart();
     }
 
     @Override
@@ -371,5 +374,11 @@ public class MorimensMod implements
     public void receivePostDungeonInitialize() {
         // if (p() instanceof AbstractAwakener)
         //     ((AbstractAwakener) p()).choosePosse();
+    }
+
+    @Override
+    public void receiveCardUsed(AbstractCard card) {
+        if (p() instanceof AbstractAwakener)
+            ((AbstractAwakener) p()).getExalt().onCardUse(card);
     }
 }
