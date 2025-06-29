@@ -20,6 +20,14 @@
       " 點。"
     ]
   },
+  "${ModID}:KleinBottleVoyager": {
+    "NAME": "克萊茵旅人",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "釋放 #y${ModID}:鑰令 後，獲得 #b",
+      " 點 #g${ModID}:臨時 #y力量 。"
+    ]
+  },
   "${ModID}:StellarBrew": {
     "NAME": "群星之酒",
     "FLAVOR": "遊走於繁星之間。",

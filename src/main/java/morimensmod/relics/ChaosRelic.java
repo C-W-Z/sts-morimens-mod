@@ -27,6 +27,7 @@ public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse {
     public void onPlayerEndTurn() {
         if (!(p() instanceof AbstractAwakener))
             return;
+        flash();
         addToBot(new KeyflareChangeAction(p(), KEYFLARE));
     }
 
@@ -36,6 +37,7 @@ public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse {
             return;
         if (posse.getType() == PosseType.TMP)
             return;
+        flash();
         AbstractAwakener awaker = (AbstractAwakener) p();
         addToBot(new AliemusChangeAction(awaker, awaker.getRealmMastry() / REALM_MASTERY));
     }
