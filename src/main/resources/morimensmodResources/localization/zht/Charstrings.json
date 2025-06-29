@@ -1,15 +1,4 @@
 {
-  "${ModID}:ChoasRealm": {
-    "NAMES": [
-      "混沌界域",
-      "混沌界域"
-    ],
-    "TEXT": [
-      "",
-      "NL TODO: Change this text",
-      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~TODO:~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
-    ]
-  },
   "${ModID}:Ramona": {
     "NAMES": [
       "拉蒙娜",
@@ -17,8 +6,8 @@
     ],
     "TEXT": [
       "德克斯特的養女，主角最信賴的調查夥伴。 NL 從小混跡在學院各個學系的教室中，對融蝕現象、喚醒體等知識有著相當程度的了解。",
-      "NL TODO: Change this text",
-      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~TODO:~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+      " NL 你握緊了你的銀劍...",
+      "在一條昏暗的街上，你遇見幾個戴著兜帽的人在進行某種黑暗的儀式。當你靠近時，他們全都同時轉身面對你，讓你覺得十分詭異。 其中個子最高的一個微微一笑，露出了長長的尖牙，向你伸出了一隻蒼白而瘦長的手： NL ~「加入我們，空無的存在啊。一起來感受高塔的溫暖吧。」~"
     ]
   },
   "${ModID}:Lotan": {
@@ -27,9 +16,9 @@
       "蘿坦"
     ],
     "TEXT": [
-      "",
-      "NL TODO: Change this text",
-      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~TODO:~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+      "她是純粹的混沌力量，是不羈自由的靈魂，是未被定義的秩序。 NL 破壞與規則是世界賦予她的權能，兩種截然相反的本能在蘿坦體內碰撞，為了平衡足以撕碎她的力量，她需要用戰鬥來釋放破壞慾望。",
+      " NL 你握緊了你的雙劍...",
+      "在一條昏暗的街上，你遇見幾個戴著兜帽的人在進行某種黑暗的儀式。當你靠近時，他們全都同時轉身面對你，讓你覺得十分詭異。 其中個子最高的一個微微一笑，露出了長長的尖牙，向你伸出了一隻蒼白而瘦長的手： NL ~「加入我們，空無的存在啊。一起來感受高塔的溫暖吧。」~"
     ]
   }
 }
