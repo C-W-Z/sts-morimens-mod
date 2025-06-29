@@ -263,7 +263,6 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
             @Override
             public void update() {
-
                 logger.debug("choosePosse update()");
 
                 if (!opened) {
@@ -272,7 +271,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
                     choices.addAll(getAllPosses());
                     AbstractDungeon.cardRewardScreen.customCombatOpen(
                             choices,
-                            "選擇攜帶的鑰令（滾動以查看更多）",
+                            CardCrawlGame.languagePack.getUIString(makeID("choosePosse")).TEXT[0],
                             false);
                 } else if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
                     logger.debug("choosePosse: " + AbstractDungeon.cardRewardScreen.discoveryCard.cardID);

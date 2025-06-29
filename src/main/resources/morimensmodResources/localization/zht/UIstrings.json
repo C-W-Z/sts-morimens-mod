@@ -79,6 +79,11 @@
             "鑰令"
         ]
     },
+    "${ModID}:choosePosse": {
+        "TEXT": [
+            "選擇攜帶的鑰令（滾動以查看更多）"
+        ]
+    },
     "${ModID}:EasyModalChoiceAction": {
         "TEXT": [
             "選擇 ",
