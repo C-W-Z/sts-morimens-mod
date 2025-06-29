@@ -367,7 +367,7 @@ public class MorimensMod implements
 
     @Override
     public void receivePostDungeonInitialize() {
-        if (p() instanceof AbstractAwakener)
-            ((AbstractAwakener) p()).choosePosse();
+        // if (p() instanceof AbstractAwakener)
+        //     ((AbstractAwakener) p()).choosePosse();
     }
 }

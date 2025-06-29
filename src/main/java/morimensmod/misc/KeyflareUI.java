@@ -78,7 +78,8 @@ public class KeyflareUI extends ClickableUIElement {
         ArrayList<PowerTip> tips = new ArrayList<>();
         AbstractAwakener awaker = (AbstractAwakener) p();
         tips.add(new PowerTip(TEXT.EXTRA_TEXT[0], TEXT.EXTRA_TEXT[1] + awaker.keyflareRegen + " "));
-        tips.add(new PowerTip(TEXT.TEXT[0] + awaker.getPosseTitle() + TEXT.TEXT[1], awaker.getPosseDescription()));
+        if (awaker.getPosseID() != null)
+            tips.add(new PowerTip(TEXT.TEXT[0] + awaker.getPosseTitle() + TEXT.TEXT[1], awaker.getPosseDescription()));
         TipHelper.queuePowerTips(fontX, baseY + Settings.yScale * 300f, tips);
     }
 

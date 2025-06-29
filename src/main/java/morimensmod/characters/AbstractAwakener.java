@@ -16,7 +16,6 @@ import morimensmod.util.PersistentPowerLib;
 import morimensmod.cards.posses.AbstractPosse;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -28,8 +27,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-
 import static morimensmod.MorimensMod.*;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.*;
@@ -261,7 +258,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public void choosePosse() {
         logger.debug("choosePosse");
 
-        AbstractDungeon.topLevelEffects.add(new AbstractGameEffect() {
+        att(new AbstractGameAction() {
             private boolean opened = false;
 
             @Override
@@ -283,14 +280,6 @@ public abstract class AbstractAwakener extends CustomPlayer {
                     setPosse((AbstractPosse) AbstractDungeon.cardRewardScreen.discoveryCard);
                     isDone = true;
                 }
-            }
-
-            @Override
-            public void render(SpriteBatch sb) {
-            }
-
-            @Override
-            public void dispose() {
             }
         });
     }
