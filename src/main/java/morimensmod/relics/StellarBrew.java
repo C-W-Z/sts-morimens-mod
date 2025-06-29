@@ -13,6 +13,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class StellarBrew extends AbstractEasyRelic {
     public static final String ID = makeID(StellarBrew.class.getSimpleName());
 
+    private static final int COMMAND_NUM = 8;
+
     public StellarBrew() {
         super(ID, RelicTier.BOSS, LandingSound.CLINK);
         counter = 0;
@@ -23,10 +25,10 @@ public class StellarBrew extends AbstractEasyRelic {
         if (card.purgeOnUse || !isCommandCard(card))
             return;
         counter++;
-        if (counter % 8 != 0)
+        if (counter % COMMAND_NUM != 0)
             return;
 
-        this.flash();
+        flash();
         AbstractMonster m = null;
         if (action.target instanceof AbstractMonster) {
             m = (AbstractMonster) action.target;
@@ -45,6 +47,11 @@ public class StellarBrew extends AbstractEasyRelic {
         tmp.purgeOnUse = true;
         AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
 
-        counter -= 8;
+        counter -= COMMAND_NUM;
+    }
+
+    @Override
+    public String getUpdatedDescription() {
+        return DESCRIPTIONS[0] + COMMAND_NUM + DESCRIPTIONS[1];
     }
 }

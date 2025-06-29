@@ -7,6 +7,7 @@ import morimensmod.cards.chaos.Strike;
 import morimensmod.exalts.MundusDecree;
 import morimensmod.misc.SpriteSheetAnimation;
 import morimensmod.relics.ChaosRelic;
+import morimensmod.relics.RamonaRelic;
 
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -80,6 +81,7 @@ public class Ramona extends AbstractAwakener {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add(ChaosRelic.ID);
+        retVal.add(RamonaRelic.ID);
         return retVal;
     }
 

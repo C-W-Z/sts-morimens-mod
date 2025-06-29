@@ -3,16 +3,29 @@
     "NAME": "混沌界域",
     "FLAVOR": "宇宙萬象",
     "DESCRIPTIONS": [
-      "回合結束時，獲得 #b250 點 #y${ModID}:銀鑰能量 。每有 #b10 點 #g${ModID}:界域精通 ，釋放 #y${ModID}:鑰令 後，獲得 #b1 #y${ModID}:狂氣 。",
+      "回合結束時，獲得 #b",
+      " 點 #y${ModID}:銀鑰能量 。每有 #b",
+      " 點 #g${ModID}:界域精通 ，釋放 #y${ModID}:鑰令 後，獲得 #b1 #y${ModID}:狂氣 。",
       " NL 當前 #g界域精通 ： #b",
       " NL 當前釋放 #y鑰令 後獲得 #y狂氣 ： #b"
+    ]
+  },
+  "${ModID}:RamonaRelic": {
+    "NAME": "心與銀的共振",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "戰鬥開始時獲得 #b",
+      " #y${ModID}:銀鑰能量 。每打出 #b",
+      " 張 #y${ModID}:指令卡 ，本場戰鬥中 #y${ModID}:銀鑰充能 提高 #b",
+      " 點。"
     ]
   },
   "${ModID}:StellarBrew": {
     "NAME": "群星之酒",
     "FLAVOR": "遊走於繁星之間。",
     "DESCRIPTIONS": [
-      "你每打出的第 #b8 張 #y${ModID}:指令卡 會生效兩次。"
+      "你每打出的第 #b",
+      " 張 #y${ModID}:指令卡 會生效兩次。"
     ]
   }
 }
