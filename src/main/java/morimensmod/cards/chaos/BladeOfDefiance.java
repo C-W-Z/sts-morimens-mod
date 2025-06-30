@@ -6,11 +6,10 @@ import static morimensmod.util.Wiz.actB;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import morimensmod.actions.RandomAttackMonsterAction;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.patches.CustomTags;
 
@@ -26,12 +25,13 @@ public class BladeOfDefiance extends AbstractEasyCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void use(AbstractPlayer p, AbstractMonster _m) {
         for (int i = 0; i < attackCount; i++)
             actB(() -> {
+                AbstractMonster m = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
                 calculateCardDamage(m);
-                addToTop(new RandomAttackMonsterAction(new DamageInfo(p, damage, damageTypeForTurn),
-                        AttackEffect.SLASH_DIAGONAL));
+                if (m != null)
+                    dmgTop(m, AttackEffect.SLASH_DIAGONAL);
             });
     }
 
