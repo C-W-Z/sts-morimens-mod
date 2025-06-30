@@ -1,6 +1,7 @@
 package morimensmod.patches;
 
 import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
+import static morimensmod.util.Wiz.p;
 
 import java.util.ArrayList;
 
@@ -11,6 +12,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+
+import morimensmod.characters.AbstractAwakener;
 
 @SpirePatch2(clz = AbstractDungeon.class, method = "getRewardCards")
 public class CardRewardPatch {
@@ -25,6 +28,9 @@ public class CardRewardPatch {
 
     @SpirePrefixPatch
     public static SpireReturn<ArrayList<AbstractCard>> Replace(float ___cardUpgradedChance) {
+        if (!(p() instanceof AbstractAwakener))
+            return SpireReturn.Continue();
+
         ArrayList<AbstractCard> retVal = new ArrayList<>();
         int numCards = 3;
         for (AbstractRelic r : AbstractDungeon.player.relics)
