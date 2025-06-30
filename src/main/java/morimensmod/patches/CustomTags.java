@@ -32,4 +32,6 @@ public class CustomTags {
     public static CardTags DESTROYABLE;
     @SpireEnum
     public static CardTags FORCE_PLAYABLE;
+    @SpireEnum
+    public static CardTags PHANTOM;
 }
