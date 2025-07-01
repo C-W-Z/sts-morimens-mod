@@ -151,7 +151,7 @@
   },
   "${ModID}:LoopingSwordplay": {
     "NAME": "廻環劍技",
-    "DESCRIPTION": "造成 !D! 點傷害，若 斬殺 任何敵人，此卡傷害永久提升 !M! ，將一張附加 消耗 的複製置入手中。 NL 視為「 打擊 」"
+    "DESCRIPTION": "造成 !D! 點傷害，若 斬殺 任何敵人，此卡傷害永久提升 !M! 並將一張此牌的複製置入手中。 NL 視為「 打擊 」 消耗 "
   },
   "${ModID}:KnightsZeal": {
     "NAME": "騎士熱誠",

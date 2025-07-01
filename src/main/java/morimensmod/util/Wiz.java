@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
@@ -317,6 +318,11 @@ public class Wiz {
             if (card.uuid.equals(uuid))
                 return true;
         return false;
+    }
+
+    public static boolean isKilled(AbstractCreature target) {
+        return (target.isDying || target.currentHealth <= 0) && !target.halfDead
+                && !target.hasPower(MinionPower.POWER_ID);
     }
 
     public static boolean isCommandCard(AbstractCard card) {
