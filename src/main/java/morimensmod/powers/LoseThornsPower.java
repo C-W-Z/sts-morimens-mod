@@ -20,7 +20,7 @@ public class LoseThornsPower extends AbstractEasyPower {
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
+    public void atStartOfTurn() {
         flash();
         addToBot(new ReducePowerAction(owner, owner, ThornsPower.POWER_ID, amount));
         addToBot(new RemoveSpecificPowerAction(owner, owner, this));
