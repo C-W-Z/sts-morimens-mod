@@ -2,12 +2,10 @@ package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
-import static morimensmod.util.Wiz.actB;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
@@ -27,12 +25,7 @@ public class BladeOfDefiance extends AbstractEasyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster _m) {
         for (int i = 0; i < attackCount; i++)
-            actB(() -> {
-                AbstractMonster m = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
-                calculateCardDamage(m);
-                if (m != null)
-                    dmgTop(m, AttackEffect.SLASH_DIAGONAL);
-            });
+            dmgRandom(AttackEffect.SLASH_DIAGONAL);
     }
 
     @Override

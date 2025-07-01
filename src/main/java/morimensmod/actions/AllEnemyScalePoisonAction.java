@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 
-import static morimensmod.util.Wiz.powerAmount;
+import static morimensmod.util.Wiz.getPowerAmount;
 
 import java.util.ArrayList;
 
@@ -20,7 +20,7 @@ public class AllEnemyScalePoisonAction extends AbstractGameAction {
         AbstractDungeon.getMonsters().monsters.stream().filter((m) -> {
             return !m.isDeadOrEscaped();
         }).forEach((q) -> {
-            int poisonAmount = powerAmount(q, PoisonPower.POWER_ID) * (scale - 1);
+            int poisonAmount = getPowerAmount(q, PoisonPower.POWER_ID) * (scale - 1);
             this.actions.add(new ApplyPowerAction(q, source, new PoisonPower(q, source, poisonAmount), poisonAmount));
         });
     }

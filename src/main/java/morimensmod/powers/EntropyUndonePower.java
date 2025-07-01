@@ -3,7 +3,7 @@ package morimensmod.powers;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.p;
-import static morimensmod.util.Wiz.powerAmount;
+import static morimensmod.util.Wiz.getPowerAmount;
 
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -44,7 +44,7 @@ public class EntropyUndonePower extends AbstractEasyPower {
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         if (!card.hasTag(CustomTags.LOOP))
             return;
-        negentropyAmountBeforeUseCard = powerAmount(p(), NegentropyPower.POWER_ID);
+        negentropyAmountBeforeUseCard = getPowerAmount(p(), NegentropyPower.POWER_ID);
     }
 
     @Override

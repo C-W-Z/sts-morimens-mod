@@ -6,7 +6,7 @@ import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.applyToEnemyTop;
 import static morimensmod.util.Wiz.getEnemies;
 import static morimensmod.util.Wiz.p;
-import static morimensmod.util.Wiz.powerAmount;
+import static morimensmod.util.Wiz.getPowerAmount;
 
 import java.util.Comparator;
 
@@ -63,7 +63,7 @@ public class MidnightTide extends AbstractEasyCard {
         if (str != null) {
             originalStrength = str.amount;
             // 暫時修改力量
-            int permenantStr = powerAmount(p(), StrengthPower.POWER_ID) - powerAmount(p(), LoseStrengthPower.POWER_ID);
+            int permenantStr = getPowerAmount(p(), StrengthPower.POWER_ID) - getPowerAmount(p(), LoseStrengthPower.POWER_ID);
             str.amount += (secondMagic - 1) * permenantStr;
         }
 
@@ -82,7 +82,7 @@ public class MidnightTide extends AbstractEasyCard {
         AbstractPower str = p().getPower(StrengthPower.POWER_ID);
         if (str != null) {
             originalStrength = str.amount;
-            int permenantStr = powerAmount(p(), StrengthPower.POWER_ID) - powerAmount(p(), LoseStrengthPower.POWER_ID);
+            int permenantStr = getPowerAmount(p(), StrengthPower.POWER_ID) - getPowerAmount(p(), LoseStrengthPower.POWER_ID);
             str.amount += (secondMagic - 1) * permenantStr;
         }
 

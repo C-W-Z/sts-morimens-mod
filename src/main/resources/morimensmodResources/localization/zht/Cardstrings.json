@@ -268,7 +268,8 @@
   },
   "${ModID}:WaxHotDesire": {
     "NAME": "灼燃蠟滴之欲",
-    "DESCRIPTION": "獲得 !M! 層 荊棘 。在本回合中，偷取所有敵人 !${ModID}:M2! 點 力量 ，若只有一個敵人，偷取的 力量 翻倍。移除所有敵人的 荊棘 狀態。 NL 保留 "
+    "DESCRIPTION": "獲得 !M! 層 荊棘 。在本回合中，偷取所有敵人 !${ModID}:M2! 點 力量 ，若只有一個敵人，偷取的 力量 翻倍。移除所有敵人的 荊棘 狀態。 NL 保留 ",
+    "UPGRADE_DESCRIPTION": "獲得 !M! 層 荊棘 。在本回合中，偷取所有敵人 !${ModID}:M2! 點 力量 ，若只有一個敵人，偷取的 力量 翻倍。移除所有敵人的 荊棘 狀態。獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 保留 "
   },
   "${ModID}:OutstandingVeteran": {
     "NAME": "戰地卓識",

@@ -199,13 +199,6 @@ public class Wiz {
         discard(amount, false);
     }
 
-    public static int powerAmount(AbstractCreature check, String ID) {
-        AbstractPower found = check.getPower(ID);
-        if (found != null)
-            return found.amount;
-        return 0;
-    }
-
     public static AbstractGameAction actionify(Runnable todo) {
         return new AbstractGameAction() {
             @Override
@@ -278,7 +271,7 @@ public class Wiz {
         reducePower(p, 1);
     }
 
-    public static int getLogicalPowerAmount(AbstractCreature ac, String powerId) {
+    public static int getPowerAmount(AbstractCreature ac, String powerId) {
         AbstractPower pow = ac.getPower(powerId);
         if (pow == null)
             return 0;

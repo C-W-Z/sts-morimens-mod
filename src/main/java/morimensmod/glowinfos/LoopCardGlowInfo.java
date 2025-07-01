@@ -2,7 +2,7 @@ package morimensmod.glowinfos;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.p;
-import static morimensmod.util.Wiz.powerAmount;
+import static morimensmod.util.Wiz.getPowerAmount;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -28,6 +28,6 @@ public class LoopCardGlowInfo extends AbstractGlowInfo {
     public boolean test(AbstractCard card) {
         return (p() != null &&
                 card.hasTag(CustomTags.LOOP) &&
-                powerAmount(p(), NegentropyPower.POWER_ID) >= NegentropyPower.INVOKE_AMOUNT);
+                getPowerAmount(p(), NegentropyPower.POWER_ID) >= NegentropyPower.INVOKE_AMOUNT);
     }
 }
