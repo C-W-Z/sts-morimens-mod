@@ -27,6 +27,7 @@ public class WaxHotDesire extends AbstractEasyCard {
         magicNumber = baseMagicNumber = 1; // 永反
         secondMagic = baseSecondMagic = 1; // 偷力
         aliemus = baseAliemus = 0;
+        selfRetain = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster _m) {
