@@ -1,31 +1,24 @@
 package morimensmod.cards.wheel_of_destiny;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.p;
 
-import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import morimensmod.cards.AbstractEasyCard;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.patches.CustomTags;
 import morimensmod.powers.ManikinOfOblivionPower;
 
-public class ManikinOfOblivion extends AbstractEasyCard implements StartupCard {
+public class ManikinOfOblivion extends AbstractWheelOfDestiny {
 
     public final static String ID = makeID(ManikinOfOblivion.class.getSimpleName());
 
     public ManikinOfOblivion() {
-        super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF, WHEEL_OF_DESTINY_COLOR);
-        tags.add(CustomTags.WHEEL_OF_DESTINY);
+        super(ID, 3, CardRarity.RARE);
         magicNumber = baseMagicNumber = 7; // 狂氣回充
         secondMagic = baseSecondMagic = 10; // 狂氣、中毒、治療提升%數
-        selfRetain = true;
-        prepare = 1;
     }
 
     @Override
