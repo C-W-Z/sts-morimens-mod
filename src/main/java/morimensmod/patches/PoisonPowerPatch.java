@@ -15,7 +15,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
-import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
@@ -23,6 +22,7 @@ import javassist.expr.ExprEditor;
 import javassist.expr.NewExpr;
 import morimensmod.powers.DrowningInSorrowPower;
 import static morimensmod.util.Wiz.atb;
+import static morimensmod.util.Wiz.isInCombat;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -59,8 +59,7 @@ public class PoisonPowerPatch {
                 return;
             if (!__instance.owner.hasPower(DrowningInSorrowPower.POWER_ID))
                 return;
-            if (AbstractDungeon.getCurrRoom().phase != RoomPhase.COMBAT
-                    || AbstractDungeon.getMonsters().areMonstersBasicallyDead())
+            if (!isInCombat() || AbstractDungeon.getMonsters().areMonstersBasicallyDead())
                 return;
             logger.debug("apply poison action atEndOfTurn");
             __instance.flashWithoutSound();

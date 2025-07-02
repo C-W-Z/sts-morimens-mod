@@ -16,8 +16,10 @@ import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import morimensmod.cards.posses.AbstractPosse;
@@ -119,6 +121,11 @@ public class Wiz {
                 && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
     }
 
+    public static boolean isInBossCombat() {
+        return CardCrawlGame.isInARun() && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom() != null
+                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss;
+    }
+
     public static void atb(AbstractGameAction action) {
         AbstractDungeon.actionManager.addToBottom(action);
     }
@@ -199,13 +206,6 @@ public class Wiz {
         discard(amount, false);
     }
 
-    public static int powerAmount(AbstractCreature check, String ID) {
-        AbstractPower found = check.getPower(ID);
-        if (found != null)
-            return found.amount;
-        return 0;
-    }
-
     public static AbstractGameAction actionify(Runnable todo) {
         return new AbstractGameAction() {
             @Override
@@ -278,7 +278,7 @@ public class Wiz {
         reducePower(p, 1);
     }
 
-    public static int getLogicalPowerAmount(AbstractCreature ac, String powerId) {
+    public static int getPowerAmount(AbstractCreature ac, String powerId) {
         AbstractPower pow = ac.getPower(powerId);
         if (pow == null)
             return 0;
@@ -318,6 +318,11 @@ public class Wiz {
             if (card.uuid.equals(uuid))
                 return true;
         return false;
+    }
+
+    public static boolean isKilled(AbstractCreature target) {
+        return (target.isDying || target.currentHealth <= 0) && !target.halfDead
+                && !target.hasPower(MinionPower.POWER_ID);
     }
 
     public static boolean isCommandCard(AbstractCard card) {

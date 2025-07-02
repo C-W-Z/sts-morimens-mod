@@ -5,7 +5,7 @@ import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.drawPile;
 import static morimensmod.util.Wiz.discardPile;
-import static morimensmod.util.Wiz.powerAmount;
+import static morimensmod.util.Wiz.getPowerAmount;
 
 import java.util.ArrayList;
 
@@ -40,7 +40,7 @@ public class SightUnbound extends AbstractEasyCard {
 
         ArrayList<AbstractCard> cardList = new ArrayList<>();
 
-        if (powerAmount(p, NegentropyPower.POWER_ID) >= NegentropyPower.INVOKE_AMOUNT) {
+        if (getPowerAmount(p, NegentropyPower.POWER_ID) >= NegentropyPower.INVOKE_AMOUNT) {
             addToBot(new ReducePowerAction(p, p, NegentropyPower.POWER_ID, NegentropyPower.INVOKE_AMOUNT));
 
             for (AbstractCard c : drawPile().group) {

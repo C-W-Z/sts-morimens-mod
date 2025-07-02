@@ -6,6 +6,7 @@ import morimensmod.util.TexLoader;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.MorimensMod.makeUIPath;
+import static morimensmod.util.Wiz.isInCombat;
 import static morimensmod.util.WizArt.drawCentered;
 import java.util.ArrayList;
 
@@ -19,7 +20,6 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class DeathResistanceUI extends ClickableUIElement {
 
@@ -73,8 +73,7 @@ public class DeathResistanceUI extends ClickableUIElement {
     }
 
     public static boolean loadDeathResistanceUI() {
-        if (CardCrawlGame.dungeon == null || !(AbstractDungeon.player instanceof AbstractAwakener)
-                || AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT)
+        if (!(AbstractDungeon.player instanceof AbstractAwakener) || !isInCombat())
             return false;
         if (UI == null)
             UI = new DeathResistanceUI();

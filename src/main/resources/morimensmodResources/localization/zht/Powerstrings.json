@@ -7,6 +7,13 @@
       " #yDexterity."
     ]
   },
+  "${ModID}:LoseThornsPower": {
+    "NAME": "荊棘叢生",
+    "DESCRIPTIONS": [
+      "回合開始時，失去 #b",
+      " 層 #y荊棘 。"
+    ]
+  },
   "${ModID}:SealPower": {
     "NAME": "封印",
     "DESCRIPTIONS": [

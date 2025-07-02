@@ -3,7 +3,7 @@ package morimensmod.powers;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.applyToSelf;
-import static morimensmod.util.Wiz.powerAmount;
+import static morimensmod.util.Wiz.getPowerAmount;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -48,7 +48,7 @@ public class DrowningInSorrowPower extends AbstractEasyPower {
         addToBot(new AllEnemyApplyPowerAction(owner, amount, m -> new PoisonPower(m, owner, amount)));
         actB(() -> {
             if (owner instanceof AbstractPlayer) {
-                int poisonAmount = powerAmount(owner, PoisonPower.POWER_ID);
+                int poisonAmount = getPowerAmount(owner, PoisonPower.POWER_ID);
                 addToTop(new AliemusChangeAction((AbstractPlayer) owner, poisonAmount * POISON_ALIEMUS_SCALE));
             }
         });

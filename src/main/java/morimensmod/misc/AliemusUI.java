@@ -10,6 +10,7 @@ import static morimensmod.MorimensMod.makeID;
 import static morimensmod.MorimensMod.makeUIPath;
 import static morimensmod.util.Wiz.atb;
 import static morimensmod.util.Wiz.p;
+import static morimensmod.util.Wiz.isInCombat;
 import static morimensmod.util.WizArt.drawCentered;
 import static morimensmod.util.WizArt.showThoughtBubble;
 
@@ -26,7 +27,6 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class AliemusUI extends ClickableUIElement {
 
@@ -137,8 +137,7 @@ public class AliemusUI extends ClickableUIElement {
     }
 
     public static boolean loadAliemusUI() {
-        if (CardCrawlGame.dungeon == null || !(AbstractDungeon.player instanceof AbstractAwakener)
-                || AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT)
+        if (!(AbstractDungeon.player instanceof AbstractAwakener) || !isInCombat())
             return false;
         if (UI == null)
             UI = new AliemusUI();
