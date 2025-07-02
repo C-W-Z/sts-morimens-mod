@@ -17,21 +17,21 @@ public class EtherealModifier extends AbstractCardModifier {
     // private static final Logger logger = LogManager.getLogger(EtherealModifier.class);
 
     public static final String ID = makeID(EtherealModifier.class.getSimpleName());
-    private static final UIStrings UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID);
+    // private static final UIStrings UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID);
 
     public EtherealModifier() {
     }
 
-    public String modifyDescription(String rawDescription, AbstractCard card) {
-        String newDescription;
-        // logger.debug("modifierCount before modifyDescription: " + modifierCount(card));
-        // 此時已經被加上isEthereal了
-        if (hasModifier(rawDescription))
-            newDescription = String.format(UI_STRINGS.TEXT[0], rawDescription);
-        else
-            newDescription = String.format(UI_STRINGS.TEXT[1], rawDescription);
-        return newDescription;
-    }
+    // public String modifyDescription(String rawDescription, AbstractCard card) {
+    //     String newDescription;
+    //     // logger.debug("modifierCount before modifyDescription: " + modifierCount(card));
+    //     // 此時已經被加上isEthereal了
+    //     if (hasModifier(rawDescription))
+    //         newDescription = String.format(UI_STRINGS.TEXT[0], rawDescription);
+    //     else
+    //         newDescription = String.format(UI_STRINGS.TEXT[1], rawDescription);
+    //     return newDescription;
+    // }
 
     public boolean shouldApply(AbstractCard card) {
         return !card.isEthereal;

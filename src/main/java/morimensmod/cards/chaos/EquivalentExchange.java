@@ -54,10 +54,7 @@ public class EquivalentExchange extends AbstractEasyCard {
         if (heal != baseHeal)
             isHealModified = true;
 
-        if (upgraded)
-            rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
-        else
-            rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
+        rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
         initializeDescription();
     }
 }
