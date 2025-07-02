@@ -142,10 +142,7 @@
     },
     "${ModID}:CardModifiers": {
         "TEXT": [
-            " 消耗 ",
-            " 虛無 ",
-            " 固有 ",
-            " 保留 ",
+            "${ModID}:預備",
             "${ModID}:永久保留",
             "${ModID}:銷毀",
             " 無法打出 ",
@@ -153,18 +150,6 @@
             "視為「 打擊 」",
             "視為「 ${ModID}:防禦 」",
             "${ModID}:幻影"
-        ]
-    },
-    "${ModID}:ExhaustModifier": {
-        "TEXT": [
-            "%s \u2002 消耗 ",
-            "%s NL 消耗 "
-        ]
-    },
-    "${ModID}:EtherealModifier": {
-        "TEXT": [
-            "%s \u2002 虛無 ",
-            "%s NL 虛無 "
         ]
     },
     "${ModID}:VoicesInYourHead": {
