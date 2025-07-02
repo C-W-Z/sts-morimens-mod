@@ -569,7 +569,8 @@
   },
   "${ModID}:CryOut": {
     "NAME": "哭喊",
-    "DESCRIPTION": "降低所有敵人 !M! 點 ${ModID}:臨時 力量 ，將 !${ModID}:M2! 張「症狀：妄想」置入手牌。 NL \"很痛嗎？真可憐……哭出來就好啦！\""
+    "DESCRIPTION": "降低所有敵人 !M! 點 ${ModID}:臨時 力量 ，將 !${ModID}:M2! 張「症狀：妄想」置入手牌。",
+    "FLAVOR": "很痛嗎？真可憐……哭出來就好啦！"
   },
   "${ModID}:MutatedHeart": {
     "NAME": "畸變之心",
