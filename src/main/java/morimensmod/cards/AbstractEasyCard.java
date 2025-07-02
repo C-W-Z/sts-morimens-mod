@@ -25,7 +25,6 @@ import static morimensmod.MorimensMod.makeImagePath;
 import static morimensmod.util.Wiz.*;
 import static morimensmod.util.General.*;
 
-import morimensmod.actions.DestroyCardAction;
 import morimensmod.cardmodifiers.ChangeCostUntilUseModifier;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.CustomTags;
@@ -446,12 +445,5 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         for (AbstractCard card : discardPile().group)
             if (card.hasTag(CustomTags.RETAIN_IN_DECK) && !isInDeck(card.uuid))
                 deck().addToBottom(card.makeSameInstanceOf());
-    }
-
-    // called in UseCardActionPatch
-    public static void onAfterUseCard(AbstractCard card) {
-        if (card.hasTag(CustomTags.DESTROYABLE)) {
-            att(new DestroyCardAction(card));
-        }
     }
 }
