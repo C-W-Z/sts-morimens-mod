@@ -2,6 +2,7 @@ package morimensmod.cards;
 
 import java.util.ArrayList;
 
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.SpawnModificationCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.patches.CustomTags;
 
-public abstract class AbstractRouseCard extends AbstractEasyCard implements SpawnModificationCard {
+public abstract class AbstractRouseCard extends AbstractEasyCard implements SpawnModificationCard, BranchingUpgradesCard {
 
     int costBeforeUpgrade;
 
@@ -30,8 +31,13 @@ public abstract class AbstractRouseCard extends AbstractEasyCard implements Spaw
 
     @Override
     public void upp() {
-        upgradeAliemus(20);
-        upgradeBaseCost(Math.max(0, costBeforeUpgrade - 1));
+        if (isBranchUpgrade()) {
+            upgradeAliemus(10);
+            upgradeBaseCost(Math.max(0, costBeforeUpgrade - 1));
+            isInnate = true;
+        } else {
+            upgradeAliemus(30);
+        }
     }
 
     @Override

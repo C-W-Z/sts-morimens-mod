@@ -23,7 +23,6 @@ public class Unrestrained extends AbstractEasyCard {
         tags.add(CustomTags.RETAIN_IN_DECK);
         magicNumber = baseMagicNumber = 2; // 獲得臨時力量
         secondMagic = baseSecondMagic = 2; // 敵人獲得臨時力量
-        exhaust = true;
         selfRetain = true;
         FleetingField.fleeting.set(this, true); // 銷毀
     }

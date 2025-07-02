@@ -552,7 +552,7 @@
   },
   "${ModID}:StickyWax": {
     "NAME": "黏糊糊的蠟油",
-    "DESCRIPTION": " 消耗 \u2002 保留 \u2002 ${ModID}:永久保留 \u2002 ${ModID}:銷毀 "
+    "DESCRIPTION": " 保留 \u2002 ${ModID}:永久保留 \u2002 ${ModID}:銷毀 "
   },
   "${ModID}:DimensionLock": {
     "NAME": "維度閉鎖",
@@ -580,7 +580,7 @@
   },
   "${ModID}:Unrestrained": {
     "NAME": "狂放",
-    "DESCRIPTION": "獲得 !M! 點 ${ModID}:臨時 力量 ，所有敵人獲得 !${ModID}:M2! 點 ${ModID}:臨時 力量 。 NL 消耗 \u2002 保留 \u2002 ${ModID}:永久保留 \u2002 ${ModID}:銷毀 "
+    "DESCRIPTION": "獲得 !M! 點 ${ModID}:臨時 力量 ，所有敵人獲得 !${ModID}:M2! 點 ${ModID}:臨時 力量 。 NL 保留 \u2002 ${ModID}:永久保留 \u2002 ${ModID}:銷毀 "
   },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",
