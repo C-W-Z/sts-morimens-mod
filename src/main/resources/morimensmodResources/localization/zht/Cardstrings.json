@@ -1,9 +1,9 @@
 {
   "${ModID}:VoicesInYourHead": {
     "NAME": "腦中之音",
-    "DESCRIPTION": "對所有敵人造成 1 回合 虛弱 和 易傷 並偷取 1 點 ${ModID}:臨時 力量 。",
+    "DESCRIPTION": "對所有敵人造成 1 回合 虛弱 和 易傷 並偷取 1 點 ${ModID}:臨時 [${ModID}:StrengthIcon] 力量 。",
     "EXTENDED_DESCRIPTION": [
-      "對所有敵人造成 #b1 回合 #g虛弱 和 #r易傷 並偷取 #b1 點 #g臨時 #y力量 。"
+      "對所有敵人造成 #b1 回合 #g虛弱 和 #r易傷 並偷取 #b1 點 #g臨時 [${ModID}:StrengthIcon] #y力量 。"
     ]
   },
   "${ModID}:TinyWish": {
@@ -36,7 +36,7 @@
   },
   "${ModID}:ObsessionEternal": {
     "NAME": "永世執念",
-    "DESCRIPTION": "獲得 3 點 力量 ，額外獲得等同於永久 力量 25% 的 ${ModID}:臨時 力量 。",
+    "DESCRIPTION": "獲得 3 點 [${ModID}:StrengthIcon] 力量 ，額外獲得等同於永久 力量 25% 的 ${ModID}:臨時 力量 。",
     "EXTENDED_DESCRIPTION": [
       "獲得 #b3 點 #y力量 ，額外獲得等同於永久 #y力量 #b25% 的 #y臨時 #y力量 。"
     ]

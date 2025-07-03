@@ -155,7 +155,7 @@
     "${ModID}:VoicesInYourHead": {
         "TEXT": [
             "腦中之音",
-            "對所有敵人造成 #b1 回合 #g虛弱 和 #r易傷 並偷取 #b1 點 #g臨時 #y力量 。"
+            "對所有敵人造成 #b1 回合 #g虛弱 和 #r易傷 並偷取 #b1 點 #g臨時 [${ModID}:StrengthIcon] #y力量 。"
         ]
     },
     "${ModID}:TinyWish": {

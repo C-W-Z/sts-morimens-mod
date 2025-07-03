@@ -17,6 +17,7 @@ import morimensmod.characters.Lotan;
 import morimensmod.characters.Ramona;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.glowinfos.AbstractGlowInfo;
+import morimensmod.icons.AbstractIcon;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.relics.AbstractEasyRelic;
@@ -33,6 +34,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.mod.stslib.icons.CustomIconHelper;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.evacipated.cardcrawl.modthespire.Patcher;
@@ -226,6 +228,10 @@ public class MorimensMod implements
         return modID + "Resources/images/ui/" + resourcePath;
     }
 
+    public static String makeIconPath(String resourcePath) {
+        return modID + "Resources/images/icons/" + resourcePath;
+    }
+
     public static void initialize() {
         MorimensMod thismod = new MorimensMod();
     }
@@ -245,6 +251,10 @@ public class MorimensMod implements
                         BaseMod.addPotion(potion.getClass(), potion.liquidColor, potion.hybridColor, potion.spotsColor,
                                 potion.ID, potion.pool);
                 });
+
+        new AutoAdd(modID)
+                .packageFilter(AbstractIcon.class)
+                .any(AbstractIcon.class, (info, icon) -> CustomIconHelper.addCustomIcon(icon.get()));
     }
 
     @Override

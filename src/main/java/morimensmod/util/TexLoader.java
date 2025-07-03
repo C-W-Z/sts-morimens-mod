@@ -7,7 +7,9 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 
-import static morimensmod.MorimensMod.makeImagePath;
+import static morimensmod.MorimensMod.makePowerPath;
+import static morimensmod.MorimensMod.makeUIPath;
+import static morimensmod.MorimensMod.makeIconPath;
 
 import java.util.HashMap;
 
@@ -26,11 +28,13 @@ public class TexLoader {
             } catch (GdxRuntimeException e) {
                 if (textureString.contains("/powers/")) {
                     if (textureString.contains("84.png"))
-                        return getTexture(makeImagePath("powers/missing84.png"));
+                        return getTexture(makePowerPath("missing84.png"));
                     else if (textureString.contains("32.png"))
-                        return getTexture(makeImagePath("powers/missing32.png"));
+                        return getTexture(makePowerPath("missing32.png"));
                 }
-                return getTexture(makeImagePath("ui/missing.png"));
+                if (textureString.contains("/icons/"))
+                    return getTexture(makeIconPath("missing.png"));
+                return getTexture(makeUIPath("missing.png"));
             }
         }
         return textures.get(textureString);
