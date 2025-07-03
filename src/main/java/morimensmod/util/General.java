@@ -8,6 +8,6 @@ public class General {
     }
 
     public static String removeModID(String id) {
-        return id.replace(modID + ":", "");
+        return id.replaceAll(modID + ":", "");
     }
 }

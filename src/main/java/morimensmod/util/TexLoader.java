@@ -3,9 +3,11 @@ package morimensmod.util;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static morimensmod.MorimensMod.makePowerPath;
 import static morimensmod.MorimensMod.makeUIPath;
@@ -75,4 +77,11 @@ public class TexLoader {
         }
     }
 
+    public static AtlasRegion getPowerRegion48(AbstractPower power) {
+        return getTextureAsAtlasRegion(makePowerPath(power.getClass().getSimpleName() + "32.png"));
+    }
+
+    public static AtlasRegion getPowerRegion128(AbstractPower power) {
+        return getTextureAsAtlasRegion(makePowerPath(power.getClass().getSimpleName() + "84.png"));
+    }
 }
