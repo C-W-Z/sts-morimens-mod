@@ -32,6 +32,8 @@ import morimensmod.util.TexLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.mod.stslib.icons.CustomIconHelper;
@@ -64,6 +66,7 @@ import static morimensmod.patches.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 import static morimensmod.util.Wiz.*;
+import static morimensmod.util.WizArt.*;
 import static morimensmod.util.General.*;
 
 import java.nio.charset.StandardCharsets;
@@ -80,11 +83,11 @@ import org.scannotation.AnnotationDB;
 @SuppressWarnings({ "unused", "WeakerAccess" })
 @SpireInitializer
 public class MorimensMod implements
+        PreRoomRenderSubscriber,
         OnCardUseSubscriber,
         OnPlayerTurnStartPostDrawSubscriber,
         PostBattleSubscriber,
         OnStartBattleSubscriber,
-        PostDungeonInitializeSubscriber,
         PostInitializeSubscriber,
         EditCardsSubscriber,
         EditRelicsSubscriber,
@@ -381,14 +384,36 @@ public class MorimensMod implements
     }
 
     @Override
-    public void receivePostDungeonInitialize() {
-        // if (p() instanceof AbstractAwakener)
-        //     ((AbstractAwakener) p()).choosePosse();
-    }
-
-    @Override
     public void receiveCardUsed(AbstractCard card) {
         if (p() instanceof AbstractAwakener)
             ((AbstractAwakener) p()).getExalt().onCardUse(card);
+    }
+
+    @Override
+    public void receivePreRoomRender(SpriteBatch sb) {
+        sb.setColor(Color.WHITE);
+        Texture bg = TexLoader.getTexture(makeUIPath("bg.png"));
+
+        float screenW = Settings.WIDTH;
+        float screenH = Settings.HEIGHT;
+
+        float imgW = bg.getWidth();
+        float imgH = bg.getHeight();
+
+        float scaleX = screenW / imgW;
+        float scaleY = screenH / imgH;
+
+        // 只要能覆蓋整個螢幕，但不超過原圖大小（縮小可以，放大不超過原圖1倍）
+        float coverScale = Math.max(scaleX, scaleY);
+        float finalScale = Math.min(coverScale, 1.0f);  // 若圖片比螢幕大，就會縮小
+
+        float scaledW = imgW * finalScale;
+        float scaledH = imgH * finalScale;
+
+        // 中心對齊
+        float drawX = (screenW - scaledW) / 2f;
+        float drawY = (screenH - scaledH) / 2f;
+
+        sb.draw(bg, drawX, drawY, scaledW, scaledH);
     }
 }
