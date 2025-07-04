@@ -43,6 +43,9 @@ public class MundusDecree extends AbstractExalt {
             cardList.add(new PileModalSelectCard(c, () -> att(new MundusDecreeAction(c))));
         }
 
+        // TODO: 參考
+        // atb(new MultiGroupMoveAction(CardGroupType.HAND, 1, CardGroupType.DRAW_PILE, CardGroupType.DISCARD_PILE));
+
         atb(new EasyModalChoiceAction(cardList));
 
         shuffleIn(new Insight());
