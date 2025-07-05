@@ -29,9 +29,38 @@ public abstract class AbstractRouseCard extends AbstractEasyCard implements Spaw
     }
 
     @Override
+    public boolean canUpgrade() {
+        return (timesUpgraded < 3);
+    }
+
+    @Override
+    protected void upgradeName() {
+        ++this.timesUpgraded;
+        this.upgraded = true;
+        this.name = cardStrings.NAME + "+" + this.timesUpgraded;
+        this.initializeTitle();
+    }
+
+    @Override
+    public void upgrade() {
+        if (!canUpgrade())
+            return;
+        this.upgradeName();
+        this.upp();
+        if (this.cardStrings.UPGRADE_DESCRIPTION != null)
+            this.uDesc();
+    }
+
+    @Override
     public void upp() {
-        upgradeAliemus(20);
-        upgradeBaseCost(Math.max(0, costBeforeUpgrade - 1));
+        if (timesUpgraded == 1)
+            upgradeAliemus(20);
+        else if (timesUpgraded == 2)
+            upgradeBaseCost(Math.max(0, costBeforeUpgrade - 1));
+        else if (timesUpgraded == 3) {
+            upgradeAliemus(10);
+            isInnate = true;
+        }
     }
 
     @Override
