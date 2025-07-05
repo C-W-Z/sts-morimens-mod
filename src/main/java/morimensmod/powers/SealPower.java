@@ -14,7 +14,7 @@ public class SealPower extends AbstractEasyPower {
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public static final int INVOKE_AMOUNT = 3; // 每三層觸發，移除3層
+    public static final int REDUCE_PER_TURN = 1;
 
     public SealPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.DEBUFF, true, owner, amount);
@@ -22,11 +22,11 @@ public class SealPower extends AbstractEasyPower {
 
     @Override
     public void atStartOfTurn() {
-        addToTop(new ReducePowerAction(owner, owner, this, 1));
+        addToTop(new ReducePowerAction(owner, owner, this, REDUCE_PER_TURN));
     }
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        this.description = String.format(DESCRIPTIONS[0], REDUCE_PER_TURN);
     }
 }

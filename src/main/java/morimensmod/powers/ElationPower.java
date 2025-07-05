@@ -17,6 +17,7 @@ public class ElationPower extends AbstractEasyPower {
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     private static final int AMPLIFY_PERCENT = 50;
+    private static final int REDUCE_PER_TURN = 1;
 
     public ElationPower(AbstractCreature owner, int turns) {
         super(POWER_ID, NAME, PowerType.BUFF, true, owner, turns);
@@ -38,11 +39,11 @@ public class ElationPower extends AbstractEasyPower {
 
     @Override
     public void atStartOfTurn() {
-        addToTop(new ReducePowerAction(owner, owner, this, 1));
+        addToTop(new ReducePowerAction(owner, owner, this, REDUCE_PER_TURN));
     }
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + AMPLIFY_PERCENT + DESCRIPTIONS[1];
+        this.description = String.format(DESCRIPTIONS[0], AMPLIFY_PERCENT, REDUCE_PER_TURN);
     }
 }

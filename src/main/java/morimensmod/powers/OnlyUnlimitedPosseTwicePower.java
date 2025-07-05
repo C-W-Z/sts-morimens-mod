@@ -30,7 +30,7 @@ public class OnlyUnlimitedPosseTwicePower extends AbstractEasyPower implements O
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        this.description = String.format(DESCRIPTIONS[0], amount);
     }
 
     @Override

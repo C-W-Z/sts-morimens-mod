@@ -10,14 +10,13 @@
   "${ModID}:LoseThornsPower": {
     "NAME": "荊棘叢生",
     "DESCRIPTIONS": [
-      "回合開始時，失去 #b",
-      " 層 #y荊棘 。"
+      "回合開始時，失去 #b%d 層 #y荊棘 。"
     ]
   },
   "${ModID}:SealPower": {
     "NAME": "封印",
     "DESCRIPTIONS": [
-      "無法釋放 #y狂氣爆發 。回合開始時減少 #b1 層。"
+      "無法釋放 #y狂氣爆發 。回合開始時減少 #b%d 層。"
     ]
   },
   "${ModID}:TraumaPower": {
@@ -30,28 +29,25 @@
   "${ModID}:PosseTwicePower": {
     "NAME": "雙發鑰令",
     "DESCRIPTIONS": [
-      "使下 #b",
-      " 次透過消耗 #y銀鑰能量 釋放的 #y鑰令 生效 #b2 次。"
+      "使下 #b%d 次透過消耗 #y銀鑰能量 釋放的 #y鑰令 生效兩次。"
     ]
   },
   "${ModID}:OnlyUnlimitedPosseTwicePower": {
     "NAME": "雙發鑰令",
     "DESCRIPTIONS": [
-      "使下 #b",
-      " 次並非透過消耗 #y銀鑰能量 釋放的 #y鑰令 生效 #b2 次。"
+      "使下 #b%d 次並非透過消耗 #y銀鑰能量 釋放的 #y鑰令 生效兩次。"
     ]
   },
   "${ModID}:NegentropyPower": {
     "NAME": "負熵",
     "DESCRIPTIONS": [
-      "每當擁有 #b3 層 #y負熵 時，打出擁有 #y回環 效果的卡牌，將消耗 #b3 層 #y負熵 並觸發 #y回環 效果， #y負熵 最多堆疊 #b3 層，會繼承至下場戰鬥。"
+      "每當擁有 #b%d 層 #y負熵 時，打出擁有 #y回環 效果的卡牌，將消耗 #b%d 層 #y負熵 並觸發 #y回環 效果， #y負熵 最多堆疊 #b%d 層，會繼承至下場戰鬥。"
     ]
   },
   "${ModID}:ElationPower": {
     "NAME": "興奮",
     "DESCRIPTIONS": [
-      "造成的基礎傷害、基礎 #p中毒 、基礎 #b荊棘 、基礎 #y觸腕傷害 提高 #b",
-      "% 。回合開始時減少 #b1 層。"
+      "造成的基礎傷害、基礎 #p中毒 、基礎 #b荊棘 、基礎 #y觸腕傷害 提高 #b%d%% 。回合開始時減少 #b%d 層。"
     ]
   },
   "${ModID}:FirstDoctrinePower": {
