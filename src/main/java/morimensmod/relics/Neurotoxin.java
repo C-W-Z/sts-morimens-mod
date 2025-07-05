@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.powers.PoisonPower;
 public class Neurotoxin extends AbstractEasyRelic {
     public static final String ID = makeID(Neurotoxin.class.getSimpleName());
 
-    private static final int POISON_PER_STRIKE = 1;
+    private static final int POISON_PER_STRIKE = 2;
 
     public Neurotoxin() {
         super(ID, RelicTier.COMMON, LandingSound.SOLID);
