@@ -3,11 +3,8 @@
     "NAME": "混沌界域",
     "FLAVOR": "宇宙萬象",
     "DESCRIPTIONS": [
-      "回合結束時，獲得 #b",
-      " 點 #y${ModID}:銀鑰能量 。每有 #b",
-      " 點 #g${ModID}:界域精通 ，釋放 #y${ModID}:鑰令 後，獲得 #b1 #y${ModID}:狂氣 。",
-      " NL 當前 #g界域精通 ： #b",
-      " NL 當前釋放 #y鑰令 後獲得 #y狂氣 ： #b"
+      "回合結束時，獲得 #b%d 點 [${ModID}:KeyflareIcon] #y${ModID}:銀鑰能量 。每有 #b%d 點 [${ModID}:RealmMasteryIcon] #g${ModID}:界域精通 ，釋放 #y${ModID}:鑰令 後，獲得 #b%d [${ModID}:AliemusIcon] #y${ModID}:狂氣 。",
+      " NL 當前 [${ModID}:RealmMasteryIcon] #g界域精通 ： #b%d NL 當前釋放 [${ModID}:KeyflareIcon] #y鑰令 後獲得 [${ModID}:AliemusIcon] #y狂氣 ： #b%d "
     ]
   },
   "${ModID}:RamonaRelic": {

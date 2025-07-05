@@ -18,6 +18,7 @@ public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse {
 
     private static final int KEYFLARE = 250;
     private static final int REALM_MASTERY = 10;
+    private static final int ALIEMUS = 1;
 
     public ChaosRelic() {
         super(ID, RelicTier.STARTER, LandingSound.MAGICAL);
@@ -39,16 +40,16 @@ public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse {
             return;
         flash();
         AbstractAwakener awaker = (AbstractAwakener) p();
-        addToBot(new AliemusChangeAction(awaker, awaker.getRealmMastry() / REALM_MASTERY));
+        addToBot(new AliemusChangeAction(awaker, ALIEMUS * awaker.getRealmMastry() / REALM_MASTERY));
     }
 
     @Override
     public String getUpdatedDescription() {
         if (!(p() instanceof AbstractAwakener))
-            return DESCRIPTIONS[0] + KEYFLARE + DESCRIPTIONS[1] + REALM_MASTERY + DESCRIPTIONS[2];
+            return String.format(DESCRIPTIONS[0], KEYFLARE, REALM_MASTERY, ALIEMUS);
         AbstractAwakener awaker = (AbstractAwakener) p();
-        return DESCRIPTIONS[0] + KEYFLARE + DESCRIPTIONS[1] + REALM_MASTERY + DESCRIPTIONS[2] + DESCRIPTIONS[3]
-                + awaker.getRealmMastry() + DESCRIPTIONS[4] + awaker.getRealmMastry() / REALM_MASTERY;
+        return String.format(DESCRIPTIONS[0], KEYFLARE, REALM_MASTERY, ALIEMUS)
+                + String.format(DESCRIPTIONS[1], awaker.getRealmMastry(), awaker.getRealmMastry() / REALM_MASTERY);
     }
 
     @Override

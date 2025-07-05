@@ -8,16 +8,16 @@
   },
   "${ModID}:TinyWish": {
     "NAME": "小小心願",
-    "DESCRIPTION": "獲得 35 點 [${ModID}:AliemusIcon] ${ModID}:狂氣 。",
+    "DESCRIPTION": "獲得 !M! 點 [${ModID}:AliemusIcon] ${ModID}:狂氣 。",
     "EXTENDED_DESCRIPTION": [
-      "獲得 #b35 點 [${ModID}:AliemusIcon] #y狂氣 。"
+      "獲得 #b%d 點 [${ModID}:AliemusIcon] #y狂氣 。"
     ]
   },
   "${ModID}:AMousesWisdom": {
     "NAME": "鼠鼠的智慧",
-    "DESCRIPTION": "獲得 3 點 [E] 。",
+    "DESCRIPTION": "獲得 !M! 點 [E] 。",
     "EXTENDED_DESCRIPTION": [
-      "獲得 #b3 點 [E] 。"
+      "獲得 #b%d 點 [E] 。"
     ]
   },
   "${ModID}:EncounterInPureWhite": {
