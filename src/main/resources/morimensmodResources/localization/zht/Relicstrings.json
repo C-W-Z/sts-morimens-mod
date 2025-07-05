@@ -34,5 +34,12 @@
     "DESCRIPTIONS": [
       "你每打出的第 #b%d 張 #y${ModID}:指令卡 會生效兩次。"
     ]
+  },
+  "${ModID}:BlackCandle": {
+    "NAME": "黑燭",
+    "FLAVOR": "燃燒清醒，墮入虛妄。",
+    "DESCRIPTIONS": [
+      "每回合開始時獲得 [E] [E] ，每次重置牌庫時將 #b%d 張「蹣跚」加入抽牌堆。"
+    ]
   }
 }
