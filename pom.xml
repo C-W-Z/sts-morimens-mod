@@ -87,22 +87,18 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>false</filtering>
-                <excludes>
-                    <exclude>${ModID}Resources/**/*.json</exclude>
-                    <exclude>ModTheSpire.json</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
                 <filtering>true</filtering>
-                <includes>
+                <!-- <includes>
                     <include>ModTheSpire.json</include>
                     <include>${ModID}Resources/**/*.json</include>
-                </includes>
+                </includes> -->
+                <excludes>
+                    <exclude>${ModID}Resources/**/*.mdp</exclude>
+                    <exclude>${ModID}Resources/**/*.py</exclude>
+                    <exclude>${ModID}Resources/images/signature/alpha_mask.png</exclude>
+                    <exclude>${ModID}Resources/images/signature/Card_*_Frame.png</exclude>
+                    <exclude>${ModID}Resources/images/signature/Weapon_Full_*.png</exclude>
+                </excludes>
             </resource>
         </resources>
 
