@@ -1,4 +1,7 @@
 {
+  "${ModID}:CardPreviewUpgradePatch": {
+    "TEXT": ["多次升級"]
+  },
   "CHAOS_COLOR": {
     "TEXT": ["混沌界域"]
   },
