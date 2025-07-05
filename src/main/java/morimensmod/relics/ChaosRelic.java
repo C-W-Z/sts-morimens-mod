@@ -21,7 +21,7 @@ public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse {
     private static final int ALIEMUS = 1;
 
     public ChaosRelic() {
-        super(ID, RelicTier.STARTER, LandingSound.MAGICAL);
+        super(ID, RelicTier.STARTER, LandingSound.FLAT);
     }
 
     @Override

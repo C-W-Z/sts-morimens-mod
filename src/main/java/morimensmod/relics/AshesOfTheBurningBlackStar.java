@@ -26,7 +26,7 @@ public class AshesOfTheBurningBlackStar extends AbstractEasyRelic {
     private boolean cardsSelected = true;
 
     public AshesOfTheBurningBlackStar() {
-        super(ID, RelicTier.BOSS, LandingSound.FLAT);
+        super(ID, RelicTier.BOSS, LandingSound.HEAVY);
     }
 
     @Override

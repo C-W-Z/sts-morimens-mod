@@ -13,7 +13,7 @@ public class BlackCandle extends AbstractEasyRelic {
     private static final int STAGGER_NUM = 1;
 
     public BlackCandle() {
-        super(ID, RelicTier.BOSS, LandingSound.FLAT);
+        super(ID, RelicTier.BOSS, LandingSound.HEAVY);
     }
 
     @Override
