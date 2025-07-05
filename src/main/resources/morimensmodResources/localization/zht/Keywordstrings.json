@@ -8,7 +8,7 @@
     "DESCRIPTION": "TODO: Make your own epic keywords"
   },
   {
-    "PROPER_NAME": " #r混沌（界域） ",
+    "PROPER_NAME": "#r混沌（界域）",
     "NAMES": [
       "混沌",
       "混沌界域"
@@ -16,7 +16,7 @@
     "DESCRIPTION": "四大界域之一。"
   },
   {
-    "PROPER_NAME": " #r血肉（界域） ",
+    "PROPER_NAME": "#r血肉（界域）",
     "NAMES": [
       "血肉",
       "血肉界域"
@@ -24,7 +24,7 @@
     "DESCRIPTION": "四大界域之一。"
   },
   {
-    "PROPER_NAME": " #b深海（界域） ",
+    "PROPER_NAME": "#b深海（界域）",
     "NAMES": [
       "深海",
       "深海界域"
@@ -32,7 +32,7 @@
     "DESCRIPTION": "四大界域之一。"
   },
   {
-    "PROPER_NAME": " #p超維（界域） ",
+    "PROPER_NAME": "#p超維（界域）",
     "NAMES": [
       "超維",
       "超維界域"
@@ -40,7 +40,7 @@
     "DESCRIPTION": "四大界域之一。"
   },
   {
-    "PROPER_NAME": " #y增益 ",
+    "PROPER_NAME": "增益",
     "NAMES": [
       "增益卡",
       "增益卡牌",
@@ -49,7 +49,7 @@
     "DESCRIPTION": "一種無法常規獲得且通常對玩家有益的卡牌類型。"
   },
   {
-    "PROPER_NAME": " #y命輪 ",
+    "PROPER_NAME": "命輪",
     "NAMES": [
       "命輪卡",
       "命輪卡牌",
@@ -58,7 +58,7 @@
     "DESCRIPTION": "一種全是 #y能力 卡的特殊卡牌類型。"
   },
   {
-    "PROPER_NAME": " #y指令 ",
+    "PROPER_NAME": "指令",
     "NAMES": [
       "指令卡",
       "指令卡牌",
@@ -67,7 +67,7 @@
     "DESCRIPTION": "忘卻前夜中，非 #y增益 且非 #y命輪 的 #y攻擊 / #y技能 卡。"
   },
   {
-    "PROPER_NAME": " #y覺醒 ",
+    "PROPER_NAME": "覺醒",
     "NAMES": [
       "覺醒卡",
       "覺醒卡牌",
@@ -76,7 +76,7 @@
     "DESCRIPTION": "忘卻前夜中，非 #y增益 且非 #y命輪 的 #y能力 卡。"
   },
   {
-    "PROPER_NAME": " #y症狀 ",
+    "PROPER_NAME": "症狀",
     "NAMES": [
       "症狀卡",
       "症狀卡牌",
@@ -85,7 +85,7 @@
     "DESCRIPTION": "一種無法常規獲得且通常對玩家有害的卡牌類型。"
   },
   {
-    "PROPER_NAME": " #y狀態卡 ",
+    "PROPER_NAME": "狀態卡",
     "NAMES": [
       "狀態卡",
       "狀態卡牌",
@@ -95,21 +95,21 @@
     "DESCRIPTION": "一種無法常規獲得且通常對玩家有害的卡牌類型。獲取來源通常是敵人。"
   },
   {
-    "PROPER_NAME": " #y防禦 ",
+    "PROPER_NAME": "防禦",
     "NAMES": [
       "防禦"
     ],
     "DESCRIPTION": "基礎 #y防禦 牌以及所有視為「 #y防禦 」的牌。"
   },
   {
-    "PROPER_NAME": " [${ModID}:RealmMasteryIcon] #g界域精通 ",
+    "PROPER_NAME": "#g界域精通 [${ModID}:RealmMasteryIcon]",
     "NAMES": [
       "界域精通"
     ],
     "DESCRIPTION": "提升界域初始遺物的效果。"
   },
   {
-    "PROPER_NAME": " [${ModID}:AliemusIcon] #y狂氣 ",
+    "PROPER_NAME": "狂氣 [${ModID}:AliemusIcon]",
     "NAMES": [
       "狂氣",
       "Aliemus"
@@ -117,7 +117,7 @@
     "DESCRIPTION": "達到上限時可以釋放 #y狂氣爆發 ，達到 #b2 倍上限的 #y狂氣 時可以釋放 #r超限爆發 。通常一回合只能釋放一次 #y狂氣爆發 或 #r超限爆發 。"
   },
   {
-    "PROPER_NAME": " [${ModID}:AliemusIcon] #y狂氣回充 ",
+    "PROPER_NAME": "狂氣回充 [${ModID}:AliemusIcon]",
     "NAMES": [
       "狂氣回充",
       "Aliemus-Regen"
@@ -125,7 +125,7 @@
     "DESCRIPTION": "釋放 #y狂氣爆發 或 #r超限爆發 之後自動獲得等同於 #y狂氣回充 屬性數值的 #y狂氣 。"
   },
   {
-    "PROPER_NAME": " [${ModID}:AliemusIcon] #y狂氣爆發 ",
+    "PROPER_NAME": "狂氣爆發 [${ModID}:AliemusIcon]",
     "NAMES": [
       "狂氣爆發",
       "Exalt"
@@ -133,7 +133,7 @@
     "DESCRIPTION": "透過消耗 #y狂氣 釋放的能力。"
   },
   {
-    "PROPER_NAME": " [${ModID}:AliemusIcon] #r超限爆發 ",
+    "PROPER_NAME": "#r超限爆發 [${ModID}:AliemusIcon]",
     "NAMES": [
       "超限爆發",
       "Over-Exaltation"
@@ -141,7 +141,7 @@
     "DESCRIPTION": "加強版的 #y狂氣爆發 。"
   },
   {
-    "PROPER_NAME": " [${ModID}:KeyflareIcon] #y銀鑰能量 ",
+    "PROPER_NAME": "銀鑰能量 [${ModID}:KeyflareIcon]",
     "NAMES": [
       "銀鑰能量",
       "鑰能",
@@ -151,7 +151,7 @@
     "DESCRIPTION": "消耗 [E] 時可以獲得 #y銀鑰能量 ， #y銀鑰充能 屬性決定每消耗 #b1 點 [E] 時獲得的 #y銀鑰能量 。"
   },
   {
-    "PROPER_NAME": " [${ModID}:KeyflareIcon] #y銀鑰充能 ",
+    "PROPER_NAME": "銀鑰充能 [${ModID}:KeyflareIcon]",
     "NAMES": [
       "銀鑰充能",
       "Keyflare-Regen"
@@ -159,7 +159,7 @@
     "DESCRIPTION": " #y銀鑰充能 屬性決定每消耗 #b1 點 [E] 時獲得的 #y銀鑰能量 。"
   },
   {
-    "PROPER_NAME": " [${ModID}:KeyflareIcon] #y鑰令 ",
+    "PROPER_NAME": "鑰令",
     "NAMES": [
       "鑰令",
       "Posse"
@@ -167,21 +167,21 @@
     "DESCRIPTION": "#y銀鑰能量 達到 #b1000 時可以釋放攜帶的 #y鑰令 。每回合可以釋放 #b2 次 #y鑰令 ，但第 #b2 次會改為從 #b3 個隨機 #y鑰令 中選擇 #b1 個釋放，且選擇的 #y鑰令 在本次戰鬥中無法再被選擇。"
   },
   {
-    "PROPER_NAME": " #y臨時 ",
+    "PROPER_NAME": "臨時",
     "NAMES": [
       "臨時"
     ],
     "DESCRIPTION": "效果僅限本回合。"
   },
   {
-    "PROPER_NAME": " #g永久力量 ",
+    "PROPER_NAME": "永久力量",
     "NAMES": [
       "永久力量"
     ],
     "DESCRIPTION": "非 #y臨時 #y力量 ，也就是 #y力量 層數減 #y活動肌肉 層數。"
   },
   {
-    "PROPER_NAME": " #y封印 ",
+    "PROPER_NAME": "封印 [${ModID}:SealIcon]",
     "NAMES": [
       "封印",
       "Seal",
@@ -190,7 +190,7 @@
     "DESCRIPTION": "無法釋放 #y狂氣爆發 。回合開始時減少 #b1 層。"
   },
   {
-    "PROPER_NAME": " #y永久保留 ",
+    "PROPER_NAME": "永久保留",
     "NAMES": [
       "永久保留",
       "戰鬥結束後仍會保存在牌庫中"
@@ -198,7 +198,7 @@
     "DESCRIPTION": "戰鬥結束後仍會保存在牌庫中"
   },
   {
-    "PROPER_NAME": " #y銷毀 ",
+    "PROPER_NAME": "銷毀",
     "NAMES": [
       "銷毀",
       "Destroy"
@@ -206,7 +206,7 @@
     "DESCRIPTION": "打出後將其從牌庫中永久移除。"
   },
   {
-    "PROPER_NAME": " #y預備（Ｘ） ",
+    "PROPER_NAME": "預備（Ｘ）",
     "NAMES": [
       "預備",
       "Prepare"
@@ -214,7 +214,7 @@
     "DESCRIPTION": "回合結束後 [E] 消耗減少 #bX 點。被棄掉時也會觸發此效果。"
   },
   {
-    "PROPER_NAME": " #b餘波 ",
+    "PROPER_NAME": "#b餘波",
     "NAMES": [
       "餘波",
       "Aftershock"
@@ -222,7 +222,7 @@
     "DESCRIPTION": "此卡牌被棄置時，觸發 #b餘波 效果。"
   },
   {
-    "PROPER_NAME": " #y穿刺傷害 ",
+    "PROPER_NAME": "穿刺傷害",
     "NAMES": [
       "穿刺傷害",
       "穿刺攻擊",
@@ -231,28 +231,28 @@
     "DESCRIPTION": "同時對 #y格擋 與生命造成傷害。無視屏障。"
   },
   {
-    "PROPER_NAME": " #y被動 ",
+    "PROPER_NAME": "被動",
     "NAMES": [
       "被動"
     ],
     "DESCRIPTION": "戰鬥開始時，自動觸發 #y被動 效果。"
   },
   {
-    "PROPER_NAME": " #y延遲 ",
+    "PROPER_NAME": "延遲",
     "NAMES": [
       "延遲"
     ],
     "DESCRIPTION": "下回合開始時發動效果。"
   },
   {
-    "PROPER_NAME": " #y幻影 ",
+    "PROPER_NAME": "幻影",
     "NAMES": [
       "幻影"
     ],
     "DESCRIPTION": "每次打出其他牌時使此牌下次打出時 [E] 消耗 #b-1 ，打出此牌後將此牌返還至手中並使其 [E] 消耗 #b+1 ，回合結束或棄掉後重置。"
   },
   {
-    "PROPER_NAME": " #b靜海 ",
+    "PROPER_NAME": "#b靜海",
     "NAMES": [
       "靜海",
       "靜海姿態",
@@ -261,7 +261,7 @@
     "DESCRIPTION": "獨屬於 #b深海界域 的 姿態 ，進入 #y靜海 姿態 時，會獲得 格擋 ，但當回合 #y觸腕傷害 減半。"
   },
   {
-    "PROPER_NAME": " #y負熵 ",
+    "PROPER_NAME": "負熵 [${ModID}:NegentropyIcon]",
     "NAMES": [
       "負熵",
       "Negentropy"
@@ -269,7 +269,7 @@
     "DESCRIPTION": "每當擁有 #b3 層 #y負熵 時，打出擁有 #y回環 效果的卡牌，將消耗 #b3 層 #y負熵 並觸發 #y回環 效果， #y負熵 最多堆疊 #b3 層，會繼承至下場戰鬥。"
   },
   {
-    "PROPER_NAME": " #y回環 ",
+    "PROPER_NAME": "回環 [${ModID}:LoopIcon]",
     "NAMES": [
       "回環",
       "Loop"
@@ -285,7 +285,7 @@
     "DESCRIPTION": "獨屬於 #r熔毀·朵爾 的 姿態 ，當「 #p終末 」達到 #b10 層時會自動將 #b1 張「 #y虛無終結 」置入手中。打出「 #y虛無終結 」進入 #p終末型態 。"
   },
   {
-    "PROPER_NAME": " [${ModID}:ElationIcon] #r興奮（Ｘ） ",
+    "PROPER_NAME": "#r興奮（Ｘ） [${ModID}:ElationIcon]",
     "NAMES": [
       "興奮",
       "Elation"
