@@ -19,6 +19,7 @@ public class FatesDescent extends AbstractEasyCard {
     public FatesDescent() {
         super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
+        tags.add(CardTags.HEALING);
         aliemus = baseAliemus = 30;
         heal = baseHeal = 2;
         magicNumber = baseMagicNumber = 50; // 每有50點狂氣重複一次
