@@ -16,7 +16,7 @@ public class StellarBrew extends AbstractEasyRelic {
     private static final int COMMAND_NUM = 8;
 
     public StellarBrew() {
-        super(ID, RelicTier.BOSS, LandingSound.CLINK);
+        super(ID, RelicTier.RARE, LandingSound.CLINK);
         counter = 0;
     }
 

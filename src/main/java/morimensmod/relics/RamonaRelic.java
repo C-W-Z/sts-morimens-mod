@@ -19,7 +19,6 @@ public class RamonaRelic extends AbstractEasyRelic {
 
     public RamonaRelic() {
         super(ID, RelicTier.STARTER, LandingSound.FLAT);
-        counter = 0;
     }
 
     @Override
@@ -43,6 +42,11 @@ public class RamonaRelic extends AbstractEasyRelic {
             actB(() -> ((AbstractAwakener) p()).keyflareRegen += KEYFLARE_REGEN);
 
         counter -= COMMAND_NUM;
+    }
+
+    @Override
+    public void onVictory() {
+        counter = -1;
     }
 
     @Override

@@ -59,7 +59,7 @@
   "${ModID}:FleshDetachedPower": {
     "NAME": "靈肉兩分",
     "DESCRIPTIONS": [
-      "回復生命時，獲得 #b%d 點 #y格擋 。"
+      "造成生命回復時，獲得 #b%d 點 #y格擋 。"
     ]
   },
   "${ModID}:BattleThirstPower": {

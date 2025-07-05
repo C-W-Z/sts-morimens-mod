@@ -50,7 +50,7 @@ public class FleshDetachedPower extends AbstractEasyPower implements OnAfterRece
     @Override
     public int onHeal(int healAmount) {
         flash();
-        addToTop(new GainBlockAction(owner, block));
+        addToTop(new GainBlockAction(owner, owner, block));
         return healAmount;
     }
 

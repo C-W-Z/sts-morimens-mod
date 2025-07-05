@@ -2,7 +2,6 @@ package morimensmod.cards;
 
 import java.util.ArrayList;
 
-import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.SpawnModificationCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.patches.CustomTags;
 
-public abstract class AbstractRouseCard extends AbstractEasyCard implements SpawnModificationCard, BranchingUpgradesCard {
+public abstract class AbstractRouseCard extends AbstractEasyCard implements SpawnModificationCard {
 
     int costBeforeUpgrade;
 
@@ -30,13 +29,37 @@ public abstract class AbstractRouseCard extends AbstractEasyCard implements Spaw
     }
 
     @Override
+    public boolean canUpgrade() {
+        return (timesUpgraded < 3);
+    }
+
+    @Override
+    protected void upgradeName() {
+        ++this.timesUpgraded;
+        this.upgraded = true;
+        this.name = cardStrings.NAME + "+" + this.timesUpgraded;
+        this.initializeTitle();
+    }
+
+    @Override
+    public void upgrade() {
+        if (!canUpgrade())
+            return;
+        this.upgradeName();
+        this.upp();
+        if (this.cardStrings.UPGRADE_DESCRIPTION != null)
+            this.uDesc();
+    }
+
+    @Override
     public void upp() {
-        if (isBranchUpgrade()) {
-            upgradeAliemus(10);
+        if (timesUpgraded == 1)
+            upgradeAliemus(20);
+        else if (timesUpgraded == 2)
             upgradeBaseCost(Math.max(0, costBeforeUpgrade - 1));
+        else if (timesUpgraded == 3) {
+            upgradeAliemus(10);
             isInnate = true;
-        } else {
-            upgradeAliemus(30);
         }
     }
 

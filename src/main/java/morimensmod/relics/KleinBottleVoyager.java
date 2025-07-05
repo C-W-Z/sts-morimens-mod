@@ -16,7 +16,7 @@ public class KleinBottleVoyager extends AbstractEasyRelic implements OnAfterPoss
     private static final int TMP_STR = 1;
 
     public KleinBottleVoyager() {
-        super(ID, RelicTier.COMMON, LandingSound.FLAT);
+        super(ID, RelicTier.COMMON, LandingSound.SOLID);
     }
 
     @Override

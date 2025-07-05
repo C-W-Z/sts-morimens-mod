@@ -8,7 +8,6 @@ import static morimensmod.util.Wiz.p;
 
 import java.util.ArrayList;
 
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
@@ -26,7 +25,7 @@ public class AshesOfTheBurningBlackStar extends AbstractEasyRelic {
     private boolean cardsSelected = true;
 
     public AshesOfTheBurningBlackStar() {
-        super(ID, RelicTier.BOSS, LandingSound.FLAT);
+        super(ID, RelicTier.BOSS, LandingSound.HEAVY);
     }
 
     @Override
@@ -82,7 +81,6 @@ public class AshesOfTheBurningBlackStar extends AbstractEasyRelic {
     @Override
     public void atBattleStart() {
         flash();
-        addToBot(new RelicAboveCreatureAction(p(), this));
         applyToSelf(new StrengthPower(p(), STR));
     }
 
