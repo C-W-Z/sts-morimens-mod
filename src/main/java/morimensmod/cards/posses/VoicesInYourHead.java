@@ -18,6 +18,9 @@ public class VoicesInYourHead extends AbstractPosse {
 
     public final static String ID = makeID(VoicesInYourHead.class.getSimpleName());
 
+    private static final int DEBUFF_AMOUNT = 1;
+    private static final int STEAL_STR = 1;
+
     // for register to CardLibrary
     public VoicesInYourHead() {
         this(null, PosseType.UNLIMITED);
@@ -25,10 +28,10 @@ public class VoicesInYourHead extends AbstractPosse {
 
     public VoicesInYourHead(AbstractAwakener awaker, PosseType type) {
         super(ID, awaker, type);
+        // only for display
+        magicNumber = baseMagicNumber = DEBUFF_AMOUNT;
+        secondMagic = baseSecondMagic = STEAL_STR;
     }
-
-    private static final int DEBUFF_AMOUNT = 1;
-    private static final int STEAL_STR = 1;
 
     @Override
     public void activate() {
@@ -42,5 +45,10 @@ public class VoicesInYourHead extends AbstractPosse {
         }).count();
         applyToSelf(new LoseStrengthPower(awaker, STEAL_STR * n_monsters));
         applyToSelf(new StrengthPower(awaker, STEAL_STR * n_monsters));
+    }
+
+    @Override
+    public String getUIDescription() {
+        return String.format(cardStrings.EXTENDED_DESCRIPTION[0], DEBUFF_AMOUNT, STEAL_STR);
     }
 }
