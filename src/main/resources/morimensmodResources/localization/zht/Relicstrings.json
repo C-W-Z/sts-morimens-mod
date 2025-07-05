@@ -70,11 +70,32 @@
       "每回合開始時獲得 [E] 。"
     ]
   },
+  "${ModID}:PrasnoMirror": {
+    "NAME": "普拉斯諾鏡",
+    "FLAVOR": "光與影的戲法。",
+    "DESCRIPTIONS": [
+      "回合開始時抽 #b%d 張牌。戰鬥開始時，將 #b%d 張「靈感」洗入抽牌堆。每通過 #b%d 場戰鬥都會使洗入的「靈感」增加 #b%d 張，最多提高到 #b%d 張。"
+    ]
+  },
   "${ModID}:StellarBrew": {
     "NAME": "群星之酒",
     "FLAVOR": "遊走於繁星之間。",
     "DESCRIPTIONS": [
       "你每打出的第 #b%d 張 #y${ModID}:指令卡 會生效兩次。"
+    ]
+  },
+  "${ModID}:PrototypeBattery": {
+    "NAME": "原型電池",
+    "FLAVOR": "可攜式的希望。",
+    "DESCRIPTIONS": [
+      "回合結束後獲得 #b%d #y${ModID}:狂氣 。每剩餘 #b%d 點 [E] ，額外獲得 #b%d #y${ModID}:狂氣 。"
+    ]
+  },
+  "${ModID}:PriestsStaff": {
+    "NAME": "祭司權杖",
+    "FLAVOR": "不被許可的虔誠。",
+    "DESCRIPTIONS": [
+      "對處於負面狀態的敵人造成的傷害提高 #b%d%% ，擊殺敵人後獲得 #b%d #y${ModID}:狂氣 。"
     ]
   },
   "${ModID}:AshesOfTheBurningBlackStar": {
