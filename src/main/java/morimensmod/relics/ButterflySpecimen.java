@@ -4,7 +4,6 @@ import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.*;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 
 public class ButterflySpecimen extends AbstractEasyRelic {
@@ -36,7 +35,6 @@ public class ButterflySpecimen extends AbstractEasyRelic {
             counter++;
         if (counter == DEXTERITY_TURN) {
             flash();
-            addToBot(new RelicAboveCreatureAction(p(), this));
             applyToSelf(new DexterityPower(p(), DEXTERITY));
             counter = -1;
         }

@@ -3,7 +3,6 @@ package morimensmod.relics;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.*;
 
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import morimensmod.cards.buffs.Insight;
@@ -34,8 +33,8 @@ public class PrasnoMirror extends AbstractEasyRelic {
 
     @Override
     public void atBattleStartPreDraw() {
+        flash();
         shuffleIn(new Insight(), counter);
-        addToBot(new RelicAboveCreatureAction(p(), this));
     }
 
     @Override
