@@ -9,23 +9,17 @@
   "${ModID}:TinyWish": {
     "NAME": "小小心願",
     "DESCRIPTION": "獲得 !M! 點 ${ModID}:狂氣 。",
-    "EXTENDED_DESCRIPTION": [
-      "獲得 #b%d 點 #y狂氣 。"
-    ]
+    "EXTENDED_DESCRIPTION": ["獲得 #b%d 點 #y狂氣 。"]
   },
   "${ModID}:AMousesWisdom": {
     "NAME": "鼠鼠的智慧",
     "DESCRIPTION": "獲得 !M! 點 [E] 。",
-    "EXTENDED_DESCRIPTION": [
-      "獲得 #b%d 點 [E] 。"
-    ]
+    "EXTENDED_DESCRIPTION": ["獲得 #b%d 點 [E] 。"]
   },
   "${ModID}:EncounterInPureWhite": {
     "NAME": "純白初遇",
     "DESCRIPTION": "棄掉所有手牌，抽取棄掉數量 +2 的牌。",
-    "EXTENDED_DESCRIPTION": [
-      "棄掉所有手牌，抽取棄掉數量 #b+2 的牌。"
-    ]
+    "EXTENDED_DESCRIPTION": ["棄掉所有手牌，抽取棄掉數量 #b+2 的牌。"]
   },
   "${ModID}:WardedInjection": {
     "NAME": "注射守護",
@@ -58,9 +52,7 @@
   "${ModID}:UnequalExchange": {
     "NAME": "不平等交換",
     "DESCRIPTION": "抽 4 張牌。",
-    "EXTENDED_DESCRIPTION": [
-      "抽 #b4 張牌。"
-    ]
+    "EXTENDED_DESCRIPTION": ["抽 #b4 張牌。"]
   },
   "${ModID}:EphemeralEternity": {
     "NAME": "短暫的永恆",
@@ -455,17 +447,13 @@
     "NAME": "靈感",
     "DESCRIPTION": "獲得 [E] ，抽 !${ModID}:M2! 張牌。",
     "UPGRADE_DESCRIPTION": "獲得 [E] [E] ，抽 !${ModID}:M2! 張牌。",
-    "EXTENDED_DESCRIPTION": [
-      "高級靈感"
-    ]
+    "EXTENDED_DESCRIPTION": ["高級靈感"]
   },
   "${ModID}:SilverKeyDawn": {
     "NAME": "銀鑰微光",
     "DESCRIPTION": "從隨機 !M! 個 ${ModID}:鑰令 中，選擇 1 個立刻釋放。",
     "UPGRADE_DESCRIPTION": "從隨機 !M! 個 ${ModID}:鑰令 中，選擇 1 個立刻釋放，並生效 2 次。",
-    "EXTENDED_DESCRIPTION": [
-      "銀鑰曦光"
-    ]
+    "EXTENDED_DESCRIPTION": ["銀鑰曦光"]
   },
   "${ModID}:InnocentReturnGift": {
     "NAME": "天真的回禮",
@@ -475,17 +463,12 @@
     "NAME": "偏方骰子",
     "DESCRIPTION": "投一顆 6 面骰子，獲得等同於骰子點數的 ${ModID}:臨時 力量 。若點數為 4 或更高， 易傷 所有敵人 1 回合。若點數為 6 或更高，獲得的 ${ModID}:臨時 力量 翻倍。",
     "UPGRADE_DESCRIPTION": "投一顆 6 面骰子，獲得等同於骰子點數 !M! %的 ${ModID}:臨時 力量 。若點數為 4 或更高， 虛弱 和 易傷 所有敵人 1 回合。若點數為 6 或更高，獲得的 ${ModID}:臨時 力量 翻倍並獲得 [E] 。",
-    "EXTENDED_DESCRIPTION": [
-      "閃耀偏方骰子"
-    ]
+    "EXTENDED_DESCRIPTION": ["閃耀偏方骰子"]
   },
   "${ModID}:SymphonyOfHarmony": {
     "NAME": "協樂的交響",
     "DESCRIPTION": "",
-    "EXTENDED_DESCRIPTION": [
-      "上行音",
-      "下行音"
-    ]
+    "EXTENDED_DESCRIPTION": ["上行音", "下行音"]
   },
   "${ModID}:UtopianVeil": {
     "NAME": "",

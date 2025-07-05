@@ -1,16 +1,10 @@
 {
   "modid": "${ModID}",
   "name": "${project.name}",
-  "author_list": [
-    "Icya(C-W-Z)"
-  ],
+  "author_list": ["Icya(C-W-Z)"],
   "description": "${project.description}",
   "version": "${project.version}",
   "sts_version": "${SlayTheSpire.version}",
   "mts_version": "${ModTheSpire.version}",
-  "dependencies": [
-    "basemod",
-    "stslib",
-    "SignatureLib"
-  ]
+  "dependencies": ["basemod", "stslib", "SignatureLib"]
 }

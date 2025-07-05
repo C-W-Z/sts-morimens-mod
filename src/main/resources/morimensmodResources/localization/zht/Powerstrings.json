@@ -9,15 +9,11 @@
   },
   "${ModID}:LoseThornsPower": {
     "NAME": "荊棘叢生",
-    "DESCRIPTIONS": [
-      "回合開始時，失去 #b%d 層 #y荊棘 。"
-    ]
+    "DESCRIPTIONS": ["回合開始時，失去 #b%d 層 #y荊棘 。"]
   },
   "${ModID}:SealPower": {
     "NAME": "封印",
-    "DESCRIPTIONS": [
-      "無法釋放 #y狂氣爆發 。回合開始時減少 #b%d 層。"
-    ]
+    "DESCRIPTIONS": ["無法釋放 #y狂氣爆發 。回合開始時減少 #b%d 層。"]
   },
   "${ModID}:TraumaPower": {
     "NAME": "創傷",
@@ -28,9 +24,7 @@
   },
   "${ModID}:PosseTwicePower": {
     "NAME": "雙發鑰令",
-    "DESCRIPTIONS": [
-      "使下 #b%d 次透過消耗 #y銀鑰能量 釋放的 #y鑰令 生效兩次。"
-    ]
+    "DESCRIPTIONS": ["使下 #b%d 次透過消耗 #y銀鑰能量 釋放的 #y鑰令 生效兩次。"]
   },
   "${ModID}:OnlyUnlimitedPosseTwicePower": {
     "NAME": "雙發鑰令",
@@ -58,15 +52,11 @@
   },
   "${ModID}:FleshDetachedPower": {
     "NAME": "靈肉兩分",
-    "DESCRIPTIONS": [
-      "造成生命回復時，獲得 #b%d 點 #y格擋 。"
-    ]
+    "DESCRIPTIONS": ["造成生命回復時，獲得 #b%d 點 #y格擋 。"]
   },
   "${ModID}:BattleThirstPower": {
     "NAME": "戰欲難平",
-    "DESCRIPTIONS": [
-      "指令卡的傷害次數提高 #b%d 次。"
-    ]
+    "DESCRIPTIONS": ["指令卡的傷害次數提高 #b%d 次。"]
   },
   "${ModID}:KnightsZealPower": {
     "NAME": "騎士熱誠",
@@ -94,9 +84,7 @@
   },
   "${ModID}:OutstandingVeteranPower": {
     "NAME": "戰地卓識",
-    "DESCRIPTIONS": [
-      "#y打擊 造成的傷害享受 #b%d 倍 #y格擋 加成。"
-    ]
+    "DESCRIPTIONS": ["#y打擊 造成的傷害享受 #b%d 倍 #y格擋 加成。"]
   },
   "${ModID}:RewindingTimePower": {
     "NAME": "溯洄時計",
@@ -112,8 +100,6 @@
   },
   "${ModID}:HandOfOblivionPower": {
     "NAME": "遺忘之手",
-    "DESCRIPTIONS": [
-      "「 打擊 」的基礎傷害增加 #b%d%% 。"
-    ]
+    "DESCRIPTIONS": ["「 打擊 」的基礎傷害增加 #b%d%% 。"]
   }
 }

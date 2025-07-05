@@ -1,15 +1,10 @@
 {
-    "${ModID}:DemoPotion": {
-        "NAME": "Awesome Demo Potion",
-        "DESCRIPTIONS": [
-            "Gain #b",
-            " #yStrength."
-        ]
-    },
-    "${ModID}:AntidotePotion": {
-        "NAME": "解毒劑",
-        "DESCRIPTIONS": [
-            "移除所有中毒"
-        ]
-    }
+  "${ModID}:DemoPotion": {
+    "NAME": "Awesome Demo Potion",
+    "DESCRIPTIONS": ["Gain #b", " #yStrength."]
+  },
+  "${ModID}:AntidotePotion": {
+    "NAME": "解毒劑",
+    "DESCRIPTIONS": ["移除所有中毒"]
+  }
 }
