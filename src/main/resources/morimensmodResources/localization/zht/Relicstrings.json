@@ -35,6 +35,14 @@
       "你每打出的第 #b%d 張 #y${ModID}:指令卡 會生效兩次。"
     ]
   },
+  "${ModID}:AshesOfTheBurningBlackStar": {
+    "NAME": "黑星燃燒之燼",
+    "FLAVOR": "餘火未熄。",
+    "DESCRIPTIONS": [
+      "拾取時選擇 #b%d 張 #y${ModID}:指令卡牌 移除。每場戰鬥開始時，獲得 #b%d 點 #y力量 。",
+      "選擇%d張牌移除"
+    ]
+  },
   "${ModID}:BlackCandle": {
     "NAME": "黑燭",
     "FLAVOR": "燃燒清醒，墮入虛妄。",
