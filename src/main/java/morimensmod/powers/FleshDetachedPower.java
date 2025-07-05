@@ -67,6 +67,6 @@ public class FleshDetachedPower extends AbstractEasyPower implements OnAfterRece
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + block + DESCRIPTIONS[1];
+        this.description = String.format(DESCRIPTIONS[0], block);
     }
 }

@@ -23,7 +23,8 @@ public class SoulblightPower extends AbstractEasyPower implements OnAfterReceive
 
     private int heal;
     private int aliemus;
-    private static final int INVOKE_POISON_PERCENT = 50;
+    public static final int HEAL_PER_AMOUNT = 2;
+    public static final int INVOKE_POISON_PERCENT = 50;
 
     public SoulblightPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
@@ -57,7 +58,7 @@ public class SoulblightPower extends AbstractEasyPower implements OnAfterReceive
 
     private void applyPowers() {
         int healAmplify = 100 + AbstractAwakener.baseHealAmplify;
-        heal = MathUtils.ceil(amount * healAmplify / 100F);
+        heal = MathUtils.ceil(amount * HEAL_PER_AMOUNT * healAmplify / 100F);
         if (p() instanceof AbstractAwakener) {
             int aliemusAmplify = 100 + AbstractAwakener.baseAliemusAmplify;
             aliemus = MathUtils.ceil(((AbstractAwakener) p()).aliemusRegen * aliemusAmplify / 100F);
@@ -67,6 +68,6 @@ public class SoulblightPower extends AbstractEasyPower implements OnAfterReceive
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + heal + DESCRIPTIONS[1] + aliemus + DESCRIPTIONS[2] + INVOKE_POISON_PERCENT + DESCRIPTIONS[3];
+        this.description = String.format(DESCRIPTIONS[0], heal, aliemus, INVOKE_POISON_PERCENT);
     }
 }

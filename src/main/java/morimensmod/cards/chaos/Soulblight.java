@@ -16,14 +16,14 @@ public class Soulblight extends AbstractRouseCard {
 
     public Soulblight() {
         super(ID, 3, CardRarity.UNCOMMON, CHAOS_COLOR);
-        heal = baseHeal = 2;
-        magicNumber = baseMagicNumber = 50; // 觸發中毒%
+        heal = baseHeal = SoulblightPower.HEAL_PER_AMOUNT;
+        magicNumber = baseMagicNumber = SoulblightPower.INVOKE_POISON_PERCENT; // 觸發中毒%
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         super.use(p, m);
-        applyToSelf(new SoulblightPower(p, heal));
+        applyToSelf(new SoulblightPower(p, 1));
     }
 
     @Override

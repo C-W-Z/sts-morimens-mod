@@ -67,7 +67,6 @@ public class EntropyUndonePower extends AbstractEasyPower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + MAX_USE_PER_TURN + DESCRIPTIONS[2] + amount2
-                + DESCRIPTIONS[3] + 1 + DESCRIPTIONS[4];
+        this.description = String.format(DESCRIPTIONS[0], amount, MAX_USE_PER_TURN, amount2, NEGENTROPY_GAIN);
     }
 }

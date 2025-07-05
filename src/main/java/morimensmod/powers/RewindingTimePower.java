@@ -54,6 +54,6 @@ public class RewindingTimePower extends AbstractEasyPower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount2 + DESCRIPTIONS[2];
+        this.description = String.format(DESCRIPTIONS[0], amount, amount2);
     }
 }
