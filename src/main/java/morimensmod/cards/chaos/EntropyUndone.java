@@ -15,14 +15,14 @@ public class EntropyUndone extends AbstractRouseCard {
 
     public EntropyUndone() {
         super(ID, 3, CardRarity.UNCOMMON, CHAOS_COLOR);
-        magicNumber = baseMagicNumber = 50; // 每次獲得的銀鑰能量
-        secondMagic = baseSecondMagic = 3; // 每回合最大觸發次數 only for display
-        thirdMagic = baseThirdMagic = 1; // 每次獲得的負熵 only for display
+        magicNumber = baseMagicNumber = EntropyUndonePower.KEYFLARE_PER_COMMAND; // 每次獲得的銀鑰能量 only for display
+        secondMagic = baseSecondMagic = EntropyUndonePower.MAX_USE_PER_TURN; // 每回合最大觸發次數 only for display
+        thirdMagic = baseThirdMagic = EntropyUndonePower.NEGENTROPY_GAIN; // 每次獲得的負熵 only for display
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         super.use(p, m);
-        applyToSelf(new EntropyUndonePower(p, magicNumber));
+        applyToSelf(new EntropyUndonePower(p, 1));
     }
 }

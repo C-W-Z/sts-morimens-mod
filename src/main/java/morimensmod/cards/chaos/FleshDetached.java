@@ -16,13 +16,13 @@ public class FleshDetached extends AbstractRouseCard {
 
     public FleshDetached() {
         super(ID, 2, CardRarity.COMMON, CHAOS_COLOR);
-        block = baseBlock = 4;
+        block = baseBlock = FleshDetachedPower.BLOCK_PER_HEAL;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         super.use(p, m);
-        applyToSelf(new FleshDetachedPower(p, block));
+        applyToSelf(new FleshDetachedPower(p, 1));
     }
 
     @Override

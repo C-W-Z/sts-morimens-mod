@@ -19,6 +19,7 @@ public class FleshDetachedPower extends AbstractEasyPower implements OnAfterRece
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
+    public static final int BLOCK_PER_HEAL = 4;
     private int block;
 
     public FleshDetachedPower(AbstractCreature owner, int amount) {
@@ -55,7 +56,7 @@ public class FleshDetachedPower extends AbstractEasyPower implements OnAfterRece
 
     private void applyPowers() {
         int blockAmplify = 100 + AbstractAwakener.baseBlockAmplify;
-        block = MathUtils.ceil(amount * blockAmplify / 100F);
+        block = MathUtils.ceil(amount * BLOCK_PER_HEAL * blockAmplify / 100F);
 
         for (AbstractPower p : owner.powers)
             block = MathUtils.floor(p.modifyBlock(block));
