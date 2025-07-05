@@ -1,12 +1,8 @@
 package morimensmod.powers;
 
-import static morimensmod.MorimensMod.makePowerPath;
-import static morimensmod.util.General.removeModID;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -31,16 +27,7 @@ public abstract class AbstractEasyPower extends AbstractPower {
         this.amount = amount;
         this.type = powerType;
 
-        Texture normalTexture = TexLoader.getTexture(makePowerPath(removeModID(ID) + "32.png"));
-        Texture hiDefImage = TexLoader.getTexture(makePowerPath(removeModID(ID) + "84.png"));
-        if (hiDefImage != null) {
-            region128 = new TextureAtlas.AtlasRegion(hiDefImage, 0, 0, hiDefImage.getWidth(), hiDefImage.getHeight());
-            if (normalTexture != null)
-                region48 = new TextureAtlas.AtlasRegion(normalTexture, 0, 0, normalTexture.getWidth(), normalTexture.getHeight());
-        } else if (normalTexture != null) {
-            this.img = normalTexture;
-            region48 = new TextureAtlas.AtlasRegion(normalTexture, 0, 0, normalTexture.getWidth(), normalTexture.getHeight());
-        }
+        TexLoader.loadRegion(this);
 
         updateDescription();
     }

@@ -84,4 +84,9 @@ public class TexLoader {
     public static AtlasRegion getPowerRegion128(AbstractPower power) {
         return getTextureAsAtlasRegion(makePowerPath(power.getClass().getSimpleName() + "84.png"));
     }
+
+    public static void loadRegion(AbstractPower power) {
+        power.region48 = getPowerRegion48(power);
+        power.region128 = getPowerRegion128(power);
+    }
 }
