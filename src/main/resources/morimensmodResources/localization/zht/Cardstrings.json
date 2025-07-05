@@ -1,23 +1,23 @@
 {
   "${ModID}:VoicesInYourHead": {
     "NAME": "腦中之音",
-    "DESCRIPTION": "對所有敵人造成 1 回合 虛弱 和 易傷 並偷取 1 點 ${ModID}:臨時 力量 。",
+    "DESCRIPTION": "對所有敵人造成 !M! 回合 虛弱 和 易傷 並偷取 !${ModID}:M2! 點 ${ModID}:臨時 力量 。",
     "EXTENDED_DESCRIPTION": [
-      "對所有敵人造成 #b1 回合 #g虛弱 和 #r易傷 並偷取 #b1 點 #g臨時 #y力量 。"
+      "對所有敵人造成 #b%d 回合 #p虛弱 和 #r易傷 並偷取 #b%d 點 #y臨時 #y力量 。"
     ]
   },
   "${ModID}:TinyWish": {
     "NAME": "小小心願",
-    "DESCRIPTION": "獲得 35 點 ${ModID}:狂氣 。",
+    "DESCRIPTION": "獲得 !M! 點 ${ModID}:狂氣 。",
     "EXTENDED_DESCRIPTION": [
-      "獲得 #b35 點 #y狂氣 。"
+      "獲得 #b%d 點 #y狂氣 。"
     ]
   },
   "${ModID}:AMousesWisdom": {
     "NAME": "鼠鼠的智慧",
-    "DESCRIPTION": "獲得 3 點 [E] 。",
+    "DESCRIPTION": "獲得 !M! 點 [E] 。",
     "EXTENDED_DESCRIPTION": [
-      "獲得 #b3 點 [E] 。"
+      "獲得 #b%d 點 [E] 。"
     ]
   },
   "${ModID}:EncounterInPureWhite": {
@@ -36,9 +36,9 @@
   },
   "${ModID}:ObsessionEternal": {
     "NAME": "永世執念",
-    "DESCRIPTION": "獲得 3 點 力量 ，額外獲得等同於永久 力量 25% 的 ${ModID}:臨時 力量 。",
+    "DESCRIPTION": "獲得 3 點 力量 ，額外獲得等同於 ${ModID}:永久力量 25% 的 ${ModID}:臨時 力量 。",
     "EXTENDED_DESCRIPTION": [
-      "獲得 #b3 點 #y力量 ，額外獲得等同於永久 #y力量 #b25% 的 #y臨時 #y力量 。"
+      "獲得 #b3 點 #y力量 ，額外獲得等同於 #y永久力量 #b25% 的 #y臨時 #y力量 。"
     ]
   },
   "${ModID}:TheLoneSeed": {
@@ -66,7 +66,7 @@
     "NAME": "短暫的永恆",
     "DESCRIPTION": "獲得 1 點 [E] 。將 1 張「打擊」與 1 張「防禦」的原始複製置入手中，並使他們獲得 消耗 、 虛無 。 NL 若當前界域為 「 ${ModID}:超維 」，則額外獲得 2 點 ${ModID}:臨時 力量 與 1 點 ${ModID}:臨時 敏捷 。",
     "EXTENDED_DESCRIPTION": [
-      "獲得 #b1 點 [E] 。將 #b1 張「 #y打擊 」與 #b1 張「 #y防禦 」的原始複製置入手中，並使他們獲得 #y消耗 、 #y虛無 。 NL 若當前界域為 「 #p超維 」，則額外獲得 #b2 點 #g臨時 #y力量 與 #b1 點 #g臨時 #y敏捷 。"
+      "獲得 #b1 點 [E] 。將 #b1 張「 #y打擊 」與 #b1 張「 #y防禦 」的原始複製置入手中，並使他們獲得 #y消耗 、 #y虛無 。 NL 若當前界域為 「 #p超維 」，則額外獲得 #b2 點 #y臨時 #y力量 與 #b1 點 #y臨時 #y敏捷 。"
     ]
   },
   "${ModID}:GatewayOfRetrospection": {
@@ -80,7 +80,7 @@
     "NAME": "一聲槍響",
     "DESCRIPTION": "將 1 枚「閃耀偏方骰子」置入手中，獲得 1 點 ${ModID}:臨時 力量 。",
     "EXTENDED_DESCRIPTION": [
-      "將 #b1 枚「 #y閃耀偏方骰子 」置入手中，獲得 #b1 點 #g臨時 #y力量 。"
+      "將 #b1 枚「 #y閃耀偏方骰子 」置入手中，獲得 #b1 點 #y臨時 #y力量 。"
     ]
   },
   "${ModID}:FestivalOfTides": {
@@ -100,7 +100,7 @@
   },
   "${ModID}:FirstDoctrine": {
     "NAME": "第一哲學",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:M2! 次。 NL 保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:M2! 次。"
   },
   "${ModID}:AssaultThesis": {
     "NAME": "攻勢推演",
@@ -118,7 +118,7 @@
   },
   "${ModID}:FleshDetached": {
     "NAME": "靈肉兩分",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 造成生命回復 時，獲得 !B! 點 格擋 。 NL 保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 造成生命回復 時，獲得 !B! 點 格擋 。"
   },
   "${ModID}:OuterSurgery": {
     "NAME": "域外手術",
@@ -127,10 +127,8 @@
   "${ModID}:EquivalentExchange": {
     "NAME": "等價交換",
     "DESCRIPTION": "回復 !${ModID}:H! 點生命。棄掉所有手牌，每棄 1 張手牌額外回復 !M! 點生命並獲得等量 格擋 。",
-    "UPGRADE_DESCRIPTION": "回復 !${ModID}:H! 點生命。棄掉所有手牌，每棄 1 張手牌額外回復 !M! 點生命並獲得等量 格擋 。 NL 保留 ",
     "EXTENDED_DESCRIPTION": [
-      "回復 !${ModID}:H! 點生命並獲得 !B! 點 格擋 。棄掉所有手牌。",
-      "回復 !${ModID}:H! 點生命並獲得 !B! 點 格擋 。棄掉所有手牌。 NL 保留 "
+      "回復 !${ModID}:H! 點生命並獲得 !B! 點 格擋 。棄掉所有手牌。"
     ]
   },
   "${ModID}:PhysiologicalAnalysis": {
@@ -139,7 +137,7 @@
   },
   "${ModID}:BattleThirst": {
     "NAME": "戰欲難平",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL ${ModID}:指令卡 的傷害次數提高 !M! 次。 NL 保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL ${ModID}:指令卡 的傷害次數提高 !M! 次。"
   },
   "${ModID}:BladeOfDefiance": {
     "NAME": "桀驁之刃",
@@ -151,11 +149,11 @@
   },
   "${ModID}:LoopingSwordplay": {
     "NAME": "廻環劍技",
-    "DESCRIPTION": "造成 !D! 點傷害，若 斬殺 任何敵人，此卡傷害永久提升 !M! 並將一張此牌的複製置入手中。 NL 視為「 打擊 」 消耗 "
+    "DESCRIPTION": "造成 !D! 點傷害，若 斬殺 任何敵人，此卡傷害永久提升 !M! 並將一張此牌的複製置入手中。 NL 視為「 打擊 」"
   },
   "${ModID}:KnightsZeal": {
     "NAME": "騎士熱誠",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 獲得 !M! 點 力量 ，每打出 !${ModID}:M3! 張 ${ModID}:指令卡 後，獲得 !${ModID}:M2! 點 力量 。 NL 保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 獲得 !M! 點 力量 ，每打出 !${ModID}:M3! 張 ${ModID}:指令卡 後，獲得 !${ModID}:M2! 點 力量 。"
   },
   "${ModID}:UnstableBarrier": {
     "NAME": "不定壁壘",
@@ -171,7 +169,7 @@
   },
   "${ModID}:EntropyUndone": {
     "NAME": "熵增逆轉",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 打出 ${ModID}:指令卡 後，獲得 !M! 點 ${ModID}:銀鑰能量 ，每回合最多觸發 !${ModID}:M2! 次。打出擁有卻未觸發 ${ModID}:回環 效果的卡牌時，獲得 !${ModID}:M3! 層 ${ModID}:負熵 。 NL 保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 打出 ${ModID}:指令卡 後，獲得 !M! 點 ${ModID}:銀鑰能量 ，每回合最多觸發 !${ModID}:M2! 次。打出擁有卻未觸發 ${ModID}:回環 效果的卡牌時，獲得 !${ModID}:M3! 層 ${ModID}:負熵 。"
   },
   "${ModID}:PredeterminedStrike": {
     "NAME": "命定之劍",
@@ -193,7 +191,7 @@
   },
   "${ModID}:Soulblight": {
     "NAME": "靈魂瘟疫",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 回合結束時，回復 !${ModID}:H! 點生命並獲得等同於自身 ${ModID}:狂氣回充 的 ${ModID}:狂氣 。 NL 「 ${ModID}:終末型態 」：不再回復生命，改為觸發所有敵人 !M! %的 中毒 。 NL 保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 回合結束時，回復 !${ModID}:H! 點生命並獲得等同於自身 ${ModID}:狂氣回充 的 ${ModID}:狂氣 。 NL 「 ${ModID}:終末型態 」：不再回復生命，改為觸發所有敵人 !M! %的 中毒 。"
   },
   "${ModID}:SelfDestruct": {
     "NAME": "自毀改造",
@@ -227,7 +225,7 @@
   },
   "${ModID}:DrowningInSorrow": {
     "NAME": "沉逝苦海",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。回合開始後，對所有生物施加 !M! 點 中毒 ，然後獲得等於自身 中毒 層數 !${ModID}:M2! 倍的 ${ModID}:狂氣 。你可以 格擋 中毒 傷害。 NL 保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。回合開始後，對所有生物施加 !M! 點 中毒 ，然後獲得等於自身 中毒 層數 !${ModID}:M2! 倍的 ${ModID}:狂氣 。你可以 格擋 中毒 傷害。"
   },
   "${ModID}:MidnightTide": {
     "NAME": "夜潮洶湧",
@@ -244,11 +242,11 @@
   },
   "${ModID}:MaintenanceExpert": {
     "NAME": "維修大師",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。造成的 格擋 和 荊棘 提高 !M! %。 NL 保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。造成的 格擋 和 荊棘 提高 !M! %。"
   },
   "${ModID}:NoTrespassing": {
     "NAME": "高熱區禁入",
-    "DESCRIPTION": "獲得 !B! 點 格擋 和 !M! 層 ${ModID}:臨時 荊棘 ，在首領戰中改為獲得 !${ModID}:M2! 倍 ${ModID}:臨時 荊棘 。 NL ${ModID}:預備 1 \u2002 保留 "
+    "DESCRIPTION": "獲得 !B! 點 格擋 和 !M! 層 ${ModID}:臨時 荊棘 ，在首領戰中改為獲得 !${ModID}:M2! 倍 ${ModID}:臨時 荊棘 。 NL ${ModID}:預備 1"
   },
   "${ModID}:ShortTermMemory": {
     "NAME": "短期記憶",
@@ -260,7 +258,7 @@
   },
   "${ModID}:GiveAndTake": {
     "NAME": "施與受",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。每造成一次傷害，獲得 !M! 點 荊棘 。 NL 保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。每造成一次傷害，獲得 !M! 點 荊棘 。"
   },
   "${ModID}:WhipOfMadness": {
     "NAME": "狂氣使役之鞭",
@@ -268,16 +266,16 @@
   },
   "${ModID}:WaxHotDesire": {
     "NAME": "灼燃蠟滴之欲",
-    "DESCRIPTION": "獲得 !M! 層 荊棘 。在本回合中，偷取所有敵人 !${ModID}:M2! 點 力量 ，若只有一個敵人，偷取的 力量 翻倍。移除所有敵人的 荊棘 狀態。 NL 保留 ",
-    "UPGRADE_DESCRIPTION": "獲得 !M! 層 荊棘 。在本回合中，偷取所有敵人 !${ModID}:M2! 點 力量 ，若只有一個敵人，偷取的 力量 翻倍。移除所有敵人的 荊棘 狀態。獲得 !${ModID}:A! 點 ${ModID}:狂氣 。 NL 保留 "
+    "DESCRIPTION": "獲得 !M! 層 荊棘 。在本回合中，偷取所有敵人 !${ModID}:M2! 點 力量 ，若只有一個敵人，偷取的 力量 翻倍。移除所有敵人的 荊棘 狀態。",
+    "UPGRADE_DESCRIPTION": "獲得 !M! 層 荊棘 。在本回合中，偷取所有敵人 !${ModID}:M2! 點 力量 ，若只有一個敵人，偷取的 力量 翻倍。移除所有敵人的 荊棘 狀態。獲得 !${ModID}:A! 點 ${ModID}:狂氣 。"
   },
   "${ModID}:OutstandingVeteran": {
     "NAME": "戰地卓識",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。獲得 !M! 點 敏捷 。 打擊 造成的傷害享受 !${ModID}:M2! 倍 格擋 加成。 NL 保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。獲得 !M! 點 敏捷 。 打擊 造成的傷害享受 !${ModID}:M2! 倍 格擋 加成。"
   },
   "${ModID}:CombatStance": {
     "NAME": "臨戰體勢",
-    "DESCRIPTION": "獲得 !B! 點 格擋 。回合結束時若在手中，獲得的 格擋 提高 !M! 點。驅散 ${ModID}:封印 狀態。 NL 視為「 ${ModID}:防禦 」 保留 "
+    "DESCRIPTION": "獲得 !B! 點 格擋 。回合結束時若在手中，獲得的 格擋 提高 !M! 點。驅散 ${ModID}:封印 狀態。 NL 視為「 ${ModID}:防禦 」"
   },
   "${ModID}:PrecisionSlash": {
     "NAME": "心眼利刃",
@@ -285,8 +283,7 @@
   },
   "${ModID}:DefensiveStance": {
     "NAME": "防禦姿態",
-    "DESCRIPTION": "使 格擋 翻倍。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "使 格擋 翻倍。 NL 消耗 \u2002 保留 "
+    "DESCRIPTION": "使 格擋 翻倍。"
   },
   "${ModID}:InsightStrike": {
     "NAME": "心眼打擊",
@@ -294,7 +291,7 @@
   },
   "${ModID}:DanceOfTheGibbousMoon": {
     "NAME": "凸月之舞",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。每打出 !M! 張 ${ModID}:指令卡 後，回復 !${ModID}:H! 點生命，獲得 !${ModID}:M2! 點 ${ModID}:狂氣 。打出「奇妙料理」後，對所有敵人造成 !${ModID}:M3! 點 中毒 。 NL 保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。每打出 !M! 張 ${ModID}:指令卡 後，回復 !${ModID}:H! 點生命，獲得 !${ModID}:M2! 點 ${ModID}:狂氣 。打出「奇妙料理」後，對所有敵人造成 !${ModID}:M3! 點 中毒 。"
   },
   "${ModID}:ToadStew": {
     "NAME": "蟾蜍燉菜",
@@ -328,11 +325,11 @@
   },
   "${ModID}:LaudableMasterpiece": {
     "NAME": "此曲應得稱頌",
-    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。回合開始時，將一張「協樂的交響」置入手中。 NL 保留 "
+    "DESCRIPTION": "獲得 !${ModID}:A! 點 ${ModID}:狂氣 。回合開始時，將一張「協樂的交響」置入手中。"
   },
   "${ModID}:SoulOverture": {
     "NAME": "靈魂序曲",
-    "DESCRIPTION": "隨機造成 !${ModID}:AC! 次 !D! 點 ${ModID}:穿刺傷害 ，每次造成傷害都有 50% 機率對目標隨機施加 1 種 ${ModID}:奇妙負面效果 。若打出時 [E] 消耗為0，額外造成 !M! 次傷害。 NL ${ModID}:預備 1 \u2002 保留 "
+    "DESCRIPTION": "隨機造成 !${ModID}:AC! 次 !D! 點 ${ModID}:穿刺傷害 ，每次造成傷害都有 50% 機率對目標隨機施加 1 種 ${ModID}:奇妙負面效果 。若打出時 [E] 消耗為0，額外造成 !M! 次傷害。 NL ${ModID}:預備 1"
   },
   "${ModID}:MemoryRondo": {
     "NAME": "追憶迴旋曲",
@@ -375,8 +372,8 @@
   },
   "${ModID}:RewindingTime": {
     "NAME": "溯洄時計",
-    "DESCRIPTION": "打出 ${ModID}:指令卡 後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 !${ModID}:M2! 次。 NL ${ModID}:預備 1 \u2002 保留 ",
-    "UPGRADE_DESCRIPTION": " ${ModID}:被動 ： ${ModID}:銀鑰充能 + !M! NL 打出 ${ModID}:指令卡 後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 !${ModID}:M2! 次。 NL ${ModID}:預備 1 \u2002 保留 "
+    "DESCRIPTION": "打出 ${ModID}:指令卡 後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 !${ModID}:M2! 次。 NL ${ModID}:預備 1",
+    "UPGRADE_DESCRIPTION": " ${ModID}:被動 ： ${ModID}:銀鑰充能 + !M! NL 打出 ${ModID}:指令卡 後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 !${ModID}:M2! 次。 NL ${ModID}:預備 1"
   },
   "${ModID}:CelestialBeast": {
     "NAME": "星天之獸",
@@ -446,26 +443,26 @@
   },
   "${ModID}:ManikinOfOblivion": {
     "NAME": "墜入虛無的人偶",
-    "DESCRIPTION": "造成的基礎 ${ModID}:狂氣 、基礎 中毒 、基礎治療 提高 !${ModID}:M2! %。 NL 釋放 ${ModID}:狂氣爆發 後，獲得本次 ${ModID}:狂氣 消耗20%的 ${ModID}:狂氣 。 NL ${ModID}:預備 1 \u2002 保留 ",
-    "UPGRADE_DESCRIPTION": " ${ModID}:被動 ： ${ModID}:狂氣回充 + !M! NL 造成的基礎 ${ModID}:狂氣 、基礎 中毒 、基礎治療 提高 !${ModID}:M2! %。 NL 釋放 ${ModID}:狂氣爆發 後，獲得本次 ${ModID}:狂氣 消耗20%的 ${ModID}:狂氣 。 NL ${ModID}:預備 1 \u2002 保留 "
+    "DESCRIPTION": "造成的基礎 ${ModID}:狂氣 、基礎 中毒 、基礎治療 提高 !${ModID}:M2! %。 NL 釋放 ${ModID}:狂氣爆發 後，獲得本次 ${ModID}:狂氣 消耗20%的 ${ModID}:狂氣 。 NL ${ModID}:預備 1",
+    "UPGRADE_DESCRIPTION": " ${ModID}:被動 ： ${ModID}:狂氣回充 + !M! NL 造成的基礎 ${ModID}:狂氣 、基礎 中毒 、基礎治療 提高 !${ModID}:M2! %。 NL 釋放 ${ModID}:狂氣爆發 後，獲得本次 ${ModID}:狂氣 消耗20%的 ${ModID}:狂氣 。 NL ${ModID}:預備 1"
   },
   "${ModID}:HandOfOblivion": {
     "NAME": "遺忘之手",
-    "DESCRIPTION": "將 1 張「打擊」加入手中，「 打擊 」的基礎傷害增加 !${ModID}:M2! %。 NL ${ModID}:預備 1 \u2002 保留 ",
-    "UPGRADE_DESCRIPTION": " ${ModID}:被動 ： 「 打擊 」基礎傷害 + !M! % NL 將 1 張「打擊」加入手中，「 打擊 」的基礎傷害增加 !${ModID}:M2! %。 NL ${ModID}:預備 1 \u2002 保留 "
+    "DESCRIPTION": "將 1 張「打擊」加入手中，「 打擊 」的基礎傷害增加 !${ModID}:M2! %。 NL ${ModID}:預備 1",
+    "UPGRADE_DESCRIPTION": " ${ModID}:被動 ： 「 打擊 」基礎傷害 + !M! % NL 將 1 張「打擊」加入手中，「 打擊 」的基礎傷害增加 !${ModID}:M2! %。 NL ${ModID}:預備 1"
   },
   "${ModID}:Insight": {
     "NAME": "靈感",
-    "DESCRIPTION": "獲得 [E] ，抽 !${ModID}:M2! 張牌。 NL 消耗 \u2002 保留 ",
-    "UPGRADE_DESCRIPTION": "獲得 [E] [E] ，抽 !${ModID}:M2! 張牌。 NL 消耗 \u2002 保留 ",
+    "DESCRIPTION": "獲得 [E] ，抽 !${ModID}:M2! 張牌。",
+    "UPGRADE_DESCRIPTION": "獲得 [E] [E] ，抽 !${ModID}:M2! 張牌。",
     "EXTENDED_DESCRIPTION": [
       "高級靈感"
     ]
   },
   "${ModID}:SilverKeyDawn": {
     "NAME": "銀鑰微光",
-    "DESCRIPTION": "從隨機 !M! 個 ${ModID}:鑰令 中，選擇 1 個立刻釋放。 NL 消耗 \u2002 保留 ",
-    "UPGRADE_DESCRIPTION": "從隨機 !M! 個 ${ModID}:鑰令 中，選擇 1 個立刻釋放，並生效 2 次。 NL 消耗 \u2002 保留 ",
+    "DESCRIPTION": "從隨機 !M! 個 ${ModID}:鑰令 中，選擇 1 個立刻釋放。",
+    "UPGRADE_DESCRIPTION": "從隨機 !M! 個 ${ModID}:鑰令 中，選擇 1 個立刻釋放，並生效 2 次。",
     "EXTENDED_DESCRIPTION": [
       "銀鑰曦光"
     ]
@@ -476,8 +473,8 @@
   },
   "${ModID}:OctahedronDice": {
     "NAME": "偏方骰子",
-    "DESCRIPTION": "投一顆 6 面骰子，獲得等同於骰子點數的 ${ModID}:臨時 力量 。若點數為 4 或更高， 易傷 所有敵人 1 回合。若點數為 6 或更高，獲得的 ${ModID}:臨時 力量 翻倍。 NL 消耗 \u2002 保留 ",
-    "UPGRADE_DESCRIPTION": "投一顆 6 面骰子，獲得等同於骰子點數 !M! %的 ${ModID}:臨時 力量 。若點數為 4 或更高， 虛弱 和 易傷 所有敵人 1 回合。若點數為 6 或更高，獲得的 ${ModID}:臨時 力量 翻倍並獲得 [E] 。 NL 消耗 \u2002 保留 ",
+    "DESCRIPTION": "投一顆 6 面骰子，獲得等同於骰子點數的 ${ModID}:臨時 力量 。若點數為 4 或更高， 易傷 所有敵人 1 回合。若點數為 6 或更高，獲得的 ${ModID}:臨時 力量 翻倍。",
+    "UPGRADE_DESCRIPTION": "投一顆 6 面骰子，獲得等同於骰子點數 !M! %的 ${ModID}:臨時 力量 。若點數為 4 或更高， 虛弱 和 易傷 所有敵人 1 回合。若點數為 6 或更高，獲得的 ${ModID}:臨時 力量 翻倍並獲得 [E] 。",
     "EXTENDED_DESCRIPTION": [
       "閃耀偏方骰子"
     ]
@@ -536,7 +533,7 @@
   },
   "${ModID}:SymptomObedience": {
     "NAME": "症狀：盲從",
-    "DESCRIPTION": "回合結束時若在手中，將 !M! 張隨機 ${ModID}:症狀卡 加入抽牌堆。 NL 保留 "
+    "DESCRIPTION": "回合結束時若在手中，將 !M! 張隨機 ${ModID}:症狀卡 加入抽牌堆。"
   },
   "${ModID}:SymptomExcitement": {
     "NAME": "症狀：興奮",
@@ -544,7 +541,7 @@
   },
   "${ModID}:Wound": {
     "NAME": "傷口",
-    "DESCRIPTION": "一點小傷，無傷大體。受到 !M! 點傷害，抽 !${ModID}:DR! 張牌。 NL 消耗 棄掉時移除 "
+    "DESCRIPTION": "一點小傷，無傷大體。受到 !M! 點傷害，抽 !${ModID}:DR! 張牌。 NL 棄掉時移除 "
   },
   "${ModID}:Convulsion": {
     "NAME": "驚厥",
@@ -552,7 +549,7 @@
   },
   "${ModID}:StickyWax": {
     "NAME": "黏糊糊的蠟油",
-    "DESCRIPTION": " 消耗 \u2002 保留 \u2002 ${ModID}:永久保留 \u2002 ${ModID}:銷毀 "
+    "DESCRIPTION": " ${ModID}:永久保留 \u2002 ${ModID}:銷毀 "
   },
   "${ModID}:DimensionLock": {
     "NAME": "維度閉鎖",
@@ -560,7 +557,7 @@
   },
   "${ModID}:Stagger": {
     "NAME": "蹣跚",
-    "DESCRIPTION": " ${ModID}:狀態卡 。 NL 消耗 "
+    "DESCRIPTION": " ${ModID}:狀態卡 。"
   },
   "${ModID}:Soffocation": {
     "NAME": "窒息",
@@ -568,11 +565,12 @@
   },
   "${ModID}:PainOfUnfulfilledDesires": {
     "NAME": "未被滿足之痛",
-    "DESCRIPTION": "對自身造成 !M! 點傷害，獲得 !${ModID}:M2! 點 ${ModID}:臨時 力量 ，抽 !${ModID}:DR! 張牌。 NL 消耗 \u2002 保留 "
+    "DESCRIPTION": "對自身造成 !M! 點傷害，獲得 !${ModID}:M2! 點 ${ModID}:臨時 力量 ，抽 !${ModID}:DR! 張牌。"
   },
   "${ModID}:CryOut": {
     "NAME": "哭喊",
-    "DESCRIPTION": "降低所有敵人 !M! 點 ${ModID}:臨時 力量 ，將 !${ModID}:M2! 張「症狀：妄想」置入手牌。 NL \"很痛嗎？真可憐……哭出來就好啦！\" NL 消耗 \u2002 保留 "
+    "DESCRIPTION": "降低所有敵人 !M! 點 ${ModID}:臨時 力量 ，將 !${ModID}:M2! 張「症狀：妄想」置入手牌。",
+    "FLAVOR": "很痛嗎？真可憐……哭出來就好啦！"
   },
   "${ModID}:MutatedHeart": {
     "NAME": "畸變之心",
@@ -580,7 +578,7 @@
   },
   "${ModID}:Unrestrained": {
     "NAME": "狂放",
-    "DESCRIPTION": "獲得 !M! 點 ${ModID}:臨時 力量 ，所有敵人獲得 !${ModID}:M2! 點 ${ModID}:臨時 力量 。 NL 消耗 \u2002 保留 \u2002 ${ModID}:永久保留 \u2002 ${ModID}:銷毀 "
+    "DESCRIPTION": "獲得 !M! 點 ${ModID}:臨時 力量 ，所有敵人獲得 !${ModID}:M2! 點 ${ModID}:臨時 力量 。 NL ${ModID}:永久保留 \u2002 ${ModID}:銷毀 "
   },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",

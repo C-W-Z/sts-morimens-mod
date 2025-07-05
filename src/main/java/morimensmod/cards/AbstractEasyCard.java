@@ -7,6 +7,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.CommonKeywordIconsField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -25,7 +26,6 @@ import static morimensmod.MorimensMod.makeImagePath;
 import static morimensmod.util.Wiz.*;
 import static morimensmod.util.General.*;
 
-import morimensmod.actions.DestroyCardAction;
 import morimensmod.cardmodifiers.ChangeCostUntilUseModifier;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.CustomTags;
@@ -103,6 +103,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
             } else
                 needsArtRefresh = true;
         }
+
+        CommonKeywordIconsField.useIcons.set(this, true);
     }
 
     @Override
@@ -446,12 +448,5 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         for (AbstractCard card : discardPile().group)
             if (card.hasTag(CustomTags.RETAIN_IN_DECK) && !isInDeck(card.uuid))
                 deck().addToBottom(card.makeSameInstanceOf());
-    }
-
-    // called in UseCardActionPatch
-    public static void onAfterUseCard(AbstractCard card) {
-        if (card.hasTag(CustomTags.DESTROYABLE)) {
-            att(new DestroyCardAction(card));
-        }
     }
 }

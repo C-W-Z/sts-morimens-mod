@@ -3,11 +3,15 @@ package morimensmod.util;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import static morimensmod.MorimensMod.makeImagePath;
+import static morimensmod.MorimensMod.makePowerPath;
+import static morimensmod.MorimensMod.makeUIPath;
+import static morimensmod.MorimensMod.makeIconPath;
 
 import java.util.HashMap;
 
@@ -26,11 +30,13 @@ public class TexLoader {
             } catch (GdxRuntimeException e) {
                 if (textureString.contains("/powers/")) {
                     if (textureString.contains("84.png"))
-                        return getTexture(makeImagePath("powers/missing84.png"));
+                        return getTexture(makePowerPath("missing84.png"));
                     else if (textureString.contains("32.png"))
-                        return getTexture(makeImagePath("powers/missing32.png"));
+                        return getTexture(makePowerPath("missing32.png"));
                 }
-                return getTexture(makeImagePath("ui/missing.png"));
+                if (textureString.contains("/icons/"))
+                    return getTexture(makeIconPath("missing.png"));
+                return getTexture(makeUIPath("missing.png"));
             }
         }
         return textures.get(textureString);
@@ -71,4 +77,16 @@ public class TexLoader {
         }
     }
 
+    public static AtlasRegion getPowerRegion48(AbstractPower power) {
+        return getTextureAsAtlasRegion(makePowerPath(power.getClass().getSimpleName() + "32.png"));
+    }
+
+    public static AtlasRegion getPowerRegion128(AbstractPower power) {
+        return getTextureAsAtlasRegion(makePowerPath(power.getClass().getSimpleName() + "84.png"));
+    }
+
+    public static void loadRegion(AbstractPower power) {
+        power.region48 = getPowerRegion48(power);
+        power.region128 = getPowerRegion128(power);
+    }
 }

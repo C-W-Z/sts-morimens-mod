@@ -52,6 +52,6 @@ public class StellarBrew extends AbstractEasyRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + COMMAND_NUM + DESCRIPTIONS[1];
+        return String.format(DESCRIPTIONS[0], COMMAND_NUM);
     }
 }

@@ -2,6 +2,7 @@ package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.util.Wiz.actB;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -27,7 +28,7 @@ public class TenRingsPlay extends AbstractEasyCard {
         for (int i = 0; i < attackCount; i++)
             dmgRandom(AttackEffect.NONE);
         misc++;
-        setCostForTurn(cost + misc);
+        actB(() -> setCostForTurn(cost + misc));
     }
 
     @Override

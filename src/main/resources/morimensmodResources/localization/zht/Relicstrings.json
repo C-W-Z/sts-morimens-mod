@@ -3,46 +3,51 @@
     "NAME": "混沌界域",
     "FLAVOR": "宇宙萬象",
     "DESCRIPTIONS": [
-      "回合結束時，獲得 #b",
-      " 點 #y${ModID}:銀鑰能量 。每有 #b",
-      " 點 #g${ModID}:界域精通 ，釋放 #y${ModID}:鑰令 後，獲得 #b1 #y${ModID}:狂氣 。",
-      " NL 當前 #g界域精通 ： #b",
-      " NL 當前釋放 #y鑰令 後獲得 #y狂氣 ： #b"
+      "回合結束時，獲得 #b%d 點 #y${ModID}:銀鑰能量 。每有 #b%d 點 #g${ModID}:界域精通 ，釋放 #y${ModID}:鑰令 後，獲得 #b%d #y${ModID}:狂氣 。",
+      " NL 當前 #g界域精通 ： #b%d NL 當前釋放 #y鑰令 後獲得 #y狂氣 ： #b%d "
     ]
   },
   "${ModID}:RamonaRelic": {
     "NAME": "心與銀的共振",
     "FLAVOR": "",
     "DESCRIPTIONS": [
-      "戰鬥開始時獲得 #b",
-      " 點 #y${ModID}:銀鑰能量 。每打出 #b",
-      " 張 #y${ModID}:指令卡 ，本場戰鬥中 #y${ModID}:銀鑰充能 提高 #b",
-      " 點。"
+      "戰鬥開始時獲得 #b%d 點 #y${ModID}:銀鑰能量 。每打出 #b%d 張 #y${ModID}:指令卡 ，本場戰鬥中 #y${ModID}:銀鑰充能 提高 #b%d 點。"
     ]
   },
   "${ModID}:LotanRelic": {
     "NAME": "不羈的劍風",
     "FLAVOR": "",
     "DESCRIPTIONS": [
-      "「 #y打擊 」基礎傷害 #b+",
-      "% 。每造成 #b1 次傷害，本場戰鬥中卡牌基礎傷害 #b+",
-      "% 。"
+      "「 #y打擊 」基礎傷害 #b+%d%% 。每造成 #b%d 次傷害，本場戰鬥中卡牌基礎傷害 #b+%d%% "
     ]
   },
   "${ModID}:KleinBottleVoyager": {
     "NAME": "克萊茵旅人",
     "FLAVOR": "",
     "DESCRIPTIONS": [
-      "釋放 #y${ModID}:鑰令 後，獲得 #b",
-      " 點 #g${ModID}:臨時 #y力量 。"
+      "釋放 #y${ModID}:鑰令 後，獲得 #b%d 點 #y${ModID}:臨時 #y力量 。"
     ]
   },
   "${ModID}:StellarBrew": {
     "NAME": "群星之酒",
     "FLAVOR": "遊走於繁星之間。",
     "DESCRIPTIONS": [
-      "你每打出的第 #b",
-      " 張 #y${ModID}:指令卡 會生效兩次。"
+      "你每打出的第 #b%d 張 #y${ModID}:指令卡 會生效兩次。"
+    ]
+  },
+  "${ModID}:AshesOfTheBurningBlackStar": {
+    "NAME": "黑星燃燒之燼",
+    "FLAVOR": "餘火未熄。",
+    "DESCRIPTIONS": [
+      "拾取時選擇 #b%d 張 #y${ModID}:指令卡牌 移除。每場戰鬥開始時，獲得 #b%d 點 #y力量 。",
+      "選擇%d張牌移除"
+    ]
+  },
+  "${ModID}:BlackCandle": {
+    "NAME": "黑燭",
+    "FLAVOR": "燃燒清醒，墮入虛妄。",
+    "DESCRIPTIONS": [
+      "每回合開始時獲得 [E] [E] ，每次重置牌庫時將 #b%d 張「蹣跚」加入抽牌堆。"
     ]
   }
 }

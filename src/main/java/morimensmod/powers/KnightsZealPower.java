@@ -44,6 +44,6 @@ public class KnightsZealPower extends AbstractEasyPower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + GAIN_STR_PER_N_CARD + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2] + amount2 + DESCRIPTIONS[3];
+        this.description = String.format(DESCRIPTIONS[0], GAIN_STR_PER_N_CARD, amount, amount2);
     }
 }

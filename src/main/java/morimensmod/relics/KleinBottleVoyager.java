@@ -30,6 +30,6 @@ public class KleinBottleVoyager extends AbstractEasyRelic implements OnAfterPoss
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + TMP_STR + DESCRIPTIONS[1];
+        return String.format(DESCRIPTIONS[0], TMP_STR);
     }
 }

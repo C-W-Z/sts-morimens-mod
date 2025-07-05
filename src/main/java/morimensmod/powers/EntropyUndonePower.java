@@ -22,8 +22,9 @@ public class EntropyUndonePower extends AbstractEasyPower {
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final int NEGENTROPY_GAIN = 1;
-    private static final int MAX_USE_PER_TURN = 3;
+    public static final int KEYFLARE_PER_COMMAND = 50;
+    public static final int NEGENTROPY_GAIN = 1;
+    public static final int MAX_USE_PER_TURN = 3;
     private int negentropyAmountBeforeUseCard = 0;
 
     public EntropyUndonePower(AbstractCreature owner, int amount) {
@@ -53,7 +54,7 @@ public class EntropyUndonePower extends AbstractEasyPower {
         if (amount2 > 0 && card.hasTag(CustomTags.COMMAND)) {
             flash();
             flashed = true;
-            addToBot(new KeyflareChangeAction(p(), amount));
+            addToBot(new KeyflareChangeAction(p(), amount * KEYFLARE_PER_COMMAND));
             amount2--;
             updateDescription();
         }
@@ -67,7 +68,6 @@ public class EntropyUndonePower extends AbstractEasyPower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + MAX_USE_PER_TURN + DESCRIPTIONS[2] + amount2
-                + DESCRIPTIONS[3] + 1 + DESCRIPTIONS[4];
+        this.description = String.format(DESCRIPTIONS[0], amount * KEYFLARE_PER_COMMAND, MAX_USE_PER_TURN, amount2, NEGENTROPY_GAIN);
     }
 }

@@ -25,22 +25,27 @@ public class VoicesInYourHead extends AbstractPosse {
 
     public VoicesInYourHead(AbstractAwakener awaker, PosseType type) {
         super(ID, awaker, type);
+        // only for display
+        magicNumber = baseMagicNumber = 1; // debuff amount
+        secondMagic = baseSecondMagic = 1; // steal STR
     }
-
-    private static final int DEBUFF_AMOUNT = 1;
-    private static final int STEAL_STR = 1;
 
     @Override
     public void activate() {
-        addToBot(new AllEnemyApplyPowerAction(awaker, DEBUFF_AMOUNT, m -> new WeakPower(m, DEBUFF_AMOUNT, false)));
-        addToBot(new AllEnemyApplyPowerAction(awaker, DEBUFF_AMOUNT, m -> new VulnerablePower(m, DEBUFF_AMOUNT, false)));
-        addToBot(new AllEnemyApplyPowerAction(awaker, -STEAL_STR, m -> new StrengthPower(m, -STEAL_STR)));
-        addToBot(new AllEnemyApplyPowerAction(awaker, STEAL_STR, m -> new GainStrengthPower(m, STEAL_STR)));
+        addToBot(new AllEnemyApplyPowerAction(awaker, magicNumber, m -> new WeakPower(m, magicNumber, false)));
+        addToBot(new AllEnemyApplyPowerAction(awaker, magicNumber, m -> new VulnerablePower(m, magicNumber, false)));
+        addToBot(new AllEnemyApplyPowerAction(awaker, -secondMagic, m -> new StrengthPower(m, -secondMagic)));
+        addToBot(new AllEnemyApplyPowerAction(awaker, secondMagic, m -> new GainStrengthPower(m, secondMagic)));
 
         int n_monsters = (int) AbstractDungeon.getMonsters().monsters.stream().filter((m) -> {
             return !m.isDeadOrEscaped();
         }).count();
-        applyToSelf(new LoseStrengthPower(awaker, STEAL_STR * n_monsters));
-        applyToSelf(new StrengthPower(awaker, STEAL_STR * n_monsters));
+        applyToSelf(new LoseStrengthPower(awaker, secondMagic * n_monsters));
+        applyToSelf(new StrengthPower(awaker, secondMagic * n_monsters));
+    }
+
+    @Override
+    public String getUIDescription() {
+        return String.format(cardStrings.EXTENDED_DESCRIPTION[0], magicNumber, secondMagic);
     }
 }

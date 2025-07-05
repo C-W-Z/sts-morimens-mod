@@ -69,7 +69,7 @@ public class ManikinOfOblivionPower extends AbstractEasyPower implements OnAfter
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + RECHARGE_ALIEMUS_PERCENT + DESCRIPTIONS[2];
+        this.description = String.format(DESCRIPTIONS[0], amount, RECHARGE_ALIEMUS_PERCENT);
     }
 
     @Override

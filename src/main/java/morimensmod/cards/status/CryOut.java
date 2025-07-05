@@ -4,7 +4,9 @@ import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.STATUS_COLOR;
 import static morimensmod.util.Wiz.makeInHand;
 
+import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
+import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText.AbstractCardFlavorFields;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
@@ -25,6 +27,9 @@ public class CryOut extends AbstractEasyCard {
         cardsToPreview = new SymptomDelusion();
         exhaust = true;
         selfRetain = true;
+
+        AbstractCardFlavorFields.boxColor.set(this, new Color(119 / 255F, 48 / 255F, 63 / 255F, 1));
+        AbstractCardFlavorFields.textColor.set(this, Color.WHITE);
     }
 
     @Override

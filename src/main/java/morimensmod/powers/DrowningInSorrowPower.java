@@ -56,6 +56,6 @@ public class DrowningInSorrowPower extends AbstractEasyPower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + POISON_ALIEMUS_SCALE + DESCRIPTIONS[2];
+        this.description = String.format(DESCRIPTIONS[0], amount, POISON_ALIEMUS_SCALE);
     }
 }

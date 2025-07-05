@@ -18,10 +18,16 @@ public class AMousesWisdom extends AbstractPosse {
 
     public AMousesWisdom(AbstractAwakener awaker, PosseType type) {
         super(ID, awaker, type);
+        magicNumber = baseMagicNumber = 3; // energy
     }
 
     @Override
     public void activate() {
-        addToBot(new GainEnergyAction(3));
+        addToBot(new GainEnergyAction(magicNumber));
+    }
+
+    @Override
+    public String getUIDescription() {
+        return String.format(cardStrings.EXTENDED_DESCRIPTION[0], magicNumber);
     }
 }

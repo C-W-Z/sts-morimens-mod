@@ -47,6 +47,6 @@ public class RamonaRelic extends AbstractEasyRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + KEYFLARE + DESCRIPTIONS[1] + COMMAND_NUM + DESCRIPTIONS[2] + KEYFLARE_REGEN + DESCRIPTIONS[3];
+        return String.format(DESCRIPTIONS[0], KEYFLARE, COMMAND_NUM, KEYFLARE_REGEN);
     }
 }
