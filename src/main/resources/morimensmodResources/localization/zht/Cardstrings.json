@@ -1,16 +1,16 @@
 {
   "${ModID}:VoicesInYourHead": {
     "NAME": "腦中之音",
-    "DESCRIPTION": "對所有敵人造成 !M! 回合 [${ModID}:WeakIcon] 虛弱 和 [${ModID}:VulnerableIcon] 易傷 並偷取 !${ModID}:M2! 點 ${ModID}:臨時 [${ModID}:StrengthIcon] 力量 。",
+    "DESCRIPTION": "對所有敵人造成 !M! 回合 虛弱 和 易傷 並偷取 !${ModID}:M2! 點 ${ModID}:臨時 力量 。",
     "EXTENDED_DESCRIPTION": [
-      "對所有敵人造成 #b%d 回合 [${ModID}:WeakIcon] #p虛弱 和 [${ModID}:VulnerableIcon] #r易傷 並偷取 #b%d 點 #g臨時 [${ModID}:StrengthIcon] #y力量 。"
+      "對所有敵人造成 #b%d 回合 #p虛弱 和 #r易傷 並偷取 #b%d 點 #y臨時 #y力量 。"
     ]
   },
   "${ModID}:TinyWish": {
     "NAME": "小小心願",
-    "DESCRIPTION": "獲得 !M! 點 [${ModID}:AliemusIcon] ${ModID}:狂氣 。",
+    "DESCRIPTION": "獲得 !M! 點 ${ModID}:狂氣 。",
     "EXTENDED_DESCRIPTION": [
-      "獲得 #b%d 點 [${ModID}:AliemusIcon] #y狂氣 。"
+      "獲得 #b%d 點 #y狂氣 。"
     ]
   },
   "${ModID}:AMousesWisdom": {
@@ -36,9 +36,9 @@
   },
   "${ModID}:ObsessionEternal": {
     "NAME": "永世執念",
-    "DESCRIPTION": "獲得 3 點 [${ModID}:StrengthIcon] 力量 ，額外獲得等同於永久 [${ModID}:StrengthIcon] 力量 25% 的 ${ModID}:臨時 [${ModID}:StrengthIcon] 力量 。",
+    "DESCRIPTION": "獲得 3 點 力量 ，額外獲得等同於 ${ModID}:永久力量 25% 的 ${ModID}:臨時 力量 。",
     "EXTENDED_DESCRIPTION": [
-      "獲得 #b3 點 [${ModID}:StrengthIcon] #y力量 ，額外獲得等同於永久 [${ModID}:StrengthIcon] #y力量 #b25% 的 #y臨時 [${ModID}:StrengthIcon] #y力量 。"
+      "獲得 #b3 點 #y力量 ，額外獲得等同於 #y永久力量 #b25% 的 #y臨時 #y力量 。"
     ]
   },
   "${ModID}:TheLoneSeed": {
@@ -66,7 +66,7 @@
     "NAME": "短暫的永恆",
     "DESCRIPTION": "獲得 1 點 [E] 。將 1 張「打擊」與 1 張「防禦」的原始複製置入手中，並使他們獲得 消耗 、 虛無 。 NL 若當前界域為 「 ${ModID}:超維 」，則額外獲得 2 點 ${ModID}:臨時 力量 與 1 點 ${ModID}:臨時 敏捷 。",
     "EXTENDED_DESCRIPTION": [
-      "獲得 #b1 點 [E] 。將 #b1 張「 #y打擊 」與 #b1 張「 #y防禦 」的原始複製置入手中，並使他們獲得 #y消耗 、 #y虛無 。 NL 若當前界域為 「 #p超維 」，則額外獲得 #b2 點 #g臨時 #y力量 與 #b1 點 #g臨時 #y敏捷 。"
+      "獲得 #b1 點 [E] 。將 #b1 張「 #y打擊 」與 #b1 張「 #y防禦 」的原始複製置入手中，並使他們獲得 #y消耗 、 #y虛無 。 NL 若當前界域為 「 #p超維 」，則額外獲得 #b2 點 #y臨時 #y力量 與 #b1 點 #y臨時 #y敏捷 。"
     ]
   },
   "${ModID}:GatewayOfRetrospection": {
@@ -80,7 +80,7 @@
     "NAME": "一聲槍響",
     "DESCRIPTION": "將 1 枚「閃耀偏方骰子」置入手中，獲得 1 點 ${ModID}:臨時 力量 。",
     "EXTENDED_DESCRIPTION": [
-      "將 #b1 枚「 #y閃耀偏方骰子 」置入手中，獲得 #b1 點 #g臨時 #y力量 。"
+      "將 #b1 枚「 #y閃耀偏方骰子 」置入手中，獲得 #b1 點 #y臨時 #y力量 。"
     ]
   },
   "${ModID}:FestivalOfTides": {
@@ -229,7 +229,7 @@
   },
   "${ModID}:MidnightTide": {
     "NAME": "夜潮洶湧",
-    "DESCRIPTION": "對生命最高的敵人造成 !D! 點傷害並施加等同於 !M! %傷害的 中毒 。享受 !${ModID}:M2! 倍永久 [${ModID}:StrengthIcon] 力量 加成。"
+    "DESCRIPTION": "對生命最高的敵人造成 !D! 點傷害並施加等同於 !M! %傷害的 中毒 。享受 !${ModID}:M2! 倍 ${ModID}:永久力量 加成。"
   },
   "${ModID}:KnellOfDeath": {
     "NAME": "喪鐘遙鳴",

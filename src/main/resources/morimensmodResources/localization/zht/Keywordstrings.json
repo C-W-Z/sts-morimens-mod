@@ -102,22 +102,22 @@
     "DESCRIPTION": "基礎 #y防禦 牌以及所有視為「 #y防禦 」的牌。"
   },
   {
-    "PROPER_NAME": " #g界域精通 ",
+    "PROPER_NAME": " [${ModID}:RealmMasteryIcon] #g界域精通 ",
     "NAMES": [
       "界域精通"
     ],
     "DESCRIPTION": "提升界域初始遺物的效果。"
   },
   {
-    "PROPER_NAME": " #y狂氣 [${ModID}:AliemusIcon] ",
+    "PROPER_NAME": " [${ModID}:AliemusIcon] #y狂氣 ",
     "NAMES": [
       "狂氣",
       "Aliemus"
     ],
-    "DESCRIPTION": "達到上限時可以釋放 #y狂氣爆發 ，達到兩倍上限的  #y狂氣 時可以釋放 #r超限爆發 。通常一回合只能釋放一次 #y狂氣爆發 或 #r超限爆發 。"
+    "DESCRIPTION": "達到上限時可以釋放 #y狂氣爆發 ，達到 #b2 倍上限的 #y狂氣 時可以釋放 #r超限爆發 。通常一回合只能釋放一次 #y狂氣爆發 或 #r超限爆發 。"
   },
   {
-    "PROPER_NAME": " #y狂氣回充 ",
+    "PROPER_NAME": " [${ModID}:AliemusIcon] #y狂氣回充 ",
     "NAMES": [
       "狂氣回充",
       "Aliemus-Regen"
@@ -125,7 +125,7 @@
     "DESCRIPTION": "釋放 #y狂氣爆發 或 #r超限爆發 之後自動獲得等同於 #y狂氣回充 屬性數值的 #y狂氣 。"
   },
   {
-    "PROPER_NAME": " #y狂氣爆發 ",
+    "PROPER_NAME": " [${ModID}:AliemusIcon] #y狂氣爆發 ",
     "NAMES": [
       "狂氣爆發",
       "Exalt"
@@ -133,7 +133,7 @@
     "DESCRIPTION": "透過消耗 #y狂氣 釋放的能力。"
   },
   {
-    "PROPER_NAME": " #r超限爆發 ",
+    "PROPER_NAME": " [${ModID}:AliemusIcon] #r超限爆發 ",
     "NAMES": [
       "超限爆發",
       "Over-Exaltation"
@@ -141,7 +141,7 @@
     "DESCRIPTION": "加強版的 #y狂氣爆發 。"
   },
   {
-    "PROPER_NAME": " #y銀鑰能量 [${ModID}:KeyflareIcon] ",
+    "PROPER_NAME": " [${ModID}:KeyflareIcon] #y銀鑰能量 ",
     "NAMES": [
       "銀鑰能量",
       "鑰能",
@@ -151,7 +151,7 @@
     "DESCRIPTION": "消耗 [E] 時可以獲得 #y銀鑰能量 ， #y銀鑰充能 屬性決定每消耗 #b1 點 [E] 時獲得的 #y銀鑰能量 。"
   },
   {
-    "PROPER_NAME": " #y銀鑰充能 ",
+    "PROPER_NAME": " [${ModID}:KeyflareIcon] #y銀鑰充能 ",
     "NAMES": [
       "銀鑰充能",
       "Keyflare-Regen"
@@ -159,7 +159,7 @@
     "DESCRIPTION": " #y銀鑰充能 屬性決定每消耗 #b1 點 [E] 時獲得的 #y銀鑰能量 。"
   },
   {
-    "PROPER_NAME": " #y鑰令 ",
+    "PROPER_NAME": " [${ModID}:KeyflareIcon] #y鑰令 ",
     "NAMES": [
       "鑰令",
       "Posse"
@@ -167,7 +167,7 @@
     "DESCRIPTION": "#y銀鑰能量 達到 #b1000 時可以釋放攜帶的 #y鑰令 。每回合可以釋放 #b2 次 #y鑰令 ，但第 #b2 次會改為從 #b3 個隨機 #y鑰令 中選擇 #b1 個釋放，且選擇的 #y鑰令 在本次戰鬥中無法再被選擇。"
   },
   {
-    "PROPER_NAME": " #g臨時 ",
+    "PROPER_NAME": " #y臨時 ",
     "NAMES": [
       "臨時"
     ],
@@ -178,7 +178,7 @@
     "NAMES": [
       "永久力量"
     ],
-    "DESCRIPTION": "非 #g臨時 #y力量 ，也就是 #y力量 層數減 #y活動肌肉 層數。"
+    "DESCRIPTION": "非 #y臨時 #y力量 ，也就是 #y力量 層數減 #y活動肌肉 層數。"
   },
   {
     "PROPER_NAME": " #y封印 ",
@@ -285,7 +285,7 @@
     "DESCRIPTION": "獨屬於 #r熔毀·朵爾 的 姿態 ，當「 #p終末 」達到 #b10 層時會自動將 #b1 張「 #y虛無終結 」置入手中。打出「 #y虛無終結 」進入 #p終末型態 。"
   },
   {
-    "PROPER_NAME": " #r興奮（Ｘ） ",
+    "PROPER_NAME": " [${ModID}:ElationIcon] #r興奮（Ｘ） ",
     "NAMES": [
       "興奮",
       "Elation"
