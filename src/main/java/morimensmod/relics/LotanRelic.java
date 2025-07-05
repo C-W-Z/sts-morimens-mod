@@ -18,7 +18,6 @@ public class LotanRelic extends AbstractEasyRelic {
 
     public LotanRelic() {
         super(ID, RelicTier.STARTER, LandingSound.FLAT);
-        counter = 0;
     }
 
     @Override
@@ -34,6 +33,11 @@ public class LotanRelic extends AbstractEasyRelic {
         flash();
         counter += BASE_AMPLIFY_PER_ATTACK;
         actB(() -> AbstractEasyCard.baseDamageAmplify += BASE_AMPLIFY_PER_ATTACK);
+    }
+
+    @Override
+    public void onVictory() {
+        counter = -1;
     }
 
     @Override
