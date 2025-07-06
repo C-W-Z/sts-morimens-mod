@@ -43,7 +43,7 @@ public class Ramona extends AbstractAwakener {
     public Ramona() {
         super(NAMES[0], Enums.RAMONA, "Ramona/main.png", "Ramona/main.png");
         anim = new SpriteSheetAnimation(makeCharacterPath("Ramona/Idle_1.png"),
-                6, 17, 1, true, 30F, -22, -10);
+                6, 17, 1, true, -22, -10);
         exalt = new MundusDecree();
         baseAliemusRegen = 0;
         baseKeyflareRegen = 60;

@@ -3,7 +3,6 @@ package morimensmod.patches;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.p;
 
-import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertLocator;
@@ -18,6 +17,7 @@ import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 
 import javassist.CtBehavior;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.util.ModSettings;
 
 @SpirePatch2(clz = AbstractPlayer.class, method = "damage")
 public class DeathResistancePatch {
@@ -36,7 +36,7 @@ public class DeathResistancePatch {
                             p().hb.cX - p().animX,
                             p().hb.cY + p().hb.height / 2.0F,
                             TEXT,
-                            Color.RED));
+                            ModSettings.DEATH_RESISTANCE_TEXT_COLOR));
             return SpireReturn.Return();
         }
         return SpireReturn.Continue();

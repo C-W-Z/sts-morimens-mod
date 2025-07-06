@@ -19,6 +19,7 @@ import morimensmod.cardmodifiers.ExhaustModifier;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.CustomTags;
+import morimensmod.util.ModSettings;
 
 public class Showdown extends AbstractEasyCard {
     public final static String ID = makeID(Showdown.class.getSimpleName());
@@ -44,7 +45,7 @@ public class Showdown extends AbstractEasyCard {
 
         attackCount = AbstractDungeon.cardRandomRng.random(1, attackCount);
 
-        showThoughtBubble("" + attackCount, 1.0F);
+        showThoughtBubble("" + attackCount, ModSettings.DICE_THOUGHT_BUBBLE_TIME);
 
         for (int i = 0; i < attackCount; i++)
             actB(() -> {

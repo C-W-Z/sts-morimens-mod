@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
+import morimensmod.util.ModSettings;
+
 public class OctahedronDice extends AbstractBuffCard {
     public final static String ID = makeID(OctahedronDice.class.getSimpleName());
 
@@ -36,7 +38,7 @@ public class OctahedronDice extends AbstractBuffCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int dice = AbstractDungeon.cardRandomRng.random(1, MAX_DICE);
 
-        showThoughtBubble("" + dice, 1.0F);
+        showThoughtBubble("" + dice, ModSettings.DICE_THOUGHT_BUBBLE_TIME);
 
         int tmpStr = ((dice >= MAX_DICE) ? TMP_STR_SCALE : 1) * MathUtils.ceil(dice * magicNumber / 100F);
         applyToSelf(new StrengthPower(p, tmpStr));

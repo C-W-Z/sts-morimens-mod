@@ -2,6 +2,7 @@ package morimensmod.misc;
 
 import basemod.ClickableUIElement;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.util.ModSettings;
 import morimensmod.util.TexLoader;
 
 import static morimensmod.MorimensMod.makeID;
@@ -28,14 +29,14 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 
 public class KeyflareUI extends ClickableUIElement {
 
-    private static final float SCALE = Settings.scale * 0.75F;
-    private static final float hb_w = 120F * SCALE;
-    private static final float hb_h = 120F * SCALE;
+    private static final float SCALE = Settings.scale * ModSettings.CLICKABLE_UI_ICON_SCALE;
+    private static final float hb_w = ModSettings.CLICKABLE_UI_ICON_SIZE * SCALE;
+    private static final float hb_h = ModSettings.CLICKABLE_UI_ICON_SIZE * SCALE;
     private static final float baseX = 50F * Settings.scale;
     private static final float baseY = 300F * Settings.scale;
-    private static final float centerX = baseX + 60F * SCALE;
-    private static final float centerY = baseY + 60F * SCALE;
-    private static final float fontX = baseX + 120F * SCALE + 0F * Settings.scale;
+    private static final float centerX = baseX + hb_w / 2F;
+    private static final float centerY = baseY + hb_h / 2F;
+    private static final float fontX = baseX + hb_w + 0F * Settings.scale;
     private static final float fontScale = 1F;
 
     private static final Texture ICON = TexLoader.getTexture(makeUIPath("Keyflare.png"));
@@ -99,17 +100,17 @@ public class KeyflareUI extends ClickableUIElement {
 
         if (AbstractAwakener.isPossing() || AbstractAwakener.isExalting()
                 || !AbstractDungeon.actionManager.cardQueue.isEmpty()) {
-            showThoughtBubble(TEXT.EXTRA_TEXT[4], 3.0F);
+            showThoughtBubble(TEXT.EXTRA_TEXT[4], ModSettings.UI_THOUGHT_BUBBLE_TIME);
             return;
         }
 
         if (!AbstractAwakener.enoughLimitedPosseCountThisTurn()) {
-            showThoughtBubble(TEXT.EXTRA_TEXT[2], 3.0F);
+            showThoughtBubble(TEXT.EXTRA_TEXT[2], ModSettings.UI_THOUGHT_BUBBLE_TIME);
             return;
         }
 
         if (!AbstractAwakener.enoughKeyflareForLimitedPosse()) {
-            showThoughtBubble(TEXT.EXTRA_TEXT[3], 3.0F);
+            showThoughtBubble(TEXT.EXTRA_TEXT[3], ModSettings.UI_THOUGHT_BUBBLE_TIME);
             return;
         }
 

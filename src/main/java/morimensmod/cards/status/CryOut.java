@@ -3,7 +3,6 @@ package morimensmod.cards.status;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.makeInHand;
 
-import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
 import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText.AbstractCardFlavorFields;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,6 +11,7 @@ import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import morimensmod.cards.symptoms.SymptomDelusion;
+import morimensmod.util.ModSettings;
 
 public class CryOut extends AbstractStatusCard {
     public final static String ID = makeID(CryOut.class.getSimpleName());
@@ -24,8 +24,8 @@ public class CryOut extends AbstractStatusCard {
         exhaust = true;
         selfRetain = true;
 
-        AbstractCardFlavorFields.boxColor.set(this, new Color(119 / 255F, 48 / 255F, 63 / 255F, 1));
-        AbstractCardFlavorFields.textColor.set(this, Color.WHITE);
+        AbstractCardFlavorFields.boxColor.set(this, ModSettings.STATUS_CARD_FLAVOR_BOX_COLOR);
+        AbstractCardFlavorFields.textColor.set(this, ModSettings.STATUS_CARD_FLAVOR_TEXT_COLOR);
     }
 
     @Override

@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 
+import morimensmod.util.ModSettings;
 import morimensmod.util.TexLoader;
 
 public class SpriteSheetAnimation {
@@ -25,7 +26,7 @@ public class SpriteSheetAnimation {
     private float xOffset = 0;
     private float yOffset = 0;
 
-    public SpriteSheetAnimation(String imgurl, int rows, int columns, int emptyFrames, boolean loop, float fps,
+    public SpriteSheetAnimation(String imgurl, int rows, int columns, int emptyFrames, boolean loop,
             float xOffset, float yOffset) {
         Texture tmpTexture = TexLoader.getTexture(imgurl);
 
@@ -42,7 +43,7 @@ public class SpriteSheetAnimation {
             for (int j = 0; j < columns && (i != rows - 1 || j != columns - emptyFrames); ++j)
                 Frames[index++] = tmp[i][j];
 
-        this.anim = new Animation<>(1F / fps, Frames);
+        this.anim = new Animation<>(1F / ModSettings.SPRITE_SHEET_ANIMATION_FPS, Frames);
         this.stateTime = 0F;
         this.loop = loop;
 

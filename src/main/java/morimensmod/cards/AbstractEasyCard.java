@@ -402,6 +402,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     public static void onBattleStart() {
         baseDamageAmplify = 0;
         baseStrikeDamageAmplify = 0;
+        baseBlockAmplify = 0;
+        baseHealAmplify = 0;
         baseAliemusAmplify = 0;
     }
 

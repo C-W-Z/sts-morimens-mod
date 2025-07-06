@@ -22,6 +22,7 @@ import morimensmod.actions.MundusDecreeAction;
 import morimensmod.cards.PileModalSelectCard;
 import morimensmod.cards.buffs.Insight;
 import morimensmod.powers.PosseTwicePower;
+import morimensmod.util.ModSettings;
 import morimensmod.vfx.LargPortraitFlashInEffect;
 
 public class MundusDecree extends AbstractExalt {
@@ -31,7 +32,7 @@ public class MundusDecree extends AbstractExalt {
 
     @Override
     public void exalt() {
-        atb(new VFXAction(p(), new LargPortraitFlashInEffect(removeModID(ID)), 1.0F, true));
+        atb(new VFXAction(p(), new LargPortraitFlashInEffect(removeModID(ID)), ModSettings.EXALT_PROTRAIT_DURATION, true));
 
         atb(new KeyflareChangeAction(p(), 200));
 

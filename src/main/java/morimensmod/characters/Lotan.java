@@ -43,7 +43,7 @@ public class Lotan extends AbstractAwakener {
     public Lotan() {
         super(NAMES[0], Enums.LOTAN, "Lotan/main.png", "Lotan/main.png");
         anim = new SpriteSheetAnimation(makeCharacterPath("Lotan/Idle_1.png"),
-                9, 7, 2, true, 30F, -1, -12);
+                9, 7, 2, true, -1, -12);
         exalt = new BeastOfChaos();
         baseAliemusRegen = 0;
         baseKeyflareRegen = 25;

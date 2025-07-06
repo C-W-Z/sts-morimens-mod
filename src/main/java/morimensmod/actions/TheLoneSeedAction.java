@@ -21,6 +21,7 @@ public class TheLoneSeedAction extends AbstractGameAction {
     @Override
     public void update() {
         CardModifierManager.addModifier(cleanCopy, new ExhaustModifier());
+        // TODO: makeInHandTop ?
         hand().addToHand(cleanCopy);
         isDone = true;
     }

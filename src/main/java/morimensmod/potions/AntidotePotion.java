@@ -14,7 +14,7 @@ public class AntidotePotion extends AbstractEasyPotion {
 
     public AntidotePotion() {
         super(ID, PotionRarity.COMMON, PotionSize.SPHERE, Settings.GREEN_TEXT_COLOR,
-                new Color(0f, 0.6f, 0.2f, 1f), null, Settings.GREEN_RELIC_COLOR);
+                new Color(0f, 0.6f, 0.2f, 1f), null);
     }
 
     public int getPotency(int ascensionlevel) {

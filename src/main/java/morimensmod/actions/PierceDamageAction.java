@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
 import basemod.ReflectionHacks;
@@ -65,7 +66,7 @@ public class PierceDamageAction extends AbstractGameAction {
             this.tickDuration();
             if (this.isDone) {
 
-                if (this.info.output > 0 && this.target.hasPower("IntangiblePlayer"))
+                if (this.info.output > 0 && this.target.hasPower(IntangiblePlayerPower.POWER_ID))
                     this.info.output = 1;
 
                 this.info.type = DamageType.NORMAL;

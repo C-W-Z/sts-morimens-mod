@@ -6,7 +6,6 @@ import static morimensmod.util.Wiz.p;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -14,6 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.util.ModSettings;
 
 public class KeyflareChangeAction extends AbstractGameAction {
 
@@ -46,7 +46,7 @@ public class KeyflareChangeAction extends AbstractGameAction {
                             p().hb.cX - p().animX,
                             p().hb.cY + p().hb.height / 2.0F,
                             "+" + amount + TEXT,
-                            Color.WHITE));
+                            ModSettings.KEYFLARE_INCREASE_TEXT_COLOR));
 
         } else if (amount < 0) {
 
@@ -58,7 +58,7 @@ public class KeyflareChangeAction extends AbstractGameAction {
                             p().hb.cX - p().animX,
                             p().hb.cY + p().hb.height / 2.0F,
                             amount + TEXT,
-                            Color.WHITE));
+                            ModSettings.KEYFLARE_DECREASE_TEXT_COLOR));
         }
 
         isDone = true;

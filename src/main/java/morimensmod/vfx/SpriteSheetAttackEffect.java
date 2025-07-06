@@ -15,11 +15,10 @@ public class SpriteSheetAttackEffect extends AbstractGameEffect {
     public SpriteSheetAttackEffect(String spriteSheetPath, int rows, int cols, int emptyFrames,
             float x, float y,
             float xOffset, float yOffset,
-            boolean flipX, boolean flipY,
-            float fps) {
+            boolean flipX, boolean flipY) {
         this.animation = new SpriteSheetAnimation(
                 makeVFXPath(spriteSheetPath + ".png"),
-                rows, cols, emptyFrames, false, fps, xOffset, yOffset);
+                rows, cols, emptyFrames, false, xOffset, yOffset);
         this.x = x;
         this.y = y;
         this.flipX = flipX;

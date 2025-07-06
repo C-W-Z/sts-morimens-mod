@@ -31,6 +31,7 @@ import morimensmod.cardmodifiers.ExhaustModifier;
 import morimensmod.cards.NullCard;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.util.ModSettings;
 import morimensmod.vfx.LargPortraitFlashInEffect;
 import morimensmod.vfx.SpriteSheetAttackEffect;
 
@@ -63,7 +64,7 @@ public class BeastOfChaos extends AbstractExalt {
 
     @Override
     public void exalt() {
-        atb(new VFXAction(p(), new LargPortraitFlashInEffect(removeModID(ID)), 1.0F, true));
+        atb(new VFXAction(p(), new LargPortraitFlashInEffect(removeModID(ID)), ModSettings.EXALT_PROTRAIT_DURATION, true));
 
         atb(new RemoveSpecificPowerAction(p(), p(), WeakPower.POWER_ID));
 
@@ -82,7 +83,7 @@ public class BeastOfChaos extends AbstractExalt {
 
         atb(new VFXAction(new SpriteSheetAttackEffect(
                 "Cetacean", 7, 5, 2,
-                centerX, centerY, -108, 64, false, false, 30F),
+                centerX, centerY, -108, 64, false, false),
                 0F));
 
         actB(() -> {
