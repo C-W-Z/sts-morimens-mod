@@ -1,10 +1,10 @@
 package morimensmod.powers;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.util.Wiz.isStrikeOrAsStrike;
 import static morimensmod.util.Wiz.p;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -24,7 +24,7 @@ public class OutstandingVeteranPower extends AbstractEasyPower {
 
     @Override
     public float atDamageGive(float damage, DamageType type, AbstractCard card) {
-        if (card.hasTag(CardTags.STRIKE))
+        if (isStrikeOrAsStrike(card))
             damage += p().currentBlock * amount;
         return super.atDamageGive(damage, type, card);
     }

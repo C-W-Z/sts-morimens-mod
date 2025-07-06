@@ -3,6 +3,7 @@ package morimensmod.cards.chaos;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.actB;
+import static morimensmod.util.Wiz.isStrikeOrAsStrike;
 import static morimensmod.util.Wiz.makeInHand;
 import static morimensmod.util.WizArt.showThoughtBubble;
 
@@ -68,7 +69,7 @@ public class Showdown extends AbstractEasyCard {
     @Override
     public void applyPowers() {
         int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
-        if (this.hasTag(CardTags.STRIKE))
+        if (isStrikeOrAsStrike(this))
             damageAmplify += baseStrikeDamageAmplify;
         int aliemusAmplify = 100 + baseAliemusAmplify + AbstractAwakener.baseAliemusAmplify;
 

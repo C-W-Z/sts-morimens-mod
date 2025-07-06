@@ -3,6 +3,8 @@ package morimensmod.cards.chaos;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.actB;
+import static morimensmod.util.Wiz.isDefendOrAsDefend;
+import static morimensmod.util.Wiz.isStrikeOrAsStrike;
 import static morimensmod.util.Wiz.p;
 
 import com.badlogic.gdx.math.MathUtils;
@@ -43,7 +45,7 @@ public class PrecisionSlash extends AbstractEasyCard {
 
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) {
-        if (c.hasTag(CustomTags.DEFEND))
+        if (isDefendOrAsDefend(c))
             setCostForTurn(costForTurn - 1);
     }
 
@@ -58,7 +60,7 @@ public class PrecisionSlash extends AbstractEasyCard {
         isDamageModified = false;
 
         int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
-        if (this.hasTag(CardTags.STRIKE))
+        if (isStrikeOrAsStrike(this))
             damageAmplify += baseStrikeDamageAmplify;
         applyedBaseDamageAmplifies(damageAmplify);
         if (damageAmplify != 100)
@@ -95,7 +97,7 @@ public class PrecisionSlash extends AbstractEasyCard {
         isDamageModified = false;
 
         int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
-        if (this.hasTag(CardTags.STRIKE))
+        if (isStrikeOrAsStrike(this))
             damageAmplify += baseStrikeDamageAmplify;
         applyedBaseDamageAmplifies(damageAmplify);
         if (damageAmplify != 100)

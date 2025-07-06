@@ -6,7 +6,6 @@ import static morimensmod.util.Wiz.*;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 
 public class Neurotoxin extends AbstractEasyRelic {
@@ -20,7 +19,7 @@ public class Neurotoxin extends AbstractEasyRelic {
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (!card.hasTag(CardTags.STRIKE))
+        if (!isStrikeOrAsStrike(card))
             return;
         flash();
         addToBot(new AllEnemyApplyPowerAction(p(), POISON_PER_STRIKE, (mo) -> new PoisonPower(mo, p(), POISON_PER_STRIKE)));

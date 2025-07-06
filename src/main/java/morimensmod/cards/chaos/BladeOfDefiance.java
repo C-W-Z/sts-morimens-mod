@@ -2,6 +2,7 @@ package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.util.Wiz.isStrikeOrAsStrike;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -30,7 +31,7 @@ public class BladeOfDefiance extends AbstractEasyCard {
 
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) {
-        if (c.hasTag(CardTags.STRIKE))
+        if (isStrikeOrAsStrike(c))
             setCostForTurn(costForTurn - 1);
     }
 
