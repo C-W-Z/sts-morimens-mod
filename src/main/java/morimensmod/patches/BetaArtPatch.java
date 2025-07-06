@@ -1,5 +1,7 @@
 package morimensmod.patches;
 
+import static morimensmod.MorimensMod.modID;
+
 import com.evacipated.cardcrawl.modthespire.lib.SpireInstrumentPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -20,7 +22,15 @@ public class BetaArtPatch {
                 @Override
                 public void edit(MethodCall m) throws CannotCompileException {
                     if (m.getMethodName().equals("canToggleBetaArt"))
-                        m.replace("{ $_ = false; }");
+                        m.replace(
+                            "{ " +
+                            "  if ($0.card.cardID.startsWith(\"" + modID + "\")) { " +
+                            "    $_ = false; " +
+                            "  } else { " +
+                            "    $_ = $proceed($$); " +
+                            "  } " +
+                            "}"
+                        );
                 }
             };
         }
@@ -34,7 +44,15 @@ public class BetaArtPatch {
                 @Override
                 public void edit(MethodCall m) throws CannotCompileException {
                     if (m.getMethodName().equals("canToggleBetaArt"))
-                        m.replace("{ $_ = false; }");
+                        m.replace(
+                            "{ " +
+                            "  if ($0.card.cardID.startsWith(\"" + modID + "\")) { " +
+                            "    $_ = false; " +
+                            "  } else { " +
+                            "    $_ = $proceed($$); " +
+                            "  } " +
+                            "}"
+                        );
                 }
             };
         }
@@ -48,7 +66,15 @@ public class BetaArtPatch {
                 @Override
                 public void edit(MethodCall m) throws CannotCompileException {
                     if (m.getMethodName().equals("canToggleBetaArt"))
-                        m.replace("{ $_ = false; }");
+                        m.replace(
+                            "{ " +
+                            "  if ($0.card.cardID.startsWith(\"" + modID + "\")) { " +
+                            "    $_ = false; " +
+                            "  } else { " +
+                            "    $_ = $proceed($$); " +
+                            "  } " +
+                            "}"
+                        );
                 }
             };
         }
@@ -62,9 +88,31 @@ public class BetaArtPatch {
                 @Override
                 public void edit(MethodCall m) throws CannotCompileException {
                     if (m.getMethodName().equals("canToggleBetaArt"))
-                        m.replace("{ $_ = false; }");
+                        m.replace(
+                            "{ " +
+                            "  if ($0.card.cardID.startsWith(\"" + modID + "\")) { " +
+                            "    $_ = false; " +
+                            "  } else { " +
+                            "    $_ = $proceed($$); " +
+                            "  } " +
+                            "}"
+                        );
                 }
             };
         }
     }
+
+    // 不知道為什麼無效，明明都印出"return false"了，toggle button還是在
+    // @SpirePatch2(clz = SingleCardViewPopup.class, method = "canToggleBetaArt")
+    // public static class ReplaceCanToggleBetaArt {
+    //     @SpirePrefixPatch
+    //     public static SpireReturn<Boolean> Prefix(SingleCardViewPopup __instance, AbstractCard ___card) {
+    //         logger.debug("ReplaceCanToggleBetaArt, card:" + ___card.name + ", ID:" + ___card.cardID);
+    //         if (___card.cardID.startsWith(modID)) {
+    //             logger.debug("return false");
+    //             return SpireReturn.Return(false);
+    //         }
+    //         return SpireReturn.Continue();
+    //     }
+    // }
 }
