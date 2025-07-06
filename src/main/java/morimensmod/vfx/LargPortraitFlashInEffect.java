@@ -15,13 +15,15 @@ import morimensmod.util.TexLoader;
 public class LargPortraitFlashInEffect extends AbstractGameEffect {
     private Texture img;
 
-    private final Color color = Color.WHITE.cpy();
-
     private float offSet_x;
 
     private final float offSet_y;
 
     private boolean flipX = false;
+
+    private float flashInTime = 0.25F;
+    private float holdTime = 0.5F;
+    private float fadeTime = 0.5F;
 
     public LargPortraitFlashInEffect(String name) {
         this(name, false);
@@ -29,74 +31,57 @@ public class LargPortraitFlashInEffect extends AbstractGameEffect {
 
     public LargPortraitFlashInEffect(String name, boolean flipX) {
         this.img = TexLoader.getTexture(makeVFXPath(name + ".png"));
-        this.duration = 1.75F;
+        this.duration = flashInTime + holdTime + fadeTime;
         this.offSet_x = Settings.WIDTH;
         this.offSet_y = 0.0F * Settings.scale;
         this.scale = (float) Settings.HEIGHT / this.img.getHeight();
         this.flipX = flipX;
+        this.color = Color.WHITE.cpy();
     }
 
     public void update() {
-        if (this.img == null) {
-            this.isDone = true;
+        if (img == null) {
+            isDone = true;
             return;
         }
-        this.duration -= Gdx.graphics.getDeltaTime();
-        if (this.duration > 1.5F) {
-            this.offSet_x = Settings.WIDTH * (this.duration - 1.5F) * 4.0F;
+        duration -= Gdx.graphics.getDeltaTime();
+        if (duration > holdTime + fadeTime) {
+            offSet_x = Settings.WIDTH * (duration - (holdTime + fadeTime)) / flashInTime;
         } else {
-            this.offSet_x = -200.0F * (1.5F - this.duration) * 0.5F * Settings.xScale / getScale();
+            offSet_x = -100.0F * (holdTime + fadeTime - duration) * Settings.xScale;
         }
-        if (this.duration < 0.5F)
-            this.color.a = Interpolation.fade.apply(1.0F, 0.0F, 1.0F - this.duration * 2.0F);
-        if (this.duration < 0.0F) {
-            this.isDone = true;
+        if (duration < fadeTime)
+            color.a = Interpolation.fade.apply(1.0F, 0.0F, 1.0F - duration / fadeTime);
+        if (duration < 0.0F) {
+            isDone = true;
             dispose();
         }
     }
 
     public void render(SpriteBatch sb) {
-        sb.setColor(this.color);
-        if (this.img != null)
-            if (this.flipX) {
-                sb.draw(this.img,
-                        Settings.WIDTH / 2.0F + 300.0F * Settings.scale - this.img.getWidth() / 2.0F - this.offSet_x,
-                        Settings.HEIGHT / 2.0F - this.img.getHeight() / 2.0F + this.offSet_y,
-                        this.img.getWidth() / 2.0F,
-                        this.img.getHeight() / 2.0F,
-                        this.img.getWidth(), this.img.getHeight(),
-                        getScale() * this.scale * Settings.scale,
-                        getScale() * this.scale * Settings.scale,
-                        0.0F, 0, 0,
-                        this.img.getWidth(), this.img.getHeight(),
-                        false, false);
-            } else {
-                sb.draw(this.img,
-                        Settings.WIDTH / 2.0F - 300.0F * Settings.scale - this.img.getWidth() / 2.0F + this.offSet_x,
-                        Settings.HEIGHT / 2.0F - this.img.getHeight() / 2.0F + this.offSet_y,
-                        this.img.getWidth() / 2.0F,
-                        this.img.getHeight() / 2.0F,
-                        this.img.getWidth(), this.img.getHeight(),
-                        getScale() * this.scale * Settings.scale,
-                        getScale() * this.scale * Settings.scale,
-                        0.0F, 0, 0,
-                        this.img.getWidth(), this.img.getHeight(),
-                        false, false);
-            }
-    }
-
-    private float getScale() {
-        if (Settings.isFourByThree)
-            return 1.4F;
-        if (Settings.isSixteenByTen)
-            return 1.12F;
-        return 1.0F;
+        sb.setColor(color);
+        if (img == null)
+            return;
+        float x = flipX
+                ? Settings.WIDTH / 2.0F + 300.0F * Settings.scale - img.getWidth() / 2.0F - offSet_x
+                : Settings.WIDTH / 2.0F - 300.0F * Settings.scale - img.getWidth() / 2.0F + offSet_x;
+        sb.draw(img,
+                x,
+                Settings.HEIGHT / 2.0F - img.getHeight() / 2.0F + offSet_y,
+                img.getWidth() / 2.0F,
+                img.getHeight() / 2.0F,
+                img.getWidth(), img.getHeight(),
+                scale,
+                scale,
+                0.0F, 0, 0,
+                img.getWidth(), img.getHeight(),
+                false, false);
     }
 
     public void dispose() {
-        if (this.img != null) {
-            this.img.dispose();
-            this.img = null;
+        if (img != null) {
+            img.dispose();
+            img = null;
         }
     }
 }

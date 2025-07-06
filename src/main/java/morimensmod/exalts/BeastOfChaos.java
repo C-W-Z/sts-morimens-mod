@@ -82,7 +82,7 @@ public class BeastOfChaos extends AbstractExalt {
 
         atb(new VFXAction(new SpriteSheetAttackEffect(
                 "Cetacean", 7, 5, 2,
-                centerX, centerY, -128, 64, false, false, 30F),
+                centerX, centerY, -108, 64, false, false, 30F),
                 0F));
 
         actB(() -> {
