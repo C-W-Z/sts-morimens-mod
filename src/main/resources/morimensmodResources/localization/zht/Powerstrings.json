@@ -1,12 +1,4 @@
 {
-  "${ModID}:ExampleTwoAmountPower": {
-    "NAME": "Example 2",
-    "DESCRIPTIONS": [
-      "At the start of your turn, gain #b",
-      " #yStrength and #b",
-      " #yDexterity."
-    ]
-  },
   "${ModID}:LoseThornsPower": {
     "NAME": "荊棘叢生",
     "DESCRIPTIONS": ["回合開始時，失去 #b%d 層 #y荊棘 。"]
