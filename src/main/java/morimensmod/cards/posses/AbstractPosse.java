@@ -49,8 +49,7 @@ public abstract class AbstractPosse extends AbstractEasyCard {
     }
 
     @Override
-    public void upp() {
-    }
+    public void upp() {}
 
     @Override
     public boolean canUpgrade() {

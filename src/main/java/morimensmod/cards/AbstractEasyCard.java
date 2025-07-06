@@ -5,7 +5,6 @@ import me.antileaf.signature.card.AbstractSignatureCard;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.CommonKeywordIconsField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -31,7 +30,6 @@ import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.CustomTags;
 import morimensmod.util.CardArtRoller;
 
-import java.util.ArrayList;
 import java.util.function.Consumer;
 
 public abstract class AbstractEasyCard extends AbstractSignatureCard {
@@ -80,12 +78,6 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     protected String upgradedName = "";
 
     public int prepare = 0;
-
-    // for multiple cards to preview
-    protected ArrayList<AbstractCard> previewCards = new ArrayList<>();
-    protected int cardPreviewIndex = 0;
-    protected float cardPreviewTimer = 0.0F;
-    protected static final float CARD_PREVIEW_TIME = 1.0F; // second
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity,
             final CardTarget target, final CardColor color) {
@@ -391,29 +383,6 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     }
 
     @Override
-    public void renderCardPreview(SpriteBatch sb) {
-        super.renderCardPreview(sb);
-        updateCardPreview();
-    }
-
-    @Override
-    public void renderCardPreviewInSingleView(SpriteBatch sb) {
-        super.renderCardPreviewInSingleView(sb);
-        updateCardPreview();
-    }
-
-    protected void updateCardPreview() {
-        if (this.previewCards.isEmpty())
-            return;
-        this.cardPreviewTimer -= Gdx.graphics.getDeltaTime();
-        if (this.cardPreviewTimer <= 0.0F) {
-            this.cardPreviewTimer = CARD_PREVIEW_TIME; // 每秒切換一次
-            this.cardPreviewIndex = (this.cardPreviewIndex + 1) % this.previewCards.size();
-            this.cardsToPreview = this.previewCards.get(this.cardPreviewIndex);
-        }
-    }
-
-    @Override
     public void onRetained() {
         super.onRetained();
         if (prepare <= 0)
@@ -433,6 +402,8 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     public static void onBattleStart() {
         baseDamageAmplify = 0;
         baseStrikeDamageAmplify = 0;
+        baseBlockAmplify = 0;
+        baseHealAmplify = 0;
         baseAliemusAmplify = 0;
     }
 

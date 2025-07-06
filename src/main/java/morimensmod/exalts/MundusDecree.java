@@ -1,11 +1,13 @@
 package morimensmod.exalts;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.util.General.removeModID;
 import static morimensmod.util.Wiz.*;
 
 import java.util.ArrayList;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -20,6 +22,8 @@ import morimensmod.actions.MundusDecreeAction;
 import morimensmod.cards.PileModalSelectCard;
 import morimensmod.cards.buffs.Insight;
 import morimensmod.powers.PosseTwicePower;
+import morimensmod.util.ModSettings;
+import morimensmod.vfx.LargPortraitFlashInEffect;
 
 public class MundusDecree extends AbstractExalt {
 
@@ -28,6 +32,8 @@ public class MundusDecree extends AbstractExalt {
 
     @Override
     public void exalt() {
+        atb(new VFXAction(p(), new LargPortraitFlashInEffect(removeModID(ID)), ModSettings.EXALT_PROTRAIT_DURATION, true));
+
         atb(new KeyflareChangeAction(p(), 200));
 
         atb(new WaitAction(Settings.ACTION_DUR_MED));

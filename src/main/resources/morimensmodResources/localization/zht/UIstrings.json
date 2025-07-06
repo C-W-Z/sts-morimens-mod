@@ -1,398 +1,303 @@
 {
-    "CHAOS_COLOR": {
-        "TEXT": [
-            "混沌界域"
-        ]
-    },
-    "AEQUOR_COLOR": {
-        "TEXT": [
-            "深海界域"
-        ]
-    },
-    "CARO_COLOR": {
-        "TEXT": [
-            "血肉界域"
-        ]
-    },
-    "ULTRA_COLOR": {
-        "TEXT": [
-            "超維界域"
-        ]
-    },
-    "BUFF_COLOR": {
-        "TEXT": [
-            "增益"
-        ]
-    },
-    "WHEEL_OF_DESTINY_COLOR": {
-        "TEXT": [
-            "命輪"
-        ]
-    },
-    "SYMPTOM_COLOR": {
-        "TEXT": [
-            "症狀"
-        ]
-    },
-    "STATUS_COLOR": {
-        "TEXT": [
-            "狀態"
-        ]
-    },
-    "POSSE_COLOR": {
-        "TEXT": [
-            "鑰令"
-        ]
-    },
-    "COMMAND": {
-        "TEXT": [
-            "指令"
-        ]
-    },
-    "ROUSE": {
-        "TEXT": [
-            "覺醒"
-        ]
-    },
-    "BUFF": {
-        "TEXT": [
-            "增益"
-        ]
-    },
-    "WHEEL_OF_DESTINY": {
-        "TEXT": [
-            "命輪"
-        ]
-    },
-    "SYMPTOM": {
-        "TEXT": [
-            "症狀"
-        ]
-    },
-    "STATUS": {
-        "TEXT": [
-            "狀態"
-        ]
-    },
-    "POSSE": {
-        "TEXT": [
-            "鑰令"
-        ]
-    },
-    "${ModID}:choosePosse": {
-        "TEXT": [
-            "選擇攜帶的鑰令（滾動以查看更多）"
-        ]
-    },
-    "${ModID}:EasyModalChoiceAction": {
-        "TEXT": [
-            "選擇 ",
-            " 個"
-        ]
-    },
-    "${ModID}:AliemusChangeAction": {
-        "TEXT": [
-            "狂氣"
-        ]
-    },
-    "${ModID}:KeyflareChangeAction": {
-        "TEXT": [
-            "銀鑰能量"
-        ]
-    },
-    "${ModID}:DeathResistancePatch": {
-        "TEXT": [
-            "死亡抵抗！"
-        ]
-    },
-    "${ModID}:DeathResistanceUI": {
-        "TEXT": [
-            " #y死亡抵抗 ",
-            "生命歸零時會嘗試觸發 #y死亡抵抗 ，機率為當前 #y死亡抵抗 的數值，若超過 #b100% 則必定觸發。 NL 觸發 #y死亡抵抗 後，免疫本次死亡並將生命變為 #b1 點，然後將 #y死亡抵抗 的數值減半，本次探索中後續所有增加的 #y死亡抵抗 數值也減半。"
-        ]
-    },
-    "${ModID}:AliemusUI": {
-        "TEXT": [
-            " #y",
-            "（狂氣爆發） ",
-            " #r",
-            "（超限爆發） "
-        ],
-        "EXTRA_TEXT": [
-            " #y狂氣 / #y狂氣上限 ",
-            "最多可以儲存 #b2 倍上限的 #y狂氣 。 NL #y狂氣 達到上限時，點擊 #g右鍵 可以釋放 #y狂氣爆發 。 NL #y狂氣 達到 #b2 倍上限時，點擊 #g右鍵 將會改為釋放 #r超限爆發 。 NL 一回合只能釋放一次 #y狂氣爆發 或 #r超限爆發 。 NL 當前 #y狂氣回充 ： #b",
-            "每回合釋放 #r狂氣爆發 或 #r超限爆發 的 #r次數用完了 。",
-            " #r狂氣不足 。",
-            "你太著急了， #r請等一下再釋放。 ",
-            "被 #r封印 了。"
-        ]
-    },
-    "${ModID}:KeyflareUI": {
-        "TEXT": [
-            " #y",
-            "（鑰令） "
-        ],
-        "EXTRA_TEXT": [
-            " #y鑰能 / #y鑰能上限 ",
-            "最多可以儲存 #b2 倍上限的 #y銀鑰能量 。 NL #y鑰能 達到上限時，點擊 #g右鍵 可以釋放 #y鑰令 。 NL 每回合可以釋放 #b2 次 #y鑰令 ，但第 #b2 次會改為從 #b3 個隨機 #y鑰令 中選擇 #b1 個釋放，且選擇的 #y鑰令 在本次戰鬥中無法再被選擇。 NL 當前 #y銀鑰充能 ： #b",
-            "每回合釋放 #r鑰令 的 #r次數用完了 。",
-            " #r鑰能不足 。",
-            "你太著急了， #r請等一下再釋放。 "
-        ]
-    },
-    "${ModID}:CardModifiers": {
-        "TEXT": [
-            "${ModID}:預備",
-            "${ModID}:永久保留",
-            "${ModID}:銷毀",
-            " 無法打出 ",
-            "棄掉時移除",
-            "視為「 打擊 」",
-            "視為「 ${ModID}:防禦 」",
-            "${ModID}:幻影"
-        ]
-    },
-    "${ModID}:VoicesInYourHead": {
-        "TEXT": [
-            "腦中之音",
-            "對所有敵人造成 #b1 回合 #p虛弱 和 #r易傷 並偷取 #b1 點 #y臨時 #y力量 。"
-        ]
-    },
-    "${ModID}:TinyWish": {
-        "TEXT": [
-            "小小心願",
-            "獲得 #b35 點 #y狂氣 。"
-        ]
-    },
-    "${ModID}:AMousesWisdom": {
-        "TEXT": [
-            "鼠鼠的智慧",
-            "獲得 #b3 點 [E] 。"
-        ]
-    },
-    "${ModID}:EncounterInPureWhite": {
-        "TEXT": [
-            "純白初遇",
-            "棄掉所有手牌，抽取棄掉數量 #b+2 的牌。"
-        ]
-    },
-    "${ModID}:WardedInjection": {
-        "TEXT": [
-            "注射守護",
-            "獲得 #b10 點 #y格擋 ，當前生命若低於 #b25% ， #g回復 #b10 點生命。"
-        ]
-    },
-    "${ModID}:ObsessionEternal": {
-        "TEXT": [
-            "永世執念",
-            "獲得 #b3 點 #y力量 ，額外獲得等同於永久 #y力量 #b25% 的 #y臨時 #y力量 。"
-        ]
-    },
-    "${ModID}:FunusAeternum": {
-        "TEXT": [
-            "不朽的葬儀",
-            "獲得 #b60 點 #y狂氣 ，下回合開始時，獲得 #b5% 最大生命的 #b獻祭 。"
-        ]
-    },
-    "${ModID}:TheFinalVow": {
-        "TEXT": [
-            "最後的誓言",
-            "獲得 #b2 點 #y臨時 #y力量 。若在首領戰中且本回合尚未打出過任何牌，則嘗試觸發 1 次 #y死亡抵抗 ，若成功則獲得 #b",
-            " 點 #y格擋 ，此效果每場首領戰只能觸發 1 次。"
-        ]
-    },
-    "${ModID}:AuritasTreasure": {
-        "TEXT": [
-            "奧瑞塔的寶藏",
-            "從抽牌堆中抽 #b3 張 [E] 消耗最低的卡牌。若當前界域為「 #b深海 」，則額外使 #y觸腕傷害 提高 #b1 點。"
-        ]
-    },
-    "${ModID}:RoaringBloodAndSand": {
-        "TEXT": [
-            "咆哮的血與沙",
-            "獲得 #b20 點 #y狂氣 ，獲得 #b2 點 #y力量 ，若當前界域為「 #r血肉 」，額外使 #y胚胎融合 #b+20% ，但失去 #b10% 當前生命。"
-        ]
-    },
-    "${ModID}:EphemeralEternity": {
-        "TEXT": [
-            "短暫的永恆",
-            "獲得 #b1 點 [E] 。將 #b1 張「 #y打擊 」與 #b1 張「 #y防禦 」的原始複製置入手中，並使他們獲得 #y消耗 、 #y虛無 。若當前界域為 「 #p超維 」，則額外獲得 #b2 點 #y臨時 #y力量 與 #b1 點 #y臨時 #y敏捷。"
-        ]
-    },
-    "${ModID}:FeastOfDecay": {
-        "TEXT": [
-            "腐爛盛宴"
-        ]
-    },
-    "${ModID}:BoneChillingEmbrace": {
-        "TEXT": [
-            "蝕骨的擁抱"
-        ]
-    },
-    "${ModID}:LakeSideGlimpse": {
-        "TEXT": [
-            "湖畔回眸"
-        ]
-    },
-    "${ModID}:GatewayOfRetrospection": {
-        "TEXT": [
-            "跨越回溯之扉",
-            "從抽牌堆選擇 #b1 張牌加入手中，並使其 [E] 消耗降低 #b1 點。"
-        ]
-    },
-    "${ModID}:TrueBehindGreyMist": {
-        "TEXT": [
-            "灰霧真容",
-            "獲得 #b1 點 #y力量 ，將 #b1 張「 #y靈感 」置入手中。若當前為 #p超維回合 ，效果變更為將 #b2 張「 #y靈感 」置入手中。"
-        ]
-    },
-    "${ModID}:MidsummerVision": {
-        "TEXT": [
-            "仲夏之夢",
-            "抽 #b1 張牌，如果抽到 #y指令卡 或 #y覺醒卡 ，將其 [E] 消耗變為 #b0 並獲得 #b20 點 #y狂氣 。否則將這張牌棄掉並重複此條件。"
-        ]
-    },
-    "${ModID}:VictoryOfRoses": {
-        "TEXT": [
-            "玫瑰的勝利"
-        ]
-    },
-    "${ModID}:MiraclesDawn": {
-        "TEXT": [
-            "神跡降臨"
-        ]
-    },
-    "${ModID}:GiantsReign": {
-        "TEXT": [
-            "巨人的霸道"
-        ]
-    },
-    "${ModID}:AllOfHer": {
-        "TEXT": [
-            "全部的她",
-            " #g界域精通 提高 #b24 。獲得 #b24 點 #y狂氣 。"
-        ]
-    },
-    "${ModID}:TheLoneSeed": {
-        "TEXT": [
-            "唯一的種子",
-            "選擇 #b1 張手中的 #b非衍生指令卡 ，獲得 #b1 張附加 #y消耗 的原始複製，並獲得 #b15 點 #y狂氣 。"
-        ]
-    },
-    "${ModID}:TheMountainsResolve": {
-        "TEXT": [
-            "群山的覺悟"
-        ]
-    },
-    "${ModID}:FestivalOfTides": {
-        "TEXT": [
-            "海之祭",
-            "抽 #b2 張牌，獲得 #b2 點 [E] ，失去 #b5 點 #y狂氣 。若當前處於「 #y靜海 」姿態，對所有敵人施加 #b5 層 #p中毒 ，在首領戰中發揮 #b3 倍效果。"
-        ]
-    },
-    "${ModID}:SpringsVerse": {
-        "TEXT": [
-            "春天的獻詩"
-        ]
-    },
-    "${ModID}:AGunsCry": {
-        "TEXT": [
-            "一聲槍響",
-            "將 #b1 枚 #y閃耀偏方骰子 置入手中，獲得 #b1 點 #y臨時 #y力量 。"
-        ]
-    },
-    "${ModID}:SymphonyFourth": {
-        "TEXT": [
-            "第四樂章"
-        ]
-    },
-    "${ModID}:TheGatedAnswer": {
-        "TEXT": [
-            "門扉的答案",
-            "從隨機的 #b3 個 #y鑰令 中選擇一個，觸發其效果並獲得 #b200 點 #y銀鑰能量 。"
-        ]
-    },
-    "${ModID}:TheDanceStepsOfTheBlackSwan": {
-        "TEXT": [
-            "黑天鵝的舞步"
-        ]
-    },
-    "${ModID}:BlessingOfTheStars": {
-        "TEXT": [
-            "群星的庇佑"
-        ]
-    },
-    "${ModID}:IllusionPlague": {
-        "TEXT": [
-            "虛無瘟疫"
-        ]
-    },
-    "${ModID}:SpecialHealing": {
-        "TEXT": [
-            "特殊治療"
-        ]
-    },
-    "${ModID}:TheUndyingThunderlight": {
-        "TEXT": [
-            "不滅的雷光"
-        ]
-    },
-    "${ModID}:DerisionOfDestiny": {
-        "TEXT": [
-            "錯位命運"
-        ]
-    },
-    "${ModID}:UnequalExchange": {
-        "TEXT": [
-            "不平等交換"
-        ]
-    },
-    "${ModID}:MundusDecree": {
-        "TEXT": [
-            "世界演繹法",
-            "獲得 #b200 點 #y銀鑰能量 。選擇 #b1 張抽牌堆或棄牌堆的牌置入手牌，使其 [E] 消耗變為 #b0 點。將 #b1 張「 #y靈感 」洗入抽牌堆。"
-        ],
-        "EXTRA_TEXT": [
-            "無限思維迷宮",
-            "在「 #y世界演繹法 」的基礎上， #p虛弱 和 #r易傷 所有敵人 #b1 回合，下次消耗 #y銀鑰能量 釋放的 #y鑰令 生效 #b2 次。"
-        ]
-    },
-    "${ModID}:BeastOfChaos": {
-        "TEXT": [
-            "混沌之獸",
-            "移除自身 #p虛弱 狀態。對所有敵人造成 #b",
-            " 點傷害 #b2 次。在本場戰鬥中每打出一張「 #y打擊 」便使傷害 #b+",
-            " 。將 #b2 張附加 #y消耗 和 #y虛無 的「 #y打擊 」置入手中。"
-        ],
-        "EXTRA_TEXT": [
-            "直至星球終結",
-            "在「 #y混沌之獸 」的基礎上，對所有敵人追加 #b1 次 #b15% 目標最大生命的 #y固定傷害 。本場戰鬥中「 #y混沌之獸 」的基礎傷害提高 #b100% 。"
-        ]
-    },
-    "${ModID}:TerminalGateWayOfTruthAndAbyss": {
-        "TEXT": [
-            "終點，真理與深淵之門",
-            "獲得 #b",
-            " 點 #y狂氣 。對所有敵人施加 #b",
-            " 層 #p中毒 ，基礎傷害、基礎 #p中毒 、基礎 #b荊棘、基礎 #y觸腕傷害 #y臨時 提高 #b50% 。 NL 「 #p終末型態 」：額外抽 #b3 張牌，獲得 #b3 點 [E] ，觸發所有敵人 #b50% 的 #p中毒 ， #y狂氣 上限提高 #b50 點，至多提高 #b3 次。"
-        ],
-        "EXTRA_TEXT": [
-            "癲狂感染",
-            "獲得 #b",
-            " 點 #y狂氣 。對所有敵人施加 #b",
-            " 層 #p中毒 ，基礎傷害、基礎 #p中毒 、基礎 #b荊棘、基礎 #y觸腕傷害 #y臨時 提高 #b50% 。基礎傷害、基礎 #p中毒 、基礎 #b荊棘 提高 #b10% 。額外獲得 #b1 層「 #p終末 」。 NL 「 #p終末型態 」：額外抽 #b3 張牌，獲得 #b3 點 [E] ，觸發所有敵人 #b50% 的 #p中毒 ，每消耗 #b10 點 #y狂氣 ，額外觸發所有敵人 #b3% 的 #p中毒 。施放 #y狂氣爆發 所需要的 #y狂氣 和 #y狂氣 上限提高 #b50 點，至多提高 #b3 次。"
-        ]
-    },
-    "${ModID}:PassageOfTheEgo": {
-        "TEXT": [
-            "自我的葬儀",
-            "造成 #b",
-            " 點 #p中毒 ，享受 #b",
-            " 倍自身 #p中毒 加成。觸發所有敵人的 #p中毒 。「自我的葬儀」享受的自身 #p中毒 加成倍率提高 #b1 。"
-        ],
-        "EXTRA_TEXT": [
-            "永淪深海的葬儀",
-            "造成的基礎中毒 #b+50% ，持續 #b3 回合。"
-        ]
-    }
+  "${ModID}:CardPreviewUpgradePatch": {
+    "TEXT": ["多次升級"]
+  },
+  "CHAOS_COLOR": {
+    "TEXT": ["混沌界域"]
+  },
+  "AEQUOR_COLOR": {
+    "TEXT": ["深海界域"]
+  },
+  "CARO_COLOR": {
+    "TEXT": ["血肉界域"]
+  },
+  "ULTRA_COLOR": {
+    "TEXT": ["超維界域"]
+  },
+  "BUFF_COLOR": {
+    "TEXT": ["增益"]
+  },
+  "WHEEL_OF_DESTINY_COLOR": {
+    "TEXT": ["命輪"]
+  },
+  "SYMPTOM_COLOR": {
+    "TEXT": ["症狀"]
+  },
+  "STATUS_COLOR": {
+    "TEXT": ["狀態"]
+  },
+  "POSSE_COLOR": {
+    "TEXT": ["鑰令"]
+  },
+  "COMMAND": {
+    "TEXT": ["指令"]
+  },
+  "ROUSE": {
+    "TEXT": ["覺醒"]
+  },
+  "BUFF": {
+    "TEXT": ["增益"]
+  },
+  "WHEEL_OF_DESTINY": {
+    "TEXT": ["命輪"]
+  },
+  "SYMPTOM": {
+    "TEXT": ["症狀"]
+  },
+  "STATUS": {
+    "TEXT": ["狀態"]
+  },
+  "POSSE": {
+    "TEXT": ["鑰令"]
+  },
+  "${ModID}:choosePosse": {
+    "TEXT": ["選擇攜帶的鑰令（滾動以查看更多）"]
+  },
+  "${ModID}:EasyModalChoiceAction": {
+    "TEXT": ["選擇 ", " 個"]
+  },
+  "${ModID}:AliemusChangeAction": {
+    "TEXT": ["狂氣"]
+  },
+  "${ModID}:KeyflareChangeAction": {
+    "TEXT": ["銀鑰能量"]
+  },
+  "${ModID}:DeathResistancePatch": {
+    "TEXT": ["死亡抵抗！"]
+  },
+  "${ModID}:DeathResistanceUI": {
+    "TEXT": [
+      " #y死亡抵抗 ",
+      "生命歸零時會嘗試觸發 #y死亡抵抗 ，機率為當前 #y死亡抵抗 的數值，若超過 #b100% 則必定觸發。 NL 觸發 #y死亡抵抗 後，免疫本次死亡並將生命變為 #b1 點，然後將 #y死亡抵抗 的數值減半，本次探索中後續所有增加的 #y死亡抵抗 數值也減半。"
+    ]
+  },
+  "${ModID}:AliemusUI": {
+    "TEXT": [" #y", "（狂氣爆發） ", " #r", "（超限爆發） "],
+    "EXTRA_TEXT": [
+      " #y狂氣 / #y狂氣上限 ",
+      "最多可以儲存 #b2 倍上限的 #y狂氣 。 NL #y狂氣 達到上限時，點擊 #g右鍵 可以釋放 #y狂氣爆發 。 NL #y狂氣 達到 #b2 倍上限時，點擊 #g右鍵 將會改為釋放 #r超限爆發 。 NL 一回合只能釋放一次 #y狂氣爆發 或 #r超限爆發 。 NL 當前 #y狂氣回充 ： #b",
+      "每回合釋放 #r狂氣爆發 或 #r超限爆發 的 #r次數用完了 。",
+      " #r狂氣不足 。",
+      "你太著急了， #r請等一下再釋放。 ",
+      "被 #r封印 了。"
+    ]
+  },
+  "${ModID}:KeyflareUI": {
+    "TEXT": [" #y", "（鑰令） "],
+    "EXTRA_TEXT": [
+      " #y鑰能 / #y鑰能上限 ",
+      "最多可以儲存 #b2 倍上限的 #y銀鑰能量 。 NL #y鑰能 達到上限時，點擊 #g右鍵 可以釋放 #y鑰令 。 NL 每回合可以釋放 #b2 次 #y鑰令 ，但第 #b2 次會改為從 #b3 個隨機 #y鑰令 中選擇 #b1 個釋放，且選擇的 #y鑰令 在本次戰鬥中無法再被選擇。 NL 當前 #y銀鑰充能 ： #b",
+      "每回合釋放 #r鑰令 的 #r次數用完了 。",
+      " #r鑰能不足 。",
+      "你太著急了， #r請等一下再釋放。 "
+    ]
+  },
+  "${ModID}:CardModifiers": {
+    "TEXT": [
+      "${ModID}:預備",
+      "${ModID}:永久保留",
+      "${ModID}:銷毀",
+      " 無法打出 ",
+      "棄掉時移除",
+      "視為「 打擊 」",
+      "視為「 ${ModID}:防禦 」",
+      "${ModID}:幻影"
+    ]
+  },
+  "${ModID}:VoicesInYourHead": {
+    "TEXT": [
+      "腦中之音",
+      "對所有敵人造成 #b1 回合 #p虛弱 和 #r易傷 並偷取 #b1 點 #y臨時 #y力量 。"
+    ]
+  },
+  "${ModID}:TinyWish": {
+    "TEXT": ["小小心願", "獲得 #b35 點 #y狂氣 。"]
+  },
+  "${ModID}:AMousesWisdom": {
+    "TEXT": ["鼠鼠的智慧", "獲得 #b3 點 [E] 。"]
+  },
+  "${ModID}:EncounterInPureWhite": {
+    "TEXT": ["純白初遇", "棄掉所有手牌，抽取棄掉數量 #b+2 的牌。"]
+  },
+  "${ModID}:WardedInjection": {
+    "TEXT": [
+      "注射守護",
+      "獲得 #b10 點 #y格擋 ，當前生命若低於 #b25% ， #g回復 #b10 點生命。"
+    ]
+  },
+  "${ModID}:ObsessionEternal": {
+    "TEXT": [
+      "永世執念",
+      "獲得 #b3 點 #y力量 ，額外獲得等同於永久 #y力量 #b25% 的 #y臨時 #y力量 。"
+    ]
+  },
+  "${ModID}:FunusAeternum": {
+    "TEXT": [
+      "不朽的葬儀",
+      "獲得 #b60 點 #y狂氣 ，下回合開始時，獲得 #b5% 最大生命的 #b獻祭 。"
+    ]
+  },
+  "${ModID}:TheFinalVow": {
+    "TEXT": [
+      "最後的誓言",
+      "獲得 #b2 點 #y臨時 #y力量 。若在首領戰中且本回合尚未打出過任何牌，則嘗試觸發 1 次 #y死亡抵抗 ，若成功則獲得 #b",
+      " 點 #y格擋 ，此效果每場首領戰只能觸發 1 次。"
+    ]
+  },
+  "${ModID}:AuritasTreasure": {
+    "TEXT": [
+      "奧瑞塔的寶藏",
+      "從抽牌堆中抽 #b3 張 [E] 消耗最低的卡牌。若當前界域為「 #b深海 」，則額外使 #y觸腕傷害 提高 #b1 點。"
+    ]
+  },
+  "${ModID}:RoaringBloodAndSand": {
+    "TEXT": [
+      "咆哮的血與沙",
+      "獲得 #b20 點 #y狂氣 ，獲得 #b2 點 #y力量 ，若當前界域為「 #r血肉 」，額外使 #y胚胎融合 #b+20% ，但失去 #b10% 當前生命。"
+    ]
+  },
+  "${ModID}:EphemeralEternity": {
+    "TEXT": [
+      "短暫的永恆",
+      "獲得 #b1 點 [E] 。將 #b1 張「 #y打擊 」與 #b1 張「 #y防禦 」的原始複製置入手中，並使他們獲得 #y消耗 、 #y虛無 。若當前界域為 「 #p超維 」，則額外獲得 #b2 點 #y臨時 #y力量 與 #b1 點 #y臨時 #y敏捷。"
+    ]
+  },
+  "${ModID}:FeastOfDecay": {
+    "TEXT": ["腐爛盛宴"]
+  },
+  "${ModID}:BoneChillingEmbrace": {
+    "TEXT": ["蝕骨的擁抱"]
+  },
+  "${ModID}:LakeSideGlimpse": {
+    "TEXT": ["湖畔回眸"]
+  },
+  "${ModID}:GatewayOfRetrospection": {
+    "TEXT": [
+      "跨越回溯之扉",
+      "從抽牌堆選擇 #b1 張牌加入手中，並使其 [E] 消耗降低 #b1 點。"
+    ]
+  },
+  "${ModID}:TrueBehindGreyMist": {
+    "TEXT": [
+      "灰霧真容",
+      "獲得 #b1 點 #y力量 ，將 #b1 張「 #y靈感 」置入手中。若當前為 #p超維回合 ，效果變更為將 #b2 張「 #y靈感 」置入手中。"
+    ]
+  },
+  "${ModID}:MidsummerVision": {
+    "TEXT": [
+      "仲夏之夢",
+      "抽 #b1 張牌，如果抽到 #y指令卡 或 #y覺醒卡 ，將其 [E] 消耗變為 #b0 並獲得 #b20 點 #y狂氣 。否則將這張牌棄掉並重複此條件。"
+    ]
+  },
+  "${ModID}:VictoryOfRoses": {
+    "TEXT": ["玫瑰的勝利"]
+  },
+  "${ModID}:MiraclesDawn": {
+    "TEXT": ["神跡降臨"]
+  },
+  "${ModID}:GiantsReign": {
+    "TEXT": ["巨人的霸道"]
+  },
+  "${ModID}:AllOfHer": {
+    "TEXT": ["全部的她", " #g界域精通 提高 #b24 。獲得 #b24 點 #y狂氣 。"]
+  },
+  "${ModID}:TheLoneSeed": {
+    "TEXT": [
+      "唯一的種子",
+      "選擇 #b1 張手中的 #b非衍生指令卡 ，獲得 #b1 張附加 #y消耗 的原始複製，並獲得 #b15 點 #y狂氣 。"
+    ]
+  },
+  "${ModID}:TheMountainsResolve": {
+    "TEXT": ["群山的覺悟"]
+  },
+  "${ModID}:FestivalOfTides": {
+    "TEXT": [
+      "海之祭",
+      "抽 #b2 張牌，獲得 #b2 點 [E] ，失去 #b5 點 #y狂氣 。若當前處於「 #y靜海 」姿態，對所有敵人施加 #b5 層 #p中毒 ，在首領戰中發揮 #b3 倍效果。"
+    ]
+  },
+  "${ModID}:SpringsVerse": {
+    "TEXT": ["春天的獻詩"]
+  },
+  "${ModID}:AGunsCry": {
+    "TEXT": [
+      "一聲槍響",
+      "將 #b1 枚 #y閃耀偏方骰子 置入手中，獲得 #b1 點 #y臨時 #y力量 。"
+    ]
+  },
+  "${ModID}:SymphonyFourth": {
+    "TEXT": ["第四樂章"]
+  },
+  "${ModID}:TheGatedAnswer": {
+    "TEXT": [
+      "門扉的答案",
+      "從隨機的 #b3 個 #y鑰令 中選擇一個，觸發其效果並獲得 #b200 點 #y銀鑰能量 。"
+    ]
+  },
+  "${ModID}:TheDanceStepsOfTheBlackSwan": {
+    "TEXT": ["黑天鵝的舞步"]
+  },
+  "${ModID}:BlessingOfTheStars": {
+    "TEXT": ["群星的庇佑"]
+  },
+  "${ModID}:IllusionPlague": {
+    "TEXT": ["虛無瘟疫"]
+  },
+  "${ModID}:SpecialHealing": {
+    "TEXT": ["特殊治療"]
+  },
+  "${ModID}:TheUndyingThunderlight": {
+    "TEXT": ["不滅的雷光"]
+  },
+  "${ModID}:DerisionOfDestiny": {
+    "TEXT": ["錯位命運"]
+  },
+  "${ModID}:UnequalExchange": {
+    "TEXT": ["不平等交換"]
+  },
+  "${ModID}:MundusDecree": {
+    "TEXT": [
+      "世界演繹法",
+      "獲得 #b200 點 #y銀鑰能量 。選擇 #b1 張抽牌堆或棄牌堆的牌置入手牌，使其 [E] 消耗變為 #b0 點。將 #b1 張「 #y靈感 」洗入抽牌堆。"
+    ],
+    "EXTRA_TEXT": [
+      "無限思維迷宮",
+      "在「 #y世界演繹法 」的基礎上， #p虛弱 和 #r易傷 所有敵人 #b1 回合，下次消耗 #y銀鑰能量 釋放的 #y鑰令 生效 #b2 次。"
+    ]
+  },
+  "${ModID}:BeastOfChaos": {
+    "TEXT": [
+      "混沌之獸",
+      "移除自身 #p虛弱 狀態。對所有敵人造成 #b",
+      " 點傷害 #b2 次。在本場戰鬥中每打出一張「 #y打擊 」便使傷害 #b+",
+      " 。將 #b2 張附加 #y消耗 和 #y虛無 的「 #y打擊 」置入手中。"
+    ],
+    "EXTRA_TEXT": [
+      "直至星球終結",
+      "在「 #y混沌之獸 」的基礎上，對所有敵人追加 #b1 次 #b15% 目標最大生命的 #y固定傷害 。本場戰鬥中「 #y混沌之獸 」的基礎傷害提高 #b100% 。"
+    ]
+  },
+  "${ModID}:TerminalGateWayOfTruthAndAbyss": {
+    "TEXT": [
+      "終點，真理與深淵之門",
+      "獲得 #b",
+      " 點 #y狂氣 。對所有敵人施加 #b",
+      " 層 #p中毒 ，基礎傷害、基礎 #p中毒 、基礎 #b荊棘、基礎 #y觸腕傷害 #y臨時 提高 #b50% 。 NL 「 #p終末型態 」：額外抽 #b3 張牌，獲得 #b3 點 [E] ，觸發所有敵人 #b50% 的 #p中毒 ， #y狂氣 上限提高 #b50 點，至多提高 #b3 次。"
+    ],
+    "EXTRA_TEXT": [
+      "癲狂感染",
+      "獲得 #b",
+      " 點 #y狂氣 。對所有敵人施加 #b",
+      " 層 #p中毒 ，基礎傷害、基礎 #p中毒 、基礎 #b荊棘、基礎 #y觸腕傷害 #y臨時 提高 #b50% 。基礎傷害、基礎 #p中毒 、基礎 #b荊棘 提高 #b10% 。額外獲得 #b1 層「 #p終末 」。 NL 「 #p終末型態 」：額外抽 #b3 張牌，獲得 #b3 點 [E] ，觸發所有敵人 #b50% 的 #p中毒 ，每消耗 #b10 點 #y狂氣 ，額外觸發所有敵人 #b3% 的 #p中毒 。施放 #y狂氣爆發 所需要的 #y狂氣 和 #y狂氣 上限提高 #b50 點，至多提高 #b3 次。"
+    ]
+  },
+  "${ModID}:PassageOfTheEgo": {
+    "TEXT": [
+      "自我的葬儀",
+      "造成 #b",
+      " 點 #p中毒 ，享受 #b",
+      " 倍自身 #p中毒 加成。觸發所有敵人的 #p中毒 。「自我的葬儀」享受的自身 #p中毒 加成倍率提高 #b1 。"
+    ],
+    "EXTRA_TEXT": ["永淪深海的葬儀", "造成的基礎中毒 #b+50% ，持續 #b3 回合。"]
+  }
 }

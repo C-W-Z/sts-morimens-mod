@@ -1,7 +1,6 @@
 package morimensmod.cards.buffs;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.WizArt.showThoughtBubble;
 
@@ -16,10 +15,9 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
-import morimensmod.cards.AbstractEasyCard;
-import morimensmod.patches.CustomTags;
+import morimensmod.util.ModSettings;
 
-public class OctahedronDice extends AbstractEasyCard {
+public class OctahedronDice extends AbstractBuffCard {
     public final static String ID = makeID(OctahedronDice.class.getSimpleName());
 
     private static final int MEDIEM_DICE = 4;
@@ -29,8 +27,7 @@ public class OctahedronDice extends AbstractEasyCard {
     private static final int TMP_STR_SCALE = 2;
 
     public OctahedronDice() {
-        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, BUFF_COLOR);
-        tags.add(CustomTags.BUFF);
+        super(ID, 0, CardRarity.UNCOMMON, CardTarget.SELF);
         magicNumber = baseMagicNumber = 100; // 骰子點數100%臨時力量
         exhaust = true;
         selfRetain = true;
@@ -41,7 +38,7 @@ public class OctahedronDice extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int dice = AbstractDungeon.cardRandomRng.random(1, MAX_DICE);
 
-        showThoughtBubble("" + dice, 1.0F);
+        showThoughtBubble("" + dice, ModSettings.DICE_THOUGHT_BUBBLE_TIME);
 
         int tmpStr = ((dice >= MAX_DICE) ? TMP_STR_SCALE : 1) * MathUtils.ceil(dice * magicNumber / 100F);
         applyToSelf(new StrengthPower(p, tmpStr));

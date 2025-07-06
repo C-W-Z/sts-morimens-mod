@@ -3,7 +3,9 @@ package morimensmod.relics;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.*;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 
 import morimensmod.cards.buffs.Insight;
 
@@ -12,13 +14,13 @@ public class PrasnoMirror extends AbstractEasyRelic {
 
     private static final int DRAW_PER_TURN = 1;
     private static final int INITIAL_INSIGHT = 1;
-    private static final int PER_N_BATTLE = 1;
+    private static final int PER_N_BATTLE = 2;
     private static final int INSIGHT_INCREASE = 1;
     private static final int MAX_INSIGHT = 4;
 
     public PrasnoMirror() {
         super(ID, RelicTier.RARE, LandingSound.CLINK);
-        counter = INITIAL_INSIGHT;
+        counter = 0;
     }
 
     @Override
@@ -34,19 +36,36 @@ public class PrasnoMirror extends AbstractEasyRelic {
     @Override
     public void atBattleStartPreDraw() {
         flash();
-        shuffleIn(new Insight(), counter);
+        shuffleIn(new Insight(), INITIAL_INSIGHT + counter * INSIGHT_INCREASE / PER_N_BATTLE);
     }
 
     @Override
     public void onVictory() {
-        if (counter >= MAX_INSIGHT)
+        if (INITIAL_INSIGHT + counter * INSIGHT_INCREASE / PER_N_BATTLE >= MAX_INSIGHT)
             return;
         flash();
-        counter += INSIGHT_INCREASE;
+        counter++;
     }
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(DESCRIPTIONS[0], DRAW_PER_TURN, INITIAL_INSIGHT, PER_N_BATTLE, INSIGHT_INCREASE, MAX_INSIGHT);
+        return String.format(
+                DESCRIPTIONS[0],
+                DRAW_PER_TURN,
+                INITIAL_INSIGHT + counter * INSIGHT_INCREASE / PER_N_BATTLE,
+                PER_N_BATTLE,
+                INSIGHT_INCREASE,
+                MAX_INSIGHT);
+    }
+
+    @Override
+    public void renderTip(SpriteBatch sb) {
+        if (this.hb.hovered) {
+            this.description = getUpdatedDescription();
+            this.tips.clear();
+            this.tips.add(new PowerTip(this.name, this.description));
+            this.initializeTips();
+        }
+        super.renderTip(sb);
     }
 }

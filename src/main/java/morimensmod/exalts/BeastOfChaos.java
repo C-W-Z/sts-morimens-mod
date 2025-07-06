@@ -1,12 +1,14 @@
 package morimensmod.exalts;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.util.General.removeModID;
 import static morimensmod.util.Wiz.*;
 
 import java.util.ArrayList;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -29,6 +31,9 @@ import morimensmod.cardmodifiers.ExhaustModifier;
 import morimensmod.cards.NullCard;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.util.ModSettings;
+import morimensmod.vfx.LargPortraitFlashInEffect;
+import morimensmod.vfx.SpriteSheetAttackEffect;
 
 public class BeastOfChaos extends AbstractExalt {
 
@@ -59,11 +64,32 @@ public class BeastOfChaos extends AbstractExalt {
 
     @Override
     public void exalt() {
+        atb(new VFXAction(p(), new LargPortraitFlashInEffect(removeModID(ID)), ModSettings.EXALT_PROTRAIT_DURATION, true));
+
         atb(new RemoveSpecificPowerAction(p(), p(), WeakPower.POWER_ID));
+
+        float centerX = 0f;
+        float centerY = 0f;
+        int count = 0;
+        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+            centerX += m.hb.cX;
+            centerY += m.hb.cY;
+            count++;
+        }
+        if (count > 0) {
+            centerX /= count;
+            centerY /= count;
+        }
+
+        atb(new VFXAction(new SpriteSheetAttackEffect(
+                "Cetacean", 7, 5, 2,
+                centerX, centerY, -108, 64, false, false),
+                0F));
+
         actB(() -> {
             for (int i = 0; i < 2; i++) {
                 calculateExaltDamage();
-                att(new DamageAllEnemiesAction(p(), multiDamage, DamageType.NORMAL, AttackEffect.SLASH_HORIZONTAL));
+                att(new DamageAllEnemiesAction(p(), multiDamage, DamageType.NORMAL, AttackEffect.NONE));
             }
         });
         AbstractCard strike = new Strike();

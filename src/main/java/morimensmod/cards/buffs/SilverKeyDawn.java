@@ -1,7 +1,6 @@
 package morimensmod.cards.buffs;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.util.Wiz.getAllPosses;
 
 import java.util.ArrayList;
@@ -15,19 +14,16 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.actions.EasyModalChoiceAction;
-import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.posses.AbstractPosse;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.misc.PosseType;
-import morimensmod.patches.CustomTags;
 import morimensmod.powers.OnlyUnlimitedPosseTwicePower;
 
-public class SilverKeyDawn extends AbstractEasyCard {
+public class SilverKeyDawn extends AbstractBuffCard {
     public final static String ID = makeID(SilverKeyDawn.class.getSimpleName());
 
     public SilverKeyDawn() {
-        super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.NONE, BUFF_COLOR);
-        tags.add(CustomTags.BUFF);
+        super(ID, 0, CardRarity.RARE, CardTarget.NONE);
         magicNumber = baseMagicNumber = 3; // 幾個隨機鑰令中選1個
         exhaust = true;
         selfRetain = true;

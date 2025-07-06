@@ -9,23 +9,17 @@
   "${ModID}:TinyWish": {
     "NAME": "小小心願",
     "DESCRIPTION": "獲得 !M! 點 ${ModID}:狂氣 。",
-    "EXTENDED_DESCRIPTION": [
-      "獲得 #b%d 點 #y狂氣 。"
-    ]
+    "EXTENDED_DESCRIPTION": ["獲得 #b%d 點 #y狂氣 。"]
   },
   "${ModID}:AMousesWisdom": {
     "NAME": "鼠鼠的智慧",
     "DESCRIPTION": "獲得 !M! 點 [E] 。",
-    "EXTENDED_DESCRIPTION": [
-      "獲得 #b%d 點 [E] 。"
-    ]
+    "EXTENDED_DESCRIPTION": ["獲得 #b%d 點 [E] 。"]
   },
   "${ModID}:EncounterInPureWhite": {
     "NAME": "純白初遇",
     "DESCRIPTION": "棄掉所有手牌，抽取棄掉數量 +2 的牌。",
-    "EXTENDED_DESCRIPTION": [
-      "棄掉所有手牌，抽取棄掉數量 #b+2 的牌。"
-    ]
+    "EXTENDED_DESCRIPTION": ["棄掉所有手牌，抽取棄掉數量 #b+2 的牌。"]
   },
   "${ModID}:WardedInjection": {
     "NAME": "注射守護",
@@ -58,9 +52,7 @@
   "${ModID}:UnequalExchange": {
     "NAME": "不平等交換",
     "DESCRIPTION": "抽 4 張牌。",
-    "EXTENDED_DESCRIPTION": [
-      "抽 #b4 張牌。"
-    ]
+    "EXTENDED_DESCRIPTION": ["抽 #b4 張牌。"]
   },
   "${ModID}:EphemeralEternity": {
     "NAME": "短暫的永恆",
@@ -455,17 +447,13 @@
     "NAME": "靈感",
     "DESCRIPTION": "獲得 [E] ，抽 !${ModID}:M2! 張牌。",
     "UPGRADE_DESCRIPTION": "獲得 [E] [E] ，抽 !${ModID}:M2! 張牌。",
-    "EXTENDED_DESCRIPTION": [
-      "高級靈感"
-    ]
+    "EXTENDED_DESCRIPTION": ["高級靈感"]
   },
   "${ModID}:SilverKeyDawn": {
     "NAME": "銀鑰微光",
     "DESCRIPTION": "從隨機 !M! 個 ${ModID}:鑰令 中，選擇 1 個立刻釋放。",
     "UPGRADE_DESCRIPTION": "從隨機 !M! 個 ${ModID}:鑰令 中，選擇 1 個立刻釋放，並生效 2 次。",
-    "EXTENDED_DESCRIPTION": [
-      "銀鑰曦光"
-    ]
+    "EXTENDED_DESCRIPTION": ["銀鑰曦光"]
   },
   "${ModID}:InnocentReturnGift": {
     "NAME": "天真的回禮",
@@ -475,17 +463,12 @@
     "NAME": "偏方骰子",
     "DESCRIPTION": "投一顆 6 面骰子，獲得等同於骰子點數的 ${ModID}:臨時 力量 。若點數為 4 或更高， 易傷 所有敵人 1 回合。若點數為 6 或更高，獲得的 ${ModID}:臨時 力量 翻倍。",
     "UPGRADE_DESCRIPTION": "投一顆 6 面骰子，獲得等同於骰子點數 !M! %的 ${ModID}:臨時 力量 。若點數為 4 或更高， 虛弱 和 易傷 所有敵人 1 回合。若點數為 6 或更高，獲得的 ${ModID}:臨時 力量 翻倍並獲得 [E] 。",
-    "EXTENDED_DESCRIPTION": [
-      "閃耀偏方骰子"
-    ]
+    "EXTENDED_DESCRIPTION": ["閃耀偏方骰子"]
   },
   "${ModID}:SymphonyOfHarmony": {
     "NAME": "協樂的交響",
     "DESCRIPTION": "",
-    "EXTENDED_DESCRIPTION": [
-      "上行音",
-      "下行音"
-    ]
+    "EXTENDED_DESCRIPTION": ["上行音", "下行音"]
   },
   "${ModID}:UtopianVeil": {
     "NAME": "",
@@ -579,58 +562,5 @@
   "${ModID}:Unrestrained": {
     "NAME": "狂放",
     "DESCRIPTION": "獲得 !M! 點 ${ModID}:臨時 力量 ，所有敵人獲得 !${ModID}:M2! 點 ${ModID}:臨時 力量 。 NL ${ModID}:永久保留 \u2002 ${ModID}:銷毀 "
-  },
-  "${ModID}:ExampleTwoAmountPowerCard": {
-    "NAME": "Two Amount Power",
-    "DESCRIPTION": "At the start of your turn, gain !M! Strength and !${ModID}:M2! Dexterity."
-  },
-  "${ModID}:InlinePowerDemo": {
-    "NAME": "Inline Power",
-    "DESCRIPTION": "Strikes deal !M! more damage. NL At the end of your turn, gain !M! Block.",
-    "EXTENDED_DESCRIPTION": [
-      "Strike+, Block+",
-      "#yStrikes deal #b",
-      " additional damage. At the end of your turn, gain #b",
-      " #yBlock."
-    ]
-  },
-  "${ModID}:SelectCardsPlusCardMods": {
-    "NAME": "Cool Card Stuff",
-    "DESCRIPTION": "Choose from 1 of 3 cost 0 cards from any class. NL Add it into your hand. NL It gains Ethereal and Exhaust.",
-    "EXTENDED_DESCRIPTION": [
-      "Choose a card to add into your hand with Ethereal and Exhaust."
-    ]
-  },
-  "${ModID}:EasyXCostDemo": {
-    "NAME": "Easy X Cost",
-    "DESCRIPTION": "{@@}Deal !D! damage X{!M!|>0=+!M!} times. NL Gain X{!M!|>0=+!M!} Strength. NL Exhaust."
-  },
-  "${ModID}:EasyModalChoiceDemo": {
-    "NAME": "Easy Modal Choice",
-    "DESCRIPTION": "Choose one: Draw !M! cards or gain !${ModID}:M2! Strength.",
-    "EXTENDED_DESCRIPTION": [
-      "Draw",
-      "Draw ",
-      " cards.",
-      "Strength",
-      "Gain ",
-      " Strength."
-    ]
-  },
-  "${ModID}:DrawAndShiv": {
-    "NAME": "Draw and Shiv",
-    "DESCRIPTION": "Draw 1 card. NL Add 1 *Shiv into your hand."
-  },
-  "${ModID}:TwoTypesOfDamage": {
-    "NAME": "Two Damage Values",
-    "DESCRIPTION": "Deal !D! damage. NL If you're Vulnerable, deal !${ModID}:sd! damage instead."
-  },
-  "${ModID}:StartupBlockCard": {
-    "NAME": "Startup And AOE",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Startup: Gain !M! Block."
-  },
-  "${ModID}:MultiCardPreviewAndDrawCallback": {
-    "NAME": "Previews and Callbacks",
-    "DESCRIPTION": "{@@}Shuffle *Smite{!Upgrades!|>0=+} and *Safety{!Upgrades!|>0=+} into your draw pile. NL Draw 1 card. NL If it's Colorless, deal !D! damage to ALL enemies."
   }
 }

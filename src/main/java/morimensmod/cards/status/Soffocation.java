@@ -1,7 +1,6 @@
 package morimensmod.cards.status;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.STATUS_COLOR;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
@@ -10,15 +9,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 
-import morimensmod.cards.AbstractEasyCard;
-import morimensmod.patches.CustomTags;
-
-public class Soffocation extends AbstractEasyCard {
+public class Soffocation extends AbstractStatusCard {
     public final static String ID = makeID(Soffocation.class.getSimpleName());
 
     public Soffocation() {
-        super(ID, 1, CardType.STATUS, CardRarity.COMMON, CardTarget.NONE, STATUS_COLOR);
-        tags.add(CustomTags.STATUS);
+        super(ID, 1, CardRarity.COMMON, CardTarget.NONE);
         magicNumber = baseMagicNumber = 3; // 中毒
     }
 
@@ -32,13 +27,5 @@ public class Soffocation extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (this.dontTriggerOnUseCard)
             addToBot(new ApplyPowerAction(p, null, new PoisonPower(p, null, magicNumber)));
-    }
-
-    @Override
-    public void upp() {
-    }
-
-    @Override
-    public void upgrade() {
     }
 }
