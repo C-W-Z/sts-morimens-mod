@@ -8,9 +8,10 @@ import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertLocator;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInstrumentPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
+
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -18,15 +19,17 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.input.InputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 
-import javassist.CannotCompileException;
+import basemod.ReflectionHacks;
 import javassist.CtBehavior;
-import javassist.expr.ExprEditor;
-import javassist.expr.MethodCall;
 
 public class CardPreviewUpgradePatch {
+
+    public static final int MAX_DISPLAY_UPGRADE_NUM = 20;
+
     public static int upgradeNum = 1;
 
     public static Hitbox upgradeHbL = new Hitbox(100.0F * Settings.scale, 100.0F * Settings.scale);
@@ -68,7 +71,7 @@ public class CardPreviewUpgradePatch {
                     upgradeNum--;
                 }
             }
-            if (upgradeNum < 20 && copyCanUpgrade &&
+            if (upgradeNum < MAX_DISPLAY_UPGRADE_NUM && copyCanUpgrade &&
                     upgradeHbR != null) {
                 upgradeHbR.update();
                 if (InputHelper.justClickedLeft && upgradeHbR.hovered) {
@@ -82,8 +85,8 @@ public class CardPreviewUpgradePatch {
                     upgradeNum++;
                 }
             }
-            if (upgradeNum > 20)
-                upgradeNum = 20;
+            if (upgradeNum > MAX_DISPLAY_UPGRADE_NUM)
+                upgradeNum = MAX_DISPLAY_UPGRADE_NUM;
             if (upgradeNum < 1)
                 upgradeNum = 1;
         }
@@ -135,7 +138,7 @@ public class CardPreviewUpgradePatch {
                 else
                     sb.setColor(Color.LIGHT_GRAY);
 
-                if (upgradeNum < 20 && copyCanUpgrade)
+                if (upgradeNum < MAX_DISPLAY_UPGRADE_NUM && copyCanUpgrade)
                     sb.draw(
                             ImageMaster.CF_RIGHT_ARROW,
                             upgradeHbR.cX - 24.0F,
@@ -190,41 +193,34 @@ public class CardPreviewUpgradePatch {
     }
 
     @SpirePatch2(clz = SingleCardViewPopup.class, method = "updateInput")
-    public static class ClosePatch {
-        @SpireInstrumentPatch
-        public static ExprEditor Instrument() {
-            return new ExprEditor() {
-                @Override
-                public void edit(MethodCall m) throws CannotCompileException {
-                    if (m.getMethodName().equals("close") && m.getLineNumber() == 291)
-                        m.replace("if(" + CardPreviewUpgradePatch.class.getName()
-                                + ".checkClickToClose()){ $proceed($$);}");
-                }
-            };
-        }
-    }
+    public static class UpdateInputPatch {
+        @SpireInsertPatch(locator = Locator.class)
+        public static SpireReturn<Void> Patch(SingleCardViewPopup __instance, AbstractCard ___prevCard, AbstractCard ___nextCard) {
+            // 用這段code取代掉原本的code
+            boolean clickToClose = checkClickToClose();
+            if (clickToClose)
+                __instance.close();
+            InputHelper.justClickedLeft = !clickToClose;
+            if (clickToClose)
+                FontHelper.ClearSCPFontTextures();
 
-    @SpirePatch2(clz = SingleCardViewPopup.class, method = "updateInput")
-    public static class DontChangeClickedCaseyByRita {
-        @SpireInsertPatch(rloc = 17)
-        public static void Patch(SingleCardViewPopup __instance) {
-            if (!checkClickToClose())
-                InputHelper.justClickedLeft = true;
-        }
-    }
+            // 繼續之後的Codes
+            if (___prevCard != null && InputActionSet.left.isJustPressed())
+                ReflectionHacks.privateMethod(SingleCardViewPopup.class, "openPrev").invoke(__instance);
+            else if (___nextCard != null && InputActionSet.right.isJustPressed())
+                ReflectionHacks.privateMethod(SingleCardViewPopup.class, "openNext").invoke(__instance);
 
-    @SpirePatch2(clz = SingleCardViewPopup.class, method = "updateInput")
-    public static class ClearSCPFontTextures {
-        @SpireInstrumentPatch
-        public static ExprEditor Instrument() {
-            return new ExprEditor() {
-                @Override
-                public void edit(MethodCall m) throws CannotCompileException {
-                    if (m.getMethodName().equals("ClearSCPFontTextures") && m.getLineNumber() == 293)
-                        m.replace("if(" + CardPreviewUpgradePatch.class.getName()
-                                + ".checkClickToClose()){ $proceed($$);}");
-                }
-            };
+            return SpireReturn.Return();
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                // 找到 if (!this.cardHb.hovered && !this.upgradeHb.hovered && (this.betaArtHb == null || (this.betaArtHb != null && !this.betaArtHb.hovered))) 的下一行
+                Matcher matcher = new Matcher.FieldAccessMatcher(SingleCardViewPopup.class, "cardHb");
+                int[] lines = LineFinder.findInOrder(ctMethodToPatch, matcher);
+                return new int[] {lines[0] + 1};
+            }
         }
     }
 
