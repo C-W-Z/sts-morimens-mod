@@ -1,7 +1,6 @@
 package morimensmod.cards.status;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.STATUS_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
@@ -14,15 +13,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-import morimensmod.cards.AbstractEasyCard;
-import morimensmod.patches.CustomTags;
-
-public class PainOfUnfulfilledDesires extends AbstractEasyCard {
+public class PainOfUnfulfilledDesires extends AbstractStatusCard {
     public final static String ID = makeID(PainOfUnfulfilledDesires.class.getSimpleName());
 
     public PainOfUnfulfilledDesires() {
-        super(ID, 0, CardType.STATUS, CardRarity.COMMON, CardTarget.SELF, STATUS_COLOR);
-        tags.add(CustomTags.STATUS);
+        super(ID, 0, CardRarity.COMMON, CardTarget.SELF);
         damageType = DamageType.NORMAL;
         magicNumber = baseMagicNumber = 10; // 受傷
         secondMagic = baseSecondMagic = 1; // 臨時力量
@@ -37,13 +32,5 @@ public class PainOfUnfulfilledDesires extends AbstractEasyCard {
         applyToSelf(new StrengthPower(p, secondMagic));
         applyToSelf(new LoseStrengthPower(p, secondMagic));
         addToBot(new DrawCardAction(p, draw));
-    }
-
-    @Override
-    public void upp() {
-    }
-
-    @Override
-    public void upgrade() {
     }
 }
