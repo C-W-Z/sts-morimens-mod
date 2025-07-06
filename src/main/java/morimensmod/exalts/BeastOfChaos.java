@@ -32,6 +32,7 @@ import morimensmod.cards.NullCard;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.vfx.LargPortraitFlashInEffect;
+import morimensmod.vfx.SpriteSheetAttackEffect;
 
 public class BeastOfChaos extends AbstractExalt {
 
@@ -65,10 +66,29 @@ public class BeastOfChaos extends AbstractExalt {
         atb(new VFXAction(p(), new LargPortraitFlashInEffect(removeModID(ID)), 1.0F, true));
 
         atb(new RemoveSpecificPowerAction(p(), p(), WeakPower.POWER_ID));
+
+        float centerX = 0f;
+        float centerY = 0f;
+        int count = 0;
+        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+            centerX += m.hb.cX;
+            centerY += m.hb.cY;
+            count++;
+        }
+        if (count > 0) {
+            centerX /= count;
+            centerY /= count;
+        }
+
+        atb(new VFXAction(new SpriteSheetAttackEffect(
+                "Cetacean", 7, 5, 2,
+                centerX, centerY, -128, 64, false, false, 30F),
+                0F));
+
         actB(() -> {
             for (int i = 0; i < 2; i++) {
                 calculateExaltDamage();
-                att(new DamageAllEnemiesAction(p(), multiDamage, DamageType.NORMAL, AttackEffect.SLASH_HORIZONTAL));
+                att(new DamageAllEnemiesAction(p(), multiDamage, DamageType.NORMAL, AttackEffect.NONE));
             }
         });
         AbstractCard strike = new Strike();
