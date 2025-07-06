@@ -1,12 +1,14 @@
 package morimensmod.exalts;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.util.General.removeModID;
 import static morimensmod.util.Wiz.*;
 
 import java.util.ArrayList;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -29,6 +31,7 @@ import morimensmod.cardmodifiers.ExhaustModifier;
 import morimensmod.cards.NullCard;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.vfx.LargPortraitFlashInEffect;
 
 public class BeastOfChaos extends AbstractExalt {
 
@@ -59,6 +62,8 @@ public class BeastOfChaos extends AbstractExalt {
 
     @Override
     public void exalt() {
+        atb(new VFXAction(p(), new LargPortraitFlashInEffect(removeModID(ID)), 1.0F, true));
+
         atb(new RemoveSpecificPowerAction(p(), p(), WeakPower.POWER_ID));
         actB(() -> {
             for (int i = 0; i < 2; i++) {

@@ -230,6 +230,10 @@ public class MorimensMod implements
         return modID + "Resources/images/ui/" + resourcePath;
     }
 
+    public static String makeVFXPath(String resourcePath) {
+        return modID + "Resources/images/vfx/" + resourcePath;
+    }
+
     public static String makeIconPath(String resourcePath) {
         return modID + "Resources/images/icons/" + resourcePath;
     }
