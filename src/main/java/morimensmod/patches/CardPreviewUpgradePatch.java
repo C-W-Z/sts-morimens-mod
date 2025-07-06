@@ -28,17 +28,17 @@ import javassist.CtBehavior;
 
 public class CardPreviewUpgradePatch {
 
-    public static final int MAX_DISPLAY_UPGRADE_NUM = 20;
+    private static final int MAX_DISPLAY_UPGRADE_NUM = 20;
 
-    public static int upgradeNum = 1;
+    private static int upgradeNum = 1;
 
-    public static Hitbox upgradeHbL = new Hitbox(100.0F * Settings.scale, 100.0F * Settings.scale);
+    private static Hitbox upgradeHbL = new Hitbox(100.0F * Settings.scale, 100.0F * Settings.scale);
 
-    public static Hitbox upgradeHbR = new Hitbox(100.0F * Settings.scale, 100.0F * Settings.scale);
+    private static Hitbox upgradeHbR = new Hitbox(100.0F * Settings.scale, 100.0F * Settings.scale);
 
-    public static boolean copyCanUpgrade = false;
+    private static boolean copyCanUpgrade = false;
 
-    public static boolean copyCanUpgradeMuti = false;
+    private static boolean copyCanUpgradeMuti = false;
 
     private static final String TEXT = (CardCrawlGame.languagePack
             .getUIString(makeID(CardPreviewUpgradePatch.class.getSimpleName()))).TEXT[0];
