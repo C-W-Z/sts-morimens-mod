@@ -8,13 +8,12 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 
-public class Soffocation extends AbstractStatusCard {
-    public final static String ID = makeID(Soffocation.class.getSimpleName());
+public class Suffocation extends AbstractStatusCard {
+    public final static String ID = makeID(Suffocation.class.getSimpleName());
 
-    public Soffocation() {
+    public Suffocation() {
         super(ID, 1, CardRarity.COMMON, CardTarget.NONE);
         magicNumber = baseMagicNumber = 3; // 中毒
-        selfRetain = true;
     }
 
     @Override

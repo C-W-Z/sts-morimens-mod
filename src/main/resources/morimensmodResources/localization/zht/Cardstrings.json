@@ -542,7 +542,7 @@
     "NAME": "蹣跚",
     "DESCRIPTION": " ${ModID}:狀態卡 。"
   },
-  "${ModID}:Soffocation": {
+  "${ModID}:Suffocation": {
     "NAME": "窒息",
     "DESCRIPTION": "回合結束時若在手中，獲得 !M! 層 中毒 。"
   },

@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import morimensmod.actions.AllEnemyScalePoisonAction;
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.cards.status.Soffocation;
+import morimensmod.cards.status.Suffocation;
 import morimensmod.patches.CustomTags;
 
 public class ToxicMiasma extends AbstractEasyCard {
@@ -20,7 +20,7 @@ public class ToxicMiasma extends AbstractEasyCard {
         super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.ALL, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         magicNumber = baseMagicNumber = 1; // 幾張窒息
-        cardsToPreview = new Soffocation();
+        cardsToPreview = new Suffocation();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
