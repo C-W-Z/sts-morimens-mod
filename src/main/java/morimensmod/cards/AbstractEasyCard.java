@@ -122,7 +122,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     @Override
     public void applyPowers() {
         int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
-        if (this.hasTag(CardTags.STRIKE))
+        if (isStrikeOrAsStrike(this))
             damageAmplify += baseStrikeDamageAmplify;
         int blockAmplify = 100 + baseBlockAmplify + AbstractAwakener.baseBlockAmplify;
         int healAmplify = 100 + baseHealAmplify + AbstractAwakener.baseHealAmplify;
@@ -156,7 +156,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
         int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
-        if (this.hasTag(CardTags.STRIKE))
+        if (isStrikeOrAsStrike(this))
             damageAmplify += baseStrikeDamageAmplify;
 
         applyedBaseDamageAmplifies(damageAmplify);
@@ -383,8 +383,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     }
 
     @Override
-    public void onRetained() {
-        super.onRetained();
+    public void triggerOnEndOfTurnForPlayingCard() {
         if (prepare <= 0)
             return;
         CardModifierManager.addModifier(this, new ChangeCostUntilUseModifier(-prepare));
@@ -392,7 +391,6 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     @Override
     public void triggerOnManualDiscard() {
-        super.triggerOnManualDiscard();
         if (prepare <= 0)
             return;
         CardModifierManager.addModifier(this, new ChangeCostUntilUseModifier(-prepare));

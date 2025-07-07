@@ -3,6 +3,7 @@ package morimensmod.cards.chaos;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.actB;
+import static morimensmod.util.Wiz.isStrikeOrAsStrike;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -44,7 +45,7 @@ public class LoopingSwordplay extends AbstractEasyCard implements CustomSavable<
     @Override
     public void applyPowers() {
         int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
-        if (this.hasTag(CardTags.STRIKE))
+        if (isStrikeOrAsStrike(this))
             damageAmplify += baseStrikeDamageAmplify;
 
         baseDamage = MathUtils.ceil(misc * damageAmplify / 100F);
@@ -58,7 +59,7 @@ public class LoopingSwordplay extends AbstractEasyCard implements CustomSavable<
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
         int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
-        if (this.hasTag(CardTags.STRIKE))
+        if (isStrikeOrAsStrike(this))
             damageAmplify += baseStrikeDamageAmplify;
 
         baseDamage = MathUtils.ceil(misc * damageAmplify / 100F);

@@ -40,6 +40,7 @@ public class CombatStance extends AbstractEasyCard implements StartupCard {
 
     @Override // on retain/discard when player turn end
     public void triggerOnEndOfTurnForPlayingCard() {
+        super.triggerOnEndOfTurnForPlayingCard();
         misc += magicNumber;
     }
 

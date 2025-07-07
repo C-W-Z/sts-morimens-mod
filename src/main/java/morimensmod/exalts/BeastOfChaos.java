@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
@@ -58,7 +57,7 @@ public class BeastOfChaos extends AbstractExalt {
 
     @Override
     public void onCardUse(AbstractCard card) {
-        if (card.hasTag(CardTags.STRIKE))
+        if (isStrikeOrAsStrike(card))
             strikeCount++;
     }
 

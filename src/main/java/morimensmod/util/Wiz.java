@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -327,6 +328,14 @@ public class Wiz {
 
     public static boolean isCommandCard(AbstractCard card) {
         return card.hasTag(CustomTags.COMMAND);
+    }
+
+    public static boolean isStrikeOrAsStrike(AbstractCard card) {
+        return card.hasTag(CardTags.STRIKE);
+    }
+
+    public static boolean isDefendOrAsDefend(AbstractCard card) {
+        return card.hasTag(CustomTags.DEFEND);
     }
 
     public static AbstractCard getCleanCopy(AbstractCard card) {
