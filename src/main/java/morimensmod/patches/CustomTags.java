@@ -32,4 +32,6 @@ public class CustomTags {
     public static CardTags FORCE_PLAYABLE;
     @SpireEnum
     public static CardTags PHANTOM;
+    @SpireEnum
+    public static CardTags REUSE;
 }

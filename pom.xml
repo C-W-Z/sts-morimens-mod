@@ -95,11 +95,17 @@
                 <excludes>
                     <exclude>${ModID}Resources/**/*.mdp</exclude>
                     <exclude>${ModID}Resources/**/*.py</exclude>
-                    <exclude>${ModID}Resources/images/signature/alpha_mask.png</exclude>
-                    <exclude>${ModID}Resources/images/signature/Card_*_Frame.png</exclude>
-                    <exclude>${ModID}Resources/images/signature/Weapon_Full_*.png</exclude>
+                    <exclude>${ModID}Resources/images/signature/*</exclude>
                     <exclude>${ModID}Resources/**/*.ogg</exclude>
                 </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>${ModID}Resources/images/signature/*_s.png</include>
+                    <include>${ModID}Resources/images/signature/*_s_p.png</include>
+                </includes>
             </resource>
         </resources>
 
