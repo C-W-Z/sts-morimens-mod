@@ -383,8 +383,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     }
 
     @Override
-    public void onRetained() {
-        super.onRetained();
+    public void triggerOnEndOfTurnForPlayingCard() {
         if (prepare <= 0)
             return;
         CardModifierManager.addModifier(this, new ChangeCostUntilUseModifier(-prepare));
@@ -392,7 +391,6 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     @Override
     public void triggerOnManualDiscard() {
-        super.triggerOnManualDiscard();
         if (prepare <= 0)
             return;
         CardModifierManager.addModifier(this, new ChangeCostUntilUseModifier(-prepare));

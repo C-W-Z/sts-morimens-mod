@@ -18,6 +18,7 @@ public class Suffocation extends AbstractStatusCard {
 
     @Override
     public void triggerOnEndOfTurnForPlayingCard() {
+        super.triggerOnEndOfTurnForPlayingCard();
         addToBot(new ApplyPowerAction(p(), null, new PoisonPower(p(), null, magicNumber)));
     }
 
