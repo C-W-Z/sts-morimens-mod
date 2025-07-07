@@ -10,9 +10,11 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInsertLocator;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 
 import javassist.CtBehavior;
 
@@ -65,6 +67,7 @@ public class ReuseCardPatch {
         }
     }
 
+    // resetCardBeforeMoving在moveToExhaustPile裡也有呼叫
     @SpirePatch2(clz = CardGroup.class, method = "resetCardBeforeMoving")
     public static class ResetCardBeforeMovingPatch2 {
         @SpireInsertPatch(locator = Locator.class)
@@ -78,6 +81,23 @@ public class ReuseCardPatch {
             @Override
             public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
                 Matcher matcher = new Matcher.MethodCallMatcher(ArrayList.class, "remove");
+                return LineFinder.findInOrder(ctMethodToPatch, matcher);
+            }
+        }
+    }
+
+    // Strange Spoon生效也要重置使用次數
+    @SpirePatch2(clz = UseCardAction.class, method = "update")
+    public static class UseCardActionPatch {
+        @SpireInsertPatch(locator = Locator.class)
+        public static void Insert(UseCardAction __instance, AbstractCard ___targetCard) {
+            restoreReuseTimes(___targetCard);
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher matcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, "getRelic");
                 return LineFinder.findInOrder(ctMethodToPatch, matcher);
             }
         }

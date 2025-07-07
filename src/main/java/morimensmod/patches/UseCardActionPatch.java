@@ -20,10 +20,12 @@ public class UseCardActionPatch {
     public static void Insert(UseCardAction __instance, AbstractCard ___targetCard) {
         if (!(p() instanceof AbstractAwakener))
             return;
+        // 為了命定之劍的回環效果
         if (___targetCard.exhaustOnUseOnce || ___targetCard.exhaust)
             __instance.exhaustCard = true;
         if (__instance.exhaustCard)
             __instance.actionType = ActionType.EXHAUST;
+        // 為了消耗算力獲得鑰能
         AbstractAwakener.onAfterUseCard(___targetCard);
     }
 
