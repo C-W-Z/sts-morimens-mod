@@ -12,8 +12,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import basemod.helpers.CardModifierManager;
-import morimensmod.cardmodifiers.ChangeCostUntilUseModifier;
 import morimensmod.patches.CustomTags;
 
 public class MutatedHeart extends AbstractBuffCard implements StartupCard {
@@ -36,7 +34,7 @@ public class MutatedHeart extends AbstractBuffCard implements StartupCard {
             if (!isInBossCombat())
                 return;
             for (AbstractCard c : DrawCardAction.drawnCards)
-                CardModifierManager.addModifier(c, new ChangeCostUntilUseModifier(-secondMagic));
+                c.setCostForTurn(c.costForTurn - 1);
         })));
     }
 
