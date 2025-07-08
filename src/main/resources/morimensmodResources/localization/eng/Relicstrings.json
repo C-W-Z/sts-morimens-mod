@@ -3,7 +3,7 @@
     "NAME": "Chaos Realm",
     "FLAVOR": "宇宙萬象",
     "DESCRIPTIONS": [
-      "回合結束時，獲得 #b%d 點 #y${ModID}:銀鑰能量 。每有 #b%d 點 #g${ModID}:界域精通 ，釋放 #y${ModID}:鑰令 後，獲得 #b%d #y${ModID}:狂氣 。",
+      "回合結束時，獲得 #b%d 點 #y${ModID}:銀鑰能量 。每有 #b%d 點 #g${ModID}:界域精通 ，釋放 #y${ModID}:鑰令 後，獲得 #b%d #y${ModID}:Aliemus 。",
       " NL 當前 #g界域精通 ： #b%d NL 當前釋放 #y鑰令 後獲得 #y狂氣 ： #b%d "
     ]
   },
@@ -22,19 +22,19 @@
     ]
   },
   "${ModID}:KleinBottleVoyager": {
-    "NAME": "克萊茵旅人",
+    "NAME": "Klein Bottle Voyager",
     "FLAVOR": "",
     "DESCRIPTIONS": [
       "釋放 #y${ModID}:鑰令 後，獲得 #b%d 點 #y${ModID}:臨時 #y力量 。"
     ]
   },
   "${ModID}:LaurelCufflinks": {
-    "NAME": "桂葉袖扣",
+    "NAME": "Laurel Cufflinks",
     "FLAVOR": "印刻了桂葉花紋的銀質袖扣。它做工精緻，閃閃發亮，曾經承載了兩個孩子的友誼。",
-    "DESCRIPTIONS": ["回合開始後，獲得 #b%d #y${ModID}:狂氣 。"]
+    "DESCRIPTIONS": ["回合開始後，獲得 #b%d #y${ModID}:Aliemus 。"]
   },
   "${ModID}:HeavyLock": {
-    "NAME": "重鎖",
+    "NAME": "Heavy Lock",
     "FLAVOR": "厚實而且堅固的鎖，如果沒有鑰匙，想必很難開啟。當然，這對某個神偷來說不值一提。",
     "DESCRIPTIONS": [
       "釋放 #y${ModID}:狂氣爆發 後，獲得 #b%d 點 #y${ModID}:臨時 #y力量 。"
@@ -42,8 +42,8 @@
   },
   "${ModID}:Neurotoxin": {
     "NAME": "Neurotoxin",
-    "FLAVOR": "提取，淬鍊。",
-    "DESCRIPTIONS": ["「 #y打擊 」對所有敵人施加 #b%d 層 #p中毒 。"]
+    "FLAVOR": "Extract, Refine.",
+    "DESCRIPTIONS": ["#yStrike applies #b%d stacks of #pPoison to all enemies."]
   },
   "${ModID}:SuspiciousOintment": {
     "NAME": "Suspicious Ointment",
@@ -54,15 +54,15 @@
   },
   "${ModID}:ButterflySpecimen": {
     "NAME": "Butterfly Specimen",
-    "FLAVOR": "至今，他也被誰深深地喜愛著。",
+    "FLAVOR": "To this day, he is still deeply loved by someone.",
     "DESCRIPTIONS": [
-      "造成生命回復時也會獲得 #b%d 點 #y格擋 。第 #b%d 回合開始時獲得 #b%d 點 #y敏捷 。"
+      "When causing HP healing, also grants #b%d #yBlock. After the start of the #b%d turn, gain #b%d #yDexterity."
     ]
   },
   "${ModID}:ActiveInjector": {
     "NAME": "Active Injector",
-    "FLAVOR": "抽搐也是活性的一種。",
-    "DESCRIPTIONS": ["每回合開始時獲得 [E] 。"]
+    "FLAVOR": "Twitching is also a form of vitality.",
+    "DESCRIPTIONS": ["Max [E] increased by #b%d."]
   },
   "${ModID}:PrasnoMirror": {
     "NAME": "Prasno Mirror",
@@ -74,35 +74,35 @@
   "${ModID}:StellarBrew": {
     "NAME": "Stellar Brew",
     "FLAVOR": "Wandering among the stars.",
-    "DESCRIPTIONS": ["Every #b8th #y${ModID}:command_card you play will take effect twice."]
+    "DESCRIPTIONS": ["Every #b8th #y${ModID}:Command_Card you play will take effect twice."]
   },
   "${ModID}:PrototypeBattery": {
-    "NAME": "原型電池",
-    "FLAVOR": "可攜式的希望。",
+    "NAME": "Prototype Battery",
+    "FLAVOR": "Portable Hope",
     "DESCRIPTIONS": [
-      "回合結束後獲得 #b%d #y${ModID}:狂氣 。每剩餘 #b%d 點 [E] ，額外獲得 #b%d #y${ModID}:狂氣 。"
+      "At the turn ends, gain #b%d #y${ModID}:Aliemus. For each remaining [E] , gain #b%d additional #y${ModID}:Aliemus."
     ]
   },
   "${ModID}:PriestsStaff": {
     "NAME": "祭司權杖",
     "FLAVOR": "不被許可的虔誠。",
     "DESCRIPTIONS": [
-      "對處於負面狀態的敵人造成的傷害提高 #b%d%% ，擊殺敵人後獲得 #b%d #y${ModID}:狂氣 。"
+      "對處於負面狀態的敵人造成的傷害提高 #b%d%% ，擊殺敵人後獲得 #b%d #y${ModID}:Aliemus."
     ]
   },
   "${ModID}:AshesOfTheBurningBlackStar": {
-    "NAME": "黑星燃燒之燼",
-    "FLAVOR": "餘火未熄。",
+    "NAME": "Ashes of the Burning Black Star",
+    "FLAVOR": "The embers still glow.",
     "DESCRIPTIONS": [
-      "拾取時選擇 #b%d 張 #y${ModID}:指令卡牌 移除。每場戰鬥開始時，獲得 #b%d 點 #y力量 。",
-      "選擇%d張牌移除"
+      "When picked, choose #b%d #y${ModID}:Command_Cards to Delete. At the start of each combat, Obtain #b%d #yStrength.",
+      "Choose %d cards to Delete."
     ]
   },
   "${ModID}:BlackCandle": {
-    "NAME": "黑燭",
-    "FLAVOR": "燃燒清醒，墮入虛妄。",
+    "NAME": "Black Candle",
+    "FLAVOR": "Burn in clarity, fall into illusion.",
     "DESCRIPTIONS": [
-      "每回合開始時獲得 [E] [E] ，每次重置牌庫時將 #b%d 張「蹣跚」加入抽牌堆。"
+      "Max [E] increased by #b%d. Each time the deck is reset, add #b%d \"Stagger\" to the Draw Pile."
     ]
   }
 }

@@ -62,7 +62,7 @@
   "${ModID}:ActiveInjector": {
     "NAME": "活性注射器",
     "FLAVOR": "抽搐也是活性的一種。",
-    "DESCRIPTIONS": ["每回合開始時獲得 [E] 。"]
+    "DESCRIPTIONS": ["最大 [E] 增加 #b%d 。"]
   },
   "${ModID}:PrasnoMirror": {
     "NAME": "普拉斯諾鏡",
@@ -80,7 +80,7 @@
     "NAME": "原型電池",
     "FLAVOR": "可攜式的希望。",
     "DESCRIPTIONS": [
-      "回合結束後獲得 #b%d #y${ModID}:狂氣 。每剩餘 #b%d 點 [E] ，額外獲得 #b%d #y${ModID}:狂氣 。"
+      "回合結束後獲得 #b%d #y${ModID}:狂氣 。每剩餘 #b1 點 [E] ，額外獲得 #b%d #y${ModID}:狂氣 。"
     ]
   },
   "${ModID}:PriestsStaff": {
@@ -102,7 +102,7 @@
     "NAME": "黑燭",
     "FLAVOR": "燃燒清醒，墮入虛妄。",
     "DESCRIPTIONS": [
-      "每回合開始時獲得 [E] [E] ，每次重置牌庫時將 #b%d 張「蹣跚」加入抽牌堆。"
+      "最大 [E] 增加 #b%d 。每次重置牌庫時將 #b%d 張「蹣跚」加入抽牌堆。"
     ]
   }
 }

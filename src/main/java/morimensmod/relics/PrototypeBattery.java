@@ -11,7 +11,6 @@ public class PrototypeBattery extends AbstractEasyRelic {
     public static final String ID = makeID(PrototypeBattery.class.getSimpleName());
 
     private static final int BASE_ALIEMUS = 5;
-    private static final int PER_N_ENERGY = 1;
     private static final int ALIEMUS_PER_ENERGY = 3;
 
     public PrototypeBattery() {
@@ -27,6 +26,6 @@ public class PrototypeBattery extends AbstractEasyRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(DESCRIPTIONS[0], BASE_ALIEMUS, PER_N_ENERGY, ALIEMUS_PER_ENERGY);
+        return String.format(DESCRIPTIONS[0], BASE_ALIEMUS, ALIEMUS_PER_ENERGY);
     }
 }

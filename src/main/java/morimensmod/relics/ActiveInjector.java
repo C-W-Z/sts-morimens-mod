@@ -7,22 +7,24 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 public class ActiveInjector extends AbstractEasyRelic {
     public static final String ID = makeID(ActiveInjector.class.getSimpleName());
 
+    private static final int ENERGY = 1;
+
     public ActiveInjector() {
         super(ID, RelicTier.UNCOMMON, LandingSound.CLINK);
     }
 
     @Override
     public void onEquip() {
-        AbstractDungeon.player.energy.energyMaster++;
+        AbstractDungeon.player.energy.energyMaster += ENERGY;
     }
 
     @Override
     public void onUnequip() {
-        AbstractDungeon.player.energy.energyMaster--;
+        AbstractDungeon.player.energy.energyMaster -= ENERGY;
     }
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0];
+        return String.format(DESCRIPTIONS[0], ENERGY);
     }
 }

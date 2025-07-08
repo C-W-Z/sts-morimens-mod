@@ -33,41 +33,41 @@
     "TEXT": ["Command"]
   },
   "ROUSE": {
-    "TEXT": ["覺醒"]
+    "TEXT": ["Rouse"]
   },
   "BUFF": {
-    "TEXT": ["增益"]
+    "TEXT": ["Buff"]
   },
   "WHEEL_OF_DESTINY": {
-    "TEXT": ["命輪"]
+    "TEXT": ["Wheel of Destiny"]
   },
   "SYMPTOM": {
-    "TEXT": ["症狀"]
+    "TEXT": ["Symptom"]
   },
   "STATUS": {
-    "TEXT": ["狀態"]
+    "TEXT": ["State"]
   },
   "POSSE": {
-    "TEXT": ["鑰令"]
+    "TEXT": ["Posse"]
   },
   "${ModID}:choosePosse": {
-    "TEXT": ["選擇攜帶的鑰令（滾動以查看更多）"]
+    "TEXT": ["Select the Posse to carry (scroll to see more)"]
   },
   "${ModID}:EasyModalChoiceAction": {
-    "TEXT": ["選擇 ", " 個"]
+    "TEXT": ["Choose ", " item(s)"]
   },
   "${ModID}:AliemusChangeAction": {
-    "TEXT": ["狂氣"]
+    "TEXT": ["Aliemus"]
   },
   "${ModID}:KeyflareChangeAction": {
-    "TEXT": ["銀鑰能量"]
+    "TEXT": ["Keyflare"]
   },
   "${ModID}:DeathResistancePatch": {
-    "TEXT": ["死亡抵抗！"]
+    "TEXT": ["Death Resistance"]
   },
   "${ModID}:DeathResistanceUI": {
     "TEXT": [
-      " #y死亡抵抗 ",
+      "#yDeathResistance",
       "生命歸零時會嘗試觸發 #y死亡抵抗 ，機率為當前 #y死亡抵抗 的數值，若超過 #b100% 則必定觸發。 NL 觸發 #y死亡抵抗 後，免疫本次死亡並將生命變為 #b1 點，然後將 #y死亡抵抗 的數值減半，本次探索中後續所有增加的 #y死亡抵抗 數值也減半。"
     ]
   },
