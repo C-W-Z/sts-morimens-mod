@@ -465,7 +465,13 @@
   },
   "${ModID}:MutatedHeart": {
     "NAME": "畸變之心",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "棄掉所有手牌，抽取棄掉數量 + !${ModID}:DR! 的牌。",
+    "EXTENDED_DESCRIPTION": [
+      "棄掉所有手牌，抽取棄掉數量 + !${ModID}:DR! 的牌。首領戰中可使用 !M! 次。",
+      "棄掉所有手牌，抽取棄掉數量 + !${ModID}:DR! 的牌。首領戰中可使用 !M! 次，且抽到的牌 [E] 消耗降低 !${ModID}:M2! 。",
+      "棄掉所有手牌，抽取棄掉數量 + !${ModID}:DR! 的牌。首領戰中可使用 !M! 次。剩餘 !stslib:ex! 次。",
+      "棄掉所有手牌，抽取棄掉數量 + !${ModID}:DR! 的牌。首領戰中可使用 !M! 次，且抽到的牌 [E] 消耗降低 !${ModID}:M2! 。剩餘 !stslib:ex! 次。"
+    ]
   },
   "${ModID}:OctahedronDice": {
     "NAME": "偏方骰子",
