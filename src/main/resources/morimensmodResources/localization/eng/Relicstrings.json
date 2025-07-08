@@ -1,43 +1,43 @@
 {
   "${ModID}:ChaosRelic": {
     "NAME": "Chaos Realm",
-    "FLAVOR": "宇宙萬象",
+    "FLAVOR": "Cosmic Phenomena",
     "DESCRIPTIONS": [
-      "回合結束時，獲得 #b%d 點 #y${ModID}:銀鑰能量 。每有 #b%d 點 #g${ModID}:界域精通 ，釋放 #y${ModID}:鑰令 後，獲得 #b%d #y${ModID}:Aliemus 。",
-      " NL 當前 #g界域精通 ： #b%d NL 當前釋放 #y鑰令 後獲得 #y狂氣 ： #b%d "
+      "At the end of the turn, gain #b%d #y${ModID}:Keyflare. For every #b%d points of #g${ModID}:Realm_Mastery you have, after releasing a #y${ModID}:Posse, you gain #b%d #y${ModID}:Aliemus.",
+      " NL Current #gRealm_Mastery: #b%d NL Current #yAliemus gain after releasing #yPosse: #b%d"
     ]
   },
   "${ModID}:RamonaRelic": {
-    "NAME": "心與銀的共振",
+    "NAME": "Silverheart Resonance",
     "FLAVOR": "",
     "DESCRIPTIONS": [
-      "戰鬥開始時獲得 #b%d 點 #y${ModID}:銀鑰能量 。每打出 #b%d 張 #y${ModID}:指令卡 ，本場戰鬥中 #y${ModID}:銀鑰充能 提高 #b%d 點。"
+      "Gain #b%d #y${ModID}:Keyflare at the start of combat. For every #b%d #y${ModID}:Command_Card played, the #y${ModID}:Keyflare_Regen increases by #b%d in this battle."
     ]
   },
   "${ModID}:LotanRelic": {
-    "NAME": "不羈的劍風",
+    "NAME": "Sword Unleashed",
     "FLAVOR": "",
     "DESCRIPTIONS": [
-      "「 #y打擊 」基礎傷害 #b+%d%% 。每造成 #b%d 次傷害，本場戰鬥中卡牌基礎傷害 #b+%d%% "
+      "Base #yStrike Damage #b+%d%%. After each time attacks, Base Damage of cards in this battle #b+%d%%."
     ]
   },
   "${ModID}:KleinBottleVoyager": {
-    "NAME": "Klein Bottle Voyager",
+    "NAME": "Lost Resonance",
     "FLAVOR": "",
     "DESCRIPTIONS": [
-      "釋放 #y${ModID}:鑰令 後，獲得 #b%d 點 #y${ModID}:臨時 #y力量 。"
+      "After releasing a #y${ModID}:Posse, gain #b%d #y${ModID}:Temporary #yStrength."
     ]
   },
   "${ModID}:LaurelCufflinks": {
     "NAME": "Laurel Cufflinks",
-    "FLAVOR": "印刻了桂葉花紋的銀質袖扣。它做工精緻，閃閃發亮，曾經承載了兩個孩子的友誼。",
-    "DESCRIPTIONS": ["回合開始後，獲得 #b%d #y${ModID}:Aliemus 。"]
+    "FLAVOR": "Silver cufflinks engraved with osmanthus leaf patterns. Finely crafted and gleaming, they.",
+    "DESCRIPTIONS": ["gains #b%d #y${ModID}:Aliemus after the turn starts."]
   },
   "${ModID}:HeavyLock": {
     "NAME": "Heavy Lock",
-    "FLAVOR": "厚實而且堅固的鎖，如果沒有鑰匙，想必很難開啟。當然，這對某個神偷來說不值一提。",
+    "FLAVOR": "A thick and sturdy lock, difficult to open without a key. Of course, this is nothing for a master thief.",
     "DESCRIPTIONS": [
-      "釋放 #y${ModID}:狂氣爆發 後，獲得 #b%d 點 #y${ModID}:臨時 #y力量 。"
+      "After releasing #y${ModID}:Exalt, Obtain #b%d #y${ModID}:Temporary Strength."
     ]
   },
   "${ModID}:Neurotoxin": {
@@ -47,16 +47,16 @@
   },
   "${ModID}:SuspiciousOintment": {
     "NAME": "Suspicious Ointment",
-    "FLAVOR": "某種自製的外傷藥膏，請不要在沒有醫生指導的情況下使用。",
+    "FLAVOR": "Some kind of homemade ointment for external injuries. Do not use without a doctor's guidance.",
     "DESCRIPTIONS": [
-      "回合結束時每有 #b%d 張手牌，對所有敵人施加 #b%d 層 #p中毒 。"
+      "At turn end, for each card in hand, inflict #b%d stacks of #pPoison on all enemies."
     ]
   },
   "${ModID}:ButterflySpecimen": {
     "NAME": "Butterfly Specimen",
     "FLAVOR": "To this day, he is still deeply loved by someone.",
     "DESCRIPTIONS": [
-      "When causing HP healing, also grants #b%d #yBlock. After the start of the #b%d turn, gain #b%d #yDexterity."
+      "When causing HP healing, also grants #b%d #yBlock. After the start of the #b3rd turn, gain #b%d #yDexterity."
     ]
   },
   "${ModID}:ActiveInjector": {
@@ -66,9 +66,9 @@
   },
   "${ModID}:PrasnoMirror": {
     "NAME": "Prasno Mirror",
-    "FLAVOR": "光與影的戲法。",
+    "FLAVOR": "The trick of Light and Shadow",
     "DESCRIPTIONS": [
-      "回合開始時抽 #b%d 張牌。戰鬥開始時，將 #b%d 張「靈感」洗入抽牌堆。每通過 #b%d 場戰鬥都會使洗入的「靈感」增加 #b%d 張，最多提高到 #b%d 張。"
+      "At the turn start, draw #b%d cards. At the start of the combat, shuffle #b%d \"Insight\" into your Draw Pile. Each #b%d battle will increase the number of \"Insight\" cards shuffled into Draw Pile by #b%d, up to #b%d cards."
     ]
   },
   "${ModID}:StellarBrew": {

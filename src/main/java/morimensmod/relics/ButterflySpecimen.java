@@ -11,7 +11,6 @@ public class ButterflySpecimen extends AbstractEasyRelic {
 
     private static final int BLOCK_PER_HEAL = 4;
     private static final int DEXTERITY = 1;
-    private static final int DEXTERITY_TURN = 3;
 
     public ButterflySpecimen() {
         super(ID, RelicTier.UNCOMMON, LandingSound.HEAVY);
@@ -33,7 +32,7 @@ public class ButterflySpecimen extends AbstractEasyRelic {
     public void atTurnStart() {
         if (counter != -1)
             counter++;
-        if (counter == DEXTERITY_TURN) {
+        if (counter == 3) {
             flash();
             applyToSelf(new DexterityPower(p(), DEXTERITY));
             counter = -1;
@@ -47,6 +46,6 @@ public class ButterflySpecimen extends AbstractEasyRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(DESCRIPTIONS[0], BLOCK_PER_HEAL, DEXTERITY_TURN, DEXTERITY);
+        return String.format(DESCRIPTIONS[0], BLOCK_PER_HEAL, DEXTERITY);
     }
 }
