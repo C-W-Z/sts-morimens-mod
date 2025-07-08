@@ -5,7 +5,7 @@
   },
   "${ModID}:SealPower": {
     "NAME": "Seal",
-    "DESCRIPTIONS": ["Unable to unleash #yExalt. Reduced #b%d stack(s) at turn start."]
+    "DESCRIPTIONS": ["Unable to unleash #yExalt. Reduced #b%d stack at turn start."]
   },
   "${ModID}:TraumaPower": {
     "NAME": "Trauma",

@@ -107,26 +107,26 @@
   {
     "PROPER_NAME": "Seal [${ModID}:SealIcon]",
     "NAMES": ["Seal", "Sealed"],
-    "DESCRIPTION": "Unable to unleash #yExalt. Reduced #b1 stack(s) at turn start."
+    "DESCRIPTION": "Unable to unleash #yExalt. Reduced #b1 stack at turn start."
   },
   {
-    "PROPER_NAME": " #yPersistent ",
-    "NAMES": ["Persistent"],
+    "PROPER_NAME": "Persistent",
+    "NAMES": ["Persistent", "persistent"],
     "DESCRIPTION": "Remain in the deck after the battle ends."
   },
   {
     "PROPER_NAME": "Destroy",
-    "NAMES": ["Destroy"],
+    "NAMES": ["Destroy", "destroy"],
     "DESCRIPTION": "Once played, it is permanently removed from the deck."
   },
   {
     "PROPER_NAME": "Prepare (Ｘ)",
-    "NAMES": ["Prepare"],
+    "NAMES": ["Prepare", "prepare"],
     "DESCRIPTION": "At turn end, [E] costs #bX less. This effect triggers even if discarded."
   },
   {
     "PROPER_NAME": "#bAftershock",
-    "NAMES": ["Aftershock"],
+    "NAMES": ["Aftershock", "aftershock"],
     "DESCRIPTION": "Trigger the #bAftershock effect when discarded."
   },
   {
@@ -136,42 +136,42 @@
   },
   {
     "PROPER_NAME": "Passive",
-    "NAMES": ["Passive"],
+    "NAMES": ["Passive", "passive"],
     "DESCRIPTION": "When combat begins, the #yPassive effect is automatically triggered."
   },
   {
     "PROPER_NAME": "Delay",
-    "NAMES": ["Delay"],
+    "NAMES": ["Delay", "delay"],
     "DESCRIPTION": "Trigger at the start of next turn."
   },
   {
     "PROPER_NAME": "Phantasm",
-    "NAMES": ["Phantasm"],
+    "NAMES": ["Phantasm", "phantasm"],
     "DESCRIPTION": "Each time you play another card, reduce this card's [E] cost by #b1 for the next play; after playing this card, return it to your hand and increase its [E] cost by #b1, reset at the turn ends or when discarded."
   },
   {
-    "PROPER_NAME": "#b靜海",
-    "NAMES": ["靜海", "靜海姿態", "靜海狀態"],
+    "PROPER_NAME": "#bTranquil Sea",
+    "NAMES": ["Tranquil Sea", "tranquil_sea"],
     "DESCRIPTION": "獨屬於 #b深海界域 的 姿態 ，進入 #y靜海 姿態 時，會獲得 格擋 ，但當回合 #y觸腕傷害 減半。"
   },
   {
     "PROPER_NAME": "Negentropy [${ModID}:NegentropyIcon]",
-    "NAMES": ["Negentropy"],
-    "DESCRIPTION": "每當擁有 #b3 層 #y負熵 時，打出擁有 #y回環 效果的卡牌，將消耗 #b3 層 #y負熵 並觸發 #y回環 效果， #y負熵 最多堆疊 #b3 層，會繼承至下場戰鬥。"
+    "NAMES": ["Negentropy", "negentropy"],
+    "DESCRIPTION": "With #b3 stacks of #yNegentropy, using a card with #yLoop effect consumes #b3 stacks of #yNegentropy and trigger the #yLoop effect. #yNegentropy can be stacked up to #b3 and will be carried over to the next battle."
   },
   {
     "PROPER_NAME": "Loop [${ModID}:LoopIcon]",
-    "NAMES": ["Loop"],
-    "DESCRIPTION": "環行·拉蒙娜 #y指令卡 獨有的額外效果，擁有 #b3 層 #y負熵 時觸發。"
+    "NAMES": ["Loop", "loop"],
+    "DESCRIPTION": "Unique additional effect of #yRamona:Timeworm's #yCommand #yCard, triggered when there are #b3 stacks of #yNegentropy."
   },
   {
     "PROPER_NAME": " #pTerminus Stance ",
-    "NAMES": ["Terminus Stance", "Terminus_Stance"],
+    "NAMES": ["Terminus Stance", "terminus_stance"],
     "DESCRIPTION": "獨屬於 #r熔毀·朵爾 的 姿態 ，當「 #p終末 」達到 #b10 層時會自動將 #b1 張「 #y虛無終結 」置入手中。打出「 #y虛無終結 」進入 #p終末型態 。"
   },
   {
     "PROPER_NAME": "#rElation（Ｘ） [${ModID}:ElationIcon]",
-    "NAMES": ["Elation"],
-    "DESCRIPTION": "造成的基礎傷害、基礎 #p中毒 、基礎 #b荊棘 、基礎 #y觸腕傷害 提高 #bX% 。回合開始時減少 #b1 層。"
+    "NAMES": ["Elation", "elation"],
+    "DESCRIPTION": "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle_Damage by #bX%. Reduces #b1 stack at turn start."
   }
 ]
