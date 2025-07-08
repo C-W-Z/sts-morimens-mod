@@ -63,18 +63,18 @@
     "TEXT": ["Keyflare"]
   },
   "${ModID}:DeathResistancePatch": {
-    "TEXT": ["Death Resistance"]
+    "TEXT": ["Death Resist!"]
   },
   "${ModID}:DeathResistanceUI": {
     "TEXT": [
-      "#yDeathResistance",
+      "DeathResistance",
       "生命歸零時會嘗試觸發 #y死亡抵抗 ，機率為當前 #y死亡抵抗 的數值，若超過 #b100% 則必定觸發。 NL 觸發 #y死亡抵抗 後，免疫本次死亡並將生命變為 #b1 點，然後將 #y死亡抵抗 的數值減半，本次探索中後續所有增加的 #y死亡抵抗 數值也減半。"
     ]
   },
   "${ModID}:AliemusUI": {
-    "TEXT": [" #y", "（狂氣爆發） ", " #r", "（超限爆發） "],
+    "TEXT": ["", " (Exalt)", "", " #r(Over-Exaltaion)"],
     "EXTRA_TEXT": [
-      " #y狂氣 / #y狂氣上限 ",
+      "Aliemus / Aliemus Limit",
       "最多可以儲存 #b2 倍上限的 #y狂氣 。 NL #y狂氣 達到上限時，點擊 #g右鍵 可以釋放 #y狂氣爆發 。 NL #y狂氣 達到 #b2 倍上限時，點擊 #g右鍵 將會改為釋放 #r超限爆發 。 NL 一回合只能釋放一次 #y狂氣爆發 或 #r超限爆發 。 NL 當前 #y狂氣回充 ： #b",
       "每回合釋放 #r狂氣爆發 或 #r超限爆發 的 #r次數用完了 。",
       " #r狂氣不足 。",
@@ -83,9 +83,9 @@
     ]
   },
   "${ModID}:KeyflareUI": {
-    "TEXT": [" #y", "（鑰令） "],
+    "TEXT": ["", " (Posse)"],
     "EXTRA_TEXT": [
-      " #y鑰能 / #y鑰能上限 ",
+      "Keyflare / Keyflare Limit",
       "最多可以儲存 #b2 倍上限的 #y銀鑰能量 。 NL #y鑰能 達到上限時，點擊 #g右鍵 可以釋放 #y鑰令 。 NL 每回合可以釋放 #b2 次 #y鑰令 ，但第 #b2 次會改為從 #b3 個隨機 #y鑰令 中選擇 #b1 個釋放，且選擇的 #y鑰令 在本次戰鬥中無法再被選擇。 NL 當前 #y銀鑰充能 ： #b",
       "每回合釋放 #r鑰令 的 #r次數用完了 。",
       " #r鑰能不足 。",
@@ -106,24 +106,24 @@
   },
   "${ModID}:MundusDecree": {
     "TEXT": [
-      "世界演繹法",
-      "獲得 #b200 點 #y銀鑰能量 。選擇 #b1 張抽牌堆或棄牌堆的牌置入手牌，使其 [E] 消耗變為 #b0 點。將 #b1 張「 #y靈感 」洗入抽牌堆。"
+      "Mundus Decree",
+      "Obtain #b200 #yKeyflare. Choose #b1 card from the Draw Pile or Discard Pile and add it to your hand, reducing its [E] cost to #b0. Shuffle #b1 \"Insight\" into the Draw Pile."
     ],
     "EXTRA_TEXT": [
-      "無限思維迷宮",
-      "在「 #y世界演繹法 」的基礎上， #p虛弱 和 #r易傷 所有敵人 #b1 回合，下次消耗 #y銀鑰能量 釋放的 #y鑰令 生效 #b2 次。"
+      "#rLabyrinth #rof #rThought",
+      "Based on \"Mundus Decree\", apply #pWeak and #rVulnerable to all enemies for #b1 turn. The next #yPosse released by consuming #yKeyflare will take effect twice."
     ]
   },
   "${ModID}:BeastOfChaos": {
     "TEXT": [
-      "混沌之獸",
-      "移除自身 #p虛弱 狀態。對所有敵人造成 #b",
-      " 點傷害 #b2 次。在本場戰鬥中每打出一張「 #y打擊 」便使傷害 #b+",
-      " 。將 #b2 張附加 #y消耗 和 #y虛無 的「 #y打擊 」置入手中。"
+      "Beast of Chaos",
+      "Dispel self #pWeak state. Deal #b",
+      " damage to all enemies #b2 times. In this battle, for each #yStrike played, increase damage by #b",
+      ". Add #b2 \"Strike\" with #yExhaust and #yEthereal to your hand."
     ],
     "EXTRA_TEXT": [
-      "直至星球終結",
-      "在「 #y混沌之獸 」的基礎上，對所有敵人追加 #b1 次 #b15% 目標最大生命的 #y固定傷害 。本場戰鬥中「 #y混沌之獸 」的基礎傷害提高 #b100% 。"
+      "#rUntil #rthe #rPlanet's #rEnd",
+      "Base on \"Beast of Chaos\", Deal an additional #yFixed #yDamage equal to #b15% of the target's Max HP to all enemies. The Base Damage of \"Beast of Chaos\" is increased by #b100% for this battle."
     ]
   },
   "${ModID}:TerminalGateWayOfTruthAndAbyss": {

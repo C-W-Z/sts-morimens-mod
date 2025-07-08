@@ -16,12 +16,12 @@
   },
   "${ModID}:PosseTwicePower": {
     "NAME": "Dual Posse",
-    "DESCRIPTIONS": ["Make the next #b%d #yPosse released by consuming #yKeyflare will take effect twice."]
+    "DESCRIPTIONS": ["The next #b%d #yPosse released by consuming #yKeyflare will take effect twice."]
   },
   "${ModID}:OnlyUnlimitedPosseTwicePower": {
     "NAME": "Dual Posse",
     "DESCRIPTIONS": [
-      "Make the next #b%d #yPosse released without consuming #yKeyflare will take effect twice."
+      "The next #b%d #yPosse released without consuming #yKeyflare will take effect twice."
     ]
   },
   "${ModID}:NegentropyPower": {

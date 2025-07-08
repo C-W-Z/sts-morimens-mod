@@ -1,22 +1,22 @@
 [
   {
     "PROPER_NAME": "Chaos Realm",
-    "NAMES": ["Chaos Realm", "Chaos_Realm", "Chaos"],
+    "NAMES": ["Chaos Realm", "chaos_realm", "chaos"],
     "DESCRIPTION": "One of the four realms."
   },
   {
-    "PROPER_NAME": "#rCaro Realm",
-    "NAMES": ["Caro Realm", "Caro_Realm", "Caro"],
+    "PROPER_NAME": "#rCaro #rRealm",
+    "NAMES": ["Caro Realm", "caro_realm", "caro"],
     "DESCRIPTION": "One of the four realms."
   },
   {
-    "PROPER_NAME": "#bAequer Realm",
-    "NAMES": ["Aequer Realm", "Aequer_Realm", "Aequer"],
+    "PROPER_NAME": "#bAequer #bRealm",
+    "NAMES": ["Aequer Realm", "aequer_realm", "aequer"],
     "DESCRIPTION": "One of the four realms."
   },
   {
-    "PROPER_NAME": "#pUltra Realm",
-    "NAMES": ["Ultra Realm", "Ultra_Realm", "Ultra"],
+    "PROPER_NAME": "#pUltra #pRealm",
+    "NAMES": ["Ultra Realm", "ultra_realm", "ultra"],
     "DESCRIPTION": "One of the four realms."
   },
   {
@@ -52,7 +52,7 @@
   {
     "PROPER_NAME": "Defend",
     "NAMES": ["Defend", "defend"],
-    "DESCRIPTION": "Basic #yDefend cards and all cards that are considered \"#yDefend\"."
+    "DESCRIPTION": "Basic #yDefend cards and all cards that counts as #yDefend."
   },
   {
     "PROPER_NAME": "#gRealm Mastery [${ModID}:RealmMasteryIcon]",
@@ -150,9 +150,9 @@
     "DESCRIPTION": "Each time you play another card, reduce this card's [E] cost by #b1 for the next play; after playing this card, return it to your hand and increase its [E] cost by #b1, reset at the turn ends or when discarded."
   },
   {
-    "PROPER_NAME": "#bTranquil Sea",
+    "PROPER_NAME": "#bTranquil #bSea",
     "NAMES": ["Tranquil Sea", "tranquil_sea"],
-    "DESCRIPTION": "獨屬於 #b深海界域 的 姿態 ，進入 #y靜海 姿態 時，會獲得 格擋 ，但當回合 #y觸腕傷害 減半。"
+    "DESCRIPTION": "A stance unique to the #bAequer #bRealm. When entering the #bTranquil #bSea #ystance, you gain #yBlock, but the #yTentacle #yDamage is halved during that turn."
   },
   {
     "PROPER_NAME": "Negentropy [${ModID}:NegentropyIcon]",
@@ -165,12 +165,12 @@
     "DESCRIPTION": "Unique additional effect of #yRamona:Timeworm's #yCommand #yCard, triggered when there are #b3 stacks of #yNegentropy."
   },
   {
-    "PROPER_NAME": " #pTerminus Stance ",
+    "PROPER_NAME": "#pTerminus #pStance",
     "NAMES": ["Terminus Stance", "terminus_stance"],
     "DESCRIPTION": "獨屬於 #r熔毀·朵爾 的 姿態 ，當「 #p終末 」達到 #b10 層時會自動將 #b1 張「 #y虛無終結 」置入手中。打出「 #y虛無終結 」進入 #p終末型態 。"
   },
   {
-    "PROPER_NAME": "#rElation（Ｘ） [${ModID}:ElationIcon]",
+    "PROPER_NAME": "#rElation #r(X) [${ModID}:ElationIcon]",
     "NAMES": ["Elation", "elation"],
     "DESCRIPTION": "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle_Damage by #bX%. Reduces #b1 stack at turn start."
   }

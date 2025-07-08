@@ -56,16 +56,16 @@
   },
   "${ModID}:EphemeralEternity": {
     "NAME": "Ephemeral Eternity",
-    "DESCRIPTION": "獲得 1 點 [E] 。將 1 張「打擊」與 1 張「防禦」的原始複製置入手中，並使他們獲得 消耗 、 虛無 。 NL 若當前界域為 「 ${ModID}:超維 」，則額外獲得 2 點 ${ModID}:Temporary Strength 與 1 點 ${ModID}:Temporary 敏捷 。",
+    "DESCRIPTION": "Obtain [E]. Place 1 Base Copy of \"Strike\" and 1 Base Copy of \"Defend\" into hand, and grants then Exhaust, Ethereal. NL If the current Realm is ${ModID}:Ultra, gain additional 2 ${ModID}:Temporary Strength and 1 ${ModID}:Temporary Dexterity.",
     "EXTENDED_DESCRIPTION": [
-      "獲得 #b1 點 [E] 。將 #b1 張「 #y打擊 」與 #b1 張「 #y防禦 」的原始複製置入手中，並使他們獲得 #y消耗 、 #y虛無 。 NL 若當前界域為 「 #p超維 」，則額外獲得 #b2 點 #yTemporary #yStrength 與 #b1 點 #yTemporary #y敏捷 。"
+      "Obtain [E]. Place #b1 Base Copy of \"Strike\" and #b1 Base Copy of \"Defend\" into hand, and grants then #yExhaust, #yEthereal. NL If the current Realm is #pUltra, gain additional #b2 #yTemporary #yStrength and #b1 #yTemporary #yDexterity."
     ]
   },
   "${ModID}:GatewayOfRetrospection": {
     "NAME": "Gateway of Retrospection",
-    "DESCRIPTION": "從抽牌堆選擇 1 張牌加入手中，並使其 [E] 消耗降低 1 點。",
+    "DESCRIPTION": "Choose 1 card from the Draw Pile to move to your hand, and reduce the [E] cost by 1.",
     "EXTENDED_DESCRIPTION": [
-      "從抽牌堆選擇 #b1 張牌加入手中，並使其 [E] 消耗降低 #b1 點。"
+      "Choose #b1 card from the Draw Pile to move to your hand, and reduce the [E] cost by #b1."
     ]
   },
   "${ModID}:AGunsCry": {
@@ -77,9 +77,9 @@
   },
   "${ModID}:FestivalOfTides": {
     "NAME": "Festival of Tides",
-    "DESCRIPTION": "抽 2 張牌，獲得 2 點 [E] ，失去 5 點 ${ModID}:Aliemus 。若當前處於「 ${ModID}:靜海 」姿態，對所有敵人施加 5 層 中毒 ，在首領戰中發揮 3 倍效果。",
+    "DESCRIPTION": "Draw 2 cards，obtain 2 [E] , lose 5 ${ModID}:Aliemus. If currently in the ${ModID}:Tranquil_Sea stance, inflict 5 Poison on all enemies, with 3 times the effect in Boss Battles.",
     "EXTENDED_DESCRIPTION": [
-      "抽 #b2 張牌，獲得 #b2 點 [E] ，失去 #b5 點 #yAliemus 。若當前處於「 #y靜海 」姿態，對所有敵人施加 #b5 層 #p中毒 ，在首領戰中發揮 #b3 倍效果。"
+      "Draw #b2 cards，obtain #b2 [E] , lose #b5 #yAliemus. If currently in the #yTranquil_Sea stance, inflict #b5 #pPoison on all enemies, with #b3 times the effect in Boss Battles."
     ]
   },
   "${ModID}:Strike": {
