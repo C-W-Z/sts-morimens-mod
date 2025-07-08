@@ -1,9 +1,6 @@
 {
-    "${ModID}:DemoPotion": {
-        "NAME": "Awesome Demo Potion",
-        "DESCRIPTIONS": [
-            "Gain #b",
-            " #yStrength."
-        ]
-    }
+  "${ModID}:AntidotePotion": {
+    "NAME": "Antidote Potion",
+    "DESCRIPTIONS": ["Remove all #yPosion"]
+  }
 }

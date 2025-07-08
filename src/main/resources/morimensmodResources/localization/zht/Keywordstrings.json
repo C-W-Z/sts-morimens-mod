@@ -1,21 +1,21 @@
 [
   {
-    "PROPER_NAME": "#r混沌（界域）",
+    "PROPER_NAME": "混沌界域",
     "NAMES": ["混沌", "混沌界域"],
     "DESCRIPTION": "四大界域之一。"
   },
   {
-    "PROPER_NAME": "#r血肉（界域）",
+    "PROPER_NAME": "#r血肉界域",
     "NAMES": ["血肉", "血肉界域"],
     "DESCRIPTION": "四大界域之一。"
   },
   {
-    "PROPER_NAME": "#b深海（界域）",
+    "PROPER_NAME": "#b深海界域",
     "NAMES": ["深海", "深海界域"],
     "DESCRIPTION": "四大界域之一。"
   },
   {
-    "PROPER_NAME": "#p超維（界域）",
+    "PROPER_NAME": "#p超維界域",
     "NAMES": ["超維", "超維界域"],
     "DESCRIPTION": "四大界域之一。"
   },
@@ -111,7 +111,7 @@
   },
   {
     "PROPER_NAME": "永久保留",
-    "NAMES": ["永久保留", "戰鬥結束後仍會保存在牌庫中"],
+    "NAMES": ["永久保留", "戰鬥結束後仍會保存在牌庫中", "Persistent"],
     "DESCRIPTION": "戰鬥結束後仍會保存在牌庫中"
   },
   {

@@ -1,9 +1,108 @@
 {
-  "${ModID}:StellarBrew": {
-    "NAME": "群星之酒",
-    "FLAVOR": "Wandering among the stars.",
+  "${ModID}:ChaosRelic": {
+    "NAME": "Chaos Realm",
+    "FLAVOR": "Cosmic Phenomena",
     "DESCRIPTIONS": [
-      "Every 8th command card you play will take effect twice."
+      "At the end of the turn, gain #b%d #y${ModID}:Keyflare. For every #b%d points of #g${ModID}:Realm_Mastery you have, after releasing a #y${ModID}:Posse, you gain #b%d #y${ModID}:Aliemus.",
+      " NL Current #gRealm_Mastery: #b%d NL Current #yAliemus gain after releasing #yPosse: #b%d"
+    ]
+  },
+  "${ModID}:RamonaRelic": {
+    "NAME": "Silverheart Resonance",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "Gain #b%d #y${ModID}:Keyflare at the start of combat. For every #b%d #y${ModID}:Command_Card played, the #y${ModID}:Keyflare_Regen increases by #b%d in this battle."
+    ]
+  },
+  "${ModID}:LotanRelic": {
+    "NAME": "Sword Unleashed",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "Base #yStrike Damage #b+%d%%. After each time attacks, Base Damage of cards in this battle #b+%d%%."
+    ]
+  },
+  "${ModID}:KleinBottleVoyager": {
+    "NAME": "Lost Resonance",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "After releasing a #y${ModID}:Posse, gain #b%d #y${ModID}:Temporary #yStrength."
+    ]
+  },
+  "${ModID}:LaurelCufflinks": {
+    "NAME": "Laurel Cufflinks",
+    "FLAVOR": "Silver cufflinks engraved with osmanthus leaf patterns. Finely crafted and gleaming, they.",
+    "DESCRIPTIONS": ["gains #b%d #y${ModID}:Aliemus after the turn starts."]
+  },
+  "${ModID}:HeavyLock": {
+    "NAME": "Heavy Lock",
+    "FLAVOR": "A thick and sturdy lock, difficult to open without a key. Of course, this is nothing for a master thief.",
+    "DESCRIPTIONS": [
+      "After releasing #y${ModID}:Exalt, Obtain #b%d #y${ModID}:Temporary Strength."
+    ]
+  },
+  "${ModID}:Neurotoxin": {
+    "NAME": "Neurotoxin",
+    "FLAVOR": "Extract, Refine.",
+    "DESCRIPTIONS": ["#yStrike applies #b%d stacks of #pPoison to all enemies."]
+  },
+  "${ModID}:SuspiciousOintment": {
+    "NAME": "Suspicious Ointment",
+    "FLAVOR": "Some kind of homemade ointment for external injuries. Do not use without a doctor's guidance.",
+    "DESCRIPTIONS": [
+      "At turn end, for each card in hand, inflict #b%d stacks of #pPoison on all enemies."
+    ]
+  },
+  "${ModID}:ButterflySpecimen": {
+    "NAME": "Butterfly Specimen",
+    "FLAVOR": "To this day, he is still deeply loved by someone.",
+    "DESCRIPTIONS": [
+      "When causing HP healing, also grants #b%d #yBlock. After the start of the #b3rd turn, gain #b%d #yDexterity."
+    ]
+  },
+  "${ModID}:ActiveInjector": {
+    "NAME": "Active Injector",
+    "FLAVOR": "Twitching is also a form of vitality.",
+    "DESCRIPTIONS": ["Max [E] increased by #b%d."]
+  },
+  "${ModID}:PrasnoMirror": {
+    "NAME": "Prasno Mirror",
+    "FLAVOR": "The trick of Light and Shadow",
+    "DESCRIPTIONS": [
+      "At the turn start, draw #b%d cards. At the start of the combat, shuffle #b%d \"Insight\" into your Draw Pile. Each #b%d battle will increase the number of \"Insight\" cards shuffled into Draw Pile by #b%d, up to #b%d cards."
+    ]
+  },
+  "${ModID}:StellarBrew": {
+    "NAME": "Stellar Brew",
+    "FLAVOR": "Wandering among the stars.",
+    "DESCRIPTIONS": ["Every #b8th #y${ModID}:Command_Card you play will take effect twice."]
+  },
+  "${ModID}:PrototypeBattery": {
+    "NAME": "Prototype Battery",
+    "FLAVOR": "Portable Hope",
+    "DESCRIPTIONS": [
+      "At the turn ends, gain #b%d #y${ModID}:Aliemus. For each remaining [E] , gain #b%d additional #y${ModID}:Aliemus."
+    ]
+  },
+  "${ModID}:PriestsStaff": {
+    "NAME": "祭司權杖",
+    "FLAVOR": "不被許可的虔誠。",
+    "DESCRIPTIONS": [
+      "對處於負面狀態的敵人造成的傷害提高 #b%d%% ，擊殺敵人後獲得 #b%d #y${ModID}:Aliemus."
+    ]
+  },
+  "${ModID}:AshesOfTheBurningBlackStar": {
+    "NAME": "Ashes of the Burning Black Star",
+    "FLAVOR": "The embers still glow.",
+    "DESCRIPTIONS": [
+      "When picked, choose #b%d #y${ModID}:Command_Cards to Delete. At the start of each combat, Obtain #b%d #yStrength.",
+      "Choose %d cards to Delete."
+    ]
+  },
+  "${ModID}:BlackCandle": {
+    "NAME": "Black Candle",
+    "FLAVOR": "Burn in clarity, fall into illusion.",
+    "DESCRIPTIONS": [
+      "Max [E] increased by #b%d. Each time the deck is reset, add #b%d \"Stagger\" to the Draw Pile."
     ]
   }
 }

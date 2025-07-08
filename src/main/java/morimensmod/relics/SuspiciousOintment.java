@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.powers.PoisonPower;
 public class SuspiciousOintment extends AbstractEasyRelic {
     public static final String ID = makeID(SuspiciousOintment.class.getSimpleName());
 
-    private static final int PER_N_HAND = 1;
     private static final int POISON_PER_CARD = 1;
 
     public SuspiciousOintment() {
@@ -18,13 +17,13 @@ public class SuspiciousOintment extends AbstractEasyRelic {
 
     @Override
     public void onPlayerEndTurn() {
-        int poison = hand().size() * POISON_PER_CARD / PER_N_HAND;
+        int poison = hand().size() * POISON_PER_CARD;
         flash();
         addToBot(new AllEnemyApplyPowerAction(p(), poison, (mo) -> new PoisonPower(mo, p(), poison)));
     }
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(DESCRIPTIONS[0], PER_N_HAND, POISON_PER_CARD);
+        return String.format(DESCRIPTIONS[0], POISON_PER_CARD);
     }
 }

@@ -1,17 +1,177 @@
 [
   {
-    "PROPER_NAME": "TODO",
-    "NAMES": [
-      "todo",
-      "todos"
-    ],
-    "DESCRIPTION": "TODO: Make your own epic keywords"
+    "PROPER_NAME": "Chaos Realm",
+    "NAMES": ["Chaos Realm", "chaos_realm", "chaos"],
+    "DESCRIPTION": "One of the four realms."
   },
   {
-    "PROPER_NAME": " #yPersistent ",
-    "NAMES": [
-      "Persistent"
-    ],
+    "PROPER_NAME": "#rCaro #rRealm",
+    "NAMES": ["Caro Realm", "caro_realm", "caro"],
+    "DESCRIPTION": "One of the four realms."
+  },
+  {
+    "PROPER_NAME": "#bAequer #bRealm",
+    "NAMES": ["Aequer Realm", "aequer_realm", "aequer"],
+    "DESCRIPTION": "One of the four realms."
+  },
+  {
+    "PROPER_NAME": "#pUltra #pRealm",
+    "NAMES": ["Ultra Realm", "ultra_realm", "ultra"],
+    "DESCRIPTION": "One of the four realms."
+  },
+  {
+    "PROPER_NAME": "Buff Card",
+    "NAMES": ["Buff Card", "Buff_Card", "Buff_card", "Buff_cards", "buff_card", "buff_cards"],
+    "DESCRIPTION": "A type of card that is not routinely available and is usually beneficial to the player."
+  },
+  {
+    "PROPER_NAME": "Wheel of Destiny",
+    "NAMES": ["Wheel of Destiny", "wheel_of_destiny"],
+    "DESCRIPTION": "In Morimens, a special card type consisting entirely of #yAbility cards."
+  },
+  {
+    "PROPER_NAME": "Command Card",
+    "NAMES": ["Command Card", "command_card", "command_cards"],
+    "DESCRIPTION": "The most common card type in Eve of Forgotten consists of #yAttack and #ySkill cards."
+  },
+  {
+    "PROPER_NAME": "Rouse Card",
+    "NAMES": ["Rouse Card", "rouse_card", "rouse_cards"],
+    "DESCRIPTION": "In Morimens, a special card type consisting entirely of #yAbility cards."
+  },
+  {
+    "PROPER_NAME": "Symptom Card",
+    "NAMES": ["Symptom Card", "symptom_card", "symptom_cards"],
+    "DESCRIPTION": "A type of card that is not routinely available and is generally harmful to the player."
+  },
+  {
+    "PROPER_NAME": "State Card",
+    "NAMES": ["State Card", "state_card", "state_cards"],
+    "DESCRIPTION": "A type of card that is not normally obtainable and is usually harmful to the player. Usually obtained from enemies."
+  },
+  {
+    "PROPER_NAME": "Defend",
+    "NAMES": ["Defend", "defend"],
+    "DESCRIPTION": "Basic #yDefend cards and all cards that counts as #yDefend."
+  },
+  {
+    "PROPER_NAME": "#gRealm Mastery [${ModID}:RealmMasteryIcon]",
+    "NAMES": ["Realm Mastery", "realm_mastery"],
+    "DESCRIPTION": "Improves the effect of the initial relics of the realm."
+  },
+  {
+    "PROPER_NAME": "Aliemus [${ModID}:AliemusIcon]",
+    "NAMES": ["Aliemus", "aliemus"],
+    "DESCRIPTION": "When the upper limit is reached, you can unleash #yExalt, and when the #yAliemus reaches #b2 times the upper limit, you can unleash #rOver-Exlataion. Usually, you can only release #yExalt or #rOver-Exlataion once per turn."
+  },
+  {
+    "PROPER_NAME": "Aliemus Regen [${ModID}:AliemusIcon]",
+    "NAMES": ["Aliemus Regen", "Aliemus_Regen"],
+    "DESCRIPTION": "After unleashing #yExalt or #rOver-Exaltation, you will automatically gain #yAliemus equal to the #yAliemus #yRegen attribute value."
+  },
+  {
+    "PROPER_NAME": "Exalt [${ModID}:AliemusIcon]",
+    "NAMES": ["Exalt", "exalt"],
+    "DESCRIPTION": "Ability unleashed by consuming #yAliemus."
+  },
+  {
+    "PROPER_NAME": "#rOver-Exaltation [${ModID}:AliemusIcon]",
+    "NAMES": ["Over-Exaltation", "over-exaltation"],
+    "DESCRIPTION": "An enhanced version of #yExalt."
+  },
+  {
+    "PROPER_NAME": "Keyflare [${ModID}:KeyflareIcon]",
+    "NAMES": ["Keyflare", "keyflare"],
+    "DESCRIPTION": "Consuming [E] will gain #yKeyflare. The #yKeyflare #yRegen attribute determines how much #yKeyflare you gain for every #b1 [E] you consume."
+  },
+  {
+    "PROPER_NAME": "Keyflare Regen [${ModID}:KeyflareIcon]",
+    "NAMES": ["Keyflare Regen", "keyflare_regen"],
+    "DESCRIPTION": "The #yKeyflare #yRegen attribute determines how much #yKeyflare you gain each time you spend #b1 [E]."
+  },
+  {
+    "PROPER_NAME": "Posse",
+    "NAMES": ["Posse", "posse"],
+    "DESCRIPTION": "When #yKeyflare reaches #b1000, you can release #yPosse you carried. You can release #yPosse #b2 times per turn. At the #bsecond time, you may only choose #b1 out of #b3 random #yPosse, and the selected #yPosse cannot be selected again in same combat."
+  },
+  {
+    "PROPER_NAME": "Temporary",
+    "NAMES": ["Temporary", "temporary", "temp", "tmp"],
+    "DESCRIPTION": "The effect is only for this round."
+  },
+  {
+    "PROPER_NAME": "Permanent Strength",
+    "NAMES": ["Permanent Strength", "permanent_strength"],
+    "DESCRIPTION": "Non #yTemporary #yStrength, that is, #yStrength amount minus #yFlex amount."
+  },
+  {
+    "PROPER_NAME": "Seal [${ModID}:SealIcon]",
+    "NAMES": ["Seal", "Sealed"],
+    "DESCRIPTION": "Unable to unleash #yExalt. Reduced #b1 stack at turn start."
+  },
+  {
+    "PROPER_NAME": "Persistent",
+    "NAMES": ["Persistent", "persistent"],
     "DESCRIPTION": "Remain in the deck after the battle ends."
+  },
+  {
+    "PROPER_NAME": "Destroy",
+    "NAMES": ["Destroy", "destroy"],
+    "DESCRIPTION": "Once played, it is permanently removed from the deck."
+  },
+  {
+    "PROPER_NAME": "Prepare (Ｘ)",
+    "NAMES": ["Prepare", "prepare"],
+    "DESCRIPTION": "At turn end, [E] costs #bX less. This effect triggers even if discarded."
+  },
+  {
+    "PROPER_NAME": "#bAftershock",
+    "NAMES": ["Aftershock", "aftershock"],
+    "DESCRIPTION": "Trigger the #bAftershock effect when discarded."
+  },
+  {
+    "PROPER_NAME": "Pierce Damage",
+    "NAMES": ["Pierce Damage", "Pierce_Damage", "Pierce_damage", "pierce_damage"],
+    "DESCRIPTION": "Damage reduce both #yBlock and HP, Cannot be bloced by #yBarrier."
+  },
+  {
+    "PROPER_NAME": "Passive",
+    "NAMES": ["Passive", "passive"],
+    "DESCRIPTION": "When combat begins, the #yPassive effect is automatically triggered."
+  },
+  {
+    "PROPER_NAME": "Delay",
+    "NAMES": ["Delay", "delay"],
+    "DESCRIPTION": "Trigger at the start of next turn."
+  },
+  {
+    "PROPER_NAME": "Phantasm",
+    "NAMES": ["Phantasm", "phantasm"],
+    "DESCRIPTION": "Each time you play another card, reduce this card's [E] cost by #b1 for the next play; after playing this card, return it to your hand and increase its [E] cost by #b1, reset at the turn ends or when discarded."
+  },
+  {
+    "PROPER_NAME": "#bTranquil #bSea",
+    "NAMES": ["Tranquil Sea", "tranquil_sea"],
+    "DESCRIPTION": "A stance unique to the #bAequer #bRealm. When entering the #bTranquil #bSea #ystance, you gain #yBlock, but the #yTentacle #yDamage is halved during that turn."
+  },
+  {
+    "PROPER_NAME": "Negentropy [${ModID}:NegentropyIcon]",
+    "NAMES": ["Negentropy", "negentropy"],
+    "DESCRIPTION": "With #b3 stacks of #yNegentropy, using a card with #yLoop effect consumes #b3 stacks of #yNegentropy and trigger the #yLoop effect. #yNegentropy can be stacked up to #b3 and will be carried over to the next battle."
+  },
+  {
+    "PROPER_NAME": "Loop [${ModID}:LoopIcon]",
+    "NAMES": ["Loop", "loop"],
+    "DESCRIPTION": "Unique additional effect of #yRamona:Timeworm's #yCommand #yCard, triggered when there are #b3 stacks of #yNegentropy."
+  },
+  {
+    "PROPER_NAME": "#pTerminus #pStance",
+    "NAMES": ["Terminus Stance", "terminus_stance"],
+    "DESCRIPTION": "獨屬於 #r熔毀·朵爾 的 姿態 ，當「 #p終末 」達到 #b10 層時會自動將 #b1 張「 #y虛無終結 」置入手中。打出「 #y虛無終結 」進入 #p終末型態 。"
+  },
+  {
+    "PROPER_NAME": "#rElation #r(X) [${ModID}:ElationIcon]",
+    "NAMES": ["Elation", "elation"],
+    "DESCRIPTION": "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle_Damage by #bX%. Reduces #b1 stack at turn start."
   }
 ]

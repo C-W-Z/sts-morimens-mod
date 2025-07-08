@@ -13,7 +13,6 @@ public class LotanRelic extends AbstractEasyRelic {
     public static final String ID = makeID(LotanRelic.class.getSimpleName());
 
     private static final int STRIKE_BASE_AMPLIFY = 30;
-    private static final int PER_HOW_MANY_ATTACK = 1;
     private static final int BASE_AMPLIFY_PER_ATTACK = 2;
 
     public LotanRelic() {
@@ -42,6 +41,6 @@ public class LotanRelic extends AbstractEasyRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(DESCRIPTIONS[0], STRIKE_BASE_AMPLIFY, PER_HOW_MANY_ATTACK, BASE_AMPLIFY_PER_ATTACK);
+        return String.format(DESCRIPTIONS[0], STRIKE_BASE_AMPLIFY, BASE_AMPLIFY_PER_ATTACK);
     }
 }

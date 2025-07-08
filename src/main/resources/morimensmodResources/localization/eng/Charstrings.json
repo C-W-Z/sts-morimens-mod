@@ -1,12 +1,17 @@
 {
   "${ModID}:Ramona": {
-    "NAMES": [
-      "Ramona",
-      "Ramona"
-    ],
+    "NAMES": ["Ramona", "Ramona"],
     "TEXT": [
-      "An unfinished creation, waiting for an expert to fill the canvas.",
-      "NL TODO: Change this text",
+      "Dexter's adopted daughter and the main character's most trusted investigative partner. NL Having grown up mingling in variuos departments of the academy, NL she possesses a considerable understanding of D-phenomenon, Awakeners, and other related knowledge.",
+      " NL You tightly grasp your silver sword...",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~TODO:~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ]
+  },
+  "${ModID}:Lotan": {
+    "NAMES": ["Lotan", "Lotan"],
+    "TEXT": [
+      "She embodies pure chaos power, an untamed free spirit, and an undefined order. NL Destruction and rule are the powers bestowed upon her by the world; two diametrically opposed instincts clash within her. NL To balance her power, strong enough to tear her apart, she needs to unleash her destructive desire through battle.",
+      " NL You tightly wield your twin swords, one in each hand...",
       "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~TODO:~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
     ]
   }
