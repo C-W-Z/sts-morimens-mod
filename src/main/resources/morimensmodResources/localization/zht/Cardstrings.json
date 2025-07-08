@@ -463,6 +463,10 @@
       "獲得 !${ModID}:A! ${ModID}:狂氣 。首領戰中可使用 !M! 次。剩餘 !stslib:ex! 次。"
     ]
   },
+  "${ModID}:MutatedHeart": {
+    "NAME": "畸變之心",
+    "DESCRIPTION": ""
+  },
   "${ModID}:OctahedronDice": {
     "NAME": "偏方骰子",
     "DESCRIPTION": "投一顆 6 面骰子，獲得等同於骰子點數的 ${ModID}:臨時 力量 。若點數為 4 或更高， 易傷 所有敵人 1 回合。若點數為 6 或更高，獲得的 ${ModID}:臨時 力量 翻倍。",
@@ -558,10 +562,6 @@
     "NAME": "哭喊",
     "DESCRIPTION": "降低所有敵人 !M! 點 ${ModID}:臨時 力量 ，將 !${ModID}:M2! 張「症狀：妄想」置入手牌。",
     "FLAVOR": "很痛嗎？真可憐……哭出來就好啦！"
-  },
-  "${ModID}:MutatedHeart": {
-    "NAME": "畸變之心",
-    "DESCRIPTION": ""
   },
   "${ModID}:Unrestrained": {
     "NAME": "狂放",
