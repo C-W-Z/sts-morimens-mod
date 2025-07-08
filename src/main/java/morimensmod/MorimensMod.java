@@ -117,7 +117,8 @@ public class MorimensMod implements
     private static final String CARD_ENERGY_L = makeImagePath("1024/energy.png");
 
     public static Settings.GameLanguage[] SupportedLanguages = {
-            Settings.GameLanguage.ZHT,
+        Settings.GameLanguage.ENG,
+        Settings.GameLanguage.ZHT,
     };
 
     private String getLangString() {

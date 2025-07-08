@@ -1,9 +1,108 @@
 {
-  "${ModID}:StellarBrew": {
-    "NAME": "群星之酒",
-    "FLAVOR": "Wandering among the stars.",
+  "${ModID}:ChaosRelic": {
+    "NAME": "Chaos Realm",
+    "FLAVOR": "宇宙萬象",
     "DESCRIPTIONS": [
-      "Every 8th command card you play will take effect twice."
+      "回合結束時，獲得 #b%d 點 #y${ModID}:銀鑰能量 。每有 #b%d 點 #g${ModID}:界域精通 ，釋放 #y${ModID}:鑰令 後，獲得 #b%d #y${ModID}:狂氣 。",
+      " NL 當前 #g界域精通 ： #b%d NL 當前釋放 #y鑰令 後獲得 #y狂氣 ： #b%d "
+    ]
+  },
+  "${ModID}:RamonaRelic": {
+    "NAME": "心與銀的共振",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "戰鬥開始時獲得 #b%d 點 #y${ModID}:銀鑰能量 。每打出 #b%d 張 #y${ModID}:指令卡 ，本場戰鬥中 #y${ModID}:銀鑰充能 提高 #b%d 點。"
+    ]
+  },
+  "${ModID}:LotanRelic": {
+    "NAME": "不羈的劍風",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "「 #y打擊 」基礎傷害 #b+%d%% 。每造成 #b%d 次傷害，本場戰鬥中卡牌基礎傷害 #b+%d%% "
+    ]
+  },
+  "${ModID}:KleinBottleVoyager": {
+    "NAME": "克萊茵旅人",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "釋放 #y${ModID}:鑰令 後，獲得 #b%d 點 #y${ModID}:臨時 #y力量 。"
+    ]
+  },
+  "${ModID}:LaurelCufflinks": {
+    "NAME": "桂葉袖扣",
+    "FLAVOR": "印刻了桂葉花紋的銀質袖扣。它做工精緻，閃閃發亮，曾經承載了兩個孩子的友誼。",
+    "DESCRIPTIONS": ["回合開始後，獲得 #b%d #y${ModID}:狂氣 。"]
+  },
+  "${ModID}:HeavyLock": {
+    "NAME": "重鎖",
+    "FLAVOR": "厚實而且堅固的鎖，如果沒有鑰匙，想必很難開啟。當然，這對某個神偷來說不值一提。",
+    "DESCRIPTIONS": [
+      "釋放 #y${ModID}:狂氣爆發 後，獲得 #b%d 點 #y${ModID}:臨時 #y力量 。"
+    ]
+  },
+  "${ModID}:Neurotoxin": {
+    "NAME": "Neurotoxin",
+    "FLAVOR": "提取，淬鍊。",
+    "DESCRIPTIONS": ["「 #y打擊 」對所有敵人施加 #b%d 層 #p中毒 。"]
+  },
+  "${ModID}:SuspiciousOintment": {
+    "NAME": "Suspicious Ointment",
+    "FLAVOR": "某種自製的外傷藥膏，請不要在沒有醫生指導的情況下使用。",
+    "DESCRIPTIONS": [
+      "回合結束時每有 #b%d 張手牌，對所有敵人施加 #b%d 層 #p中毒 。"
+    ]
+  },
+  "${ModID}:ButterflySpecimen": {
+    "NAME": "Butterfly Specimen",
+    "FLAVOR": "至今，他也被誰深深地喜愛著。",
+    "DESCRIPTIONS": [
+      "造成生命回復時也會獲得 #b%d 點 #y格擋 。第 #b%d 回合開始時獲得 #b%d 點 #y敏捷 。"
+    ]
+  },
+  "${ModID}:ActiveInjector": {
+    "NAME": "Active Injector",
+    "FLAVOR": "抽搐也是活性的一種。",
+    "DESCRIPTIONS": ["每回合開始時獲得 [E] 。"]
+  },
+  "${ModID}:PrasnoMirror": {
+    "NAME": "Prasno Mirror",
+    "FLAVOR": "光與影的戲法。",
+    "DESCRIPTIONS": [
+      "回合開始時抽 #b%d 張牌。戰鬥開始時，將 #b%d 張「靈感」洗入抽牌堆。每通過 #b%d 場戰鬥都會使洗入的「靈感」增加 #b%d 張，最多提高到 #b%d 張。"
+    ]
+  },
+  "${ModID}:StellarBrew": {
+    "NAME": "Stellar Brew",
+    "FLAVOR": "Wandering among the stars.",
+    "DESCRIPTIONS": ["Every #b8th #y${ModID}:command_card you play will take effect twice."]
+  },
+  "${ModID}:PrototypeBattery": {
+    "NAME": "原型電池",
+    "FLAVOR": "可攜式的希望。",
+    "DESCRIPTIONS": [
+      "回合結束後獲得 #b%d #y${ModID}:狂氣 。每剩餘 #b%d 點 [E] ，額外獲得 #b%d #y${ModID}:狂氣 。"
+    ]
+  },
+  "${ModID}:PriestsStaff": {
+    "NAME": "祭司權杖",
+    "FLAVOR": "不被許可的虔誠。",
+    "DESCRIPTIONS": [
+      "對處於負面狀態的敵人造成的傷害提高 #b%d%% ，擊殺敵人後獲得 #b%d #y${ModID}:狂氣 。"
+    ]
+  },
+  "${ModID}:AshesOfTheBurningBlackStar": {
+    "NAME": "黑星燃燒之燼",
+    "FLAVOR": "餘火未熄。",
+    "DESCRIPTIONS": [
+      "拾取時選擇 #b%d 張 #y${ModID}:指令卡牌 移除。每場戰鬥開始時，獲得 #b%d 點 #y力量 。",
+      "選擇%d張牌移除"
+    ]
+  },
+  "${ModID}:BlackCandle": {
+    "NAME": "黑燭",
+    "FLAVOR": "燃燒清醒，墮入虛妄。",
+    "DESCRIPTIONS": [
+      "每回合開始時獲得 [E] [E] ，每次重置牌庫時將 #b%d 張「蹣跚」加入抽牌堆。"
     ]
   }
 }

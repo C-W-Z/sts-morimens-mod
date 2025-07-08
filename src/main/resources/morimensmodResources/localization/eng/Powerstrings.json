@@ -1,17 +1,97 @@
 {
-  "${ModID}:ExampleTwoAmountPower": {
-    "NAME": "Example 2",
-    "DESCRIPTIONS": [
-      "At the start of your turn, gain #b",
-      " #yStrength and #b",
-      " #yDexterity."
-    ]
+  "${ModID}:LoseThornsPower": {
+    "NAME": "荊棘叢生",
+    "DESCRIPTIONS": ["回合開始時，失去 #b%d 層 #y荊棘 。"]
   },
-  "${ModID}:Trauma": {
+  "${ModID}:SealPower": {
+    "NAME": "封印",
+    "DESCRIPTIONS": ["無法釋放 #y狂氣爆發 。回合開始時減少 #b%d 層。"]
+  },
+  "${ModID}:TraumaPower": {
     "NAME": "Trauma",
     "DESCRIPTIONS": [
       "Each time a \"#yStrike\" card is played, add #b2",
       " \"#yWound\" cards on top of the draw pile."
     ]
+  },
+  "${ModID}:PosseTwicePower": {
+    "NAME": "雙發鑰令",
+    "DESCRIPTIONS": ["使下 #b%d 次透過消耗 #y銀鑰能量 釋放的 #y鑰令 生效兩次。"]
+  },
+  "${ModID}:OnlyUnlimitedPosseTwicePower": {
+    "NAME": "雙發鑰令",
+    "DESCRIPTIONS": [
+      "使下 #b%d 次並非透過消耗 #y銀鑰能量 釋放的 #y鑰令 生效兩次。"
+    ]
+  },
+  "${ModID}:NegentropyPower": {
+    "NAME": "負熵",
+    "DESCRIPTIONS": [
+      "每當擁有 #b%d 層 #y負熵 時，打出擁有 #y回環 效果的卡牌，將消耗 #b%d 層 #y負熵 並觸發 #y回環 效果， #y負熵 最多堆疊 #b%d 層，會繼承至下場戰鬥。"
+    ]
+  },
+  "${ModID}:ElationPower": {
+    "NAME": "興奮",
+    "DESCRIPTIONS": [
+      "造成的基礎傷害、基礎 #p中毒 、基礎 #b荊棘 、基礎 #y觸腕傷害 提高 #b%d%% 。回合開始時減少 #b%d 層。"
+    ]
+  },
+  "${ModID}:FirstDoctrinePower": {
+    "NAME": "第一哲學",
+    "DESCRIPTIONS": [
+      "打出卡牌後，獲得 #b%d 點 [E] ，每回合最多觸發 #b%d 次。當前剩餘 #b%d 次。"
+    ]
+  },
+  "${ModID}:FleshDetachedPower": {
+    "NAME": "靈肉兩分",
+    "DESCRIPTIONS": ["造成生命回復時，獲得 #b%d 點 #y格擋 。"]
+  },
+  "${ModID}:BattleThirstPower": {
+    "NAME": "戰欲難平",
+    "DESCRIPTIONS": ["指令卡的傷害次數提高 #b%d 次。"]
+  },
+  "${ModID}:KnightsZealPower": {
+    "NAME": "騎士熱誠",
+    "DESCRIPTIONS": [
+      "每打出 #b%d 張 #y指令卡 後，獲得 #b%d 點 #y力量 。當前還需要 #b%d 張。"
+    ]
+  },
+  "${ModID}:EntropyUndonePower": {
+    "NAME": "熵增逆轉",
+    "DESCRIPTIONS": [
+      "打出 #y指令卡 後，獲得 #b%d 點 #y銀鑰能量 ，每回合最多觸發 #b%d 次。次。當前剩餘 #b%d 次。打出擁有卻未觸發 #y回環 效果的卡牌時，獲得 #b%d 層 #y負熵 。"
+    ]
+  },
+  "${ModID}:SoulblightPower": {
+    "NAME": "靈魂瘟疫",
+    "DESCRIPTIONS": [
+      "回合結束時，回復 #b%d 點生命並獲得 #b%d 點 #y狂氣 。 NL 「 #p終末型態 」：不再回復生命 ，改為觸發所有敵人 #b%d%% 的 #p中毒 。"
+    ]
+  },
+  "${ModID}:DrowningInSorrowPower": {
+    "NAME": "沉逝苦海",
+    "DESCRIPTIONS": [
+      "每回合開始後，對所有生物施加 #b%d 點 #p中毒 ，然後獲得等於自身 #p中毒 層數 #b%d 倍的 #y狂氣 。你可以 #y格擋 #p中毒 傷害。"
+    ]
+  },
+  "${ModID}:OutstandingVeteranPower": {
+    "NAME": "戰地卓識",
+    "DESCRIPTIONS": ["#y打擊 造成的傷害享受 #b%d 倍 #y格擋 加成。"]
+  },
+  "${ModID}:RewindingTimePower": {
+    "NAME": "溯洄時計",
+    "DESCRIPTIONS": [
+      "打出卡牌後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 #b%d 次。當前剩餘 #b%d 次。"
+    ]
+  },
+  "${ModID}:ManikinOfOblivionPower": {
+    "NAME": "墜入虛無的人偶",
+    "DESCRIPTIONS": [
+      "造成的基礎 #y狂氣 、基礎 #p中毒 、基礎 #g治療 提高 #b%d%% 。 NL 釋放 #y狂氣爆發 或 #r超限爆發 後，獲得本次 #y狂氣 消耗 #b%d%% 的 #y狂氣 。"
+    ]
+  },
+  "${ModID}:HandOfOblivionPower": {
+    "NAME": "遺忘之手",
+    "DESCRIPTIONS": ["「 打擊 」的基礎傷害增加 #b%d%% 。"]
   }
 }

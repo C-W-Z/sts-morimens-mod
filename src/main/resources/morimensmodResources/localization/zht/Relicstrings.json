@@ -22,7 +22,7 @@
     ]
   },
   "${ModID}:KleinBottleVoyager": {
-    "NAME": "克萊茵旅人",
+    "NAME": "遺失的振響",
     "FLAVOR": "",
     "DESCRIPTIONS": [
       "釋放 #y${ModID}:鑰令 後，獲得 #b%d 點 #y${ModID}:臨時 #y力量 。"
