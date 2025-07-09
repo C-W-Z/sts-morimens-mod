@@ -120,7 +120,7 @@
     "DESCRIPTION": "打出後將其從牌庫中永久移除。"
   },
   {
-    "PROPER_NAME": "預備（Ｘ）",
+    "PROPER_NAME": "預備（X）",
     "NAMES": ["預備", "Prepare"],
     "DESCRIPTION": "回合結束後 [E] 消耗減少 #bX 點。被棄掉時也會觸發此效果。"
   },
@@ -170,8 +170,8 @@
     "DESCRIPTION": "獨屬於 #r熔毀·朵爾 的 姿態 ，當「 #p終末 」達到 #b10 層時會自動將 #b1 張「 #y虛無終結 」置入手中。打出「 #y虛無終結 」進入 #p終末型態 。"
   },
   {
-    "PROPER_NAME": "#r興奮（Ｘ） [${ModID}:ElationIcon]",
+    "PROPER_NAME": "#r興奮 [${ModID}:ElationIcon]",
     "NAMES": ["興奮", "Elation"],
-    "DESCRIPTION": "造成的基礎傷害、基礎 #p中毒 、基礎 #b荊棘 、基礎 #y觸腕傷害 提高 #bX% 。回合開始時減少 #b1 層。"
+    "DESCRIPTION": "造成的基礎傷害、基礎 #p中毒 、基礎 #b荊棘 、基礎 #y觸腕傷害 提高 #b50% 。回合開始時減少 #b1 層。"
   }
 ]

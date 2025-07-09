@@ -30,9 +30,9 @@
   },
   "${ModID}:ObsessionEternal": {
     "NAME": "Obsession Eternal",
-    "DESCRIPTION": "Gain 3 Strength, and gain additional ${ModID}:Temporary Strength equal to 25% of your ${ModID}:Permanent_Strength.",
+    "DESCRIPTION": "Gain 3 Strength, and gain an additional ${ModID}:Temporary Strength equal to 25% of your ${ModID}:Permanent_Strength.",
     "EXTENDED_DESCRIPTION": [
-      "Gain #b3 #yStrength, and gain additional ${ModID}:Temporary Strength equal to #b25% of your ${ModID}:Permanent_Strength."
+      "Gain #b3 #yStrength, and gain an additional ${ModID}:Temporary Strength equal to #b25% of your ${ModID}:Permanent_Strength."
     ]
   },
   "${ModID}:TheLoneSeed": {
@@ -56,9 +56,9 @@
   },
   "${ModID}:EphemeralEternity": {
     "NAME": "Ephemeral Eternity",
-    "DESCRIPTION": "Gain [E]. Place 1 Base Copy of \"Strike\" and 1 Base Copy of \"Defend\" into hand, and grants then Exhaust, Ethereal. NL If the current Realm is ${ModID}:Ultra, gain additional 2 ${ModID}:Temporary Strength and 1 ${ModID}:Temporary Dexterity.",
+    "DESCRIPTION": "Gain [E]. Place 1 Base Copy of \"Strike\" and 1 Base Copy of \"Defend\" into hand, and grants then Exhaust, Ethereal. NL If the current Realm is ${ModID}:Ultra, gain an additional 2 ${ModID}:Temporary Strength and 1 ${ModID}:Temporary Dexterity.",
     "EXTENDED_DESCRIPTION": [
-      "Gain [E]. Place #b1 Base Copy of \"Strike\" and #b1 Base Copy of \"Defend\" into hand, and grants then #yExhaust, #yEthereal. NL If the current Realm is #pUltra, gain additional #b2 #yTemporary #yStrength and #b1 #yTemporary #yDexterity."
+      "Gain [E]. Place #b1 Base Copy of \"Strike\" and #b1 Base Copy of \"Defend\" into hand, and grants then #yExhaust, #yEthereal. NL If the current Realm is #pUltra, gain an additional #b2 #yTemporary #yStrength and #b1 #yTemporary #yDexterity."
     ]
   },
   "${ModID}:GatewayOfRetrospection": {
@@ -118,7 +118,7 @@
   },
   "${ModID}:EquivalentExchange": {
     "NAME": "Equivalent Exchange",
-    "DESCRIPTION": "Heal !${ModID}:H! HP. Discard all cards in hand. For each card discarded, heal additional !M! HP and gain the same amount of Block.",
+    "DESCRIPTION": "Heal !${ModID}:H! HP. Discard all cards in hand. For each card discarded, heal an additional !M! HP and gain the same amount of Block.",
     "EXTENDED_DESCRIPTION": [
       "Heal !${ModID}:H! HP and gain !B! Block. Discard all cards in hand."
     ]
@@ -202,7 +202,7 @@
     "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. Heal !${ModID}:H! HP, and heal an additional time for every !M! ${ModID}:Aliemus currently possessed.",
     "EXTENDED_DESCRIPTION": [
       "Fate's Descent: The End",
-      "{@@}Gain !${ModID}:A! ${ModID}:Aliemus. Inflict !${ModID}:M2! stack{!${ModID}:M2!|>1=s} of Poison to all enemies. For every !M! ${ModID}:Aliemus currently possessed, apply Poison an additionaly time."
+      "{@@}Gain !${ModID}:A! ${ModID}:Aliemus. Inflict !${ModID}:M2! stack{!${ModID}:M2!|>1=s} of Poison to all enemies. For every !M! ${ModID}:Aliemus currently possessed, apply Poison an additional time."
     ]
   },
   "${ModID}:GeniusForesight": {
@@ -217,32 +217,32 @@
   },
   "${ModID}:DrowningInSorrow": {
     "NAME": "Drowning in Sorrow",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus.回合開始後, 對所有生物施加 !M! 中毒 , 然後獲得等於自身 中毒 層數 !${ModID}:M2! 倍的 ${ModID}:Aliemus.你可以 格擋 中毒 傷害."
+    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. At turn starts, apply !M! Poison to all creatures, then gain ${ModID}:Aliemus equal to !${ModID}:M2! times the number of Poison stacks on yourself. You can block Poison damage."
   },
   "${ModID}:MidnightTide": {
     "NAME": "Midnight Tide",
-    "DESCRIPTION": "對生命最高的敵人造成 !D! 點傷害並施加等同於 !M! %傷害的 中毒.享受 !${ModID}:M2! 倍 ${ModID}:永久Strength 加成."
+    "DESCRIPTION": "Deal !D! damage to the enemy with the highest HP and apply Poison equal to !M!% of the damage. ${ModID}:Permanent_Strength affects !${ModID}:M2! times on this card."
   },
   "${ModID}:KnellOfDeath": {
     "NAME": "Knell of Death",
-    "DESCRIPTION": "對所有敵人施加 !M! 層 中毒 , 享受 !${ModID}:M2! 倍 自身 中毒 層數加成.施加 !${ModID}:M2! 層 虛弱 和 易傷.",
-    "UPGRADE_DESCRIPTION": "對所有敵人施加 !M! 層 中毒 , 享受 !${ModID}:M2! 倍 自身 中毒 層數加成.施加 !${ModID}:M2! 層 虛弱 和 易傷.獲得 !B! 格擋."
+    "DESCRIPTION": "{@@}Inflict !M! stack{!M!|>1=s} of Poison on all enemies, increased by !${ModID}:M2! times your Poison stacks. Apply Weak and Vulnerable for !${ModID}:M2! turn{!${ModID}:M2!|>1=s}.",
+    "UPGRADE_DESCRIPTION": "{@@}Inflict !M! stack{!M!|>1=s} of Poison on all enemies, increased by !${ModID}:M2! times your Poison stacks. Apply Weak and Vulnerable for !${ModID}:M2! turn{!${ModID}:M2!|>1=s}. Gain !B! Block."
   },
   "${ModID}:ToxicMiasma": {
     "NAME": "Toxic Miasma",
-    "DESCRIPTION": "使所有敵人的 中毒 翻倍.將 !M! 張「窒息」置入手中."
+    "DESCRIPTION": "Doubles the Poison of all enemies. Adds !M! \"Suffocation\" into your hand."
   },
   "${ModID}:MaintenanceExpert": {
     "NAME": "Maintenance Expert",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus.造成的 格擋 和 荊棘 提高 !M! %."
+    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. 造成的 Block 和 Thorns 提高 !M! %."
   },
   "${ModID}:NoTrespassing": {
     "NAME": "No Trespassing",
-    "DESCRIPTION": "獲得 !B! 格擋 和 !M! 層 ${ModID}:Temporary 荊棘 , 在首領戰中改為獲得 !${ModID}:M2! 倍 ${ModID}:Temporary 荊棘. NL ${ModID}:預備 1"
+    "DESCRIPTION": "Gain !B! Block and !M! ${ModID}:Temporary Thorns, In Boss Battle, gain !${ModID}:M2! times of ${ModID}:Temporary Thorns. NL ${ModID}:Prepare 1."
   },
   "${ModID}:ShortTermMemory": {
     "NAME": "Short-Term Memory",
-    "DESCRIPTION": "獲得 !B! 格擋. NL Gain !${ModID}:A! ${ModID}:Aliemus."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !${ModID}:A! ${ModID}:Aliemus."
   },
   "${ModID}:ArtisanOfFate": {
     "NAME": "命運工匠",
@@ -250,36 +250,36 @@
   },
   "${ModID}:GiveAndTake": {
     "NAME": "Give and Take",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus.每造成一次傷害, 獲得 !M! 荊棘."
+    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus.每造成一次傷害, Gain !M! Thorns."
   },
   "${ModID}:WhipOfMadness": {
     "NAME": "Whip of Madness",
-    "DESCRIPTION": "隨機造成 !D! 點傷害 !${ModID}:AC! 次並獲得 !M! %傷害的 ${ModID}:Temporary 荊棘."
+    "DESCRIPTION": "Deal !D! damage !${ModID}:AC! times randomly and gain ${ModID}:Temporary Thorns equal to !M!% of the damage dealt."
   },
   "${ModID}:WaxHotDesire": {
     "NAME": "Wax Hot Desire",
-    "DESCRIPTION": "獲得 !M! 層 荊棘.在本回合中, 偷取所有敵人 !${ModID}:M2! Strength , 若只有一個敵人, 偷取的 Strength 翻倍.移除所有敵人的 荊棘 狀態.",
-    "UPGRADE_DESCRIPTION": "獲得 !M! 層 荊棘.在本回合中, 偷取所有敵人 !${ModID}:M2! Strength , 若只有一個敵人, 偷取的 Strength 翻倍.移除所有敵人的 荊棘 狀態.Gain !${ModID}:A! ${ModID}:Aliemus."
+    "DESCRIPTION": "Gain !M! Thorns. In this turn, steal !${ModID}:M2! Strength from all enemies, If there is only 1 enemy, the stolen Strength is doubled. Remove all enemies' Thorns.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Thorns. In this turn, steal !${ModID}:M2! Strength from all enemies, If there is only 1 enemy, the stolen Strength is doubled. Remove all enemies' Thorns. Gain !${ModID}:A! ${ModID}:Aliemus."
   },
   "${ModID}:OutstandingVeteran": {
     "NAME": "Outstanding Veteran",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus.獲得 !M! 敏捷. 打擊 造成的傷害享受 !${ModID}:M2! 倍 格擋 加成."
+    "DESCRIPTION": "{@@}Gain !${ModID}:A! ${ModID}:Aliemus. Gain !M! Dexterity. Damage of Strike increases with !${ModID}:M2! time{!${ModID}:M2!|>1=s} of the current Block."
   },
   "${ModID}:CombatStance": {
     "NAME": "Combat Stance",
-    "DESCRIPTION": "獲得 !B! 格擋.回合結束時若在手中, 獲得的 格擋 提高 !M! 點.驅散 ${ModID}:封印 狀態. NL 視為「 ${ModID}:防禦 」"
+    "DESCRIPTION": "Gain !B! Block. If in hand at turn ends, the gained Block increases by !M!. Dispel ${ModID}:Seal. NL Counts as ${ModID}:Defend."
   },
   "${ModID}:PrecisionSlash": {
     "NAME": "Precision Slash",
-    "DESCRIPTION": "造成 !D! 點傷害.每 !M! 格擋 使傷害提高 1 點.在本回合中每打出 1 張「 ${ModID}:防禦 」,  [E] 消耗減少 1 點. NL Counts as Strike."
+    "DESCRIPTION": "Deal !D! damage. Each !M! Block increases damage by 1. In this turn, for every ${ModID}:Defend played, [E] Cost -1. NL Counts as Strike."
   },
   "${ModID}:DefensiveStance": {
     "NAME": "Defensive Stance",
-    "DESCRIPTION": "使 格擋 翻倍."
+    "DESCRIPTION": "Doubles your Block."
   },
   "${ModID}:InsightStrike": {
     "NAME": "Insight Strike",
-    "DESCRIPTION": "對生命與 格擋 總和最高的敵方造成 !D! 點傷害, 獲得傷害量 !M! %的 格擋. NL Counts as Strike."
+    "DESCRIPTION": "Deal !D! damage to the enemy with the highest HP and Block, and gain Block equal to !M!% of the damage dealt. NL Counts as Strike."
   },
   "${ModID}:DanceOfTheGibbousMoon": {
     "NAME": "凸月之舞",
@@ -303,17 +303,17 @@
   },
   "${ModID}:UnexpectedGain": {
     "NAME": "Unexpected Gain",
-    "DESCRIPTION": "造成 !D! 點傷害.選擇 1 張抽牌堆的牌置入手中,  !M! %機率使其 [E] 消耗-1.",
-    "UPGRADE_DESCRIPTION": "造成 !D! 點傷害.選擇 1 張抽牌堆的牌置入手中,  !M! %機率使其 [E] 消耗-1,  !${ModID}:M2! %機率使其 [E] 消耗-2."
+    "DESCRIPTION": "Deal !D! damage. Choose 1 card from Draw Pile and place into hand. !M!% chance to reduce [E] Cost by 1.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Choose 1 card from Draw Pile and place into hand. !M!% chance to reduce [E] Cost by 1, !${ModID}:M2!% chance to reduce [E] Cost by 2."
   },
   "${ModID}:Showdown": {
     "NAME": "Showdown",
-    "DESCRIPTION": "造成 !D! 點傷害 1~ !${ModID}:AC! 次, Gain !${ModID}:A! ${ModID}:Aliemus.若造成 6 次或以上傷害, 獲得 !M! 張 [E] 消耗為0且附加 消耗 的「意外收穫」.",
-    "UPGRADE_DESCRIPTION": "造成 !D! 點傷害 1~ !${ModID}:AC! 次, Gain !${ModID}:A! ${ModID}:Aliemus, 每造成1次傷害, 額外獲得 !${ModID}:M2! ${ModID}:Aliemus.若造成 6 次或以上傷害, 獲得 !M! 張 [E] 消耗為0且附加 消耗 的「意外收穫」."
+    "DESCRIPTION": "Deal !D! damage 1~!${ModID}:AC! times, Gain !${ModID}:A! ${ModID}:Aliemus. If 6 or more times of damage dealt, obtain !M! \"Unexpected Gain\" with [E] Cost of 0 and Exhaust added.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 1~!${ModID}:AC! times, Gain !${ModID}:A! ${ModID}:Aliemus. Each time damage is dealt, you gain an additional !${ModID}:M2! ${ModID}:Aliemus. If 6 or more times of damage dealt, obtain !M! \"Unexpected Gain\" with [E] Cost of 0 and Exhaust added."
   },
   "${ModID}:TenRingsPlay": {
     "NAME": "Ten Rings Play",
-    "DESCRIPTION": "對隨機敵人造成 !${ModID}:AC! 次 !D! 傷害. NL ${ModID}:Phantasm"
+    "DESCRIPTION": "Deal !D! damage to random enemies !${ModID}:AC! times. NL ${ModID}:Phantasm"
   },
   "${ModID}:LaudableMasterpiece": {
     "NAME": "此曲應得稱頌",
@@ -321,20 +321,20 @@
   },
   "${ModID}:SoulOverture": {
     "NAME": "靈魂序曲",
-    "DESCRIPTION": "隨機造成 !${ModID}:AC! 次 !D! ${ModID}:穿刺傷害 , 每次造成傷害都有 50% 機率對目標隨機施加 1 種 ${ModID}:奇妙負面效果.若打出時 [E] 消耗為0, 額外造成 !M! 次傷害. NL ${ModID}:預備 1"
+    "DESCRIPTION": "隨機造成 !${ModID}:AC! 次 !D! ${ModID}:穿刺傷害 , 每次造成傷害都有 50% 機率對目標隨機施加 1 種 ${ModID}:奇妙負面效果.若打出時 [E] 消耗為0, 額外造成 !M! 次傷害. NL ${ModID}:Prepare 1."
   },
   "${ModID}:MemoryRondo": {
     "NAME": "Memory Rondo",
-    "DESCRIPTION": "獲得 !M! Strength , 將 !${ModID}:M2! 張「靈感」置入手中. NL [E] 不足時仍可強行打出, 效果改為將 !${ModID}:M2! 張「靈感」洗入抽牌堆.",
-    "UPGRADE_DESCRIPTION": "獲得 !M! Strength , 將 !${ModID}:M2! 張「靈感」置入手中. NL [E] 不足時仍可強行打出, 效果改為獲得 !M! Strength , 將 !${ModID}:M2! 張「靈感」洗入抽牌堆."
+    "DESCRIPTION": "Gain !M! Strength. Add !${ModID}:M2! \"Insight\" to your hand. NL In you lack the required [E], you can still play this card, but it effect will be changed to shuffle !${ModID}:M2! \"Insight\" into Draw Pile.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength. Add !${ModID}:M2! \"Insight\" to your hand. NL In you lack the required [E], you can still play this card, but it effect will be changed to gain !M! Strength and shuffle !${ModID}:M2! \"Insight\" into Draw Pile."
   },
   "${ModID}:StunningTone": {
     "NAME": "Stunning Tone",
-    "DESCRIPTION": "造成 !D! 點傷害."
+    "DESCRIPTION": "Deal !D! damage."
   },
   "${ModID}:GreatSacrifice": {
     "NAME": "偉大的犧牲",
-    "DESCRIPTION": " 易傷 自身,  ${ModID}:Delay ：抽 !${ModID}:DR! 張牌.",
+    "DESCRIPTION": " 易傷 自身,  ${ModID}:Delay:抽 !${ModID}:DR! 張牌.",
     "UPGRADE_DESCRIPTION": " 易傷 自身, 抽 !${ModID}:DR! 張牌並使其獲得 ${ModID}:Temporary 保留."
   },
   "${ModID}:DuskAndDawn": {
@@ -343,11 +343,11 @@
   },
   "${ModID}:HeartOfSilver": {
     "NAME": "純銀的初心",
-    "DESCRIPTION": "釋放 ${ModID}:Posse 後, 獲得 !M! Strength 和 !B! 格擋."
+    "DESCRIPTION": "釋放 ${ModID}:Posse 後, 獲得 !M! Strength 和 !B! Block."
   },
   "${ModID}:AnnihilatedRebirth": {
     "NAME": "重生於湮土",
-    "DESCRIPTION": "釋放 ${ModID}:Exalt 後, 使 ${ModID}:Exalt 基礎傷害提高 !M! %,  格擋 和生命回復提高 !${ModID}:M2! %."
+    "DESCRIPTION": "釋放 ${ModID}:Exalt 後, 使 ${ModID}:Exalt 基礎傷害提高 !M! %,  Block 和生命回復提高 !${ModID}:M2! %."
   },
   "${ModID}:SpringInAcushnet": {
     "NAME": "阿庫特之春",
@@ -355,17 +355,17 @@
   },
   "${ModID}:Sunfall": {
     "NAME": "殞日",
-    "DESCRIPTION": "造成的基礎傷害、 中毒 和 荊棘 提高 !M! %."
+    "DESCRIPTION": "造成的基礎傷害、 中毒 和 Thorns 提高 !M! %."
   },
   "${ModID}:BirthOfASoul": {
     "NAME": "靈魂誕生",
-    "DESCRIPTION": "造成的基礎治療 和 格擋 提高 !${ModID}:M2! %.打出「 打擊 」後, 回復 !${ModID}:H! %已損失生命.打出「 ${ModID}:防禦 」後, 獲得 !B! %當前生命的 格擋.該效果每回合最多各觸發 !${ModID}:M3! 次.",
-    "UPGRADE_DESCRIPTION": " ${ModID}:被動 ：生命上限提高 !M! %. NL 造成的基礎治療 和 格擋 提高 !${ModID}:M2! %.打出「 打擊 」後, 回復 !${ModID}:H! %已損失生命.打出「 ${ModID}:防禦 」後, 獲得 !B! %當前生命的 格擋.該效果每回合最多各觸發 !${ModID}:M3! 次."
+    "DESCRIPTION": "造成的基礎治療 和 Block 提高 !${ModID}:M2! %.打出「 打擊 」後, 回復 !${ModID}:H! %已損失生命.打出「 ${ModID}:防禦 」後, 獲得 !B! %當前生命的 Block.該效果每回合最多各觸發 !${ModID}:M3! 次.",
+    "UPGRADE_DESCRIPTION": " ${ModID}:Passive:生命上限提高 !M! %. NL 造成的基礎治療 和 Block 提高 !${ModID}:M2! %.打出「 打擊 」後, 回復 !${ModID}:H! %已損失生命.打出「 ${ModID}:防禦 」後, 獲得 !B! %當前生命的 Block.該效果每回合最多各觸發 !${ModID}:M3! 次."
   },
   "${ModID}:RewindingTime": {
-    "NAME": "溯洄時計",
-    "DESCRIPTION": "打出 ${ModID}:指令卡 後, 將其從棄牌堆重新加入手牌, 該效果單回合最多生效 !${ModID}:M2! 次. NL ${ModID}:預備 1",
-    "UPGRADE_DESCRIPTION": " ${ModID}:被動 ： ${ModID}:銀鑰充能 + !M! NL 打出 ${ModID}:指令卡 後, 將其從棄牌堆重新加入手牌, 該效果單回合最多生效 !${ModID}:M2! 次. NL ${ModID}:預備 1"
+    "NAME": "Rewinding Time",
+    "DESCRIPTION": "{@@}After playing a ${ModID}:Command_Card, return it to your hand from the Discard Pile, This effect can only trigger !${ModID}:M2! time{!${ModID}:M2!|>1=s} per turn. NL ${ModID}:Prepare 1.",
+    "UPGRADE_DESCRIPTION": "{@@}${ModID}:Passive: ${ModID}:Keyflare_Regen +!M!. NL After playing a ${ModID}:Command_Card, return it to your hand from the Discard Pile, This effect can only trigger !${ModID}:M2! time{!${ModID}:M2!|>1=s} per turn. NL ${ModID}:Prepare 1."
   },
   "${ModID}:CelestialBeast": {
     "NAME": "星天之獸",
@@ -374,7 +374,7 @@
   },
   "${ModID}:HeartOfAKnight": {
     "NAME": "騎士之心",
-    "DESCRIPTION": "「 ${ModID}:Exalt 」造成的 格擋 提高 !M! %.釋放「 ${ModID}:Exalt 」後, 獲得等同於當前 格擋 !${ModID}:M2! %的 ${ModID}:Temporary Strength.若處於 脆弱 狀態, 效果翻倍."
+    "DESCRIPTION": "「 ${ModID}:Exalt 」造成的 Block 提高 !M! %.釋放「 ${ModID}:Exalt 」後, 獲得等同於當前 Block !${ModID}:M2! %的 ${ModID}:Temporary Strength.若處於 脆弱 狀態, 效果翻倍."
   },
   "${ModID}:DeathlessAscent": {
     "NAME": "超越死亡",
@@ -383,7 +383,7 @@
   "${ModID}:DreamOfTheSea": {
     "NAME": "海之夢",
     "DESCRIPTION": "打出卡牌後, Gain !${ModID}:A! ${ModID}:Aliemus.回合開始時, 獲得 !${ModID}:M3! Strength , 若當前 ${ModID}:界域 為「 ${ModID}:深海 」, 額外獲得 !${ModID}:M4! ${ModID}:觸腕傷害.",
-    "UPGRADE_DESCRIPTION": " ${ModID}:被動 ：獲得 !M! Strength , 若當前 ${ModID}:界域 為「 ${ModID}:深海 」, 額外獲得 !${ModID}:M2! ${ModID}:觸腕傷害. NL 打出卡牌後, Gain !${ModID}:A! ${ModID}:Aliemus.回合開始時, 獲得 !${ModID}:M3! Strength , 若當前 ${ModID}:界域 為「 ${ModID}:深海 」, 額外獲得 !${ModID}:M4! ${ModID}:觸腕傷害."
+    "UPGRADE_DESCRIPTION": " ${ModID}:Passive:獲得 !M! Strength , 若當前 ${ModID}:界域 為「 ${ModID}:深海 」, 額外獲得 !${ModID}:M2! ${ModID}:觸腕傷害. NL 打出卡牌後, Gain !${ModID}:A! ${ModID}:Aliemus.回合開始時, 獲得 !${ModID}:M3! Strength , 若當前 ${ModID}:界域 為「 ${ModID}:深海 」, 額外獲得 !${ModID}:M4! ${ModID}:觸腕傷害."
   },
   "${ModID}:WintersRequiem": {
     "NAME": "冬夜追憶",
@@ -434,14 +434,14 @@
     "DESCRIPTION": ""
   },
   "${ModID}:ManikinOfOblivion": {
-    "NAME": "墜入虛無的人偶",
-    "DESCRIPTION": "造成的基礎 ${ModID}:Aliemus 、基礎 中毒 、基礎治療 提高 !${ModID}:M2! %. NL 釋放 ${ModID}:Exalt 後, 獲得本次 ${ModID}:Aliemus 消耗20%的 ${ModID}:Aliemus. NL ${ModID}:預備 1",
-    "UPGRADE_DESCRIPTION": " ${ModID}:被動 ： ${ModID}:Aliemus_Regen + !M! NL 造成的基礎 ${ModID}:Aliemus 、基礎 中毒 、基礎治療 提高 !${ModID}:M2! %. NL 釋放 ${ModID}:Exalt 後, 獲得本次 ${ModID}:Aliemus 消耗20%的 ${ModID}:Aliemus. NL ${ModID}:預備 1"
+    "NAME": "Manikin of Oblivion",
+    "DESCRIPTION": "Base ${ModID}:Aliemus, Base Poison, and Base HP healing effects are increased by !${ModID}:M2!%. NL After unleashing ${ModID}:Exalt, gain ${ModID}:Aliemus equal to 20% of the ${ModID}:Aliemus consumed. NL ${ModID}:Prepare 1.",
+    "UPGRADE_DESCRIPTION": " ${ModID}:Passive: ${ModID}:Aliemus_Regen +!M!. NL Base ${ModID}:Aliemus, Base Poison, and Base HP healing effects are increased by !${ModID}:M2!%. NL After unleashing ${ModID}:Exalt, gain ${ModID}:Aliemus equal to 20% of the ${ModID}:Aliemus consumed. NL ${ModID}:Prepare 1."
   },
   "${ModID}:HandOfOblivion": {
-    "NAME": "遺忘之手",
-    "DESCRIPTION": "將 1 張「打擊」加入手中, 「 打擊 」的基礎傷害增加 !${ModID}:M2! %. NL ${ModID}:預備 1",
-    "UPGRADE_DESCRIPTION": " ${ModID}:被動 ： 「 打擊 」基礎傷害 + !M! % NL 將 1 張「打擊」加入手中, 「 打擊 」的基礎傷害增加 !${ModID}:M2! %. NL ${ModID}:預備 1"
+    "NAME": "Hand of Oblivion",
+    "DESCRIPTION": "Place 1 \"Strike\" into your hand. Base Strike Damage +!${ModID}:M2!%. NL ${ModID}:Prepare 1.",
+    "UPGRADE_DESCRIPTION": " ${ModID}:Passive: Base Strike Damage +!M!%. NL Place 1 \"Strike\" into your hand. Base Strike Damage +!${ModID}:M2!%. NL ${ModID}:Prepare 1."
   },
   "${ModID}:Insight": {
     "NAME": "Insight",
@@ -460,7 +460,7 @@
     "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus.",
     "UPGRADE_DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. Exhaust after !M! use in Boss Battle.",
     "EXTENDED_DESCRIPTION": [
-      "Gain !${ModID}:A! ${ModID}:Aliemus. Exhaust after !M! use in Boss Battle. !stslib:ex! remaining."
+      "Gain !${ModID}:A! ${ModID}:Aliemus. Exhaust after !M! use in Boss Battle. NL !stslib:ex! remaining."
     ]
   },
   "${ModID}:MutatedHeart": {
@@ -469,8 +469,8 @@
     "EXTENDED_DESCRIPTION": [
       "Discard all your cards, then draw a number of cards equal to the number of discarded cards + !${ModID}:DR!. Exhaust after !M! use in Boss Battle.",
       "Discard all your cards, then draw a number of cards equal to the number of discarded cards + !${ModID}:DR!. In Boss Battle, reduce [E] Cost of drawn cards by !${ModID}:M2! and Exhaust after !M! use.",
-      "Discard all your cards, then draw a number of cards equal to the number of discarded cards + !${ModID}:DR!. Exhaust after !M! use in Boss Battle. !stslib:ex! remaining.",
-      "Discard all your cards, then draw a number of cards equal to the number of discarded cards + !${ModID}:DR!. In Boss Battle, reduce [E] Cost of drawn cards by !${ModID}:M2! and Exhaust after !M! use. !stslib:ex! remaining."
+      "Discard all your cards, then draw a number of cards equal to the number of discarded cards + !${ModID}:DR!. Exhaust after !M! use in Boss Battle. NL !stslib:ex! remaining.",
+      "Discard all your cards, then draw a number of cards equal to the number of discarded cards + !${ModID}:DR!. In Boss Battle, reduce [E] Cost of drawn cards by !${ModID}:M2! and Exhaust after !M! use. NL !stslib:ex! remaining."
     ]
   },
   "${ModID}:OctahedronDice": {
@@ -506,39 +506,39 @@
     "DESCRIPTION": "Lose !M! HP, gain [E] [E]. NL Unremovable In Shop."
   },
   "${ModID}:SymptomEpilepsy": {
-    "NAME": "症狀：癲癇",
+    "NAME": "Symptom: 癲癇",
     "DESCRIPTION": "失去 !M! 點生命, 抽 !${ModID}:DR! 張牌. NL 無法在商店移除 "
   },
   "${ModID}:SymptomMadness": {
-    "NAME": "症狀：瘋狂",
+    "NAME": "Symptom: 瘋狂",
     "DESCRIPTION": "失去 !M! 點生命, Gain !${ModID}:A! ${ModID}:Aliemus. NL 無法在商店移除 "
   },
   "${ModID}:SymptomWeakness": {
-    "NAME": "症狀：衰弱",
+    "NAME": "Symptom: 衰弱",
     "DESCRIPTION": "回合結束時若在手中, 自身 虛弱 !M! 回合.使用後 虛弱 所有敵人 !M! 回合. NL 無法在商店移除 "
   },
   "${ModID}:SymptomBreakdown": {
-    "NAME": "症狀：崩潰",
+    "NAME": "Symptom: 崩潰",
     "DESCRIPTION": "回合結束時若在手中, 自身 脆弱 !M! 回合.使用後 易傷 所有敵人 !M! 回合. NL 無法在商店移除 "
   },
   "${ModID}:SymptomClaustrophobia": {
-    "NAME": "症狀：幽閉",
-    "DESCRIPTION": "失去 !M! 點生命, 獲得雙倍於該值的 格擋. NL 無法在商店移除 "
+    "NAME": "Symptom: 幽閉",
+    "DESCRIPTION": "失去 !M! 點生命, 獲得雙倍於該值的 Block. NL 無法在商店移除 "
   },
   "${ModID}:SymptomSomniloquy": {
-    "NAME": "症狀：囈語",
-    "DESCRIPTION": "抽 !${ModID}:DR! 張牌, 將 !M! 張「症狀：囈語」加入棄牌堆中. NL 無法在商店移除 "
+    "NAME": "Symptom: 囈語",
+    "DESCRIPTION": "抽 !${ModID}:DR! 張牌, 將 !M! 張「Symptom: 囈語」加入棄牌堆中. NL 無法在商店移除 "
   },
   "${ModID}:SymptomHysteria": {
-    "NAME": "症狀：癔想",
-    "DESCRIPTION": "獲得 [E] , 將 !M! 張「症狀：癔想」加入棄牌堆中. NL 無法在商店移除 "
+    "NAME": "Symptom: 癔想",
+    "DESCRIPTION": "獲得 [E] , 將 !M! 張「Symptom: 癔想」加入棄牌堆中. NL 無法在商店移除 "
   },
   "${ModID}:SymptomObedience": {
     "NAME": "Symptom: Obedience",
     "DESCRIPTION": "回合結束時若在手中, 將 !M! 張隨機 ${ModID}:症狀卡 加入抽牌堆."
   },
   "${ModID}:SymptomExcitement": {
-    "NAME": "症狀：興奮",
+    "NAME": "Symptom: 興奮",
     "DESCRIPTION": ""
   },
   "${ModID}:Wound": {
