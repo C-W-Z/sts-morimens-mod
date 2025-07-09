@@ -167,11 +167,11 @@
   {
     "PROPER_NAME": "#pStance #pof #pThe #pEnd",
     "NAMES": ["Stance of The End", "stance_of_the_end"],
-    "DESCRIPTION": "獨屬於 #r熔毀·朵爾 的 姿態 ，當「 #p終末 」達到 #b10 層時會自動將 #b1 張「 #y虛無終結 」置入手中。打出「 #y虛無終結 」進入 #p終末型態 。"
+    "DESCRIPTION": "A unique #ystance for #yDoll:Inferno. When #pThe #pEnd reaches #b10 stacks, automatically place #b1 \"The Void and The End\" in your hand. Enter #pStance #pof #pThe #pEnd by playing \"The Void and The End\"."
   },
   {
     "PROPER_NAME": "#rElation #r(X) [${ModID}:ElationIcon]",
     "NAMES": ["Elation", "elation"],
-    "DESCRIPTION": "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle_Damage by #bX%. Reduces #b1 stack at turn start."
+    "DESCRIPTION": "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #bX%. Reduces #b1 stack at turn start."
   }
 ]

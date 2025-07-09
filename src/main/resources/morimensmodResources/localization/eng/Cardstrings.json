@@ -460,7 +460,7 @@
     "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus.",
     "UPGRADE_DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. Exhaust after !M! use in Boss Battle.",
     "EXTENDED_DESCRIPTION": [
-      "Gain !${ModID}:A! ${ModID}:Aliemus. Exhaust after !M! use in Boss Battle. !stslib:ex! use remaining."
+      "Gain !${ModID}:A! ${ModID}:Aliemus. Exhaust after !M! use in Boss Battle. !stslib:ex! remaining."
     ]
   },
   "${ModID}:MutatedHeart": {
@@ -469,8 +469,8 @@
     "EXTENDED_DESCRIPTION": [
       "Discard all your cards, then draw a number of cards equal to the number of discarded cards + !${ModID}:DR!. Exhaust after !M! use in Boss Battle.",
       "Discard all your cards, then draw a number of cards equal to the number of discarded cards + !${ModID}:DR!. In Boss Battle, reduce [E] Cost of drawn cards by !${ModID}:M2! and Exhaust after !M! use.",
-      "Discard all your cards, then draw a number of cards equal to the number of discarded cards + !${ModID}:DR!. Exhaust after !M! use in Boss Battle. !stslib:ex! use remaining.",
-      "Discard all your cards, then draw a number of cards equal to the number of discarded cards + !${ModID}:DR!. In Boss Battle, reduce [E] Cost of drawn cards by !${ModID}:M2! and Exhaust after !M! use. !stslib:ex! use remaining."
+      "Discard all your cards, then draw a number of cards equal to the number of discarded cards + !${ModID}:DR!. Exhaust after !M! use in Boss Battle. !stslib:ex! remaining.",
+      "Discard all your cards, then draw a number of cards equal to the number of discarded cards + !${ModID}:DR!. In Boss Battle, reduce [E] Cost of drawn cards by !${ModID}:M2! and Exhaust after !M! use. !stslib:ex! remaining."
     ]
   },
   "${ModID}:OctahedronDice": {
