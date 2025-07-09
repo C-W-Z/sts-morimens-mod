@@ -68,28 +68,28 @@
   "${ModID}:DeathResistanceUI": {
     "TEXT": [
       "DeathResistance",
-      "生命歸零時會嘗試觸發 #y死亡抵抗 ，機率為當前 #y死亡抵抗 的數值，若超過 #b100% 則必定觸發。 NL 觸發 #y死亡抵抗 後，免疫本次死亡並將生命變為 #b1 點，然後將 #y死亡抵抗 的數值減半，本次探索中後續所有增加的 #y死亡抵抗 數值也減半。"
+      "When your life reaches zero, you attempt to trigger #yDeath #yResistance, with a success probability equal to the current value of #yDeath #yResistance. If it exceeds #b100%, it must succeed. NL Upon triggering #yDeath #yResistance successfully, you become immune to this instance of death, your life is set to #b1, and the value of #yDeath #yResistance is halved. For the remainder of this exploration, all subsequent increases to #yDeath #yResistance are also halved."
     ]
   },
   "${ModID}:AliemusUI": {
     "TEXT": ["", " (Exalt)", "", " #r(Over-Exaltaion)"],
     "EXTRA_TEXT": [
       "Aliemus / Aliemus Limit",
-      "最多可以儲存 #b2 倍上限的 #y狂氣 。 NL #y狂氣 達到上限時，點擊 #g右鍵 可以釋放 #y狂氣爆發 。 NL #y狂氣 達到 #b2 倍上限時，點擊 #g右鍵 將會改為釋放 #r超限爆發 。 NL 一回合只能釋放一次 #y狂氣爆發 或 #r超限爆發 。 NL 當前 #y狂氣回充 ： #b",
-      "每回合釋放 #r狂氣爆發 或 #r超限爆發 的 #r次數用完了 。",
-      " #r狂氣不足 。",
-      "你太著急了， #r請等一下再釋放。 ",
-      "被 #r封印 了。"
+      "You can store up to #b2 times the limit of #yAliemus. NL When #yAliemus reaches the limit, #gRight #gClick to unleash #yExalt. NL When #yAliemus reaches #b2 times the limit, #gRight #gClick to unleash #rOver-Exaltation 。 NL You can only unleash #yExalt or #rOver-Exaltation once per turn. NL Current #yAliemus #yRegen: #b",
+      "You’re out of #yExalt and #rOver-Exaltation uses this turn.",
+      "#rNo #rEnough #yAliemus.",
+      "#rPlease #rWait a bit before unleashing again.",
+      "I'm #rSealed."
     ]
   },
   "${ModID}:KeyflareUI": {
     "TEXT": ["", " (Posse)"],
     "EXTRA_TEXT": [
       "Keyflare / Keyflare Limit",
-      "最多可以儲存 #b2 倍上限的 #y銀鑰能量 。 NL #y鑰能 達到上限時，點擊 #g右鍵 可以釋放 #y鑰令 。 NL 每回合可以釋放 #b2 次 #y鑰令 ，但第 #b2 次會改為從 #b3 個隨機 #y鑰令 中選擇 #b1 個釋放，且選擇的 #y鑰令 在本次戰鬥中無法再被選擇。 NL 當前 #y銀鑰充能 ： #b",
-      "每回合釋放 #r鑰令 的 #r次數用完了 。",
-      " #r鑰能不足 。",
-      "你太著急了， #r請等一下再釋放。 "
+      "You can store up to #b2 times the limit of #yKeyflare. NL When #yKeyflare reaches the limit, #gRight #gClick to release #yPosse. NL You can release #b2 #yPosse per turn, but the #b2th time will select #b1 out of #b3 random #yPosse, and the selected #yPosse cannot be selected again in this battle. NL Current #yKeyflare #yRegen: #b",
+      "You’re out of #yPosse uses this turn.",
+      "#rNo #rEnough #yKeyflare.",
+      "#rPlease #rWait a bit before releasing again."
     ]
   },
   "${ModID}:CardModifiers": {

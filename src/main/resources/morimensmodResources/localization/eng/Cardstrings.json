@@ -92,7 +92,7 @@
   },
   "${ModID}:FirstDoctrine": {
     "NAME": "First Doctrine",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. NL After plays a card, gain !M! [E]. Up to !${ModID}:M2! times per turn."
+    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. NL After playing a card, gain !M! [E]. Up to !${ModID}:M2! times per turn."
   },
   "${ModID}:AssaultThesis": {
     "NAME": "Assault Thesis",
@@ -149,7 +149,7 @@
   },
   "${ModID}:UnstableBarrier": {
     "NAME": "Unstable Barrier",
-    "DESCRIPTION": "Gain !B! Block X+1 times. Gain !${ModID}:A!X ${ModID}:Aliemus. Gain !M! Strength."
+    "DESCRIPTION": "{@@}Gain !B! Block X+1 times. Gain ${ModID}:Aliemus equal to !${ModID}:A! time{!${ModID}:A!|>1=s} of X. Gain !M! Strength."
   },
   "${ModID}:PiercingStrike": {
     "NAME": "Piercing Spear",
@@ -161,7 +161,7 @@
   },
   "${ModID}:EntropyUndone": {
     "NAME": "Entropy Undone",
-    "DESCRIPTION": "{@@}Gain !${ModID}:A! ${ModID}:Aliemus. NL Gain !M! ${ModID}:Keyflare after plays a ${ModID}:Command_Card, up to !${ModID}:M2! times per turn. When a card with ${ModID}:Loop effect is played but not triggered, gain !${ModID}:M3! stack{!${ModID}:M3!|>1=s} of ${ModID}:Negentropy."
+    "DESCRIPTION": "{@@}Gain !${ModID}:A! ${ModID}:Aliemus. NL Gain !M! ${ModID}:Keyflare after playing a ${ModID}:Command_Card, up to !${ModID}:M2! times per turn. When a card with ${ModID}:Loop effect is played but not triggered, gain !${ModID}:M3! stack{!${ModID}:M3!|>1=s} of ${ModID}:Negentropy."
   },
   "${ModID}:PredeterminedStrike": {
     "NAME": "Predetermined Sword",
@@ -217,7 +217,7 @@
   },
   "${ModID}:DrowningInSorrow": {
     "NAME": "Drowning in Sorrow",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. At turn starts, apply !M! Poison to all creatures, then gain ${ModID}:Aliemus equal to !${ModID}:M2! times the number of Poison stacks on yourself. You can block Poison damage."
+    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. After turn starts, apply !M! Poison to all creatures, then gain ${ModID}:Aliemus equal to !${ModID}:M2! times the number of Poison stacks on yourself. You can block Poison damage."
   },
   "${ModID}:MidnightTide": {
     "NAME": "Midnight Tide",
@@ -308,12 +308,12 @@
   },
   "${ModID}:Showdown": {
     "NAME": "Showdown",
-    "DESCRIPTION": "Deal !D! damage 1~!${ModID}:AC! times, Gain !${ModID}:A! ${ModID}:Aliemus. If 6 or more times of damage dealt, obtain !M! \"Unexpected Gain\" with [E] Cost of 0 and Exhaust added.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage 1~!${ModID}:AC! times, Gain !${ModID}:A! ${ModID}:Aliemus. Each time damage is dealt, you gain an additional !${ModID}:M2! ${ModID}:Aliemus. If 6 or more times of damage dealt, obtain !M! \"Unexpected Gain\" with [E] Cost of 0 and Exhaust added."
+    "DESCRIPTION": "Deal !D! damage 1 to !${ModID}:AC! times, gain !${ModID}:A! ${ModID}:Aliemus. If 6 or more times of damage dealt, obtain !M! \"Unexpected Gain\" with [E] Cost of 0 and Exhaust added.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 1 to !${ModID}:AC! times, gain !${ModID}:A! ${ModID}:Aliemus. Each time damage is dealt, you gain an additional !${ModID}:M2! ${ModID}:Aliemus. If 6 or more times of damage dealt, obtain !M! \"Unexpected Gain\" with [E] Cost of 0 and Exhaust added."
   },
   "${ModID}:TenRingsPlay": {
     "NAME": "Ten Rings Play",
-    "DESCRIPTION": "Deal !D! damage to random enemies !${ModID}:AC! times. NL ${ModID}:Phantasm"
+    "DESCRIPTION": "Deal !D! damage to a random enemy !${ModID}:AC! times. NL ${ModID}:Phantasm"
   },
   "${ModID}:LaudableMasterpiece": {
     "NAME": "此曲應得稱頌",
@@ -475,8 +475,8 @@
   },
   "${ModID}:OctahedronDice": {
     "NAME": "Octahedron Dice",
-    "DESCRIPTION": "Roll a 6-sided dice, gain ${ModID}:Temp Strength equal to the dice roll × !M! %. If the roll is 4 or higher, Inflict Weak on all enemys for 1 turn. If the roll is 6 or higher, doubled the gained ${ModID}:Temp Strength.",
-    "UPGRADE_DESCRIPTION": "Roll a 6-sided dice, gain ${ModID}:Temp Strength equal to the dice roll × !M! %. If the roll is 4 or higher, Inflict Weak and Vulnerable on all enemys for 1 turn. If the roll is 6 or higher, doubled the gained ${ModID}:Temp Strength and gain [E] .",
+    "DESCRIPTION": "Roll a 6-sided dice, gain ${ModID}:Temp Strength equal to the dice roll ×!M!%. If the roll is 4 or higher, Inflict Weak on all enemys for 1 turn. If the roll is 6 or higher, doubled the gained ${ModID}:Temp Strength.",
+    "UPGRADE_DESCRIPTION": "Roll a 6-sided dice, gain ${ModID}:Temp Strength equal to the dice roll ×!M!%. If the roll is 4 or higher, Inflict Weak and Vulnerable on all enemys for 1 turn. If the roll is 6 or higher, doubled the gained ${ModID}:Temp Strength and gain [E] .",
     "EXTENDED_DESCRIPTION": ["Shining Octahedron Dice"]
   },
   "${ModID}:SymphonyOfHarmony": {

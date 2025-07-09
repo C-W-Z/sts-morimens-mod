@@ -39,7 +39,7 @@
   "${ModID}:FirstDoctrinePower": {
     "NAME": "First Doctrine",
     "DESCRIPTIONS": [
-      "After plays a card, gain #b%d [E]. Up to #b%d times per turn. #b%d remaining."
+      "After playing a card, gain #b%d [E] . Up to #b%d times per turn. #b%d remaining."
     ]
   },
   "${ModID}:FleshDetachedPower": {
@@ -59,35 +59,35 @@
   "${ModID}:EntropyUndonePower": {
     "NAME": "Entropy Undone",
     "DESCRIPTIONS": [
-      "Gain #b%d #yKeyflare after plays a #yCommand #yCard, up to #b%d times per turn. #b%d remaining. When a card with #yLoop effect is played but not triggered, gain #b%d stack(s) of #yNegentropy."
+      "Gain #b%d #yKeyflare after playing a #yCommand #yCard, up to #b%d times per turn. #b%d remaining. When a card with #yLoop effect is played but not triggered, gain #b%d stack(s) of #yNegentropy."
     ]
   },
   "${ModID}:SoulblightPower": {
     "NAME": "Soulblight",
     "DESCRIPTIONS": [
-      "回合結束時，回復 #b%d 點生命並獲得 #b%d 點 #y狂氣 。 NL 「 #p終末型態 」：不再回復生命 ，改為觸發所有敵人 #b%d%% 的 #p中毒 。"
+      "At turn ends, heal #b%d HP and gain #b%d #yAliemus. NL #pStance #pof #pThe #pEnd: No longer heal HP, instead trigger !M!%% #pPoison on all enemies."
     ]
   },
   "${ModID}:DrowningInSorrowPower": {
     "NAME": "Drowning in Sorrow",
     "DESCRIPTIONS": [
-      "每回合開始後，對所有生物施加 #b%d 點 #p中毒 ，然後獲得等於自身 #p中毒 層數 #b%d 倍的 #y狂氣 。你可以 #y格擋 #p中毒 傷害。"
+      "After turn starts, apply #b%d #pPoison to all creatures, then gain #yAliemus equal to #p times the number of #pPoison stacks on yourself. You can #yblock #pPoison damage."
     ]
   },
   "${ModID}:OutstandingVeteranPower": {
     "NAME": "Outstanding Veteran",
-    "DESCRIPTIONS": ["#y打擊 造成的傷害享受 #b%d 倍 #y格擋 加成。"]
+    "DESCRIPTIONS": ["Damage of #yStrike increases with #b%d time(s) of the current #yBlock."]
   },
   "${ModID}:RewindingTimePower": {
     "NAME": "Rewinding Time",
     "DESCRIPTIONS": [
-      "打出卡牌後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 #b%d 次。當前剩餘 #b%d 次。"
+      "After playing a #yCommand #yCard, return it to your hand from the Discard Pile, This effect can only trigger #b%d times per turn. #b%d remaining."
     ]
   },
   "${ModID}:ManikinOfOblivionPower": {
     "NAME": "Manikin of Oblivion",
     "DESCRIPTIONS": [
-      "造成的基礎 #y狂氣 、基礎 #p中毒 、基礎 #g治療 提高 #b%d%% 。 NL 釋放 #y狂氣爆發 或 #r超限爆發 後，獲得本次 #y狂氣 消耗 #b%d%% 的 #y狂氣 。"
+      "Base #yAliemus, Base #pPoison, and Base HP healing effects are increased by #b%d%%. NL After unleashing #yExalt, gain #yAliemus equal to #b%d%% of the #yAliemus consumed."
     ]
   },
   "${ModID}:HandOfOblivionPower": {
