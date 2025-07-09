@@ -24,6 +24,7 @@ public class MutatedHeart extends AbstractBuffCard implements StartupCard {
         magicNumber = baseMagicNumber = 1;
         secondMagic = baseSecondMagic = 0;
         ExhaustiveVariable.setBaseValue(this, magicNumber);
+        selfRetain = true;
     }
 
     @Override

@@ -20,6 +20,7 @@ public class InnocentReturnGift extends AbstractBuffCard implements StartupCard 
         aliemus = baseAliemus = 30;
         magicNumber = baseMagicNumber = 1;
         ExhaustiveVariable.setBaseValue(this, magicNumber);
+        selfRetain = true;
     }
 
     @Override
