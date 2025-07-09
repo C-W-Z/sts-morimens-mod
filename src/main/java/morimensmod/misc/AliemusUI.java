@@ -84,10 +84,9 @@ public class AliemusUI extends ClickableUIElement {
         // popup text
         ArrayList<PowerTip> tips = new ArrayList<>();
         AbstractAwakener awaker = (AbstractAwakener) p();
-        tips.add(new PowerTip(TEXT.EXTRA_TEXT[0], TEXT.EXTRA_TEXT[1] + awaker.aliemusRegen + " "));
-        tips.add(new PowerTip(TEXT.TEXT[0] + awaker.getExaltTitle() + TEXT.TEXT[1], awaker.getExaltDescription()));
-        tips.add(new PowerTip(TEXT.TEXT[2] + awaker.getOverExaltTitle() + TEXT.TEXT[3],
-                awaker.getOverExaltDescription()));
+        tips.add(new PowerTip(TEXT.TEXT[2], TEXT.TEXT[3] + awaker.aliemusRegen + " "));
+        tips.add(new PowerTip(awaker.getExaltTitle() + TEXT.TEXT[0], awaker.getExaltDescription()));
+        tips.add(new PowerTip(awaker.getOverExaltTitle() + TEXT.TEXT[1], awaker.getOverExaltDescription()));
         TipHelper.queuePowerTips(fontX, baseY + Settings.yScale * 400f, tips);
     }
 
@@ -106,23 +105,23 @@ public class AliemusUI extends ClickableUIElement {
             return;
 
         if (p().hasPower(SealPower.POWER_ID)) {
-            showThoughtBubble(TEXT.EXTRA_TEXT[5], ModSettings.UI_THOUGHT_BUBBLE_TIME);
+            showThoughtBubble(TEXT.EXTRA_TEXT[3], ModSettings.UI_THOUGHT_BUBBLE_TIME);
             return;
         }
 
         if (AbstractAwakener.isPossing() || AbstractAwakener.isExalting()
                 || !AbstractDungeon.actionManager.cardQueue.isEmpty()) {
-            showThoughtBubble(TEXT.EXTRA_TEXT[4], ModSettings.UI_THOUGHT_BUBBLE_TIME);
-            return;
-        }
-
-        if (!AbstractAwakener.enoughExaltCountThisTurn()) {
             showThoughtBubble(TEXT.EXTRA_TEXT[2], ModSettings.UI_THOUGHT_BUBBLE_TIME);
             return;
         }
 
+        if (!AbstractAwakener.enoughExaltCountThisTurn()) {
+            showThoughtBubble(TEXT.EXTRA_TEXT[0], ModSettings.UI_THOUGHT_BUBBLE_TIME);
+            return;
+        }
+
         if (!AbstractAwakener.enoughAliemusForExalt()) {
-            showThoughtBubble(TEXT.EXTRA_TEXT[3], ModSettings.UI_THOUGHT_BUBBLE_TIME);
+            showThoughtBubble(TEXT.EXTRA_TEXT[1], ModSettings.UI_THOUGHT_BUBBLE_TIME);
             return;
         }
 

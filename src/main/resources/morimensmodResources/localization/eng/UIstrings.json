@@ -67,15 +67,18 @@
   },
   "${ModID}:DeathResistanceUI": {
     "TEXT": [
-      "DeathResistance",
+      "Death Resistance",
       "When your life reaches zero, you attempt to trigger #yDeath #yResistance, with a success probability equal to the current value of #yDeath #yResistance. If it exceeds #b100%, it must succeed. NL Upon triggering #yDeath #yResistance successfully, you become immune to this instance of death, your life is set to #b1, and the value of #yDeath #yResistance is halved. For the remainder of this exploration, all subsequent increases to #yDeath #yResistance are also halved."
     ]
   },
   "${ModID}:AliemusUI": {
-    "TEXT": ["", " (Exalt)", "", " #r(Over-Exaltaion)"],
+    "TEXT": [
+        " (Exalt)",
+        " #r(Over-Exaltaion)",
+        "Aliemus/Aliemus Limit",
+      "You can store up to #b2 times the limit of #yAliemus. NL When #yAliemus reaches the limit, #gRight #gClick to unleash #yExalt. NL When #yAliemus reaches #b2 times the limit, #gRight #gClick to unleash #rOver-Exaltation 。 NL You can only unleash #yExalt or #rOver-Exaltation once per turn. NL Current #yAliemus #yRegen: #b"
+    ],
     "EXTRA_TEXT": [
-      "Aliemus / Aliemus Limit",
-      "You can store up to #b2 times the limit of #yAliemus. NL When #yAliemus reaches the limit, #gRight #gClick to unleash #yExalt. NL When #yAliemus reaches #b2 times the limit, #gRight #gClick to unleash #rOver-Exaltation 。 NL You can only unleash #yExalt or #rOver-Exaltation once per turn. NL Current #yAliemus #yRegen: #b",
       "You’re out of #rExalt and #rOver-Exaltation uses this turn.",
       "#rNo #rEnough #rAliemus.",
       "#rPlease #rWait a bit before unleashing again.",
@@ -83,10 +86,13 @@
     ]
   },
   "${ModID}:KeyflareUI": {
-    "TEXT": ["", " (Posse)"],
+    "TEXT": [
+        " (Posse)",
+        "Keyflare/Keyflare Limit",
+        "You can store up to #b2 times the limit of #yKeyflare. NL When #yKeyflare reaches the limit, #gRight #gClick to release #yPosse. NL You can release #b2 #yPosse per turn, but the #b2th time will select #b1 out of #b3 random #yPosse, and the selected #yPosse cannot be selected again in this battle. NL Current #yKeyflare #yRegen: #b",
+        "You can store up to #b2 times the limit of #yKeyflare. NL When #yKeyflare reaches the limit, #gRight #gClick to release #yPosse. NL You can release #b2 #yPosse per turn, but the #b2th time will select #b1 from all #yPosse, and the selected #yPosse cannot be selected again in this battle. NL Current #yKeyflare #yRegen: #b"
+    ],
     "EXTRA_TEXT": [
-      "Keyflare / Keyflare Limit",
-      "You can store up to #b2 times the limit of #yKeyflare. NL When #yKeyflare reaches the limit, #gRight #gClick to release #yPosse. NL You can release #b2 #yPosse per turn, but the #b2th time will select #b1 out of #b3 random #yPosse, and the selected #yPosse cannot be selected again in this battle. NL Current #yKeyflare #yRegen: #b",
       "You’re out of #rPosse uses this turn.",
       "#rNo #rEnough #rKeyflare.",
       "#rPlease #rWait a bit before releasing again."
