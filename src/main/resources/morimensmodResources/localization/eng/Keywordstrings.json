@@ -55,7 +55,7 @@
     "DESCRIPTION": "Basic #yDefend cards and all cards that counts as #yDefend."
   },
   {
-    "PROPER_NAME": "#gRealm Mastery [${ModID}:RealmMasteryIcon]",
+    "PROPER_NAME": "#gRealm #gMastery [${ModID}:RealmMasteryIcon]",
     "NAMES": ["Realm Mastery", "realm_mastery"],
     "DESCRIPTION": "Improves the effect of the initial relics of the realm."
   },
@@ -66,7 +66,7 @@
   },
   {
     "PROPER_NAME": "Aliemus Regen [${ModID}:AliemusIcon]",
-    "NAMES": ["Aliemus Regen", "Aliemus_Regen"],
+    "NAMES": ["Aliemus Regen", "aliemus_regen"],
     "DESCRIPTION": "After unleashing #yExalt or #rOver-Exaltation, you will automatically gain #yAliemus equal to the #yAliemus #yRegen attribute value."
   },
   {
@@ -87,7 +87,7 @@
   {
     "PROPER_NAME": "Keyflare Regen [${ModID}:KeyflareIcon]",
     "NAMES": ["Keyflare Regen", "keyflare_regen"],
-    "DESCRIPTION": "The #yKeyflare #yRegen attribute determines how much #yKeyflare you gain each time you spend #b1 [E]."
+    "DESCRIPTION": "The #yKeyflare #yRegen attribute determines how much #yKeyflare you gain for every #b1 [E] you consume."
   },
   {
     "PROPER_NAME": "Posse",
@@ -106,7 +106,7 @@
   },
   {
     "PROPER_NAME": "Seal [${ModID}:SealIcon]",
-    "NAMES": ["Seal", "Sealed"],
+    "NAMES": ["Seal", "seal", "sealed"],
     "DESCRIPTION": "Unable to unleash #yExalt. Reduced #b1 stack at turn start."
   },
   {

@@ -79,7 +79,7 @@
     "NAME": "Festival of Tides",
     "DESCRIPTION": "Draw 2 cards, gain 2 [E] , lose 5 ${ModID}:Aliemus. If currently in the ${ModID}:Tranquil_Sea stance, inflict 5 Poison on all enemies, with 3 times the effect in Boss Battles.",
     "EXTENDED_DESCRIPTION": [
-      "Draw #b2 cards, gain #b2 [E] , lose #b5 #yAliemus. If currently in the #yTranquil_Sea stance, inflict #b5 #pPoison on all enemies, with #b3 times the effect in Boss Battles."
+      "Draw #b2 cards, gain #b2 [E] , lose #b5 #yAliemus. If currently in the #bTranquil #bSea stance, inflict #b5 #pPoison on all enemies, with #b3 times the effect in Boss Battles."
     ]
   },
   "${ModID}:Strike": {
@@ -133,15 +133,15 @@
   },
   "${ModID}:BladeOfDefiance": {
     "NAME": "Blade of Defiance",
-    "DESCRIPTION": "Deal !D! damage to a random enemy, repeat !${ModID}:AC! times. Each Strike played this turn, reduces [E] Cost by 1. NL Counts as Strike"
+    "DESCRIPTION": "Deal !D! damage to a random enemy, repeat !${ModID}:AC! times. Each Strike played this turn, reduces [E] Cost by 1. NL Counts as Strike."
   },
   "${ModID}:TidesOfHubris": {
     "NAME": "Tides of Hubris",
-    "DESCRIPTION": "Deal !D! damage to all enemies, gain !M! Strength. NL Counts as Strike"
+    "DESCRIPTION": "Deal !D! damage to all enemies, gain !M! Strength. NL Counts as Strike."
   },
   "${ModID}:LoopingSwordplay": {
     "NAME": "Looping Swordplay",
-    "DESCRIPTION": "Deal !D! damage. If Fatal, permanently increase this card's damage by !M! and place a copy of this card into hand. NL Counts as Strike"
+    "DESCRIPTION": "Deal !D! damage. If Fatal, permanently increase this card's damage by !M! and place a copy of this card into hand. NL Counts as Strike."
   },
   "${ModID}:KnightsZeal": {
     "NAME": "Knight's Zeal",
@@ -149,11 +149,11 @@
   },
   "${ModID}:UnstableBarrier": {
     "NAME": "Unstable Barrier",
-    "DESCRIPTION": "Gain !B! Block X+1 times. For every [E] consumed, gain !${ModID}:A! ${ModID}:Aliemus. Gain !M! Strength."
+    "DESCRIPTION": "Gain !B! Block X+1 times. Gain !${ModID}:A!X ${ModID}:Aliemus. Gain !M! Strength."
   },
   "${ModID}:PiercingStrike": {
     "NAME": "Piercing Spear",
-    "DESCRIPTION": "{@@}Deal !D! ${ModID}:Pierce_Damage, inflict !M! turn{!M!|>1=s} Vulnerable, Strength affects this card !${ModID}:M2! times."
+    "DESCRIPTION": "{@@}Deal !D! ${ModID}:Pierce_Damage, inflict !M! turn{!M!|>1=s} of Vulnerable, Strength affects this card !${ModID}:M2! times."
   },
   "${ModID}:FrontlineTactics": {
     "NAME": "前陣戰術",
@@ -165,7 +165,7 @@
   },
   "${ModID}:PredeterminedStrike": {
     "NAME": "Predetermined Sword",
-    "DESCRIPTION": "Deal !D! damage, Strength affects this card !M! times. Each time a ${ModID}:Posse is released, Strength multiplier on this card +1 in this battle. ${ModID}:Loop: Choose \"Rebirth Tribunal\" or \"Ode to Tomorrow\". NL Rebirth Tribunal: Gain !${ModID}:M2! [E]. NL Ode to Tomorrow: Deal double damage and gain !${ModID}:M3! times the ${ModID}:Keyflare, but Exhaust after playing.",
+    "DESCRIPTION": "Deal !D! damage, Strength affects this card !M! times. Each time a ${ModID}:Posse is released, Strength multiplier on this card +1 in this battle. ${ModID}:Loop: Choose \"Rebirth Tribunal\" or \"Ode to Tomorrow\". NL \"Rebirth Tribunal\": Gain !${ModID}:M2! [E]. NL \"Ode to Tomorrow\": Deal double damage and gain !${ModID}:M3! times the ${ModID}:Keyflare, but Exhaust after playing.",
     "EXTENDED_DESCRIPTION": [
       "Rebirth Tribunal",
       "Gain !${ModID}:M2! [E].",
@@ -187,7 +187,7 @@
   },
   "${ModID}:SelfDestruct": {
     "NAME": "Self-Destruct",
-    "DESCRIPTION": "{@@}Choose \"Elation\" or \"Curse\". NL Elation: Inflict !M! turn{!M!|>1=s} of Vulnerable to all enemies, gain !${ModID}:M2! turn{!${ModID}:M2!|>1=s} of ${ModID}:Elation. NL Curse: Inflict Weak to all enemies for !M! turn{!M!|>1=s}, and decrease their Strength by !${ModID}:M3! this turn.",
+    "DESCRIPTION": "{@@}Choose \"Elation\" or \"Curse\". NL \"Elation\": Inflict !M! turn{!M!|>1=s} of Vulnerable to all enemies, gain !${ModID}:M2! turn{!${ModID}:M2!|>1=s} of ${ModID}:Elation. NL \"Curse\": Inflict Weak to all enemies for !M! turn{!M!|>1=s}, and decrease their Strength by !${ModID}:M3! this turn.",
     "EXTENDED_DESCRIPTION": [
       "Elation",
       "{@@}Inflict !M! turn{!M!|>1=s} of Vulnerable to all enemies, gain !${ModID}:M2! turn{!${ModID}:M2!|>1=s} of ${ModID}:Elation.",
@@ -271,7 +271,7 @@
   },
   "${ModID}:PrecisionSlash": {
     "NAME": "Precision Slash",
-    "DESCRIPTION": "造成 !D! 點傷害.每 !M! 格擋 使傷害提高 1 點.在本回合中每打出 1 張「 ${ModID}:防禦 」,  [E] 消耗減少 1 點. NL Counts as Strike"
+    "DESCRIPTION": "造成 !D! 點傷害.每 !M! 格擋 使傷害提高 1 點.在本回合中每打出 1 張「 ${ModID}:防禦 」,  [E] 消耗減少 1 點. NL Counts as Strike."
   },
   "${ModID}:DefensiveStance": {
     "NAME": "Defensive Stance",
@@ -279,7 +279,7 @@
   },
   "${ModID}:InsightStrike": {
     "NAME": "Insight Strike",
-    "DESCRIPTION": "對生命與 格擋 總和最高的敵方造成 !D! 點傷害, 獲得傷害量 !M! %的 格擋. NL Counts as Strike"
+    "DESCRIPTION": "對生命與 格擋 總和最高的敵方造成 !D! 點傷害, 獲得傷害量 !M! %的 格擋. NL Counts as Strike."
   },
   "${ModID}:DanceOfTheGibbousMoon": {
     "NAME": "凸月之舞",
@@ -503,7 +503,7 @@
   },
   "${ModID}:SymptomDelusion": {
     "NAME": "Symptom: Delusion",
-    "DESCRIPTION": "Lose !M! HP, gain [E] [E]. NL Unremovable In Shop"
+    "DESCRIPTION": "Lose !M! HP, gain [E] [E]. NL Unremovable In Shop."
   },
   "${ModID}:SymptomEpilepsy": {
     "NAME": "症狀：癲癇",
@@ -543,7 +543,7 @@
   },
   "${ModID}:Wound": {
     "NAME": "Wound",
-    "DESCRIPTION": "{@@}A minor injury, nothing serious. Take !M! damage. draw !${ModID}:DR! card{!${ModID}:DR!|>1=s}. NL Removed When Discarded"
+    "DESCRIPTION": "{@@}A minor injury, nothing serious. Take !M! damage. draw !${ModID}:DR! card{!${ModID}:DR!|>1=s}. NL Removed When Discarded."
   },
   "${ModID}:Convulsion": {
     "NAME": "Convulsion",
@@ -555,7 +555,7 @@
   },
   "${ModID}:DimensionLock": {
     "NAME": "Dimension Lock",
-    "DESCRIPTION": "{@@}After unleashing ${ModID}:Exalt, ${ModID}:Sealed for !M! turn{!M!|>1=s}. NL Unplayable"
+    "DESCRIPTION": "{@@}After unleashing ${ModID}:Exalt, ${ModID}:Sealed for !M! turn{!M!|>1=s}. NL Unplayable."
   },
   "${ModID}:Stagger": {
     "NAME": "Stagger",
@@ -576,6 +576,6 @@
   },
   "${ModID}:Unrestrained": {
     "NAME": "Unrestrained",
-    "DESCRIPTION": "Gain !M! ${ModID}:Temporary Strength . All enemies gain !${ModID}:M2! ${ModID}:Temporary Strength. NL ${ModID}:Persistent ${ModID}:Destroy"
+    "DESCRIPTION": "Gain !M! ${ModID}:Temporary Strength . All enemies gain !${ModID}:M2! ${ModID}:Temporary Strength. NL ${ModID}:Persistent. ${ModID}:Destroy."
   }
 }
