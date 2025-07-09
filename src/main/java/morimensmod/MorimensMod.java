@@ -122,12 +122,12 @@ public class MorimensMod implements
     };
 
     private String getLangString() {
-        for (Settings.GameLanguage lang : SupportedLanguages) {
-            if (lang.equals(Settings.language)) {
-                return Settings.language.name().toLowerCase();
-            }
-        }
-        return "zht";
+        if (Settings.language == Settings.GameLanguage.ZHS || Settings.language == Settings.GameLanguage.ZHT)
+            return Settings.GameLanguage.ZHT.name().toLowerCase();
+        // for (Settings.GameLanguage lang : SupportedLanguages)
+        //     if (lang.equals(Settings.language))
+        //         return Settings.language.name().toLowerCase();
+        return Settings.GameLanguage.ENG.name().toLowerCase();
     }
 
     /**
