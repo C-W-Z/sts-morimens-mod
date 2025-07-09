@@ -94,20 +94,21 @@
   },
   "${ModID}:CardModifiers": {
     "TEXT": [
-      "${ModID}:預備",
-      "${ModID}:永久保留",
-      "${ModID}:銷毀",
-      " 無法打出 ",
-      "棄掉時移除",
-      "視為「 打擊 」",
-      "視為「 ${ModID}:防禦 」",
-      "${ModID}:幻影"
+      "${ModID}:Prepare",
+      "${ModID}:Persistent",
+      "${ModID}:Destroy",
+      "Unplayable",
+      "Removed When Discarded",
+      "Unremovable In Shop",
+      "Counts as Strike",
+      "Counts as ${ModID}:Defend",
+      "${ModID}:Phantasm"
     ]
   },
   "${ModID}:MundusDecree": {
     "TEXT": [
       "Mundus Decree",
-      "Obtain #b200 #yKeyflare. Choose #b1 card from the Draw Pile or Discard Pile and add it to your hand, reducing its [E] cost to #b0. Shuffle #b1 \"Insight\" into the Draw Pile."
+      "Obtain #b200 #yKeyflare. Choose #b1 card from the Draw Pile or Discard Pile and add it to your hand, reducing its [E] Cost to #b0. Shuffle #b1 \"Insight\" into the Draw Pile."
     ],
     "EXTRA_TEXT": [
       "#rLabyrinth #rof #rThought",
