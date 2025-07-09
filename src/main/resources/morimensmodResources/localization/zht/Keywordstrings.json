@@ -107,7 +107,7 @@
   {
     "PROPER_NAME": "封印 [${ModID}:SealIcon]",
     "NAMES": ["封印", "Seal", "Sealed"],
-    "DESCRIPTION": "無法釋放 #y狂氣爆發 。回合開始時減少 #b1 層。"
+    "DESCRIPTION": "無法釋放 #y狂氣爆發 。回合結束時減少 #b1 層。"
   },
   {
     "PROPER_NAME": "永久保留",

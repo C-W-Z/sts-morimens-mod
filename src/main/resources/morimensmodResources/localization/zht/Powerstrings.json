@@ -5,7 +5,7 @@
   },
   "${ModID}:SealPower": {
     "NAME": "封印",
-    "DESCRIPTIONS": ["無法釋放 #y狂氣爆發 。回合開始時減少 #b%d 層。"]
+    "DESCRIPTIONS": ["無法釋放 #y狂氣爆發 。回合結束時減少 #b%d 層。"]
   },
   "${ModID}:TraumaPower": {
     "NAME": "創傷",
