@@ -149,7 +149,7 @@
   },
   "${ModID}:UnstableBarrier": {
     "NAME": "不定壁壘",
-    "DESCRIPTION": "獲得 !B! 點 格擋 X+1 次。獲得 !${ModID}:A! X ${ModID}:狂氣 。獲得 !M! 點 力量 。"
+    "DESCRIPTION": "獲得 !B! 點 格擋 X+1 次。獲得等於X !${ModID}:A! 倍的 ${ModID}:狂氣 。獲得 !M! 點 力量 。"
   },
   "${ModID}:PiercingStrike": {
     "NAME": "穿刺之槍",
@@ -238,7 +238,7 @@
   },
   "${ModID}:NoTrespassing": {
     "NAME": "高熱區禁入",
-    "DESCRIPTION": "獲得 !B! 點 格擋 和 !M! 層 ${ModID}:臨時 荊棘 ，在首領戰中改為獲得 !${ModID}:M2! 倍 ${ModID}:臨時 荊棘 。 NL ${ModID}:預備 1"
+    "DESCRIPTION": "獲得 !B! 點 格擋 和 !M! 層 ${ModID}:臨時 荊棘 ，在首領戰中獲得 !${ModID}:M2! 倍 ${ModID}:臨時 荊棘 。 NL ${ModID}:預備 1"
   },
   "${ModID}:ShortTermMemory": {
     "NAME": "短期記憶",

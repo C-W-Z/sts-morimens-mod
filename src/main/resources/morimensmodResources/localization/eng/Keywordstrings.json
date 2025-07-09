@@ -107,7 +107,7 @@
   {
     "PROPER_NAME": "Seal [${ModID}:SealIcon]",
     "NAMES": ["Seal", "seal", "sealed"],
-    "DESCRIPTION": "Unable to unleash #yExalt. Reduced #b1 stack at turn start."
+    "DESCRIPTION": "Unable to unleash #yExalt. Reduced #b1 stack at turn ends."
   },
   {
     "PROPER_NAME": "Persistent",
@@ -120,7 +120,7 @@
     "DESCRIPTION": "Once played, it is permanently removed from the deck."
   },
   {
-    "PROPER_NAME": "Prepare (Ｘ)",
+    "PROPER_NAME": "Prepare (X)",
     "NAMES": ["Prepare", "prepare"],
     "DESCRIPTION": "At turn end, reduce [E] Cost by #bX. This effect triggers even if discarded."
   },
@@ -170,8 +170,8 @@
     "DESCRIPTION": "A unique #ystance for #yDoll:Inferno. When #pThe #pEnd reaches #b10 stacks, automatically place #b1 \"The Void and The End\" in your hand. Enter #pStance #pof #pThe #pEnd by playing \"The Void and The End\"."
   },
   {
-    "PROPER_NAME": "#rElation #r(X) [${ModID}:ElationIcon]",
+    "PROPER_NAME": "#rElation [${ModID}:ElationIcon]",
     "NAMES": ["Elation", "elation"],
-    "DESCRIPTION": "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #bX%. Reduces #b1 stack at turn start."
+    "DESCRIPTION": "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #b50%. Reduces #b1 stack at turn start."
   }
 ]
