@@ -59,13 +59,13 @@
   "${ModID}:EntropyUndonePower": {
     "NAME": "熵增逆轉",
     "DESCRIPTIONS": [
-      "打出 #y指令卡 後，獲得 #b%d 點 #y銀鑰能量 ，每回合最多觸發 #b%d 次。次。當前剩餘 #b%d 次。打出擁有卻未觸發 #y回環 效果的卡牌時，獲得 #b%d 層 #y負熵 。"
+      "打出 #y指令卡 後，獲得 #b%d 點 #y銀鑰能量 ，每回合最多觸發 #b%d 次。當前剩餘 #b%d 次。打出擁有卻未觸發 #y回環 效果的卡牌時，獲得 #b%d 層 #y負熵 。"
     ]
   },
   "${ModID}:SoulblightPower": {
     "NAME": "靈魂瘟疫",
     "DESCRIPTIONS": [
-      "回合結束時，回復 #b%d 點生命並獲得 #b%d 點 #y狂氣 。 NL 「 #p終末型態 」：不再回復生命 ，改為觸發所有敵人 #b%d%% 的 #p中毒 。"
+      "回合結束時，回復 #b%d 點生命並獲得 #b%d #y狂氣 。 NL 「 #p終末型態 」：不再回復生命 ，改為觸發所有敵人 #b%d%% 的 #p中毒 。"
     ]
   },
   "${ModID}:DrowningInSorrowPower": {

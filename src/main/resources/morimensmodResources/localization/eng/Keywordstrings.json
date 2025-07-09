@@ -55,7 +55,7 @@
     "DESCRIPTION": "Basic #yDefend cards and all cards that counts as #yDefend."
   },
   {
-    "PROPER_NAME": "#gRealm Mastery [${ModID}:RealmMasteryIcon]",
+    "PROPER_NAME": "#gRealm #gMastery [${ModID}:RealmMasteryIcon]",
     "NAMES": ["Realm Mastery", "realm_mastery"],
     "DESCRIPTION": "Improves the effect of the initial relics of the realm."
   },
@@ -66,7 +66,7 @@
   },
   {
     "PROPER_NAME": "Aliemus Regen [${ModID}:AliemusIcon]",
-    "NAMES": ["Aliemus Regen", "Aliemus_Regen"],
+    "NAMES": ["Aliemus Regen", "aliemus_regen"],
     "DESCRIPTION": "After unleashing #yExalt or #rOver-Exaltation, you will automatically gain #yAliemus equal to the #yAliemus #yRegen attribute value."
   },
   {
@@ -87,7 +87,7 @@
   {
     "PROPER_NAME": "Keyflare Regen [${ModID}:KeyflareIcon]",
     "NAMES": ["Keyflare Regen", "keyflare_regen"],
-    "DESCRIPTION": "The #yKeyflare #yRegen attribute determines how much #yKeyflare you gain each time you spend #b1 [E]."
+    "DESCRIPTION": "The #yKeyflare #yRegen attribute determines how much #yKeyflare you gain for every #b1 [E] you consume."
   },
   {
     "PROPER_NAME": "Posse",
@@ -96,7 +96,7 @@
   },
   {
     "PROPER_NAME": "Temporary",
-    "NAMES": ["Temporary", "temporary", "temp", "tmp"],
+    "NAMES": ["Temporary", "temporary", "temporarily", "temp", "tmp"],
     "DESCRIPTION": "The effect is only for this round."
   },
   {
@@ -106,7 +106,7 @@
   },
   {
     "PROPER_NAME": "Seal [${ModID}:SealIcon]",
-    "NAMES": ["Seal", "Sealed"],
+    "NAMES": ["Seal", "seal", "sealed"],
     "DESCRIPTION": "Unable to unleash #yExalt. Reduced #b1 stack at turn start."
   },
   {
@@ -122,7 +122,7 @@
   {
     "PROPER_NAME": "Prepare (Ｘ)",
     "NAMES": ["Prepare", "prepare"],
-    "DESCRIPTION": "At turn end, [E] costs #bX less. This effect triggers even if discarded."
+    "DESCRIPTION": "At turn end, reduce [E] Cost by #bX. This effect triggers even if discarded."
   },
   {
     "PROPER_NAME": "#bAftershock",
@@ -131,7 +131,7 @@
   },
   {
     "PROPER_NAME": "Pierce Damage",
-    "NAMES": ["Pierce Damage", "Pierce_Damage", "Pierce_damage", "pierce_damage"],
+    "NAMES": ["Pierce Damage", "pierce_damage"],
     "DESCRIPTION": "Damage reduce both #yBlock and HP, Cannot be bloced by #yBarrier."
   },
   {
@@ -147,12 +147,12 @@
   {
     "PROPER_NAME": "Phantasm",
     "NAMES": ["Phantasm", "phantasm"],
-    "DESCRIPTION": "Each time you play another card, reduce this card's [E] cost by #b1 for the next play; after playing this card, return it to your hand and increase its [E] cost by #b1, reset at the turn ends or when discarded."
+    "DESCRIPTION": "Each time you play another card, reduce this card's [E] Cost by #b1 for the next play; after playing this card, return it to your hand and increase its [E] Cost by #b1, reset at the turn ends or when discarded."
   },
   {
     "PROPER_NAME": "#bTranquil #bSea",
     "NAMES": ["Tranquil Sea", "tranquil_sea"],
-    "DESCRIPTION": "A stance unique to the #bAequer #bRealm. When entering the #bTranquil #bSea #ystance, you gain #yBlock, but the #yTentacle #yDamage is halved during that turn."
+    "DESCRIPTION": "A #ystance unique to the #bAequer #bRealm. When entering the #bTranquil #bSea #ystance, you gain #yBlock, but the #yTentacle #yDamage is halved during that turn."
   },
   {
     "PROPER_NAME": "Negentropy [${ModID}:NegentropyIcon]",
@@ -165,13 +165,13 @@
     "DESCRIPTION": "Unique additional effect of #yRamona:Timeworm's #yCommand #yCard, triggered when there are #b3 stacks of #yNegentropy."
   },
   {
-    "PROPER_NAME": "#pTerminus #pStance",
-    "NAMES": ["Terminus Stance", "terminus_stance"],
-    "DESCRIPTION": "獨屬於 #r熔毀·朵爾 的 姿態 ，當「 #p終末 」達到 #b10 層時會自動將 #b1 張「 #y虛無終結 」置入手中。打出「 #y虛無終結 」進入 #p終末型態 。"
+    "PROPER_NAME": "#pStance #pof #pThe #pEnd",
+    "NAMES": ["Stance of The End", "stance_of_the_end"],
+    "DESCRIPTION": "A unique #ystance for #yDoll:Inferno. When #pThe #pEnd reaches #b10 stacks, automatically place #b1 \"The Void and The End\" in your hand. Enter #pStance #pof #pThe #pEnd by playing \"The Void and The End\"."
   },
   {
     "PROPER_NAME": "#rElation #r(X) [${ModID}:ElationIcon]",
     "NAMES": ["Elation", "elation"],
-    "DESCRIPTION": "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle_Damage by #bX%. Reduces #b1 stack at turn start."
+    "DESCRIPTION": "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #bX%. Reduces #b1 stack at turn start."
   }
 ]
