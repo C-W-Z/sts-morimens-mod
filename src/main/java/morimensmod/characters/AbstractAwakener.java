@@ -80,6 +80,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
     protected static int allPossedThisBattle = 0; // reset at Main Mod File
     protected AbstractPosse posse = null;
 
+    public static ArrayList<String> posseUsedThisTurn;
+
     // percent
     public static int baseDamageAmplify;
     public static int baseBlockAmplify;
@@ -210,6 +212,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
                 applyToSelf(PersistentPowerLib.getPower(pair.getKey(), p(), pair.getValue()));
         }
         // persistentPowers.clear();
+
+        posseUsedThisTurn = new ArrayList<>();
     }
 
     // called in Main Mod File
@@ -479,8 +483,14 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public void addExtraPosseActionToBottom() {
         possing = true;
 
-        ArrayList<AbstractPosse> posses = getAllPosses();
+        ArrayList<AbstractPosse> posses = getAllPossesExcept(posseUsedThisTurn);
         logger.debug("num_posses:" + posses.size());
+
+        if (posses.isEmpty()) {
+            posseUsedThisTurn.clear();
+            posses = getAllPosses();
+            logger.debug("reset, num_posses:" + posses.size());
+        }
 
         for (AbstractPosse p : posses)
             p.set(this, PosseType.EXTRA);

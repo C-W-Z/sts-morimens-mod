@@ -7,7 +7,7 @@ import morimensmod.util.TexLoader;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.MorimensMod.makeUIPath;
-
+import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.p;
 import static morimensmod.util.Wiz.isInCombat;
 import static morimensmod.util.WizArt.drawCentered;
@@ -78,9 +78,12 @@ public class KeyflareUI extends ClickableUIElement {
         // popup text
         ArrayList<PowerTip> tips = new ArrayList<>();
         AbstractAwakener awaker = (AbstractAwakener) p();
-        tips.add(new PowerTip(TEXT.EXTRA_TEXT[0], TEXT.EXTRA_TEXT[1] + awaker.keyflareRegen + " "));
+        if (awaker.getCardColor() == CHAOS_COLOR)
+            tips.add(new PowerTip(TEXT.TEXT[1], TEXT.TEXT[3] + awaker.keyflareRegen + " "));
+        else
+            tips.add(new PowerTip(TEXT.TEXT[1], TEXT.TEXT[2] + awaker.keyflareRegen + " "));
         if (awaker.getPosseID() != null)
-            tips.add(new PowerTip(TEXT.TEXT[0] + awaker.getPosseTitle() + TEXT.TEXT[1], awaker.getPosseDescription()));
+            tips.add(new PowerTip(awaker.getPosseTitle() + TEXT.TEXT[0], awaker.getPosseDescription()));
         TipHelper.queuePowerTips(fontX, baseY + Settings.yScale * 300f, tips);
     }
 
@@ -100,17 +103,17 @@ public class KeyflareUI extends ClickableUIElement {
 
         if (AbstractAwakener.isPossing() || AbstractAwakener.isExalting()
                 || !AbstractDungeon.actionManager.cardQueue.isEmpty()) {
-            showThoughtBubble(TEXT.EXTRA_TEXT[4], ModSettings.UI_THOUGHT_BUBBLE_TIME);
-            return;
-        }
-
-        if (!AbstractAwakener.enoughLimitedPosseCountThisTurn()) {
             showThoughtBubble(TEXT.EXTRA_TEXT[2], ModSettings.UI_THOUGHT_BUBBLE_TIME);
             return;
         }
 
+        if (!AbstractAwakener.enoughLimitedPosseCountThisTurn()) {
+            showThoughtBubble(TEXT.EXTRA_TEXT[0], ModSettings.UI_THOUGHT_BUBBLE_TIME);
+            return;
+        }
+
         if (!AbstractAwakener.enoughKeyflareForLimitedPosse()) {
-            showThoughtBubble(TEXT.EXTRA_TEXT[3], ModSettings.UI_THOUGHT_BUBBLE_TIME);
+            showThoughtBubble(TEXT.EXTRA_TEXT[1], ModSettings.UI_THOUGHT_BUBBLE_TIME);
             return;
         }
 

@@ -28,6 +28,8 @@ public abstract class AbstractPosse extends AbstractEasyCard {
     public void onChoseThisOption() {
         // 用addToTop是因為，被選擇之後就應該要立即觸發
         addToTop(new PosseAction(this));
+        if (type == PosseType.EXTRA)
+            AbstractAwakener.posseUsedThisTurn.add(cardID);
     }
 
     @Override

@@ -353,6 +353,14 @@ public class Wiz {
         return pool;
     }
 
+    public static ArrayList<AbstractPosse> getAllPossesExcept(ArrayList<String> posseIDs) {
+        ArrayList<AbstractPosse> pool = new ArrayList<>();
+        for (AbstractCard c : CardLibrary.getAllCards())
+            if (c.color == POSSE_COLOR && !posseIDs.contains(c.cardID))
+                pool.add((AbstractPosse) c.makeCopy());
+        return pool;
+    }
+
     // Wiz.* must used after receiveEditStrings() !
     private static final UIStrings MODIFIER_STRINGS = CardCrawlGame.languagePack.getUIString(makeID("CardModifiers"));
 
