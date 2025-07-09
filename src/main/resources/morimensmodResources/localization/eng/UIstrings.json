@@ -108,7 +108,7 @@
   "${ModID}:MundusDecree": {
     "TEXT": [
       "Mundus Decree",
-      "Obtain #b200 #yKeyflare. Choose #b1 card from the Draw Pile or Discard Pile and add it to your hand, reducing its [E] Cost to #b0. Shuffle #b1 \"Insight\" into the Draw Pile."
+      "Gain #b200 #yKeyflare. Choose #b1 card from the Draw Pile or Discard Pile and add it to your hand, reducing its [E] Cost to #b0. Shuffle #b1 \"Insight\" into the Draw Pile."
     ],
     "EXTRA_TEXT": [
       "#rLabyrinth #rof #rThought",

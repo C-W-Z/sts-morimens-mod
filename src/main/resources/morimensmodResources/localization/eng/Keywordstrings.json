@@ -131,7 +131,7 @@
   },
   {
     "PROPER_NAME": "Pierce Damage",
-    "NAMES": ["Pierce Damage", "Pierce_Damage", "Pierce_damage", "pierce_damage"],
+    "NAMES": ["Pierce Damage", "pierce_damage"],
     "DESCRIPTION": "Damage reduce both #yBlock and HP, Cannot be bloced by #yBarrier."
   },
   {
@@ -152,7 +152,7 @@
   {
     "PROPER_NAME": "#bTranquil #bSea",
     "NAMES": ["Tranquil Sea", "tranquil_sea"],
-    "DESCRIPTION": "A stance unique to the #bAequer #bRealm. When entering the #bTranquil #bSea #ystance, you gain #yBlock, but the #yTentacle #yDamage is halved during that turn."
+    "DESCRIPTION": "A #ystance unique to the #bAequer #bRealm. When entering the #bTranquil #bSea #ystance, you gain #yBlock, but the #yTentacle #yDamage is halved during that turn."
   },
   {
     "PROPER_NAME": "Negentropy [${ModID}:NegentropyIcon]",
@@ -165,8 +165,8 @@
     "DESCRIPTION": "Unique additional effect of #yRamona:Timeworm's #yCommand #yCard, triggered when there are #b3 stacks of #yNegentropy."
   },
   {
-    "PROPER_NAME": "#pTerminus #pStance",
-    "NAMES": ["Terminus Stance", "terminus_stance"],
+    "PROPER_NAME": "#pStance #pof #pThe #pEnd",
+    "NAMES": ["Stance of The End", "stance_of_the_end"],
     "DESCRIPTION": "獨屬於 #r熔毀·朵爾 的 姿態 ，當「 #p終末 」達到 #b10 層時會自動將 #b1 張「 #y虛無終結 」置入手中。打出「 #y虛無終結 」進入 #p終末型態 。"
   },
   {

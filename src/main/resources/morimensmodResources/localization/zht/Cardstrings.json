@@ -165,7 +165,7 @@
   },
   "${ModID}:PredeterminedStrike": {
     "NAME": "命定之劍",
-    "DESCRIPTION": "造成 !D! 點傷害， 力量 在「命定之劍」上發揮 !M! 倍效果。每次使用 ${ModID}:鑰令 時， 力量 倍率在本場戰鬥中提高一倍。 ${ModID}:回環 ：選擇「輪迴之庭」或「未來謳歌」。 NL 輪迴之庭：獲得 !${ModID}:M2! 點 [E] 。 NL 未來謳歌：造成雙倍傷害並獲得 !${ModID}:M3! 倍 ${ModID}:銀鑰能量 ，但打出後 消耗 。",
+    "DESCRIPTION": "造成 !D! 點傷害， 力量 在此牌上發揮 !M! 倍效果。每次使用 ${ModID}:鑰令 時， 力量 倍率在本場戰鬥中提高一倍。 ${ModID}:回環 ：選擇「輪迴之庭」或「未來謳歌」。 NL 輪迴之庭：獲得 !${ModID}:M2! 點 [E] 。 NL 未來謳歌：造成雙倍傷害並獲得 !${ModID}:M3! 倍 ${ModID}:銀鑰能量 ，但打出後 消耗 。",
     "EXTENDED_DESCRIPTION": [
       "輪迴之庭",
       "獲得 !${ModID}:M2! 點 [E] 。",
@@ -194,7 +194,7 @@
       "詛咒",
       "對所有敵人施加 !M! 回合 虛弱 ，並使他們在本回合中降低 !${ModID}:M3! 點 力量 。",
       "自毀改造‧終末",
-      "生命上限降低 !${ModID}:M4! %，同時觸發「興奮」和「詛咒」效果。 NL 興奮：對所有敵人施加 !M! 回合 易傷 ，獲得 !${ModID}:M2! 回合 「 ${ModID}:興奮 」 狀態。 NL 詛咒：對所有敵人施加 !M! 回合 虛弱 ，並使他們在本回合中降低 !${ModID}:M3! 點 力量 。"
+      "生命上限降低 !${ModID}:M4! ，同時觸發「興奮」和「詛咒」效果。 NL 興奮：對所有敵人施加 !M! 回合 易傷 ，獲得 !${ModID}:M2! 回合 「 ${ModID}:興奮 」 狀態。 NL 詛咒：對所有敵人施加 !M! 回合 虛弱 ，並使他們在本回合中降低 !${ModID}:M3! 點 力量 。"
     ]
   },
   "${ModID}:FatesDescent": {
@@ -445,8 +445,8 @@
   },
   "${ModID}:Insight": {
     "NAME": "靈感",
-    "DESCRIPTION": "獲得 [E] ，抽 !${ModID}:M2! 張牌。",
-    "UPGRADE_DESCRIPTION": "獲得 [E] [E] ，抽 !${ModID}:M2! 張牌。",
+    "DESCRIPTION": "獲得 [E] 。 NL 抽 !${ModID}:M2! 張牌。",
+    "UPGRADE_DESCRIPTION": "獲得 [E] [E] 。 NL 抽 !${ModID}:M2! 張牌。",
     "EXTENDED_DESCRIPTION": ["高級靈感"]
   },
   "${ModID}:SilverKeyDawn": {
