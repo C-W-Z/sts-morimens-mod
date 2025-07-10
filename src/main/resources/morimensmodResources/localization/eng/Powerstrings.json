@@ -53,7 +53,7 @@
   "${ModID}:KnightsZealPower": {
     "NAME": "Knight's Zeal",
     "DESCRIPTIONS": [
-      "After each #b%d #yCommand #yCard is played, gain #b%d Strength. Currently needing #b%d more card(s)."
+      "After each #b%d #yCommand #yCard is played, gain #b%d Strength. #b%d more card(s) need."
     ]
   },
   "${ModID}:EntropyUndonePower": {
@@ -72,6 +72,12 @@
     "NAME": "Drowning in Sorrow",
     "DESCRIPTIONS": [
       "After turn starts, apply #b%d #pPoison to all creatures, then gain #yAliemus equal to #p times the number of #pPoison stacks on yourself. You can #yblock #pPoison damage."
+    ]
+  },
+  "${ModID}:GiveAndTakePower": {
+    "NAME": "Give and Take",
+    "DESCRIPTIONS": [
+      "After every #b%d attacks, gain #b%d #yThorns. #b%d more attack(s) needed."
     ]
   },
   "${ModID}:OutstandingVeteranPower": {

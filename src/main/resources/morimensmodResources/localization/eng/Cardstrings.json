@@ -217,7 +217,7 @@
   },
   "${ModID}:DrowningInSorrow": {
     "NAME": "Drowning in Sorrow",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. After turn starts, apply !M! Poison to all creatures, then gain ${ModID}:Aliemus equal to !${ModID}:M2! times the number of Poison stacks on yourself. You can block Poison damage."
+    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. NL After turn starts, apply !M! Poison to all creatures, then gain ${ModID}:Aliemus equal to !${ModID}:M2! times the number of Poison stacks on yourself. You can block Poison damage."
   },
   "${ModID}:MidnightTide": {
     "NAME": "Midnight Tide",
@@ -234,7 +234,7 @@
   },
   "${ModID}:MaintenanceExpert": {
     "NAME": "Maintenance Expert",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. 造成的 Block 和 Thorns 提高 !M! %."
+    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. NL 造成的 Block 和 Thorns 提高 !M! %."
   },
   "${ModID}:NoTrespassing": {
     "NAME": "No Trespassing",
@@ -250,7 +250,7 @@
   },
   "${ModID}:GiveAndTake": {
     "NAME": "Give and Take",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus.每造成一次傷害, Gain !M! Thorns."
+    "DESCRIPTION": "{@@}Gain !${ModID}:A! ${ModID}:Aliemus. NL After every !M! attack{!M!|>1=s}, gain !${ModID}:M2! Thorns."
   },
   "${ModID}:WhipOfMadness": {
     "NAME": "Whip of Madness",
@@ -263,7 +263,7 @@
   },
   "${ModID}:OutstandingVeteran": {
     "NAME": "Outstanding Veteran",
-    "DESCRIPTION": "{@@}Gain !${ModID}:A! ${ModID}:Aliemus. Gain !M! Dexterity. Damage of Strike increases with !${ModID}:M2! time{!${ModID}:M2!|>1=s} of the current Block."
+    "DESCRIPTION": "{@@}Gain !${ModID}:A! ${ModID}:Aliemus. NL Gain !M! Dexterity. Damage of Strike increases with !${ModID}:M2! time{!${ModID}:M2!|>1=s} of the current Block."
   },
   "${ModID}:CombatStance": {
     "NAME": "Combat Stance",
@@ -283,7 +283,7 @@
   },
   "${ModID}:DanceOfTheGibbousMoon": {
     "NAME": "凸月之舞",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus.每打出 !M! 張 ${ModID}:指令卡 後, 回復 !${ModID}:H! 點生命, 獲得 !${ModID}:M2! ${ModID}:Aliemus.打出「奇妙料理」後, 對所有敵人造成 !${ModID}:M3! 中毒."
+    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. NL 每打出 !M! 張 ${ModID}:指令卡 後, 回復 !${ModID}:H! 點生命, 獲得 !${ModID}:M2! ${ModID}:Aliemus.打出「奇妙料理」後, 對所有敵人造成 !${ModID}:M3! 中毒."
   },
   "${ModID}:ToadStew": {
     "NAME": "蟾蜍燉菜",

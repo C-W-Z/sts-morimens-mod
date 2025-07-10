@@ -217,7 +217,7 @@
   },
   "${ModID}:DrowningInSorrow": {
     "NAME": "沉逝苦海",
-    "DESCRIPTION": "獲得 !${ModID}:A! ${ModID}:狂氣 。回合開始後，對所有生物施加 !M! 點 中毒 ，然後獲得等於自身 中毒 層數 !${ModID}:M2! 倍的 ${ModID}:狂氣 。你可以 格擋 中毒 傷害。"
+    "DESCRIPTION": "獲得 !${ModID}:A! ${ModID}:狂氣 。 NL 回合開始後，對所有生物施加 !M! 點 中毒 ，然後獲得等於自身 中毒 層數 !${ModID}:M2! 倍的 ${ModID}:狂氣 。你可以 格擋 中毒 傷害。"
   },
   "${ModID}:MidnightTide": {
     "NAME": "夜潮洶湧",
@@ -234,7 +234,7 @@
   },
   "${ModID}:MaintenanceExpert": {
     "NAME": "維修大師",
-    "DESCRIPTION": "獲得 !${ModID}:A! ${ModID}:狂氣 。造成的 格擋 和 荊棘 提高 !M! %。"
+    "DESCRIPTION": "獲得 !${ModID}:A! ${ModID}:狂氣 。 NL 造成的 格擋 和 荊棘 提高 !M! %。"
   },
   "${ModID}:NoTrespassing": {
     "NAME": "高熱區禁入",
@@ -250,7 +250,7 @@
   },
   "${ModID}:GiveAndTake": {
     "NAME": "施與受",
-    "DESCRIPTION": "獲得 !${ModID}:A! ${ModID}:狂氣 。每造成一次傷害，獲得 !M! 點 荊棘 。"
+    "DESCRIPTION": "獲得 !${ModID}:A! ${ModID}:狂氣 。 NL 每造成 !M! 次傷害，獲得 !${ModID}:M2! 點 荊棘 。"
   },
   "${ModID}:WhipOfMadness": {
     "NAME": "狂氣使役之鞭",
@@ -263,7 +263,7 @@
   },
   "${ModID}:OutstandingVeteran": {
     "NAME": "戰地卓識",
-    "DESCRIPTION": "獲得 !${ModID}:A! ${ModID}:狂氣 。獲得 !M! 點 敏捷 。 打擊 造成的傷害享受 !${ModID}:M2! 倍 格擋 加成。"
+    "DESCRIPTION": "獲得 !${ModID}:A! ${ModID}:狂氣 。 NL 獲得 !M! 點 敏捷 。 打擊 造成的傷害享受 !${ModID}:M2! 倍 格擋 加成。"
   },
   "${ModID}:CombatStance": {
     "NAME": "臨戰體勢",
@@ -283,7 +283,7 @@
   },
   "${ModID}:DanceOfTheGibbousMoon": {
     "NAME": "凸月之舞",
-    "DESCRIPTION": "獲得 !${ModID}:A! ${ModID}:狂氣 。每打出 !M! 張 ${ModID}:指令卡 後，回復 !${ModID}:H! 點生命，獲得 !${ModID}:M2! ${ModID}:狂氣 。打出「奇妙料理」後，對所有敵人造成 !${ModID}:M3! 點 中毒 。"
+    "DESCRIPTION": "獲得 !${ModID}:A! ${ModID}:狂氣 。 NL 每打出 !M! 張 ${ModID}:指令卡 後，回復 !${ModID}:H! 點生命，獲得 !${ModID}:M2! ${ModID}:狂氣 。打出「奇妙料理」後，對所有敵人造成 !${ModID}:M3! 點 中毒 。"
   },
   "${ModID}:ToadStew": {
     "NAME": "蟾蜍燉菜",
