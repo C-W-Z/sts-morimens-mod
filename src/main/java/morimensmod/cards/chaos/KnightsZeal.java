@@ -18,7 +18,7 @@ public class KnightsZeal extends AbstractRouseCard {
         super(ID, 2, CardRarity.RARE, CHAOS_COLOR);
         magicNumber = baseMagicNumber = 1; // 力量
         secondMagic = baseSecondMagic = 1; // 每次獲得多少力量
-        thirdMagic = baseThirdMagic = 4; // 每幾張指令卡獲得力量 only for display
+        thirdMagic = baseThirdMagic = KnightsZealPower.GAIN_STR_PER_N_CARD; // 每幾張指令卡獲得力量 only for display
     }
 
     @Override

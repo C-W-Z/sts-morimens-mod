@@ -217,7 +217,7 @@
   },
   "${ModID}:DrowningInSorrow": {
     "NAME": "沉逝苦海",
-    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。回合开始后，对所有生物施加 !M! 点 中毒 ，然后获得等于自身 中毒 层数 !${ModID}:M2! 倍的 ${ModID}:狂气 。你可以 格挡 中毒 伤害。"
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 回合开始后，对所有生物施加 !M! 点 中毒 ，然后获得等于自身 中毒 层数 !${ModID}:M2! 倍的 ${ModID}:狂气 。你可以 格挡 中毒 伤害。"
   },
   "${ModID}:MidnightTide": {
     "NAME": "夜潮汹涌",
@@ -234,7 +234,7 @@
   },
   "${ModID}:MaintenanceExpert": {
     "NAME": "维修大师",
-    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。造成的 格挡 和 荆棘 提高 !M! %。"
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 造成的 格挡 和 荆棘 提高 !M! %。"
   },
   "${ModID}:NoTrespassing": {
     "NAME": "高温区禁入",
@@ -250,7 +250,7 @@
   },
   "${ModID}:GiveAndTake": {
     "NAME": "施与受",
-    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。每造成一次伤害，获得 !M! 点 荆棘 。"
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 每造成 !M! 次伤害，获得 !${ModID}:M2! 点 荆棘 。"
   },
   "${ModID}:WhipOfMadness": {
     "NAME": "狂气使役之鞭",
@@ -263,7 +263,7 @@
   },
   "${ModID}:OutstandingVeteran": {
     "NAME": "战地卓识",
-    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。获得 !M! 点 敏捷 。 打击 造成的伤害享受 !${ModID}:M2! 倍 格挡 加成。"
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 获得 !M! 点 敏捷 。 打击 造成的伤害享受 !${ModID}:M2! 倍 格挡 加成。"
   },
   "${ModID}:CombatStance": {
     "NAME": "临战体势",
@@ -283,7 +283,7 @@
   },
   "${ModID}:DanceOfTheGibbousMoon": {
     "NAME": "凸月之舞",
-    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。每打出 !M! 张 ${ModID}:指令卡 后，回复 !${ModID}:H! 点生命，获得 !${ModID}:M2! ${ModID}:狂气 。打出「奇妙料理」后，对所有敌人造成 !${ModID}:M3! 点 中毒 。"
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 每打出 !M! 张 ${ModID}:指令卡 后，回复 !${ModID}:H! 点生命，获得 !${ModID}:M2! ${ModID}:狂气 。打出「奇妙料理」后，对所有敌人造成 !${ModID}:M3! 点 中毒 。"
   },
   "${ModID}:ToadStew": {
     "NAME": "蟾蜍炖菜",
@@ -317,7 +317,7 @@
   },
   "${ModID}:LaudableMasterpiece": {
     "NAME": "此曲应得称颂",
-    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。回合开始时，将一张「协乐的交响」置入手中。"
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 回合开始时，将一张「协乐的交响」置入手中。"
   },
   "${ModID}:SoulOverture": {
     "NAME": "灵魂序曲",

@@ -74,6 +74,12 @@
       "每回合开始后，对所有生物施加 #b%d 点 #p中毒 ，然后获得等于自身 #p中毒 层数 #b%d 倍的 #y狂气 。你可以 #y格挡 #p中毒 伤害。"
     ]
   },
+  "${ModID}:GiveAndTakePower": {
+    "NAME": "施与受",
+    "DESCRIPTIONS": [
+      "每造成 #b%d 次伤害，获得 #b%d 点 #y荆棘 。当前还需要 #b%d 次。"
+    ]
+  },
   "${ModID}:OutstandingVeteranPower": {
     "NAME": "战地卓识",
     "DESCRIPTIONS": ["「 #y打击 」造成的伤害享受 #b%d 倍 #y格挡 加成。"]
