@@ -1,0 +1,6 @@
+{
+  "${ModID}:AntidotePotion": {
+    "NAME": "解毒剂",
+    "DESCRIPTIONS": ["移除所有 #y中毒"]
+  }
+}
