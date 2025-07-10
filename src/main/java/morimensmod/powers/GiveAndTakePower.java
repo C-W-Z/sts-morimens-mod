@@ -8,13 +8,12 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.interfaces.OnAfterReceivePower;
+import morimensmod.interfaces.OnPowerModified;
 
-public class GiveAndTakePower extends AbstractEasyPower implements OnAfterReceivePower {
+public class GiveAndTakePower extends AbstractEasyPower implements OnPowerModified {
 
     public final static String POWER_ID = makeID(GiveAndTakePower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -29,23 +28,6 @@ public class GiveAndTakePower extends AbstractEasyPower implements OnAfterReceiv
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
         isTwoAmount = true;
         amount2 = GAIN_THORNS_PER_N_ATTACK;
-        applyPowers();
-    }
-
-    public void onAfterReceivePower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        applyPowers();
-    }
-
-    @Override
-    public void stackPower(int stackAmount) {
-        super.stackPower(stackAmount);
-        applyPowers();
-    }
-
-    @Override
-    public void reducePower(int reduceAmount) {
-        super.reducePower(reduceAmount);
-        applyPowers();
     }
 
     @Override
@@ -63,14 +45,15 @@ public class GiveAndTakePower extends AbstractEasyPower implements OnAfterReceiv
         updateDescription();
     }
 
-    private void applyPowers() {
-        int counterAmplify = 100 + AbstractAwakener.baseCounterAmplify;
-        counter = MathUtils.ceil(amount * THORNS_PER_AMOUNT * counterAmplify / 100F);
-        updateDescription();
-    }
-
     @Override
     public void updateDescription() {
         this.description = String.format(DESCRIPTIONS[0], GAIN_THORNS_PER_N_ATTACK, counter, amount2);
+    }
+
+    @Override
+    public void onPowerModified() {
+        int counterAmplify = 100 + AbstractAwakener.baseCounterAmplify;
+        counter = MathUtils.ceil(amount * THORNS_PER_AMOUNT * counterAmplify / 100F);
+        updateDescription();
     }
 }

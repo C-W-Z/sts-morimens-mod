@@ -11,14 +11,13 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.interfaces.OnAfterReceivePower;
+import morimensmod.interfaces.OnPowerModified;
 
-public class DrowningInSorrowPower extends AbstractEasyPower implements OnAfterReceivePower {
+public class DrowningInSorrowPower extends AbstractEasyPower implements OnPowerModified {
 
     public final static String POWER_ID = makeID(DrowningInSorrowPower.class.getSimpleName());
     private static PowerStrings powerStrings;
@@ -41,27 +40,11 @@ public class DrowningInSorrowPower extends AbstractEasyPower implements OnAfterR
     public static final int POISON_ALIEMUS_SCALE_PER_AMOUNT = 4;
     public static final int POISON_PER_AMOUNT = 2;
     int poison;
+    int aliemus_scale;
 
     public DrowningInSorrowPower(AbstractCreature owner, int amount) {
         super(POWER_ID, getStrings().NAME, PowerType.BUFF, false, owner, amount);
         priority = 4;
-        applyPowers();
-    }
-
-    public void onAfterReceivePower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        applyPowers();
-    }
-
-    @Override
-    public void stackPower(int stackAmount) {
-        super.stackPower(stackAmount);
-        applyPowers();
-    }
-
-    @Override
-    public void reducePower(int reduceAmount) {
-        super.reducePower(reduceAmount);
-        applyPowers();
     }
 
     @Override
@@ -73,20 +56,21 @@ public class DrowningInSorrowPower extends AbstractEasyPower implements OnAfterR
             if (!(owner instanceof AbstractAwakener))
                 return;
             int poisonAmount = getPowerAmount(owner, PoisonPower.POWER_ID);
-            int aliemusAmplify = 100 + AbstractAwakener.baseAliemusAmplify;
-            int aliemus = MathUtils.ceil(poisonAmount * POISON_ALIEMUS_SCALE_PER_AMOUNT * amount * aliemusAmplify / 100F);
-            addToTop(new AliemusChangeAction((AbstractPlayer) owner, aliemus));
+            addToTop(new AliemusChangeAction((AbstractPlayer) owner, poisonAmount * aliemus_scale));
         });
-    }
-
-    private void applyPowers() {
-        int poisonAmplify = 100 + AbstractAwakener.basePoisonAmplify;
-        poison = MathUtils.ceil(amount * POISON_PER_AMOUNT * poisonAmplify / 100F);
-        updateDescription();
     }
 
     @Override
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], poison, POISON_ALIEMUS_SCALE_PER_AMOUNT * amount);
+        this.description = String.format(DESCRIPTIONS[0], poison, aliemus_scale);
+    }
+
+    @Override
+    public void onPowerModified() {
+        int poisonAmplify = 100 + AbstractAwakener.basePoisonAmplify;
+        poison = MathUtils.ceil(amount * POISON_PER_AMOUNT * poisonAmplify / 100F);
+        int aliemusAmplify = 100 + AbstractAwakener.baseAliemusAmplify;
+        aliemus_scale = MathUtils.ceil(POISON_ALIEMUS_SCALE_PER_AMOUNT * amount * aliemusAmplify / 100F);
+        updateDescription();
     }
 }

@@ -37,7 +37,7 @@
   "${ModID}:ElationPower": {
     "NAME": "Elation",
     "DESCRIPTIONS": [
-      "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #b%d%%. Reduces #b%d stack at turn start."
+      "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #b%d%%. Reduces #b%d stack at turn starts."
     ]
   },
   "${ModID}:DelayAliemusPower": {
@@ -87,7 +87,7 @@
   "${ModID}:DrowningInSorrowPower": {
     "NAME": "Drowning in Sorrow",
     "DESCRIPTIONS": [
-      "After turn starts, apply #b%d #pPoison to all creatures, then gain #yAliemus equal to #p times the number of #pPoison stacks on yourself. You can #yblock #pPoison damage."
+      "After turn starts, apply #b%d #pPoison to all creatures, then gain #yAliemus equal to #b%d times the number of #pPoison stacks on yourself. You can #yblock #pPoison damage."
     ]
   },
   "${ModID}:GiveAndTakePower": {
