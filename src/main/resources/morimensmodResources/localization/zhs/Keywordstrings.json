@@ -1,0 +1,177 @@
+[
+  {
+    "PROPER_NAME": "混沌界域",
+    "NAMES": ["混沌", "混沌界域"],
+    "DESCRIPTION": "四大界域之一。"
+  },
+  {
+    "PROPER_NAME": "#r血肉界域",
+    "NAMES": ["血肉", "血肉界域"],
+    "DESCRIPTION": "四大界域之一。"
+  },
+  {
+    "PROPER_NAME": "#b深海界域",
+    "NAMES": ["深海", "深海界域"],
+    "DESCRIPTION": "四大界域之一。"
+  },
+  {
+    "PROPER_NAME": "#p超维界域",
+    "NAMES": ["超维", "超维界域"],
+    "DESCRIPTION": "四大界域之一。"
+  },
+  {
+    "PROPER_NAME": "增益",
+    "NAMES": ["增益卡", "增益卡牌", "增益"],
+    "DESCRIPTION": "一种无法常规获得且通常对玩家有益的卡牌类型。"
+  },
+  {
+    "PROPER_NAME": "命轮",
+    "NAMES": ["命轮卡", "命轮卡牌", "命轮"],
+    "DESCRIPTION": "忘却前夜中，一种全是 #y能力 卡的特殊卡牌类型。"
+  },
+  {
+    "PROPER_NAME": "指令",
+    "NAMES": ["指令卡", "指令卡牌", "指令"],
+    "DESCRIPTION": "忘却前夜中最普遍的卡牌类型，其中包含 #y攻击 与 #y技能 卡。"
+  },
+  {
+    "PROPER_NAME": "觉醒",
+    "NAMES": ["觉醒卡", "觉醒卡牌", "觉醒"],
+    "DESCRIPTION": "忘却前夜中，一种全是 #y能力 卡的特殊卡牌类型。"
+  },
+  {
+    "PROPER_NAME": "症状",
+    "NAMES": ["症状卡", "症状卡牌", "症状"],
+    "DESCRIPTION": "一种无法常规获得且通常对玩家有害的卡牌类型。"
+  },
+  {
+    "PROPER_NAME": "状态卡",
+    "NAMES": ["状态卡", "状态卡牌", "状态", "State"],
+    "DESCRIPTION": "一种无法常规获得且通常对玩家有害的卡牌类型。获取来源通常是敌人。"
+  },
+  {
+    "PROPER_NAME": "防御",
+    "NAMES": ["防御"],
+    "DESCRIPTION": "基础 #y防御 牌以及所有视为「 #y防御 」的牌。"
+  },
+  {
+    "PROPER_NAME": "#g界域精通 [${ModID}:RealmMasteryIcon]",
+    "NAMES": ["界域精通"],
+    "DESCRIPTION": "提升界域初始遗物的效果。"
+  },
+  {
+    "PROPER_NAME": "狂气 [${ModID}:AliemusIcon]",
+    "NAMES": ["狂气", "Aliemus"],
+    "DESCRIPTION": "达到上限时可以释放 #y狂气爆发 ，达到 #b2 倍上限的 #y狂气 时可以释放 #r超限爆发 。通常一回合只能释放一次 #y狂气爆发 或 #r超限爆发 。"
+  },
+  {
+    "PROPER_NAME": "狂气回充 [${ModID}:AliemusIcon]",
+    "NAMES": ["狂气回充", "Aliemus-Regen"],
+    "DESCRIPTION": "释放 #y狂气爆发 或 #r超限爆发 之后自动获得等同于 #y狂气回充 属性数值的 #y狂气 。"
+  },
+  {
+    "PROPER_NAME": "狂气爆发 [${ModID}:AliemusIcon]",
+    "NAMES": ["狂气爆发", "Exalt"],
+    "DESCRIPTION": "透过消耗 #y狂气 释放的能力。"
+  },
+  {
+    "PROPER_NAME": "#r超限爆发 [${ModID}:AliemusIcon]",
+    "NAMES": ["超限爆发", "Over-Exaltation"],
+    "DESCRIPTION": "加强版的 #y狂气爆发 。"
+  },
+  {
+    "PROPER_NAME": "银钥能量 [${ModID}:KeyflareIcon]",
+    "NAMES": ["银钥能量", "钥能", "银钥", "Keyflare"],
+    "DESCRIPTION": "消耗 [E] 时可以获得 #y银钥能量 ， #y银钥充能 属性决定每消耗 #b1 点 [E] 时获得的 #y银钥能量 。"
+  },
+  {
+    "PROPER_NAME": "银钥充能 [${ModID}:KeyflareIcon]",
+    "NAMES": ["银钥充能", "Keyflare-Regen"],
+    "DESCRIPTION": " #y银钥充能 属性决定每消耗 #b1 点 [E] 时获得的 #y银钥能量 。"
+  },
+  {
+    "PROPER_NAME": "钥令",
+    "NAMES": ["钥令", "Posse"],
+    "DESCRIPTION": "#y银钥能量 达到 #b1000 时可以释放携带的 #y钥令 。每回合可以释放 #b2 次 #y钥令 ，但第 #b2 次会改为从 #b3 个随机 #y钥令 中选择 #b1 个释放，且选择的 #y钥令 在本次战斗中无法再被选择。"
+  },
+  {
+    "PROPER_NAME": "临时",
+    "NAMES": ["临时"],
+    "DESCRIPTION": "效果仅限本回合。"
+  },
+  {
+    "PROPER_NAME": "永久力量",
+    "NAMES": ["永久力量"],
+    "DESCRIPTION": "非 #y临时 #y力量 ，也就是 #y力量 层数减 #y活动肌肉 层数。"
+  },
+  {
+    "PROPER_NAME": "封印 [${ModID}:SealIcon]",
+    "NAMES": ["封印", "Seal", "Sealed"],
+    "DESCRIPTION": "无法释放 #y狂气爆发 。回合结束时减少 #b1 层。"
+  },
+  {
+    "PROPER_NAME": "永久保留",
+    "NAMES": ["永久保留", "战斗结束后仍会保存在牌库中", "Persistent"],
+    "DESCRIPTION": "战斗结束后仍会保存在牌库中"
+  },
+  {
+    "PROPER_NAME": "销毁",
+    "NAMES": ["销毁", "Destroy"],
+    "DESCRIPTION": "打出后将其从牌库中永久移除。"
+  },
+  {
+    "PROPER_NAME": "预备（X）",
+    "NAMES": ["预备", "Prepare"],
+    "DESCRIPTION": "回合结束后 [E] 消耗减少 #bX 点。被弃掉时也会触发此效果。"
+  },
+  {
+    "PROPER_NAME": "#b余波",
+    "NAMES": ["余波", "Aftershock"],
+    "DESCRIPTION": "此卡牌被弃置时，触发 #b余波 效果。"
+  },
+  {
+    "PROPER_NAME": "穿刺伤害",
+    "NAMES": ["穿刺伤害", "穿刺攻击", "PierceDMG"],
+    "DESCRIPTION": "同时对 #y格挡 与生命造成伤害。无视屏障。"
+  },
+  {
+    "PROPER_NAME": "被动",
+    "NAMES": ["被动"],
+    "DESCRIPTION": "战斗开始时，自动触发 #y被动 效果。"
+  },
+  {
+    "PROPER_NAME": "延迟",
+    "NAMES": ["延迟"],
+    "DESCRIPTION": "下回合开始时发动效果。"
+  },
+  {
+    "PROPER_NAME": "幻影",
+    "NAMES": ["幻影"],
+    "DESCRIPTION": "每次打出其他牌时使此牌下次打出时 [E] 消耗 #b-1 ，打出此牌后将此牌返还至手中并使其 [E] 消耗 #b+1 ，回合结束或弃掉后重置。"
+  },
+  {
+    "PROPER_NAME": "#b静海",
+    "NAMES": ["静海", "静海姿态", "静海状态"],
+    "DESCRIPTION": "独属于 #b深海界域 的 姿态 ，进入 #y静海 姿态 时，会获得 格挡 ，但当回合 #y触腕伤害 减半。"
+  },
+  {
+    "PROPER_NAME": "负熵 [${ModID}:NegentropyIcon]",
+    "NAMES": ["负熵", "Negentropy"],
+    "DESCRIPTION": "每当拥有 #b3 层 #y负熵 时，打出拥有 #y回环 效果的卡牌，将消耗 #b3 层 #y负熵 并触发 #y回环 效果， #y负熵 最多堆叠 #b3 层，会继承至下场战斗。"
+  },
+  {
+    "PROPER_NAME": "回环 [${ModID}:LoopIcon]",
+    "NAMES": ["回环", "Loop"],
+    "DESCRIPTION": "环行·拉蒙娜 #y指令卡 独有的额外效果，拥有 #b3 层 #y负熵 时触发。"
+  },
+  {
+    "PROPER_NAME": " #p终末型态 ",
+    "NAMES": ["终末型态", "Terminus-Stance"],
+    "DESCRIPTION": "独属于 #r熔毁·朵尔 的 姿态 ，当「 #p终末 」达到 #b10 层时会自动将 #b1 张「 #y虚无终结 」置入手中。打出「 #y虚无终结 」进入 #p终末型态 。"
+  },
+  {
+    "PROPER_NAME": "#r兴奋 [${ModID}:ElationIcon]",
+    "NAMES": ["兴奋", "Elation"],
+    "DESCRIPTION": "造成的基础伤害、基础 #p中毒 、基础 #b荆棘 、基础 #y触腕伤害 提高 #b50% 。回合开始时减少 #b1 层。"
+  }
+]

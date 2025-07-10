@@ -123,7 +123,7 @@ public class MorimensMod implements
 
     private String getLangString() {
         if (Settings.language == Settings.GameLanguage.ZHS || Settings.language == Settings.GameLanguage.ZHT)
-            return Settings.GameLanguage.ZHT.name().toLowerCase();
+            return Settings.language.name().toLowerCase();
         // for (Settings.GameLanguage lang : SupportedLanguages)
         //     if (lang.equals(Settings.language))
         //         return Settings.language.name().toLowerCase();

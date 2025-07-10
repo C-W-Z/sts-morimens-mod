@@ -1,0 +1,97 @@
+{
+  "${ModID}:LoseThornsPower": {
+    "NAME": "荆棘丛生",
+    "DESCRIPTIONS": ["回合开始时，失去 #b%d 层 #y荆棘 。"]
+  },
+  "${ModID}:SealPower": {
+    "NAME": "封印",
+    "DESCRIPTIONS": ["无法释放 #y狂气爆发 。回合结束时减少 #b%d 层。"]
+  },
+  "${ModID}:TraumaPower": {
+    "NAME": "创伤",
+    "DESCRIPTIONS": [
+      "每打出一张 #y打击 后，在抽牌堆顶部添加 #b2",
+      " 张「伤口」。"
+    ]
+  },
+  "${ModID}:PosseTwicePower": {
+    "NAME": "双发钥令",
+    "DESCRIPTIONS": ["使下 #b%d 次透过消耗 #y银钥能量 释放的 #y钥令 生效两次。"]
+  },
+  "${ModID}:OnlyUnlimitedPosseTwicePower": {
+    "NAME": "双发钥令",
+    "DESCRIPTIONS": [
+      "使下 #b%d 次并非透过消耗 #y银钥能量 释放的 #y钥令 生效两次。"
+    ]
+  },
+  "${ModID}:NegentropyPower": {
+    "NAME": "负熵",
+    "DESCRIPTIONS": [
+      "每当拥有 #b%d 层 #y负熵 时，打出拥有 #y回环 效果的卡牌，将消耗 #b%d 层 #y负熵 并触发 #y回环 效果， #y负熵 最多堆叠 #b%d 层，会继承至下场战斗。"
+    ]
+  },
+  "${ModID}:ElationPower": {
+    "NAME": "兴奋",
+    "DESCRIPTIONS": [
+      "造成的基础伤害、基础 #p中毒 、基础 #b荆棘 、基础 #y触腕伤害 提高 #b%d%% 。回合开始时减少 #b%d 层。"
+    ]
+  },
+  "${ModID}:FirstDoctrinePower": {
+    "NAME": "第一哲学",
+    "DESCRIPTIONS": [
+      "打出卡牌后，获得 #b%d 点 [E] ，每回合最多触发 #b%d 次。当前剩余 #b%d 次。"
+    ]
+  },
+  "${ModID}:FleshDetachedPower": {
+    "NAME": "灵肉两分",
+    "DESCRIPTIONS": ["造成生命回复时，获得 #b%d 点 #y格挡 。"]
+  },
+  "${ModID}:BattleThirstPower": {
+    "NAME": "战欲难平",
+    "DESCRIPTIONS": ["指令卡的伤害次数提高 #b%d 次。"]
+  },
+  "${ModID}:KnightsZealPower": {
+    "NAME": "骑士热诚",
+    "DESCRIPTIONS": [
+      "每打出 #b%d 张 #y指令卡 后，获得 #b%d 点 #y力量 。当前还需要 #b%d 张。"
+    ]
+  },
+  "${ModID}:EntropyUndonePower": {
+    "NAME": "熵增逆转",
+    "DESCRIPTIONS": [
+      "打出 #y指令卡 后，获得 #b%d 点 #y银钥能量 ，每回合最多触发 #b%d 次。当前剩余 #b%d 次。打出拥有却未触发 #y回环 效果的卡牌时，获得 #b%d 层 #y负熵 。"
+    ]
+  },
+  "${ModID}:SoulblightPower": {
+    "NAME": "灵魂瘟疫",
+    "DESCRIPTIONS": [
+      "回合结束时，回复 #b%d 点生命并获得 #b%d #y狂气 。 NL 「 #p终末型态 」：不再回复生命 ，改为触发所有敌人 #b%d%% 的 #p中毒 。"
+    ]
+  },
+  "${ModID}:DrowningInSorrowPower": {
+    "NAME": "沉逝苦海",
+    "DESCRIPTIONS": [
+      "每回合开始后，对所有生物施加 #b%d 点 #p中毒 ，然后获得等于自身 #p中毒 层数 #b%d 倍的 #y狂气 。你可以 #y格挡 #p中毒 伤害。"
+    ]
+  },
+  "${ModID}:OutstandingVeteranPower": {
+    "NAME": "战地卓识",
+    "DESCRIPTIONS": ["#y打击 造成的伤害享受 #b%d 倍 #y格挡 加成。"]
+  },
+  "${ModID}:RewindingTimePower": {
+    "NAME": "溯洄时计",
+    "DESCRIPTIONS": [
+      "打出卡牌后，将其从弃牌堆重新加入手牌，该效果单回合最多生效 #b%d 次。当前剩余 #b%d 次。"
+    ]
+  },
+  "${ModID}:ManikinOfOblivionPower": {
+    "NAME": "坠入虚无人偶",
+    "DESCRIPTIONS": [
+      "造成的基础 #y狂气 、基础 #p中毒 、基础 #g治疗 提高 #b%d%% 。 NL 释放 #y狂气爆发 或 #r超限爆发 后，获得本次 #y狂气 消耗 #b%d%% 的 #y狂气 。"
+    ]
+  },
+  "${ModID}:HandOfOblivionPower": {
+    "NAME": "遗忘之手",
+    "DESCRIPTIONS": ["「 打击 」的基础伤害增加 #b%d%% 。"]
+  }
+}

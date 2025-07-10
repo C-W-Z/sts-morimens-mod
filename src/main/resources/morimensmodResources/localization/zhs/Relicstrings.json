@@ -1,0 +1,108 @@
+{
+  "${ModID}:ChaosRelic": {
+    "NAME": "混沌界域",
+    "FLAVOR": "宇宙万象",
+    "DESCRIPTIONS": [
+      "回合结束时，获得 #b%d 点 #y${ModID}:银钥能量 。每有 #b%d 点 #g${ModID}:界域精通 ，释放 #y${ModID}:钥令 后，获得 #b%d #y${ModID}:狂气 。",
+      " NL 当前 #g界域精通 ： #b%d NL 当前释放 #y钥令 后获得 #y狂气 ： #b%d "
+    ]
+  },
+  "${ModID}:RamonaRelic": {
+    "NAME": "心与银的共振",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "战斗开始时获得 #b%d 点 #y${ModID}:银钥能量 。每打出 #b%d 张 #y${ModID}:指令卡 ，本场战斗中 #y${ModID}:银钥充能 提高 #b%d 点。"
+    ]
+  },
+  "${ModID}:LotanRelic": {
+    "NAME": "不羁的剑风",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "「 #y打击 」基础伤害 #b+%d%% 。每造成 1 次伤害，本场战斗中卡牌基础伤害 #b+%d%% "
+    ]
+  },
+  "${ModID}:KleinBottleVoyager": {
+    "NAME": "遗失的振响",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "释放 #y${ModID}:钥令 后，获得 #b%d 点 #y${ModID}:临时 #y力量 。"
+    ]
+  },
+  "${ModID}:LaurelCufflinks": {
+    "NAME": "桂叶袖扣",
+    "FLAVOR": "印刻了桂叶花纹的银质袖扣。它做工精致，闪闪发亮，曾经承载了两个孩子的友谊。",
+    "DESCRIPTIONS": ["回合开始后，获得 #b%d #y${ModID}:狂气 。"]
+  },
+  "${ModID}:HeavyLock": {
+    "NAME": "重锁",
+    "FLAVOR": "厚实而且坚固的锁，如果没有钥匙，想必很难开启。当然，这对某个神偷来说不值一提。",
+    "DESCRIPTIONS": [
+      "释放 #y${ModID}:狂气爆发 后，获得 #b%d 点 #y${ModID}:临时 #y力量 。"
+    ]
+  },
+  "${ModID}:Neurotoxin": {
+    "NAME": "神经毒素",
+    "FLAVOR": "提取，淬炼。",
+    "DESCRIPTIONS": ["「 #y打击 」对所有敌人施加 #b%d 层 #p中毒 。"]
+  },
+  "${ModID}:SuspiciousOintment": {
+    "NAME": "可疑的药膏",
+    "FLAVOR": "某种自制的外伤药膏，请不要在没有医生指导的情况下使用。",
+    "DESCRIPTIONS": [
+      "回合结束时每有 #b1 张手牌，对所有敌人施加 #b%d 层 #p中毒 。"
+    ]
+  },
+  "${ModID}:ButterflySpecimen": {
+    "NAME": "蝴蝶标本",
+    "FLAVOR": "至今，他也被谁深深地喜爱着。",
+    "DESCRIPTIONS": [
+      "造成生命回复时也会获得 #b%d 点 #y格挡 。第 #b3 回合开始时获得 #b%d 点 #y敏捷 。"
+    ]
+  },
+  "${ModID}:ActiveInjector": {
+    "NAME": "活性注射器",
+    "FLAVOR": "抽搐也是活性的一种。",
+    "DESCRIPTIONS": ["最大 [E] 增加 #b%d 。"]
+  },
+  "${ModID}:PrasnoMirror": {
+    "NAME": "普拉斯诺镜",
+    "FLAVOR": "光与影的戏法。",
+    "DESCRIPTIONS": [
+      "回合开始时抽 #b%d 张牌。战斗开始时，将 #b%d 张「灵感」洗入抽牌堆。每通过 #b%d 场战斗都会使洗入的「灵感」增加 #b%d 张，最多提高到 #b%d 张。"
+    ]
+  },
+  "${ModID}:StellarBrew": {
+    "NAME": "群星之酒",
+    "FLAVOR": "游走于繁星之间。",
+    "DESCRIPTIONS": ["你每打出的第 #b%d 张 #y${ModID}:指令卡 会生效两次。"]
+  },
+  "${ModID}:PrototypeBattery": {
+    "NAME": "原型电池",
+    "FLAVOR": "可携式的希望。",
+    "DESCRIPTIONS": [
+      "回合结束后获得 #b%d #y${ModID}:狂气 。每剩余 #b1 点 [E] ，额外获得 #b%d #y${ModID}:狂气 。"
+    ]
+  },
+  "${ModID}:PriestsStaff": {
+    "NAME": "祭司权杖",
+    "FLAVOR": "不被许可的虔诚。",
+    "DESCRIPTIONS": [
+      "对处于负面状态的敌人造成的伤害提高 #b%d%% ，击杀敌人后获得 #b%d #y${ModID}:狂气 。"
+    ]
+  },
+  "${ModID}:AshesOfTheBurningBlackStar": {
+    "NAME": "黑星燃烧之烬",
+    "FLAVOR": "余火未熄。",
+    "DESCRIPTIONS": [
+      "拾取时选择 #b%d 张 #y${ModID}:指令卡牌 移除。每场战斗开始时，获得 #b%d 点 #y力量 。",
+      "选择%d张牌移除"
+    ]
+  },
+  "${ModID}:BlackCandle": {
+    "NAME": "黑烛",
+    "FLAVOR": "燃烧清醒，堕入虚妄。",
+    "DESCRIPTIONS": [
+      "最大 [E] 增加 #b%d 。每次重置牌库时将 #b%d 张「蹒跚」加入抽牌堆。"
+    ]
+  }
+}

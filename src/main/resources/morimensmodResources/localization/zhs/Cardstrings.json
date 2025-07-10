@@ -1,0 +1,576 @@
+{
+  "${ModID}:VoicesInYourHead": {
+    "NAME": "脑中之音",
+    "DESCRIPTION": "对所有敌人造成 !M! 回合 虚弱 和 易伤 并偷取 !${ModID}:M2! 点 ${ModID}:临时 力量 。",
+    "EXTENDED_DESCRIPTION": [
+      "对所有敌人造成 #b%d 回合 #p虚弱 和 #r易伤 并偷取 #b%d 点 #y临时 #y力量 。"
+    ]
+  },
+  "${ModID}:TinyWish": {
+    "NAME": "小小心愿",
+    "DESCRIPTION": "获得 !M! ${ModID}:狂气 。",
+    "EXTENDED_DESCRIPTION": ["获得 #b%d #y狂气 。"]
+  },
+  "${ModID}:AMousesWisdom": {
+    "NAME": "鼠鼠的智慧",
+    "DESCRIPTION": "获得 !M! 点 [E] 。",
+    "EXTENDED_DESCRIPTION": ["获得 #b%d 点 [E] 。"]
+  },
+  "${ModID}:EncounterInPureWhite": {
+    "NAME": "纯白初遇",
+    "DESCRIPTION": "弃掉所有手牌，抽取弃掉数量 +2 的牌。",
+    "EXTENDED_DESCRIPTION": ["弃掉所有手牌，抽取弃掉数量 #b+2 的牌。"]
+  },
+  "${ModID}:WardedInjection": {
+    "NAME": "注射守护",
+    "DESCRIPTION": "获得 10 点 格挡 ，当前生命若低于 25% ，回复 10 点生命。",
+    "EXTENDED_DESCRIPTION": [
+      "获得 #b10 点 #y格挡 ，当前生命若低于 #b25% ，回复 #b10 点生命。"
+    ]
+  },
+  "${ModID}:ObsessionEternal": {
+    "NAME": "永世执念",
+    "DESCRIPTION": "获得 3 点 力量 ，额外获得等同于 ${ModID}:永久力量 25% 的 ${ModID}:临时 力量 。",
+    "EXTENDED_DESCRIPTION": [
+      "获得 #b3 点 #y力量 ，额外获得等同于 #y永久力量 #b25% 的 #y临时 #y力量 。"
+    ]
+  },
+  "${ModID}:TheLoneSeed": {
+    "NAME": "唯一的种子",
+    "DESCRIPTION": "选择 1 张手中的 ${ModID}:指令卡 ，获得 1 张附加 消耗 的原始复制，并获得 15 ${ModID}:狂气 。",
+    "EXTENDED_DESCRIPTION": [
+      "选择 #b1 张手中的 #b指令卡 ，获得 #b1 张附加 #y消耗 的原始复制，并获得 #b15 #y狂气 。"
+    ]
+  },
+  "${ModID}:TheGatedAnswer": {
+    "NAME": "门扉的答案",
+    "DESCRIPTION": "从随机的 3 个 ${ModID}:钥令 中选择一个，触发其效果并获得 200 点 ${ModID}:银钥能量 。",
+    "EXTENDED_DESCRIPTION": [
+      "从随机的 #b3 个 #y钥令 中选择一个，触发其效果并获得 #b200 点 #y银钥能量 。"
+    ]
+  },
+  "${ModID}:UnequalExchange": {
+    "NAME": "不平等交换",
+    "DESCRIPTION": "抽 4 张牌。",
+    "EXTENDED_DESCRIPTION": ["抽 #b4 张牌。"]
+  },
+  "${ModID}:EphemeralEternity": {
+    "NAME": "短暂的永恒",
+    "DESCRIPTION": "获得 1 点 [E] 。将 1 张「打击」与 1 张「防御」的原始复制置入手中，并使他们获得 消耗 、 虚无 。 NL 若当前界域为 「 ${ModID}:超维 」，则额外获得 2 点 ${ModID}:临时 力量 与 1 点 ${ModID}:临时 敏捷 。",
+    "EXTENDED_DESCRIPTION": [
+      "获得 #b1 点 [E] 。将 #b1 张「打击」与 #b1 张「防御」的原始复制置入手中，并使他们获得 #y消耗 、 #y虚无 。 NL 若当前界域为 「 #p超维 」，则额外获得 #b2 点 #y临时 #y力量 与 #b1 点 #y临时 #y敏捷 。"
+    ]
+  },
+  "${ModID}:GatewayOfRetrospection": {
+    "NAME": "跨越回溯之扉",
+    "DESCRIPTION": "从抽牌堆选择 1 张牌加入手中，并使其 [E] 消耗降低 1 点。",
+    "EXTENDED_DESCRIPTION": [
+      "从抽牌堆选择 #b1 张牌加入手中，并使其 [E] 消耗降低 #b1 点。"
+    ]
+  },
+  "${ModID}:AGunsCry": {
+    "NAME": "一声枪响",
+    "DESCRIPTION": "将 1 枚「闪耀偏方骰子」置入手中，获得 1 点 ${ModID}:临时 力量 。",
+    "EXTENDED_DESCRIPTION": [
+      "将 #b1 枚「闪耀偏方骰子」置入手中，获得 #b1 点 #y临时 #y力量 。"
+    ]
+  },
+  "${ModID}:FestivalOfTides": {
+    "NAME": "海之祭",
+    "DESCRIPTION": "抽 2 张牌，获得 2 点 [E] ，失去 5 ${ModID}:狂气 。若当前处于「 ${ModID}:静海 」姿态，对所有敌人施加 5 层 中毒 ，在首领战中发挥 3 倍效果。",
+    "EXTENDED_DESCRIPTION": [
+      "抽 #b2 张牌，获得 #b2 点 [E] ，失去 #b5 #y狂气 。若当前处于「 #b静海 」姿态，对所有敌人施加 #b5 层 #p中毒 ，在首领战中发挥 #b3 倍效果。"
+    ]
+  },
+  "${ModID}:Strike": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !${ModID}:A! ${ModID}:狂气 。"
+  },
+  "${ModID}:Defend": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !${ModID}:A! ${ModID}:狂气 。"
+  },
+  "${ModID}:FirstDoctrine": {
+    "NAME": "第一哲学",
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 打出卡牌后，获得 !M! 点 [E] ，每回合最多触发 !${ModID}:M2! 次。"
+  },
+  "${ModID}:AssaultThesis": {
+    "NAME": "攻势推演",
+    "DESCRIPTION": "使所有敌人 ${ModID}:临时 降低 !M! 点 力量 。抽 !${ModID}:DR! 张牌。",
+    "UPGRADE_DESCRIPTION": "使所有敌人 ${ModID}:临时 降低 !M! 点 力量 。抽 !${ModID}:DR! 张牌。抽到的牌每有 1 点 [E] 消耗，获得 !${ModID}:M2! 点 ${ModID}:银钥能量 。"
+  },
+  "${ModID}:QueensSword": {
+    "NAME": "女王之剑",
+    "DESCRIPTION": "造成 !D! 点伤害 !${ModID}:M2! 次。打出后使 「女王之剑」 伤害次数 + 1 ，最多提高为 6 次。 ${ModID}:余波 ：获得和打出相等的 ${ModID}:银钥能量 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 !${ModID}:M2! 次，每次造成伤害后获得 !${ModID}:M3! 点 ${ModID}:临时 力量 。打出后使 「女王之剑」 伤害次数 + 1 ，最多提高为 6 次。 ${ModID}:余波 ：获得和打出相等的 ${ModID}:银钥能量 。"
+  },
+  "${ModID}:EchoedSimulation": {
+    "NAME": "模拟演绎",
+    "DESCRIPTION": "在手牌中时，视为本回合上次打出的 ${ModID}:指令卡 。"
+  },
+  "${ModID}:FleshDetached": {
+    "NAME": "灵肉两分",
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 造成生命回复 时，获得 !B! 点 格挡 。"
+  },
+  "${ModID}:OuterSurgery": {
+    "NAME": "域外手术",
+    "DESCRIPTION": "回复 !${ModID}:H! 点生命。对所有敌人造成 !M! 层 虚弱 。"
+  },
+  "${ModID}:EquivalentExchange": {
+    "NAME": "等价交换",
+    "DESCRIPTION": "回复 !${ModID}:H! 点生命。弃掉所有手牌，每弃 1 张手牌额外回复 !M! 点生命并获得等量 格挡 。",
+    "EXTENDED_DESCRIPTION": [
+      "回复 !${ModID}:H! 点生命并获得 !B! 点 格挡 。弃掉所有手牌。"
+    ]
+  },
+  "${ModID}:PhysiologicalAnalysis": {
+    "NAME": "生理剖析",
+    "DESCRIPTION": "使自身所有负面状态减少 !M! 层。"
+  },
+  "${ModID}:BattleThirst": {
+    "NAME": "战欲难平",
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL ${ModID}:指令卡 的伤害次数提高 !M! 次。"
+  },
+  "${ModID}:BladeOfDefiance": {
+    "NAME": "桀骜之刃",
+    "DESCRIPTION": "对随机1名敌人造成 !D! 点伤害，重复 !${ModID}:AC! 次。在本回合中每打出一张「 打击 」， [E] 消耗减少 1 点。 NL 视为「 打击 」"
+  },
+  "${ModID}:TidesOfHubris": {
+    "NAME": "恣睢之浪",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害，获得 !M! 点 力量 。 NL 视为「 打击 」 "
+  },
+  "${ModID}:LoopingSwordplay": {
+    "NAME": "回环剑技",
+    "DESCRIPTION": "造成 !D! 点伤害，若 斩杀 任何敌人，此卡伤害永久提升 !M! 并将一张此牌的复制置入手中。 NL 视为「 打击 」"
+  },
+  "${ModID}:KnightsZeal": {
+    "NAME": "骑士热诚",
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 获得 !M! 点 力量 ，每打出 !${ModID}:M3! 张 ${ModID}:指令卡 后，获得 !${ModID}:M2! 点 力量 。"
+  },
+  "${ModID}:UnstableBarrier": {
+    "NAME": "不定壁垒",
+    "DESCRIPTION": "获得 !B! 点 格挡 X+1 次。获得等于X !${ModID}:A! 倍的 ${ModID}:狂气 。获得 !M! 点 力量 。"
+  },
+  "${ModID}:PiercingStrike": {
+    "NAME": "穿刺之枪",
+    "DESCRIPTION": "造成 !D! 点 ${ModID}:穿刺伤害 ，施加 !M! 回合 易伤 ，享受 !${ModID}:M2! 倍 力量 加成。"
+  },
+  "${ModID}:FrontlineTactics": {
+    "NAME": "前阵战术",
+    "DESCRIPTION": "获得 !M! 点 敏捷 。"
+  },
+  "${ModID}:EntropyUndone": {
+    "NAME": "熵增逆转",
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 打出 ${ModID}:指令卡 后，获得 !M! 点 ${ModID}:银钥能量 ，每回合最多触发 !${ModID}:M2! 次。打出拥有却未触发 ${ModID}:回环 效果的卡牌时，获得 !${ModID}:M3! 层 ${ModID}:负熵 。"
+  },
+  "${ModID}:PredeterminedStrike": {
+    "NAME": "命定之剑",
+    "DESCRIPTION": "造成 !D! 点伤害， 力量 在此牌上发挥 !M! 倍效果。每次使用 ${ModID}:钥令 时， 力量 倍率在本场战斗中提高一倍。 ${ModID}:回环 ：选择「轮回之庭」或「未来讴歌」。 NL 轮回之庭：获得 !${ModID}:M2! 点 [E] 。 NL 未来讴歌：造成双倍伤害并获得 !${ModID}:M3! 倍 ${ModID}:银钥能量 ，但打出后 消耗 。",
+    "EXTENDED_DESCRIPTION": [
+      "轮回之庭",
+      "获得 !${ModID}:M2! 点 [E] 。",
+      "未来讴歌",
+      "造成双倍伤害并获得 !${ModID}:M3! 倍 ${ModID}:银钥能量 ，但打出后 消耗 。"
+    ]
+  },
+  "${ModID}:SightUnbound": {
+    "NAME": "超越之目",
+    "DESCRIPTION": "获得 !M! 点 力量 ，选择 !${ModID}:M2! 张抽牌堆的牌置入手中并使其 [E] 消耗- !${ModID}:M3! 。 ${ModID}:回环 ：改为选择 !${ModID}:M2! 张抽牌堆或弃牌堆的牌置入手中，使其 [E] 消耗变为 0 。"
+  },
+  "${ModID}:RealityImitation": {
+    "NAME": "现实模仿",
+    "DESCRIPTION": "查看随机 !M! 张 ${ModID}:指令卡 ，将一张附加 消耗 且 [E] 消耗为 0 的原始复制置入手中。"
+  },
+  "${ModID}:Soulblight": {
+    "NAME": "灵魂瘟疫",
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 回合结束时，回复 !${ModID}:H! 点生命并获得等同于自身 ${ModID}:狂气回充 的 ${ModID}:狂气 。 NL 「 ${ModID}:终末型态 」：不再回复生命，改为触发所有敌人 !M! %的 中毒 。"
+  },
+  "${ModID}:SelfDestruct": {
+    "NAME": "自毁改造",
+    "DESCRIPTION": "选择「兴奋」或「诅咒」。 NL 兴奋：对所有敌人施加 !M! 回合 易伤 ，获得 !${ModID}:M2! 回合 「 ${ModID}:兴奋 」 状态。 NL 诅咒：对所有敌人施加 !M! 回合 虚弱 ，并使他们在本回合中降低 !${ModID}:M3! 点 力量 。",
+    "EXTENDED_DESCRIPTION": [
+      "兴奋",
+      "对所有敌人施加 !M! 回合 易伤 ，获得 !${ModID}:M2! 回合 「 ${ModID}:兴奋 」 状态。",
+      "诅咒",
+      "对所有敌人施加 !M! 回合 虚弱 ，并使他们在本回合中降低 !${ModID}:M3! 点 力量 。",
+      "自毁改造‧终末",
+      "生命上限降低 !${ModID}:M4! ，同时触发「兴奋」和「诅咒」效果。 NL 兴奋：对所有敌人施加 !M! 回合 易伤 ，获得 !${ModID}:M2! 回合 「 ${ModID}:兴奋 」 状态。 NL 诅咒：对所有敌人施加 !M! 回合 虚弱 ，并使他们在本回合中降低 !${ModID}:M3! 点 力量 。"
+    ]
+  },
+  "${ModID}:FatesDescent": {
+    "NAME": "宿命坍缩",
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。回复 !${ModID}:H! 点生命，自身当前每拥有 !M! ${ModID}:狂气 ，额外回复 1 次生命。",
+    "EXTENDED_DESCRIPTION": [
+      "宿命坍缩‧终末",
+      "获得 !${ModID}:A! ${ModID}:狂气 。对所有敌人施加 !${ModID}M2! 层 中毒 ，自身当前每拥有 !M! ${ModID}:狂气 ，额外施加 1 次 中毒 。"
+    ]
+  },
+  "${ModID}:GeniusForesight": {
+    "NAME": "天才的远见",
+    "DESCRIPTION": "选择：获得 !M! 点 [E] 或 抽 !${ModID}:DR! 张牌。",
+    "EXTENDED_DESCRIPTION": [
+      "能量",
+      "获得 !M! 点 [E]",
+      "抽牌",
+      "抽 !${ModID}:DR! 张牌。"
+    ]
+  },
+  "${ModID}:DrowningInSorrow": {
+    "NAME": "沉逝苦海",
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。回合开始后，对所有生物施加 !M! 点 中毒 ，然后获得等于自身 中毒 层数 !${ModID}:M2! 倍的 ${ModID}:狂气 。你可以 格挡 中毒 伤害。"
+  },
+  "${ModID}:MidnightTide": {
+    "NAME": "夜潮汹涌",
+    "DESCRIPTION": "对生命最高的敌人造成 !D! 点伤害并施加等同于 !M! %伤害的 中毒 。享受 !${ModID}:M2! 倍 ${ModID}:永久力量 加成。"
+  },
+  "${ModID}:KnellOfDeath": {
+    "NAME": "丧钟遥鸣",
+    "DESCRIPTION": "对所有敌人施加 !M! 层 中毒 ，享受 !${ModID}:M2! 倍 自身 中毒 层数加成。施加 !${ModID}:M2! 层 虚弱 和 易伤 。",
+    "UPGRADE_DESCRIPTION": "对所有敌人施加 !M! 层 中毒 ，享受 !${ModID}:M2! 倍 自身 中毒 层数加成。施加 !${ModID}:M2! 层 虚弱 和 易伤 。获得 !B! 点 格挡 。"
+  },
+  "${ModID}:ToxicMiasma": {
+    "NAME": "溺毒弥漫",
+    "DESCRIPTION": "使所有敌人的 中毒 翻倍。将 !M! 张「窒息」置入手中。"
+  },
+  "${ModID}:MaintenanceExpert": {
+    "NAME": "维修大师",
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。造成的 格挡 和 荆棘 提高 !M! %。"
+  },
+  "${ModID}:NoTrespassing": {
+    "NAME": "高温区禁入",
+    "DESCRIPTION": "获得 !B! 点 格挡 和 !M! 层 ${ModID}:临时 荆棘 ，在首领战中获得 !${ModID}:M2! 倍 ${ModID}:临时 荆棘 。 NL ${ModID}:预备 1"
+  },
+  "${ModID}:ShortTermMemory": {
+    "NAME": "短期记忆",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !${ModID}:A! ${ModID}:狂气 。"
+  },
+  "${ModID}:ArtisanOfFate": {
+    "NAME": "命运工匠",
+    "DESCRIPTION": "抽 !${ModID}:DR! 张牌。若抽到的牌是 ${ModID}:命轮 ，则使其 [E] 消耗变为 0 ，否则将其一张附加 消耗 的原始复制置入手中。"
+  },
+  "${ModID}:GiveAndTake": {
+    "NAME": "施与受",
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。每造成一次伤害，获得 !M! 点 荆棘 。"
+  },
+  "${ModID}:WhipOfMadness": {
+    "NAME": "狂气使役之鞭",
+    "DESCRIPTION": "随机造成 !D! 点伤害 !${ModID}:AC! 次并获得 !M! %伤害的 ${ModID}:临时 荆棘 。"
+  },
+  "${ModID}:WaxHotDesire": {
+    "NAME": "灼燃蜡滴之欲",
+    "DESCRIPTION": "获得 !M! 层 荆棘 。在本回合中，偷取所有敌人 !${ModID}:M2! 点 力量 ，若只有一个敌人，偷取的 力量 翻倍。移除所有敌人的 荆棘 状态。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 荆棘 。在本回合中，偷取所有敌人 !${ModID}:M2! 点 力量 ，若只有一个敌人，偷取的 力量 翻倍。移除所有敌人的 荆棘 状态。获得 !${ModID}:A! ${ModID}:狂气 。"
+  },
+  "${ModID}:OutstandingVeteran": {
+    "NAME": "战地卓识",
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。获得 !M! 点 敏捷 。 打击 造成的伤害享受 !${ModID}:M2! 倍 格挡 加成。"
+  },
+  "${ModID}:CombatStance": {
+    "NAME": "临战体势",
+    "DESCRIPTION": "获得 !B! 点 格挡 。回合结束时若在手中，获得的 格挡 提高 !M! 点。驱散 ${ModID}:封印 状态。 NL 视为「 ${ModID}:防御 」"
+  },
+  "${ModID}:PrecisionSlash": {
+    "NAME": "心眼利刃",
+    "DESCRIPTION": "造成 !D! 点伤害。每 !M! 点 格挡 使伤害提高 1 点。在本回合中每打出 1 张「 ${ModID}:防御 」， [E] 消耗减少 1 点。 NL 视为「 打击 」 "
+  },
+  "${ModID}:DefensiveStance": {
+    "NAME": "防御姿态",
+    "DESCRIPTION": "使 格挡 翻倍。"
+  },
+  "${ModID}:InsightStrike": {
+    "NAME": "心眼打击",
+    "DESCRIPTION": "对生命与 格挡 总和最高的敌方造成 !D! 点伤害，获得伤害量 !M! %的 格挡 。 NL 视为「 打击 」"
+  },
+  "${ModID}:DanceOfTheGibbousMoon": {
+    "NAME": "凸月之舞",
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。每打出 !M! 张 ${ModID}:指令卡 后，回复 !${ModID}:H! 点生命，获得 !${ModID}:M2! ${ModID}:狂气 。打出「奇妙料理」后，对所有敌人造成 !${ModID}:M3! 点 中毒 。"
+  },
+  "${ModID}:ToadStew": {
+    "NAME": "蟾蜍炖菜",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:SilentFealty": {
+    "NAME": "静默守望",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:PainConversion": {
+    "NAME": "疼痛转化",
+    "DESCRIPTION": " 易伤 自身，本回合每受到一次主动攻击，获得 !${ModID}:A! ${ModID}:狂气 。"
+  },
+  "${ModID}:ExceptionalLuck": {
+    "NAME": "绝佳运气",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:UnexpectedGain": {
+    "NAME": "意外收获",
+    "DESCRIPTION": "造成 !D! 点伤害。选择 1 张抽牌堆的牌置入手中， !M! %几率使其 [E] 消耗-1。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。选择 1 张抽牌堆的牌置入手中， !M! %几率使其 [E] 消耗-1， !${ModID}:M2! %几率使其 [E] 消耗-2。"
+  },
+  "${ModID}:Showdown": {
+    "NAME": "摊牌时刻",
+    "DESCRIPTION": "造成 !D! 点伤害 1~ !${ModID}:AC! 次，获得 !${ModID}:A! ${ModID}:狂气 。若造成 6 次或以上伤害，获得 !M! 张 [E] 消耗为0且附加 消耗 的「意外收获」。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 1~ !${ModID}:AC! 次，获得 !${ModID}:A! ${ModID}:狂气 ，每造成1次伤害，额外获得 !${ModID}:M2! ${ModID}:狂气 。若造成 6 次或以上伤害，获得 !M! 张 [E] 消耗为0且附加 消耗 的「意外收获」。"
+  },
+  "${ModID}:TenRingsPlay": {
+    "NAME": "十环出牌",
+    "DESCRIPTION": "对随机敌人造成 !${ModID}:AC! 次 !D! 伤害。 NL ${ModID}:幻影 "
+  },
+  "${ModID}:LaudableMasterpiece": {
+    "NAME": "此曲应得称颂",
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。回合开始时，将一张「协乐的交响」置入手中。"
+  },
+  "${ModID}:SoulOverture": {
+    "NAME": "灵魂序曲",
+    "DESCRIPTION": "随机造成 !${ModID}:AC! 次 !D! 点 ${ModID}:穿刺伤害 ，每次造成伤害都有 50% 几率对目标随机施加 1 种 ${ModID}:奇妙负面效果 。若打出时 [E] 消耗为0，额外造成 !M! 次伤害。 NL ${ModID}:预备 1"
+  },
+  "${ModID}:MemoryRondo": {
+    "NAME": "追忆回旋曲",
+    "DESCRIPTION": "获得 !M! 点 力量 ，将 !${ModID}:M2! 张「灵感」置入手中。 NL [E] 不足时仍可强行打出，效果改为将 !${ModID}:M2! 张「灵感」洗入抽牌堆。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 点 力量 ，将 !${ModID}:M2! 张「灵感」置入手中。 NL [E] 不足时仍可强行打出，效果改为获得 !M! 点 力量 ，将 !${ModID}:M2! 张「灵感」洗入抽牌堆。"
+  },
+  "${ModID}:StunningTone": {
+    "NAME": "惊愕强音",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "${ModID}:GreatSacrifice": {
+    "NAME": "伟大的牺牲",
+    "DESCRIPTION": " 易伤 自身， ${ModID}:延迟 ：抽 !${ModID}:DR! 张牌。",
+    "UPGRADE_DESCRIPTION": " 易伤 自身，抽 !${ModID}:DR! 张牌并使其获得 ${ModID}:临时 保留 。"
+  },
+  "${ModID}:DuskAndDawn": {
+    "NAME": "极夜与破晓",
+    "DESCRIPTION": "回合结束后获得 200 点 ${ModID}:银钥能量 。触发 ${ModID}:死亡抵抗 后，获得 1000 点 ${ModID}:银钥能量 。"
+  },
+  "${ModID}:HeartOfSilver": {
+    "NAME": "纯银的初心",
+    "DESCRIPTION": "释放 ${ModID}:钥令 后，获得 !M! 点 力量 和 !B! 点 格挡 。"
+  },
+  "${ModID}:AnnihilatedRebirth": {
+    "NAME": "重生于湮土",
+    "DESCRIPTION": "释放 ${ModID}:狂气爆发 后，使 ${ModID}:狂气爆发 基础伤害提高 !M! %， 格挡 和生命回复提高 !${ModID}:M2! %。"
+  },
+  "${ModID}:SpringInAcushnet": {
+    "NAME": "阿库特之春",
+    "DESCRIPTION": "回合结束时获得 !${ModID}:A! ${ModID}:狂气 ，获得等同于 ${ModID}:银钥充能 的 ${ModID}:银钥能量 。"
+  },
+  "${ModID}:Sunfall": {
+    "NAME": "殞日",
+    "DESCRIPTION": "造成的基础伤害、 中毒 和 荆棘 提高 !M! %。"
+  },
+  "${ModID}:BirthOfASoul": {
+    "NAME": "灵魂诞生",
+    "DESCRIPTION": "造成的基础治疗 和 格挡 提高 !${ModID}:M2! %。打出「 打击 」后，回复 !${ModID}:H! %已损失生命。打出「 ${ModID}:防御 」后，获得 !B! %当前生命的 格挡 。该效果每回合最多各触发 !${ModID}:M3! 次。",
+    "UPGRADE_DESCRIPTION": " ${ModID}:被动 ：生命上限提高 !M! %。 NL 造成的基础治疗 和 格挡 提高 !${ModID}:M2! %。打出「 打击 」后，回复 !${ModID}:H! %已损失生命。打出「 ${ModID}:防御 」后，获得 !B! %当前生命的 格挡 。该效果每回合最多各触发 !${ModID}:M3! 次。"
+  },
+  "${ModID}:RewindingTime": {
+    "NAME": "溯洄时计",
+    "DESCRIPTION": "打出 ${ModID}:指令卡 后，将其从弃牌堆重新加入手牌，该效果单回合最多生效 !${ModID}:M2! 次。 NL ${ModID}:预备 1",
+    "UPGRADE_DESCRIPTION": " ${ModID}:被动 ： ${ModID}:银钥充能 + !M! NL 打出 ${ModID}:指令卡 后，将其从弃牌堆重新加入手牌，该效果单回合最多生效 !${ModID}:M2! 次。 NL ${ModID}:预备 1"
+  },
+  "${ModID}:CelestialBeast": {
+    "NAME": "星天之兽",
+    "DESCRIPTION": "「 打击 」和「 ${ModID}:狂气爆发 」基础伤害提高 !M! 。打出「 打击 」后，获得 !${ModID}:M2! 点 ${ModID}:临时 力量 ，每回合最多 !${ModID}:M3! 次。",
+    "UPGRADE_DESCRIPTION": "「 打击 」和「 ${ModID}:狂气爆发 」基础伤害提高 !M! 。打出「 打击 」后，获得 !${ModID}:M2! 点 ${ModID}:临时 力量 ，每回合最多 !${ModID}:M3! 次，第 !${ModID}:M3! 次改为获得 !${ModID}:M2! 点 力量 。"
+  },
+  "${ModID}:HeartOfAKnight": {
+    "NAME": "骑士之心",
+    "DESCRIPTION": "「 ${ModID}:狂气爆发 」造成的 格挡 提高 !M! %。释放「 ${ModID}:狂气爆发 」后，获得等同于当前 格挡 !${ModID}:M2! %的 ${ModID}:临时 力量 。若处于 脆弱 状态，效果翻倍。"
+  },
+  "${ModID}:DeathlessAscent": {
+    "NAME": "超越死亡",
+    "DESCRIPTION": " ${ModID}:指令卡 造成的基础治疗 提高 !M! %。释放「 ${ModID}:狂气爆发 」后，获得 !${ModID}:A! ${ModID}:狂气 ，若处于 易伤 状态，效果翻倍。"
+  },
+  "${ModID}:DreamOfTheSea": {
+    "NAME": "海之梦",
+    "DESCRIPTION": "打出卡牌后，获得 !${ModID}:A! ${ModID}:狂气 。回合开始时，获得 !${ModID}:M3! 点 力量 ，若当前 ${ModID}:界域 为「 ${ModID}:深海 」，额外获得 !${ModID}:M4! 点 ${ModID}:触腕伤害。",
+    "UPGRADE_DESCRIPTION": " ${ModID}:被动 ：获得 !M! 点 力量 ，若当前 ${ModID}:界域 为「 ${ModID}:深海 」，额外获得 !${ModID}:M2! 点 ${ModID}:触腕伤害。 NL 打出卡牌后，获得 !${ModID}:A! ${ModID}:狂气 。回合开始时，获得 !${ModID}:M3! 点 力量 ，若当前 ${ModID}:界域 为「 ${ModID}:深海 」，额外获得 !${ModID}:M4! 点 ${ModID}:触腕伤害。"
+  },
+  "${ModID}:WintersRequiem": {
+    "NAME": "冬夜追忆",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:CoreMeltdown": {
+    "NAME": "核心熔解",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:MemorySpiral": {
+    "NAME": "记忆螺旋",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:GiftOfDecay": {
+    "NAME": "腐朽赠礼",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:DriftingInDesire": {
+    "NAME": "欲海浮沉",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:WillUnyielding": {
+    "NAME": "坚韧意志",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:SilentBanquet": {
+    "NAME": "无声欢宴",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:BladeOfTheTitan": {
+    "NAME": "巨人之刃",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:AmidstTheDownpour": {
+    "NAME": "于暴雨之中",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:FinOfSorrow": {
+    "NAME": "伤痛之鳍",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:DeathOfMsCoral": {
+    "NAME": "珊瑚女之死",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:SailOfProvidence": {
+    "NAME": "引舵之帆",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:ManikinOfOblivion": {
+    "NAME": "坠入虚无人偶",
+    "DESCRIPTION": "造成的基础 ${ModID}:狂气 、基础 中毒 、基础治疗 提高 !${ModID}:M2! %。 NL 释放 ${ModID}:狂气爆发 后，获得本次 ${ModID}:狂气 消耗20%的 ${ModID}:狂气 。 NL ${ModID}:预备 1",
+    "UPGRADE_DESCRIPTION": " ${ModID}:被动 ： ${ModID}:狂气回充 + !M! NL 造成的基础 ${ModID}:狂气 、基础 中毒 、基础治疗 提高 !${ModID}:M2! %。 NL 释放 ${ModID}:狂气爆发 后，获得本次 ${ModID}:狂气 消耗20%的 ${ModID}:狂气 。 NL ${ModID}:预备 1"
+  },
+  "${ModID}:HandOfOblivion": {
+    "NAME": "遗忘之手",
+    "DESCRIPTION": "将 1 张「打击」加入手中，「 打击 」的基础伤害增加 !${ModID}:M2! %。 NL ${ModID}:预备 1",
+    "UPGRADE_DESCRIPTION": " ${ModID}:被动 ： 「 打击 」基础伤害 + !M! % NL 将 1 张「打击」加入手中，「 打击 」的基础伤害增加 !${ModID}:M2! %。 NL ${ModID}:预备 1"
+  },
+  "${ModID}:Insight": {
+    "NAME": "灵感",
+    "DESCRIPTION": "获得 [E] 。 NL 抽 !${ModID}:M2! 张牌。",
+    "UPGRADE_DESCRIPTION": "获得 [E] [E] 。 NL 抽 !${ModID}:M2! 张牌。",
+    "EXTENDED_DESCRIPTION": ["高级灵感"]
+  },
+  "${ModID}:SilverKeyDawn": {
+    "NAME": "银钥微光",
+    "DESCRIPTION": "从随机 !M! 个 ${ModID}:钥令 中，选择 1 个立刻释放。",
+    "UPGRADE_DESCRIPTION": "从随机 !M! 个 ${ModID}:钥令 中，选择 1 个立刻释放，并生效 2 次。",
+    "EXTENDED_DESCRIPTION": ["银钥曦光"]
+  },
+  "${ModID}:InnocentReturnGift": {
+    "NAME": "天真的回礼",
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。",
+    "UPGRADE_DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。首领战中可使用 !M! 次。",
+    "EXTENDED_DESCRIPTION": [
+      "获得 !${ModID}:A! ${ModID}:狂气 。首领战中可使用 !M! 次。剩余 !stslib:ex! 次。"
+    ]
+  },
+  "${ModID}:MutatedHeart": {
+    "NAME": "畸变之心",
+    "DESCRIPTION": "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。",
+    "EXTENDED_DESCRIPTION": [
+      "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。首领战中可使用 !M! 次。",
+      "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。首领战中可使用 !M! 次，且抽到的牌本回合 [E] 消耗降低 !${ModID}:M2! 。",
+      "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。首领战中可使用 !M! 次。剩余 !stslib:ex! 次。",
+      "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。首领战中可使用 !M! 次，且抽到的牌本回合 [E] 消耗降低 !${ModID}:M2! 。剩余 !stslib:ex! 次。"
+    ]
+  },
+  "${ModID}:OctahedronDice": {
+    "NAME": "偏方骰子",
+    "DESCRIPTION": "投一颗 6 面骰子，获得等同于骰子点数的 ${ModID}:临时 力量 。若点数为 4 或更高， 易伤 所有敌人 1 回合。若点数为 6 或更高，获得的 ${ModID}:临时 力量 翻倍。",
+    "UPGRADE_DESCRIPTION": "投一颗 6 面骰子，获得等同于骰子点数 !M! %的 ${ModID}:临时 力量 。若点数为 4 或更高， 虚弱 和 易伤 所有敌人 1 回合。若点数为 6 或更高，获得的 ${ModID}:临时 力量 翻倍并获得 [E] 。",
+    "EXTENDED_DESCRIPTION": ["闪耀偏方骰子"]
+  },
+  "${ModID}:SymphonyOfHarmony": {
+    "NAME": "协乐的交响",
+    "DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": ["上行音", "下行音"]
+  },
+  "${ModID}:UtopianVeil": {
+    "NAME": "",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:HoneyMead": {
+    "NAME": "",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:FaithOfTheDivineRealm": {
+    "NAME": "",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:SymptomDelusion": {
+    "NAME": "症状：妄想",
+    "DESCRIPTION": "失去 !M! 点生命，获得 [E] [E] 。 NL 无法在商店移除 "
+  },
+  "${ModID}:SymptomEpilepsy": {
+    "NAME": "症状：癫痫",
+    "DESCRIPTION": "失去 !M! 点生命，抽 !${ModID}:DR! 张牌。 NL 无法在商店移除 "
+  },
+  "${ModID}:SymptomMadness": {
+    "NAME": "症状：疯狂",
+    "DESCRIPTION": "失去 !M! 点生命，获得 !${ModID}:A! ${ModID}:狂气 。 NL 无法在商店移除 "
+  },
+  "${ModID}:SymptomWeakness": {
+    "NAME": "症状：衰弱",
+    "DESCRIPTION": "回合结束时若在手中，自身 虚弱 !M! 回合。使用后 虚弱 所有敌人 !M! 回合。 NL 无法在商店移除 "
+  },
+  "${ModID}:SymptomBreakdown": {
+    "NAME": "症状：崩溃",
+    "DESCRIPTION": "回合结束时若在手中，自身 脆弱 !M! 回合。使用后 易伤 所有敌人 !M! 回合。 NL 无法在商店移除 "
+  },
+  "${ModID}:SymptomClaustrophobia": {
+    "NAME": "症状：幽闭",
+    "DESCRIPTION": "失去 !M! 点生命，获得双倍于该值的 格挡 。 NL 无法在商店移除 "
+  },
+  "${ModID}:SymptomSomniloquy": {
+    "NAME": "症状：谵语",
+    "DESCRIPTION": "抽 !${ModID}:DR! 张牌，将 !M! 张「症状：谵语」加入弃牌堆中。 NL 无法在商店移除 "
+  },
+  "${ModID}:SymptomHysteria": {
+    "NAME": "症状：臆想",
+    "DESCRIPTION": "获得 [E] ，将 !M! 张「症状：臆想」加入弃牌堆中。 NL 无法在商店移除 "
+  },
+  "${ModID}:SymptomObedience": {
+    "NAME": "症状：盲从",
+    "DESCRIPTION": "回合结束时若在手中，将 !M! 张随机 ${ModID}:症状卡 加入抽牌堆。"
+  },
+  "${ModID}:SymptomExcitement": {
+    "NAME": "症状：兴奋",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Wound": {
+    "NAME": "伤口",
+    "DESCRIPTION": "一点小伤，无伤大体。受到 !M! 点伤害，抽 !${ModID}:DR! 张牌。 NL 弃掉时移除 "
+  },
+  "${ModID}:Convulsion": {
+    "NAME": "惊厥",
+    "DESCRIPTION": " ${ModID}:状态卡 。 NL 无法打出 \u2002 弃掉时移除 "
+  },
+  "${ModID}:StickyWax": {
+    "NAME": "黏糊糊的蜡油",
+    "DESCRIPTION": " ${ModID}:永久保留 \u2002 ${ModID}:销毁 "
+  },
+  "${ModID}:DimensionLock": {
+    "NAME": "维度闭锁",
+    "DESCRIPTION": "释放 ${ModID}:狂气爆发 后， ${ModID}:封印 !M! 回合。 NL 无法打出 "
+  },
+  "${ModID}:Stagger": {
+    "NAME": "蹒跚",
+    "DESCRIPTION": " ${ModID}:状态卡 。"
+  },
+  "${ModID}:Suffocation": {
+    "NAME": "窒息",
+    "DESCRIPTION": "回合结束时若在手中，获得 !M! 层 中毒 。"
+  },
+  "${ModID}:PainOfUnfulfilledDesires": {
+    "NAME": "未被满足之痛",
+    "DESCRIPTION": "对自身造成 !M! 点伤害，获得 !${ModID}:M2! 点 ${ModID}:临时 力量 ，抽 !${ModID}:DR! 张牌。"
+  },
+  "${ModID}:CryOut": {
+    "NAME": "哭喊",
+    "DESCRIPTION": "降低所有敌人 !M! 点 ${ModID}:临时 力量 ，将 !${ModID}:M2! 张「症状：妄想」置入手牌。",
+    "FLAVOR": "很痛吗？真可怜……哭出来就好啦！"
+  },
+  "${ModID}:Unrestrained": {
+    "NAME": "狂放",
+    "DESCRIPTION": "获得 !M! 点 ${ModID}:临时 力量 ，所有敌人获得 !${ModID}:M2! 点 ${ModID}:临时 力量 。 NL ${ModID}:永久保留 \u2002 ${ModID}:销毁 "
+  }
+}
