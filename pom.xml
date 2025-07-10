@@ -16,7 +16,7 @@
     </properties>
 
     <name>Morimens Mod</name>
-    <version>0.4.1</version>
+    <version>0.4.2</version>
     <description>忘卻前夜模組\nSteam Link: https://steamcommunity.com/sharedfiles/filedetails/?id=3505078227</description>
     <groupId>morimensmod</groupId>
     <artifactId>morimensmod</artifactId>
@@ -93,6 +93,7 @@
                     <include>${ModID}Resources/**/*.json</include>
                 </includes> -->
                 <excludes>
+                    <exclude>${ModID}Resources/**/*.txt</exclude>
                     <exclude>${ModID}Resources/**/*.mdp</exclude>
                     <exclude>${ModID}Resources/**/*.py</exclude>
                     <exclude>${ModID}Resources/images/signature/*</exclude>

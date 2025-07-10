@@ -36,6 +36,14 @@
       "造成的基础伤害、基础 #p中毒 、基础 #b荆棘 、基础 #y触腕伤害 提高 #b%d%% 。回合开始时减少 #b%d 层。"
     ]
   },
+  "${ModID}:DelayAliemusPower": {
+    "NAME": "延迟狂气",
+    "DESCRIPTIONS": ["下回合开始时，获得 #b%d #y狂气 。"]
+  },
+  "${ModID}:DelayEnhancePower": {
+    "NAME": "延迟强化",
+    "DESCRIPTIONS": ["下回合开始时，获得 #b%d 层 #y强化 。"]
+  },
   "${ModID}:FirstDoctrinePower": {
     "NAME": "第一哲学",
     "DESCRIPTIONS": [

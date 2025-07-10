@@ -5,7 +5,9 @@
   },
   "${ModID}:SealPower": {
     "NAME": "Seal",
-    "DESCRIPTIONS": ["Unable to unleash #yExalt. Reduced #b%d stack at turn ends."]
+    "DESCRIPTIONS": [
+      "Unable to unleash #yExalt. Reduced #b%d stack at turn ends."
+    ]
   },
   "${ModID}:TraumaPower": {
     "NAME": "Trauma",
@@ -16,7 +18,9 @@
   },
   "${ModID}:PosseTwicePower": {
     "NAME": "Dual Posse",
-    "DESCRIPTIONS": ["The next #b%d #yPosse released by consuming #yKeyflare will take effect twice."]
+    "DESCRIPTIONS": [
+      "The next #b%d #yPosse released by consuming #yKeyflare will take effect twice."
+    ]
   },
   "${ModID}:OnlyUnlimitedPosseTwicePower": {
     "NAME": "Dual Posse",
@@ -36,6 +40,16 @@
       "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #b%d%%. Reduces #b%d stack at turn start."
     ]
   },
+  "${ModID}:DelayAliemusPower": {
+    "NAME": "Delay Aliemus",
+    "DESCRIPTIONS": ["At the start of the next turn, gain #b%d #yAliemus."]
+  },
+  "${ModID}:DelayEnhancePower": {
+    "NAME": "Delay Enhancement",
+    "DESCRIPTIONS": [
+      "At the start of the next turn, gain #b%d stack(s) of #yEnhance."
+    ]
+  },
   "${ModID}:FirstDoctrinePower": {
     "NAME": "First Doctrine",
     "DESCRIPTIONS": [
@@ -48,7 +62,9 @@
   },
   "${ModID}:BattleThirstPower": {
     "NAME": "Battle Thirst",
-    "DESCRIPTIONS": ["The number of times #yCommand #yCards deal damage increases by #b%d."]
+    "DESCRIPTIONS": [
+      "The number of times #yCommand #yCards deal damage increases by #b%d."
+    ]
   },
   "${ModID}:KnightsZealPower": {
     "NAME": "Knight's Zeal",
@@ -82,7 +98,9 @@
   },
   "${ModID}:OutstandingVeteranPower": {
     "NAME": "Outstanding Veteran",
-    "DESCRIPTIONS": ["Damage of #yStrike increases with #b%d time(s) of the current #yBlock."]
+    "DESCRIPTIONS": [
+      "Damage of #yStrike increases with #b%d time(s) of the current #yBlock."
+    ]
   },
   "${ModID}:RewindingTimePower": {
     "NAME": "Rewinding Time",
