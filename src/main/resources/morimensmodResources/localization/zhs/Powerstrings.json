@@ -10,7 +10,7 @@
   "${ModID}:TraumaPower": {
     "NAME": "创伤",
     "DESCRIPTIONS": [
-      "每打出一张 #y打击 后，在抽牌堆顶部添加 #b2",
+      "每打出一张「 #y打击 」后，在抽牌堆顶部添加 #b2",
       " 张「伤口」。"
     ]
   },
@@ -76,7 +76,7 @@
   },
   "${ModID}:OutstandingVeteranPower": {
     "NAME": "战地卓识",
-    "DESCRIPTIONS": ["#y打击 造成的伤害享受 #b%d 倍 #y格挡 加成。"]
+    "DESCRIPTIONS": ["「 #y打击 」造成的伤害享受 #b%d 倍 #y格挡 加成。"]
   },
   "${ModID}:RewindingTimePower": {
     "NAME": "溯洄时计",
@@ -87,11 +87,11 @@
   "${ModID}:ManikinOfOblivionPower": {
     "NAME": "坠入虚无人偶",
     "DESCRIPTIONS": [
-      "造成的基础 #y狂气 、基础 #p中毒 、基础 #g治疗 提高 #b%d%% 。 NL 释放 #y狂气爆发 或 #r超限爆发 后，获得本次 #y狂气 消耗 #b%d%% 的 #y狂气 。"
+      "造成的基础 #y狂气 、基础 #p中毒 、基础治疗提高 #b%d%% 。 NL 释放 #y狂气爆发 或 #r超限爆发 后，获得本次 #y狂气 消耗 #b%d%% 的 #y狂气 。"
     ]
   },
   "${ModID}:HandOfOblivionPower": {
     "NAME": "遗忘之手",
-    "DESCRIPTIONS": ["「 打击 」的基础伤害增加 #b%d%% 。"]
+    "DESCRIPTIONS": ["「 #y打击 」的基础伤害增加 #b%d%% 。"]
   }
 }
