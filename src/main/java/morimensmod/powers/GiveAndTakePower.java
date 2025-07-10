@@ -16,7 +16,7 @@ public class GiveAndTakePower extends AbstractEasyPower {
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public static final int GAIN_THORNS_PER_N_ATTACK = 3;
+    public static final int GAIN_THORNS_PER_N_ATTACK = 2;
 
     public GiveAndTakePower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);

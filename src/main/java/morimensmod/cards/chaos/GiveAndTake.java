@@ -14,7 +14,7 @@ public class GiveAndTake extends AbstractRouseCard {
     public final static String ID = makeID(GiveAndTake.class.getSimpleName());
 
     public GiveAndTake() {
-        super(ID, 2, CardRarity.RARE, CHAOS_COLOR);
+        super(ID, 2, CardRarity.UNCOMMON, CHAOS_COLOR);
         magicNumber = baseMagicNumber = GiveAndTakePower.GAIN_THORNS_PER_N_ATTACK; // 每幾次攻擊獲得反擊 only for display
         secondMagic = baseSecondMagic = 1; // 每次獲得多少反擊
     }

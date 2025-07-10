@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.PenNibPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
@@ -141,7 +142,8 @@ public class BeastOfChaos extends AbstractExalt {
             for (AbstractRelic r : player.relics)
                 tmp[i] = r.atDamageModify(tmp[i], nullCard);
             for (AbstractPower p : player.powers)
-                tmp[i] = p.atDamageGive(tmp[i], DamageType.NORMAL);
+                if (p.ID != PenNibPower.POWER_ID)
+                    tmp[i] = p.atDamageGive(tmp[i], DamageType.NORMAL);
             tmp[i] = player.stance.atDamageGive(tmp[i], DamageType.NORMAL);
             for (AbstractPower p : player.powers)
                 tmp[i] = p.atDamageFinalGive(tmp[i], DamageType.NORMAL);
@@ -169,7 +171,8 @@ public class BeastOfChaos extends AbstractExalt {
             for (AbstractRelic r : player.relics)
                 tmp[i] = r.atDamageModify(tmp[i], nullCard);
             for (AbstractPower p : player.powers)
-                tmp[i] = p.atDamageGive(tmp[i], DamageType.NORMAL);
+                if (p.ID != PenNibPower.POWER_ID)
+                    tmp[i] = p.atDamageGive(tmp[i], DamageType.NORMAL);
             tmp[i] = player.stance.atDamageGive(tmp[i], DamageType.NORMAL);
             for (AbstractPower p : ((AbstractMonster) m.get(i)).powers) {
                 if (!((AbstractMonster) m.get(i)).isDying && !((AbstractMonster) m.get(i)).isEscaping)
