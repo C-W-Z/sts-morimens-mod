@@ -149,7 +149,7 @@
   },
   "${ModID}:UnstableBarrier": {
     "NAME": "不定壁垒",
-    "DESCRIPTION": "获得 !B! 点 格挡 X+1 次。获得等于X\u2002 !${ModID}:A! 倍的 ${ModID}:狂气 。获得 !M! 点 力量 。"
+    "DESCRIPTION": "获得 !B! 点 格挡 X+1 次。获得等于 !${ModID}:A! 倍X的 ${ModID}:狂气 。获得 !M! 点 力量 。"
   },
   "${ModID}:PiercingStrike": {
     "NAME": "穿刺之枪",
