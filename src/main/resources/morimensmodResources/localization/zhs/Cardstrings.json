@@ -332,6 +332,11 @@
     "NAME": "惊愕强音",
     "DESCRIPTION": "造成 !D! 点伤害。"
   },
+  "${ModID}:UnifiedLegacy": {
+    "NAME": "全一传承",
+    "DESCRIPTION": "${ModID}:延迟 ：获得 !${ModID}:A! ${ModID}:狂气 。",
+    "UPGRADE_DESCRIPTION": "${ModID}:延迟 ： ${ModID}:强化 并获得 !${ModID}:A! ${ModID}:狂气 。"
+  },
   "${ModID}:GreatSacrifice": {
     "NAME": "伟大的牺牲",
     "DESCRIPTION": " 易伤 自身， ${ModID}:延迟 ：抽 !${ModID}:DR! 张牌。",

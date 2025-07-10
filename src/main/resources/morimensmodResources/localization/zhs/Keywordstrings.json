@@ -173,5 +173,10 @@
     "PROPER_NAME": "#r兴奋 [${ModID}:ElationIcon]",
     "NAMES": ["兴奋", "Elation"],
     "DESCRIPTION": "造成的基础伤害、基础 #p中毒 、基础 #b荆棘 、基础 #y触腕伤害 提高 #b50% 。回合开始时减少 #b1 层。"
+  },
+  {
+    "PROPER_NAME": "强化",
+    "NAMES": ["强化", "Enhance"],
+    "DESCRIPTION": "本回合造成的所有主动伤害增加 #b25% 。回合结束时减少 #b1 层。"
   }
 ]

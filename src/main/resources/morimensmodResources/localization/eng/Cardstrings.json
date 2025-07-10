@@ -19,7 +19,9 @@
   "${ModID}:EncounterInPureWhite": {
     "NAME": "Encounter in Pure White",
     "DESCRIPTION": "Discard all your cards, then draw a number of cards equal to the number of discarded cards +2.",
-    "EXTENDED_DESCRIPTION": ["Discard all your cards, then draw a number of cards equal to the number of discarded cards #b+2."]
+    "EXTENDED_DESCRIPTION": [
+      "Discard all your cards, then draw a number of cards equal to the number of discarded cards #b+2."
+    ]
   },
   "${ModID}:WardedInjection": {
     "NAME": "Warded Injection",
@@ -331,6 +333,11 @@
   "${ModID}:StunningTone": {
     "NAME": "Stunning Tone",
     "DESCRIPTION": "Deal !D! damage."
+  },
+  "${ModID}:UnifiedLegacy": {
+    "NAME": "Unified Legacy",
+    "DESCRIPTION": "${ModID}:Delay: gain !${ModID}:A! ${ModID}:Aliemus.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Delay: ${ModID}:Enhance and gain !${ModID}:A! ${ModID}:Aliemus."
   },
   "${ModID}:GreatSacrifice": {
     "NAME": "偉大的犧牲",

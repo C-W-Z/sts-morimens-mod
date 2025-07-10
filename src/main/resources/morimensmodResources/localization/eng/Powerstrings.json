@@ -40,12 +40,18 @@
       "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #b%d%%. Reduces #b%d stack at turn starts."
     ]
   },
+  "${ModID}:EnhancePower": {
+    "NAME": "Enhance",
+    "DESCRIPTIONS": [
+      "Increases all active damage dealt this turn by #b%d%%. Reduces #b%d stack at the end of the turn."
+    ]
+  },
   "${ModID}:DelayAliemusPower": {
     "NAME": "Delay Aliemus",
     "DESCRIPTIONS": ["At the start of the next turn, gain #b%d #yAliemus."]
   },
   "${ModID}:DelayEnhancePower": {
-    "NAME": "Delay Enhancement",
+    "NAME": "Delay Enhance",
     "DESCRIPTIONS": [
       "At the start of the next turn, gain #b%d stack(s) of #yEnhance."
     ]

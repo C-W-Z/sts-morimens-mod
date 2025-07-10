@@ -27,7 +27,7 @@ public class EnhancePower extends AbstractEasyPower {
     @Override
     public float atDamageGive(float damage, DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL)
-            return damage * DMG_PERCENT / 100F;
+            return damage * (100F + DMG_PERCENT) / 100F;
         return damage;
     }
 

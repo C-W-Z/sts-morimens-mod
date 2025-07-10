@@ -36,6 +36,12 @@
       "造成的基礎傷害、基礎 #p中毒 、基礎 #b荊棘 、基礎 #y觸腕傷害 提高 #b%d%% 。回合開始時減少 #b%d 層。"
     ]
   },
+  "${ModID}:EnhancePower": {
+    "NAME": "強化",
+    "DESCRIPTIONS": [
+      "本回合造成的所有主動傷害增加 #b%d%% 。回合結束時減少 #b%d 層。"
+    ]
+  },
   "${ModID}:DelayAliemusPower": {
     "NAME": "延遲狂氣",
     "DESCRIPTIONS": ["下回合開始時，獲得 #b%d #y狂氣 。"]
