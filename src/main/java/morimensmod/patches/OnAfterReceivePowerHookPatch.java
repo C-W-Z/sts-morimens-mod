@@ -17,6 +17,10 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import javassist.CtBehavior;
 import morimensmod.interfaces.OnAfterReceivePower;
 
+/**
+ * @deprecated Use {@link #morimensmod.patches.OnPowerModifiedHookPatch()} instead.
+ */
+@Deprecated
 @SpirePatch2(clz = ApplyPowerAction.class, method = "update")
 public class OnAfterReceivePowerHookPatch {
 
