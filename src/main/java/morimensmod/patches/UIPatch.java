@@ -7,18 +7,15 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import static morimensmod.misc.AliemusUI.*;
 import static morimensmod.misc.KeyflareUI.*;
-import static morimensmod.misc.DeathResistanceUI.*;
 
 public class UIPatch {
-    @SpirePatch2(clz = EnergyPanel.class, method = "renderOrb", paramtypes = { "com.badlogic.gdx.graphics.g2d.SpriteBatch"})
+    @SpirePatch2(clz = EnergyPanel.class, method = "renderOrb", paramtypez = { SpriteBatch.class })
     public static class RenderPatch{
         public static void Prefix(EnergyPanel __instance, SpriteBatch sb) {
             if (loadAliemusUI())
                 renderAliemusUI(sb, __instance.current_x);
             if (loadKeyflareUI())
                 renderKeyflareUI(sb, __instance.current_x);
-            if (loadDeathResistanceUI())
-                renderDeathResistanceUI(sb, __instance.current_x);
         }
     }
 
@@ -29,8 +26,6 @@ public class UIPatch {
                 updateAliemusUI();
             if (loadKeyflareUI())
                 updateKeyflareUI();
-            if (loadDeathResistanceUI())
-                updateDeathResistanceUI();
         }
     }
 }
