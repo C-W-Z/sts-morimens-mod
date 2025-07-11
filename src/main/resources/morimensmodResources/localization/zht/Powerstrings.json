@@ -91,7 +91,7 @@
   "${ModID}:GiveAndTakePower": {
     "NAME": "施與受",
     "DESCRIPTIONS": [
-      "每造成 #b%d 次傷害，獲得 #b%d 點 #y荊棘 。當前還需要 #b%d 次。"
+      "每造成 #b1 次主動攻擊傷害，獲得 #b%d 點 #y荊棘 。"
     ]
   },
   "${ModID}:OutstandingVeteranPower": {

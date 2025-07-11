@@ -252,7 +252,7 @@
   },
   "${ModID}:GiveAndTake": {
     "NAME": "Give and Take",
-    "DESCRIPTION": "{@@}Gain !${ModID}:A! ${ModID}:Aliemus. NL After every !M! attack{!M!|>1=s}, gain !${ModID}:M2! Thorns."
+    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. NL After each active attack, gain !M! Thorns."
   },
   "${ModID}:WhipOfMadness": {
     "NAME": "Whip of Madness",

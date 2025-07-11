@@ -250,7 +250,7 @@
   },
   "${ModID}:GiveAndTake": {
     "NAME": "施与受",
-    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 每造成 !M! 次伤害，获得 !${ModID}:M2! 点 荆棘 。"
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 每造成 1 次主动攻击伤害，获得 !M! 点 荆棘 。"
   },
   "${ModID}:WhipOfMadness": {
     "NAME": "狂气使役之鞭",

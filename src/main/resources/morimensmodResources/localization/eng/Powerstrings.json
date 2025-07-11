@@ -99,7 +99,7 @@
   "${ModID}:GiveAndTakePower": {
     "NAME": "Give and Take",
     "DESCRIPTIONS": [
-      "After every #b%d attacks, gain #b%d #yThorns. #b%d more attack(s) needed."
+      "After each active attack, gain #b%d #yThorns."
     ]
   },
   "${ModID}:OutstandingVeteranPower": {

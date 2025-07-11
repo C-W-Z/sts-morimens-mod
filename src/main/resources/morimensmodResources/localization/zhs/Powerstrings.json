@@ -91,7 +91,7 @@
   "${ModID}:GiveAndTakePower": {
     "NAME": "施与受",
     "DESCRIPTIONS": [
-      "每造成 #b%d 次伤害，获得 #b%d 点 #y荆棘 。当前还需要 #b%d 次。"
+      "每造成 #b1 次主动攻击伤害，获得 #b%d 点 #y荆棘 。"
     ]
   },
   "${ModID}:OutstandingVeteranPower": {
