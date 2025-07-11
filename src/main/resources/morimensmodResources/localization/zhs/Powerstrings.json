@@ -7,6 +7,14 @@
     "NAME": "封印",
     "DESCRIPTIONS": ["无法释放 #y狂气爆发 。持续 #b%d 回合。"]
   },
+  "${ModID}:BarrierPower": {
+    "NAME": "屏障",
+    "DESCRIPTIONS": ["阻止下 #b%d 次受到的主动攻击伤害。"]
+  },
+  "${ModID}:TmpBarrierPower": {
+    "NAME": "临时屏障",
+    "DESCRIPTIONS": ["阻止本回合下 #b%d 次受到的主动攻击伤害。"]
+  },
   "${ModID}:TraumaPower": {
     "NAME": "创伤",
     "DESCRIPTIONS": [
@@ -38,9 +46,7 @@
   },
   "${ModID}:EnhancePower": {
     "NAME": "强化",
-    "DESCRIPTIONS": [
-      "造成的所有主动伤害增加 #b%d%% 。持续 #b%d 回合。"
-    ]
+    "DESCRIPTIONS": ["所有主动攻击伤害增加 #b%d%% 。持续 #b%d 回合。"]
   },
   "${ModID}:DelayAliemusPower": {
     "NAME": "延迟狂气",
@@ -90,9 +96,7 @@
   },
   "${ModID}:GiveAndTakePower": {
     "NAME": "施与受",
-    "DESCRIPTIONS": [
-      "每造成 #b1 次主动攻击伤害，获得 #b%d 点 #y荆棘 。"
-    ]
+    "DESCRIPTIONS": ["每造成 #b1 次主动攻击伤害，获得 #b%d 点 #y荆棘 。"]
   },
   "${ModID}:OutstandingVeteranPower": {
     "NAME": "战地卓识",

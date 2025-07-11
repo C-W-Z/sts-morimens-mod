@@ -178,5 +178,10 @@
     "PROPER_NAME": "强化 [${ModID}:EnhanceIcon]",
     "NAMES": ["强化", "Enhance"],
     "DESCRIPTION": "造成的所有主动伤害增加 #b25% 。回合结束时减少 #b1 层。"
+  },
+  {
+    "PROPER_NAME": "屏障 [${ModID}:BarrierIcon]",
+    "NAMES": ["屏障", "Barrier"],
+    "DESCRIPTION": "阻止下次受到的主动攻击伤害。"
   }
 ]

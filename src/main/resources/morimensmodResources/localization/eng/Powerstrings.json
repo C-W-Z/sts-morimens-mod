@@ -5,9 +5,15 @@
   },
   "${ModID}:SealPower": {
     "NAME": "Seal",
-    "DESCRIPTIONS": [
-      "Unable to unleash #yExalt. Lasts #b%d turns."
-    ]
+    "DESCRIPTIONS": ["Unable to unleash #yExalt. Lasts #b%d turn(s)."]
+  },
+  "${ModID}:BarrierPower": {
+    "NAME": "Barrier",
+    "DESCRIPTIONS": ["Negate the next #b%d active attack damage(s) received."]
+  },
+  "${ModID}:TmpBarrierPower": {
+    "NAME": "Temporary Barrier",
+    "DESCRIPTIONS": ["Negate the next #b%d active attack damage(s) received this round."]
   },
   "${ModID}:TraumaPower": {
     "NAME": "Trauma",
@@ -37,13 +43,13 @@
   "${ModID}:ElationPower": {
     "NAME": "Elation",
     "DESCRIPTIONS": [
-      "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #b%d%%. Lasts #b%d turns."
+      "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #b%d%%. Lasts #b%d turn(s)."
     ]
   },
   "${ModID}:EnhancePower": {
     "NAME": "Enhance",
     "DESCRIPTIONS": [
-      "Increases all active damage dealt by #b%d%%. Lasts #b%d turns."
+      "Increases all active damage dealt by #b%d%%. Lasts #b%d turn(s)."
     ]
   },
   "${ModID}:DelayAliemusPower": {
@@ -98,9 +104,7 @@
   },
   "${ModID}:GiveAndTakePower": {
     "NAME": "Give and Take",
-    "DESCRIPTIONS": [
-      "After each active attack, gain #b%d #yThorns."
-    ]
+    "DESCRIPTIONS": ["After each active attack, gain #b%d #yThorns."]
   },
   "${ModID}:OutstandingVeteranPower": {
     "NAME": "Outstanding Veteran",
