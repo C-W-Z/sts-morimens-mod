@@ -6,7 +6,6 @@ import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.applyToEnemyTop;
 import static morimensmod.util.Wiz.getEnemies;
 import static morimensmod.util.Wiz.p;
-import static morimensmod.util.Wiz.getPowerAmount;
 
 import java.util.Comparator;
 
@@ -16,7 +15,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
@@ -34,7 +32,7 @@ public class MidnightTide extends AbstractEasyCard {
         damage = baseDamage = 3;
         attackCount = baseAttackCount = 1;
         magicNumber = baseMagicNumber = 50;
-        secondMagic = baseSecondMagic = 2; // 2 倍永力加成
+        secondMagic = baseSecondMagic = 2; // 2 倍力加成
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -55,7 +53,7 @@ public class MidnightTide extends AbstractEasyCard {
         upgradeMagicNumber(50);
     }
 
-    // 讓卡面顯示的傷害包含2倍永久力量加成
+    // 讓卡面顯示的傷害包含2倍力量加成
     @Override
     public void applyPowers() {
         int originalStrength = 0;
@@ -63,8 +61,7 @@ public class MidnightTide extends AbstractEasyCard {
         if (str != null) {
             originalStrength = str.amount;
             // 暫時修改力量
-            int permenantStr = getPowerAmount(p(), StrengthPower.POWER_ID) - getPowerAmount(p(), LoseStrengthPower.POWER_ID);
-            str.amount += (secondMagic - 1) * permenantStr;
+            str.amount *= secondMagic;
         }
 
         super.applyPowers();
@@ -82,8 +79,7 @@ public class MidnightTide extends AbstractEasyCard {
         AbstractPower str = p().getPower(StrengthPower.POWER_ID);
         if (str != null) {
             originalStrength = str.amount;
-            int permenantStr = getPowerAmount(p(), StrengthPower.POWER_ID) - getPowerAmount(p(), LoseStrengthPower.POWER_ID);
-            str.amount += (secondMagic - 1) * permenantStr;
+            str.amount *= secondMagic;
         }
 
         super.calculateCardDamage(mo);
