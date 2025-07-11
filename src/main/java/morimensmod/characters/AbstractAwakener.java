@@ -179,6 +179,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public static void onBattleStart() {
         logger.debug("onBattleStart");
 
+        exalting = false;
+        possing = false;
+
         aliemusLimit = NORMAL_ALIEMUS_LIMIT;
         extremeAlimus = 2 * NORMAL_ALIEMUS_LIMIT;
 
@@ -217,7 +220,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     // called in Main Mod File
-    public static void onPlayerTurnStartPostDraw() {
+    public static void onPlayerTurnStart() {
         exaltedThisTurn = 0;
         maxExaltPerTurn = NORMAL_MAX_EXALT_PER_TURN;
 
