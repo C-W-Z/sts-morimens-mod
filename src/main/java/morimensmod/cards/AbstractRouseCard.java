@@ -18,7 +18,7 @@ public abstract class AbstractRouseCard extends AbstractEasyCard implements Spaw
     public AbstractRouseCard(final String cardID, final int cost, final CardRarity rarity, final CardColor color) {
         super(cardID, cost, CardType.POWER, rarity, CardTarget.SELF, color);
         tags.add(CustomTags.ROUSE);
-        aliemus = baseAliemus = 20;
+        aliemus = baseAliemus = 10;
         selfRetain = true; // 保留
         costBeforeUpgrade = cost;
     }
@@ -58,7 +58,7 @@ public abstract class AbstractRouseCard extends AbstractEasyCard implements Spaw
         else if (timesUpgraded == 2)
             upgradeBaseCost(Math.max(0, costBeforeUpgrade - 1));
         else if (timesUpgraded == 3) {
-            upgradeAliemus(10);
+            upgradeAliemus(20);
             isInnate = true;
         }
     }

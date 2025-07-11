@@ -53,11 +53,11 @@
     ]
   },
   "${ModID}:DelayAliemusPower": {
-    "NAME": "Delay Aliemus",
+    "NAME": "Delayed Aliemus",
     "DESCRIPTIONS": ["At the start of the next turn, gain #b%d #yAliemus."]
   },
   "${ModID}:DelayEnhancePower": {
-    "NAME": "Delay Enhance",
+    "NAME": "Delayed Enhance",
     "DESCRIPTIONS": [
       "At the start of the next turn, gain #b%d stack(s) of #yEnhance."
     ]
