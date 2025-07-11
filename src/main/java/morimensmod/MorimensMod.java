@@ -18,6 +18,8 @@ import morimensmod.characters.Ramona;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.icons.AbstractIcon;
+import morimensmod.misc.TopPanelTurnUI;
+import morimensmod.monsters.Hardhitter;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.relics.AbstractEasyRelic;
@@ -48,12 +50,14 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.StanceStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
@@ -241,6 +245,10 @@ public class MorimensMod implements
         return modID + "Resources/images/icons/" + resourcePath;
     }
 
+    public static String makeMonsterPath(String resourcePath) {
+        return modID + "Resources/images/monsters/" + resourcePath;
+    }
+
     public static void initialize() {
         MorimensMod thismod = new MorimensMod();
     }
@@ -311,6 +319,8 @@ public class MorimensMod implements
                 modID + "Resources/localization/" + getLangString() + "/Stancestrings.json");
         BaseMod.loadCustomStringsFile(PotionStrings.class,
                 modID + "Resources/localization/" + getLangString() + "/Potionstrings.json");
+        BaseMod.loadCustomStringsFile(MonsterStrings.class,
+                modID + "Resources/localization/" + getLangString() + "/Monsterstrings.json");
     }
 
     @Override
@@ -355,18 +365,37 @@ public class MorimensMod implements
                     SignatureHelper.unlock(var.cardID, true);
                     SignatureHelper.enable(var.cardID, true);
                 });
+
         new AutoAdd(modID)
                 .packageFilter(AbstractGlowInfo.class)
                 .any(AbstractGlowInfo.class, (info, var) -> CardBorderGlowManager.addGlowInfo(var));
+
         new AutoAdd(modID)
                 .packageFilter(AbstractPersistentPower.class)
                 .any(AbstractPersistentPower.class, (info, var) -> {
                     PersistentPowerLib.addPower(var);
                 });
+
         BaseMod.addSaveField(SavePersistentPowers.ID, new SavePersistentPowers());
         BaseMod.addSaveField(SaveAwakenerProperties.ID, new SaveAwakenerProperties());
         BaseMod.addSaveField(SaveAwakenerFloatProperties.ID, new SaveAwakenerFloatProperties());
         BaseMod.addSaveField(SaveAwakenerPosse.ID, new SaveAwakenerPosse());
+
+        BaseMod.addTopPanelItem(new TopPanelTurnUI());
+
+        receiveEditMonsters();
+    }
+
+    private void receiveEditMonsters() {
+        // 注册怪物组合，你可以多添加几个怪物
+        BaseMod.addMonster(Hardhitter.ID, Hardhitter.NAME, () -> new Hardhitter(0.0F, 0.0F));
+        // 两个异鸟
+        // BaseMod.addMonster("ExampleMod:2 Byrds", "", () -> new MonsterGroup(new AbstractMonster[] { new Byrd(-80.0F, MathUtils.random(25.0F, 70.0F)), new Byrd(200.0F, MathUtils.random(25.0F, 70.0F)) }));
+
+        // 添加战斗遭遇
+        // 在第二章添加精英遭遇，权重为1.0，权重越高越可能遇到
+        // BaseMod.addEliteEncounter("TheCity", new MonsterInfo("ExampleMod:MyMonster", 1.0F));
+        BaseMod.addMonsterEncounter("Exordium", new MonsterInfo(Hardhitter.ID, 99F));
     }
 
     @Override
