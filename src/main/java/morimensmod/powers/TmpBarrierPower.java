@@ -25,7 +25,7 @@ public class TmpBarrierPower extends AbstractEasyPower implements OnBeforeDamage
     @Override
     public int onBeforeDamaged(DamageInfo info, int damageAmount) {
         if (damageAmount > 0)
-            addToBot(new ReducePowerAction(owner, owner, this, 1));
+            addToTop(new ReducePowerAction(owner, owner, this, 1));
         return 0;
     }
 

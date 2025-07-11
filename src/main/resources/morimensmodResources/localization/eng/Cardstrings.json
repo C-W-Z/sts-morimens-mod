@@ -334,6 +334,10 @@
     "NAME": "Stunning Tone",
     "DESCRIPTION": "Deal !D! damage."
   },
+  "${ModID}:HiddenInTheTimeRift": {
+    "NAME": "Hidden in the Time Rift",
+    "DESCRIPTION": "Gain !M! ${ModID}:Temporary ${ModID}:Barrier."
+  },
   "${ModID}:UnifiedLegacy": {
     "NAME": "Unified Legacy",
     "DESCRIPTION": "${ModID}:Delay: gain !${ModID}:A! ${ModID}:Aliemus.",

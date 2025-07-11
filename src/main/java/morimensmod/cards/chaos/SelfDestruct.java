@@ -25,7 +25,7 @@ public class SelfDestruct extends AbstractEasyCard {
     public final static String ID = makeID(SelfDestruct.class.getSimpleName());
 
     public SelfDestruct() {
-        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL, CHAOS_COLOR);
+        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         magicNumber = baseMagicNumber = 1; // 1回合 易傷/虛弱
         secondMagic = baseSecondMagic = 1; // 1回合 興奮

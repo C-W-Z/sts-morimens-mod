@@ -332,6 +332,10 @@
     "NAME": "惊愕强音",
     "DESCRIPTION": "造成 !D! 点伤害。"
   },
+  "${ModID}:HiddenInTheTimeRift": {
+    "NAME": "隐于时隙",
+    "DESCRIPTION": "获得 !M! 层 ${ModID}:临时 ${ModID}:屏障 。"
+  },
   "${ModID}:UnifiedLegacy": {
     "NAME": "全一传承",
     "DESCRIPTION": "${ModID}:延迟 ：获得 !${ModID}:A! ${ModID}:狂气 。",
