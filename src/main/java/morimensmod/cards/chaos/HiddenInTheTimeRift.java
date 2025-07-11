@@ -18,6 +18,7 @@ public class HiddenInTheTimeRift extends AbstractEasyCard {
         super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         magicNumber = baseMagicNumber = 1; // 屏障
+        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
