@@ -23,6 +23,6 @@ public class DefensiveStance extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        selfRetain = true;
+        exhaust = false;
     }
 }
