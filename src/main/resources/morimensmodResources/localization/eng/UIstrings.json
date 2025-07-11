@@ -65,7 +65,7 @@
   "${ModID}:DeathResistancePatch": {
     "TEXT": ["Death Resist!"]
   },
-  "${ModID}:DeathResistanceUI": {
+  "${ModID}:TopPanelDeathResistanceUI": {
     "TEXT": [
       "Death Resistance",
       "When your life reaches zero, you attempt to trigger #yDeath #yResistance, with a success probability equal to the current value of #yDeath #yResistance. If it exceeds #b100%, it must succeed. NL Upon triggering #yDeath #yResistance successfully, you become immune to this instance of death, your life is set to #b1, and the value of #yDeath #yResistance is halved. For the remainder of this exploration, all subsequent increases to #yDeath #yResistance are also halved."

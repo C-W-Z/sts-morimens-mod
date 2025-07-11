@@ -65,7 +65,7 @@
   "${ModID}:DeathResistancePatch": {
     "TEXT": ["死亡抵抗！"]
   },
-  "${ModID}:DeathResistanceUI": {
+  "${ModID}:TopPanelDeathResistanceUI": {
     "TEXT": [
       "死亡抵抗",
       "生命归零时会尝试触发 #y死亡抵抗 ，几率为当前 #y死亡抵抗 的数值，若超过 #b100% 则必定触发。 NL 触发 #y死亡抵抗 后，免疫本次死亡并将生命变为 #b1 点，然后将 #y死亡抵抗 的数值减半，本次探索中后续所有增加的 #y死亡抵抗 数值也减半。"

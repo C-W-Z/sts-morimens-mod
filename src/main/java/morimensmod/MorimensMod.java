@@ -18,6 +18,7 @@ import morimensmod.characters.Ramona;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.icons.AbstractIcon;
+import morimensmod.misc.TopPanelDeathResistanceUI;
 import morimensmod.misc.TopPanelTurnUI;
 import morimensmod.monsters.Hardhitter;
 import morimensmod.potions.AbstractEasyPotion;
@@ -381,6 +382,7 @@ public class MorimensMod implements
         BaseMod.addSaveField(SaveAwakenerFloatProperties.ID, new SaveAwakenerFloatProperties());
         BaseMod.addSaveField(SaveAwakenerPosse.ID, new SaveAwakenerPosse());
 
+        BaseMod.addTopPanelItem(new TopPanelDeathResistanceUI());
         BaseMod.addTopPanelItem(new TopPanelTurnUI());
 
         receiveEditMonsters();
