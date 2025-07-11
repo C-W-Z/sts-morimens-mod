@@ -5,7 +5,7 @@
   },
   "${ModID}:SealPower": {
     "NAME": "封印",
-    "DESCRIPTIONS": ["无法释放 #y狂气爆发 。回合结束时减少 #b%d 层。"]
+    "DESCRIPTIONS": ["无法释放 #y狂气爆发 。持续 #b%d 回合。"]
   },
   "${ModID}:TraumaPower": {
     "NAME": "创伤",
@@ -33,13 +33,13 @@
   "${ModID}:ElationPower": {
     "NAME": "兴奋",
     "DESCRIPTIONS": [
-      "造成的基础伤害、基础 #p中毒 、基础 #b荆棘 、基础 #y触腕伤害 提高 #b%d%% 。回合开始时减少 #b%d 层。"
+      "造成的基础伤害、基础 #p中毒 、基础 #b荆棘 、基础 #y触腕伤害 提高 #b%d%% 。持续 #b%d 回合。"
     ]
   },
   "${ModID}:EnhancePower": {
     "NAME": "强化",
     "DESCRIPTIONS": [
-      "本回合造成的所有主动伤害增加 #b%d%% 。回合结束时减少 #b%d 层。"
+      "造成的所有主动伤害增加 #b%d%% 。持续 #b%d 回合。"
     ]
   },
   "${ModID}:DelayAliemusPower": {

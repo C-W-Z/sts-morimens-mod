@@ -172,11 +172,11 @@
   {
     "PROPER_NAME": "#rElation [${ModID}:ElationIcon]",
     "NAMES": ["Elation", "elation"],
-    "DESCRIPTION": "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #b50%. Reduces #b1 stack at turn start."
+    "DESCRIPTION": "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #b50%. Reduces #b1 stack at the end of round."
   },
   {
     "PROPER_NAME": "Enhance [${ModID}:EnhanceIcon]",
     "NAMES": ["Enhance", "enhance"],
-    "DESCRIPTION": "Increase all active damage dealt this turn by #b25%. Reduce by #b1 stack at the end of the turn."
+    "DESCRIPTION": "Increase all active damage dealt by #b25%. Reduce by #b1 stack at the end of the round."
   }
 ]

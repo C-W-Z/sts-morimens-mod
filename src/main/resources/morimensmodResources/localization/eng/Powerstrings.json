@@ -1,12 +1,12 @@
 {
   "${ModID}:LoseThornsPower": {
     "NAME": "Lose Thorns",
-    "DESCRIPTIONS": ["At the start of the turn, lose #b%d layers of #yThorns."]
+    "DESCRIPTIONS": ["At the start of turn, lose #b%d layers of #yThorns."]
   },
   "${ModID}:SealPower": {
     "NAME": "Seal",
     "DESCRIPTIONS": [
-      "Unable to unleash #yExalt. Reduced #b%d stack at turn ends."
+      "Unable to unleash #yExalt. Lasts #b%d turns."
     ]
   },
   "${ModID}:TraumaPower": {
@@ -37,13 +37,13 @@
   "${ModID}:ElationPower": {
     "NAME": "Elation",
     "DESCRIPTIONS": [
-      "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #b%d%%. Reduces #b%d stack at turn starts."
+      "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #b%d%%. Lasts #b%d turns."
     ]
   },
   "${ModID}:EnhancePower": {
     "NAME": "Enhance",
     "DESCRIPTIONS": [
-      "Increases all active damage dealt this turn by #b%d%%. Reduces #b%d stack at the end of the turn."
+      "Increases all active damage dealt by #b%d%%. Lasts #b%d turns."
     ]
   },
   "${ModID}:DelayAliemusPower": {

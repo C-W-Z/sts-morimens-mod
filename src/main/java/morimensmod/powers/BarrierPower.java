@@ -1,28 +1,31 @@
 package morimensmod.powers;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.util.Wiz.applyToSelf;
 
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
-public class DelayEnhancePower extends AbstractEasyPower {
+import morimensmod.interfaces.OnBeforeDamaged;
 
-    public final static String POWER_ID = makeID(DelayEnhancePower.class.getSimpleName());
+public class BarrierPower extends AbstractEasyPower implements OnBeforeDamaged {
+
+    public final static String POWER_ID = makeID(BarrierPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public DelayEnhancePower(AbstractCreature owner, int amount) {
+    public BarrierPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
     }
 
     @Override
-    public void atStartOfTurn() {
-        applyToSelf(new EnhancePower(owner, amount));
-        addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+    public int onBeforeDamaged(DamageInfo info, int damageAmount) {
+        if (damageAmount > 0)
+            addToBot(new ReducePowerAction(owner, owner, this, 1));
+        return 0;
     }
 
     @Override

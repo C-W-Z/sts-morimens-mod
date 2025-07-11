@@ -172,11 +172,11 @@
   {
     "PROPER_NAME": "#r興奮 [${ModID}:ElationIcon]",
     "NAMES": ["興奮", "Elation"],
-    "DESCRIPTION": "造成的基礎傷害、基礎 #p中毒 、基礎 #b荊棘 、基礎 #y觸腕傷害 提高 #b50% 。回合開始時減少 #b1 層。"
+    "DESCRIPTION": "造成的基礎傷害、基礎 #p中毒 、基礎 #b荊棘 、基礎 #y觸腕傷害 提高 #b50% 。回合結束時減少 #b1 層。"
   },
   {
     "PROPER_NAME": "強化 [${ModID}:EnhanceIcon]",
     "NAMES": ["強化", "Enhance"],
-    "DESCRIPTION": "本回合造成的所有主動傷害增加 #b25% 。回合結束時減少 #b1 層。"
+    "DESCRIPTION": "造成的所有主動傷害增加 #b25% 。回合結束時減少 #b1 層。"
   }
 ]

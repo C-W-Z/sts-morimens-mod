@@ -32,9 +32,7 @@ public class EnhancePower extends AbstractEasyPower {
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        if (!isPlayer)
-            return;
+    public void atEndOfRound() {
         addToBot(new ReducePowerAction(owner, owner, this, REDUCE_PER_TURN));
     }
 
