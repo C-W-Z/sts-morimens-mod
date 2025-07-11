@@ -15,7 +15,7 @@ public class OutstandingVeteran extends AbstractRouseCard {
     public final static String ID = makeID(OutstandingVeteran.class.getSimpleName());
 
     public OutstandingVeteran() {
-        super(ID, 2, CardRarity.UNCOMMON, CHAOS_COLOR);
+        super(ID, 2, CardRarity.RARE, CHAOS_COLOR);
         magicNumber = baseMagicNumber = 1; // 敏捷
         secondMagic = baseSecondMagic = 1; // 一倍格擋加成
     }
