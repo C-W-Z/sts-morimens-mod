@@ -4,12 +4,18 @@ import static morimensmod.MorimensMod.makeID;
 import static morimensmod.MorimensMod.makeUIPath;
 import static morimensmod.util.General.removeModID;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.helpers.TipHelper;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.ui.panels.TopPanel;
 
 import basemod.ReflectionHacks;
@@ -19,6 +25,7 @@ import morimensmod.util.TexLoader;
 public class TopPanelTurnUI extends TopPanelItem {
 
     public static final String ID = makeID(TopPanelTurnUI.class.getSimpleName());
+    private static final UIStrings TEXT = CardCrawlGame.languagePack.getUIString(ID);
 
     private static float ICON_Y;
 
@@ -37,7 +44,9 @@ public class TopPanelTurnUI extends TopPanelItem {
 
     @Override
     protected void onHover() {
-        // TODO: show Tips
+        ArrayList<PowerTip> tips = new ArrayList<>();
+        tips.add(new PowerTip(TEXT.TEXT[0], TEXT.TEXT[1]));
+        TipHelper.queuePowerTips(this.x - 64 * Settings.xScale, ICON_Y - 50F * Settings.yScale, tips);
     }
 
     @Override
