@@ -28,8 +28,7 @@ public class DexterityPowerPatch {
             __instance.updateDescription();
             __instance.canGoNegative = true;
 
-            __instance.region48 = TexLoader.getPowerRegion48(__instance);
-            __instance.region128 = TexLoader.getPowerRegion128(__instance);
+            TexLoader.loadRegion(__instance);
 
             return SpireReturn.Return();
         }

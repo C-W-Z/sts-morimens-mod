@@ -30,8 +30,7 @@ public class GainStrengthPowerPatch {
             __instance.type = PowerType.DEBUFF;
             __instance.updateDescription();
 
-            __instance.region48 = TexLoader.getPowerRegion48(__instance);
-            __instance.region128 = TexLoader.getPowerRegion128(__instance);
+            TexLoader.loadRegion(__instance);
 
             return SpireReturn.Return();
         }
