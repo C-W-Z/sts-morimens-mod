@@ -5,6 +5,7 @@ import static morimensmod.util.Wiz.*;
 
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
 import morimensmod.cards.AbstractEasyCard;
@@ -29,6 +30,8 @@ public class LotanRelic extends AbstractEasyRelic {
 
     @Override
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
+        if (info.type == DamageType.THORNS)
+            return;
         flash();
         counter += BASE_AMPLIFY_PER_ATTACK;
         actB(() -> AbstractEasyCard.baseDamageAmplify += BASE_AMPLIFY_PER_ATTACK);

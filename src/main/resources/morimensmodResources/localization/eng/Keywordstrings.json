@@ -21,7 +21,7 @@
   },
   {
     "PROPER_NAME": "Buff Card",
-    "NAMES": ["Buff Card", "Buff_Card", "Buff_card", "Buff_cards", "buff_card", "buff_cards"],
+    "NAMES": ["Buff Card", "buff_card", "buff_cards"],
     "DESCRIPTION": "A type of card that is not routinely available and is usually beneficial to the player."
   },
   {
@@ -172,6 +172,16 @@
   {
     "PROPER_NAME": "#rElation [${ModID}:ElationIcon]",
     "NAMES": ["Elation", "elation"],
-    "DESCRIPTION": "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #b50%. Reduces #b1 stack at turn start."
+    "DESCRIPTION": "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #b50%. Reduces #b1 stack at the end of round."
+  },
+  {
+    "PROPER_NAME": "Enhance [${ModID}:EnhanceIcon]",
+    "NAMES": ["Enhance", "enhance"],
+    "DESCRIPTION": "Increase all active damage dealt by #b25%. Reduce by #b1 stack at the end of the round."
+  },
+  {
+    "PROPER_NAME": "Barrier [${ModID}:BarrierIcon]",
+    "NAMES": ["Barrier", "barrier"],
+    "DESCRIPTION": "Negate the next active attack damage received."
   }
 ]

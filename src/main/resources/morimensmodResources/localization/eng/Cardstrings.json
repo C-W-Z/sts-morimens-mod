@@ -19,7 +19,9 @@
   "${ModID}:EncounterInPureWhite": {
     "NAME": "Encounter in Pure White",
     "DESCRIPTION": "Discard all your cards, then draw a number of cards equal to the number of discarded cards +2.",
-    "EXTENDED_DESCRIPTION": ["Discard all your cards, then draw a number of cards equal to the number of discarded cards #b+2."]
+    "EXTENDED_DESCRIPTION": [
+      "Discard all your cards, then draw a number of cards equal to the number of discarded cards #b+2."
+    ]
   },
   "${ModID}:WardedInjection": {
     "NAME": "Warded Injection",
@@ -221,7 +223,7 @@
   },
   "${ModID}:MidnightTide": {
     "NAME": "Midnight Tide",
-    "DESCRIPTION": "Deal !D! damage to the enemy with the highest HP and apply Poison equal to !M!% of the damage. ${ModID}:Permanent_Strength affects !${ModID}:M2! times on this card."
+    "DESCRIPTION": "Deal !D! damage to the enemy with the highest HP and apply Poison equal to !M!% of the damage. Strength affects !${ModID}:M2! times on this card."
   },
   "${ModID}:KnellOfDeath": {
     "NAME": "Knell of Death",
@@ -250,7 +252,7 @@
   },
   "${ModID}:GiveAndTake": {
     "NAME": "Give and Take",
-    "DESCRIPTION": "{@@}Gain !${ModID}:A! ${ModID}:Aliemus. NL After every !M! attack{!M!|>1=s}, gain !${ModID}:M2! Thorns."
+    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. NL After each active attack, gain !M! Thorns."
   },
   "${ModID}:WhipOfMadness": {
     "NAME": "Whip of Madness",
@@ -275,7 +277,7 @@
   },
   "${ModID}:DefensiveStance": {
     "NAME": "Defensive Stance",
-    "DESCRIPTION": "Doubles your Block."
+    "DESCRIPTION": "Double your Block."
   },
   "${ModID}:InsightStrike": {
     "NAME": "Insight Strike",
@@ -331,6 +333,15 @@
   "${ModID}:StunningTone": {
     "NAME": "Stunning Tone",
     "DESCRIPTION": "Deal !D! damage."
+  },
+  "${ModID}:HiddenInTheTimeRift": {
+    "NAME": "Hidden in the Time Rift",
+    "DESCRIPTION": "Gain !M! ${ModID}:Temporary ${ModID}:Barrier."
+  },
+  "${ModID}:UnifiedLegacy": {
+    "NAME": "Unified Legacy",
+    "DESCRIPTION": "${ModID}:Delay: gain !${ModID}:A! ${ModID}:Aliemus.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Delay: ${ModID}:Enhance and gain !${ModID}:A! ${ModID}:Aliemus."
   },
   "${ModID}:GreatSacrifice": {
     "NAME": "偉大的犧牲",

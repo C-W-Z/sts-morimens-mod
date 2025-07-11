@@ -28,6 +28,15 @@ public class ReuseCardPatch {
         }
     }
 
+    private static void restoreOneReuseTime(AbstractCard c) {
+        // check whether is Reusable card or not
+        int reuseTimes = ExhaustiveFields.baseExhaustive.get(c);
+        if (reuseTimes > 0) {
+            ExhaustiveFields.exhaustive.set(c, 1);
+            c.exhaust = false;
+        }
+    }
+
     @SpirePatch2(clz = CardGroup.class, method = "removeCard", paramtypez = { AbstractCard.class })
     public static class RemoveCardPatch1 {
         @SpirePrefixPatch
@@ -86,12 +95,12 @@ public class ReuseCardPatch {
         }
     }
 
-    // Strange Spoon生效也要重置使用次數
+    // Strange Spoon生效要恢復1次使用次數
     @SpirePatch2(clz = UseCardAction.class, method = "update")
     public static class UseCardActionPatch {
         @SpireInsertPatch(locator = Locator.class)
         public static void Insert(UseCardAction __instance, AbstractCard ___targetCard) {
-            restoreReuseTimes(___targetCard);
+            restoreOneReuseTime(___targetCard);
         }
 
         private static class Locator extends SpireInsertLocator {

@@ -85,7 +85,8 @@ import org.scannotation.AnnotationDB;
 @SpireInitializer
 public class MorimensMod implements
         OnCardUseSubscriber,
-        OnPlayerTurnStartPostDrawSubscriber,
+        // OnPlayerTurnStartPostDrawSubscriber,
+        OnPlayerTurnStartSubscriber,
         PostBattleSubscriber,
         OnStartBattleSubscriber,
         PostInitializeSubscriber,
@@ -378,9 +379,14 @@ public class MorimensMod implements
     }
 
     @Override
-    public void receiveOnPlayerTurnStartPostDraw() {
-        AbstractAwakener.onPlayerTurnStartPostDraw(); // 每回合重設
+    public void receiveOnPlayerTurnStart() {
+        AbstractAwakener.onPlayerTurnStart(); // 每回合重設
     }
+
+    // @Override
+    // public void receiveOnPlayerTurnStartPostDraw() {
+    //     AbstractAwakener.onPlayerTurnStartPostDraw(); // 每回合重設
+    // }
 
     @Override
     public void receivePostBattle(AbstractRoom room) {
@@ -393,4 +399,6 @@ public class MorimensMod implements
         if (p() instanceof AbstractAwakener)
             ((AbstractAwakener) p()).getExalt().onCardUse(card);
     }
+
+
 }

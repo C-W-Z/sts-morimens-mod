@@ -17,7 +17,7 @@ public class ToxicMiasma extends AbstractEasyCard {
     private static final int POISON_SCALE = 2;
 
     public ToxicMiasma() {
-        super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.ALL, CHAOS_COLOR);
+        super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.ALL_ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         magicNumber = baseMagicNumber = 1; // 幾張窒息
         cardsToPreview = new Suffocation();
@@ -30,6 +30,6 @@ public class ToxicMiasma extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeBaseCost(2);
+        upgradeBaseCost(1);
     }
 }

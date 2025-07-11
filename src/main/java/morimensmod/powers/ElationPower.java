@@ -38,8 +38,8 @@ public class ElationPower extends AbstractEasyPower {
     }
 
     @Override
-    public void atStartOfTurn() {
-        addToTop(new ReducePowerAction(owner, owner, this, REDUCE_PER_TURN));
+    public void atEndOfRound() {
+        addToBot(new ReducePowerAction(owner, owner, this, REDUCE_PER_TURN));
     }
 
     @Override

@@ -5,7 +5,15 @@
   },
   "${ModID}:SealPower": {
     "NAME": "封印",
-    "DESCRIPTIONS": ["無法釋放 #y狂氣爆發 。回合結束時減少 #b%d 層。"]
+    "DESCRIPTIONS": ["無法釋放 #y狂氣爆發 。持續 #b%d 回合。"]
+  },
+  "${ModID}:BarrierPower": {
+    "NAME": "屏障",
+    "DESCRIPTIONS": ["阻止下 #b%d 次受到的主動攻擊傷害。"]
+  },
+  "${ModID}:TmpBarrierPower": {
+    "NAME": "臨時屏障",
+    "DESCRIPTIONS": ["阻止本回合下 #b%d 次受到的主動攻擊傷害。"]
   },
   "${ModID}:TraumaPower": {
     "NAME": "創傷",
@@ -33,8 +41,20 @@
   "${ModID}:ElationPower": {
     "NAME": "興奮",
     "DESCRIPTIONS": [
-      "造成的基礎傷害、基礎 #p中毒 、基礎 #b荊棘 、基礎 #y觸腕傷害 提高 #b%d%% 。回合開始時減少 #b%d 層。"
+      "造成的基礎傷害、基礎 #p中毒 、基礎 #b荊棘 、基礎 #y觸腕傷害 提高 #b%d%% 。持續 #b%d 回合。"
     ]
+  },
+  "${ModID}:EnhancePower": {
+    "NAME": "強化",
+    "DESCRIPTIONS": ["所有主動攻擊傷害增加 #b%d%% 。持續 #b%d 回合。"]
+  },
+  "${ModID}:DelayAliemusPower": {
+    "NAME": "延遲狂氣",
+    "DESCRIPTIONS": ["下回合開始時，獲得 #b%d #y狂氣 。"]
+  },
+  "${ModID}:DelayEnhancePower": {
+    "NAME": "延遲強化",
+    "DESCRIPTIONS": ["下回合開始時，獲得 #b%d 層 #y強化 。"]
   },
   "${ModID}:FirstDoctrinePower": {
     "NAME": "第一哲學",
@@ -76,9 +96,7 @@
   },
   "${ModID}:GiveAndTakePower": {
     "NAME": "施與受",
-    "DESCRIPTIONS": [
-      "每造成 #b%d 次傷害，獲得 #b%d 點 #y荊棘 。當前還需要 #b%d 次。"
-    ]
+    "DESCRIPTIONS": ["每造成 #b1 次主動攻擊傷害，獲得 #b%d 點 #y荊棘 。"]
   },
   "${ModID}:OutstandingVeteranPower": {
     "NAME": "戰地卓識",

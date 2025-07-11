@@ -221,7 +221,7 @@
   },
   "${ModID}:MidnightTide": {
     "NAME": "夜潮汹涌",
-    "DESCRIPTION": "对生命最高的敌人造成 !D! 点伤害并施加等同于 !M! %伤害的 中毒 。享受 !${ModID}:M2! 倍 ${ModID}:永久力量 加成。"
+    "DESCRIPTION": "对生命最高的敌人造成 !D! 点伤害并施加等同于 !M! %伤害的 中毒 。享受 !${ModID}:M2! 倍 力量 加成。"
   },
   "${ModID}:KnellOfDeath": {
     "NAME": "丧钟遥鸣",
@@ -250,7 +250,7 @@
   },
   "${ModID}:GiveAndTake": {
     "NAME": "施与受",
-    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 每造成 !M! 次伤害，获得 !${ModID}:M2! 点 荆棘 。"
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 每造成 1 次主动攻击伤害，获得 !M! 点 荆棘 。"
   },
   "${ModID}:WhipOfMadness": {
     "NAME": "狂气使役之鞭",
@@ -331,6 +331,15 @@
   "${ModID}:StunningTone": {
     "NAME": "惊愕强音",
     "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "${ModID}:HiddenInTheTimeRift": {
+    "NAME": "隐于时隙",
+    "DESCRIPTION": "获得 !M! 层 ${ModID}:临时 ${ModID}:屏障 。"
+  },
+  "${ModID}:UnifiedLegacy": {
+    "NAME": "全一传承",
+    "DESCRIPTION": "${ModID}:延迟 ：获得 !${ModID}:A! ${ModID}:狂气 。",
+    "UPGRADE_DESCRIPTION": "${ModID}:延迟 ： ${ModID}:强化 并获得 !${ModID}:A! ${ModID}:狂气 。"
   },
   "${ModID}:GreatSacrifice": {
     "NAME": "伟大的牺牲",

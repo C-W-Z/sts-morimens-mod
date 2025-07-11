@@ -5,7 +5,15 @@
   },
   "${ModID}:SealPower": {
     "NAME": "封印",
-    "DESCRIPTIONS": ["无法释放 #y狂气爆发 。回合结束时减少 #b%d 层。"]
+    "DESCRIPTIONS": ["无法释放 #y狂气爆发 。持续 #b%d 回合。"]
+  },
+  "${ModID}:BarrierPower": {
+    "NAME": "屏障",
+    "DESCRIPTIONS": ["阻止下 #b%d 次受到的主动攻击伤害。"]
+  },
+  "${ModID}:TmpBarrierPower": {
+    "NAME": "临时屏障",
+    "DESCRIPTIONS": ["阻止本回合下 #b%d 次受到的主动攻击伤害。"]
   },
   "${ModID}:TraumaPower": {
     "NAME": "创伤",
@@ -33,8 +41,20 @@
   "${ModID}:ElationPower": {
     "NAME": "兴奋",
     "DESCRIPTIONS": [
-      "造成的基础伤害、基础 #p中毒 、基础 #b荆棘 、基础 #y触腕伤害 提高 #b%d%% 。回合开始时减少 #b%d 层。"
+      "造成的基础伤害、基础 #p中毒 、基础 #b荆棘 、基础 #y触腕伤害 提高 #b%d%% 。持续 #b%d 回合。"
     ]
+  },
+  "${ModID}:EnhancePower": {
+    "NAME": "强化",
+    "DESCRIPTIONS": ["所有主动攻击伤害增加 #b%d%% 。持续 #b%d 回合。"]
+  },
+  "${ModID}:DelayAliemusPower": {
+    "NAME": "延迟狂气",
+    "DESCRIPTIONS": ["下回合开始时，获得 #b%d #y狂气 。"]
+  },
+  "${ModID}:DelayEnhancePower": {
+    "NAME": "延迟强化",
+    "DESCRIPTIONS": ["下回合开始时，获得 #b%d 层 #y强化 。"]
   },
   "${ModID}:FirstDoctrinePower": {
     "NAME": "第一哲学",
@@ -76,9 +96,7 @@
   },
   "${ModID}:GiveAndTakePower": {
     "NAME": "施与受",
-    "DESCRIPTIONS": [
-      "每造成 #b%d 次伤害，获得 #b%d 点 #y荆棘 。当前还需要 #b%d 次。"
-    ]
+    "DESCRIPTIONS": ["每造成 #b1 次主动攻击伤害，获得 #b%d 点 #y荆棘 。"]
   },
   "${ModID}:OutstandingVeteranPower": {
     "NAME": "战地卓识",

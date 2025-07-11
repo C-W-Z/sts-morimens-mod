@@ -1,11 +1,19 @@
 {
   "${ModID}:LoseThornsPower": {
     "NAME": "Lose Thorns",
-    "DESCRIPTIONS": ["At the start of the turn, lose #b%d layers of #yThorns."]
+    "DESCRIPTIONS": ["At the start of turn, lose #b%d layers of #yThorns."]
   },
   "${ModID}:SealPower": {
     "NAME": "Seal",
-    "DESCRIPTIONS": ["Unable to unleash #yExalt. Reduced #b%d stack at turn ends."]
+    "DESCRIPTIONS": ["Unable to unleash #yExalt. Lasts #b%d turn(s)."]
+  },
+  "${ModID}:BarrierPower": {
+    "NAME": "Barrier",
+    "DESCRIPTIONS": ["Negate the next #b%d active attack damage(s) received."]
+  },
+  "${ModID}:TmpBarrierPower": {
+    "NAME": "Temporary Barrier",
+    "DESCRIPTIONS": ["Negate the next #b%d active attack damage(s) received this round."]
   },
   "${ModID}:TraumaPower": {
     "NAME": "Trauma",
@@ -16,7 +24,9 @@
   },
   "${ModID}:PosseTwicePower": {
     "NAME": "Dual Posse",
-    "DESCRIPTIONS": ["The next #b%d #yPosse released by consuming #yKeyflare will take effect twice."]
+    "DESCRIPTIONS": [
+      "The next #b%d #yPosse released by consuming #yKeyflare will take effect twice."
+    ]
   },
   "${ModID}:OnlyUnlimitedPosseTwicePower": {
     "NAME": "Dual Posse",
@@ -33,7 +43,23 @@
   "${ModID}:ElationPower": {
     "NAME": "Elation",
     "DESCRIPTIONS": [
-      "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #b%d%%. Reduces #b%d stack at turn start."
+      "Increases Base Damage, Base #pPoison, Base #bThorns, Base #yTentacle #yDamage by #b%d%%. Lasts #b%d turn(s)."
+    ]
+  },
+  "${ModID}:EnhancePower": {
+    "NAME": "Enhance",
+    "DESCRIPTIONS": [
+      "Increases all active damage dealt by #b%d%%. Lasts #b%d turn(s)."
+    ]
+  },
+  "${ModID}:DelayAliemusPower": {
+    "NAME": "Delay Aliemus",
+    "DESCRIPTIONS": ["At the start of the next turn, gain #b%d #yAliemus."]
+  },
+  "${ModID}:DelayEnhancePower": {
+    "NAME": "Delay Enhance",
+    "DESCRIPTIONS": [
+      "At the start of the next turn, gain #b%d stack(s) of #yEnhance."
     ]
   },
   "${ModID}:FirstDoctrinePower": {
@@ -48,7 +74,9 @@
   },
   "${ModID}:BattleThirstPower": {
     "NAME": "Battle Thirst",
-    "DESCRIPTIONS": ["The number of times #yCommand #yCards deal damage increases by #b%d."]
+    "DESCRIPTIONS": [
+      "The number of times #yCommand #yCards deal damage increases by #b%d."
+    ]
   },
   "${ModID}:KnightsZealPower": {
     "NAME": "Knight's Zeal",
@@ -71,18 +99,18 @@
   "${ModID}:DrowningInSorrowPower": {
     "NAME": "Drowning in Sorrow",
     "DESCRIPTIONS": [
-      "After turn starts, apply #b%d #pPoison to all creatures, then gain #yAliemus equal to #p times the number of #pPoison stacks on yourself. You can #yblock #pPoison damage."
+      "After turn starts, apply #b%d #pPoison to all creatures, then gain #yAliemus equal to #b%d times the number of #pPoison stacks on yourself. You can #yblock #pPoison damage."
     ]
   },
   "${ModID}:GiveAndTakePower": {
     "NAME": "Give and Take",
-    "DESCRIPTIONS": [
-      "After every #b%d attacks, gain #b%d #yThorns. #b%d more attack(s) needed."
-    ]
+    "DESCRIPTIONS": ["After each active attack, gain #b%d #yThorns."]
   },
   "${ModID}:OutstandingVeteranPower": {
     "NAME": "Outstanding Veteran",
-    "DESCRIPTIONS": ["Damage of #yStrike increases with #b%d time(s) of the current #yBlock."]
+    "DESCRIPTIONS": [
+      "Damage of #yStrike increases with #b%d time(s) of the current #yBlock."
+    ]
   },
   "${ModID}:RewindingTimePower": {
     "NAME": "Rewinding Time",

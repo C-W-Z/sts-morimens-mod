@@ -3,7 +3,9 @@ package morimensmod.cards.chaos;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
+import static morimensmod.util.Wiz.getCleanCopy;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -16,6 +18,7 @@ import com.megacrit.cardcrawl.powers.ThornsPower;
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.actions.AllEnemyRemovePowerAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.CustomTags;
 
 public class WaxHotDesire extends AbstractEasyCard {
@@ -54,5 +57,18 @@ public class WaxHotDesire extends AbstractEasyCard {
     public void upp() {
         upgradeMagicNumber(1);
         upgradeAliemus(20);
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+
+        // 計算反擊加成
+        int counterAmplify = 100 + AbstractAwakener.baseCounterAmplify;
+        AbstractEasyCard tmp = (AbstractEasyCard) getCleanCopy(this);
+        magicNumber = baseMagicNumber = MathUtils.ceil(tmp.baseMagicNumber * counterAmplify / 100F);
+
+        if (magicNumber != tmp.baseMagicNumber)
+            isMagicNumberModified = true;
     }
 }

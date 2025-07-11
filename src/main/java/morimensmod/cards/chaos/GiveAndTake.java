@@ -15,13 +15,12 @@ public class GiveAndTake extends AbstractRouseCard {
 
     public GiveAndTake() {
         super(ID, 2, CardRarity.UNCOMMON, CHAOS_COLOR);
-        magicNumber = baseMagicNumber = GiveAndTakePower.GAIN_THORNS_PER_N_ATTACK; // 每幾次攻擊獲得反擊 only for display
-        secondMagic = baseSecondMagic = 1; // 每次獲得多少反擊
+        magicNumber = baseMagicNumber = GiveAndTakePower.THORNS_PER_AMOUNT; // only for display
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         super.use(p, m);
-        applyToSelf(new GiveAndTakePower(p, secondMagic));
+        applyToSelf(new GiveAndTakePower(p, 1));
     }
 }

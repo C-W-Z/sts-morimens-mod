@@ -8,13 +8,12 @@ import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.interfaces.OnAfterReceivePower;
+import morimensmod.interfaces.OnPowerModified;
 
-public class SoulblightPower extends AbstractEasyPower implements OnAfterReceivePower {
+public class SoulblightPower extends AbstractEasyPower implements OnPowerModified {
 
     public final static String POWER_ID = makeID(SoulblightPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -28,23 +27,6 @@ public class SoulblightPower extends AbstractEasyPower implements OnAfterReceive
 
     public SoulblightPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
-        applyPowers();
-    }
-
-    public void onAfterReceivePower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        applyPowers();
-    }
-
-    @Override
-    public void stackPower(int stackAmount) {
-        super.stackPower(stackAmount);
-        applyPowers();
-    }
-
-    @Override
-    public void reducePower(int reduceAmount) {
-        super.reducePower(reduceAmount);
-        applyPowers();
     }
 
     @Override
@@ -56,7 +38,13 @@ public class SoulblightPower extends AbstractEasyPower implements OnAfterReceive
         addToBot(new AliemusChangeAction((AbstractAwakener) owner, aliemus));
     }
 
-    private void applyPowers() {
+    @Override
+    public void updateDescription() {
+        this.description = String.format(DESCRIPTIONS[0], heal, aliemus, INVOKE_POISON_PERCENT);
+    }
+
+    @Override
+    public void onPowerModified() {
         int healAmplify = 100 + AbstractAwakener.baseHealAmplify;
         heal = MathUtils.ceil(amount * HEAL_PER_AMOUNT * healAmplify / 100F);
         if (p() instanceof AbstractAwakener) {
@@ -64,10 +52,5 @@ public class SoulblightPower extends AbstractEasyPower implements OnAfterReceive
             aliemus = MathUtils.ceil(((AbstractAwakener) p()).aliemusRegen * aliemusAmplify / 100F);
         }
         updateDescription();
-    }
-
-    @Override
-    public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], heal, aliemus, INVOKE_POISON_PERCENT);
     }
 }
