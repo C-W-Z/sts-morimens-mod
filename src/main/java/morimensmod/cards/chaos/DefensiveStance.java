@@ -14,6 +14,7 @@ public class DefensiveStance extends AbstractEasyCard {
     public DefensiveStance() {
         super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
+        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
