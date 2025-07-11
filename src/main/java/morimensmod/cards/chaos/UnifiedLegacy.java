@@ -21,6 +21,7 @@ public class UnifiedLegacy extends AbstractEasyCard {
         aliemus = baseAliemus = 100;
         magicNumber = baseMagicNumber = 0;
         exhaust = true;
+        selfRetain = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
