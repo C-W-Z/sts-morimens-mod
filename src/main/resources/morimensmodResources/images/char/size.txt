@@ -1,2 +1,0 @@
-character/button.png: 200x200，其中頭像佔中間的152x152
-spritesheet和main.png是原本Live2D縮放到0.125倍
