@@ -5,7 +5,6 @@ import static morimensmod.MorimensMod.makeMonsterPath;
 import static morimensmod.util.General.removeModID;
 import static morimensmod.util.Wiz.p;
 
-import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
@@ -16,7 +15,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.powers.RitualPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
@@ -32,6 +30,8 @@ public class Hardhitter extends CustomMonster {
     public static final String IMG = makeMonsterPath(removeModID(ID) + "/main.png");
 
     private static final float offsetX = -32;
+
+    private int turn = 0;
 
     public Hardhitter(float x, float y) {
         // 参数的作用分别是：
@@ -66,6 +66,8 @@ public class Hardhitter extends CustomMonster {
         damage.add(new DamageInfo(this, multiDmg));
         damage.add(new DamageInfo(this, slashDmg));
 
+        // xOffset是Idle_1和另一張圖置中疊在一起之後，另一張要水平移動多少距離才會和Idle_1水平位置重合
+        // yOffset是Idle_1和另一張貼圖齊底部疊在一起後，另一張要垂直移動多少才會和Idle_1高度相同
         Animator animator = new Animator();
         animator.addAnimation(
                 "Idle_1",
@@ -78,11 +80,12 @@ public class Hardhitter extends CustomMonster {
         animator.addAnimation(
                 "Attack",
                 makeMonsterPath(removeModID(ID) + "/Attack.png"),
-                7, 5, 0, false, offsetX - 19F, -43F);
+                7, 5, 0, false, offsetX - 19F, -14F);
+        // 這個xOffset不知道為什麼特別奇怪
         animator.addAnimation(
                 "Skill1",
                 makeMonsterPath(removeModID(ID) + "/Skill1.png"),
-                6, 7, 0, false, offsetX, 0);
+                6, 7, 0, false, offsetX + 29F, 0);
         animator.setDefaultAnim("Idle_1");
         this.animation = animator;
     }
@@ -90,18 +93,25 @@ public class Hardhitter extends CustomMonster {
     // 战斗开始时
     @Override
     public void usePreBattleAction() {
-        super.usePreBattleAction();
-        addToBot(new ApplyPowerAction(this, this, new RitualPower(this, 5, false)));
+        turn = 0;
+        // super.usePreBattleAction();
+        // addToBot(new ApplyPowerAction(this, this, new RitualPower(this, 5, false)));
     }
 
     // 当怪物roll意图的时候，这里设置其意图。num是一个0~99的随机数。
     @Override
     public void getMove(int num) {
-        if (GameActionManager.turn == 0)
+        if (turn == 0)
             setMove((byte) 0, Intent.DEFEND_BUFF, 0);
-        else if (GameActionManager.turn == 1)
+        else if (turn == 1)
             setMove((byte) 1, Intent.ATTACK, damage.get(1).base, 2, true);
-        else if (GameActionManager.turn == 2)
+        else if (turn == 2)
+            setMove((byte) 2, Intent.ATTACK_DEBUFF, damage.get(2).base);
+        else if (num < 33)
+            setMove((byte) 0, Intent.DEFEND_BUFF, 0);
+        else if (num < 66)
+            setMove((byte) 1, Intent.ATTACK, damage.get(1).base, 2, true);
+        else
             setMove((byte) 2, Intent.ATTACK_DEBUFF, damage.get(2).base);
     }
 
@@ -111,6 +121,8 @@ public class Hardhitter extends CustomMonster {
         // nextMove就是roll到的意图，0就是意图0，1就是意图1
         switch (nextMove) {
             case 0:
+                addToBot(new ChangeStateAction(this, "Skill1"));
+                addToBot(new NoFastModeWaitAction(0.4F));
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, 1)));
                 addToBot(new GainBlockAction(this, this, 10));
                 break;
@@ -127,6 +139,8 @@ public class Hardhitter extends CustomMonster {
                 addToBot(new ApplyPowerAction(p(), this, new WeakPower(p(), 1, true)));
                 break;
         }
+
+        turn++;
 
         // 要加一个rollmove的action，重roll怪物的意图
         addToBot(new RollMoveAction(this));
