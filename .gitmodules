@@ -1,0 +1,3 @@
+[submodule "src/main/resources/morimensmodResources/images"]
+	path = src/main/resources/morimensmodResources/images
+	url = git@github.com:C-W-Z/StSMorimensMod-Resources.git
