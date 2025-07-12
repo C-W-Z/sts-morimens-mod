@@ -79,7 +79,7 @@ public class AliemusUI extends ClickableUIElement {
 
     @Override
     protected void onHover() {
-        if (!(p() instanceof AbstractAwakener))
+        if (AbstractDungeon.isScreenUp || !(p() instanceof AbstractAwakener))
             return;
         // popup text
         ArrayList<PowerTip> tips = new ArrayList<>();
