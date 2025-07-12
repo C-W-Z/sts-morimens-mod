@@ -5,14 +5,16 @@ import morimensmod.cards.chaos.Defend;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.cards.chaos.TidesOfHubris;
 import morimensmod.exalts.BeastOfChaos;
-import morimensmod.misc.SpriteSheetAnimation;
+import morimensmod.misc.Animator;
 import morimensmod.relics.ChaosRelic;
 import morimensmod.relics.LotanRelic;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -20,11 +22,13 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import basemod.BaseMod;
+import basemod.animations.AbstractAnimation;
 
 import static morimensmod.MorimensMod.*;
 import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
+import static morimensmod.util.General.removeModID;
 
 import java.util.ArrayList;
 
@@ -38,15 +42,43 @@ public class Lotan extends AbstractAwakener {
     private static final String CHARSELECT_BUTTON = makeCharacterPath("Lotan/button.png");
     private static final String CHARSELECT_PORTRAIT = makeCharacterPath("Lotan/charBG.png");
 
+    private static final float xOffset = -1;
+    private static final float yOffset = -12;
+
     public Lotan() {
         super(NAMES[0], Enums.LOTAN, "Lotan/main.png", "Lotan/main.png");
-        anim = new SpriteSheetAnimation(makeCharacterPath("Lotan/Idle_1.png"),
-                9, 7, 2, true, -1, -12);
+        // anim = new SpriteSheetAnimation(makeCharacterPath("Lotan/Idle_1.png"),
+        //         9, 7, 2, true, -1, -12);
         exalt = new BeastOfChaos();
         baseAliemusRegen = 0;
         baseKeyflareRegen = 25;
         deathResistance = 100;
         baseRealmMastery = 50;
+
+        Animator animator = new Animator();
+        animator.addAnimation(
+                "Idle_1",
+                makeCharacterPath(removeModID(ID) + "/Idle_1.png"),
+                9, 7, 2, true, xOffset, yOffset);
+        animator.addAnimation(
+                "Hit",
+                makeCharacterPath(removeModID(ID) + "/Hit.png"),
+                5, 4, 0, false, xOffset - 55F, yOffset - 21F);
+        animator.setDefaultAnim("Idle_1");
+        this.animation = animator;
+
+        // in AbstractPlayer.render(), there's
+        // if (this.atlas != null && !this.renderCorpse) {
+        //     this.renderPlayerImage(sb);
+        if (animation.type() != AbstractAnimation.Type.NONE)
+            this.atlas = new TextureAtlas();
+    }
+
+    @Override
+    public void damage(DamageInfo info) {
+        super.damage(info);
+        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > 0)
+            ((Animator) this.animation).setAnimation("Hit");
     }
 
     public static void register() {
