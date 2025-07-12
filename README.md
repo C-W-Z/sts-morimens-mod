@@ -11,7 +11,7 @@ A fan-made mod for **殺戮尖塔 Slay the Spire**, inspired by and partially ba
 - **模組名稱**：忘卻前夜模組 Morimens Mod
 - **對應遊戲**：殺戮尖塔 (Slay the Spire)
 - **模組作者（Mod Developer）**：Icya (C-W-Z)
-- **原作作者／共同作者（Original Game Creator / Co-author）**：彌薩格校貓（忘卻前夜製作人）
+- **原作作者／共同作者（Original Game Creator / Co-author）**：B.I.A.V.Studio
 - **發布平台**：[Steam Workshop Link](https://steamcommunity.com/sharedfiles/filedetails/?id=3505078227)
 
 ### 素材來源與使用授權
@@ -19,7 +19,7 @@ A fan-made mod for **殺戮尖塔 Slay the Spire**, inspired by and partially ba
 #### 原作改編內容
 
 - **原作名稱**：忘卻前夜（Morimens）
-- **原作作者**：忘卻前夜製作團隊
+- **原作作者**：B.I.A.V.Studio
 - **授權方式**：已獲原作者**明確授權**，允許本模組作者 Icya (C-W-Z) 將原作內容**非商業性使用與改編**於本模組中
 - **授權範圍**：
   - 非專屬（non-exclusive）
@@ -53,7 +53,7 @@ A fan-made mod for **殺戮尖塔 Slay the Spire**, inspired by and partially ba
 
 ## 致謝與貢獻者 Acknowledgements and Contributors
 
-- **忘卻前夜製作團隊** — 授權移植遊戲機制與素材
+- **B.I.A.V.Studio** — 授權移植遊戲機制與素材
 - **忘卻前夜玩家社群**
   - 夏茉琳 — 遊戲測試與建議
   - 淸淸梓燃 — 事件提供、事件翻譯、遊戲測試與建議
@@ -61,7 +61,7 @@ A fan-made mod for **殺戮尖塔 Slay the Spire**, inspired by and partially ba
   - 繁衍狂热里的床 — 事件提供與建議
   - YourSchizophrenic 『N』 Fan — 遊戲測試與建議
   - 恆燐 — 遊戲建議
-- **MegaCrit** — 原作 Slay the Spire
+- **MegaCrit** — Slay the Spire
 - **BaseMod / ModTheSpire 社群** — 技術支援與模組框架
 
 ---
