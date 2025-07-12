@@ -2,23 +2,23 @@
 
 A fan-made mod for **殺戮尖塔 Slay the Spire**, inspired by and partially based on the game **忘卻前夜 Morimens**.
 
-## 授權與版權聲明 License & Copyright Notice
-
-本模組之程式碼部分（如 Java Classes）依據 [MIT License](./LICENSE) 授權開放使用與改作。
-
-但模組中包含之素材（如圖片、動畫、音效、文本等）來自忘卻前夜，其使用僅限於本模組，並**不包含在開源授權範圍內**。請勿擅自提取或再利用相關素材。
-
-The source code in this repository is licensed under the [MIT License](./LICENSE).
-
-However, all included art, animation, and other media assets are excluded from this license.
-
-### 模組資訊
+## 模組資訊
 
 - **模組名稱**：忘卻前夜模組 Morimens Mod
 - **對應遊戲**：殺戮尖塔 (Slay the Spire) (by MegaCrit)
 - **模組作者**：Icya (C-W-Z)
 - **原作作者**：B.I.A.V.Studio
 - **發布平台**：[Steam Workshop Link](https://steamcommunity.com/sharedfiles/filedetails/?id=3505078227)
+
+## 授權與版權聲明 License & Copyright Notice
+
+本模組之程式碼部分依據 [MIT License](./LICENSE) 授權開放使用與改作。
+
+但模組中包含之素材（如圖片、動畫、音效、文本等）來自忘卻前夜，其使用僅限於本模組，並**不包含在開源授權範圍內**。請勿擅自提取或再利用相關素材。
+
+The source code in this repository is licensed under the [MIT License](./LICENSE).
+
+However, all included art, animation, and other media assets are excluded from this license.
 
 ### 素材來源與使用授權
 
