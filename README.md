@@ -41,14 +41,6 @@ A fan-made mod for **殺戮尖塔 Slay the Spire**, inspired by and partially ba
 
 本模組中之原創內容與社群貢獻內容，僅可在**取得原作者或貢獻者明確同意**後使用或轉載。請勿直接將本模組之內容用於其他模組、遊戲或創作中，除非已獲得明確授權。
 
-### Spine Runtime 使用聲明
-
-本模組使用了由 Esoteric Software 所提供的 Spine 動畫運行庫（Spine Runtime），根據其授權條款 《[Spine Runtimes License](https://esotericsoftware.com/spine-runtimes-license)》：
-
-本模組所使用之 Spine 動畫素材，來源於忘卻前夜原作者授權提供，其製作方已確認擁有合法的 Spine Editor 授權。
-
-模組開發者本身**未修改 Spine 動畫檔案**，僅將其整合至模組中，並遵守原作與 Spine Runtime 授權之使用規範。
-
 ---
 
 ## 致謝與貢獻者 Acknowledgements and Contributors
