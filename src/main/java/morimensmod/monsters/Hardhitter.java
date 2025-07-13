@@ -34,9 +34,9 @@ public class Hardhitter extends AbstractMorimensMonster {
 
         // 如果你要做进阶改变血量和伤害意图等，这样写
         if (AbstractDungeon.ascensionLevel >= 7)
-            setHp(60, 70);
+            setHp(45, 55);
         else
-            setHp(50, 60);
+            setHp(35, 45);
 
         // 怪物伤害意图的数值
         if (AbstractDungeon.ascensionLevel >= 2) {

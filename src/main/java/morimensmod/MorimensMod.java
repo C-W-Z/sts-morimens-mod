@@ -20,6 +20,7 @@ import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.icons.AbstractIcon;
 import morimensmod.misc.TopPanelDeathResistanceUI;
 import morimensmod.misc.TopPanelTurnUI;
+import morimensmod.monsters.Fastrunner;
 import morimensmod.monsters.Hardhitter;
 import morimensmod.monsters.KingOfKids;
 import morimensmod.potions.AbstractEasyPotion;
@@ -398,8 +399,9 @@ public class MorimensMod implements
         // 两个异鸟
         // BaseMod.addMonster("ExampleMod:2 Byrds", "", () -> new MonsterGroup(new AbstractMonster[] { new Byrd(-80.0F, MathUtils.random(25.0F, 70.0F)), new Byrd(200.0F, MathUtils.random(25.0F, 70.0F)) }));
         BaseMod.addMonster("1-1-1", () -> new MonsterGroup(new AbstractMonster[] {
-                new KingOfKids(-200, 0),
-                new Hardhitter(100, -20)
+                new KingOfKids(-310, 0),
+                new Hardhitter(-40, -50),
+                new Fastrunner(200, 20)
         }));
 
         // 添加战斗遭遇

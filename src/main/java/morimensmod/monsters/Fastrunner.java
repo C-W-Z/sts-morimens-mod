@@ -6,13 +6,10 @@ import static morimensmod.util.General.removeModID;
 import static morimensmod.util.Wiz.shuffleIn;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import basemod.animations.AbstractAnimation;
 import morimensmod.actions.NewWaitAction;
@@ -20,16 +17,16 @@ import morimensmod.cards.status.Wound;
 import morimensmod.misc.Animator;
 import morimensmod.util.ModSettings;
 
-public class KingOfKids extends AbstractMorimensMonster {
+public class Fastrunner extends AbstractMorimensMonster {
 
-    public static final String ID = makeID(KingOfKids.class.getSimpleName());
+    public static final String ID = makeID(Fastrunner.class.getSimpleName());
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
     public static final String NAME = monsterStrings.NAME;
 
     private static final float xOffset = -32;
     private static final float yOffset = 0;
 
-    public KingOfKids(float x, float y) {
+    public Fastrunner(float x, float y) {
         super(NAME, ID, 50, 240F, 270F, x, y);
 
         if (AbstractDungeon.ascensionLevel >= 7)
@@ -38,13 +35,13 @@ public class KingOfKids extends AbstractMorimensMonster {
             setHp(35, 45);
 
         if (AbstractDungeon.ascensionLevel >= 2) {
-            addDamage(10, 1);
-            addDamage(0, 0);
-            addDamage(6, 2);
-        } else {
-            addDamage(8, 1);
+            addDamage(7, 1);
             addDamage(0, 0);
             addDamage(4, 2);
+        } else {
+            addDamage(5, 1);
+            addDamage(0, 0);
+            addDamage(2, 2);
         }
     }
 
@@ -60,16 +57,16 @@ public class KingOfKids extends AbstractMorimensMonster {
         animator.addAnimation(
                 ModSettings.MONSTER_HIT_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_HIT_ANIM + ".png"),
-                5, 4, 0, false, xOffset + 18.5F, yOffset);
+                5, 4, 0, false, xOffset + 19.5F, yOffset);
         animator.addAnimation(
                 ModSettings.MONSTER_ATTACK_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_ATTACK_ANIM + ".png"),
-                7, 5, 0, false, xOffset - 17F, yOffset - 6F);
+                7, 5, 0, false, xOffset - 21F, yOffset - 15F);
         // 這個xOffset不知道為什麼特別奇怪
         animator.addAnimation(
                 ModSettings.MONSTER_SKILL1_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_SKILL1_ANIM + ".png"),
-                6, 7, 0, false, xOffset + 28F, yOffset);
+                6, 7, 0, false, xOffset + 27F, yOffset);
         animator.setDefaultAnim(ModSettings.MONSTER_IDLE_ANIM);
         return animator;
     }
@@ -78,10 +75,10 @@ public class KingOfKids extends AbstractMorimensMonster {
     public void getMove(int num) {
         switch (turn % 3) {
             case 0:
-                setAttackIntent(0, Intent.ATTACK_DEBUFF);
+                setAttackIntent(0, Intent.ATTACK);
                 break;
             case 1:
-                setMove((byte) 1, Intent.BUFF, 0);
+                setMove((byte) 1, Intent.DEBUFF, 0);
                 break;
             case 2:
                 setAttackIntent(2, Intent.ATTACK);
@@ -95,13 +92,12 @@ public class KingOfKids extends AbstractMorimensMonster {
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
                 addToBot(new NewWaitAction(0.5F));
                 attackAction(0, AttackEffect.BLUNT_HEAVY);
-                shuffleIn(new Wound());
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
                 addToBot(new NewWaitAction(0.4F));
-                addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, 2)));
-                addToBot(new GainBlockAction(this, this, 10));
+                for (int i = 0; i < 2; i++)
+                    shuffleIn(new Wound());
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
