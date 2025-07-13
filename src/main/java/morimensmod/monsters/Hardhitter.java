@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import basemod.abstracts.CustomMonster;
 import morimensmod.actions.NewWaitAction;
 import morimensmod.misc.Animator;
+import morimensmod.util.ModSettings;
 
 public class Hardhitter extends CustomMonster {
 
@@ -70,23 +71,23 @@ public class Hardhitter extends CustomMonster {
         // yOffset是Idle_1和另一張貼圖齊底部疊在一起後，另一張要垂直移動多少才會和Idle_1高度相同
         Animator animator = new Animator();
         animator.addAnimation(
-                "Idle_1",
-                makeMonsterPath(removeModID(ID) + "/Idle_1.png"),
+                ModSettings.MONSTER_IDLE_ANIM,
+                makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_IDLE_ANIM + ".png"),
                 13, 16, 11, true, offsetX, 0);
         animator.addAnimation(
-                "Hit",
-                makeMonsterPath(removeModID(ID) + "/Hit.png"),
+                ModSettings.MONSTER_HIT_ANIM,
+                makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_HIT_ANIM + ".png"),
                 5, 4, 0, false, offsetX + 20F, 0);
         animator.addAnimation(
-                "Attack",
-                makeMonsterPath(removeModID(ID) + "/Attack.png"),
+                ModSettings.MONSTER_ATTACK_ANIM,
+                makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_ATTACK_ANIM + ".png"),
                 7, 5, 0, false, offsetX - 19F, -14F);
         // 這個xOffset不知道為什麼特別奇怪
         animator.addAnimation(
-                "Skill1",
-                makeMonsterPath(removeModID(ID) + "/Skill1.png"),
+                ModSettings.MONSTER_SKILL1_ANIM,
+                makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_SKILL1_ANIM + ".png"),
                 6, 7, 0, false, offsetX + 29F, 0);
-        animator.setDefaultAnim("Idle_1");
+        animator.setDefaultAnim(ModSettings.MONSTER_IDLE_ANIM);
         this.animation = animator;
     }
 
@@ -121,19 +122,19 @@ public class Hardhitter extends CustomMonster {
         // nextMove就是roll到的意图，0就是意图0，1就是意图1
         switch (nextMove) {
             case 0:
-                addToBot(new ChangeStateAction(this, "Skill1"));
+                addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
                 addToBot(new NewWaitAction(0.4F));
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, 1)));
                 addToBot(new GainBlockAction(this, this, 10));
                 break;
             case 1:
-                addToBot(new ChangeStateAction(this, "Attack"));
+                addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
                 addToBot(new NewWaitAction(0.5F));
                 addToBot(new DamageAction(p(), damage.get(1), AttackEffect.BLUNT_LIGHT));
                 addToBot(new DamageAction(p(), damage.get(1), AttackEffect.BLUNT_HEAVY));
                 break;
             case 2:
-                addToBot(new ChangeStateAction(this, "Attack"));
+                addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
                 addToBot(new NewWaitAction(0.5F));
                 addToBot(new DamageAction(p(), damage.get(2), AttackEffect.BLUNT_HEAVY));
                 addToBot(new ApplyPowerAction(p(), this, new WeakPower(p(), 1, true)));
@@ -154,6 +155,6 @@ public class Hardhitter extends CustomMonster {
     public void damage(DamageInfo info) {
         super.damage(info);
         if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > 0)
-            ((Animator) this.animation).setAnimation("Hit");
+            ((Animator) this.animation).setAnimation(ModSettings.MONSTER_HIT_ANIM);
     }
 }

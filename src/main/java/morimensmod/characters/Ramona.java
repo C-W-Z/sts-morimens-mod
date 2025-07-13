@@ -8,6 +8,7 @@ import morimensmod.exalts.MundusDecree;
 import morimensmod.misc.Animator;
 import morimensmod.relics.ChaosRelic;
 import morimensmod.relics.RamonaRelic;
+import morimensmod.util.ModSettings;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -55,22 +56,22 @@ public class Ramona extends AbstractAwakener {
 
         Animator animator = new Animator();
         animator.addAnimation(
-                "Idle_1",
-                makeCharacterPath(removeModID(ID) + "/Idle_1.png"),
+                ModSettings.PLAYER_IDLE_ANIM,
+                makeCharacterPath(removeModID(ID) + "/"+ ModSettings.PLAYER_IDLE_ANIM + ".png"),
                 6, 17, 1, true, xOffset, yOffset);
         animator.addAnimation(
-                "Hit",
-                makeCharacterPath(removeModID(ID) + "/Hit.png"),
+                ModSettings.PLAYER_HIT_ANIM,
+                makeCharacterPath(removeModID(ID) + "/" + ModSettings.PLAYER_HIT_ANIM + ".png"),
                 4, 5, 0, false, xOffset - 17.5F, yOffset);
         animator.addAnimation(
-                "Defence",
-                makeCharacterPath(removeModID(ID) + "/Defence.png"),
+                ModSettings.PLAYER_DEFENCE_ANIM,
+                makeCharacterPath(removeModID(ID) + "/" + ModSettings.PLAYER_DEFENCE_ANIM + ".png"),
                 4, 8, 1, false, xOffset + 97.5F, yOffset);
         animator.addAnimation(
-                "Attack",
-                makeCharacterPath(removeModID(ID) + "/Attack.png"),
+                ModSettings.PLAYER_ATTACK_ANIM,
+                makeCharacterPath(removeModID(ID) + "/" + ModSettings.PLAYER_ATTACK_ANIM + ".png"),
                 9, 3, 2, false, xOffset + 202F, yOffset);
-        animator.setDefaultAnim("Idle_1");
+        animator.setDefaultAnim(ModSettings.PLAYER_IDLE_ANIM);
         this.animation = animator;
 
         // in AbstractPlayer.render(), there's
@@ -87,9 +88,9 @@ public class Ramona extends AbstractAwakener {
         super.damage(info);
         if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > 0) {
             if (hp == currentHealth && block > 0 && currentBlock >= 0)
-                ((Animator) this.animation).setAnimation("Defence");
+                ((Animator) this.animation).setAnimation(ModSettings.PLAYER_DEFENCE_ANIM);
             else
-                ((Animator) this.animation).setAnimation("Hit");
+                ((Animator) this.animation).setAnimation(ModSettings.PLAYER_HIT_ANIM);
         }
     }
 
