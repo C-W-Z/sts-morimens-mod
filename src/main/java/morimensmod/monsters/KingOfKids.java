@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.status.Wound;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
@@ -17,6 +16,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import basemod.animations.AbstractAnimation;
 import morimensmod.actions.NewWaitAction;
+import morimensmod.cards.status.Wound;
 import morimensmod.misc.Animator;
 import morimensmod.util.ModSettings;
 

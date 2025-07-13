@@ -126,7 +126,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
         if (!(this.animation instanceof Animator))
             return;
         if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > 0) {
-            if (hp == currentHealth && block > 0 && currentBlock >= 0)
+            if (hp == currentHealth && block > 0 && currentBlock >= 0 && !info.owner.isPlayer)
                 ((Animator) this.animation).setAnimation(ModSettings.PLAYER_DEFENCE_ANIM);
             else
                 ((Animator) this.animation).setAnimation(ModSettings.PLAYER_HIT_ANIM);
