@@ -91,8 +91,8 @@ public class Animator extends AbstractAnimation {
 
         sb.setColor(Color.WHITE);
 
-        float width = (float) currentFrame.getRegionWidth() * Settings.scale;
-        float height = (float) currentFrame.getRegionHeight() * Settings.scale;
+        float width = (float) currentFrame.getRegionWidth() * Settings.scale * scale;
+        float height = (float) currentFrame.getRegionHeight() * Settings.scale * scale;
 
         float x = (flipX ? -currentAnim.xOffset : currentAnim.xOffset) + centerX - width / 2F;
         float y = currentAnim.yOffset + bottomY;
@@ -100,7 +100,7 @@ public class Animator extends AbstractAnimation {
         sb.draw(currentFrame.getTexture(),
                 x, y, 0, 0,
                 width, height,
-                scale, scale, 0,
+                1, 1, 0,
                 currentFrame.getRegionX(),
                 currentFrame.getRegionY(),
                 currentFrame.getRegionWidth(),

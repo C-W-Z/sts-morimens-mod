@@ -23,6 +23,7 @@ import morimensmod.misc.TopPanelTurnUI;
 import morimensmod.monsters.Fastrunner;
 import morimensmod.monsters.Hardhitter;
 import morimensmod.monsters.KingOfKids;
+import morimensmod.monsters.TheVoidClaimsAll;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.relics.AbstractEasyRelic;
@@ -394,13 +395,12 @@ public class MorimensMod implements
     }
 
     private void receiveEditMonsters() {
-        // BaseMod.addMonster(Hardhitter.ID, Hardhitter.NAME, () -> new Hardhitter(0, 0));
+        // don't remove these without ID for compatible
         BaseMod.addMonster("1-1-1", () -> new MonsterGroup(new AbstractMonster[] {
                 new KingOfKids(-310, 0),
                 new Hardhitter(-40, -50),
                 new Fastrunner(200, 20)
         }));
-
         BaseMod.addMonster("1-1-2", () -> new MonsterGroup(new AbstractMonster[] {
                 new Hardhitter(-400, 0),
                 new Hardhitter(-160, -100),
@@ -408,8 +408,24 @@ public class MorimensMod implements
                 new Fastrunner(300, -50)
         }));
 
-        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo("1-1-1", 4F));
-        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo("1-1-2", 4F));
+        BaseMod.addMonster(makeID("1-1-1"), () -> new MonsterGroup(new AbstractMonster[] {
+                new KingOfKids(-310, 0),
+                new Hardhitter(-40, -50),
+                new Fastrunner(200, 20)
+        }));
+
+        BaseMod.addMonster(makeID("1-1-2"), () -> new MonsterGroup(new AbstractMonster[] {
+                new Hardhitter(-400, 0),
+                new Hardhitter(-160, -100),
+                new KingOfKids(85, 20),
+                new Fastrunner(300, -50)
+        }));
+
+        BaseMod.addMonster(TheVoidClaimsAll.ID, TheVoidClaimsAll.NAME, () -> new TheVoidClaimsAll(-100, -50));
+
+        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(makeID("1-1-1"), 4F));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(makeID("1-1-2"), 4F));
+        BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(TheVoidClaimsAll.ID, 99F));
     }
 
     @Override
@@ -442,6 +458,4 @@ public class MorimensMod implements
         if (p() instanceof AbstractAwakener)
             ((AbstractAwakener) p()).getExalt().onCardUse(card);
     }
-
-
 }

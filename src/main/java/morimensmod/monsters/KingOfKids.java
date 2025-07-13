@@ -85,6 +85,7 @@ public class KingOfKids extends AbstractMorimensMonster {
                 break;
             case 2:
                 setAttackIntent(2, Intent.ATTACK);
+                break;
         }
     }
 
