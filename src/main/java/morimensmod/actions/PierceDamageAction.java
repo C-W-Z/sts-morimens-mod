@@ -25,7 +25,7 @@ public class PierceDamageAction extends AbstractGameAction {
         this.setValues(target, info);
         this.actionType = ActionType.DAMAGE;
         this.attackEffect = effect;
-        this.duration = 0.1F;
+        this.duration = Settings.ACTION_DUR_XFAST;
     }
 
     public PierceDamageAction(AbstractCreature target, DamageInfo info) {
@@ -53,7 +53,7 @@ public class PierceDamageAction extends AbstractGameAction {
         if (this.shouldCancelAction() && this.info.type != DamageType.THORNS) {
             this.isDone = true;
         } else {
-            if (this.duration == 0.1F) {
+            if (this.duration == Settings.ACTION_DUR_XFAST) {
                 if (this.info.type != DamageType.THORNS && (this.info.owner.isDying || this.info.owner.halfDead)) {
                     this.isDone = true;
                     return;
@@ -85,7 +85,7 @@ public class PierceDamageAction extends AbstractGameAction {
                 }
 
                 if (!this.skipWait && !Settings.FAST_MODE) {
-                    this.addToTop(new WaitAction(0.1F));
+                    this.addToTop(new WaitAction(Settings.ACTION_DUR_XFAST));
                 }
             }
         }

@@ -19,7 +19,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import basemod.abstracts.CustomMonster;
-import morimensmod.actions.NoFastModeWaitAction;
+import morimensmod.actions.NewWaitAction;
 import morimensmod.misc.Animator;
 
 public class Hardhitter extends CustomMonster {
@@ -122,19 +122,19 @@ public class Hardhitter extends CustomMonster {
         switch (nextMove) {
             case 0:
                 addToBot(new ChangeStateAction(this, "Skill1"));
-                addToBot(new NoFastModeWaitAction(0.4F));
+                addToBot(new NewWaitAction(0.4F));
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, 1)));
                 addToBot(new GainBlockAction(this, this, 10));
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, "Attack"));
-                addToBot(new NoFastModeWaitAction(0.5F));
+                addToBot(new NewWaitAction(0.5F));
                 addToBot(new DamageAction(p(), damage.get(1), AttackEffect.BLUNT_LIGHT));
                 addToBot(new DamageAction(p(), damage.get(1), AttackEffect.BLUNT_HEAVY));
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, "Attack"));
-                addToBot(new NoFastModeWaitAction(0.5F));
+                addToBot(new NewWaitAction(0.5F));
                 addToBot(new DamageAction(p(), damage.get(2), AttackEffect.BLUNT_HEAVY));
                 addToBot(new ApplyPowerAction(p(), this, new WeakPower(p(), 1, true)));
                 break;

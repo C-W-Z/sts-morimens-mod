@@ -64,6 +64,14 @@ public class Lotan extends AbstractAwakener {
                 "Hit",
                 makeCharacterPath(removeModID(ID) + "/Hit.png"),
                 5, 4, 0, false, xOffset - 55F, yOffset - 21F);
+        animator.addAnimation(
+                "Defence",
+                makeCharacterPath(removeModID(ID) + "/Defence.png"),
+                7, 4, 0, false, xOffset - 75F, yOffset - 11F);
+        animator.addAnimation(
+                "Attack",
+                makeCharacterPath(removeModID(ID) + "/Attack.png"),
+                9, 3, 2, false, xOffset + 199.5F, yOffset);
         animator.setDefaultAnim("Idle_1");
         this.animation = animator;
 
@@ -76,9 +84,15 @@ public class Lotan extends AbstractAwakener {
 
     @Override
     public void damage(DamageInfo info) {
+        int hp = currentHealth;
+        int block = currentBlock;
         super.damage(info);
-        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > 0)
-            ((Animator) this.animation).setAnimation("Hit");
+        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > 0) {
+            if (hp == currentHealth && block > 0 && currentBlock >= 0)
+                ((Animator) this.animation).setAnimation("Defence");
+            else
+                ((Animator) this.animation).setAnimation("Hit");
+        }
     }
 
     public static void register() {

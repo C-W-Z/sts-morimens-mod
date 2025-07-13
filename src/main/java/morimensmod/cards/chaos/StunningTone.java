@@ -27,7 +27,7 @@ public class StunningTone extends AbstractEasyCard {
         for (int i = 0; i < attackCount; i++)
             actB(() -> {
                 calculateCardDamage(m);
-                dmgTop(m, AttackEffect.SMASH);
+                dmgTop(m, AttackEffect.BLUNT_HEAVY);
             });
     }
 

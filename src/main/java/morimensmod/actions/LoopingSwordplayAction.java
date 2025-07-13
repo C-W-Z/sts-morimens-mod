@@ -23,21 +23,25 @@ public class LoopingSwordplayAction extends AbstractGameAction {
     private DamageInfo info;
     private AbstractCard card;
 
+    private boolean triggered = false;
+
     public LoopingSwordplayAction(AbstractCreature target, DamageInfo info, int incAmount, AbstractCard card) {
         this.info = info;
         this.setValues(target, info);
         this.increaseAmount = incAmount;
         this.actionType = ActionType.DAMAGE;
-        this.duration = Settings.ACTION_DUR_XFAST;
+        this.duration = Settings.ACTION_DUR_FAST;
         this.card = card;
     }
 
     public void update() {
-        if (duration == Settings.ACTION_DUR_XFAST && target != null) {
-            if (isKilled(target)) {
-                isDone = true;
-                return;
-            }
+        if (duration == Settings.ACTION_DUR_FAST && target != null && isKilled(target)) {
+            isDone = true;
+            return;
+        }
+
+        if (!triggered && duration <= Settings.ACTION_DUR_FASTER && target != null) {
+            triggered = true;
 
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(target.hb.cX, target.hb.cY, AttackEffect.SLASH_HORIZONTAL));
             target.damage(info);

@@ -76,7 +76,7 @@ public class Animator extends AbstractAnimation {
         this.flipY = vertical;
     }
 
-    public void renderSprite(SpriteBatch sb, float centerX, float centerY) {
+    public void renderSprite(SpriteBatch sb, float centerX, float bottomY) {
 
         if (isFinished()) {
             if (currentAnim.loop)
@@ -84,7 +84,7 @@ public class Animator extends AbstractAnimation {
             else
                 setAnimation(defaultAnim);
         } else {
-            stateTime += Gdx.graphics.getDeltaTime();
+            stateTime += Gdx.graphics.getDeltaTime() * (Settings.FAST_MODE ? 2 : 1);
         }
 
         TextureRegion currentFrame = currentAnim.anim.getKeyFrame(stateTime, currentAnim.loop);
@@ -95,7 +95,7 @@ public class Animator extends AbstractAnimation {
         float height = (float) currentFrame.getRegionHeight() * Settings.scale;
 
         float x = (flipX ? -currentAnim.xOffset : currentAnim.xOffset) + centerX - width / 2F;
-        float y = currentAnim.yOffset + centerY;
+        float y = currentAnim.yOffset + bottomY;
 
         sb.draw(currentFrame.getTexture(),
                 x, y, 0, 0,
