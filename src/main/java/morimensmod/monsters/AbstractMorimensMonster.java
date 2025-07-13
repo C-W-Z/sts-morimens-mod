@@ -2,6 +2,8 @@ package morimensmod.monsters;
 
 import java.util.ArrayList;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import basemod.abstracts.CustomMonster;
@@ -12,6 +14,7 @@ import morimensmod.powers.TmpMadnessPower;
 import morimensmod.util.ModSettings;
 
 import static morimensmod.util.Wiz.getPowerAmount;
+import static morimensmod.util.Wiz.p;
 
 public abstract class AbstractMorimensMonster extends CustomMonster {
 
@@ -34,10 +37,25 @@ public abstract class AbstractMorimensMonster extends CustomMonster {
 
     protected abstract AbstractAnimation getAnimation();
 
+    protected void addDamage(int dmg, int count) {
+        damage.add(new DamageInfo(this, dmg));
+        attackCount.add(count);
+    }
+
     protected int getAttackCount(int move) {
         return attackCount.get(move)
                 + getPowerAmount(this, MadnessPower.POWER_ID)
                 + getPowerAmount(this, TmpMadnessPower.POWER_ID);
+    }
+
+    protected void setAttackIntent(int move, Intent intent) {
+        int atkCount = getAttackCount(move);
+        setMove((byte) move, intent, damage.get(move).base, atkCount, atkCount != 1);
+    }
+
+    protected void attackAction(int move, AttackEffect effect) {
+        for (int i = 0; i < getAttackCount(move); i++)
+            addToBot(new DamageAction(p(), damage.get(move), effect));
     }
 
     // 戰鬥開始
