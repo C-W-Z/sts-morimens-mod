@@ -35,7 +35,7 @@ public class MutatedHeart extends AbstractBuffCard implements StartupCard {
             if (!isInBossCombat())
                 return;
             for (AbstractCard c : DrawCardAction.drawnCards)
-                c.setCostForTurn(c.costForTurn - 1);
+                c.setCostForTurn(c.costForTurn - secondMagic);
         })));
     }
 
