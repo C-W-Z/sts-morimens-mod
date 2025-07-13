@@ -8,13 +8,12 @@ import morimensmod.exalts.BeastOfChaos;
 import morimensmod.misc.Animator;
 import morimensmod.relics.ChaosRelic;
 import morimensmod.relics.LotanRelic;
+import morimensmod.util.ModSettings;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -46,39 +45,34 @@ public class Lotan extends AbstractAwakener {
     private static final float yOffset = -12;
 
     public Lotan() {
-        super(NAMES[0], Enums.LOTAN, "Lotan/main.png", "Lotan/main.png");
-        // anim = new SpriteSheetAnimation(makeCharacterPath("Lotan/Idle_1.png"),
-        //         9, 7, 2, true, -1, -12);
+        super(NAMES[0], Enums.LOTAN, getAnimation());
         exalt = new BeastOfChaos();
         baseAliemusRegen = 0;
         baseKeyflareRegen = 25;
         deathResistance = 100;
         baseRealmMastery = 50;
-
-        Animator animator = new Animator();
-        animator.addAnimation(
-                "Idle_1",
-                makeCharacterPath(removeModID(ID) + "/Idle_1.png"),
-                9, 7, 2, true, xOffset, yOffset);
-        animator.addAnimation(
-                "Hit",
-                makeCharacterPath(removeModID(ID) + "/Hit.png"),
-                5, 4, 0, false, xOffset - 55F, yOffset - 21F);
-        animator.setDefaultAnim("Idle_1");
-        this.animation = animator;
-
-        // in AbstractPlayer.render(), there's
-        // if (this.atlas != null && !this.renderCorpse) {
-        //     this.renderPlayerImage(sb);
-        if (animation.type() != AbstractAnimation.Type.NONE)
-            this.atlas = new TextureAtlas();
     }
 
-    @Override
-    public void damage(DamageInfo info) {
-        super.damage(info);
-        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > 0)
-            ((Animator) this.animation).setAnimation("Hit");
+    private static AbstractAnimation getAnimation() {
+        Animator animator = new Animator();
+        animator.addAnimation(
+                ModSettings.PLAYER_IDLE_ANIM,
+                makeCharacterPath(removeModID(ID) + "/" + ModSettings.PLAYER_IDLE_ANIM + ".png"),
+                9, 7, 2, true, xOffset, yOffset);
+        animator.addAnimation(
+                ModSettings.PLAYER_HIT_ANIM,
+                makeCharacterPath(removeModID(ID) + "/" + ModSettings.PLAYER_HIT_ANIM + ".png"),
+                5, 4, 0, false, xOffset - 55F, yOffset - 21F);
+        animator.addAnimation(
+                ModSettings.PLAYER_DEFENCE_ANIM,
+                makeCharacterPath(removeModID(ID) + "/" + ModSettings.PLAYER_DEFENCE_ANIM + ".png"),
+                3, 9, 0, false, xOffset - 75F, yOffset - 11F);
+        animator.addAnimation(
+                ModSettings.PLAYER_ATTACK_ANIM,
+                makeCharacterPath(removeModID(ID) + "/" + ModSettings.PLAYER_ATTACK_ANIM + ".png"),
+                9, 3, 2, false, xOffset + 199.5F, yOffset);
+        animator.setDefaultAnim(ModSettings.PLAYER_IDLE_ANIM);
+        return animator;
     }
 
     public static void register() {

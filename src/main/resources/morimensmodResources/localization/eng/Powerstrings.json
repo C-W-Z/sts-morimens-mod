@@ -13,7 +13,9 @@
   },
   "${ModID}:TmpBarrierPower": {
     "NAME": "Temporary Barrier",
-    "DESCRIPTIONS": ["Negate the next #b%d active attack damage(s) received this round."]
+    "DESCRIPTIONS": [
+      "Negate the next #b%d active attack damage(s) received this round."
+    ]
   },
   "${ModID}:TraumaPower": {
     "NAME": "Trauma",
@@ -61,6 +63,14 @@
     "DESCRIPTIONS": [
       "At the start of the next turn, gain #b%d stack(s) of #yEnhance."
     ]
+  },
+  "${ModID}:MadnessPower": {
+    "NAME": "Madness",
+    "DESCRIPTIONS": ["Number of attacks #b+%d."]
+  },
+  "${ModID}:TmpMadnessPower": {
+    "NAME": "Temporary Madness",
+    "DESCRIPTIONS": ["Number of attacks #b+%d this round."]
   },
   "${ModID}:FirstDoctrinePower": {
     "NAME": "First Doctrine",

@@ -34,4 +34,14 @@ public class ModSettings {
 
     public static final float CLICKABLE_UI_ICON_SIZE = 120F;
     public static final float CLICKABLE_UI_ICON_SCALE = 0.75F;
+
+    public static final String PLAYER_IDLE_ANIM = "Idle_1";
+    public static final String PLAYER_ATTACK_ANIM = "Attack";
+    public static final String PLAYER_DEFENCE_ANIM = "Defence";
+    public static final String PLAYER_HIT_ANIM = "Hit";
+
+    public static final String MONSTER_IDLE_ANIM = "Idle_1";
+    public static final String MONSTER_HIT_ANIM = "Hit";
+    public static final String MONSTER_ATTACK_ANIM = "Attack";
+    public static final String MONSTER_SKILL1_ANIM = "Skill1";
 }

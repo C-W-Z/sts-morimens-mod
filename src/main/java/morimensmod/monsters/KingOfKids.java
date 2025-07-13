@@ -3,7 +3,7 @@ package morimensmod.monsters;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.MorimensMod.makeMonsterPath;
 import static morimensmod.util.General.removeModID;
-import static morimensmod.util.Wiz.p;
+import static morimensmod.util.Wiz.shuffleIn;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -13,40 +13,38 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
 import basemod.animations.AbstractAnimation;
 import morimensmod.actions.NewWaitAction;
+import morimensmod.cards.status.Wound;
 import morimensmod.misc.Animator;
 import morimensmod.util.ModSettings;
 
-public class Hardhitter extends AbstractMorimensMonster {
+public class KingOfKids extends AbstractMorimensMonster {
 
-    public static final String ID = makeID(Hardhitter.class.getSimpleName());
+    public static final String ID = makeID(KingOfKids.class.getSimpleName());
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
     public static final String NAME = monsterStrings.NAME;
 
     private static final float xOffset = -32;
     private static final float yOffset = 0;
 
-    public Hardhitter(float x, float y) {
+    public KingOfKids(float x, float y) {
         super(NAME, ID, 50, 240F, 270F, x, y);
 
-        // 如果你要做进阶改变血量和伤害意图等，这样写
         if (AbstractDungeon.ascensionLevel >= 7)
             setHp(45, 55);
         else
             setHp(35, 45);
 
-        // 怪物伤害意图的数值
         if (AbstractDungeon.ascensionLevel >= 2) {
+            addDamage(10, 1);
             addDamage(0, 0);
-            addDamage(5, 2);
-            addDamage(6, 1);
+            addDamage(6, 2);
         } else {
+            addDamage(8, 1);
             addDamage(0, 0);
-            addDamage(3, 2);
-            addDamage(4, 1);
+            addDamage(4, 2);
         }
     }
 
@@ -58,67 +56,57 @@ public class Hardhitter extends AbstractMorimensMonster {
         animator.addAnimation(
                 ModSettings.MONSTER_IDLE_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_IDLE_ANIM + ".png"),
-                13, 16, 11, true, xOffset, yOffset);
+                12, 17, 7, true, xOffset, yOffset);
         animator.addAnimation(
                 ModSettings.MONSTER_HIT_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_HIT_ANIM + ".png"),
-                5, 4, 0, false, xOffset + 20F, yOffset);
+                5, 4, 0, false, xOffset + 18.5F, yOffset);
         animator.addAnimation(
                 ModSettings.MONSTER_ATTACK_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_ATTACK_ANIM + ".png"),
-                7, 5, 0, false, xOffset - 19F, yOffset - 14F);
+                7, 5, 0, false, xOffset - 17F, yOffset - 6F);
         // 這個xOffset不知道為什麼特別奇怪
         animator.addAnimation(
                 ModSettings.MONSTER_SKILL1_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_SKILL1_ANIM + ".png"),
-                6, 7, 0, false, xOffset + 29F, yOffset);
+                6, 7, 0, false, xOffset + 28F, yOffset);
         animator.setDefaultAnim(ModSettings.MONSTER_IDLE_ANIM);
         return animator;
     }
 
-    // 战斗开始时
-    // @Override
-    // public void usePreBattleAction() {
-    //     super.usePreBattleAction();
-    //     addToBot(new ApplyPowerAction(this, this, new MadnessPower(this, 1)));
-    // }
-
-    // 当怪物roll意图的时候，这里设置其意图。num是一个0~99的随机数。
     @Override
     public void getMove(int num) {
         switch (turn % 3) {
             case 0:
-                setMove((byte) 0, Intent.DEFEND_BUFF, 0);
+                setAttackIntent(0, Intent.ATTACK_DEBUFF);
                 break;
             case 1:
-                setAttackIntent(1, Intent.ATTACK);
+                setMove((byte) 1, Intent.BUFF, 0);
                 break;
             case 2:
-                setAttackIntent(2, Intent.ATTACK_DEBUFF);
+                setAttackIntent(2, Intent.ATTACK);
         }
     }
 
-    // 执行动作
     @Override
     public void takeTurn() {
-        // nextMove就是roll到的意图，0就是意图0，1就是意图1
         switch (nextMove) {
             case 0:
+                addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
+                addToBot(new NewWaitAction(0.5F));
+                attackAction(0, AttackEffect.BLUNT_HEAVY);
+                shuffleIn(new Wound());
+                break;
+            case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
                 addToBot(new NewWaitAction(0.4F));
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, 2)));
-                addToBot(new GainBlockAction(this, this, 5));
-                break;
-            case 1:
-                addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(0.5F));
-                attackAction(1, AttackEffect.BLUNT_LIGHT);
+                addToBot(new GainBlockAction(this, this, 10));
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
                 addToBot(new NewWaitAction(0.5F));
-                attackAction(2, AttackEffect.BLUNT_HEAVY);
-                addToBot(new ApplyPowerAction(p(), this, new WeakPower(p(), 1, true)));
+                attackAction(2, AttackEffect.BLUNT_LIGHT);
                 break;
         }
 

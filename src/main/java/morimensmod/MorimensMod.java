@@ -20,7 +20,9 @@ import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.icons.AbstractIcon;
 import morimensmod.misc.TopPanelDeathResistanceUI;
 import morimensmod.misc.TopPanelTurnUI;
+import morimensmod.monsters.Fastrunner;
 import morimensmod.monsters.Hardhitter;
+import morimensmod.monsters.KingOfKids;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.relics.AbstractEasyRelic;
@@ -48,6 +50,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
@@ -58,6 +61,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.StanceStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -389,15 +394,14 @@ public class MorimensMod implements
     }
 
     private void receiveEditMonsters() {
-        // 注册怪物组合，你可以多添加几个怪物
-        BaseMod.addMonster(Hardhitter.ID, Hardhitter.NAME, () -> new Hardhitter(0.0F, 0.0F));
-        // 两个异鸟
-        // BaseMod.addMonster("ExampleMod:2 Byrds", "", () -> new MonsterGroup(new AbstractMonster[] { new Byrd(-80.0F, MathUtils.random(25.0F, 70.0F)), new Byrd(200.0F, MathUtils.random(25.0F, 70.0F)) }));
+        // BaseMod.addMonster(Hardhitter.ID, Hardhitter.NAME, () -> new Hardhitter(0, 0));
+        BaseMod.addMonster("1-1-1", () -> new MonsterGroup(new AbstractMonster[] {
+                new KingOfKids(-310, 0),
+                new Hardhitter(-40, -50),
+                new Fastrunner(200, 20)
+        }));
 
-        // 添加战斗遭遇
-        // 在第二章添加精英遭遇，权重为1.0，权重越高越可能遇到
-        // BaseMod.addEliteEncounter("TheCity", new MonsterInfo("ExampleMod:MyMonster", 1.0F));
-        BaseMod.addMonsterEncounter("Exordium", new MonsterInfo(Hardhitter.ID, 99F));
+        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo("1-1-1", 4F));
     }
 
     @Override

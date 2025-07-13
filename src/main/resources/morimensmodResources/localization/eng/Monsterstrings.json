@@ -1,6 +1,21 @@
 {
+  "${ModID}:KingOfKids": {
+    "NAME": "King of Kids",
+    "DIALOG": [],
+    "MOVES": []
+  },
   "${ModID}:Hardhitter": {
     "NAME": "Hardhitter",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:Fastrunner": {
+    "NAME": "Fastrunner",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:TheVoidClaimsAll": {
+    "NAME": "The Void Claims All",
     "DIALOG": [],
     "MOVES": []
   }

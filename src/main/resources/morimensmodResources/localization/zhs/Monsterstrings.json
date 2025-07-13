@@ -1,6 +1,21 @@
 {
+  "${ModID}:KingOfKids": {
+    "NAME": "孩子王",
+    "DIALOG": [],
+    "MOVES": []
+  },
   "${ModID}:Hardhitter": {
     "NAME": "大力气",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:Fastrunner": {
+    "NAME": "快步跑",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:TheVoidClaimsAll": {
+    "NAME": "万物寂灭",
     "DIALOG": [],
     "MOVES": []
   }
