@@ -13,7 +13,7 @@ import basemod.ReflectionHacks;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
 import morimensmod.misc.Animator;
-import morimensmod.monsters.TheVoidClaimsAll;
+import morimensmod.util.MonsterLib;
 
 public class PlayerAnimationScalePatch {
 
@@ -23,17 +23,22 @@ public class PlayerAnimationScalePatch {
     public static class GetMonsterPatch {
         @SpirePostfixPatch
         public static void Postfix() {
-            logger.debug("GetMonsterPatch: " + AbstractDungeon.monsterList.get(0));
+            String key = AbstractDungeon.monsterList.get(0);
+            logger.debug("monsterKey: " + key);
             if (!(p() instanceof CustomPlayer))
                 return;
             AbstractAnimation animation = ReflectionHacks.getPrivate(p(), CustomPlayer.class, "animation");
             if (!(animation instanceof Animator))
                 return;
-            if (AbstractDungeon.monsterList.get(0).equals(TheVoidClaimsAll.ID)) {
-                logger.debug("set 0.8");
-                ((Animator) animation).setScale(0.8F);
-            } else
-                ((Animator) animation).setScale(1F);
+            MonsterLib.MonsterEncounter encounter = MonsterLib.weakEncounters.get(key);
+            if (encounter == null)
+                encounter = MonsterLib.strongEncounters.get(key);
+            if (encounter == null) {
+                logger.debug("monsterKey " + key + " NOT FOUND in MonsterLib");
+                return;
+            }
+            logger.debug("set animScale: " + encounter.animScale);
+            ((Animator) animation).setScale(encounter.animScale);
         }
     }
 
@@ -41,17 +46,20 @@ public class PlayerAnimationScalePatch {
     public static class GetElitePatch {
         @SpirePostfixPatch
         public static void Postfix() {
-            logger.debug("GetElitePatch: " + AbstractDungeon.eliteMonsterList.get(0));
+            String key = AbstractDungeon.eliteMonsterList.get(0);
+            logger.debug("eliteKey: " + key);
             if (!(p() instanceof CustomPlayer))
                 return;
             AbstractAnimation animation = ReflectionHacks.getPrivate(p(), CustomPlayer.class, "animation");
             if (!(animation instanceof Animator))
                 return;
-            if (AbstractDungeon.eliteMonsterList.get(0).equals(TheVoidClaimsAll.ID)) {
-                logger.debug("set 0.8");
-                ((Animator) animation).setScale(0.8F);
-            } else
-                ((Animator) animation).setScale(1F);
+            MonsterLib.MonsterEncounter encounter = MonsterLib.eliteEncounters.get(key);
+            if (encounter == null) {
+                logger.debug("eliteKey " + key + " NOT FOUND in MonsterLib");
+                return;
+            }
+            logger.debug("set animScale: " + encounter.animScale);
+            ((Animator) animation).setScale(encounter.animScale);
         }
     }
 
@@ -59,17 +67,7 @@ public class PlayerAnimationScalePatch {
     public static class GetBossPatch {
         @SpirePostfixPatch
         public static void Postfix() {
-            logger.debug("GetBossPatch: " + AbstractDungeon.bossKey);
-            if (!(p() instanceof CustomPlayer))
-                return;
-            AbstractAnimation animation = ReflectionHacks.getPrivate(p(), CustomPlayer.class, "animation");
-            if (!(animation instanceof Animator))
-                return;
-            if (AbstractDungeon.bossKey.equals(TheVoidClaimsAll.ID)) {
-                logger.debug("set 0.8");
-                ((Animator) animation).setScale(0.8F);
-            } else
-                ((Animator) animation).setScale(1F);
+            // TODO
         }
     }
 }

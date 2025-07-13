@@ -20,10 +20,6 @@ import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.icons.AbstractIcon;
 import morimensmod.misc.TopPanelDeathResistanceUI;
 import morimensmod.misc.TopPanelTurnUI;
-import morimensmod.monsters.Fastrunner;
-import morimensmod.monsters.Hardhitter;
-import morimensmod.monsters.KingOfKids;
-import morimensmod.monsters.TheVoidClaimsAll;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.relics.AbstractEasyRelic;
@@ -32,6 +28,7 @@ import morimensmod.savables.SaveAwakenerPosse;
 import morimensmod.savables.SaveAwakenerProperties;
 import morimensmod.savables.SavePersistentPowers;
 import morimensmod.util.ModSettings;
+import morimensmod.util.MonsterLib;
 import morimensmod.util.PersistentPowerLib;
 import morimensmod.util.ProAudio;
 import morimensmod.util.TexLoader;
@@ -112,7 +109,9 @@ public class MorimensMod implements
 
     public static ModInfo info;
     public static String modID;
-    static { loadModInfo(); }
+    static {
+        loadModInfo();
+    }
 
     public static String makeID(String idText) {
         return modID + ":" + idText;
@@ -129,16 +128,16 @@ public class MorimensMod implements
     private static final String CARD_ENERGY_L = makeImagePath("1024/energy.png");
 
     public static Settings.GameLanguage[] SupportedLanguages = {
-        Settings.GameLanguage.ENG,
-        Settings.GameLanguage.ZHT,
+            Settings.GameLanguage.ENG,
+            Settings.GameLanguage.ZHT,
     };
 
     private String getLangString() {
         if (Settings.language == Settings.GameLanguage.ZHS || Settings.language == Settings.GameLanguage.ZHT)
             return Settings.language.name().toLowerCase();
         // for (Settings.GameLanguage lang : SupportedLanguages)
-        //     if (lang.equals(Settings.language))
-        //         return Settings.language.name().toLowerCase();
+        // if (lang.equals(Settings.language))
+        // return Settings.language.name().toLowerCase();
         return Settings.GameLanguage.ENG.name().toLowerCase();
     }
 
@@ -146,11 +145,12 @@ public class MorimensMod implements
      * This determines the mod's ID based on information stored by ModTheSpire.
      */
     private static void loadModInfo() {
-        Optional<ModInfo> infos = Arrays.stream(Loader.MODINFOS).filter((modInfo)->{
+        Optional<ModInfo> infos = Arrays.stream(Loader.MODINFOS).filter((modInfo) -> {
             AnnotationDB annotationDB = Patcher.annotationDBMap.get(modInfo.jarURL);
             if (annotationDB == null)
                 return false;
-            Set<String> initializers = annotationDB.getAnnotationIndex().getOrDefault(SpireInitializer.class.getName(), Collections.emptySet());
+            Set<String> initializers = annotationDB.getAnnotationIndex().getOrDefault(SpireInitializer.class.getName(),
+                    Collections.emptySet());
             return initializers.contains(MorimensMod.class.getName());
         }).findFirst();
         if (infos.isPresent()) {
@@ -161,8 +161,7 @@ public class MorimensMod implements
             logger.info("Name: " + info.Name);
             logger.info("Authors: " + arrToString(info.Authors));
             logger.info("Description: " + info.Description);
-        }
-        else {
+        } else {
             throw new RuntimeException("Failed to determine mod info/ID based on initializer.");
         }
     }
@@ -353,13 +352,14 @@ public class MorimensMod implements
 
     @Override
     public void receivePostInitialize() {
-        //This loads the image used as an icon in the in-game mods menu.
+        // This loads the image used as an icon in the in-game mods menu.
         Texture badgeTexture = TexLoader.getTexture(makeUIPath("badge.png"));
-        //Set up the mod information displayed in the in-game mods menu.
-        //The information used is taken from your pom.xml file.
+        // Set up the mod information displayed in the in-game mods menu.
+        // The information used is taken from your pom.xml file.
 
-        //If you want to set up a config panel, that will be done here.
-        //You can find information about this on the BaseMod wiki page "Mod Config and Panel".
+        // If you want to set up a config panel, that will be done here.
+        // You can find information about this on the BaseMod wiki page "Mod Config and
+        // Panel".
         BaseMod.registerModBadge(badgeTexture, info.Name, arrToString(info.Authors), info.Description,
                 null);
 
@@ -391,41 +391,7 @@ public class MorimensMod implements
         BaseMod.addTopPanelItem(new TopPanelDeathResistanceUI());
         BaseMod.addTopPanelItem(new TopPanelTurnUI());
 
-        receiveEditMonsters();
-    }
-
-    private void receiveEditMonsters() {
-        // don't remove these without ID for compatible
-        BaseMod.addMonster("1-1-1", () -> new MonsterGroup(new AbstractMonster[] {
-                new KingOfKids(-310, 0),
-                new Hardhitter(-40, -50),
-                new Fastrunner(200, 20)
-        }));
-        BaseMod.addMonster("1-1-2", () -> new MonsterGroup(new AbstractMonster[] {
-                new Hardhitter(-400, 0),
-                new Hardhitter(-160, -100),
-                new KingOfKids(85, 20),
-                new Fastrunner(300, -50)
-        }));
-
-        BaseMod.addMonster(makeID("1-1-1"), () -> new MonsterGroup(new AbstractMonster[] {
-                new KingOfKids(-310, 0),
-                new Hardhitter(-40, -50),
-                new Fastrunner(200, 20)
-        }));
-
-        BaseMod.addMonster(makeID("1-1-2"), () -> new MonsterGroup(new AbstractMonster[] {
-                new Hardhitter(-400, 0),
-                new Hardhitter(-160, -100),
-                new KingOfKids(85, 20),
-                new Fastrunner(300, -50)
-        }));
-
-        BaseMod.addMonster(TheVoidClaimsAll.ID, TheVoidClaimsAll.NAME, () -> new TheVoidClaimsAll(-100, -50));
-
-        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo(makeID("1-1-1"), 4F));
-        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo(makeID("1-1-2"), 4F));
-        BaseMod.addEliteEncounter(Exordium.ID, new MonsterInfo(TheVoidClaimsAll.ID, 99F));
+        MonsterLib.register();
     }
 
     @Override
@@ -444,7 +410,7 @@ public class MorimensMod implements
 
     // @Override
     // public void receiveOnPlayerTurnStartPostDraw() {
-    //     AbstractAwakener.onPlayerTurnStartPostDraw(); // 每回合重設
+    // AbstractAwakener.onPlayerTurnStartPostDraw(); // 每回合重設
     // }
 
     @Override
