@@ -5,6 +5,7 @@ import static morimensmod.MorimensMod.makeMonsterPath;
 import static morimensmod.util.General.removeModID;
 import static morimensmod.util.Wiz.p;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
@@ -30,25 +31,46 @@ public class TheVoidClaimsAll extends AbstractMorimensMonster {
     private static final float xOffset = 0;
     private static final float yOffset = 0;
 
-    public TheVoidClaimsAll(float x, float y) {
-        super(NAME, ID, 200, 450F, 550F, x, y);
+    private int strengthAmt = 3;
+    private int weakAmt = 2;
+    private int frailAmt = 2;
 
-        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_ELITE_HP)
-            setHp(200, 220);
-        else
-            setHp(180, 200);
+    public TheVoidClaimsAll(float x, float y) {
+        this(x, y, 0);
+    }
+
+    public TheVoidClaimsAll(float x, float y, int turnOffset) {
+        super(NAME, ID, getMaxHP(), 450F, 550F, x, y, turnOffset);
+
+        int dmgAddition = AbstractDungeon.floorNum > 9 ? 1 : 0;
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_ELITE_DMG) {
-            addDamage(14, 1);
-            addDamage(18, 1);
-            addDamage(9, 3);
-            addDamage(10, 2);
+            addDamage(dmgAddition + 13, 1);
+            addDamage(dmgAddition + 17, 1);
+            addDamage(dmgAddition + 8, 3);
+            addDamage(dmgAddition + 9, 2);
         } else {
-            addDamage(12, 1);
-            addDamage(16, 1);
-            addDamage(7, 3);
-            addDamage(8, 2);
+            addDamage(dmgAddition + 11, 1);
+            addDamage(dmgAddition + 15, 1);
+            addDamage(dmgAddition + 6, 3);
+            addDamage(dmgAddition + 7, 2);
         }
+
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_ELITE_ACTION) {
+            strengthAmt = 4;
+            weakAmt = 3;
+            frailAmt = 3;
+        } else {
+            strengthAmt = 3;
+            weakAmt = 2;
+            frailAmt = 2;
+        }
+    }
+
+    protected static int getMaxHP() {
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_ELITE_HP)
+            return MathUtils.ceil(210 * (100 + AbstractDungeon.floorNum) / 100F);
+        return MathUtils.ceil(190 * (100 + AbstractDungeon.floorNum) / 100F);
     }
 
     @Override
@@ -96,13 +118,13 @@ public class TheVoidClaimsAll extends AbstractMorimensMonster {
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
                 addToBot(new NewWaitAction(0.9F));
                 attackAction(0, AttackEffect.BLUNT_HEAVY);
-                addToBot(new ApplyPowerAction(p(), this, new WeakPower(p(), 2, true)));
+                addToBot(new ApplyPowerAction(p(), this, new WeakPower(p(), weakAmt, true)));
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
                 addToBot(new NewWaitAction(0.9F));
                 attackAction(1, AttackEffect.BLUNT_HEAVY);
-                addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, 3)));
+                addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
@@ -113,7 +135,7 @@ public class TheVoidClaimsAll extends AbstractMorimensMonster {
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
                 addToBot(new NewWaitAction(0.9F));
                 attackAction(3, AttackEffect.BLUNT_LIGHT);
-                addToBot(new ApplyPowerAction(p(), this, new FrailPower(p(), 2, true)));
+                addToBot(new ApplyPowerAction(p(), this, new FrailPower(p(), frailAmt, true)));
                 break;
         }
 

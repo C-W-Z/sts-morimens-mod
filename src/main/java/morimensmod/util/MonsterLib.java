@@ -88,7 +88,7 @@ public class MonsterLib {
                 "1-1-2",
                 new MonsterEncounter(() -> new AbstractMonster[] {
                         new Hardhitter(-400, 0),
-                        new Hardhitter(-160, -100),
+                        new Hardhitter(-160, -100, 2),
                         new KingOfKids(85, 20),
                         new Fastrunner(300, -50)
                 }, Exordium.ID, 4));
@@ -107,7 +107,7 @@ public class MonsterLib {
                 makeID("1-1-2"),
                 new MonsterEncounter(() -> new AbstractMonster[] {
                         new Hardhitter(-400, 0),
-                        new Hardhitter(-160, -100),
+                        new Hardhitter(-160, -100, 2),
                         new KingOfKids(85, 20),
                         new Fastrunner(300, -50)
                 }, Exordium.ID, 4));

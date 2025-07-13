@@ -27,13 +27,14 @@ public class Fastrunner extends AbstractMorimensMonster {
     private static final float xOffset = -32;
     private static final float yOffset = 0;
 
-    public Fastrunner(float x, float y) {
-        super(NAME, ID, 50, 240F, 270F, x, y);
+    private int woundAmt = 1;
 
-        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
-            setHp(45, 55);
-        else
-            setHp(35, 45);
+    public Fastrunner(float x, float y) {
+        this(x, y, 0);
+    }
+
+    public Fastrunner(float x, float y, int turnOffset) {
+        super(NAME, ID, getMaxHP(), 240F, 270F, x, y, turnOffset);
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(7, 1);
@@ -44,6 +45,18 @@ public class Fastrunner extends AbstractMorimensMonster {
             addDamage(0, 0);
             addDamage(2, 2);
         }
+
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_MONSTER_ACTION) {
+            woundAmt = 3;
+        } else {
+            woundAmt = 2;
+        }
+    }
+
+    protected static int getMaxHP() {
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
+            return 39 + AbstractDungeon.floorNum;
+        return 29 + AbstractDungeon.floorNum;
     }
 
     @Override
@@ -98,8 +111,7 @@ public class Fastrunner extends AbstractMorimensMonster {
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
                 addToBot(new NewWaitAction(0.4F));
-                for (int i = 0; i < 2; i++)
-                    shuffleIn(new Wound());
+                shuffleIn(new Wound(), woundAmt);
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));

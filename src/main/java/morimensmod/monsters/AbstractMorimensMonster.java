@@ -19,9 +19,10 @@ import static morimensmod.util.Wiz.p;
 public abstract class AbstractMorimensMonster extends CustomMonster {
 
     protected ArrayList<Integer> attackCount = new ArrayList<>();
+    protected int turnOffset = 0;
     protected int turn = 0;
 
-    public AbstractMorimensMonster(String name, String id, int maxHealth, float hb_w, float hb_h, float x, float y) {
+    public AbstractMorimensMonster(String name, String id, int maxHealth, float hb_w, float hb_h, float x, float y, int turnOffset) {
         // 名字
         // ID
         // 最大生命值，由於之後還會設定可以隨意填寫
@@ -33,6 +34,7 @@ public abstract class AbstractMorimensMonster extends CustomMonster {
         // 怪物位置（x,y）
         super(name, id, maxHealth, 0F, 0.0F, hb_w, hb_h, null, x, y);
         this.animation = getAnimation();
+        this.turn = this.turnOffset = turnOffset;
     }
 
     protected abstract AbstractAnimation getAnimation();
@@ -59,10 +61,10 @@ public abstract class AbstractMorimensMonster extends CustomMonster {
     }
 
     // 戰鬥開始
-    @Override
-    public void usePreBattleAction() {
-        turn = 0;
-    }
+    // @Override
+    // public void usePreBattleAction() {
+    //     turn = turnOffset;
+    // }
 
     // 執行動作
     @Override

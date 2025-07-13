@@ -30,13 +30,16 @@ public class KingOfKids extends AbstractMorimensMonster {
     private static final float xOffset = -32;
     private static final float yOffset = 0;
 
-    public KingOfKids(float x, float y) {
-        super(NAME, ID, 50, 240F, 270F, x, y);
+    private int woundAmt = 1;
+    private int strengthAmt = 2;
+    private int blockAmt = 10;
 
-        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
-            setHp(45, 55);
-        else
-            setHp(35, 45);
+    public KingOfKids(float x, float y) {
+        this(x, y, 0);
+    }
+
+    public KingOfKids(float x, float y, int turnOffset) {
+        super(NAME, ID, getMaxHP(), 240F, 270F, x, y, turnOffset);
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(10, 1);
@@ -47,6 +50,26 @@ public class KingOfKids extends AbstractMorimensMonster {
             addDamage(0, 0);
             addDamage(4, 2);
         }
+
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_MONSTER_ACTION) {
+            woundAmt = 2;
+            strengthAmt = 3;
+        } else {
+            woundAmt = 1;
+            strengthAmt = 2;
+        }
+
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
+            blockAmt = 10;
+        else
+            blockAmt = 7;
+        blockAmt += AbstractDungeon.floorNum > 9 ? 3 : 0;
+    }
+
+    protected static int getMaxHP() {
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
+            return 40 + AbstractDungeon.floorNum;
+        return 30 + AbstractDungeon.floorNum;
     }
 
     @Override
@@ -97,13 +120,13 @@ public class KingOfKids extends AbstractMorimensMonster {
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
                 addToBot(new NewWaitAction(0.5F));
                 attackAction(0, AttackEffect.BLUNT_HEAVY);
-                shuffleIn(new Wound());
+                shuffleIn(new Wound(), woundAmt);
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
                 addToBot(new NewWaitAction(0.4F));
-                addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, 2)));
-                addToBot(new GainBlockAction(this, this, 10));
+                addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
+                addToBot(new GainBlockAction(this, this, blockAmt));
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));

@@ -30,14 +30,15 @@ public class Hardhitter extends AbstractMorimensMonster {
     private static final float xOffset = -32;
     private static final float yOffset = 0;
 
-    public Hardhitter(float x, float y) {
-        super(NAME, ID, 50, 240F, 270F, x, y);
+    private int strengthAmt = 2;
+    private int blockAmt = 5;
 
-        // 如果你要做进阶改变血量和伤害意图等，这样写
-        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
-            setHp(45, 55);
-        else
-            setHp(35, 45);
+    public Hardhitter(float x, float y) {
+        this(x, y, 0);
+    }
+
+    public Hardhitter(float x, float y, int turnOffset) {
+        super(NAME, ID, getMaxHP(), 240F, 270F, x, y, turnOffset);
 
         // 怪物伤害意图的数值
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
@@ -49,6 +50,23 @@ public class Hardhitter extends AbstractMorimensMonster {
             addDamage(3, 2);
             addDamage(4, 1);
         }
+
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_MONSTER_ACTION)
+            strengthAmt = 3;
+        else
+            strengthAmt = 2;
+
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
+            blockAmt = 8;
+        else
+            blockAmt = 5;
+        blockAmt += AbstractDungeon.floorNum > 9 ? 2 : 0;
+    }
+
+    protected static int getMaxHP() {
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
+            return 42 + AbstractDungeon.floorNum;
+        return 32 + AbstractDungeon.floorNum;
     }
 
     @Override
@@ -108,8 +126,8 @@ public class Hardhitter extends AbstractMorimensMonster {
             case 0:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
                 addToBot(new NewWaitAction(0.4F));
-                addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, 2)));
-                addToBot(new GainBlockAction(this, this, 5));
+                addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
+                addToBot(new GainBlockAction(this, this, blockAmt));
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
