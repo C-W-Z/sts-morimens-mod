@@ -401,7 +401,15 @@ public class MorimensMod implements
                 new Fastrunner(200, 20)
         }));
 
+        BaseMod.addMonster("1-1-2", () -> new MonsterGroup(new AbstractMonster[] {
+                new Hardhitter(-400, 0),
+                new Hardhitter(-160, -100),
+                new KingOfKids(85, 20),
+                new Fastrunner(300, -50)
+        }));
+
         BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo("1-1-1", 4F));
+        BaseMod.addStrongMonsterEncounter(Exordium.ID, new MonsterInfo("1-1-2", 4F));
     }
 
     @Override
