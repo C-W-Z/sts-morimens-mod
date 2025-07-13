@@ -96,7 +96,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public static ArrayList<Pair<String, Integer>> persistentPowers;
 
-    public AbstractAwakener(String name, PlayerClass setClass, String characterImgPath, final String CORPSE) {
+    public AbstractAwakener(String name, PlayerClass setClass) {
         super(name, setClass,
                 new CustomEnergyOrb(orbTextures, makeCharacterPath("ChaosRealm/orb/vfx.png"), null),
                 new AbstractAnimation() {
@@ -105,10 +105,11 @@ public abstract class AbstractAwakener extends CustomPlayer {
                         return Type.NONE;
                     }
                 });
-        initializeClass(makeCharacterPath(characterImgPath),
+        initializeClass(
+                null,
                 makeCharacterPath("shoulder.png"),
                 makeCharacterPath("shoulder.png"),
-                makeCharacterPath(CORPSE),
+                makeCharacterPath("corpse.png"),
                 getLoadout(),
                 0F, -20F, 300F, 350F, // Character hitbox. x y position, then width and height.
                 new EnergyManager(ENERGY_PER_TURN));

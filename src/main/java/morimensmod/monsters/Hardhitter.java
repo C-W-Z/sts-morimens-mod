@@ -28,9 +28,9 @@ public class Hardhitter extends CustomMonster {
     public static final String ID = makeID(Hardhitter.class.getSimpleName());
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
     public static final String NAME = monsterStrings.NAME;
-    public static final String IMG = makeMonsterPath(removeModID(ID) + "/main.png");
 
-    private static final float offsetX = -32;
+    private static final float xOffset = -32;
+    private static final float yOffset = 0;
 
     private int turn = 0;
 
@@ -45,7 +45,7 @@ public class Hardhitter extends CustomMonster {
         // hitbox大小 - y方向
         // 图片
         // 怪物位置（x,y）
-        super(NAME, ID, 50, 0F, 0F, 241F, 268.F, IMG, x, y);
+        super(NAME, ID, 50, 0F, 0F, 241F, 268.F, null, x, y);
 
         // 如果你要做进阶改变血量和伤害意图等，这样写
         if (AbstractDungeon.ascensionLevel >= 7)
@@ -73,20 +73,20 @@ public class Hardhitter extends CustomMonster {
         animator.addAnimation(
                 ModSettings.MONSTER_IDLE_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_IDLE_ANIM + ".png"),
-                13, 16, 11, true, offsetX, 0);
+                13, 16, 11, true, xOffset, yOffset);
         animator.addAnimation(
                 ModSettings.MONSTER_HIT_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_HIT_ANIM + ".png"),
-                5, 4, 0, false, offsetX + 20F, 0);
+                5, 4, 0, false, xOffset + 20F, yOffset);
         animator.addAnimation(
                 ModSettings.MONSTER_ATTACK_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_ATTACK_ANIM + ".png"),
-                7, 5, 0, false, offsetX - 19F, -14F);
+                7, 5, 0, false, xOffset - 19F, yOffset - 14F);
         // 這個xOffset不知道為什麼特別奇怪
         animator.addAnimation(
                 ModSettings.MONSTER_SKILL1_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_SKILL1_ANIM + ".png"),
-                6, 7, 0, false, offsetX + 29F, 0);
+                6, 7, 0, false, xOffset + 29F, yOffset);
         animator.setDefaultAnim(ModSettings.MONSTER_IDLE_ANIM);
         this.animation = animator;
     }
@@ -102,17 +102,11 @@ public class Hardhitter extends CustomMonster {
     // 当怪物roll意图的时候，这里设置其意图。num是一个0~99的随机数。
     @Override
     public void getMove(int num) {
-        if (turn == 0)
+        if (turn % 3 == 0)
             setMove((byte) 0, Intent.DEFEND_BUFF, 0);
-        else if (turn == 1)
+        else if (turn % 3 == 1)
             setMove((byte) 1, Intent.ATTACK, damage.get(1).base, 2, true);
-        else if (turn == 2)
-            setMove((byte) 2, Intent.ATTACK_DEBUFF, damage.get(2).base);
-        else if (num < 33)
-            setMove((byte) 0, Intent.DEFEND_BUFF, 0);
-        else if (num < 66)
-            setMove((byte) 1, Intent.ATTACK, damage.get(1).base, 2, true);
-        else
+        else if (turn % 3 == 2)
             setMove((byte) 2, Intent.ATTACK_DEBUFF, damage.get(2).base);
     }
 

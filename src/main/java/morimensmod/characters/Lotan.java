@@ -47,7 +47,7 @@ public class Lotan extends AbstractAwakener {
     private static final float yOffset = -12;
 
     public Lotan() {
-        super(NAMES[0], Enums.LOTAN, "Lotan/main.png", "Lotan/main.png");
+        super(NAMES[0], Enums.LOTAN);
         exalt = new BeastOfChaos();
         baseAliemusRegen = 0;
         baseKeyflareRegen = 25;

@@ -47,7 +47,7 @@ public class Ramona extends AbstractAwakener {
     private static final float yOffset = -10;
 
     public Ramona() {
-        super(NAMES[0], Enums.RAMONA, "Ramona/main.png", "Ramona/main.png");
+        super(NAMES[0], Enums.RAMONA);
         exalt = new MundusDecree();
         baseAliemusRegen = 0;
         baseKeyflareRegen = 60;
