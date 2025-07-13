@@ -18,5 +18,55 @@
     "NAME": "The Void Claims All",
     "DIALOG": [],
     "MOVES": []
+  },
+  "${ModID}:DissolutedHumanoid": {
+    "NAME": "Dissoluted Humanoid",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:DissolutedRatKing": {
+    "NAME": "Dissoluted Rat King",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:InterferenceTypeDissolute": {
+    "NAME": "Interference-Type Dissolute",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:CollaborativeDissolute": {
+    "NAME": "Collaborative Dissolute",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:IronPickaxeLucen": {
+    "NAME": "\"Iron Pickaxe\" Lucen",
+    "DIALOG": [],
+    "MOVES": ["颅骨猛击"]
+  },
+  "${ModID}:DSlime": {
+    "NAME": "D-Slime",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:DevouringHowl": {
+    "NAME": "Devouring Howl",
+    "DIALOG": [],
+    "MOVES": ["连续撕咬", "疯狂"]
+  },
+  "${ModID}:Tailor": {
+    "NAME": "Tailor",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:Stonebreaker": {
+    "NAME": "Stonebreaker",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:SkulkerJenkin": {
+    "NAME": "\"Skulker\" Jenkin",
+    "DIALOG": [],
+    "MOVES": ["致伤打击", "集结鼠群", "鼠群冲击", "布朗出动！ "]
   }
 }
