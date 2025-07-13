@@ -19,6 +19,7 @@ import morimensmod.actions.NewWaitAction;
 import morimensmod.cards.status.Wound;
 import morimensmod.misc.Animator;
 import morimensmod.util.ModSettings;
+import morimensmod.util.ModSettings.ASCENSION_LVL;
 
 public class KingOfKids extends AbstractMorimensMonster {
 
@@ -32,12 +33,12 @@ public class KingOfKids extends AbstractMorimensMonster {
     public KingOfKids(float x, float y) {
         super(NAME, ID, 50, 240F, 270F, x, y);
 
-        if (AbstractDungeon.ascensionLevel >= 7)
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
             setHp(45, 55);
         else
             setHp(35, 45);
 
-        if (AbstractDungeon.ascensionLevel >= 2) {
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(10, 1);
             addDamage(0, 0);
             addDamage(6, 2);

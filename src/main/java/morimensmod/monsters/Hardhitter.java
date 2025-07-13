@@ -19,6 +19,7 @@ import basemod.animations.AbstractAnimation;
 import morimensmod.actions.NewWaitAction;
 import morimensmod.misc.Animator;
 import morimensmod.util.ModSettings;
+import morimensmod.util.ModSettings.ASCENSION_LVL;
 
 public class Hardhitter extends AbstractMorimensMonster {
 
@@ -33,13 +34,13 @@ public class Hardhitter extends AbstractMorimensMonster {
         super(NAME, ID, 50, 240F, 270F, x, y);
 
         // 如果你要做进阶改变血量和伤害意图等，这样写
-        if (AbstractDungeon.ascensionLevel >= 7)
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
             setHp(45, 55);
         else
             setHp(35, 45);
 
         // 怪物伤害意图的数值
-        if (AbstractDungeon.ascensionLevel >= 2) {
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(0, 0);
             addDamage(5, 2);
             addDamage(6, 1);

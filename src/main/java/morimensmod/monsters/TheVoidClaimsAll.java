@@ -19,6 +19,7 @@ import basemod.animations.AbstractAnimation;
 import morimensmod.actions.NewWaitAction;
 import morimensmod.misc.Animator;
 import morimensmod.util.ModSettings;
+import morimensmod.util.ModSettings.ASCENSION_LVL;
 
 public class TheVoidClaimsAll extends AbstractMorimensMonster {
 
@@ -32,21 +33,21 @@ public class TheVoidClaimsAll extends AbstractMorimensMonster {
     public TheVoidClaimsAll(float x, float y) {
         super(NAME, ID, 200, 450F, 550F, x, y);
 
-        if (AbstractDungeon.ascensionLevel >= 7)
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_ELITE_HP)
             setHp(200, 220);
         else
             setHp(180, 200);
 
-        if (AbstractDungeon.ascensionLevel >= 2) {
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_ELITE_DMG) {
+            addDamage(14, 1);
+            addDamage(18, 1);
+            addDamage(9, 3);
+            addDamage(10, 2);
+        } else {
             addDamage(12, 1);
             addDamage(16, 1);
             addDamage(7, 3);
             addDamage(8, 2);
-        } else {
-            addDamage(10, 1);
-            addDamage(14, 1);
-            addDamage(5, 3);
-            addDamage(6, 2);
         }
     }
 
