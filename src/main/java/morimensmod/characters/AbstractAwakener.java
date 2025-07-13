@@ -8,10 +8,11 @@ import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.actions.PosseAction;
 import morimensmod.exalts.AbstractExalt;
+import morimensmod.misc.Animator;
 import morimensmod.misc.PosseType;
-import morimensmod.misc.SpriteSheetAnimation;
 import morimensmod.patches.CustomTags;
 import morimensmod.powers.AbstractPersistentPower;
+import morimensmod.util.ModSettings;
 import morimensmod.util.PersistentPowerLib;
 import morimensmod.cards.posses.AbstractPosse;
 
@@ -20,6 +21,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
@@ -92,19 +94,12 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public static final int ENERGY_PER_TURN = 5;
 
-    public SpriteSheetAnimation anim = null;
-
     public static ArrayList<Pair<String, Integer>> persistentPowers;
 
-    public AbstractAwakener(String name, PlayerClass setClass) {
+    public AbstractAwakener(String name, PlayerClass setClass, AbstractAnimation anim) {
         super(name, setClass,
                 new CustomEnergyOrb(orbTextures, makeCharacterPath("ChaosRealm/orb/vfx.png"), null),
-                new AbstractAnimation() {
-                    @Override
-                    public Type type() {
-                        return Type.NONE;
-                    }
-                });
+                anim);
         initializeClass(
                 null,
                 makeCharacterPath("shoulder.png"),
@@ -121,6 +116,21 @@ public abstract class AbstractAwakener extends CustomPlayer {
         keyflare = 0;
 
         persistentPowers = new ArrayList<>();
+    }
+
+    @Override
+    public void damage(DamageInfo info) {
+        int hp = currentHealth;
+        int block = currentBlock;
+        super.damage(info);
+        if (!(this.animation instanceof Animator))
+            return;
+        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > 0) {
+            if (hp == currentHealth && block > 0 && currentBlock >= 0)
+                ((Animator) this.animation).setAnimation(ModSettings.PLAYER_DEFENCE_ANIM);
+            else
+                ((Animator) this.animation).setAnimation(ModSettings.PLAYER_HIT_ANIM);
+        }
     }
 
     public void setPosse(AbstractPosse posse) {

@@ -11,11 +11,9 @@ import morimensmod.relics.LotanRelic;
 import morimensmod.util.ModSettings;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -47,17 +45,19 @@ public class Lotan extends AbstractAwakener {
     private static final float yOffset = -12;
 
     public Lotan() {
-        super(NAMES[0], Enums.LOTAN);
+        super(NAMES[0], Enums.LOTAN, getAnimation());
         exalt = new BeastOfChaos();
         baseAliemusRegen = 0;
         baseKeyflareRegen = 25;
         deathResistance = 100;
         baseRealmMastery = 50;
+    }
 
+    private static AbstractAnimation getAnimation() {
         Animator animator = new Animator();
         animator.addAnimation(
                 ModSettings.PLAYER_IDLE_ANIM,
-                makeCharacterPath(removeModID(ID) + "/"+ ModSettings.PLAYER_IDLE_ANIM + ".png"),
+                makeCharacterPath(removeModID(ID) + "/" + ModSettings.PLAYER_IDLE_ANIM + ".png"),
                 9, 7, 2, true, xOffset, yOffset);
         animator.addAnimation(
                 ModSettings.PLAYER_HIT_ANIM,
@@ -72,26 +72,7 @@ public class Lotan extends AbstractAwakener {
                 makeCharacterPath(removeModID(ID) + "/" + ModSettings.PLAYER_ATTACK_ANIM + ".png"),
                 9, 3, 2, false, xOffset + 199.5F, yOffset);
         animator.setDefaultAnim(ModSettings.PLAYER_IDLE_ANIM);
-        this.animation = animator;
-
-        // in AbstractPlayer.render(), there's
-        // if (this.atlas != null && !this.renderCorpse) {
-        //     this.renderPlayerImage(sb);
-        if (animation.type() != AbstractAnimation.Type.NONE)
-            this.atlas = new TextureAtlas();
-    }
-
-    @Override
-    public void damage(DamageInfo info) {
-        int hp = currentHealth;
-        int block = currentBlock;
-        super.damage(info);
-        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > 0) {
-            if (hp == currentHealth && block > 0 && currentBlock >= 0)
-                ((Animator) this.animation).setAnimation("Defence");
-            else
-                ((Animator) this.animation).setAnimation("Hit");
-        }
+        return animator;
     }
 
     public static void register() {
