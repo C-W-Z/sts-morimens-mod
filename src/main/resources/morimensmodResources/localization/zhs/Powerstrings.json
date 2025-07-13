@@ -56,6 +56,14 @@
     "NAME": "延迟强化",
     "DESCRIPTIONS": ["下回合开始时，获得 #b%d 层 #y强化 。"]
   },
+  "${ModID}:MadnessPower": {
+    "NAME": "疯狂",
+    "DESCRIPTIONS": ["攻击次数 #b+%d 。"]
+  },
+  "${ModID}:TmpMadnessPower": {
+    "NAME": "临时疯狂",
+    "DESCRIPTIONS": ["本回合攻击次数 #b+%d 。"]
+  },
   "${ModID}:FirstDoctrinePower": {
     "NAME": "第一哲学",
     "DESCRIPTIONS": [

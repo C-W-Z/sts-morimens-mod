@@ -56,6 +56,14 @@
     "NAME": "延遲強化",
     "DESCRIPTIONS": ["下回合開始時，獲得 #b%d 層 #y強化 。"]
   },
+  "${ModID}:MadnessPower": {
+    "NAME": "瘋狂",
+    "DESCRIPTIONS": ["攻擊次數 #b+%d 。"]
+  },
+  "${ModID}:TmpMadnessPower": {
+    "NAME": "臨時瘋狂",
+    "DESCRIPTIONS": ["本回合攻擊次數 #b+%d 。"]
+  },
   "${ModID}:FirstDoctrinePower": {
     "NAME": "第一哲學",
     "DESCRIPTIONS": [
