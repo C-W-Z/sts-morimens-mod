@@ -277,7 +277,7 @@
   },
   "${ModID}:DefensiveStance": {
     "NAME": "Defensive Stance",
-    "DESCRIPTION": "Double your Block."
+    "DESCRIPTION": "Double your Block. NL Counts as ${ModID}:Defend."
   },
   "${ModID}:InsightStrike": {
     "NAME": "Insight Strike",

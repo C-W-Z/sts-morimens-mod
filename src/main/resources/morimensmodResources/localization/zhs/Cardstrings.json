@@ -271,11 +271,11 @@
   },
   "${ModID}:PrecisionSlash": {
     "NAME": "心眼利刃",
-    "DESCRIPTION": "造成 !D! 点伤害。每 !M! 点 格挡 使伤害提高 1 点。在本回合中每打出 1 张「 ${ModID}:防御 」， [E] 消耗减少 1 点。 NL 视为「 打击 」 "
+    "DESCRIPTION": "造成 !D! 点伤害。每 !M! 点 格挡 使伤害提高 1 点。在本回合中每打出 1 张「 ${ModID}:防御 」， [E] 消耗减少 1 点。 NL 视为「 打击 」"
   },
   "${ModID}:DefensiveStance": {
     "NAME": "防御姿态",
-    "DESCRIPTION": "使 格挡 翻倍。"
+    "DESCRIPTION": "使 格挡 翻倍。 NL 视为「 ${ModID}:防御 」"
   },
   "${ModID}:InsightStrike": {
     "NAME": "心眼打击",

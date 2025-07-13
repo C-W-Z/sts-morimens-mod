@@ -271,11 +271,11 @@
   },
   "${ModID}:PrecisionSlash": {
     "NAME": "心眼利刃",
-    "DESCRIPTION": "造成 !D! 點傷害。每 !M! 點 格擋 使傷害提高 1 點。在本回合中每打出 1 張「 ${ModID}:防禦 」， [E] 消耗減少 1 點。 NL 視為「 打擊 」 "
+    "DESCRIPTION": "造成 !D! 點傷害。每 !M! 點 格擋 使傷害提高 1 點。在本回合中每打出 1 張「 ${ModID}:防禦 」， [E] 消耗減少 1 點。 NL 視為「 打擊 」"
   },
   "${ModID}:DefensiveStance": {
     "NAME": "防禦姿態",
-    "DESCRIPTION": "使 格擋 翻倍。"
+    "DESCRIPTION": "使 格擋 翻倍。 NL 視為「 ${ModID}:防禦 」"
   },
   "${ModID}:InsightStrike": {
     "NAME": "心眼打擊",
