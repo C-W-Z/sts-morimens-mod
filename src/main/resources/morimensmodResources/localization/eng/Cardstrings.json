@@ -451,8 +451,8 @@
   },
   "${ModID}:HandOfOblivion": {
     "NAME": "Hand of Oblivion",
-    "DESCRIPTION": "Place 1 \"Strike\" into your hand. Base Strike Damage +!${ModID}:M2!%. NL ${ModID}:Prepare 1.",
-    "UPGRADE_DESCRIPTION": " ${ModID}:Passive: Base Strike Damage +!M!%. NL Place 1 \"Strike\" into your hand. Base Strike Damage +!${ModID}:M2!%. NL ${ModID}:Prepare 1."
+    "DESCRIPTION": "Place 1 \"Strike\" into your hand. Base Damage of Strike +!${ModID}:M2!%. NL ${ModID}:Prepare 1.",
+    "UPGRADE_DESCRIPTION": " ${ModID}:Passive: Base Damage of Strike +!M!%. NL Place 1 \"Strike\" into your hand. Base Damage of Strike +!${ModID}:M2!%. NL ${ModID}:Prepare 1."
   },
   "${ModID}:Insight": {
     "NAME": "Insight",
