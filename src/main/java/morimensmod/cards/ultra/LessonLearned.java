@@ -12,10 +12,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.patches.CustomTags;
 
-public class EndlessLearning extends AbstractEasyCard {
-    public final static String ID = makeID(EndlessLearning.class.getSimpleName());
+public class LessonLearned extends AbstractEasyCard {
+    public final static String ID = makeID(LessonLearned.class.getSimpleName());
 
-    public EndlessLearning() {
+    public LessonLearned() {
         super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY, ULTRA_COLOR);
         tags.add(CustomTags.COMMAND);
         damage = baseDamage = 10;

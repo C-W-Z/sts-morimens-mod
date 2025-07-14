@@ -346,8 +346,8 @@
     "DESCRIPTION": " 易傷 自身， ${ModID}:延遲 ：抽 !${ModID}:DR! 張牌。",
     "UPGRADE_DESCRIPTION": " 易傷 自身，抽 !${ModID}:DR! 張牌並使其獲得 ${ModID}:臨時 保留 。"
   },
-  "${ModID}:EndlessLearning": {
-    "NAME": "學海無涯",
+  "${ModID}:LessonLearned": {
+    "NAME": "勤學精進",
     "DESCRIPTION": "造成 !D! 點 傷害。 斬殺 時， 升級 牌組中的 1 張隨機牌。"
   },
   "${ModID}:DuskAndDawn": {
