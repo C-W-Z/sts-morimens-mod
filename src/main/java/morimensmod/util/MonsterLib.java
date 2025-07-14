@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.function.Supplier;
 
 import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
@@ -14,6 +15,7 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import basemod.BaseMod;
 import basemod.BaseMod.GetMonsterGroup;
 import morimensmod.monsters.CollaborativeDissolute;
+import morimensmod.monsters.DissolutedRatKing;
 import morimensmod.monsters.Fastrunner;
 import morimensmod.monsters.Hardhitter;
 import morimensmod.monsters.InterferenceTypeDissolute;
@@ -89,10 +91,10 @@ public class MonsterLib {
         weakEncounters.put(
                 "1-1-2",
                 new MonsterEncounter(() -> new AbstractMonster[] {
-                        new Hardhitter(-400, 0),
-                        new Hardhitter(-160, -100, 2),
-                        new KingOfKids(85, 20),
-                        new Fastrunner(300, -50)
+                        new Hardhitter(-400, 20),
+                        new Hardhitter(-160, -80, 2),
+                        new KingOfKids(85, 40),
+                        new Fastrunner(300, -30)
                 }, Exordium.ID, 4));
 
         /* ================================================== */
@@ -108,18 +110,19 @@ public class MonsterLib {
         weakEncounters.put(
                 makeID("1-1-2"),
                 new MonsterEncounter(() -> new AbstractMonster[] {
-                        new Hardhitter(-400, 0),
-                        new Hardhitter(-160, -100, 2),
-                        new KingOfKids(85, 20),
-                        new Fastrunner(300, -50)
+                        new Hardhitter(-400, 20),
+                        new Hardhitter(-160, -80, 2),
+                        new KingOfKids(85, 40),
+                        new Fastrunner(300, -30)
                 }, Exordium.ID, 4));
 
         weakEncounters.put(
-                makeID("test"),
+                makeID("1-2-2"),
                 new MonsterEncounter(() -> new AbstractMonster[] {
-                        new CollaborativeDissolute(-300, 0),
-                        new InterferenceTypeDissolute(100, 0)
-                }, Exordium.ID, 99));
+                        new CollaborativeDissolute(-400, -10),
+                        new DissolutedRatKing(-170, 10),
+                        new InterferenceTypeDissolute(110, -20)
+                }, new String[] { Exordium.ID, TheCity.ID }, 3));
 
         eliteEncounters.put(
                 TheVoidClaimsAll.ID,

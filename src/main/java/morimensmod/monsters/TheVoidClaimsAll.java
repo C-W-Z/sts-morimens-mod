@@ -42,7 +42,7 @@ public class TheVoidClaimsAll extends AbstractMorimensMonster {
     public TheVoidClaimsAll(float x, float y, int turnOffset) {
         super(NAME, ID, getMaxHP(), 450F, 550F, x, y, turnOffset);
 
-        int dmgAddition = AbstractDungeon.floorNum > 9 ? 1 : 0;
+        int dmgAddition = AbstractDungeon.floorNum / 17;
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_ELITE_DMG) {
             addDamage(dmgAddition + 13, 1);
@@ -57,11 +57,11 @@ public class TheVoidClaimsAll extends AbstractMorimensMonster {
         }
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_ELITE_ACTION) {
-            strengthAmt = 4;
+            strengthAmt = 4 + AbstractDungeon.floorNum / 25;
             weakAmt = 3;
             frailAmt = 3;
         } else {
-            strengthAmt = 3;
+            strengthAmt = 3 + AbstractDungeon.floorNum / 25;
             weakAmt = 2;
             frailAmt = 2;
         }

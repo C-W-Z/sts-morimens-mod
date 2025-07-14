@@ -40,27 +40,28 @@ public class Hardhitter extends AbstractMorimensMonster {
     public Hardhitter(float x, float y, int turnOffset) {
         super(NAME, ID, getMaxHP(), 240F, 270F, x, y, turnOffset);
 
+        int dmgAddition = AbstractDungeon.floorNum / 17;
+
         // 怪物伤害意图的数值
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(0, 0);
-            addDamage(5, 2);
-            addDamage(6, 1);
+            addDamage(dmgAddition + 5, 2);
+            addDamage(dmgAddition + 6, 1);
         } else {
             addDamage(0, 0);
-            addDamage(3, 2);
-            addDamage(4, 1);
+            addDamage(dmgAddition + 3, 2);
+            addDamage(dmgAddition + 4, 1);
         }
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_MONSTER_ACTION)
-            strengthAmt = 3;
+            strengthAmt = 3 + AbstractDungeon.floorNum / 25;
         else
-            strengthAmt = 2;
+            strengthAmt = 2 + AbstractDungeon.floorNum / 25;
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
-            blockAmt = 8;
+            blockAmt = 8 + AbstractDungeon.floorNum / 5;
         else
-            blockAmt = 5;
-        blockAmt += AbstractDungeon.floorNum > 9 ? 2 : 0;
+            blockAmt = 5 + AbstractDungeon.floorNum / 5;
     }
 
     protected static int getMaxHP() {

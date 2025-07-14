@@ -42,26 +42,27 @@ public class CollaborativeDissolute extends AbstractMorimensMonster {
     public CollaborativeDissolute(float x, float y, int turnOffset) {
         super(NAME, ID, getMaxHP(), 150F, 290F, x, y, turnOffset);
 
+        int dmgAddition = AbstractDungeon.floorNum / 17;
+
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
-            addDamage(5, 1);
-            addDamage(5, 2);
+            addDamage(dmgAddition + 5, 1);
+            addDamage(dmgAddition + 5, 2);
             addDamage(0, 0);
         } else {
-            addDamage(3, 1);
-            addDamage(3, 2);
+            addDamage(dmgAddition + 3, 1);
+            addDamage(dmgAddition + 3, 2);
             addDamage(0, 0);
         }
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_MONSTER_ACTION) {
-            strengthDownAmt = 2;
-            blockAmt = 10;
-            strengthAmt = 2;
+            strengthDownAmt = 2 + AbstractDungeon.floorNum / 25;
+            blockAmt = 10 + AbstractDungeon.floorNum / 2;
+            strengthAmt = 2 + AbstractDungeon.floorNum / 25;
         } else {
-            strengthDownAmt = 1;
-            blockAmt = 5;
-            strengthAmt = 1;
+            strengthDownAmt = 1 + AbstractDungeon.floorNum / 25;
+            blockAmt = 5 + AbstractDungeon.floorNum / 2;
+            strengthAmt = 1 + AbstractDungeon.floorNum / 25;
         }
-        blockAmt += AbstractDungeon.floorNum / 2;
     }
 
     protected static int getMaxHP() {
@@ -85,7 +86,6 @@ public class CollaborativeDissolute extends AbstractMorimensMonster {
                 ModSettings.MONSTER_ATTACK_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_ATTACK_ANIM + ".png"),
                 8, 6, 2, false, xOffset + 24.5F, yOffset - 16F);
-        // 這個xOffset不知道為什麼特別奇怪
         animator.addAnimation(
                 ModSettings.MONSTER_SKILL1_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_SKILL1_ANIM + ".png"),
@@ -98,7 +98,7 @@ public class CollaborativeDissolute extends AbstractMorimensMonster {
     public void getMove(int num) {
         switch (turn % 3) {
             case 0:
-                setAttackIntent(0, Intent.ATTACK);
+                setAttackIntent(0, Intent.ATTACK_DEBUFF);
                 break;
             case 1:
                 setAttackIntent(1, Intent.ATTACK);
