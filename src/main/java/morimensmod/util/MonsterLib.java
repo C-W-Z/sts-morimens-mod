@@ -16,6 +16,7 @@ import basemod.BaseMod.GetMonsterGroup;
 import morimensmod.monsters.CollaborativeDissolute;
 import morimensmod.monsters.Fastrunner;
 import morimensmod.monsters.Hardhitter;
+import morimensmod.monsters.InterferenceTypeDissolute;
 import morimensmod.monsters.KingOfKids;
 import morimensmod.monsters.TheVoidClaimsAll;
 
@@ -116,8 +117,8 @@ public class MonsterLib {
         weakEncounters.put(
                 makeID("test"),
                 new MonsterEncounter(() -> new AbstractMonster[] {
-                        new CollaborativeDissolute(-100, 0),
-                        new CollaborativeDissolute(100, 0)
+                        new CollaborativeDissolute(-300, 0),
+                        new InterferenceTypeDissolute(100, 0)
                 }, Exordium.ID, 99));
 
         eliteEncounters.put(

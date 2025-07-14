@@ -3,71 +3,70 @@ package morimensmod.monsters;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.MorimensMod.makeMonsterPath;
 import static morimensmod.util.General.removeModID;
-import static morimensmod.util.Wiz.p;
+import static morimensmod.util.Wiz.shuffleIn;
 
-import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import basemod.animations.AbstractAnimation;
-import morimensmod.actions.AllEnemyGainBlockAction;
 import morimensmod.actions.NewWaitAction;
+import morimensmod.cards.status.Convulsion;
 import morimensmod.misc.Animator;
 import morimensmod.util.ModSettings;
 import morimensmod.util.ModSettings.ASCENSION_LVL;
 
-public class CollaborativeDissolute extends AbstractMorimensMonster {
+public class InterferenceTypeDissolute extends AbstractMorimensMonster {
 
-    public static final String ID = makeID(CollaborativeDissolute.class.getSimpleName());
+    public static final String ID = makeID(InterferenceTypeDissolute.class.getSimpleName());
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
     public static final String NAME = monsterStrings.NAME;
 
     private static final float xOffset = 0;
-    private static final float yOffset = 0;
+    private static final float yOffset = -15;
 
-    private int strengthDownAmt = 1;
+    private int convulsionAmt = 1;
     private int blockAmt = 5;
-    private int strengthAmt = 1;
+    private int strengthAmt = 2;
 
-    public CollaborativeDissolute(float x, float y) {
+    public InterferenceTypeDissolute(float x, float y) {
         this(x, y, 0);
     }
 
-    public CollaborativeDissolute(float x, float y, int turnOffset) {
-        super(NAME, ID, getMaxHP(), 150F, 290F, x, y, turnOffset);
+    public InterferenceTypeDissolute(float x, float y, int turnOffset) {
+        super(NAME, ID, getMaxHP(), 240F, 450F, x, y, turnOffset);
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
-            addDamage(5, 1);
-            addDamage(5, 2);
             addDamage(0, 0);
+            addDamage(12, 1);
         } else {
-            addDamage(3, 1);
-            addDamage(3, 2);
             addDamage(0, 0);
+            addDamage(10, 1);
         }
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_MONSTER_ACTION) {
-            strengthDownAmt = 2;
-            blockAmt = 10;
-            strengthAmt = 2;
+            convulsionAmt = 2;
+            strengthAmt = 3;
         } else {
-            strengthDownAmt = 1;
-            blockAmt = 5;
-            strengthAmt = 1;
+            convulsionAmt = 1;
+            strengthAmt = 2;
         }
-        blockAmt += AbstractDungeon.floorNum / 2;
+
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
+            blockAmt = 12;
+        else
+            blockAmt = 8;
     }
 
     protected static int getMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
-            return 35 + AbstractDungeon.floorNum;
-        return 25 + AbstractDungeon.floorNum;
+            return 50 + AbstractDungeon.floorNum;
+        return 40 + AbstractDungeon.floorNum;
     }
 
     @Override
@@ -76,35 +75,32 @@ public class CollaborativeDissolute extends AbstractMorimensMonster {
         animator.addAnimation(
                 ModSettings.MONSTER_IDLE_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_IDLE_ANIM + ".png"),
-                7, 29, 2, true, xOffset, yOffset);
+                9, 23, 6, true, xOffset, yOffset);
         animator.addAnimation(
                 ModSettings.MONSTER_HIT_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_HIT_ANIM + ".png"),
-                5, 4, 0, false, xOffset + 44F, yOffset + 3F);
+                4, 5, 0, false, xOffset + 33.5F, yOffset + 15F);
         animator.addAnimation(
                 ModSettings.MONSTER_ATTACK_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_ATTACK_ANIM + ".png"),
-                8, 6, 2, false, xOffset + 24.5F, yOffset - 16F);
+                8, 5, 2, false, xOffset - 116F, yOffset + 15F);
         // 這個xOffset不知道為什麼特別奇怪
         animator.addAnimation(
                 ModSettings.MONSTER_SKILL1_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_SKILL1_ANIM + ".png"),
-                6, 9, 1, false, xOffset - 2F, yOffset - 64.5F);
+                6, 10, 1, false, xOffset + 120.5F, yOffset - 308.5F);
         animator.setDefaultAnim(ModSettings.MONSTER_IDLE_ANIM);
         return animator;
     }
 
     @Override
     public void getMove(int num) {
-        switch (turn % 3) {
+        switch (turn % 2) {
             case 0:
-                setAttackIntent(0, Intent.ATTACK);
+                setMove((byte) 0, Intent.DEFEND_DEBUFF, 0);
                 break;
             case 1:
                 setAttackIntent(1, Intent.ATTACK);
-                break;
-            case 2:
-                setMove((byte) 2, Intent.DEFEND_BUFF, 0);
                 break;
         }
     }
@@ -113,22 +109,16 @@ public class CollaborativeDissolute extends AbstractMorimensMonster {
     public void takeTurn() {
         switch (nextMove) {
             case 0:
-                addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(20F / 30F));
-                attackAction(nextMove, AttackEffect.NONE);
-                addToBot(new ApplyPowerAction(p(), this, new StrengthPower(p(), -strengthDownAmt)));
-                addToBot(new ApplyPowerAction(p(), this, new GainStrengthPower(p(), strengthDownAmt)));
+                addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
+                addToBot(new NewWaitAction(31F / 30F));
+                addToBot(new GainBlockAction(this, blockAmt));
+                shuffleIn(new Convulsion(), convulsionAmt);
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(20F / 30F));
+                addToBot(new NewWaitAction(19F / 30F));
                 attackAction(nextMove, AttackEffect.NONE);
-                break;
-            case 2:
-                addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
-                addToBot(new NewWaitAction(22F / 30F));
-                addToBot(new AllEnemyApplyPowerAction(this, strengthAmt, (m) -> new StrengthPower(m, strengthAmt)));
-                addToBot(new AllEnemyGainBlockAction(this, blockAmt));
+                addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
                 break;
         }
 
