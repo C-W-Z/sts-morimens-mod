@@ -271,11 +271,11 @@
   },
   "${ModID}:PrecisionSlash": {
     "NAME": "心眼利刃",
-    "DESCRIPTION": "造成 !D! 点伤害。每 !M! 点 格挡 使伤害提高 1 点。在本回合中每打出 1 张「 ${ModID}:防御 」， [E] 消耗减少 1 点。 NL 视为「 打击 」 "
+    "DESCRIPTION": "造成 !D! 点伤害。每 !M! 点 格挡 使伤害提高 1 点。在本回合中每打出 1 张「 ${ModID}:防御 」， [E] 消耗减少 1 点。 NL 视为「 打击 」"
   },
   "${ModID}:DefensiveStance": {
     "NAME": "防御姿态",
-    "DESCRIPTION": "使 格挡 翻倍。"
+    "DESCRIPTION": "使 格挡 翻倍。 NL 视为「 ${ModID}:防御 」"
   },
   "${ModID}:InsightStrike": {
     "NAME": "心眼打击",
@@ -345,6 +345,10 @@
     "NAME": "伟大的牺牲",
     "DESCRIPTION": " 易伤 自身， ${ModID}:延迟 ：抽 !${ModID}:DR! 张牌。",
     "UPGRADE_DESCRIPTION": " 易伤 自身，抽 !${ModID}:DR! 张牌并使其获得 ${ModID}:临时 保留 。"
+  },
+  "${ModID}:LessonLearned": {
+    "NAME": "勤学精进",
+    "DESCRIPTION": "造成 !D! 点 伤害。 斩杀 时， 升级 牌组中的 1 张随机牌。"
   },
   "${ModID}:DuskAndDawn": {
     "NAME": "极夜与破晓",

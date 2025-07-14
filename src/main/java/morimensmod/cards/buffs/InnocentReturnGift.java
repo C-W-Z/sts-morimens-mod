@@ -17,7 +17,7 @@ public class InnocentReturnGift extends AbstractBuffCard implements StartupCard 
     public InnocentReturnGift() {
         super(ID, 1, CardRarity.RARE, CardTarget.SELF);
         tags.add(CustomTags.REUSE);
-        aliemus = baseAliemus = 30;
+        aliemus = baseAliemus = 60;
         magicNumber = baseMagicNumber = 1;
         ExhaustiveVariable.setBaseValue(this, magicNumber);
         selfRetain = true;
@@ -30,7 +30,7 @@ public class InnocentReturnGift extends AbstractBuffCard implements StartupCard 
 
     @Override
     public boolean canUpgrade() {
-        return (timesUpgraded < 3);
+        return (timesUpgraded < 2);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class InnocentReturnGift extends AbstractBuffCard implements StartupCard 
         if (!canUpgrade())
             return;
         this.upgradeName();
-        if (timesUpgraded == 3)
+        if (timesUpgraded == 2)
             this.uDesc();
         this.upp();
     }
@@ -54,10 +54,8 @@ public class InnocentReturnGift extends AbstractBuffCard implements StartupCard 
     @Override
     public void upp() {
         if (timesUpgraded == 1)
-            upgradeAliemus(30);
-        else if (timesUpgraded == 2)
             upgradeBaseCost(0);
-        else if (timesUpgraded == 3) {
+        else if (timesUpgraded == 2) {
             upgradeMagicNumber(2);
             if (isInBossCombat())
                 triggerOnBossCombat();
@@ -66,7 +64,7 @@ public class InnocentReturnGift extends AbstractBuffCard implements StartupCard 
 
     @Override
     public boolean atBattleStartPreDraw() {
-        if (timesUpgraded == 3 && isInBossCombat())
+        if (timesUpgraded == 2 && isInBossCombat())
             triggerOnBossCombat();
         return false;
     }

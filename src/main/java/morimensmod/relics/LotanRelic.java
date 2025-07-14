@@ -13,7 +13,7 @@ import morimensmod.cards.AbstractEasyCard;
 public class LotanRelic extends AbstractEasyRelic {
     public static final String ID = makeID(LotanRelic.class.getSimpleName());
 
-    private static final int STRIKE_BASE_AMPLIFY = 30;
+    private static final int STRIKE_BASE_AMPLIFY = 20;
     private static final int BASE_AMPLIFY_PER_ATTACK = 2;
 
     public LotanRelic() {

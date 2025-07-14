@@ -18,5 +18,55 @@
     "NAME": "萬物寂滅",
     "DIALOG": [],
     "MOVES": []
+  },
+  "${ModID}:DissolutedHumanoid": {
+    "NAME": "融蝕人形",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:DissolutedRatKing": {
+    "NAME": "融蝕鼠王",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:InterferenceTypeDissolute": {
+    "NAME": "干涉型融蝕體",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:CollaborativeDissolute": {
+    "NAME": "協作型融蝕體",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:IronPickaxeLucen": {
+    "NAME": "「鐵鎬」盧森",
+    "DIALOG": [],
+    "MOVES": ["顱骨猛擊"]
+  },
+  "${ModID}:DSlime": {
+    "NAME": "融蝕漿",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:DevouringHowl": {
+    "NAME": "吞噬之吠",
+    "DIALOG": [],
+    "MOVES": ["連續撕咬", "瘋狂"]
+  },
+  "${ModID}:Tailor": {
+    "NAME": "裁縫",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:Stonebreaker": {
+    "NAME": "碎石工",
+    "DIALOG": [],
+    "MOVES": []
+  },
+  "${ModID}:SkulkerJenkin": {
+    "NAME": "「竄行者」詹金",
+    "DIALOG": [],
+    "MOVES": ["致傷打擊", "集結鼠群", "鼠群衝擊", "布朗出動！"]
   }
 }

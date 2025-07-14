@@ -74,7 +74,7 @@ public class BeastOfChaos extends AbstractExalt {
         int count = 0;
         for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
             centerX += m.hb.cX;
-            centerY += m.hb.cY;
+            centerY += m.hb.cY - m.hb.height / 4;
             count++;
         }
         if (count > 0) {
@@ -84,7 +84,7 @@ public class BeastOfChaos extends AbstractExalt {
 
         atb(new VFXAction(new SpriteSheetAttackEffect(
                 "Cetacean", 7, 5, 2,
-                centerX, centerY, -108, 64, false, false),
+                centerX, centerY, -108, 96, false, false),
                 0F));
 
         actB(() -> {

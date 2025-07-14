@@ -271,11 +271,11 @@
   },
   "${ModID}:PrecisionSlash": {
     "NAME": "心眼利刃",
-    "DESCRIPTION": "造成 !D! 點傷害。每 !M! 點 格擋 使傷害提高 1 點。在本回合中每打出 1 張「 ${ModID}:防禦 」， [E] 消耗減少 1 點。 NL 視為「 打擊 」 "
+    "DESCRIPTION": "造成 !D! 點傷害。每 !M! 點 格擋 使傷害提高 1 點。在本回合中每打出 1 張「 ${ModID}:防禦 」， [E] 消耗減少 1 點。 NL 視為「 打擊 」"
   },
   "${ModID}:DefensiveStance": {
     "NAME": "防禦姿態",
-    "DESCRIPTION": "使 格擋 翻倍。"
+    "DESCRIPTION": "使 格擋 翻倍。 NL 視為「 ${ModID}:防禦 」"
   },
   "${ModID}:InsightStrike": {
     "NAME": "心眼打擊",
@@ -345,6 +345,10 @@
     "NAME": "偉大的犧牲",
     "DESCRIPTION": " 易傷 自身， ${ModID}:延遲 ：抽 !${ModID}:DR! 張牌。",
     "UPGRADE_DESCRIPTION": " 易傷 自身，抽 !${ModID}:DR! 張牌並使其獲得 ${ModID}:臨時 保留 。"
+  },
+  "${ModID}:LessonLearned": {
+    "NAME": "勤學精進",
+    "DESCRIPTION": "造成 !D! 點 傷害。 斬殺 時， 升級 牌組中的 1 張隨機牌。"
   },
   "${ModID}:DuskAndDawn": {
     "NAME": "極夜與破曉",

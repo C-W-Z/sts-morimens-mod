@@ -3,98 +3,93 @@ package morimensmod.monsters;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.MorimensMod.makeMonsterPath;
 import static morimensmod.util.General.removeModID;
-import static morimensmod.util.Wiz.shuffleIn;
+import static morimensmod.util.Wiz.p;
 
+import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import basemod.animations.AbstractAnimation;
+import morimensmod.actions.AllEnemyGainBlockAction;
 import morimensmod.actions.NewWaitAction;
-import morimensmod.cards.status.Wound;
 import morimensmod.misc.Animator;
 import morimensmod.util.ModSettings;
 import morimensmod.util.ModSettings.ASCENSION_LVL;
 
-public class KingOfKids extends AbstractMorimensMonster {
+public class CollaborativeDissolute extends AbstractMorimensMonster {
 
-    public static final String ID = makeID(KingOfKids.class.getSimpleName());
+    public static final String ID = makeID(CollaborativeDissolute.class.getSimpleName());
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
     public static final String NAME = monsterStrings.NAME;
 
-    private static final float xOffset = -32;
+    private static final float xOffset = 0;
     private static final float yOffset = 0;
 
-    private int woundAmt = 1;
-    private int strengthAmt = 2;
-    private int blockAmt = 10;
+    private int strengthDownAmt = 1;
+    private int blockAmt = 5;
+    private int strengthAmt = 1;
 
-    public KingOfKids(float x, float y) {
+    public CollaborativeDissolute(float x, float y) {
         this(x, y, 0);
     }
 
-    public KingOfKids(float x, float y, int turnOffset) {
-        super(NAME, ID, getMaxHP(), 240F, 270F, x, y, turnOffset);
+    public CollaborativeDissolute(float x, float y, int turnOffset) {
+        super(NAME, ID, getMaxHP(), 150F, 290F, x, y, turnOffset);
 
-        int dmgAddition = AbstractDungeon.floorNum / 17;
+        int dmgAddition = 2 * AbstractDungeon.floorNum / 17;
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
-            addDamage(dmgAddition + 10, 1);
+            addDamage(dmgAddition + 5, 1);
+            addDamage(dmgAddition + 5, 2);
             addDamage(0, 0);
-            addDamage(dmgAddition + 6, 2);
         } else {
-            addDamage(dmgAddition + 8, 1);
+            addDamage(dmgAddition + 3, 1);
+            addDamage(dmgAddition + 3, 2);
             addDamage(0, 0);
-            addDamage(dmgAddition + 4, 2);
         }
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_MONSTER_ACTION) {
-            woundAmt = 2;
-            strengthAmt = 3 + AbstractDungeon.floorNum / 25;
-        } else {
-            woundAmt = 1;
+            strengthDownAmt = 2 + AbstractDungeon.floorNum / 25;
+            blockAmt = 10 + AbstractDungeon.floorNum / 2;
             strengthAmt = 2 + AbstractDungeon.floorNum / 25;
+        } else {
+            strengthDownAmt = 1 + AbstractDungeon.floorNum / 25;
+            blockAmt = 5 + AbstractDungeon.floorNum / 2;
+            strengthAmt = 1 + AbstractDungeon.floorNum / 25;
         }
-
-        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
-            blockAmt = 10 + AbstractDungeon.floorNum / 4;
-        else
-            blockAmt = 7 + AbstractDungeon.floorNum / 4;
     }
 
     protected static int getMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
-            return 40 + AbstractDungeon.floorNum;
-        return 30 + AbstractDungeon.floorNum;
+            return 35 + 3 * AbstractDungeon.floorNum / 2;
+        return 25 + 3 * AbstractDungeon.floorNum / 2;
     }
 
     @Override
     protected AbstractAnimation getAnimation() {
-        // xOffset是Idle_1和另一張圖置中疊在一起之後，另一張要水平移動多少距離才會和Idle_1水平位置重合
-        // yOffset是Idle_1和另一張貼圖齊底部疊在一起後，另一張要垂直移動多少才會和Idle_1高度相同
         Animator animator = new Animator();
         animator.addAnimation(
                 ModSettings.MONSTER_IDLE_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_IDLE_ANIM + ".png"),
-                12, 17, 7, true, xOffset, yOffset);
+                7, 29, 2, true, xOffset, yOffset);
         animator.addAnimation(
                 ModSettings.MONSTER_HIT_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_HIT_ANIM + ".png"),
-                5, 4, 0, false, xOffset + 18.5F, yOffset);
+                5, 4, 0, false, xOffset + 44F, yOffset + 3F);
         animator.addAnimation(
                 ModSettings.MONSTER_ATTACK_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_ATTACK_ANIM + ".png"),
-                7, 5, 0, false, xOffset - 17F, yOffset - 6F);
-        // 這個xOffset不知道為什麼特別奇怪
+                8, 6, 2, false, xOffset + 24.5F, yOffset - 16F);
         animator.addAnimation(
                 ModSettings.MONSTER_SKILL1_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_SKILL1_ANIM + ".png"),
-                6, 7, 0, false, xOffset + 28F, yOffset);
+                6, 9, 1, false, xOffset - 2F, yOffset - 64.5F);
         animator.setDefaultAnim(ModSettings.MONSTER_IDLE_ANIM);
         return animator;
     }
@@ -106,10 +101,10 @@ public class KingOfKids extends AbstractMorimensMonster {
                 setAttackIntent(0, Intent.ATTACK_DEBUFF);
                 break;
             case 1:
-                setMove((byte) 1, Intent.BUFF, 0);
+                setAttackIntent(1, Intent.ATTACK);
                 break;
             case 2:
-                setAttackIntent(2, Intent.ATTACK);
+                setMove((byte) 2, Intent.DEFEND_BUFF, 0);
                 break;
         }
     }
@@ -119,20 +114,21 @@ public class KingOfKids extends AbstractMorimensMonster {
         switch (nextMove) {
             case 0:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(0.5F));
-                attackAction(0, AttackEffect.BLUNT_HEAVY);
-                shuffleIn(new Wound(), woundAmt);
+                addToBot(new NewWaitAction(20F / 30F));
+                attackAction(nextMove, AttackEffect.NONE);
+                addToBot(new ApplyPowerAction(p(), this, new StrengthPower(p(), -strengthDownAmt)));
+                addToBot(new ApplyPowerAction(p(), this, new GainStrengthPower(p(), strengthDownAmt)));
                 break;
             case 1:
-                addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
-                addToBot(new NewWaitAction(0.4F));
-                addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
-                addToBot(new GainBlockAction(this, this, blockAmt));
+                addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
+                addToBot(new NewWaitAction(20F / 30F));
+                attackAction(nextMove, AttackEffect.NONE);
                 break;
             case 2:
-                addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(0.5F));
-                attackAction(2, AttackEffect.BLUNT_LIGHT);
+                addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
+                addToBot(new NewWaitAction(22F / 30F));
+                addToBot(new AllEnemyApplyPowerAction(this, strengthAmt, (m) -> new StrengthPower(m, strengthAmt)));
+                addToBot(new AllEnemyGainBlockAction(this, blockAmt));
                 break;
         }
 

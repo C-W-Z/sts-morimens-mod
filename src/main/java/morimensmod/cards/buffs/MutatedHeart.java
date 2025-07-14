@@ -20,7 +20,7 @@ public class MutatedHeart extends AbstractBuffCard implements StartupCard {
     public MutatedHeart() {
         super(ID, 0, CardRarity.RARE, CardTarget.NONE);
         tags.add(CustomTags.REUSE);
-        draw = baseDraw = 1;
+        draw = baseDraw = 3;
         magicNumber = baseMagicNumber = 1;
         secondMagic = baseSecondMagic = 0;
         ExhaustiveVariable.setBaseValue(this, magicNumber);
@@ -35,13 +35,13 @@ public class MutatedHeart extends AbstractBuffCard implements StartupCard {
             if (!isInBossCombat())
                 return;
             for (AbstractCard c : DrawCardAction.drawnCards)
-                c.setCostForTurn(c.costForTurn - 1);
+                c.setCostForTurn(c.costForTurn - secondMagic);
         })));
     }
 
     @Override
     public boolean canUpgrade() {
-        return (timesUpgraded < 3);
+        return (timesUpgraded < 2);
     }
 
     @Override
@@ -54,9 +54,9 @@ public class MutatedHeart extends AbstractBuffCard implements StartupCard {
 
     @Override
     protected void uDesc() {
-        if (timesUpgraded < 2)
+        if (timesUpgraded < 1)
             return;
-        this.rawDescription = this.cardStrings.EXTENDED_DESCRIPTION[timesUpgraded - 2];
+        this.rawDescription = this.cardStrings.EXTENDED_DESCRIPTION[timesUpgraded - 1];
         this.initializeDescription();
     }
 
@@ -71,27 +71,25 @@ public class MutatedHeart extends AbstractBuffCard implements StartupCard {
 
     @Override
     public void upp() {
-        if (timesUpgraded == 1)
-            upgradeDraw(2);
-        else if (timesUpgraded == 2) {
+        if (timesUpgraded == 1) {
             isInnate = true;
             upgradeMagicNumber(1);
         }
-        else if (timesUpgraded == 3)
+        else if (timesUpgraded == 2)
             upgradeSecondMagic(1);
-        if (timesUpgraded >= 2 && isInBossCombat())
+        if (timesUpgraded >= 1 && isInBossCombat())
             triggerOnBossCombat();
     }
 
     @Override
     public boolean atBattleStartPreDraw() {
-        if (timesUpgraded >= 2 && isInBossCombat())
+        if (timesUpgraded >= 1 && isInBossCombat())
             triggerOnBossCombat();
         return false;
     }
 
     private void triggerOnBossCombat() {
-        this.rawDescription = this.cardStrings.EXTENDED_DESCRIPTION[timesUpgraded];
+        this.rawDescription = this.cardStrings.EXTENDED_DESCRIPTION[timesUpgraded + 1];
         ExhaustiveVariable.setBaseValue(this, magicNumber); // 這裡面已經有initializeDescription()了
         // this.initializeDescription();
     }

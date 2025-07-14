@@ -1,5 +1,7 @@
 package morimensmod.patches;
 
+import static morimensmod.util.Wiz.p;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -17,6 +19,7 @@ import com.megacrit.cardcrawl.shop.Merchant;
 import com.megacrit.cardcrawl.shop.ShopScreen;
 
 import javassist.CtBehavior;
+import morimensmod.characters.AbstractAwakener;
 
 @SpirePatch2(clz = Merchant.class, method = SpirePatch.CONSTRUCTOR, paramtypez = { float.class, float.class,
         int.class })
@@ -24,6 +27,9 @@ public class ShopColorlessCardPatch {
 
     @SpireInsertPatch(locator = Locator.class)
     public static void Insert(Merchant __instance, ArrayList<AbstractCard> ___cards2) {
+        if (!(p() instanceof AbstractAwakener))
+            return;
+
         ___cards2.clear();
 
         ArrayList<AbstractCard> unrare_buffs = new ArrayList<>();

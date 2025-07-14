@@ -19,6 +19,7 @@ import basemod.animations.AbstractAnimation;
 import morimensmod.actions.NewWaitAction;
 import morimensmod.misc.Animator;
 import morimensmod.util.ModSettings;
+import morimensmod.util.ModSettings.ASCENSION_LVL;
 
 public class Hardhitter extends AbstractMorimensMonster {
 
@@ -29,25 +30,44 @@ public class Hardhitter extends AbstractMorimensMonster {
     private static final float xOffset = -32;
     private static final float yOffset = 0;
 
-    public Hardhitter(float x, float y) {
-        super(NAME, ID, 50, 240F, 270F, x, y);
+    private int strengthAmt = 2;
+    private int blockAmt = 5;
 
-        // 如果你要做进阶改变血量和伤害意图等，这样写
-        if (AbstractDungeon.ascensionLevel >= 7)
-            setHp(45, 55);
-        else
-            setHp(35, 45);
+    public Hardhitter(float x, float y) {
+        this(x, y, 0);
+    }
+
+    public Hardhitter(float x, float y, int turnOffset) {
+        super(NAME, ID, getMaxHP(), 240F, 270F, x, y, turnOffset);
+
+        int dmgAddition = AbstractDungeon.floorNum / 17;
 
         // 怪物伤害意图的数值
-        if (AbstractDungeon.ascensionLevel >= 2) {
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(0, 0);
-            addDamage(5, 2);
-            addDamage(6, 1);
+            addDamage(dmgAddition + 5, 2);
+            addDamage(dmgAddition + 6, 1);
         } else {
             addDamage(0, 0);
-            addDamage(3, 2);
-            addDamage(4, 1);
+            addDamage(dmgAddition + 3, 2);
+            addDamage(dmgAddition + 4, 1);
         }
+
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_MONSTER_ACTION)
+            strengthAmt = 3 + AbstractDungeon.floorNum / 25;
+        else
+            strengthAmt = 2 + AbstractDungeon.floorNum / 25;
+
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
+            blockAmt = 8 + AbstractDungeon.floorNum / 5;
+        else
+            blockAmt = 5 + AbstractDungeon.floorNum / 5;
+    }
+
+    protected static int getMaxHP() {
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
+            return 42 + AbstractDungeon.floorNum;
+        return 32 + AbstractDungeon.floorNum;
     }
 
     @Override
@@ -95,6 +115,7 @@ public class Hardhitter extends AbstractMorimensMonster {
                 break;
             case 2:
                 setAttackIntent(2, Intent.ATTACK_DEBUFF);
+                break;
         }
     }
 
@@ -106,8 +127,8 @@ public class Hardhitter extends AbstractMorimensMonster {
             case 0:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
                 addToBot(new NewWaitAction(0.4F));
-                addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, 2)));
-                addToBot(new GainBlockAction(this, this, 5));
+                addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
+                addToBot(new GainBlockAction(this, this, blockAmt));
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));

@@ -18,7 +18,7 @@
     "NAME": "Sword Unleashed",
     "FLAVOR": "",
     "DESCRIPTIONS": [
-      "Base #yStrike Damage #b+%d%%. After each active attack, Base Damage of cards in this battle #b+%d%%."
+      "Base Damage of #yStrike #b+%d%%. After each active attack, Base Damage of cards in this battle #b+%d%%."
     ]
   },
   "${ModID}:KleinBottleVoyager": {

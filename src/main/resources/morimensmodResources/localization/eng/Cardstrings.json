@@ -277,7 +277,7 @@
   },
   "${ModID}:DefensiveStance": {
     "NAME": "Defensive Stance",
-    "DESCRIPTION": "Double your Block."
+    "DESCRIPTION": "Double your Block. NL Counts as ${ModID}:Defend."
   },
   "${ModID}:InsightStrike": {
     "NAME": "Insight Strike",
@@ -347,6 +347,10 @@
     "NAME": "偉大的犧牲",
     "DESCRIPTION": " 易傷 自身,  ${ModID}:Delay:抽 !${ModID}:DR! 張牌.",
     "UPGRADE_DESCRIPTION": " 易傷 自身, 抽 !${ModID}:DR! 張牌並使其獲得 ${ModID}:Temporary 保留."
+  },
+  "${ModID}:LessonLearned": {
+    "NAME": "Lesson Learned",
+    "DESCRIPTION": "Deal !D! damage. If Fatal, Upgrade a random card in your deck."
   },
   "${ModID}:DuskAndDawn": {
     "NAME": "極夜與破曉",
@@ -451,8 +455,8 @@
   },
   "${ModID}:HandOfOblivion": {
     "NAME": "Hand of Oblivion",
-    "DESCRIPTION": "Place 1 \"Strike\" into your hand. Base Strike Damage +!${ModID}:M2!%. NL ${ModID}:Prepare 1.",
-    "UPGRADE_DESCRIPTION": " ${ModID}:Passive: Base Strike Damage +!M!%. NL Place 1 \"Strike\" into your hand. Base Strike Damage +!${ModID}:M2!%. NL ${ModID}:Prepare 1."
+    "DESCRIPTION": "Place 1 \"Strike\" into your hand. Base Damage of Strike +!${ModID}:M2!%. NL ${ModID}:Prepare 1.",
+    "UPGRADE_DESCRIPTION": " ${ModID}:Passive: Base Damage of Strike +!M!%. NL Place 1 \"Strike\" into your hand. Base Damage of Strike +!${ModID}:M2!%. NL ${ModID}:Prepare 1."
   },
   "${ModID}:Insight": {
     "NAME": "Insight",

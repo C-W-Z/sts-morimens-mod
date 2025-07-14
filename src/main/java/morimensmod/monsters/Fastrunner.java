@@ -16,6 +16,7 @@ import morimensmod.actions.NewWaitAction;
 import morimensmod.cards.status.Wound;
 import morimensmod.misc.Animator;
 import morimensmod.util.ModSettings;
+import morimensmod.util.ModSettings.ASCENSION_LVL;
 
 public class Fastrunner extends AbstractMorimensMonster {
 
@@ -26,23 +27,38 @@ public class Fastrunner extends AbstractMorimensMonster {
     private static final float xOffset = -32;
     private static final float yOffset = 0;
 
+    private int woundAmt = 1;
+
     public Fastrunner(float x, float y) {
-        super(NAME, ID, 50, 240F, 270F, x, y);
+        this(x, y, 0);
+    }
 
-        if (AbstractDungeon.ascensionLevel >= 7)
-            setHp(45, 55);
-        else
-            setHp(35, 45);
+    public Fastrunner(float x, float y, int turnOffset) {
+        super(NAME, ID, getMaxHP(), 240F, 270F, x, y, turnOffset);
 
-        if (AbstractDungeon.ascensionLevel >= 2) {
-            addDamage(7, 1);
+        int dmgAddition = AbstractDungeon.floorNum / 17;
+
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
+            addDamage(dmgAddition + 7, 1);
             addDamage(0, 0);
-            addDamage(4, 2);
+            addDamage(dmgAddition + 4, 2);
         } else {
-            addDamage(5, 1);
+            addDamage(dmgAddition + 5, 1);
             addDamage(0, 0);
-            addDamage(2, 2);
+            addDamage(dmgAddition + 2, 2);
         }
+
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_MONSTER_ACTION) {
+            woundAmt = 3;
+        } else {
+            woundAmt = 2;
+        }
+    }
+
+    protected static int getMaxHP() {
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
+            return 39 + AbstractDungeon.floorNum;
+        return 29 + AbstractDungeon.floorNum;
     }
 
     @Override
@@ -82,6 +98,7 @@ public class Fastrunner extends AbstractMorimensMonster {
                 break;
             case 2:
                 setAttackIntent(2, Intent.ATTACK);
+                break;
         }
     }
 
@@ -96,8 +113,7 @@ public class Fastrunner extends AbstractMorimensMonster {
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
                 addToBot(new NewWaitAction(0.4F));
-                for (int i = 0; i < 2; i++)
-                    shuffleIn(new Wound());
+                shuffleIn(new Wound(), woundAmt);
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));

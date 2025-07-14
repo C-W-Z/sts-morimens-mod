@@ -136,6 +136,6 @@
   },
   "${ModID}:HandOfOblivionPower": {
     "NAME": "Hand of Oblivion",
-    "DESCRIPTIONS": ["Base #yStrike Damage #b+%d%%."]
+    "DESCRIPTIONS": ["Base Damage of #yStrike #b+%d%%."]
   }
 }
