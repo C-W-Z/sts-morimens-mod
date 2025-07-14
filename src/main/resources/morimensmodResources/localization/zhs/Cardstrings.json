@@ -346,6 +346,10 @@
     "DESCRIPTION": " 易伤 自身， ${ModID}:延迟 ：抽 !${ModID}:DR! 张牌。",
     "UPGRADE_DESCRIPTION": " 易伤 自身，抽 !${ModID}:DR! 张牌并使其获得 ${ModID}:临时 保留 。"
   },
+  "${ModID}:EndlessLearning": {
+    "NAME": "学海无涯",
+    "DESCRIPTION": "造成 !D! 点 伤害。 斩杀 时， 升级 牌组中的 1 张随机牌。"
+  },
   "${ModID}:DuskAndDawn": {
     "NAME": "极夜与破晓",
     "DESCRIPTION": "回合结束后获得 200 点 ${ModID}:银钥能量 。触发 ${ModID}:死亡抵抗 后，获得 1000 点 ${ModID}:银钥能量 。"

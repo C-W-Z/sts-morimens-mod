@@ -346,6 +346,10 @@
     "DESCRIPTION": " 易傷 自身， ${ModID}:延遲 ：抽 !${ModID}:DR! 張牌。",
     "UPGRADE_DESCRIPTION": " 易傷 自身，抽 !${ModID}:DR! 張牌並使其獲得 ${ModID}:臨時 保留 。"
   },
+  "${ModID}:EndlessLearning": {
+    "NAME": "學海無涯",
+    "DESCRIPTION": "造成 !D! 點 傷害。 斬殺 時， 升級 牌組中的 1 張隨機牌。"
+  },
   "${ModID}:DuskAndDawn": {
     "NAME": "極夜與破曉",
     "DESCRIPTION": "回合結束後獲得 200 點 ${ModID}:銀鑰能量 。觸發 ${ModID}:死亡抵抗 後，獲得 1000 點 ${ModID}:銀鑰能量 。"
