@@ -67,8 +67,8 @@ public class InterferenceTypeDissolute extends AbstractMorimensMonster {
 
     protected static int getMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
-            return 40 + 3 * AbstractDungeon.floorNum / 2;
-        return 30 + 3 * AbstractDungeon.floorNum / 2;
+            return 40 + 2 * AbstractDungeon.floorNum;
+        return 30 + 2 * AbstractDungeon.floorNum;
     }
 
     @Override

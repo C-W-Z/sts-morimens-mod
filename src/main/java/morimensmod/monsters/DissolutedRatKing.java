@@ -71,8 +71,8 @@ public class DissolutedRatKing extends AbstractMorimensMonster {
 
     protected static int getMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
-            return 47 + 3 * AbstractDungeon.floorNum / 2;
-        return 37 + 3 * AbstractDungeon.floorNum / 2;
+            return 47 + 2 * AbstractDungeon.floorNum;
+        return 37 + 2 * AbstractDungeon.floorNum;
     }
 
     @Override
@@ -89,7 +89,7 @@ public class DissolutedRatKing extends AbstractMorimensMonster {
         animator.addAnimation(
                 ModSettings.MONSTER_ATTACK_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_ATTACK_ANIM + ".png"),
-                8, 5, 2, false, xOffset - 137F, yOffset -2F);
+                4, 11, 1, false, xOffset - 137F, yOffset -2F);
         animator.addAnimation(
                 ModSettings.MONSTER_SKILL1_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_SKILL1_ANIM + ".png"),

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.function.Supplier;
 
 import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
@@ -122,7 +123,7 @@ public class MonsterLib {
                         new CollaborativeDissolute(-400, -10),
                         new DissolutedRatKing(-170, 10),
                         new InterferenceTypeDissolute(110, -20)
-                }, new String[] { Exordium.ID, TheCity.ID }, 3));
+                }, new String[] { Exordium.ID, TheCity.ID, TheBeyond.ID }, 4));
 
         eliteEncounters.put(
                 TheVoidClaimsAll.ID,
