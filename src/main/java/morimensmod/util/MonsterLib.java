@@ -87,7 +87,7 @@ public class MonsterLib {
                         new KingOfKids(-310, 0),
                         new Hardhitter(-40, -50),
                         new Fastrunner(200, 20)
-                }, Exordium.ID, 4));
+                }, Exordium.ID, 0));
 
         weakEncounters.put(
                 "1-1-2",
@@ -96,7 +96,7 @@ public class MonsterLib {
                         new Hardhitter(-160, -80, 2),
                         new KingOfKids(85, 40),
                         new Fastrunner(300, -30)
-                }, Exordium.ID, 4));
+                }, Exordium.ID, 0));
 
         /* ================================================== */
 
@@ -129,7 +129,7 @@ public class MonsterLib {
                 TheVoidClaimsAll.ID,
                 new MonsterEncounter(() -> new AbstractMonster[] {
                         new TheVoidClaimsAll(-100, -50)
-                }, Exordium.ID, 99, 0.8F));
+                }, Exordium.ID, 4, 0.8F));
 
         weakEncounters.forEach((key, value) -> {
             for (int i = 0; i < value.actIDs.length; i++) {
