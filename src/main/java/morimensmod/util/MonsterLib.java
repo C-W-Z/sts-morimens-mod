@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 
 import basemod.BaseMod;
 import basemod.BaseMod.GetMonsterGroup;
+import morimensmod.monsters.CollaborativeDissolute;
 import morimensmod.monsters.Fastrunner;
 import morimensmod.monsters.Hardhitter;
 import morimensmod.monsters.KingOfKids;
@@ -111,6 +112,13 @@ public class MonsterLib {
                         new KingOfKids(85, 20),
                         new Fastrunner(300, -50)
                 }, Exordium.ID, 4));
+
+        weakEncounters.put(
+                makeID("test"),
+                new MonsterEncounter(() -> new AbstractMonster[] {
+                        new CollaborativeDissolute(-100, 0),
+                        new CollaborativeDissolute(100, 0)
+                }, Exordium.ID, 99));
 
         eliteEncounters.put(
                 TheVoidClaimsAll.ID,
