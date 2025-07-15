@@ -104,7 +104,7 @@ public class MonsterLib {
                 new Fastrunner(200, 20)
         }, Exordium.ID, 4));
 
-        weakEncounters.put(makeID("1-1-2"), new MonsterEncounter(() -> new AbstractMonster[] {
+        strongEncounters.put(makeID("1-1-2"), new MonsterEncounter(() -> new AbstractMonster[] {
                 new Hardhitter(-400, 20),
                 new Hardhitter(-160, -80, 2),
                 new KingOfKids(85, 40),
