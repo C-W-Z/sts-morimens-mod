@@ -1,4 +1,4 @@
-package morimensmod.patches;
+package morimensmod.patches.enums;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -7,18 +7,18 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import basemod.ReflectionHacks;
 import basemod.patches.com.megacrit.cardcrawl.screens.mainMenu.ColorTabBar.ColorTabBarFix;
 
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AEQUOR_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.BUFF_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CARO_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.POSSE_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.STATUS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.ULTRA_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
+
 import java.util.ArrayList;
 import javassist.CtBehavior;
-
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.POSSE_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.STATUS_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.AEQUOR_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CARO_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 
 @SpirePatch2(clz = ColorTabBarFix.Render.class, method = "Insert")
 public class TabNamePatch {

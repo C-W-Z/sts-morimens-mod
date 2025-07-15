@@ -1,7 +1,7 @@
 package morimensmod.cards.posses;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.ULTRA_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.makeInHand;
 

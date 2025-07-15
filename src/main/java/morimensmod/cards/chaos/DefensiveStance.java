@@ -1,12 +1,13 @@
 package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
+
 import com.megacrit.cardcrawl.actions.unique.DoubleYourBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 public class DefensiveStance extends AbstractEasyCard {
     public final static String ID = makeID(DefensiveStance.class.getSimpleName());

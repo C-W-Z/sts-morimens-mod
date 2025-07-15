@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.discardPile;
 import static morimensmod.util.Wiz.drawPile;
@@ -22,7 +22,7 @@ import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.actions.QueensSwordAction;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 public class QueensSword extends AbstractEasyCard {
 

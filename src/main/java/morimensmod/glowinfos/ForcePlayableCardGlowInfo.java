@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 public class ForcePlayableCardGlowInfo extends AbstractGlowInfo {
 

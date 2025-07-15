@@ -1,4 +1,4 @@
-package morimensmod.patches.dungeons;
+package morimensmod.patches.monsters;
 
 import static morimensmod.MorimensMod.modID;
 import static morimensmod.util.Wiz.p;

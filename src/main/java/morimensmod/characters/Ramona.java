@@ -24,9 +24,9 @@ import basemod.BaseMod;
 import basemod.animations.AbstractAnimation;
 
 import static morimensmod.MorimensMod.*;
-import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.BUFF_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 import static morimensmod.util.General.removeModID;
 
 import java.util.ArrayList;

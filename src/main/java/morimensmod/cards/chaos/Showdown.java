@@ -1,7 +1,7 @@
 package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.isStrikeOrAsStrike;
 import static morimensmod.util.Wiz.makeInHand;
@@ -19,7 +19,7 @@ import morimensmod.actions.AliemusChangeAction;
 import morimensmod.cardmodifiers.ExhaustModifier;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 import morimensmod.util.ModSettings;
 
 public class Showdown extends AbstractEasyCard {

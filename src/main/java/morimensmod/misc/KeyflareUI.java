@@ -7,7 +7,7 @@ import morimensmod.util.TexLoader;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.MorimensMod.makeUIPath;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.p;
 import static morimensmod.util.Wiz.isInCombat;
 import static morimensmod.util.WizArt.drawCentered;

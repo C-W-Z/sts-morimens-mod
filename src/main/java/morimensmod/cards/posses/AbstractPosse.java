@@ -1,6 +1,6 @@
 package morimensmod.cards.posses;
 
-import static morimensmod.patches.ColorPatch.CardColorPatch.POSSE_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.POSSE_COLOR;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -9,7 +9,7 @@ import morimensmod.actions.PosseAction;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.misc.PosseType;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 public abstract class AbstractPosse extends AbstractEasyCard {
 

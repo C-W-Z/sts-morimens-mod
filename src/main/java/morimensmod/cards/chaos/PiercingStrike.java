@@ -1,7 +1,7 @@
 package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.applyToEnemy;
 import static morimensmod.util.Wiz.p;
@@ -20,7 +20,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import morimensmod.actions.PierceDamageAction;
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 public class PiercingStrike extends AbstractEasyCard {
 

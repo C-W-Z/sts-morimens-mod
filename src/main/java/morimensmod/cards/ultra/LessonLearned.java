@@ -1,7 +1,7 @@
 package morimensmod.cards.ultra;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.ULTRA_COLOR;
 import static morimensmod.util.Wiz.actB;
 
 import com.megacrit.cardcrawl.actions.watcher.LessonLearnedAction;
@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 public class LessonLearned extends AbstractEasyCard {
     public final static String ID = makeID(LessonLearned.class.getSimpleName());

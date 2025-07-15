@@ -65,17 +65,17 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
-import static morimensmod.patches.ColorPatch.CardColorPatch.AEQUOR_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CARO_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.POSSE_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.STATUS_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 import static morimensmod.util.Wiz.*;
 import static morimensmod.util.WizArt.*;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AEQUOR_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.BUFF_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CARO_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.POSSE_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.STATUS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.ULTRA_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 import static morimensmod.util.General.*;
 
 import java.nio.charset.StandardCharsets;

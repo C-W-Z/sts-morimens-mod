@@ -8,10 +8,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 
 public class FatesDescent extends AbstractEasyCard {
     public final static String ID = makeID(FatesDescent.class.getSimpleName());

@@ -1,8 +1,9 @@
 package morimensmod.cards.status;
 
-import static morimensmod.patches.ColorPatch.CardColorPatch.STATUS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.STATUS_COLOR;
+
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 public abstract class AbstractStatusCard extends AbstractEasyCard {
 

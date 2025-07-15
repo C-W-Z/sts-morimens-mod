@@ -1,7 +1,7 @@
 package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 
 import java.util.ArrayList;
 
@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.EasyModalChoiceCard;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 public class GeniusForesight extends AbstractEasyCard {
     public final static String ID = makeID(GeniusForesight.class.getSimpleName());

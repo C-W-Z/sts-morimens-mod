@@ -1,9 +1,9 @@
 package morimensmod.cards.symptoms;
 
-import static morimensmod.patches.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
 
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 public abstract class AbstractSymptomCard extends AbstractEasyCard {
 

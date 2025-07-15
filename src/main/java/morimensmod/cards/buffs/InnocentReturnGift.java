@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.actions.AliemusChangeAction;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 public class InnocentReturnGift extends AbstractBuffCard implements StartupCard {
     public final static String ID = makeID(InnocentReturnGift.class.getSimpleName());

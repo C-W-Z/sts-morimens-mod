@@ -1,7 +1,7 @@
 package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.drawPile;
 import static morimensmod.util.Wiz.actB;
 
@@ -18,7 +18,7 @@ import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.actions.MoveFromDrawPileAndChangeCostAction;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.PileModalSelectCard;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 public class UnexpectedGain extends AbstractEasyCard {
     public final static String ID = makeID(UnexpectedGain.class.getSimpleName());

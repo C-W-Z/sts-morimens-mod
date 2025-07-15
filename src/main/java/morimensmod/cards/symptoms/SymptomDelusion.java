@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 public class SymptomDelusion extends AbstractSymptomCard {
     public final static String ID = makeID(SymptomDelusion.class.getSimpleName());
