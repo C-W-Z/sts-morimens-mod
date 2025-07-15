@@ -1,6 +1,7 @@
 package morimensmod.util;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.MorimensMod.makeUIPath;
 import static morimensmod.util.General.getFloats;
 
 import java.util.HashMap;
@@ -76,7 +77,7 @@ public class MonsterLib {
     public static HashMap<String, MonsterEncounter> weakEncounters = new HashMap<>();
     public static HashMap<String, MonsterEncounter> strongEncounters = new HashMap<>();
     public static HashMap<String, MonsterEncounter> eliteEncounters = new HashMap<>();
-    // TODO: BossEncounters
+    public static HashMap<String, MonsterEncounter> bosses = new HashMap<>();
 
     public static void register() {
 
@@ -150,6 +151,11 @@ public class MonsterLib {
                 BaseMod.addMonster(key, value.group);
                 BaseMod.addEliteEncounter(value.actIDs[i], new MonsterInfo(key, value.weights[i]));
             }
+        });
+
+        bosses.forEach((key, value) -> {
+            for (int i = 0; i < value.actIDs.length; i++)
+                BaseMod.addBoss(value.actIDs[i], key, makeUIPath("Boss.png"), makeUIPath("BossOutline.png"));
         });
     }
 }
