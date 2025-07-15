@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 
 import basemod.BaseMod;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.util.ModSettings;
+import morimensmod.config.ModSettings;
 
 public class MonsterEncounterTogglePatch {
 

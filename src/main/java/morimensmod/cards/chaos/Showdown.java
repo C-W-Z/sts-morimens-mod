@@ -19,8 +19,8 @@ import morimensmod.actions.AliemusChangeAction;
 import morimensmod.cardmodifiers.ExhaustModifier;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.config.ModSettings;
 import morimensmod.patches.enums.CustomTags;
-import morimensmod.util.ModSettings;
 
 public class Showdown extends AbstractEasyCard {
     public final static String ID = makeID(Showdown.class.getSimpleName());

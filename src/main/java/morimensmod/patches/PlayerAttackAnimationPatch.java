@@ -10,8 +10,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
+import morimensmod.config.ModSettings;
 import morimensmod.misc.Animator;
-import morimensmod.util.ModSettings;
 
 @SpirePatch2(clz = AbstractPlayer.class, method = "useCard")
 public class PlayerAttackAnimationPatch {

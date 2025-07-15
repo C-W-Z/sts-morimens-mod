@@ -2,7 +2,7 @@ package morimensmod.misc;
 
 import basemod.ClickableUIElement;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.util.ModSettings;
+import morimensmod.config.ModSettings;
 import morimensmod.util.TexLoader;
 
 import static morimensmod.MorimensMod.makeID;

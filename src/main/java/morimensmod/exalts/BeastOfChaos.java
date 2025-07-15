@@ -32,7 +32,7 @@ import morimensmod.cardmodifiers.ExhaustModifier;
 import morimensmod.cards.NullCard;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.util.ModSettings;
+import morimensmod.config.ModSettings;
 import morimensmod.vfx.LargPortraitFlashInEffect;
 import morimensmod.vfx.SpriteSheetAttackEffect;
 

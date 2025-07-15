@@ -17,10 +17,10 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 import basemod.animations.AbstractAnimation;
 import morimensmod.actions.NewWaitAction;
+import morimensmod.config.ModSettings;
+import morimensmod.config.ModSettings.ASCENSION_LVL;
 import morimensmod.misc.Animator;
 import morimensmod.monsters.AbstractMorimensMonster;
-import morimensmod.util.ModSettings;
-import morimensmod.util.ModSettings.ASCENSION_LVL;
 
 public class Hardhitter extends AbstractMorimensMonster {
 

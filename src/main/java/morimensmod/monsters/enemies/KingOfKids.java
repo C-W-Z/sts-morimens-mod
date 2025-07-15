@@ -17,10 +17,10 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import basemod.animations.AbstractAnimation;
 import morimensmod.actions.NewWaitAction;
 import morimensmod.cards.status.Wound;
+import morimensmod.config.ModSettings;
+import morimensmod.config.ModSettings.ASCENSION_LVL;
 import morimensmod.misc.Animator;
 import morimensmod.monsters.AbstractMorimensMonster;
-import morimensmod.util.ModSettings;
-import morimensmod.util.ModSettings.ASCENSION_LVL;
 
 public class KingOfKids extends AbstractMorimensMonster {
 

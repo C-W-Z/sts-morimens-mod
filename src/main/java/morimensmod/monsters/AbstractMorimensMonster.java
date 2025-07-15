@@ -8,10 +8,10 @@ import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.AbstractAnimation;
+import morimensmod.config.ModSettings;
 import morimensmod.misc.Animator;
 import morimensmod.powers.MadnessPower;
 import morimensmod.powers.TmpMadnessPower;
-import morimensmod.util.ModSettings;
 
 import static morimensmod.util.Wiz.getPowerAmount;
 import static morimensmod.util.Wiz.p;

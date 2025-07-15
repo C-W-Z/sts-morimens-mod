@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 
 import javassist.CtBehavior;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.util.ModSettings;
+import morimensmod.config.ModSettings;
 
 @SpirePatch2(clz = AbstractPlayer.class, method = "damage")
 public class DeathResistancePatch {

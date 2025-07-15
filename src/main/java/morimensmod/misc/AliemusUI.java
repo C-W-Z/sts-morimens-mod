@@ -3,8 +3,8 @@ package morimensmod.misc;
 import basemod.ClickableUIElement;
 import morimensmod.actions.ExaltAction;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.config.ModSettings;
 import morimensmod.powers.SealPower;
-import morimensmod.util.ModSettings;
 import morimensmod.util.TexLoader;
 
 import static morimensmod.MorimensMod.makeID;

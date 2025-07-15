@@ -12,7 +12,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 
-import morimensmod.util.ModSettings;
+import morimensmod.config.ModSettings;
 import morimensmod.util.TexLoader;
 
 public class SpriteSheetAnimation {

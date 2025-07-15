@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import morimensmod.cards.symptoms.SymptomDelusion;
-import morimensmod.util.ModSettings;
+import morimensmod.config.ModSettings;
 
 public class CryOut extends AbstractStatusCard {
     public final static String ID = makeID(CryOut.class.getSimpleName());

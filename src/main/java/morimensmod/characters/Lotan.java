@@ -4,11 +4,11 @@ import morimensmod.cards.chaos.BladeOfDefiance;
 import morimensmod.cards.chaos.Defend;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.cards.chaos.TidesOfHubris;
+import morimensmod.config.ModSettings;
 import morimensmod.exalts.BeastOfChaos;
 import morimensmod.misc.Animator;
 import morimensmod.relics.ChaosRelic;
 import morimensmod.relics.LotanRelic;
-import morimensmod.util.ModSettings;
 
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;

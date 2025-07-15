@@ -4,11 +4,11 @@ import morimensmod.cards.chaos.AssaultThesis;
 import morimensmod.cards.chaos.Defend;
 import morimensmod.cards.chaos.QueensSword;
 import morimensmod.cards.chaos.Strike;
+import morimensmod.config.ModSettings;
 import morimensmod.exalts.MundusDecree;
 import morimensmod.misc.Animator;
 import morimensmod.relics.ChaosRelic;
 import morimensmod.relics.RamonaRelic;
-import morimensmod.util.ModSettings;
 
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;

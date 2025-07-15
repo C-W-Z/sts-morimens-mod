@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.util.ModSettings;
+import morimensmod.config.ModSettings;
 
 public class AliemusChangeAction extends AbstractGameAction {
 

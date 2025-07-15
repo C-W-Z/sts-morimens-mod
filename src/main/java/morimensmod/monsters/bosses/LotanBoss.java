@@ -26,11 +26,11 @@ import basemod.animations.AbstractAnimation;
 
 import morimensmod.actions.NewWaitAction;
 import morimensmod.characters.Lotan;
+import morimensmod.config.ModSettings;
+import morimensmod.config.ModSettings.ASCENSION_LVL;
 import morimensmod.misc.Animator;
 import morimensmod.monsters.AbstractMorimensMonster;
 import morimensmod.powers.MadnessPower;
-import morimensmod.util.ModSettings;
-import morimensmod.util.ModSettings.ASCENSION_LVL;
 
 public class LotanBoss extends AbstractMorimensMonster {
 

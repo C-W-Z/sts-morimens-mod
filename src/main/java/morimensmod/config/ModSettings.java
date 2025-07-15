@@ -1,4 +1,4 @@
-package morimensmod.util;
+package morimensmod.config;
 
 import com.badlogic.gdx.graphics.Color;
 

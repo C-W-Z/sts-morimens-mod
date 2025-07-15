@@ -12,9 +12,9 @@ import morimensmod.misc.Animator;
 import morimensmod.misc.PosseType;
 import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.AbstractPersistentPower;
-import morimensmod.util.ModSettings;
 import morimensmod.util.PersistentPowerLib;
 import morimensmod.cards.posses.AbstractPosse;
+import morimensmod.config.ModSettings;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
