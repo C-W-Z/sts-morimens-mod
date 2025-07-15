@@ -4,6 +4,7 @@ import static morimensmod.MorimensMod.makeID;
 
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -23,9 +24,11 @@ public class BarrierPower extends AbstractEasyPower implements OnBeforeDamaged {
 
     @Override
     public int onBeforeDamaged(DamageInfo info, int damageAmount) {
-        if (damageAmount > 0)
+        if (damageAmount > 0 && info.type == DamageType.NORMAL) {
             addToTop(new ReducePowerAction(owner, owner, this, 1));
-        return 0;
+            return 0;
+        }
+        return damageAmount;
     }
 
     @Override
