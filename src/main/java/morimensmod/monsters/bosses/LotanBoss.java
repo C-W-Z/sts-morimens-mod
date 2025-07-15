@@ -45,7 +45,6 @@ public class LotanBoss extends AbstractMorimensMonster {
     private int madnessAmt = 1;
 
     private int moveID;
-
     private boolean roused;
 
     public LotanBoss(float x, float y) {
@@ -58,21 +57,21 @@ public class LotanBoss extends AbstractMorimensMonster {
         this.type = EnemyType.BOSS;
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_DMG) {
-            addDamage(12, 3);
-            addDamage(19, 1);
-            addDamage(42, 1);
+            addDamage(13, 3);
+            addDamage(20, 1);
+            addDamage(43, 1);
             addDamage(-1, 0);
         } else {
-            addDamage(9, 3);
-            addDamage(16, 1);
-            addDamage(39, 1);
+            addDamage(10, 3);
+            addDamage(17, 1);
+            addDamage(40, 1);
             addDamage(-1, 0);
         }
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION)
-            strengthAmt = 4;
+            strengthAmt = 5;
         else
-            strengthAmt = 3;
+            strengthAmt = 4;
 
         moveID = 0;
         roused = false;
@@ -167,6 +166,7 @@ public class LotanBoss extends AbstractMorimensMonster {
                 addToBot(new NewWaitAction(9F / 30F));
                 attackAction(_moveID, AttackEffect.SLASH_HORIZONTAL);
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
+                strengthAmt++;
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
