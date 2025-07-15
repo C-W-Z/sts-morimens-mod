@@ -15,13 +15,13 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 
 import basemod.BaseMod;
 import basemod.BaseMod.GetMonsterGroup;
-import morimensmod.monsters.CollaborativeDissolute;
-import morimensmod.monsters.DissolutedRatKing;
-import morimensmod.monsters.Fastrunner;
-import morimensmod.monsters.Hardhitter;
-import morimensmod.monsters.InterferenceTypeDissolute;
-import morimensmod.monsters.KingOfKids;
-import morimensmod.monsters.TheVoidClaimsAll;
+import morimensmod.monsters.elites.TheVoidClaimsAll;
+import morimensmod.monsters.enemies.CollaborativeDissolute;
+import morimensmod.monsters.enemies.DissolutedRatKing;
+import morimensmod.monsters.enemies.Fastrunner;
+import morimensmod.monsters.enemies.Hardhitter;
+import morimensmod.monsters.enemies.InterferenceTypeDissolute;
+import morimensmod.monsters.enemies.KingOfKids;
 
 public class MonsterLib {
 

@@ -1,4 +1,4 @@
-package morimensmod.monsters;
+package morimensmod.monsters.elites;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.MorimensMod.makeMonsterPath;
@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import basemod.animations.AbstractAnimation;
 import morimensmod.actions.NewWaitAction;
 import morimensmod.misc.Animator;
+import morimensmod.monsters.AbstractMorimensMonster;
 import morimensmod.util.ModSettings;
 import morimensmod.util.ModSettings.ASCENSION_LVL;
 

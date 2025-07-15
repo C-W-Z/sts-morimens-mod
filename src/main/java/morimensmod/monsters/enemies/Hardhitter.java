@@ -1,4 +1,4 @@
-package morimensmod.monsters;
+package morimensmod.monsters.enemies;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.MorimensMod.makeMonsterPath;
@@ -12,95 +12,102 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 import basemod.animations.AbstractAnimation;
 import morimensmod.actions.NewWaitAction;
 import morimensmod.misc.Animator;
+import morimensmod.monsters.AbstractMorimensMonster;
 import morimensmod.util.ModSettings;
 import morimensmod.util.ModSettings.ASCENSION_LVL;
 
-public class DissolutedRatKing extends AbstractMorimensMonster {
+public class Hardhitter extends AbstractMorimensMonster {
 
-    public static final String ID = makeID(DissolutedRatKing.class.getSimpleName());
+    public static final String ID = makeID(Hardhitter.class.getSimpleName());
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
     public static final String NAME = monsterStrings.NAME;
 
-    private static final float xOffset = 0;
+    private static final float xOffset = -32;
     private static final float yOffset = 0;
 
-    private int blockAmt = 8;
     private int strengthAmt = 2;
-    private int frailAmt = 1;
+    private int blockAmt = 5;
 
-    public DissolutedRatKing(float x, float y) {
+    public Hardhitter(float x, float y) {
         this(x, y, 0);
     }
 
-    public DissolutedRatKing(float x, float y, int turnOffset) {
-        super(NAME, ID, getMaxHP(), 230F, 300F, x, y, turnOffset);
+    public Hardhitter(float x, float y, int turnOffset) {
+        super(NAME, ID, getMaxHP(), 240F, 270F, x, y, turnOffset);
 
         int dmgAddition = AbstractDungeon.floorNum / 17;
 
+        // 怪物伤害意图的数值
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(0, 0);
-            addDamage(dmgAddition + 6, 2);
+            addDamage(dmgAddition + 5, 2);
             addDamage(dmgAddition + 6, 1);
-            addDamage(dmgAddition + 10, 1);
         } else {
             addDamage(0, 0);
-            addDamage(dmgAddition + 4, 2);
+            addDamage(dmgAddition + 3, 2);
             addDamage(dmgAddition + 4, 1);
-            addDamage(dmgAddition + 8, 1);
         }
 
-        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_MONSTER_ACTION) {
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_MONSTER_ACTION)
+            strengthAmt = 3 + AbstractDungeon.floorNum / 25;
+        else
             strengthAmt = 2 + AbstractDungeon.floorNum / 25;
-            frailAmt = 2;
-        } else {
-            strengthAmt = 1 + AbstractDungeon.floorNum / 25;
-            frailAmt = 1;
-        }
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
-            blockAmt = 11 + AbstractDungeon.floorNum / 5;
+            blockAmt = 8 + AbstractDungeon.floorNum / 5;
         else
-            blockAmt = 7 + AbstractDungeon.floorNum / 5;
+            blockAmt = 5 + AbstractDungeon.floorNum / 5;
     }
 
     protected static int getMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
-            return 47 + 2 * AbstractDungeon.floorNum;
-        return 37 + 2 * AbstractDungeon.floorNum;
+            return 42 + AbstractDungeon.floorNum;
+        return 32 + AbstractDungeon.floorNum;
     }
 
     @Override
     protected AbstractAnimation getAnimation() {
+        // xOffset是Idle_1和另一張圖置中疊在一起之後，另一張要水平移動多少距離才會和Idle_1水平位置重合
+        // yOffset是Idle_1和另一張貼圖齊底部疊在一起後，另一張要垂直移動多少才會和Idle_1高度相同
         Animator animator = new Animator();
         animator.addAnimation(
                 ModSettings.MONSTER_IDLE_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_IDLE_ANIM + ".png"),
-                3, 17, 0, true, xOffset, yOffset);
+                13, 16, 11, true, xOffset, yOffset);
         animator.addAnimation(
                 ModSettings.MONSTER_HIT_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_HIT_ANIM + ".png"),
-                4, 5, 0, false, xOffset + 19F, yOffset -21F);
+                5, 4, 0, false, xOffset + 20F, yOffset);
         animator.addAnimation(
                 ModSettings.MONSTER_ATTACK_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_ATTACK_ANIM + ".png"),
-                4, 11, 1, false, xOffset - 137F, yOffset -2F);
+                7, 5, 0, false, xOffset - 19F, yOffset - 14F);
+        // 這個xOffset不知道為什麼特別奇怪
         animator.addAnimation(
                 ModSettings.MONSTER_SKILL1_ANIM,
                 makeMonsterPath(removeModID(ID) + "/" + ModSettings.MONSTER_SKILL1_ANIM + ".png"),
-                18, 3, 1, false, xOffset + 42.5F, yOffset - 9F);
+                6, 7, 0, false, xOffset + 29F, yOffset);
         animator.setDefaultAnim(ModSettings.MONSTER_IDLE_ANIM);
         return animator;
     }
 
+    // 战斗开始时
+    // @Override
+    // public void usePreBattleAction() {
+    //     super.usePreBattleAction();
+    //     addToBot(new ApplyPowerAction(this, this, new MadnessPower(this, 1)));
+    // }
+
+    // 当怪物roll意图的时候，这里设置其意图。num是一个0~99的随机数。
     @Override
     public void getMove(int num) {
-        switch (turn % 4) {
+        switch (turn % 3) {
             case 0:
                 setMove((byte) 0, Intent.DEFEND_BUFF, 0);
                 break;
@@ -110,36 +117,30 @@ public class DissolutedRatKing extends AbstractMorimensMonster {
             case 2:
                 setAttackIntent(2, Intent.ATTACK_DEBUFF);
                 break;
-            case 3:
-                setAttackIntent(3, Intent.ATTACK);
-                break;
         }
     }
 
+    // 执行动作
     @Override
     public void takeTurn() {
+        // nextMove就是roll到的意图，0就是意图0，1就是意图1
         switch (nextMove) {
             case 0:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
-                addToBot(new NewWaitAction(21F / 30F));
+                addToBot(new NewWaitAction(0.4F));
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
-                addToBot(new GainBlockAction(this, blockAmt));
+                addToBot(new GainBlockAction(this, this, blockAmt));
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(19F / 30F));
-                attackAction(nextMove, AttackEffect.NONE);
+                addToBot(new NewWaitAction(0.5F));
+                attackAction(1, AttackEffect.BLUNT_LIGHT);
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(19F / 30F));
-                attackAction(nextMove, AttackEffect.NONE);
-                addToBot(new ApplyPowerAction(p(), this, new FrailPower(p(), frailAmt, true)));
-                break;
-            case 3:
-                addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(19F / 30F));
-                attackAction(nextMove, AttackEffect.NONE);
+                addToBot(new NewWaitAction(0.5F));
+                attackAction(2, AttackEffect.BLUNT_HEAVY);
+                addToBot(new ApplyPowerAction(p(), this, new WeakPower(p(), 1, true)));
                 break;
         }
 
