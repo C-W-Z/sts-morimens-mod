@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 
 import basemod.BaseMod;
 import basemod.BaseMod.GetMonsterGroup;
+import morimensmod.monsters.bosses.LotanBoss;
 import morimensmod.monsters.elites.TheVoidClaimsAll;
 import morimensmod.monsters.enemies.CollaborativeDissolute;
 import morimensmod.monsters.enemies.DissolutedRatKing;
@@ -81,56 +82,47 @@ public class MonsterLib {
 
     public static void initialize() {
         // don't remove these without makeID ones for compatible
-        weakEncounters.put(
-                "1-1-1",
-                new MonsterEncounter(() -> new AbstractMonster[] {
-                        new KingOfKids(-310, 0),
-                        new Hardhitter(-40, -50),
-                        new Fastrunner(200, 20)
-                }, Exordium.ID, 0));
+        weakEncounters.put("1-1-1", new MonsterEncounter(() -> new AbstractMonster[] {
+                new KingOfKids(-310, 0),
+                new Hardhitter(-40, -50),
+                new Fastrunner(200, 20)
+        }, Exordium.ID, 0));
 
-        weakEncounters.put(
-                "1-1-2",
-                new MonsterEncounter(() -> new AbstractMonster[] {
-                        new Hardhitter(-400, 20),
-                        new Hardhitter(-160, -80, 2),
-                        new KingOfKids(85, 40),
-                        new Fastrunner(300, -30)
-                }, Exordium.ID, 0));
+        weakEncounters.put("1-1-2", new MonsterEncounter(() -> new AbstractMonster[] {
+                new Hardhitter(-400, 20),
+                new Hardhitter(-160, -80, 2),
+                new KingOfKids(85, 40),
+                new Fastrunner(300, -30)
+        }, Exordium.ID, 0));
 
         /* ================================================== */
 
-        weakEncounters.put(
-                makeID("1-1-1"),
-                new MonsterEncounter(() -> new AbstractMonster[] {
-                        new KingOfKids(-310, 0),
-                        new Hardhitter(-40, -50),
-                        new Fastrunner(200, 20)
-                }, Exordium.ID, 4));
+        weakEncounters.put(makeID("1-1-1"), new MonsterEncounter(() -> new AbstractMonster[] {
+                new KingOfKids(-310, 0),
+                new Hardhitter(-40, -50),
+                new Fastrunner(200, 20)
+        }, Exordium.ID, 4));
 
-        weakEncounters.put(
-                makeID("1-1-2"),
-                new MonsterEncounter(() -> new AbstractMonster[] {
-                        new Hardhitter(-400, 20),
-                        new Hardhitter(-160, -80, 2),
-                        new KingOfKids(85, 40),
-                        new Fastrunner(300, -30)
-                }, Exordium.ID, 4));
+        weakEncounters.put(makeID("1-1-2"), new MonsterEncounter(() -> new AbstractMonster[] {
+                new Hardhitter(-400, 20),
+                new Hardhitter(-160, -80, 2),
+                new KingOfKids(85, 40),
+                new Fastrunner(300, -30)
+        }, Exordium.ID, 4));
 
-        weakEncounters.put(
-                makeID("1-2-2"),
-                new MonsterEncounter(() -> new AbstractMonster[] {
-                        new CollaborativeDissolute(-400, -10),
-                        new DissolutedRatKing(-170, 10),
-                        new InterferenceTypeDissolute(110, -20)
-                }, new String[] { Exordium.ID, TheCity.ID, TheBeyond.ID }, 4));
+        weakEncounters.put(makeID("1-2-2"), new MonsterEncounter(() -> new AbstractMonster[] {
+                new CollaborativeDissolute(-400, -10),
+                new DissolutedRatKing(-170, 10),
+                new InterferenceTypeDissolute(110, -20)
+        }, new String[] { Exordium.ID, TheCity.ID, TheBeyond.ID }, 4));
 
-        eliteEncounters.put(
-                TheVoidClaimsAll.ID,
-                new MonsterEncounter(() -> new AbstractMonster[] {
-                        new TheVoidClaimsAll(-100, -50)
-                }, Exordium.ID, 4, 0.8F));
+        eliteEncounters.put(TheVoidClaimsAll.ID, new MonsterEncounter(() -> new AbstractMonster[] {
+                new TheVoidClaimsAll(-100, -50)
+        }, Exordium.ID, 4, 0.8F));
 
+        bosses.put(LotanBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
+                new LotanBoss(0, -20)
+        }, Exordium.ID, 0));
     }
 
     public static void register() {
@@ -156,8 +148,10 @@ public class MonsterLib {
         });
 
         bosses.forEach((key, value) -> {
-            for (int i = 0; i < value.actIDs.length; i++)
+            for (int i = 0; i < value.actIDs.length; i++) {
+                BaseMod.addMonster(key, value.group);
                 BaseMod.addBoss(value.actIDs[i], key, makeUIPath("Boss.png"), makeUIPath("BossOutline.png"));
+            }
         });
     }
 }

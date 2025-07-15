@@ -42,6 +42,8 @@ public class TheVoidClaimsAll extends AbstractMorimensMonster {
     public TheVoidClaimsAll(float x, float y, int turnOffset) {
         super(NAME, ID, getMaxHP(), 450F, 550F, x, y, turnOffset);
 
+        this.type = EnemyType.ELITE;
+
         int dmgAddition = AbstractDungeon.floorNum / 17;
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_ELITE_DMG) {

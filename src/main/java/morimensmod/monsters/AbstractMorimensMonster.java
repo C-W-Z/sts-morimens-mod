@@ -52,7 +52,12 @@ public abstract class AbstractMorimensMonster extends CustomMonster {
 
     protected void setAttackIntent(int move, Intent intent) {
         int atkCount = getAttackCount(move);
-        setMove((byte) move, intent, damage.get(move).base, atkCount, atkCount != 1);
+        setMove((byte) move, intent, damage.get(move).base, atkCount, atkCount > 1);
+    }
+
+    protected void setIntent(String moveName, int move, Intent intent) {
+        int atkCount = getAttackCount(move);
+        setMove(moveName, (byte) move, intent, damage.get(move).base, atkCount, atkCount > 1);
     }
 
     protected void attackAction(int move, AttackEffect effect) {
