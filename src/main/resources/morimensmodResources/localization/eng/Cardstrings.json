@@ -227,8 +227,8 @@
   },
   "${ModID}:KnellOfDeath": {
     "NAME": "Knell of Death",
-    "DESCRIPTION": "{@@}Inflict !M! stack{!M!|>1=s} of Poison on all enemies, increased by !${ModID}:M2! times your Poison stacks. Apply Weak and Vulnerable for !${ModID}:M2! turn{!${ModID}:M2!|>1=s}.",
-    "UPGRADE_DESCRIPTION": "{@@}Inflict !M! stack{!M!|>1=s} of Poison on all enemies, increased by !${ModID}:M2! times your Poison stacks. Apply Weak and Vulnerable for !${ModID}:M2! turn{!${ModID}:M2!|>1=s}. Gain !B! Block."
+    "DESCRIPTION": "{@@}Inflict !M! stack{!M!|>1=s} of Poison on all enemies, increased by !${ModID}:M2! times your Poison stacks. Apply Weak and Vulnerable for !${ModID}:M3! turn{!${ModID}:M3!|>1=s}.",
+    "UPGRADE_DESCRIPTION": "{@@}Inflict !M! stack{!M!|>1=s} of Poison on all enemies, increased by !${ModID}:M2! times your Poison stacks. Apply Weak and Vulnerable for !${ModID}:M3! turn{!${ModID}:M3!|>1=s}. Gain !B! Block."
   },
   "${ModID}:ToxicMiasma": {
     "NAME": "Toxic Miasma",

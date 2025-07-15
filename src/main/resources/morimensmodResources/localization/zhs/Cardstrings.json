@@ -225,8 +225,8 @@
   },
   "${ModID}:KnellOfDeath": {
     "NAME": "丧钟遥鸣",
-    "DESCRIPTION": "对所有敌人施加 !M! 层 中毒 ，享受 !${ModID}:M2! 倍 自身 中毒 层数加成。施加 !${ModID}:M2! 层 虚弱 和 易伤 。",
-    "UPGRADE_DESCRIPTION": "对所有敌人施加 !M! 层 中毒 ，享受 !${ModID}:M2! 倍 自身 中毒 层数加成。施加 !${ModID}:M2! 层 虚弱 和 易伤 。获得 !B! 点 格挡 。"
+    "DESCRIPTION": "对所有敌人施加 !M! 层 中毒 ，享受 !${ModID}:M2! 倍 自身 中毒 层数加成。施加 !${ModID}:M3! 层 虚弱 和 易伤 。",
+    "UPGRADE_DESCRIPTION": "对所有敌人施加 !M! 层 中毒 ，享受 !${ModID}:M2! 倍 自身 中毒 层数加成。施加 !${ModID}:M3! 层 虚弱 和 易伤 。获得 !B! 点 格挡 。"
   },
   "${ModID}:ToxicMiasma": {
     "NAME": "溺毒弥漫",
