@@ -10,6 +10,7 @@ import java.util.function.Supplier;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.dungeons.TheCity;
+import com.megacrit.cardcrawl.dungeons.TheEnding;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
@@ -122,36 +123,32 @@ public class MonsterLib {
 
         bosses.put(LotanBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new LotanBoss(0, -20)
-        }, Exordium.ID, 0));
+        }, TheEnding.ID, 0));
     }
 
     public static void register() {
         weakEncounters.forEach((key, value) -> {
-            for (int i = 0; i < value.actIDs.length; i++) {
-                BaseMod.addMonster(key, value.group);
+            BaseMod.addMonster(key, value.group);
+            for (int i = 0; i < value.actIDs.length; i++)
                 BaseMod.addMonsterEncounter(value.actIDs[i], new MonsterInfo(key, value.weights[i]));
-            }
         });
 
         strongEncounters.forEach((key, value) -> {
-            for (int i = 0; i < value.actIDs.length; i++) {
-                BaseMod.addMonster(key, value.group);
+            BaseMod.addMonster(key, value.group);
+            for (int i = 0; i < value.actIDs.length; i++)
                 BaseMod.addStrongMonsterEncounter(value.actIDs[i], new MonsterInfo(key, value.weights[i]));
-            }
         });
 
         eliteEncounters.forEach((key, value) -> {
-            for (int i = 0; i < value.actIDs.length; i++) {
-                BaseMod.addMonster(key, value.group);
+            BaseMod.addMonster(key, value.group);
+            for (int i = 0; i < value.actIDs.length; i++)
                 BaseMod.addEliteEncounter(value.actIDs[i], new MonsterInfo(key, value.weights[i]));
-            }
         });
 
         bosses.forEach((key, value) -> {
-            for (int i = 0; i < value.actIDs.length; i++) {
-                BaseMod.addMonster(key, value.group);
+            BaseMod.addMonster(key, value.group);
+            for (int i = 0; i < value.actIDs.length; i++)
                 BaseMod.addBoss(value.actIDs[i], key, makeUIPath("Boss.png"), makeUIPath("BossOutline.png"));
-            }
         });
     }
 }
