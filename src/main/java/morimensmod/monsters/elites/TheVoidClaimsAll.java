@@ -5,7 +5,6 @@ import static morimensmod.MorimensMod.makeMonsterPath;
 import static morimensmod.util.General.removeModID;
 import static morimensmod.util.Wiz.p;
 
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
@@ -70,8 +69,8 @@ public class TheVoidClaimsAll extends AbstractMorimensMonster {
 
     protected static int getMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_ELITE_HP)
-            return MathUtils.ceil(210 * (100 + AbstractDungeon.floorNum) / 100F);
-        return MathUtils.ceil(190 * (100 + AbstractDungeon.floorNum) / 100F);
+            return 210 + 5 * AbstractDungeon.floorNum;
+        return 190 + 4 * AbstractDungeon.floorNum;
     }
 
     @Override
