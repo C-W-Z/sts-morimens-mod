@@ -391,6 +391,7 @@ public class MorimensMod implements
         BaseMod.addTopPanelItem(new TopPanelDeathResistanceUI());
         BaseMod.addTopPanelItem(new TopPanelTurnUI());
 
+        MonsterLib.initialize();
         MonsterLib.register();
     }
 

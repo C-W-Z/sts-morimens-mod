@@ -79,8 +79,7 @@ public class MonsterLib {
     public static HashMap<String, MonsterEncounter> eliteEncounters = new HashMap<>();
     public static HashMap<String, MonsterEncounter> bosses = new HashMap<>();
 
-    public static void register() {
-
+    public static void initialize() {
         // don't remove these without makeID ones for compatible
         weakEncounters.put(
                 "1-1-1",
@@ -132,6 +131,9 @@ public class MonsterLib {
                         new TheVoidClaimsAll(-100, -50)
                 }, Exordium.ID, 4, 0.8F));
 
+    }
+
+    public static void register() {
         weakEncounters.forEach((key, value) -> {
             for (int i = 0; i < value.actIDs.length; i++) {
                 BaseMod.addMonster(key, value.group);
