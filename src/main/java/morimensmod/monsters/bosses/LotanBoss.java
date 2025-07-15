@@ -57,13 +57,13 @@ public class LotanBoss extends AbstractMorimensMonster {
         this.type = EnemyType.BOSS;
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_DMG) {
-            addDamage(13, 3);
+            addDamage(12, 3);
             addDamage(20, 1);
-            addDamage(43, 1);
+            addDamage(42, 1);
             addDamage(-1, 0);
         } else {
-            addDamage(10, 3);
-            addDamage(17, 1);
+            addDamage(9, 3);
+            addDamage(16, 1);
             addDamage(40, 1);
             addDamage(-1, 0);
         }
@@ -249,7 +249,8 @@ public class LotanBoss extends AbstractMorimensMonster {
             //     this.saidPower = true;
             // }
             onBossVictoryLogic();
-            onFinalBossVictoryLogic();
+            if (AbstractDungeon.actNum >= 3)
+                onFinalBossVictoryLogic();
         }
     }
 }

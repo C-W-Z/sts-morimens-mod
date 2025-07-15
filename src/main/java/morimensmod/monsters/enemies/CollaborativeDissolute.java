@@ -43,7 +43,7 @@ public class CollaborativeDissolute extends AbstractMorimensMonster {
     public CollaborativeDissolute(float x, float y, int turnOffset) {
         super(NAME, ID, getMaxHP(), 150F, 290F, x, y, turnOffset);
 
-        int dmgAddition = 2 * AbstractDungeon.floorNum / 17;
+        int dmgAddition = 2 * (AbstractDungeon.actNum - 1);
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(dmgAddition + 5, 1);

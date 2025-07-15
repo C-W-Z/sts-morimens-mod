@@ -44,7 +44,7 @@ public class TheVoidClaimsAll extends AbstractMorimensMonster {
 
         this.type = EnemyType.ELITE;
 
-        int dmgAddition = AbstractDungeon.floorNum / 17;
+        int dmgAddition = AbstractDungeon.actNum - 1;
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_ELITE_DMG) {
             addDamage(dmgAddition + 13, 1);

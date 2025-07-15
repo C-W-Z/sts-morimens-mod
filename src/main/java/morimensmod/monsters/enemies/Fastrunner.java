@@ -37,7 +37,7 @@ public class Fastrunner extends AbstractMorimensMonster {
     public Fastrunner(float x, float y, int turnOffset) {
         super(NAME, ID, getMaxHP(), 240F, 270F, x, y, turnOffset);
 
-        int dmgAddition = AbstractDungeon.floorNum / 17;
+        int dmgAddition = AbstractDungeon.actNum - 1;
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(dmgAddition + 7, 1);
