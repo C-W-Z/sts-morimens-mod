@@ -166,7 +166,6 @@ public class LotanBoss extends AbstractMorimensMonster {
                 addToBot(new NewWaitAction(9F / 30F));
                 attackAction(_moveID, AttackEffect.SLASH_HORIZONTAL);
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
-                strengthAmt++;
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
