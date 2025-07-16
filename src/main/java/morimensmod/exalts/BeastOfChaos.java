@@ -41,7 +41,7 @@ public class BeastOfChaos extends AbstractExalt {
     public static final String ID = makeID(BeastOfChaos.class.getSimpleName());
     private static final UIStrings UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID);
 
-    private static final int BASE_DAMAGE = 12;
+    private static final int BASE_DAMAGE = 15;
     private static final int ADDITION_DMG_PER_STRIKE = 2;
     private int strikeCount = 0;
 
