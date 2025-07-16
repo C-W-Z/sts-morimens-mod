@@ -117,6 +117,7 @@
   "${ModID}:ConfigPanel": {
     "TEXT": ["Config"],
     "TEXT_DICT": {
+      "AWAKENER_ENCOUNTER_MOD_MONSTER": "唤醒体角色会遇到忘却前夜的怪物",
       "OTHER_CHAR_ENCOUNTER_MOD_MONSTER": "非唤醒体角色也能遇到忘却前夜的怪物"
     }
   },

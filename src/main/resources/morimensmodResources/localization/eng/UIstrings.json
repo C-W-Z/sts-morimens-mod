@@ -120,6 +120,7 @@
   "${ModID}:ConfigPanel": {
     "TEXT": ["Config"],
     "TEXT_DICT": {
+      "AWAKENER_ENCOUNTER_MOD_MONSTER": "Awakeners can encounter monsters from Morimens",
       "OTHER_CHAR_ENCOUNTER_MOD_MONSTER": "Non-Awakener characters can also encounter monsters from Morimens"
     }
   },

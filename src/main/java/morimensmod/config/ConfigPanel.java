@@ -16,6 +16,7 @@ public class ConfigPanel extends EasyConfigPanel {
     public static final String ID = makeID(ConfigPanel.class.getSimpleName());
     public static final UIStrings UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID);
 
+    public static boolean AWAKENER_ENCOUNTER_MOD_MONSTER = true;
     public static boolean OTHER_CHAR_ENCOUNTER_MOD_MONSTER = false;
 
     public ConfigPanel() {
@@ -23,7 +24,19 @@ public class ConfigPanel extends EasyConfigPanel {
 
         float sY = 720.0F;
 
-        ModLabeledToggleButton modMonsterEncounterButton = new ModLabeledToggleButton(
+        ModLabeledToggleButton awakenerModMonsterEncounterButton = new ModLabeledToggleButton(
+                UI_STRINGS.TEXT_DICT.get("AWAKENER_ENCOUNTER_MOD_MONSTER"),
+                400.0F, sY,
+                Settings.CREAM_COLOR, FontHelper.charDescFont,
+                AWAKENER_ENCOUNTER_MOD_MONSTER,
+                this,
+                label -> {},
+                button -> {
+                    AWAKENER_ENCOUNTER_MOD_MONSTER = button.enabled;
+                    this.save();
+                });
+
+        ModLabeledToggleButton otherCharModMonsterEncounterButton = new ModLabeledToggleButton(
                 UI_STRINGS.TEXT_DICT.get("OTHER_CHAR_ENCOUNTER_MOD_MONSTER"),
                 400.0F, sY - 50.0F,
                 Settings.CREAM_COLOR, FontHelper.charDescFont,
@@ -35,6 +48,7 @@ public class ConfigPanel extends EasyConfigPanel {
                     this.save();
                 });
 
-        this.addUIElement(modMonsterEncounterButton);
+        this.addUIElement(awakenerModMonsterEncounterButton);
+        this.addUIElement(otherCharModMonsterEncounterButton);
     }
 }
