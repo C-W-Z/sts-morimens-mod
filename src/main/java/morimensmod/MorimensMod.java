@@ -15,6 +15,7 @@ import morimensmod.cards.chaos.QueensSword;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.characters.Lotan;
 import morimensmod.characters.Ramona;
+import morimensmod.config.ConfigPanel;
 import morimensmod.config.ModSettings;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.glowinfos.AbstractGlowInfo;
@@ -361,7 +362,7 @@ public class MorimensMod implements
         // You can find information about this on the BaseMod wiki page "Mod Config and
         // Panel".
         BaseMod.registerModBadge(badgeTexture, info.Name, arrToString(info.Authors), info.Description,
-                null);
+                new ConfigPanel());
 
         new AutoAdd(modID)
                 .packageFilter(AbstractEasyCard.class)

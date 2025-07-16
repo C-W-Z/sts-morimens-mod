@@ -60,6 +60,4 @@ public class ModSettings {
         public static final int ENHANCE_ELITE_ACTION    = 18;
         public static final int ENHANCE_BOSS_ACTION     = 19;
     }
-
-    public static boolean OTHER_CHAR_ENCOUNTER_MOD_MONSTER = false;
 }

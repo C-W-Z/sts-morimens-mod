@@ -117,6 +117,12 @@
       "${ModID}:Phantasm"
     ]
   },
+  "${ModID}:ConfigPanel": {
+    "TEXT": ["Config"],
+    "TEXT_DICT": {
+      "OTHER_CHAR_ENCOUNTER_MOD_MONSTER": "Non-Awakener characters can also encounter monsters from Morimens"
+    }
+  },
   "${ModID}:MundusDecree": {
     "TEXT": [
       "Mundus Decree",

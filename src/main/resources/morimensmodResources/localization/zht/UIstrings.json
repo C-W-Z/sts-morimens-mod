@@ -114,6 +114,12 @@
       "${ModID}:幻影"
     ]
   },
+  "${ModID}:ConfigPanel": {
+    "TEXT": ["Config"],
+    "TEXT_DICT": {
+      "OTHER_CHAR_ENCOUNTER_MOD_MONSTER": "非喚醒體角色也能遇到忘卻前夜的怪物"
+    }
+  },
   "${ModID}:VoicesInYourHead": {
     "TEXT": [
       "腦中之音",

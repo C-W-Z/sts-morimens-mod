@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 
 import basemod.BaseMod;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.config.ModSettings;
+import morimensmod.config.ConfigPanel;
 
 public class MonsterEncounterTogglePatch {
 
@@ -19,7 +19,7 @@ public class MonsterEncounterTogglePatch {
     public static class GetMonsterEncountersPatch {
         @SpirePostfixPatch
         public static List<MonsterInfo> Postfix(List<MonsterInfo> __result) {
-            if (ModSettings.OTHER_CHAR_ENCOUNTER_MOD_MONSTER || p() instanceof AbstractAwakener)
+            if (ConfigPanel.OTHER_CHAR_ENCOUNTER_MOD_MONSTER || p() instanceof AbstractAwakener)
                 return __result;
             __result.removeIf(m -> m.name.startsWith(modID));
             return __result;
@@ -30,7 +30,7 @@ public class MonsterEncounterTogglePatch {
     public static class GetStrongMonsterEncountersPatch {
         @SpirePostfixPatch
         public static List<MonsterInfo> Postfix(List<MonsterInfo> __result) {
-            if (ModSettings.OTHER_CHAR_ENCOUNTER_MOD_MONSTER || p() instanceof AbstractAwakener)
+            if (ConfigPanel.OTHER_CHAR_ENCOUNTER_MOD_MONSTER || p() instanceof AbstractAwakener)
                 return __result;
             __result.removeIf(m -> m.name.startsWith(modID));
             return __result;
@@ -41,7 +41,7 @@ public class MonsterEncounterTogglePatch {
     public static class GetEliteEncountersPatch {
         @SpirePostfixPatch
         public static List<MonsterInfo> Postfix(List<MonsterInfo> __result) {
-            if (ModSettings.OTHER_CHAR_ENCOUNTER_MOD_MONSTER || p() instanceof AbstractAwakener)
+            if (ConfigPanel.OTHER_CHAR_ENCOUNTER_MOD_MONSTER || p() instanceof AbstractAwakener)
                 return __result;
             __result.removeIf(m -> m.name.startsWith(modID));
             return __result;
@@ -52,7 +52,7 @@ public class MonsterEncounterTogglePatch {
     public static class GetBossIDsPatch {
         @SpirePostfixPatch
         public static List<String> Postfix(List<String> __result) {
-            if (ModSettings.OTHER_CHAR_ENCOUNTER_MOD_MONSTER || p() instanceof AbstractAwakener)
+            if (ConfigPanel.OTHER_CHAR_ENCOUNTER_MOD_MONSTER || p() instanceof AbstractAwakener)
                 return __result;
             __result.removeIf(id -> id.startsWith(modID));
             return __result;
@@ -64,7 +64,7 @@ public class MonsterEncounterTogglePatch {
     // public static class AddBossesPatch {
     //     @SpireInsertPatch(locator = Locator.class)
     //     public static void Postfix() {
-    //         if (ModSettings.OTHER_CHAR_ENCOUNTER_MOD_MONSTER || p() instanceof AbstractAwakener)
+    //         if (ConfigPanel.OTHER_CHAR_ENCOUNTER_MOD_MONSTER || p() instanceof AbstractAwakener)
     //             return;
     //         AbstractDungeon.bossList.removeIf(id -> id.startsWith(modID));
     //     }
