@@ -56,6 +56,7 @@ public class GeniusForesight extends AbstractEasyCard {
 
     @Override
     public void upp() {
+        upgradeDraw(1);
         upgradeMagicNumber(1);
     }
 }
