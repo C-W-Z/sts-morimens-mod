@@ -41,7 +41,7 @@ public class LotanBoss extends AbstractMorimensMonster {
     private static final float xOffset = 0;
     private static final float yOffset = 0;
 
-    private int strengthAmt = 3;
+    private int strengthAmt = 4;
     private int madnessAmt = 1;
 
     private int moveID;
@@ -58,22 +58,23 @@ public class LotanBoss extends AbstractMorimensMonster {
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_DMG) {
             addDamage(12, 3);
-            addDamage(20, 1);
+            addDamage(19, 1);
             addDamage(42, 1);
             addDamage(-1, 0);
         } else {
             addDamage(9, 3);
             addDamage(16, 1);
-            addDamage(40, 1);
+            addDamage(39, 1);
             addDamage(-1, 0);
         }
 
+        // TODO: 進階19加上覺醒後每回合移除3層虛弱和易傷
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION)
-            strengthAmt = 5;
+            strengthAmt = 4;
         else
             strengthAmt = 4;
 
-        moveID = 0;
+        moveID = getFirstMoveID();
         roused = false;
     }
 
@@ -122,18 +123,24 @@ public class LotanBoss extends AbstractMorimensMonster {
         setMoveIntent(moveID);
     }
 
+    protected int getFirstMoveID() {
+        return 2;
+    }
+
     protected int getNextMoveID(int _moveID) {
         if (!roused && currentHealth <= 0 && _moveID != 3)
             return 3;
+        // 2 -> 0 -> 1 loop
+        // 3 -> (2 -> 0 -> 1 loop)
         switch (_moveID) {
             default:
+            case 2:
+                return 0;
             case 0:
                 return 1;
             case 1:
-                return 2;
-            case 2:
             case 3:
-                return 0;
+                return 2;
         }
     }
 
