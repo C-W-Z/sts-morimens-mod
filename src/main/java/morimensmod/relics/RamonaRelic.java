@@ -14,7 +14,7 @@ public class RamonaRelic extends AbstractEasyRelic {
     public static final String ID = makeID(RamonaRelic.class.getSimpleName());
 
     private static final int KEYFLARE = 250;
-    private static final int COMMAND_NUM = 3;
+    private static final int COMMAND_NUM = 1;
     private static final int KEYFLARE_REGEN = 1;
 
     public RamonaRelic() {

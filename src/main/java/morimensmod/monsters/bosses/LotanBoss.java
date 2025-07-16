@@ -79,14 +79,14 @@ public class LotanBoss extends AbstractMorimensMonster {
 
     protected static int getMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
-            return 800;
-        return 720;
+            return 720;
+        return 650;
     }
 
     protected static int getRousedMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
-            return 1200;
-        return 1080;
+            return 1080;
+        return 975;
     }
 
     @Override
