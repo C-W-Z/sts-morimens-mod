@@ -32,11 +32,9 @@ public class NoTrespassing extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
-        applyToSelf(new ThornsPower(p, magicNumber));
-        if (isInBossCombat())
-            applyToSelf(new LoseThornsPower(p, magicNumber * secondMagic));
-        else
-            applyToSelf(new LoseThornsPower(p, magicNumber));
+        int scale = isInBossCombat() ? secondMagic : 1;
+        applyToSelf(new ThornsPower(p, magicNumber * scale));
+        applyToSelf(new LoseThornsPower(p, magicNumber * scale));
     }
 
     @Override
