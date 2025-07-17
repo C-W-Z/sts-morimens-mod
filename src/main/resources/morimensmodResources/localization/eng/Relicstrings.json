@@ -3,7 +3,7 @@
     "NAME": "Chaos Realm",
     "FLAVOR": "Cosmic Phenomena",
     "DESCRIPTIONS": [
-      "Gain #b%d random common relics when picked up. NL At the end of the turn, gain #b%d #y${ModID}:Keyflare. For every #b%d points of #g${ModID}:Realm_Mastery you have, after releasing a #y${ModID}:Posse, you gain #b%d #y${ModID}:Aliemus.",
+      "Upon pickup, obtain #b%d random common relic. NL At the end of the turn, gain #b%d #y${ModID}:Keyflare. For every #b%d points of #g${ModID}:Realm_Mastery you have, after releasing a #y${ModID}:Posse, you gain #b%d #y${ModID}:Aliemus.",
       " NL Current #gRealm #gMastery: #b%d NL Current #yAliemus gain after releasing #yPosse: #b%d"
     ]
   },
