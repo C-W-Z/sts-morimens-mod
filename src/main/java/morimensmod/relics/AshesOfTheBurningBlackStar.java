@@ -50,7 +50,7 @@ public class AshesOfTheBurningBlackStar extends AbstractEasyRelic {
             deleteCards(tmp.group);
         } else {
             AbstractDungeon.gridSelectScreen.open(
-                    deck().getPurgeableCards(),
+                    tmp,
                     COMMAND_TO_DELETE,
                     String.format(DESCRIPTIONS[1], COMMAND_TO_DELETE),
                     false, false, false, true);
