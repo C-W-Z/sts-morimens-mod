@@ -1,6 +1,7 @@
 package morimensmod.relics;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
 import static morimensmod.util.Wiz.p;
 
 import morimensmod.actions.AliemusChangeAction;
@@ -11,7 +12,7 @@ public class LaurelCufflinks extends AbstractEasyRelic {
     private static final int ALIEMUS = 10;
 
     public LaurelCufflinks() {
-        super(ID, RelicTier.COMMON, LandingSound.SOLID);
+        super(ID, RelicTier.COMMON, LandingSound.SOLID, AWAKENER_COLOR);
     }
 
     @Override
