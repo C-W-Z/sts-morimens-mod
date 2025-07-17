@@ -29,7 +29,7 @@ public class MidnightTide extends AbstractEasyCard {
         super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         damageType = DamageType.NORMAL; // 必須是normal才能享受力量加成
-        damage = baseDamage = 3;
+        damage = baseDamage = 10;
         attackCount = baseAttackCount = 1;
         magicNumber = baseMagicNumber = 50;
         secondMagic = baseSecondMagic = 2; // 2 倍力加成
