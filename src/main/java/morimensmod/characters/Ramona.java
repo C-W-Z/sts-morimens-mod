@@ -14,6 +14,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -119,7 +120,7 @@ public class Ramona extends AbstractAwakener {
     }
 
     @Override
-    public AbstractCard.CardColor getCardColor() {
+    public CardColor getRealmColor() {
         return CHAOS_COLOR;
     }
 

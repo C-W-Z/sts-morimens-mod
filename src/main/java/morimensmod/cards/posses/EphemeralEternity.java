@@ -45,7 +45,7 @@ public class EphemeralEternity extends AbstractPosse {
 
         MultiCardPreview.multiCardPreview.get(this).forEach(c -> makeInHand(c));
 
-        if (awaker.getCardColor() == ULTRA_COLOR) {
+        if (awaker.getRealmColor() == ULTRA_COLOR) {
             applyToSelf(new StrengthPower(awaker, 2));
             applyToSelf(new LoseStrengthPower(awaker, 2));
             applyToSelf(new DexterityPower(awaker, 1));

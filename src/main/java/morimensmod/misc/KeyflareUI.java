@@ -78,7 +78,7 @@ public class KeyflareUI extends ClickableUIElement {
         // popup text
         ArrayList<PowerTip> tips = new ArrayList<>();
         AbstractAwakener awaker = (AbstractAwakener) p();
-        if (awaker.getCardColor() == CHAOS_COLOR)
+        if (awaker.getRealmColor() == CHAOS_COLOR)
             tips.add(new PowerTip(TEXT.TEXT[1], TEXT.TEXT[3] + awaker.keyflareRegen + " "));
         else
             tips.add(new PowerTip(TEXT.TEXT[1], TEXT.TEXT[2] + awaker.keyflareRegen + " "));

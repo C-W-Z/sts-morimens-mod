@@ -69,6 +69,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import static morimensmod.util.Wiz.*;
 import static morimensmod.util.WizArt.*;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AEQUOR_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CARO_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
@@ -168,6 +169,11 @@ public class MorimensMod implements
     }
 
     public MorimensMod() {
+        BaseMod.addColor(AWAKENER_COLOR, Color.WHITE,
+                ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
+                ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
+                CARD_ENERGY_L, TEXT_ENERGY);
+
         BaseMod.addColor(CHAOS_COLOR, ModSettings.CHOAS_COLOR,
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,

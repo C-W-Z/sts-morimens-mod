@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.helpers.CardLibrary.LibraryType;
 public class ColorPatch {
     public static class CardColorPatch {
         @SpireEnum
+        public static CardColor AWAKENER_COLOR;
+        @SpireEnum
         public static CardColor CHAOS_COLOR;
         @SpireEnum
         public static CardColor AEQUOR_COLOR;

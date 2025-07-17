@@ -20,6 +20,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -30,6 +31,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import static morimensmod.MorimensMod.*;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.*;
 import java.util.ArrayList;
@@ -116,6 +118,14 @@ public abstract class AbstractAwakener extends CustomPlayer {
         keyflare = 0;
 
         persistentPowers = new ArrayList<>();
+    }
+
+    public abstract CardColor getRealmColor();
+
+    // must be AWAKENER_COLOR for relic pool
+    @Override
+    public CardColor getCardColor() {
+        return AWAKENER_COLOR;
     }
 
     @Override
@@ -510,7 +520,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
             p.set(this, PosseType.EXTRA);
 
         ArrayList<AbstractCard> choiceCardList;
-        if (getCardColor() == CHAOS_COLOR) {
+        if (getRealmColor() == CHAOS_COLOR) {
             choiceCardList = new ArrayList<>(posses);
         } else {
             Collections.shuffle(posses, new Random(AbstractDungeon.miscRng.randomLong()));
