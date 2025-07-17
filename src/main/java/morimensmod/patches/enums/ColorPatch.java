@@ -30,6 +30,8 @@ public class ColorPatch {
 
     public static class LibColorPatch {
         @SpireEnum
+        public static LibraryType AWAKENER_COLOR;
+        @SpireEnum
         public static LibraryType CHAOS_COLOR;
         @SpireEnum
         public static LibraryType AEQUOR_COLOR;
