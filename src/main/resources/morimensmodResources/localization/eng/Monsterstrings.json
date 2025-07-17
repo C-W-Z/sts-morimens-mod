@@ -70,7 +70,7 @@
     "MOVES": ["致伤打击", "集结鼠群", "鼠群冲击", "布朗出动！ "]
   },
   "${ModID}:LotanBoss": {
-    "NAME": "Lotan",
+    "NAME": "\"Whale Leap\"",
     "DIALOG": [],
     "MOVES": ["Blade of Defiance", "Tides of Hubris", "Beast of Chaos", "Battle Thirst"]
   }
