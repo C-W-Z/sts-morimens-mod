@@ -16,11 +16,11 @@ import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.EasyModalChoiceCard;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.NegentropyPower;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.*;
 
 import java.util.ArrayList;

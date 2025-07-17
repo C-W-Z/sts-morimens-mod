@@ -12,10 +12,10 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.buffs.Insight;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.makeInHand;
 import static morimensmod.util.Wiz.shuffleIn;

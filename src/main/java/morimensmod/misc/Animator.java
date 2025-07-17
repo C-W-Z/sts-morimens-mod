@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.megacrit.cardcrawl.core.Settings;
 
 import basemod.animations.AbstractAnimation;
-import morimensmod.util.ModSettings;
+import morimensmod.config.ModSettings;
 import morimensmod.util.TexLoader;
 
 public class Animator extends AbstractAnimation {

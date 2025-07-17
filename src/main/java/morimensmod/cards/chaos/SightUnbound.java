@@ -1,7 +1,7 @@
 package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.drawPile;
 import static morimensmod.util.Wiz.discardPile;
@@ -20,7 +20,7 @@ import morimensmod.actions.MoveFromDrawPileAndChangeCostAction;
 import morimensmod.actions.MundusDecreeAction;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.PileModalSelectCard;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.NegentropyPower;
 
 public class SightUnbound extends AbstractEasyCard {

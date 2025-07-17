@@ -8,7 +8,7 @@ import morimensmod.cards.AbstractRouseCard;
 import morimensmod.powers.OutstandingVeteranPower;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 
 public class OutstandingVeteran extends AbstractRouseCard {

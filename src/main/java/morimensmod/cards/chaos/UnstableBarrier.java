@@ -1,7 +1,7 @@
 package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.atb;
 
@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.actions.EasyXCostAction;
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 public class UnstableBarrier extends AbstractEasyCard {
     public final static String ID = makeID(UnstableBarrier.class.getSimpleName());

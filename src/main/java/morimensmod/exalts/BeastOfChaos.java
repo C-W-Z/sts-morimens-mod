@@ -32,7 +32,7 @@ import morimensmod.cardmodifiers.ExhaustModifier;
 import morimensmod.cards.NullCard;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.util.ModSettings;
+import morimensmod.config.ModSettings;
 import morimensmod.vfx.LargPortraitFlashInEffect;
 import morimensmod.vfx.SpriteSheetAttackEffect;
 
@@ -42,7 +42,7 @@ public class BeastOfChaos extends AbstractExalt {
     private static final UIStrings UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID);
 
     private static final int BASE_DAMAGE = 15;
-    private static final int ADDITION_DMG_PER_STRIKE = 3;
+    private static final int ADDITION_DMG_PER_STRIKE = 2;
     private int strikeCount = 0;
 
     private static final int PERCENT_DAMAGE = 15;

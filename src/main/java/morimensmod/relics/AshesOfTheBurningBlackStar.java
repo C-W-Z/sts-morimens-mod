@@ -1,6 +1,7 @@
 package morimensmod.relics;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.deck;
 import static morimensmod.util.Wiz.isCommandCard;
@@ -25,7 +26,7 @@ public class AshesOfTheBurningBlackStar extends AbstractEasyRelic {
     private boolean cardsSelected = true;
 
     public AshesOfTheBurningBlackStar() {
-        super(ID, RelicTier.BOSS, LandingSound.HEAVY);
+        super(ID, RelicTier.BOSS, LandingSound.HEAVY, AWAKENER_COLOR);
     }
 
     @Override

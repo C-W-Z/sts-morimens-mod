@@ -1,6 +1,6 @@
 package morimensmod.cards.wheel_of_destiny;
 
-import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 
 import java.util.ArrayList;
 
@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 public abstract class AbstractWheelOfDestiny extends AbstractEasyCard implements StartupCard, SpawnModificationCard {
 

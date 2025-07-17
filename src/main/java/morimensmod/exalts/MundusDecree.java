@@ -21,8 +21,8 @@ import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.actions.MundusDecreeAction;
 import morimensmod.cards.PileModalSelectCard;
 import morimensmod.cards.buffs.Insight;
+import morimensmod.config.ModSettings;
 import morimensmod.powers.PosseTwicePower;
-import morimensmod.util.ModSettings;
 import morimensmod.vfx.LargPortraitFlashInEffect;
 
 public class MundusDecree extends AbstractExalt {

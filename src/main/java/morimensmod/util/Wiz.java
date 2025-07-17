@@ -24,10 +24,10 @@ import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import morimensmod.cards.posses.AbstractPosse;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.POSSE_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.POSSE_COLOR;
 
 import java.util.ArrayList;
 import java.util.Arrays;

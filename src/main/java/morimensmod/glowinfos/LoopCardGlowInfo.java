@@ -7,7 +7,7 @@ import static morimensmod.util.Wiz.getPowerAmount;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.NegentropyPower;
 
 public class LoopCardGlowInfo extends AbstractGlowInfo {

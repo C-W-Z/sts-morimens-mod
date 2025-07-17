@@ -20,6 +20,7 @@ import com.megacrit.cardcrawl.shop.ShopScreen;
 
 import javassist.CtBehavior;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.patches.enums.CustomTags;
 
 @SpirePatch2(clz = Merchant.class, method = SpirePatch.CONSTRUCTOR, paramtypez = { float.class, float.class,
         int.class })

@@ -17,10 +17,10 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import basemod.animations.AbstractAnimation;
 import morimensmod.actions.NewWaitAction;
 import morimensmod.cards.status.Wound;
+import morimensmod.config.ModSettings;
+import morimensmod.config.ModSettings.ASCENSION_LVL;
 import morimensmod.misc.Animator;
 import morimensmod.monsters.AbstractMorimensMonster;
-import morimensmod.util.ModSettings;
-import morimensmod.util.ModSettings.ASCENSION_LVL;
 
 public class KingOfKids extends AbstractMorimensMonster {
 
@@ -42,7 +42,7 @@ public class KingOfKids extends AbstractMorimensMonster {
     public KingOfKids(float x, float y, int turnOffset) {
         super(NAME, ID, getMaxHP(), 240F, 270F, x, y, turnOffset);
 
-        int dmgAddition = AbstractDungeon.floorNum / 17;
+        int dmgAddition = AbstractDungeon.actNum - 1;
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(dmgAddition + 10, 1);

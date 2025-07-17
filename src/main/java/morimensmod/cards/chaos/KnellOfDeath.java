@@ -1,7 +1,7 @@
 package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.getCleanCopy;
 import static morimensmod.util.Wiz.getPowerAmount;
 import static morimensmod.util.Wiz.p;
@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 public class KnellOfDeath extends AbstractEasyCard {
     public final static String ID = makeID(KnellOfDeath.class.getSimpleName());

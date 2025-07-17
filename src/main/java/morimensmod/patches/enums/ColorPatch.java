@@ -1,4 +1,4 @@
-package morimensmod.patches;
+package morimensmod.patches.enums;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.helpers.CardLibrary.LibraryType;
 
 public class ColorPatch {
     public static class CardColorPatch {
+        @SpireEnum
+        public static CardColor AWAKENER_COLOR;
         @SpireEnum
         public static CardColor CHAOS_COLOR;
         @SpireEnum
@@ -27,6 +29,8 @@ public class ColorPatch {
     }
 
     public static class LibColorPatch {
+        @SpireEnum
+        public static LibraryType AWAKENER_COLOR;
         @SpireEnum
         public static LibraryType CHAOS_COLOR;
         @SpireEnum

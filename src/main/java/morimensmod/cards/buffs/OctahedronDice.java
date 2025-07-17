@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
-import morimensmod.util.ModSettings;
+import morimensmod.config.ModSettings;
 
 public class OctahedronDice extends AbstractBuffCard {
     public final static String ID = makeID(OctahedronDice.class.getSimpleName());

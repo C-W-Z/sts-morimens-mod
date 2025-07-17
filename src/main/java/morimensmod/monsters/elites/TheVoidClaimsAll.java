@@ -5,7 +5,6 @@ import static morimensmod.MorimensMod.makeMonsterPath;
 import static morimensmod.util.General.removeModID;
 import static morimensmod.util.Wiz.p;
 
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
@@ -18,10 +17,10 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 import basemod.animations.AbstractAnimation;
 import morimensmod.actions.NewWaitAction;
+import morimensmod.config.ModSettings;
+import morimensmod.config.ModSettings.ASCENSION_LVL;
 import morimensmod.misc.Animator;
 import morimensmod.monsters.AbstractMorimensMonster;
-import morimensmod.util.ModSettings;
-import morimensmod.util.ModSettings.ASCENSION_LVL;
 
 public class TheVoidClaimsAll extends AbstractMorimensMonster {
 
@@ -43,7 +42,9 @@ public class TheVoidClaimsAll extends AbstractMorimensMonster {
     public TheVoidClaimsAll(float x, float y, int turnOffset) {
         super(NAME, ID, getMaxHP(), 450F, 550F, x, y, turnOffset);
 
-        int dmgAddition = AbstractDungeon.floorNum / 17;
+        this.type = EnemyType.ELITE;
+
+        int dmgAddition = AbstractDungeon.actNum - 1;
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_ELITE_DMG) {
             addDamage(dmgAddition + 13, 1);
@@ -70,8 +71,8 @@ public class TheVoidClaimsAll extends AbstractMorimensMonster {
 
     protected static int getMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_ELITE_HP)
-            return MathUtils.ceil(210 * (100 + AbstractDungeon.floorNum) / 100F);
-        return MathUtils.ceil(190 * (100 + AbstractDungeon.floorNum) / 100F);
+            return 210 + 5 * AbstractDungeon.floorNum;
+        return 190 + 4 * AbstractDungeon.floorNum;
     }
 
     @Override

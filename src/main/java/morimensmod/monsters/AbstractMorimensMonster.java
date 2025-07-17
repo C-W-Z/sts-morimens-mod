@@ -8,10 +8,10 @@ import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import basemod.abstracts.CustomMonster;
 import basemod.animations.AbstractAnimation;
+import morimensmod.config.ModSettings;
 import morimensmod.misc.Animator;
 import morimensmod.powers.MadnessPower;
 import morimensmod.powers.TmpMadnessPower;
-import morimensmod.util.ModSettings;
 
 import static morimensmod.util.Wiz.getPowerAmount;
 import static morimensmod.util.Wiz.p;
@@ -52,7 +52,12 @@ public abstract class AbstractMorimensMonster extends CustomMonster {
 
     protected void setAttackIntent(int move, Intent intent) {
         int atkCount = getAttackCount(move);
-        setMove((byte) move, intent, damage.get(move).base, atkCount, atkCount != 1);
+        setMove((byte) move, intent, damage.get(move).base, atkCount, atkCount > 1);
+    }
+
+    protected void setIntent(String moveName, int move, Intent intent) {
+        int atkCount = getAttackCount(move);
+        setMove(moveName, (byte) move, intent, damage.get(move).base, atkCount, atkCount > 1);
     }
 
     protected void attackAction(int move, AttackEffect effect) {

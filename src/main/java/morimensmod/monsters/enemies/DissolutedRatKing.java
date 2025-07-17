@@ -17,10 +17,10 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import basemod.animations.AbstractAnimation;
 import morimensmod.actions.NewWaitAction;
+import morimensmod.config.ModSettings;
+import morimensmod.config.ModSettings.ASCENSION_LVL;
 import morimensmod.misc.Animator;
 import morimensmod.monsters.AbstractMorimensMonster;
-import morimensmod.util.ModSettings;
-import morimensmod.util.ModSettings.ASCENSION_LVL;
 
 public class DissolutedRatKing extends AbstractMorimensMonster {
 
@@ -42,7 +42,7 @@ public class DissolutedRatKing extends AbstractMorimensMonster {
     public DissolutedRatKing(float x, float y, int turnOffset) {
         super(NAME, ID, getMaxHP(), 230F, 300F, x, y, turnOffset);
 
-        int dmgAddition = AbstractDungeon.floorNum / 17;
+        int dmgAddition = AbstractDungeon.actNum - 1;
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(0, 0);

@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
 import com.megacrit.cardcrawl.shop.ShopScreen;
 
 import javassist.CtBehavior;
+import morimensmod.patches.enums.CustomTags;
 
 public class CardPurgePatch {
 

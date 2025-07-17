@@ -12,11 +12,11 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.EasyModalChoiceCard;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.ElationPower;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.*;
 
 import java.util.ArrayList;

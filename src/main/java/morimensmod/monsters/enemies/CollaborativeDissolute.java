@@ -18,10 +18,10 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import basemod.animations.AbstractAnimation;
 import morimensmod.actions.AllEnemyGainBlockAction;
 import morimensmod.actions.NewWaitAction;
+import morimensmod.config.ModSettings;
+import morimensmod.config.ModSettings.ASCENSION_LVL;
 import morimensmod.misc.Animator;
 import morimensmod.monsters.AbstractMorimensMonster;
-import morimensmod.util.ModSettings;
-import morimensmod.util.ModSettings.ASCENSION_LVL;
 
 public class CollaborativeDissolute extends AbstractMorimensMonster {
 
@@ -43,7 +43,7 @@ public class CollaborativeDissolute extends AbstractMorimensMonster {
     public CollaborativeDissolute(float x, float y, int turnOffset) {
         super(NAME, ID, getMaxHP(), 150F, 290F, x, y, turnOffset);
 
-        int dmgAddition = 2 * AbstractDungeon.floorNum / 17;
+        int dmgAddition = 2 * (AbstractDungeon.actNum - 1);
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(dmgAddition + 5, 1);

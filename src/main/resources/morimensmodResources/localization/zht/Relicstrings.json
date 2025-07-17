@@ -3,7 +3,7 @@
     "NAME": "混沌界域",
     "FLAVOR": "宇宙萬象",
     "DESCRIPTIONS": [
-      "回合結束時，獲得 #b%d 點 #y${ModID}:銀鑰能量 。每有 #b%d 點 #g${ModID}:界域精通 ，釋放 #y${ModID}:鑰令 後，獲得 #b%d #y${ModID}:狂氣 。",
+      "拾取時獲得 #b%d 個隨機普通遺物。 NL 回合結束時，獲得 #b%d 點 #y${ModID}:銀鑰能量 。每有 #b%d 點 #g${ModID}:界域精通 ，釋放 #y${ModID}:鑰令 後，獲得 #b%d #y${ModID}:狂氣 。",
       " NL 當前 #g界域精通 ： #b%d NL 當前釋放 #y鑰令 後獲得 #y狂氣 ： #b%d "
     ]
   },

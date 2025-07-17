@@ -1,6 +1,7 @@
 package morimensmod.relics;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
 import static morimensmod.util.Wiz.*;
 
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
@@ -15,7 +16,7 @@ public class HeavyLock extends AbstractEasyRelic implements OnAfterExalt {
     private static final int TMP_STR = 2;
 
     public HeavyLock() {
-        super(ID, RelicTier.COMMON, LandingSound.HEAVY);
+        super(ID, RelicTier.COMMON, LandingSound.HEAVY, AWAKENER_COLOR);
     }
 
     @Override

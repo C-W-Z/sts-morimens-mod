@@ -1,4 +1,4 @@
-package morimensmod.util;
+package morimensmod.config;
 
 import com.badlogic.gdx.graphics.Color;
 
@@ -39,6 +39,10 @@ public class ModSettings {
     public static final String PLAYER_ATTACK_ANIM           = "Attack";
     public static final String PLAYER_DEFENCE_ANIM          = "Defence";
     public static final String PLAYER_HIT_ANIM              = "Hit";
+    public static final String PLAYER_ROUSE_ANIM            = "Exalt";
+    public static final String PLAYER_EXALT_ANIM            = "ExSkill";
+    public static final String PLAYER_SKILL1_ANIM           = "Skill1";
+    public static final String PLAYER_SKILL2_ANIM           = "Skill2";
 
     public static final String MONSTER_IDLE_ANIM            = "Idle_1";
     public static final String MONSTER_HIT_ANIM             = "Hit";

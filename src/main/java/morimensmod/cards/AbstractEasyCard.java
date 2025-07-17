@@ -27,7 +27,7 @@ import static morimensmod.util.General.*;
 
 import morimensmod.cardmodifiers.ChangeCostUntilUseModifier;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 import morimensmod.util.CardArtRoller;
 
 import java.util.function.Consumer;

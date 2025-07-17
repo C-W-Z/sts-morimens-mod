@@ -1,6 +1,6 @@
 package morimensmod.cards.buffs;
 
-import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.BUFF_COLOR;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.SpawnModificationCar
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.patches.CustomTags;
+import morimensmod.patches.enums.CustomTags;
 
 public abstract class AbstractBuffCard extends AbstractEasyCard implements SpawnModificationCard {
 

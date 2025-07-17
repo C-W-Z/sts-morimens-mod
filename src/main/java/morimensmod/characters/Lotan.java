@@ -4,16 +4,17 @@ import morimensmod.cards.chaos.BladeOfDefiance;
 import morimensmod.cards.chaos.Defend;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.cards.chaos.TidesOfHubris;
+import morimensmod.config.ModSettings;
 import morimensmod.exalts.BeastOfChaos;
 import morimensmod.misc.Animator;
 import morimensmod.relics.ChaosRelic;
 import morimensmod.relics.LotanRelic;
-import morimensmod.util.ModSettings;
 
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -24,9 +25,9 @@ import basemod.BaseMod;
 import basemod.animations.AbstractAnimation;
 
 import static morimensmod.MorimensMod.*;
-import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.BUFF_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 import static morimensmod.util.General.removeModID;
 
 import java.util.ArrayList;
@@ -119,7 +120,7 @@ public class Lotan extends AbstractAwakener {
     }
 
     @Override
-    public AbstractCard.CardColor getCardColor() {
+    public CardColor getRealmColor() {
         return CHAOS_COLOR;
     }
 

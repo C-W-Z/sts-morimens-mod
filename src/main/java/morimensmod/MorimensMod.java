@@ -15,6 +15,8 @@ import morimensmod.cards.chaos.QueensSword;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.characters.Lotan;
 import morimensmod.characters.Ramona;
+import morimensmod.config.ConfigPanel;
+import morimensmod.config.ModSettings;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.icons.AbstractIcon;
@@ -27,7 +29,6 @@ import morimensmod.savables.SaveAwakenerFloatProperties;
 import morimensmod.savables.SaveAwakenerPosse;
 import morimensmod.savables.SaveAwakenerProperties;
 import morimensmod.savables.SavePersistentPowers;
-import morimensmod.util.ModSettings;
 import morimensmod.util.MonsterLib;
 import morimensmod.util.PersistentPowerLib;
 import morimensmod.util.ProAudio;
@@ -65,17 +66,18 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
-import static morimensmod.patches.ColorPatch.CardColorPatch.AEQUOR_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.BUFF_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CARO_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.CHAOS_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.POSSE_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.STATUS_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.ULTRA_COLOR;
-import static morimensmod.patches.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 import static morimensmod.util.Wiz.*;
 import static morimensmod.util.WizArt.*;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AEQUOR_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.BUFF_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CARO_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.POSSE_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.STATUS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.ULTRA_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 import static morimensmod.util.General.*;
 
 import java.nio.charset.StandardCharsets;
@@ -167,6 +169,11 @@ public class MorimensMod implements
     }
 
     public MorimensMod() {
+        BaseMod.addColor(AWAKENER_COLOR, Color.WHITE,
+                ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
+                ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
+                CARD_ENERGY_L, TEXT_ENERGY);
+
         BaseMod.addColor(CHAOS_COLOR, ModSettings.CHOAS_COLOR,
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
@@ -361,7 +368,7 @@ public class MorimensMod implements
         // You can find information about this on the BaseMod wiki page "Mod Config and
         // Panel".
         BaseMod.registerModBadge(badgeTexture, info.Name, arrToString(info.Authors), info.Description,
-                null);
+                new ConfigPanel());
 
         new AutoAdd(modID)
                 .packageFilter(AbstractEasyCard.class)
@@ -391,6 +398,7 @@ public class MorimensMod implements
         BaseMod.addTopPanelItem(new TopPanelDeathResistanceUI());
         BaseMod.addTopPanelItem(new TopPanelTurnUI());
 
+        MonsterLib.initialize();
         MonsterLib.register();
     }
 

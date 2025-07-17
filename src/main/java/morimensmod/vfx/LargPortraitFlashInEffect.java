@@ -10,7 +10,7 @@ import com.badlogic.gdx.math.Interpolation;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
-import morimensmod.util.ModSettings;
+import morimensmod.config.ModSettings;
 import morimensmod.util.TexLoader;
 
 public class LargPortraitFlashInEffect extends AbstractGameEffect {
