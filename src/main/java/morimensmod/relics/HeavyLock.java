@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.config.ModSettings;
 import morimensmod.interfaces.OnAfterExalt;
 
 public class HeavyLock extends AbstractEasyRelic implements OnAfterExalt {
@@ -15,7 +16,7 @@ public class HeavyLock extends AbstractEasyRelic implements OnAfterExalt {
     private static final int TMP_STR = 2;
 
     public HeavyLock() {
-        super(ID, RelicTier.COMMON, LandingSound.HEAVY);
+        super(ID, RelicTier.COMMON, LandingSound.HEAVY, ModSettings.AWAKENER_CARD_COLORS);
     }
 
     @Override

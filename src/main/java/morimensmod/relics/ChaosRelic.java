@@ -1,6 +1,7 @@
 package morimensmod.relics;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.p;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -26,7 +27,7 @@ public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse {
     private static final int ALIEMUS = 1;
 
     public ChaosRelic() {
-        super(ID, RelicTier.STARTER, LandingSound.FLAT);
+        super(ID, RelicTier.STARTER, LandingSound.FLAT, CHAOS_COLOR);
     }
 
     @Override

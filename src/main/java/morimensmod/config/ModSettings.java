@@ -1,9 +1,19 @@
 package morimensmod.config;
 
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch;
+
 import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
 
 public class ModSettings {
-    public static final Color CHOAS_COLOR               = new Color(227 / 255F, 201 / 255F, 110 / 255F, 1);
+    public static final CardColor[] AWAKENER_CARD_COLORS = new CardColor[] {
+            CardColorPatch.CHAOS_COLOR,
+            CardColorPatch.AEQUOR_COLOR,
+            CardColorPatch.CARO_COLOR,
+            CardColorPatch.ULTRA_COLOR
+    };
+
+    public static final Color CHAOS_COLOR               = new Color(227 / 255F, 201 / 255F, 110 / 255F, 1);
     public static final Color AEQUOR_COLOR              = new Color(106 / 255F, 171 / 255F, 236 / 255F, 1);
     public static final Color CARO_COLOR                = new Color(226 / 255F, 97 / 255F, 97 / 255F, 1);
     public static final Color ULTRA_COLOR               = new Color(194 / 255F, 146 / 255F, 236 / 255F, 1);

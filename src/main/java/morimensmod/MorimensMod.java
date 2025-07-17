@@ -48,6 +48,7 @@ import com.evacipated.cardcrawl.modthespire.Patcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -168,7 +169,7 @@ public class MorimensMod implements
     }
 
     public MorimensMod() {
-        BaseMod.addColor(CHAOS_COLOR, ModSettings.CHOAS_COLOR,
+        BaseMod.addColor(CHAOS_COLOR, ModSettings.CHAOS_COLOR,
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);
@@ -286,14 +287,14 @@ public class MorimensMod implements
         new AutoAdd(modID)
                 .packageFilter(AbstractEasyRelic.class)
                 .any(AbstractEasyRelic.class, (info, relic) -> {
-                    if (relic.color == null) {
+                    if (relic.colors == null || relic.colors.length == 0) {
                         BaseMod.addRelic(relic, RelicType.SHARED);
                     } else {
-                        BaseMod.addRelicToCustomPool(relic, relic.color);
+                        for (CardColor color : relic.colors)
+                            BaseMod.addRelicToCustomPool(relic, color);
                     }
-                    if (!info.seen) {
+                    if (!info.seen)
                         UnlockTracker.markRelicAsSeen(relic.relicId);
-                    }
                 });
     }
 

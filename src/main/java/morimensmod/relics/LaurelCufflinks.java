@@ -4,6 +4,7 @@ import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.p;
 
 import morimensmod.actions.AliemusChangeAction;
+import morimensmod.config.ModSettings;
 
 public class LaurelCufflinks extends AbstractEasyRelic {
     public static final String ID = makeID(LaurelCufflinks.class.getSimpleName());
@@ -11,7 +12,7 @@ public class LaurelCufflinks extends AbstractEasyRelic {
     private static final int ALIEMUS = 10;
 
     public LaurelCufflinks() {
-        super(ID, RelicTier.COMMON, LandingSound.SOLID);
+        super(ID, RelicTier.COMMON, LandingSound.SOLID, ModSettings.AWAKENER_CARD_COLORS);
     }
 
     @Override

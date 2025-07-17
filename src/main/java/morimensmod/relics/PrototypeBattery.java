@@ -1,6 +1,7 @@
 package morimensmod.relics;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.*;
 
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
@@ -14,7 +15,7 @@ public class PrototypeBattery extends AbstractEasyRelic {
     private static final int ALIEMUS_PER_ENERGY = 3;
 
     public PrototypeBattery() {
-        super(ID, RelicTier.RARE, LandingSound.SOLID);
+        super(ID, RelicTier.RARE, LandingSound.SOLID, CHAOS_COLOR);
     }
 
     @Override
