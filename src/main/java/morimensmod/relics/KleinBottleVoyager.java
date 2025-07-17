@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import morimensmod.cards.posses.AbstractPosse;
-import morimensmod.config.ModSettings;
 import morimensmod.interfaces.OnAfterPosse;
 import morimensmod.misc.PosseType;
 
@@ -17,7 +16,7 @@ public class KleinBottleVoyager extends AbstractEasyRelic implements OnAfterPoss
     private static final int TMP_STR = 1;
 
     public KleinBottleVoyager() {
-        super(ID, RelicTier.COMMON, LandingSound.SOLID, ModSettings.AWAKENER_CARD_COLORS);
+        super(ID, RelicTier.COMMON, LandingSound.SOLID);
     }
 
     @Override

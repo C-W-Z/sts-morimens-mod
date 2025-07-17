@@ -16,8 +16,6 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 
-import morimensmod.config.ModSettings;
-
 public class AshesOfTheBurningBlackStar extends AbstractEasyRelic {
     public static final String ID = makeID(AshesOfTheBurningBlackStar.class.getSimpleName());
 
@@ -27,7 +25,7 @@ public class AshesOfTheBurningBlackStar extends AbstractEasyRelic {
     private boolean cardsSelected = true;
 
     public AshesOfTheBurningBlackStar() {
-        super(ID, RelicTier.BOSS, LandingSound.HEAVY, ModSettings.AWAKENER_CARD_COLORS);
+        super(ID, RelicTier.BOSS, LandingSound.HEAVY);
     }
 
     @Override

@@ -1,7 +1,6 @@
 package morimensmod.relics;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.*;
 
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
@@ -19,7 +18,7 @@ public class RamonaRelic extends AbstractEasyRelic {
     private static final int KEYFLARE_REGEN = 1;
 
     public RamonaRelic() {
-        super(ID, RelicTier.STARTER, LandingSound.FLAT, CHAOS_COLOR);
+        super(ID, RelicTier.STARTER, LandingSound.FLAT);
     }
 
     @Override

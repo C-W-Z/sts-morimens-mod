@@ -1,7 +1,6 @@
 package morimensmod.relics;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.*;
 
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
@@ -18,7 +17,7 @@ public class LotanRelic extends AbstractEasyRelic {
     private static final int BASE_AMPLIFY_PER_ATTACK = 2;
 
     public LotanRelic() {
-        super(ID, RelicTier.STARTER, LandingSound.FLAT, CHAOS_COLOR);
+        super(ID, RelicTier.STARTER, LandingSound.FLAT);
     }
 
     @Override
