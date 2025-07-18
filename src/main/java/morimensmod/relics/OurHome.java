@@ -31,8 +31,8 @@ public class OurHome extends AbstractEasyRelic {
     @Override
     public int onPlayerHeal(int healAmount) {
         flash();
-        applyToSelfTop(new StrengthPower(p(), TMP_STR_PER_HEAL));
         applyToSelfTop(new LoseStrengthPower(p(), TMP_STR_PER_HEAL));
+        applyToSelfTop(new StrengthPower(p(), TMP_STR_PER_HEAL));
         return super.onPlayerHeal(healAmount);
     }
 
