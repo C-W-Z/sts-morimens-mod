@@ -30,7 +30,7 @@
   },
   "${ModID}:LaurelCufflinks": {
     "NAME": "Laurel Cufflinks",
-    "FLAVOR": "Silver cufflinks engraved with osmanthus leaf patterns. Finely crafted and gleaming, they.",
+    "FLAVOR": "Silver cufflinks engraved with osmanthus leaf patterns. Finely crafted and gleaming, they once embodied the friendship of two children.",
     "DESCRIPTIONS": ["gains #b%d #y${ModID}:Aliemus after the turn starts."]
   },
   "${ModID}:HeavyLock": {
@@ -64,6 +64,20 @@
     "FLAVOR": "Twitching is also a form of vitality.",
     "DESCRIPTIONS": ["Max [E] increased by #b%d."]
   },
+  "${ModID}:SailorsWhistle": {
+    "NAME": "Sailor's Whistle",
+    "FLAVOR": "Apart from mermaids, the whistle can summon hurricanes, smelly boots, and sailors who haven't bathed in a hundred days.",
+    "DESCRIPTIONS": [
+      "Every #b8th time you gain #yBlock, heal HP equal to #b%d%% of the Block gained."
+    ]
+  },
+  "${ModID}:OutHome": {
+    "NAME": "Our Home",
+    "FLAVOR": "They were together in the past, and they will always be together in the future. They are a close-knit and loving family.",
+    "DESCRIPTIONS": [
+      "Gain #b%d #yBlock when dealing active damage. Gain #b%d #y${ModID}:Temporary #yStrength when healing HP."
+    ]
+  },
   "${ModID}:PrasnoMirror": {
     "NAME": "Prasno Mirror",
     "FLAVOR": "The trick of Light and Shadow",
@@ -74,7 +88,9 @@
   "${ModID}:StellarBrew": {
     "NAME": "Stellar Brew",
     "FLAVOR": "Wandering among the stars.",
-    "DESCRIPTIONS": ["Every #b8th #y${ModID}:Command_Card you play will take effect twice."]
+    "DESCRIPTIONS": [
+      "Every #b8th #y${ModID}:Command_Card you play will take effect twice."
+    ]
   },
   "${ModID}:PrototypeBattery": {
     "NAME": "Prototype Battery",
@@ -84,10 +100,17 @@
     ]
   },
   "${ModID}:PriestsStaff": {
-    "NAME": "祭司權杖",
-    "FLAVOR": "不被許可的虔誠。",
+    "NAME": "Priest's Staff",
+    "FLAVOR": "Unsanctioned Piety",
     "DESCRIPTIONS": [
-      "對處於負面狀態的敵人造成的傷害提高 #b%d%% ，擊殺敵人後獲得 #b%d #y${ModID}:Aliemus."
+      "Deal #b%d%% more damage to enemies with debuffs. Gain #b%d #y${ModID}:Aliemus upon killing enemies."
+    ]
+  },
+  "${ModID}:TinyCradle": {
+    "NAME": "Tiny Cradle",
+    "FLAVOR": "Carrying hope, blessings, and love.",
+    "DESCRIPTIONS": [
+      "After unleashing #b%d #y${ModID}:Exalt, gain #b%d #y${ModID}:Aliemus."
     ]
   },
   "${ModID}:AshesOfTheBurningBlackStar": {
