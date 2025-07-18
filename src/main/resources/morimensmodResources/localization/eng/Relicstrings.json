@@ -71,7 +71,7 @@
       "Every #b8th time you gain #yBlock, heal HP equal to #b%d%% of the Block gained."
     ]
   },
-  "${ModID}:OutHome": {
+  "${ModID}:OurHome": {
     "NAME": "Our Home",
     "FLAVOR": "They were together in the past, and they will always be together in the future. They are a close-knit and loving family.",
     "DESCRIPTIONS": [

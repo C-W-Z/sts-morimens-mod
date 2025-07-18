@@ -71,7 +71,7 @@
       "每第 #b%d 次获得 #y格档 时，回复等于该次 #y格档 值 #b%d%% 的生命。"
     ]
   },
-  "${ModID}:OutHome": {
+  "${ModID}:OurHome": {
     "NAME": "我们的家",
     "FLAVOR": "他们之前在一起，之后也会永远在一起。他们是相亲相爱的一家人。",
     "DESCRIPTIONS": [
