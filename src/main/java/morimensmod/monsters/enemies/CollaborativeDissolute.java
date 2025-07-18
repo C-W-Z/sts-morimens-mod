@@ -109,19 +109,19 @@ public class CollaborativeDissolute extends AbstractMorimensMonster {
         switch (nextMove) {
             case 0:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(20F / 30F));
+                addToBot(new NewWaitAction(20F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(nextMove, AttackEffect.NONE);
                 addToBot(new ApplyPowerAction(p(), this, new StrengthPower(p(), -strengthDownAmt)));
                 addToBot(new ApplyPowerAction(p(), this, new GainStrengthPower(p(), strengthDownAmt)));
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(20F / 30F));
+                addToBot(new NewWaitAction(20F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(nextMove, AttackEffect.NONE);
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
-                addToBot(new NewWaitAction(22F / 30F));
+                addToBot(new NewWaitAction(22F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 addToBot(new AllEnemyApplyPowerAction(this, strengthAmt, (m) -> new StrengthPower(m, strengthAmt)));
                 addToBot(new AllEnemyGainBlockAction(this, blockAmt));
                 break;

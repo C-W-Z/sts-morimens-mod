@@ -114,20 +114,20 @@ public class KingOfKids extends AbstractMorimensMonster {
         switch (nextMove) {
             case 0:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(0.5F));
-                attackAction(0, AttackEffect.BLUNT_HEAVY);
+                addToBot(new NewWaitAction(15F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                attackAction(nextMove, AttackEffect.BLUNT_HEAVY);
                 shuffleIn(new Wound(), woundAmt);
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
-                addToBot(new NewWaitAction(0.4F));
+                addToBot(new NewWaitAction(12F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
                 addToBot(new GainBlockAction(this, this, blockAmt));
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(0.5F));
-                attackAction(2, AttackEffect.BLUNT_LIGHT);
+                addToBot(new NewWaitAction(15F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                attackAction(nextMove, AttackEffect.BLUNT_LIGHT);
                 break;
         }
 

@@ -114,24 +114,24 @@ public class DissolutedRatKing extends AbstractMorimensMonster {
         switch (nextMove) {
             case 0:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
-                addToBot(new NewWaitAction(21F / 30F));
+                addToBot(new NewWaitAction(21F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
                 addToBot(new GainBlockAction(this, blockAmt));
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(19F / 30F));
+                addToBot(new NewWaitAction(19F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(nextMove, AttackEffect.NONE);
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(19F / 30F));
+                addToBot(new NewWaitAction(19F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(nextMove, AttackEffect.NONE);
                 addToBot(new ApplyPowerAction(p(), this, new FrailPower(p(), frailAmt, true)));
                 break;
             case 3:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(19F / 30F));
+                addToBot(new NewWaitAction(19F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(nextMove, AttackEffect.NONE);
                 break;
         }

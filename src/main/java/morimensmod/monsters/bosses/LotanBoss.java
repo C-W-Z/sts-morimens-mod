@@ -133,24 +133,24 @@ public class LotanBoss extends AbstractAwakenableBoss {
         switch (_moveID) {
             case 0:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(9F / 30F));
+                addToBot(new NewWaitAction(9F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(_moveID, AttackEffect.SLASH_DIAGONAL);
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(9F / 30F));
+                addToBot(new NewWaitAction(9F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(_moveID, AttackEffect.SLASH_HORIZONTAL);
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(9F / 30F));
+                addToBot(new NewWaitAction(9F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(_moveID, AttackEffect.SLASH_DIAGONAL);
                 break;
             case 3:
                 addToBot(new VFXAction(this, new IntenseZoomEffect(this.hb.cX, this.hb.cY, true), 0.05F, true));
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ROUSE_ANIM));
-                addToBot(new NewWaitAction(31F / 30F));
+                addToBot(new NewWaitAction(31F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 addToBot(new ApplyPowerAction(this, this, new MadnessPower(this, madnessAmt)));
                 break;
             default:
