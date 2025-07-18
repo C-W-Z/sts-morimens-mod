@@ -9,7 +9,6 @@ A fan-made mod for **殺戮尖塔 Slay the Spire**, inspired by and partially ba
 - **模組作者**：Icya (C-W-Z)
 - **原作作者**：B.I.A.V.Studio
 - **發布平台**：[Steam Workshop Link](https://steamcommunity.com/sharedfiles/filedetails/?id=3505078227), [GitHub Link](https://github.com/C-W-Z/sts-morimens-mod)
-
 - **模組依賴**:
   - ModTheSpire: [Steam Workshop Link](https://steamcommunity.com/workshop/filedetails/?id=1605060445), [GitHub Link](https://github.com/kiooeht/ModTheSpire)
   - BaseMod: [Steam Workshop Link](https://steamcommunity.com/workshop/filedetails/?id=1605833019), [GitHub Link](https://github.com/daviscook477/BaseMod)
