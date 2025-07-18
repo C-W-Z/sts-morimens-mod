@@ -1,4 +1,4 @@
-package morimensmod.relics;
+package morimensmod.relics.rare;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import morimensmod.relics.AbstractEasyRelic;
 
 public class StellarBrew extends AbstractEasyRelic {
     public static final String ID = makeID(StellarBrew.class.getSimpleName());
@@ -26,8 +28,9 @@ public class StellarBrew extends AbstractEasyRelic {
         if (card.purgeOnUse || !isCommandCard(card))
             return;
         counter++;
-        if (counter % COMMAND_NUM != 0)
+        if (counter < COMMAND_NUM)
             return;
+        counter -= COMMAND_NUM;
 
         flash();
         AbstractMonster m = null;
@@ -47,8 +50,6 @@ public class StellarBrew extends AbstractEasyRelic {
 
         tmp.purgeOnUse = true;
         AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
-
-        counter -= COMMAND_NUM;
     }
 
     @Override

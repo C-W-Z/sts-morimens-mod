@@ -1,4 +1,4 @@
-package morimensmod.relics;
+package morimensmod.relics.boss;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
@@ -16,6 +16,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
+
+import morimensmod.relics.AbstractEasyRelic;
 
 public class AshesOfTheBurningBlackStar extends AbstractEasyRelic {
     public static final String ID = makeID(AshesOfTheBurningBlackStar.class.getSimpleName());

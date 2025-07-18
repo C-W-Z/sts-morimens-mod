@@ -7,8 +7,8 @@ import morimensmod.cards.chaos.Strike;
 import morimensmod.config.ModSettings;
 import morimensmod.exalts.MundusDecree;
 import morimensmod.misc.Animator;
-import morimensmod.relics.ChaosRelic;
-import morimensmod.relics.RamonaRelic;
+import morimensmod.relics.starter.ChaosRelic;
+import morimensmod.relics.starter.RamonaRelic;
 
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -84,7 +84,7 @@ public class Ramona extends AbstractAwakener {
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(
                 NAMES[0], TEXT[0],
-                60, 60, 0, 99, 5,
+                120, 120, 0, 99, 5,
                 this, getStartingRelics(),
                 getStartingDeck(), false);
     }

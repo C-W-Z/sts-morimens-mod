@@ -3,23 +3,14 @@ package morimensmod.monsters.bosses;
 import static morimensmod.MorimensMod.makeCharacterPath;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.General.removeModID;
-import static morimensmod.util.Wiz.actB;
-
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
-import com.megacrit.cardcrawl.actions.ClearCardQueueAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.unique.CanLoseAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.UnawakenedPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.combat.IntenseZoomEffect;
 
 import basemod.animations.AbstractAnimation;
@@ -29,10 +20,10 @@ import morimensmod.characters.Lotan;
 import morimensmod.config.ModSettings;
 import morimensmod.config.ModSettings.ASCENSION_LVL;
 import morimensmod.misc.Animator;
-import morimensmod.monsters.AbstractMorimensMonster;
+import morimensmod.monsters.AbstractAwakenableBoss;
 import morimensmod.powers.MadnessPower;
 
-public class LotanBoss extends AbstractMorimensMonster {
+public class LotanBoss extends AbstractAwakenableBoss {
 
     public static final String ID = makeID(LotanBoss.class.getSimpleName());
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
@@ -44,47 +35,37 @@ public class LotanBoss extends AbstractMorimensMonster {
     private int strengthAmt = 4;
     private int madnessAmt = 1;
 
-    private int moveID;
-    private boolean roused;
-
     public LotanBoss(float x, float y) {
-        this(x, y, 0);
-    }
-
-    public LotanBoss(float x, float y, int turnOffset) {
-        super(NAME, ID, getMaxHP(), 500, 310, x, y, turnOffset);
-
-        this.type = EnemyType.BOSS;
+        super(NAME, ID, 500, 310, x, y);
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_DMG) {
             addDamage(12, 3);
             addDamage(19, 1);
             addDamage(42, 1);
-            addDamage(-1, 0);
+            addNoDamage();
         } else {
             addDamage(9, 3);
             addDamage(16, 1);
             addDamage(39, 1);
-            addDamage(-1, 0);
+            addNoDamage();
         }
 
         // TODO: 進階19加上覺醒後每回合移除3層虛弱和易傷
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION)
-            strengthAmt = 4;
+            strengthAmt = 5;
         else
             strengthAmt = 4;
-
-        moveID = getFirstMoveID();
-        roused = false;
     }
 
-    protected static int getMaxHP() {
+    @Override
+    protected final int getMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
             return 720;
         return 650;
     }
 
-    protected static int getRousedMaxHP() {
+    @Override
+    protected final int getRousedMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
             return 1080;
         return 975;
@@ -119,70 +100,57 @@ public class LotanBoss extends AbstractMorimensMonster {
     }
 
     @Override
-    public void getMove(int num) {
-        setMoveIntent(moveID);
-    }
+    protected final int getFirstMoveID() { return 2; }
 
-    protected int getFirstMoveID() {
-        return 2;
-    }
+    @Override
+    protected final int getRouseMoveID() { return 3; }
 
-    protected int getNextMoveID(int _moveID) {
-        if (!roused && currentHealth <= 0 && _moveID != 3)
-            return 3;
+    @Override
+    protected int getNextMoveIDExceptRouse(int _moveID) {
         // 2 -> 0 -> 1 loop
-        // 3 -> (2 -> 0 -> 1 loop)
+        // 3 -> (0 -> 1 -> 2 loop)
         switch (_moveID) {
             default:
-            case 2:
-                return 0;
-            case 0:
-                return 1;
-            case 1:
-            case 3:
-                return 2;
+            case 0: return 1;
+            case 1: return 2;
+            case 2: return 0;
+            case 3: return 0;
         }
     }
 
+    @Override
     protected void setMoveIntent(int _moveID) {
         switch (_moveID) {
-            case 0:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.ATTACK);
-                break;
-            case 1:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.ATTACK_BUFF);
-                break;
-            case 2:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.ATTACK);
-                break;
-            case 3:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.MAGIC);
-                break;
+            case 0: setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.ATTACK);      break;
+            case 1: setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.ATTACK_BUFF); break;
+            case 2: setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.ATTACK);      break;
+            case 3: setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.MAGIC);       break;
         }
     }
 
+    @Override
     protected void takeMoveAction(int _moveID) {
         switch (_moveID) {
             case 0:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(9F / 30F));
+                addToBot(new NewWaitAction(9F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(_moveID, AttackEffect.SLASH_DIAGONAL);
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(9F / 30F));
+                addToBot(new NewWaitAction(9F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(_moveID, AttackEffect.SLASH_HORIZONTAL);
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(9F / 30F));
+                addToBot(new NewWaitAction(9F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(_moveID, AttackEffect.SLASH_DIAGONAL);
                 break;
             case 3:
                 addToBot(new VFXAction(this, new IntenseZoomEffect(this.hb.cX, this.hb.cY, true), 0.05F, true));
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ROUSE_ANIM));
-                addToBot(new NewWaitAction(31F / 30F));
+                addToBot(new NewWaitAction(31F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 addToBot(new ApplyPowerAction(this, this, new MadnessPower(this, madnessAmt)));
                 break;
             default:
@@ -191,72 +159,8 @@ public class LotanBoss extends AbstractMorimensMonster {
     }
 
     @Override
-    public void takeTurn() {
-        takeMoveAction(moveID);
-        moveID = getNextMoveID(moveID);
-        super.takeTurn();
-    }
+    protected void preBattle() {}
 
     @Override
-    public void usePreBattleAction() {
-        // CardCrawlGame.music.unsilenceBGM();
-        // AbstractDungeon.scene.fadeOutAmbiance();
-        // AbstractDungeon.getCurrRoom().playBgmInstantly("BOSS_BEYOND");
-        AbstractDungeon.getCurrRoom().cannotLose = true;
-        addToBot(new ApplyPowerAction(this, this, new UnawakenedPower(this)));
-    }
-
-    @Override
-    public void damage(DamageInfo info) {
-        super.damage(info);
-        if (this.animation instanceof Animator
-                && info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > 0)
-            ((Animator) this.animation).setAnimation(ModSettings.PLAYER_HIT_ANIM);
-        if (this.currentHealth <= 0 && !this.halfDead) {
-            if (AbstractDungeon.getCurrRoom().cannotLose == true)
-                this.halfDead = true;
-            for (AbstractPower p : this.powers)
-                p.onDeath();
-            for (AbstractRelic r : AbstractDungeon.player.relics)
-                r.onMonsterDeath(this);
-            addToTop(new ClearCardQueueAction());
-            this.powers.removeIf(p -> p.ID == UnawakenedPower.POWER_ID);
-            moveID = getNextMoveID(moveID);
-            setMoveIntent(moveID);
-            createIntent();
-            // addToBot(new ShoutAction(this, monsterStrings.DIALOG[0]));
-            actB(() -> setMoveIntent(moveID));
-            applyPowers();
-        }
-    }
-
-    @Override
-    public void changeState(String stateName) {
-        super.changeState(stateName);
-        if (stateName != ModSettings.PLAYER_ROUSE_ANIM)
-            return;
-        setHp(getRousedMaxHP());
-        this.currentHealth = 0;
-        this.halfDead = false;
-        this.roused = true;
-        addToBot(new HealAction(this, this, this.maxHealth));
-        addToBot(new CanLoseAction());
-    }
-
-    public void die() {
-        if (!AbstractDungeon.getCurrRoom().cannotLose) {
-            super.die();
-            useFastShakeAnimation(5.0F);
-            CardCrawlGame.screenShake.rumble(4.0F);
-            // if (this.saidPower) {
-            //     CardCrawlGame.sound.play("VO_AWAKENEDONE_2");
-            //     AbstractDungeon.effectList.add(
-            //             new SpeechBubble(this.hb.cX + this.dialogX, this.hb.cY + this.dialogY, 2.5F, DIALOG[1], false));
-            //     this.saidPower = true;
-            // }
-            onBossVictoryLogic();
-            if (AbstractDungeon.actNum >= 3)
-                onFinalBossVictoryLogic();
-        }
-    }
+    protected void onHalfDead() {}
 }

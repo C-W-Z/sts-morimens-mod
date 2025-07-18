@@ -1,4 +1,4 @@
-package morimensmod.relics;
+package morimensmod.relics.rare;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
@@ -7,6 +7,7 @@ import static morimensmod.util.Wiz.*;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import morimensmod.actions.AliemusChangeAction;
+import morimensmod.relics.AbstractEasyRelic;
 
 public class PrototypeBattery extends AbstractEasyRelic {
     public static final String ID = makeID(PrototypeBattery.class.getSimpleName());

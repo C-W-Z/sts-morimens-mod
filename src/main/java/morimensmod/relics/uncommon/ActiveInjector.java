@@ -1,8 +1,10 @@
-package morimensmod.relics;
+package morimensmod.relics.uncommon;
 
 import static morimensmod.MorimensMod.makeID;
 
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+
+import morimensmod.relics.AbstractEasyRelic;
 
 public class ActiveInjector extends AbstractEasyRelic {
     public static final String ID = makeID(ActiveInjector.class.getSimpleName());

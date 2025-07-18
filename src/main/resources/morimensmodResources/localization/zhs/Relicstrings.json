@@ -64,6 +64,20 @@
     "FLAVOR": "抽搐也是活性的一种。",
     "DESCRIPTIONS": ["最大 [E] 增加 #b%d 。"]
   },
+  "${ModID}:SailorsWhistle": {
+    "NAME": "水手哨",
+    "FLAVOR": "除开美人鱼，哨声还能吹来飓风、臭皮靴和一百天没洗澡的老水手。",
+    "DESCRIPTIONS": [
+      "每第 #b%d 次获得 #y格档 时，回复等于该次 #y格档 值 #b%d%% 的生命。"
+    ]
+  },
+  "${ModID}:OurHome": {
+    "NAME": "我们的家",
+    "FLAVOR": "他们之前在一起，之后也会永远在一起。他们是相亲相爱的一家人。",
+    "DESCRIPTIONS": [
+      "造成主动伤害时获得 #b%d 点 #y格挡 。回复生命时，获得 #b%d 点 #y${ModID}:临时 #y力量 。"
+    ]
+  },
   "${ModID}:PrasnoMirror": {
     "NAME": "普拉斯诺镜",
     "FLAVOR": "光与影的戏法。",
@@ -88,6 +102,13 @@
     "FLAVOR": "不被许可的虔诚。",
     "DESCRIPTIONS": [
       "对处于负面状态的敌人造成的伤害提高 #b%d%% ，击杀敌人后获得 #b%d #y${ModID}:狂气 。"
+    ]
+  },
+  "${ModID}:TinyCradle": {
+    "NAME": "小小襁褓",
+    "FLAVOR": "承载着希望、祝福与爱。",
+    "DESCRIPTIONS": [
+      "每释放 #b%d 次 #y${ModID}:狂气爆发 ，获得 #b%d #y${ModID}:狂气 。"
     ]
   },
   "${ModID}:AshesOfTheBurningBlackStar": {

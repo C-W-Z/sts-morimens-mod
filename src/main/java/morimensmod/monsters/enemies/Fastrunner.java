@@ -41,11 +41,11 @@ public class Fastrunner extends AbstractMorimensMonster {
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(dmgAddition + 7, 1);
-            addDamage(0, 0);
+            addNoDamage();
             addDamage(dmgAddition + 4, 2);
         } else {
             addDamage(dmgAddition + 5, 1);
-            addDamage(0, 0);
+            addNoDamage();
             addDamage(dmgAddition + 2, 2);
         }
 
@@ -91,15 +91,9 @@ public class Fastrunner extends AbstractMorimensMonster {
     @Override
     public void getMove(int num) {
         switch (turn % 3) {
-            case 0:
-                setAttackIntent(0, Intent.ATTACK);
-                break;
-            case 1:
-                setMove((byte) 1, Intent.DEBUFF, 0);
-                break;
-            case 2:
-                setAttackIntent(2, Intent.ATTACK);
-                break;
+            case 0: setIntent(0, Intent.ATTACK); break;
+            case 1: setIntent(1, Intent.DEBUFF); break;
+            case 2: setIntent(2, Intent.ATTACK); break;
         }
     }
 
@@ -108,18 +102,18 @@ public class Fastrunner extends AbstractMorimensMonster {
         switch (nextMove) {
             case 0:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(0.5F));
-                attackAction(0, AttackEffect.BLUNT_HEAVY);
+                addToBot(new NewWaitAction(15F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                attackAction(nextMove, AttackEffect.BLUNT_HEAVY);
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
-                addToBot(new NewWaitAction(0.4F));
+                addToBot(new NewWaitAction(12F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 shuffleIn(new Wound(), woundAmt);
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(0.5F));
-                attackAction(2, AttackEffect.BLUNT_LIGHT);
+                addToBot(new NewWaitAction(15F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                attackAction(nextMove, AttackEffect.BLUNT_LIGHT);
                 break;
         }
 

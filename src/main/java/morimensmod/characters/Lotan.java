@@ -7,8 +7,8 @@ import morimensmod.cards.chaos.TidesOfHubris;
 import morimensmod.config.ModSettings;
 import morimensmod.exalts.BeastOfChaos;
 import morimensmod.misc.Animator;
-import morimensmod.relics.ChaosRelic;
-import morimensmod.relics.LotanRelic;
+import morimensmod.relics.starter.ChaosRelic;
+import morimensmod.relics.starter.LotanRelic;
 
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -84,7 +84,7 @@ public class Lotan extends AbstractAwakener {
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(
                 NAMES[0], TEXT[0],
-                70, 70, 0, 99, 5,
+                128, 128, 0, 99, 5,
                 this, getStartingRelics(),
                 getStartingDeck(), false);
     }

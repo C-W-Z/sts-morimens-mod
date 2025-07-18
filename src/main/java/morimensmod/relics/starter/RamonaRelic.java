@@ -1,4 +1,4 @@
-package morimensmod.relics;
+package morimensmod.relics.starter;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 
 import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.relics.AbstractEasyRelic;
 
 public class RamonaRelic extends AbstractEasyRelic {
     public static final String ID = makeID(RamonaRelic.class.getSimpleName());
@@ -35,14 +36,13 @@ public class RamonaRelic extends AbstractEasyRelic {
         if (card.purgeOnUse || !isCommandCard(card))
             return;
         counter++;
-        if (counter % COMMAND_NUM != 0)
+        if (counter < COMMAND_NUM)
             return;
+        counter -= COMMAND_NUM;
 
         flash();
         if (p() instanceof AbstractAwakener)
             actB(() -> ((AbstractAwakener) p()).keyflareRegen += KEYFLARE_REGEN);
-
-        counter -= COMMAND_NUM;
     }
 
     @Override

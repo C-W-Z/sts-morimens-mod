@@ -102,5 +102,6 @@ public class MemoryRondo extends AbstractEasyCard {
 
     @Override
     public void upp() {
+        upgradeMagicNumber(1);
     }
 }

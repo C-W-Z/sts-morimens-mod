@@ -46,11 +46,11 @@ public class KingOfKids extends AbstractMorimensMonster {
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(dmgAddition + 10, 1);
-            addDamage(0, 0);
+            addNoDamage();
             addDamage(dmgAddition + 6, 2);
         } else {
             addDamage(dmgAddition + 8, 1);
-            addDamage(0, 0);
+            addNoDamage();
             addDamage(dmgAddition + 4, 2);
         }
 
@@ -103,15 +103,9 @@ public class KingOfKids extends AbstractMorimensMonster {
     @Override
     public void getMove(int num) {
         switch (turn % 3) {
-            case 0:
-                setAttackIntent(0, Intent.ATTACK_DEBUFF);
-                break;
-            case 1:
-                setMove((byte) 1, Intent.BUFF, 0);
-                break;
-            case 2:
-                setAttackIntent(2, Intent.ATTACK);
-                break;
+            case 0: setIntent(0, Intent.ATTACK_DEBUFF); break;
+            case 1: setIntent(1, Intent.BUFF);          break;
+            case 2: setIntent(2, Intent.ATTACK);        break;
         }
     }
 
@@ -120,20 +114,20 @@ public class KingOfKids extends AbstractMorimensMonster {
         switch (nextMove) {
             case 0:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(0.5F));
-                attackAction(0, AttackEffect.BLUNT_HEAVY);
+                addToBot(new NewWaitAction(15F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                attackAction(nextMove, AttackEffect.BLUNT_HEAVY);
                 shuffleIn(new Wound(), woundAmt);
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
-                addToBot(new NewWaitAction(0.4F));
+                addToBot(new NewWaitAction(12F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
                 addToBot(new GainBlockAction(this, this, blockAmt));
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(0.5F));
-                attackAction(2, AttackEffect.BLUNT_LIGHT);
+                addToBot(new NewWaitAction(15F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                attackAction(nextMove, AttackEffect.BLUNT_LIGHT);
                 break;
         }
 

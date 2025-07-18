@@ -1,4 +1,4 @@
-package morimensmod.relics;
+package morimensmod.relics.common;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.interfaces.OnAfterExalt;
+import morimensmod.relics.AbstractEasyRelic;
 
 public class HeavyLock extends AbstractEasyRelic implements OnAfterExalt {
     public static final String ID = makeID(HeavyLock.class.getSimpleName());

@@ -1,4 +1,4 @@
-package morimensmod.relics;
+package morimensmod.relics.starter;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
@@ -17,6 +17,7 @@ import morimensmod.cards.posses.AbstractPosse;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.interfaces.OnAfterPosse;
 import morimensmod.misc.PosseType;
+import morimensmod.relics.AbstractEasyRelic;
 
 public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse {
     public static final String ID = makeID(ChaosRelic.class.getSimpleName());

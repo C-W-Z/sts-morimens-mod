@@ -1,4 +1,4 @@
-package morimensmod.relics;
+package morimensmod.relics.rare;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.*;
@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 
 import morimensmod.cards.buffs.Insight;
+import morimensmod.relics.AbstractEasyRelic;
 
 public class PrasnoMirror extends AbstractEasyRelic {
     public static final String ID = makeID(PrasnoMirror.class.getSimpleName());

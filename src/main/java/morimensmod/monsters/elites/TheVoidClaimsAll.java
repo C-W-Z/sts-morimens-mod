@@ -98,18 +98,10 @@ public class TheVoidClaimsAll extends AbstractMorimensMonster {
     @Override
     public void getMove(int num) {
         switch (turn % 4) {
-            case 0:
-                setAttackIntent(0, Intent.ATTACK_DEBUFF);
-                break;
-            case 1:
-                setAttackIntent(1, Intent.ATTACK_BUFF);
-                break;
-            case 2:
-                setAttackIntent(2, Intent.ATTACK);
-                break;
-            case 3:
-                setAttackIntent(3, Intent.ATTACK_DEBUFF);
-                break;
+            case 0: setIntent(0, Intent.ATTACK_DEBUFF); break;
+            case 1: setIntent(1, Intent.ATTACK_BUFF);   break;
+            case 2: setIntent(2, Intent.ATTACK);        break;
+            case 3: setIntent(3, Intent.ATTACK_DEBUFF); break;
         }
     }
 
@@ -118,25 +110,25 @@ public class TheVoidClaimsAll extends AbstractMorimensMonster {
         switch (nextMove) {
             case 0:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(0.9F));
-                attackAction(0, AttackEffect.BLUNT_HEAVY);
+                addToBot(new NewWaitAction(27F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                attackAction(nextMove, AttackEffect.BLUNT_HEAVY);
                 addToBot(new ApplyPowerAction(p(), this, new WeakPower(p(), weakAmt, true)));
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(0.9F));
-                attackAction(1, AttackEffect.BLUNT_HEAVY);
+                addToBot(new NewWaitAction(27F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                attackAction(nextMove, AttackEffect.BLUNT_HEAVY);
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(0.9F));
-                attackAction(2, AttackEffect.BLUNT_LIGHT);
+                addToBot(new NewWaitAction(27F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                attackAction(nextMove, AttackEffect.BLUNT_LIGHT);
                 break;
             case 3:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(0.9F));
-                attackAction(3, AttackEffect.BLUNT_LIGHT);
+                addToBot(new NewWaitAction(27F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                attackAction(nextMove, AttackEffect.BLUNT_LIGHT);
                 addToBot(new ApplyPowerAction(p(), this, new FrailPower(p(), frailAmt, true)));
                 break;
         }

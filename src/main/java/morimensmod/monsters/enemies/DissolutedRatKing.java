@@ -45,12 +45,12 @@ public class DissolutedRatKing extends AbstractMorimensMonster {
         int dmgAddition = AbstractDungeon.actNum - 1;
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
-            addDamage(0, 0);
+            addNoDamage();
             addDamage(dmgAddition + 6, 2);
             addDamage(dmgAddition + 6, 1);
             addDamage(dmgAddition + 10, 1);
         } else {
-            addDamage(0, 0);
+            addNoDamage();
             addDamage(dmgAddition + 4, 2);
             addDamage(dmgAddition + 4, 1);
             addDamage(dmgAddition + 8, 1);
@@ -102,18 +102,10 @@ public class DissolutedRatKing extends AbstractMorimensMonster {
     @Override
     public void getMove(int num) {
         switch (turn % 4) {
-            case 0:
-                setMove((byte) 0, Intent.DEFEND_BUFF, 0);
-                break;
-            case 1:
-                setAttackIntent(1, Intent.ATTACK);
-                break;
-            case 2:
-                setAttackIntent(2, Intent.ATTACK_DEBUFF);
-                break;
-            case 3:
-                setAttackIntent(3, Intent.ATTACK);
-                break;
+            case 0: setIntent(0, Intent.DEFEND_BUFF);   break;
+            case 1: setIntent(1, Intent.ATTACK);        break;
+            case 2: setIntent(2, Intent.ATTACK_DEBUFF); break;
+            case 3: setIntent(3, Intent.ATTACK);        break;
         }
     }
 
@@ -122,24 +114,24 @@ public class DissolutedRatKing extends AbstractMorimensMonster {
         switch (nextMove) {
             case 0:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
-                addToBot(new NewWaitAction(21F / 30F));
+                addToBot(new NewWaitAction(21F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
                 addToBot(new GainBlockAction(this, blockAmt));
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(19F / 30F));
+                addToBot(new NewWaitAction(19F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(nextMove, AttackEffect.NONE);
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(19F / 30F));
+                addToBot(new NewWaitAction(19F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(nextMove, AttackEffect.NONE);
                 addToBot(new ApplyPowerAction(p(), this, new FrailPower(p(), frailAmt, true)));
                 break;
             case 3:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(19F / 30F));
+                addToBot(new NewWaitAction(19F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(nextMove, AttackEffect.NONE);
                 break;
         }

@@ -45,10 +45,10 @@ public class InterferenceTypeDissolute extends AbstractMorimensMonster {
         int dmgAddition = AbstractDungeon.floorNum / 10;
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
-            addDamage(0, 0);
+            addNoDamage();
             addDamage(dmgAddition + 12, 1);
         } else {
-            addDamage(0, 0);
+            addNoDamage();
             addDamage(dmgAddition + 10, 1);
         }
 
@@ -98,12 +98,8 @@ public class InterferenceTypeDissolute extends AbstractMorimensMonster {
     @Override
     public void getMove(int num) {
         switch (turn % 2) {
-            case 0:
-                setMove((byte) 0, Intent.DEFEND_DEBUFF, 0);
-                break;
-            case 1:
-                setAttackIntent(1, Intent.ATTACK_BUFF);
-                break;
+            case 0: setIntent(0, Intent.DEFEND_DEBUFF); break;
+            case 1: setIntent(1, Intent.ATTACK_BUFF);   break;
         }
     }
 
@@ -112,13 +108,13 @@ public class InterferenceTypeDissolute extends AbstractMorimensMonster {
         switch (nextMove) {
             case 0:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
-                addToBot(new NewWaitAction(31F / 30F));
+                addToBot(new NewWaitAction(31F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 addToBot(new GainBlockAction(this, blockAmt));
                 shuffleIn(new Convulsion(), convulsionAmt);
                 break;
             case 1:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(19F / 30F));
+                addToBot(new NewWaitAction(19F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(nextMove, AttackEffect.NONE);
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
                 break;

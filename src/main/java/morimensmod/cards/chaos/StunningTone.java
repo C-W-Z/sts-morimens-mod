@@ -18,7 +18,7 @@ public class StunningTone extends AbstractEasyCard {
     public StunningTone() {
         super(ID, 4, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
-        damage = baseDamage = 32;
+        damage = baseDamage = 35;
         attackCount = baseAttackCount = 1;
     }
 
@@ -33,6 +33,6 @@ public class StunningTone extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeDamage(13);
+        upgradeDamage(15);
     }
 }
