@@ -8,7 +8,13 @@ A fan-made mod for **殺戮尖塔 Slay the Spire**, inspired by and partially ba
 - **對應遊戲**：殺戮尖塔 (Slay the Spire) (by MegaCrit)
 - **模組作者**：Icya (C-W-Z)
 - **原作作者**：B.I.A.V.Studio
-- **發布平台**：[Steam Workshop Link](https://steamcommunity.com/sharedfiles/filedetails/?id=3505078227)
+- **發布平台**：[Steam Workshop Link](https://steamcommunity.com/sharedfiles/filedetails/?id=3505078227), [GitHub Link](https://github.com/C-W-Z/sts-morimens-mod)
+
+- **模組依賴**:
+  - ModTheSpire: [Steam Workshop Link](https://steamcommunity.com/workshop/filedetails/?id=1605060445), [GitHub Link](https://github.com/kiooeht/ModTheSpire)
+  - BaseMod: [Steam Workshop Link](https://steamcommunity.com/workshop/filedetails/?id=1605833019), [GitHub Link](https://github.com/daviscook477/BaseMod)
+  - StSLib: [Steam Workshop Link](https://steamcommunity.com/workshop/filedetails/?id=1609158507), [GitHub Link](https://github.com/kiooeht/StSLib)
+  - STS Signature Lib: [Steam Workshop Link](https://steamcommunity.com/workshop/filedetails/?id=3433319964), [GitHub Link](https://github.com/antileaf/SignatureLib)
 
 ## 授權與版權聲明 License & Copyright Notice
 
@@ -35,7 +41,7 @@ However, all included art, animation, and other media assets are excluded from t
   - 可進行改作與格式轉換（derivative works allowed）
 
 > 本模組不主張對忘卻前夜原始素材（如卡牌設計、遊戲機制、圖片、音效）擁有著作權，僅對技術整合與原創部分擁有相應權利。
-> 
+>
 > 原作者保留隨時撤回授權之權利。若未來授權終止，模組作者將配合下架、刪除或替換相關素材，並尊重原作者最終意願。
 
 #### 原創與社群貢獻內容
@@ -65,4 +71,5 @@ However, all included art, animation, and other media assets are excluded from t
 ## 聯絡方式／問題回報 Contact / Issue Reporting
 
 1. 在[Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3505078227)留言區或討論區留言
-2. 在Discord社群「忘卻前夜Morimens（全球頻道）」同人創作區 — 「Slay the Spire Morimens Modding Log」討論串中回報
+2. 在本模組的[GitHub Repository](https://github.com/C-W-Z/sts-morimens-mod)發Issue
+3. 在Discord社群「忘卻前夜Morimens（全球頻道）」同人創作區 — 「Slay the Spire Morimens Modding Log」討論串中回報
