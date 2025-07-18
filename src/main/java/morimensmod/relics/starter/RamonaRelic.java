@@ -1,4 +1,4 @@
-package morimensmod.relics;
+package morimensmod.relics.starter;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 
 import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.relics.AbstractEasyRelic;
 
 public class RamonaRelic extends AbstractEasyRelic {
     public static final String ID = makeID(RamonaRelic.class.getSimpleName());

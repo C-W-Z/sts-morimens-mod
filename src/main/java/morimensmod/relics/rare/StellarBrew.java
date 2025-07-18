@@ -1,4 +1,4 @@
-package morimensmod.relics;
+package morimensmod.relics.rare;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import morimensmod.relics.AbstractEasyRelic;
 
 public class StellarBrew extends AbstractEasyRelic {
     public static final String ID = makeID(StellarBrew.class.getSimpleName());

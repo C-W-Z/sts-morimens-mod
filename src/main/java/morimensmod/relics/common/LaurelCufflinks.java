@@ -1,10 +1,11 @@
-package morimensmod.relics;
+package morimensmod.relics.common;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
 import static morimensmod.util.Wiz.p;
 
 import morimensmod.actions.AliemusChangeAction;
+import morimensmod.relics.AbstractEasyRelic;
 
 public class LaurelCufflinks extends AbstractEasyRelic {
     public static final String ID = makeID(LaurelCufflinks.class.getSimpleName());

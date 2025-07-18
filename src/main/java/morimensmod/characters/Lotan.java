@@ -7,8 +7,8 @@ import morimensmod.cards.chaos.TidesOfHubris;
 import morimensmod.config.ModSettings;
 import morimensmod.exalts.BeastOfChaos;
 import morimensmod.misc.Animator;
-import morimensmod.relics.ChaosRelic;
-import morimensmod.relics.LotanRelic;
+import morimensmod.relics.starter.ChaosRelic;
+import morimensmod.relics.starter.LotanRelic;
 
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;

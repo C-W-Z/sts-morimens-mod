@@ -1,4 +1,4 @@
-package morimensmod.relics;
+package morimensmod.relics.starter;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.relics.AbstractEasyRelic;
 
 public class LotanRelic extends AbstractEasyRelic {
     public static final String ID = makeID(LotanRelic.class.getSimpleName());

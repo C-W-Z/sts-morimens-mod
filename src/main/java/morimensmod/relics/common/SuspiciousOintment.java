@@ -1,10 +1,12 @@
-package morimensmod.relics;
+package morimensmod.relics.common;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.*;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
 import com.megacrit.cardcrawl.powers.PoisonPower;
+
+import morimensmod.relics.AbstractEasyRelic;
 
 public class SuspiciousOintment extends AbstractEasyRelic {
     public static final String ID = makeID(SuspiciousOintment.class.getSimpleName());

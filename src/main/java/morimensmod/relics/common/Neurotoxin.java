@@ -1,4 +1,4 @@
-package morimensmod.relics;
+package morimensmod.relics.common;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.*;
@@ -7,6 +7,8 @@ import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerActi
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.powers.PoisonPower;
+
+import morimensmod.relics.AbstractEasyRelic;
 
 public class Neurotoxin extends AbstractEasyRelic {
     public static final String ID = makeID(Neurotoxin.class.getSimpleName());

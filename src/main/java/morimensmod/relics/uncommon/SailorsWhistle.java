@@ -1,10 +1,12 @@
-package morimensmod.relics;
+package morimensmod.relics.uncommon;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.*;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.HealAction;
+
+import morimensmod.relics.AbstractEasyRelic;
 
 public class SailorsWhistle extends AbstractEasyRelic {
     public static final String ID = makeID(SailorsWhistle.class.getSimpleName());

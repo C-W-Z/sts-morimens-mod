@@ -1,4 +1,4 @@
-package morimensmod.relics;
+package morimensmod.relics.boss;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.shuffleIn;
@@ -6,6 +6,7 @@ import static morimensmod.util.Wiz.shuffleIn;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import morimensmod.cards.status.Stagger;
+import morimensmod.relics.AbstractEasyRelic;
 
 public class BlackCandle extends AbstractEasyRelic {
     public static final String ID = makeID(BlackCandle.class.getSimpleName());

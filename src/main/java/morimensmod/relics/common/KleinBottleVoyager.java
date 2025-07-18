@@ -1,4 +1,4 @@
-package morimensmod.relics;
+package morimensmod.relics.common;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import morimensmod.cards.posses.AbstractPosse;
 import morimensmod.interfaces.OnAfterPosse;
 import morimensmod.misc.PosseType;
+import morimensmod.relics.AbstractEasyRelic;
 
 public class KleinBottleVoyager extends AbstractEasyRelic implements OnAfterPosse {
     public static final String ID = makeID(KleinBottleVoyager.class.getSimpleName());

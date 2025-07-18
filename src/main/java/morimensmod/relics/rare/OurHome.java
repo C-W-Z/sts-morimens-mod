@@ -1,4 +1,4 @@
-package morimensmod.relics;
+package morimensmod.relics.rare;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.*;
@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+
+import morimensmod.relics.AbstractEasyRelic;
 
 public class OurHome extends AbstractEasyRelic {
     public static final String ID = makeID(OurHome.class.getSimpleName());

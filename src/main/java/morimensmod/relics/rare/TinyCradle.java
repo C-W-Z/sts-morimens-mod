@@ -1,4 +1,4 @@
-package morimensmod.relics;
+package morimensmod.relics.rare;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
@@ -6,6 +6,7 @@ import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.interfaces.OnAfterExalt;
+import morimensmod.relics.AbstractEasyRelic;
 
 public class TinyCradle extends AbstractEasyRelic implements OnAfterExalt {
     public static final String ID = makeID(TinyCradle.class.getSimpleName());
