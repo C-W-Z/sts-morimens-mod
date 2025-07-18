@@ -48,11 +48,11 @@ public class CollaborativeDissolute extends AbstractMorimensMonster {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(dmgAddition + 5, 1);
             addDamage(dmgAddition + 5, 2);
-            addDamage(0, 0);
+            addNoDamage();
         } else {
             addDamage(dmgAddition + 3, 1);
             addDamage(dmgAddition + 3, 2);
-            addDamage(0, 0);
+            addNoDamage();
         }
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_MONSTER_ACTION) {
@@ -98,15 +98,9 @@ public class CollaborativeDissolute extends AbstractMorimensMonster {
     @Override
     public void getMove(int num) {
         switch (turn % 3) {
-            case 0:
-                setAttackIntent(0, Intent.ATTACK_DEBUFF);
-                break;
-            case 1:
-                setAttackIntent(1, Intent.ATTACK);
-                break;
-            case 2:
-                setMove((byte) 2, Intent.DEFEND_BUFF, 0);
-                break;
+            case 0: setIntent(0, Intent.ATTACK_DEBUFF); break;
+            case 1: setIntent(1, Intent.ATTACK);        break;
+            case 2: setIntent(2, Intent.DEFEND_BUFF);   break;
         }
     }
 

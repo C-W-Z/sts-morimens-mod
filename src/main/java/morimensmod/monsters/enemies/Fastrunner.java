@@ -41,11 +41,11 @@ public class Fastrunner extends AbstractMorimensMonster {
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(dmgAddition + 7, 1);
-            addDamage(0, 0);
+            addNoDamage();
             addDamage(dmgAddition + 4, 2);
         } else {
             addDamage(dmgAddition + 5, 1);
-            addDamage(0, 0);
+            addNoDamage();
             addDamage(dmgAddition + 2, 2);
         }
 
@@ -91,15 +91,9 @@ public class Fastrunner extends AbstractMorimensMonster {
     @Override
     public void getMove(int num) {
         switch (turn % 3) {
-            case 0:
-                setAttackIntent(0, Intent.ATTACK);
-                break;
-            case 1:
-                setMove((byte) 1, Intent.DEBUFF, 0);
-                break;
-            case 2:
-                setAttackIntent(2, Intent.ATTACK);
-                break;
+            case 0: setIntent(0, Intent.ATTACK); break;
+            case 1: setIntent(1, Intent.DEBUFF); break;
+            case 2: setIntent(2, Intent.ATTACK); break;
         }
     }
 

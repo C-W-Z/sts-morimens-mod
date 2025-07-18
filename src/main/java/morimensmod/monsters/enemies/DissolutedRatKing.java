@@ -45,12 +45,12 @@ public class DissolutedRatKing extends AbstractMorimensMonster {
         int dmgAddition = AbstractDungeon.actNum - 1;
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
-            addDamage(0, 0);
+            addNoDamage();
             addDamage(dmgAddition + 6, 2);
             addDamage(dmgAddition + 6, 1);
             addDamage(dmgAddition + 10, 1);
         } else {
-            addDamage(0, 0);
+            addNoDamage();
             addDamage(dmgAddition + 4, 2);
             addDamage(dmgAddition + 4, 1);
             addDamage(dmgAddition + 8, 1);
@@ -102,18 +102,10 @@ public class DissolutedRatKing extends AbstractMorimensMonster {
     @Override
     public void getMove(int num) {
         switch (turn % 4) {
-            case 0:
-                setMove((byte) 0, Intent.DEFEND_BUFF, 0);
-                break;
-            case 1:
-                setAttackIntent(1, Intent.ATTACK);
-                break;
-            case 2:
-                setAttackIntent(2, Intent.ATTACK_DEBUFF);
-                break;
-            case 3:
-                setAttackIntent(3, Intent.ATTACK);
-                break;
+            case 0: setIntent(0, Intent.DEFEND_BUFF);   break;
+            case 1: setIntent(1, Intent.ATTACK);        break;
+            case 2: setIntent(2, Intent.ATTACK_DEBUFF); break;
+            case 3: setIntent(3, Intent.ATTACK);        break;
         }
     }
 

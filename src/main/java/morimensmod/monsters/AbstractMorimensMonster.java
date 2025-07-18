@@ -39,9 +39,13 @@ public abstract class AbstractMorimensMonster extends CustomMonster {
 
     protected abstract AbstractAnimation getAnimation();
 
-    protected void addDamage(int dmg, int count) {
+    protected final void addDamage(int dmg, int count) {
         damage.add(new DamageInfo(this, dmg));
         attackCount.add(count);
+    }
+
+    protected final void addNoDamage() {
+        addDamage(-1, 0);
     }
 
     protected int getAttackCount(int move) {
@@ -50,7 +54,7 @@ public abstract class AbstractMorimensMonster extends CustomMonster {
                 + getPowerAmount(this, TmpMadnessPower.POWER_ID);
     }
 
-    protected void setAttackIntent(int move, Intent intent) {
+    protected void setIntent(int move, Intent intent) {
         int atkCount = getAttackCount(move);
         setMove((byte) move, intent, damage.get(move).base, atkCount, atkCount > 1);
     }

@@ -98,18 +98,10 @@ public class TheVoidClaimsAll extends AbstractMorimensMonster {
     @Override
     public void getMove(int num) {
         switch (turn % 4) {
-            case 0:
-                setAttackIntent(0, Intent.ATTACK_DEBUFF);
-                break;
-            case 1:
-                setAttackIntent(1, Intent.ATTACK_BUFF);
-                break;
-            case 2:
-                setAttackIntent(2, Intent.ATTACK);
-                break;
-            case 3:
-                setAttackIntent(3, Intent.ATTACK_DEBUFF);
-                break;
+            case 0: setIntent(0, Intent.ATTACK_DEBUFF); break;
+            case 1: setIntent(1, Intent.ATTACK_BUFF);   break;
+            case 2: setIntent(2, Intent.ATTACK);        break;
+            case 3: setIntent(3, Intent.ATTACK_DEBUFF); break;
         }
     }
 
