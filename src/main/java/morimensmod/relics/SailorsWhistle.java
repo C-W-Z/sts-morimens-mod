@@ -20,7 +20,7 @@ public class SailorsWhistle extends AbstractEasyRelic {
     @Override
     public int onPlayerGainedBlock(float blockAmount) {
         counter++;
-        if (counter % PER_BLOCK == 0) {
+        if (counter >= PER_BLOCK) {
             counter -= PER_BLOCK;
             flash();
             addToTop(new HealAction(p(), null, MathUtils.ceil(blockAmount * HEAL_PERCENT_OF_BLOCK / 100F)));
