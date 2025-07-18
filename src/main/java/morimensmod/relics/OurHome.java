@@ -25,14 +25,14 @@ public class OurHome extends AbstractEasyRelic {
         if (info.type == DamageType.THORNS)
             return;
         flash();
-        addToBot(new GainBlockAction(p(), BLOCK_PER_ATTACK));
+        addToTop(new GainBlockAction(p(), BLOCK_PER_ATTACK));
     }
 
     @Override
     public int onPlayerHeal(int healAmount) {
         flash();
-        applyToSelf(new StrengthPower(p(), TMP_STR_PER_HEAL));
-        applyToSelf(new LoseStrengthPower(p(), TMP_STR_PER_HEAL));
+        applyToSelfTop(new StrengthPower(p(), TMP_STR_PER_HEAL));
+        applyToSelfTop(new LoseStrengthPower(p(), TMP_STR_PER_HEAL));
         return super.onPlayerHeal(healAmount);
     }
 
