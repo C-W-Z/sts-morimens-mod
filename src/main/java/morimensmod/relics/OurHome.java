@@ -10,13 +10,13 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-public class OutHome extends AbstractEasyRelic {
-    public static final String ID = makeID(OutHome.class.getSimpleName());
+public class OurHome extends AbstractEasyRelic {
+    public static final String ID = makeID(OurHome.class.getSimpleName());
 
     private static final int BLOCK_PER_ATTACK = 1;
     private static final int TMP_STR_PER_HEAL = 2;
 
-    public OutHome() {
+    public OurHome() {
         super(ID, RelicTier.RARE, LandingSound.HEAVY);
     }
 
