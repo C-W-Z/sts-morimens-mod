@@ -84,7 +84,7 @@ public class Ramona extends AbstractAwakener {
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(
                 NAMES[0], TEXT[0],
-                60, 60, 0, 99, 5,
+                120, 120, 0, 99, 5,
                 this, getStartingRelics(),
                 getStartingDeck(), false);
     }

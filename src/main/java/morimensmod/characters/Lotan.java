@@ -84,7 +84,7 @@ public class Lotan extends AbstractAwakener {
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(
                 NAMES[0], TEXT[0],
-                70, 70, 0, 99, 5,
+                128, 128, 0, 99, 5,
                 this, getStartingRelics(),
                 getStartingDeck(), false);
     }

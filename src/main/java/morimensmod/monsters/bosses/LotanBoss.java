@@ -108,13 +108,13 @@ public class LotanBoss extends AbstractAwakenableBoss {
     @Override
     protected int getNextMoveIDExceptRouse(int _moveID) {
         // 2 -> 0 -> 1 loop
-        // 3 -> (2 -> 0 -> 1 loop)
+        // 3 -> (0 -> 1 -> 2 loop)
         switch (_moveID) {
             default:
-            case 2: return 0;
             case 0: return 1;
-            case 1:
-            case 3: return 2;
+            case 1: return 2;
+            case 2: return 0;
+            case 3: return 0;
         }
     }
 
