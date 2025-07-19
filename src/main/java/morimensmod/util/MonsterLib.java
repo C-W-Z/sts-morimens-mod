@@ -141,15 +141,15 @@ public class MonsterLib {
 
         eliteEncounters.put(TheVoidClaimsAll.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new TheVoidClaimsAll(-100, -50)
-        }, Exordium.ID, 4, 0.8F));
+        }, Exordium.ID, 1, 0.8F));
 
         eliteEncounters.put(DevouringHowl.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new DevouringHowl(-100, 0)
-        }, Exordium.ID, 4));
+        }, Exordium.ID, 1));
 
         eliteEncounters.put(IronPickaxeLucen.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new IronPickaxeLucen(-100, 0)
-        }, Exordium.ID, 4));
+        }, Exordium.ID, 1));
 
         bosses.put(LotanBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new LotanBoss(0, -20)
