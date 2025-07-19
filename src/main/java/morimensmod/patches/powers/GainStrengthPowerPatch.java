@@ -12,11 +12,13 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.AbstractPower.PowerType;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 
+import basemod.ReflectionHacks;
 import javassist.CtBehavior;
-
+import morimensmod.config.ConfigPanel;
 import morimensmod.util.TexLoader;
 
 public class GainStrengthPowerPatch {
@@ -30,7 +32,11 @@ public class GainStrengthPowerPatch {
             __instance.type = PowerType.DEBUFF;
             __instance.updateDescription();
 
-            TexLoader.loadRegion(__instance);
+            if (ConfigPanel.USE_MORIMENS_POWER_ICON)
+                TexLoader.loadRegion(__instance);
+            else
+                ReflectionHacks.privateMethod(AbstractPower.class, "loadRegion", String.class)
+                        .invoke(__instance, "shackle");
 
             return SpireReturn.Return();
         }

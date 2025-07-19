@@ -10,10 +10,12 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 
+import basemod.ReflectionHacks;
 import javassist.CtBehavior;
-
+import morimensmod.config.ConfigPanel;
 import morimensmod.util.TexLoader;
 import static morimensmod.util.Wiz.att;
 
@@ -28,7 +30,11 @@ public class DexterityPowerPatch {
             __instance.updateDescription();
             __instance.canGoNegative = true;
 
-            TexLoader.loadRegion(__instance);
+            if (ConfigPanel.USE_MORIMENS_POWER_ICON)
+                TexLoader.loadRegion(__instance);
+            else
+                ReflectionHacks.privateMethod(AbstractPower.class, "loadRegion", String.class)
+                        .invoke(__instance, "dexterity");
 
             return SpireReturn.Return();
         }

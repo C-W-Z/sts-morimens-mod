@@ -11,11 +11,13 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
+import basemod.ReflectionHacks;
 import javassist.CtBehavior;
-
+import morimensmod.config.ConfigPanel;
 import morimensmod.util.TexLoader;
 import static morimensmod.util.Wiz.att;
 
@@ -30,7 +32,11 @@ public class StrengthPowerPatch {
             __instance.updateDescription();
             __instance.canGoNegative = true;
 
-            TexLoader.loadRegion(__instance);
+            if (ConfigPanel.USE_MORIMENS_POWER_ICON)
+                TexLoader.loadRegion(__instance);
+            else
+                ReflectionHacks.privateMethod(AbstractPower.class, "loadRegion", String.class)
+                        .invoke(__instance, "strength");
 
             return SpireReturn.Return();
         }

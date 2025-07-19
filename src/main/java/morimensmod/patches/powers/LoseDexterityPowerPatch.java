@@ -5,6 +5,8 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
+
+import morimensmod.config.ConfigPanel;
 import morimensmod.util.TexLoader;
 
 @SpirePatch2(clz = LoseDexterityPower.class, method = SpirePatch.CONSTRUCTOR, paramtypez = { AbstractCreature.class,
@@ -12,6 +14,7 @@ import morimensmod.util.TexLoader;
 public class LoseDexterityPowerPatch {
     @SpirePostfixPatch
     public static void Postfix(LoseDexterityPower __instance) {
-        TexLoader.loadRegion(__instance);
+        if (ConfigPanel.USE_MORIMENS_POWER_ICON)
+            TexLoader.loadRegion(__instance);
     }
 }

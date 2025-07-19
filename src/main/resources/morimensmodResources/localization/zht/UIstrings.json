@@ -117,6 +117,7 @@
   "${ModID}:ConfigPanel": {
     "TEXT": ["Config"],
     "TEXT_DICT": {
+      "USE_MORIMENS_POWER_ICON": "使用忘卻前夜的Buff/Debuff圖示",
       "AWAKENER_ENCOUNTER_MOD_MONSTER": "喚醒體角色會遇到忘卻前夜的怪物",
       "OTHER_CHAR_ENCOUNTER_MOD_MONSTER": "非喚醒體角色也能遇到忘卻前夜的怪物"
     }

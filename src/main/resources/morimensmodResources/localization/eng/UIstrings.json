@@ -120,6 +120,7 @@
   "${ModID}:ConfigPanel": {
     "TEXT": ["Config"],
     "TEXT_DICT": {
+      "USE_MORIMENS_POWER_ICON": "Use the Buff/Debuff icons from Morimens",
       "AWAKENER_ENCOUNTER_MOD_MONSTER": "Awakeners can encounter monsters from Morimens",
       "OTHER_CHAR_ENCOUNTER_MOD_MONSTER": "Non-Awakener characters can also encounter monsters from Morimens"
     }

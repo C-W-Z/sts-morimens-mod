@@ -16,17 +16,31 @@ public class ConfigPanel extends EasyConfigPanel {
     public static final String ID = makeID(ConfigPanel.class.getSimpleName());
     public static final UIStrings UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID);
 
+    public static boolean USE_MORIMENS_POWER_ICON = true;
     public static boolean AWAKENER_ENCOUNTER_MOD_MONSTER = true;
     public static boolean OTHER_CHAR_ENCOUNTER_MOD_MONSTER = false;
 
     public ConfigPanel() {
         super(modID, UI_STRINGS, UI_STRINGS.TEXT[0]);
 
-        float sY = 720.0F;
+        float sX = 400F;
+        float sY = 720F;
+
+        ModLabeledToggleButton useMorimensPowerIconButton = new ModLabeledToggleButton(
+                UI_STRINGS.TEXT_DICT.get("USE_MORIMENS_POWER_ICON"),
+                sX, sY,
+                Settings.CREAM_COLOR, FontHelper.charDescFont,
+                USE_MORIMENS_POWER_ICON,
+                this,
+                label -> {},
+                button -> {
+                    USE_MORIMENS_POWER_ICON = button.enabled;
+                    this.save();
+                });
 
         ModLabeledToggleButton awakenerModMonsterEncounterButton = new ModLabeledToggleButton(
                 UI_STRINGS.TEXT_DICT.get("AWAKENER_ENCOUNTER_MOD_MONSTER"),
-                400.0F, sY,
+                sX, sY - 50F,
                 Settings.CREAM_COLOR, FontHelper.charDescFont,
                 AWAKENER_ENCOUNTER_MOD_MONSTER,
                 this,
@@ -38,7 +52,7 @@ public class ConfigPanel extends EasyConfigPanel {
 
         ModLabeledToggleButton otherCharModMonsterEncounterButton = new ModLabeledToggleButton(
                 UI_STRINGS.TEXT_DICT.get("OTHER_CHAR_ENCOUNTER_MOD_MONSTER"),
-                400.0F, sY - 50.0F,
+                sX, sY - 100F,
                 Settings.CREAM_COLOR, FontHelper.charDescFont,
                 OTHER_CHAR_ENCOUNTER_MOD_MONSTER,
                 this,
@@ -48,6 +62,7 @@ public class ConfigPanel extends EasyConfigPanel {
                     this.save();
                 });
 
+        this.addUIElement(useMorimensPowerIconButton);
         this.addUIElement(awakenerModMonsterEncounterButton);
         this.addUIElement(otherCharModMonsterEncounterButton);
     }
