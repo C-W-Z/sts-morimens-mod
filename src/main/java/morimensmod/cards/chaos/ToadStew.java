@@ -17,7 +17,7 @@ public class ToadStew extends AbstractEasyCard {
     public final static String ID = makeID(ToadStew.class.getSimpleName());
 
     public ToadStew() {
-        super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL, CHAOS_COLOR);
+        super(ID, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.HEALING);
         magicNumber = baseMagicNumber = 7; // 中毒
