@@ -72,6 +72,12 @@
     "NAME": "Temporary Madness",
     "DESCRIPTIONS": ["Number of attacks #b+%d this round."]
   },
+  "${ModID}:CeaselessFightingSpiritPower": {
+    "NAME": "Ceaseless Fighting Spirit",
+    "DESCRIPTIONS": [
+      "At the end of each turn, remove #b%d stacks of #pWeak and #rVulnerable."
+    ]
+  },
   "${ModID}:FirstDoctrinePower": {
     "NAME": "First Doctrine",
     "DESCRIPTIONS": [

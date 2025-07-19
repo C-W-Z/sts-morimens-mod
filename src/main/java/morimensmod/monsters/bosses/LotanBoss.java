@@ -21,6 +21,7 @@ import morimensmod.config.ModSettings;
 import morimensmod.config.ModSettings.ASCENSION_LVL;
 import morimensmod.misc.Animator;
 import morimensmod.monsters.AbstractAwakenableBoss;
+import morimensmod.powers.CeaselessFightingSpiritPower;
 import morimensmod.powers.MadnessPower;
 
 public class LotanBoss extends AbstractAwakenableBoss {
@@ -34,6 +35,7 @@ public class LotanBoss extends AbstractAwakenableBoss {
 
     private int strengthAmt = 4;
     private int madnessAmt = 1;
+    private int ceaselessFightingSpiritAmt = 0;
 
     public LotanBoss(float x, float y) {
         super(NAME, ID, 500, 310, x, y);
@@ -50,11 +52,13 @@ public class LotanBoss extends AbstractAwakenableBoss {
             addNoDamage();
         }
 
-        // TODO: 進階19加上覺醒後每回合移除3層虛弱和易傷
-        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION)
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION) {
             strengthAmt = 5;
-        else
+            ceaselessFightingSpiritAmt = 1;
+        } else {
             strengthAmt = 4;
+            ceaselessFightingSpiritAmt = 0;
+        }
     }
 
     @Override
@@ -152,6 +156,8 @@ public class LotanBoss extends AbstractAwakenableBoss {
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ROUSE_ANIM));
                 addToBot(new NewWaitAction(31F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 addToBot(new ApplyPowerAction(this, this, new MadnessPower(this, madnessAmt)));
+                if (ceaselessFightingSpiritAmt > 0)
+                    addToBot(new ApplyPowerAction(this, this, new CeaselessFightingSpiritPower(this, ceaselessFightingSpiritAmt)));
                 break;
             default:
                 break;

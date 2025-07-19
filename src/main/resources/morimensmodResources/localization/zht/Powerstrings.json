@@ -64,6 +64,10 @@
     "NAME": "臨時瘋狂",
     "DESCRIPTIONS": ["本回合攻擊次數 #b+%d 。"]
   },
+  "${ModID}:CeaselessFightingSpiritPower": {
+    "NAME": "永不停歇的戰意",
+    "DESCRIPTIONS": ["每回合結束時，解除 #b%d 層 #p虛弱 和 #r易傷 狀態。"]
+  },
   "${ModID}:FirstDoctrinePower": {
     "NAME": "第一哲學",
     "DESCRIPTIONS": [
