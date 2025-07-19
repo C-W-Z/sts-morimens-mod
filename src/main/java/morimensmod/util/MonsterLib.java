@@ -143,8 +143,8 @@ public class MonsterLib {
         }, Exordium.ID, 4, 0.8F));
 
         eliteEncounters.put(TheVoidClaimsAll.ID, new MonsterEncounter(() -> new AbstractMonster[] {
-                new DevouringHowl(-100, -50)
-        }, Exordium.ID, 99));
+                new DevouringHowl(-100, 0)
+        }, Exordium.ID, 4));
 
         bosses.put(LotanBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new LotanBoss(0, -20)
