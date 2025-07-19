@@ -42,6 +42,7 @@ public class DanceOfTheGibbousMoonPower extends AbstractEasyPower implements OnP
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
+        // TODO: 打出奇妙料理施加中毒
         if (!isCommandCard(card))
             return;
         amount2--;

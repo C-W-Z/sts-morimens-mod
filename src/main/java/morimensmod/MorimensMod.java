@@ -79,7 +79,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
 
-@SuppressWarnings({ "unused", "WeakerAccess" })
 @SpireInitializer
 public class MorimensMod implements
         OnCardUseSubscriber,
@@ -251,7 +250,7 @@ public class MorimensMod implements
     }
 
     public static void initialize() {
-        MorimensMod thismod = new MorimensMod();
+        new MorimensMod();
     }
 
     @Override
