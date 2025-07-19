@@ -138,6 +138,12 @@
       "Damage of #yStrike increases with #b%d time(s) of the current #yBlock."
     ]
   },
+  "${ModID}:DanceOfTheGibbousMoonPower": {
+    "NAME": "Dance of the Gibbous Moon",
+    "DESCRIPTIONS": [
+      "After playing #b%d #yCommand #yCards, heal #b%d HP and gain #b%d #yAliemus. After playing \"Marvelous Cuisine\", inflict #b%d stacks of #pPoison on all enemies."
+    ]
+  },
   "${ModID}:RewindingTimePower": {
     "NAME": "Rewinding Time",
     "DESCRIPTIONS": [

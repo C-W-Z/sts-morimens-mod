@@ -285,7 +285,7 @@
   },
   "${ModID}:DanceOfTheGibbousMoon": {
     "NAME": "Dance of the Gibbous Moon",
-    "DESCRIPTION": "{@@}Gain !${ModID}:A! ${ModID}:Aliemus. NL After playing !M! ${ModID}:Command_Card{!M!|>1=s}, heal !${ModID}:H! HP and gain !${ModID}:M2! ${ModID}:Aliemus. After playing \"Marvelous Cuisine\", Inflict !${ModID}:M3! stack{!${ModID}:M3!|>1=s} of Poison on all enemies."
+    "DESCRIPTION": "{@@}Gain !${ModID}:A! ${ModID}:Aliemus. NL After playing !M! ${ModID}:Command_Card{!M!|>1=s}, heal !${ModID}:H! HP and gain !${ModID}:M2! ${ModID}:Aliemus. After playing \"Marvelous Cuisine\", inflict !${ModID}:M3! stack{!${ModID}:M3!|>1=s} of Poison on all enemies."
   },
   "${ModID}:ToadStew": {
     "NAME": "Toad Stew",

@@ -122,6 +122,12 @@
     "NAME": "战地卓识",
     "DESCRIPTIONS": ["「 #y打击 」造成的伤害享受 #b%d 倍 #y格挡 加成。"]
   },
+  "${ModID}:DanceOfTheGibbousMoonPower": {
+    "NAME": "凸月之舞",
+    "DESCRIPTIONS": [
+      "每打出 #b%d 张 #y指令卡 后，回复 #b%d 点生命，获得 #b%d #y狂气 。打出「奇妙料理」后，对所有敌人造成 #b%d 点 #p中毒 。 "
+    ]
+  },
   "${ModID}:RewindingTimePower": {
     "NAME": "溯洄时计",
     "DESCRIPTIONS": [
