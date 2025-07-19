@@ -188,5 +188,10 @@
     "PROPER_NAME": "Barrier [${ModID}:BarrierIcon]",
     "NAMES": ["Barrier", "barrier"],
     "DESCRIPTION": "Negate the next active attack damage received."
+  },
+  {
+    "PROPER_NAME": "Marvelous Buff",
+    "NAMES": ["Marvelous Buff", "marvelous_buff"],
+    "DESCRIPTION": "Includes gaining #b10 #yAliemus, inflicting #rVulnerable on all enemies for #b1 turn, inflicting #pWeak on all enemies for #b1 turn, drawing #b1 card, gaining #b200 #yKeyflare."
   }
 ]

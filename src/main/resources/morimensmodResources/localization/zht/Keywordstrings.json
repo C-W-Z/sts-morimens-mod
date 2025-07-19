@@ -188,5 +188,10 @@
     "PROPER_NAME": "屏障 [${ModID}:BarrierIcon]",
     "NAMES": ["屏障", "Barrier"],
     "DESCRIPTION": "阻止下次受到的主動攻擊傷害。"
+  },
+  {
+    "PROPER_NAME": "奇妙正面效果",
+    "NAMES": ["奇妙正面效果", "Marvelous_Buff"],
+    "DESCRIPTION": "包括獲得 #b10 #y狂氣 、 #r易傷 所有敵人 #b1 回合、 #p虛弱 所有敵人 #b1 回合、抽 #b1 張牌、獲得 #b200 點 #y銀鑰能量 。"
   }
 ]

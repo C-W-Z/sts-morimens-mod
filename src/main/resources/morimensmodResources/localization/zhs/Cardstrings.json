@@ -473,7 +473,7 @@
     "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。",
     "UPGRADE_DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。首领战中可使用 !M! 次。",
     "EXTENDED_DESCRIPTION": [
-      "获得 !${ModID}:A! ${ModID}:狂气 。首领战中可使用 !M! 次。剩余 !stslib:ex! 次。"
+      "获得 !${ModID}:A! ${ModID}:狂气 。首领战中可使用 !M! 次。 NL 剩余 !stslib:ex! 次。"
     ]
   },
   "${ModID}:MutatedHeart": {
@@ -482,8 +482,17 @@
     "EXTENDED_DESCRIPTION": [
       "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。首领战中可使用 !M! 次。",
       "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。首领战中可使用 !M! 次，且抽到的牌本回合 [E] 消耗降低 !${ModID}:M2! 。",
-      "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。首领战中可使用 !M! 次。剩余 !stslib:ex! 次。",
-      "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。首领战中可使用 !M! 次，且抽到的牌本回合 [E] 消耗降低 !${ModID}:M2! 。剩余 !stslib:ex! 次。"
+      "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。首领战中可使用 !M! 次。 NL 剩余 !stslib:ex! 次。",
+      "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。首领战中可使用 !M! 次，且抽到的牌本回合 [E] 消耗降低 !${ModID}:M2! 。 NL 剩余 !stslib:ex! 次。"
+    ]
+  },
+  "${ModID}:MarvelousCuisine": {
+    "NAME": "奇妙料理",
+    "DESCRIPTION": "获得 !M! 点 [E] 。可以使用 !M! 次。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 点 [E] 。有 !${ModID}:M2! %机率触发一个 ${ModID}:奇妙正面效果 。可以使用 !M! 次。",
+    "EXTENDED_DESCRIPTION": [
+      "获得 !M! 点 [E] 。可以使用 !M! 次。 NL 剩余 !stslib:ex! 次。",
+      "获得 !M! 点 [E] 。有 !${ModID}:M2! %机率触发一个 ${ModID}:奇妙正面效果 。可以使用 !M! 次。 NL 剩余 !stslib:ex! 次。"
     ]
   },
   "${ModID}:OctahedronDice": {
