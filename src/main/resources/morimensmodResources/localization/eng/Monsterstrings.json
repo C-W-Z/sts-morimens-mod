@@ -42,7 +42,7 @@
   "${ModID}:IronPickaxeLucen": {
     "NAME": "\"Iron Pickaxe\" Lucen",
     "DIALOG": [],
-    "MOVES": ["颅骨猛击"]
+    "MOVES": ["Cranial Storm"]
   },
   "${ModID}:DSlime": {
     "NAME": "D-Slime",

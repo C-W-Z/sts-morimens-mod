@@ -68,6 +68,10 @@
     "NAME": "漸強撕咬",
     "DESCRIPTIONS": ["撕咬傷害次數提高 #b%d 。"]
   },
+  "${ModID}:ThePriceOfImpulsivenessPower": {
+    "NAME": "衝動的代價",
+    "DESCRIPTIONS": ["每次受到攻擊後，失去 #b%d 點 #y臨時 #y力量 。"]
+  },
   "${ModID}:CeaselessFightingSpiritPower": {
     "NAME": "永不停歇的戰意",
     "DESCRIPTIONS": ["每回合結束時，解除 #b%d 層 #p虛弱 和 #r易傷 狀態。"]

@@ -76,6 +76,12 @@
     "NAME": "Insistent Bites",
     "DESCRIPTIONS": ["Increases the number of bite damage intances by #b%d."]
   },
+  "${ModID}:ThePriceOfImpulsivenessPower": {
+    "NAME": "The Price of Impulsiveness",
+    "DESCRIPTIONS": [
+      "After each time be attacked, lose #b%d #yTemporary #yStrength."
+    ]
+  },
   "${ModID}:CeaselessFightingSpiritPower": {
     "NAME": "Ceaseless Fighting Spirit",
     "DESCRIPTIONS": [
