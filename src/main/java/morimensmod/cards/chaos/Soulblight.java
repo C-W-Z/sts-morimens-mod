@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractRouseCard;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.powers.SoulblightPower;
+import morimensmod.powers.rouse.SoulblightPower;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;

@@ -1,4 +1,4 @@
-package morimensmod.powers;
+package morimensmod.powers.rouse;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.p;
@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.interfaces.OnPowerModified;
+import morimensmod.powers.AbstractEasyPower;
 
 public class SoulblightPower extends AbstractEasyPower implements OnPowerModified {
 
