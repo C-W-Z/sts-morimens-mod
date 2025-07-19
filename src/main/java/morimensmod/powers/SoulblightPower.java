@@ -22,7 +22,7 @@ public class SoulblightPower extends AbstractEasyPower implements OnPowerModifie
 
     private int heal;
     private int aliemus;
-    public static final int HEAL_PER_AMOUNT = 2;
+    public static final int HEAL_PER_AMOUNT = 4;
     public static final int INVOKE_POISON_PERCENT = 50;
 
     public SoulblightPower(AbstractCreature owner, int amount) {

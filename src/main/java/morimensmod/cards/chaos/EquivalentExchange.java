@@ -21,8 +21,8 @@ public class EquivalentExchange extends AbstractEasyCard {
         super(ID, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.HEALING);
-        heal = baseHeal = 3;
-        magicNumber = baseMagicNumber = 2;
+        heal = baseHeal = 4;
+        magicNumber = baseMagicNumber = 3;
     }
 
     @Override
