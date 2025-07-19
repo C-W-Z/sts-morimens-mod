@@ -147,7 +147,7 @@
   },
   "${ModID}:KnightsZeal": {
     "NAME": "Knight's Zeal",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. NL Gain !M! Strength, After each !${ModID}:M3! ${ModID}:Command_Card is played, gain !${ModID}:M2! Strength."
+    "DESCRIPTION": "{@@}Gain !${ModID}:A! ${ModID}:Aliemus. NL Gain !M! Strength, After playing each !${ModID}:M3! ${ModID}:Command_Card{!${ModID}:M3!|>1=s}, gain !${ModID}:M2! Strength."
   },
   "${ModID}:UnstableBarrier": {
     "NAME": "Unstable Barrier",
@@ -284,16 +284,16 @@
     "DESCRIPTION": "Deal !D! damage to the enemy with the highest HP and Block, and gain Block equal to !M!% of the damage dealt. NL Counts as Strike."
   },
   "${ModID}:DanceOfTheGibbousMoon": {
-    "NAME": "凸月之舞",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. NL 每打出 !M! 張 ${ModID}:指令卡 後, 回復 !${ModID}:H! 點生命, 獲得 !${ModID}:M2! ${ModID}:Aliemus.打出「奇妙料理」後, 對所有敵人造成 !${ModID}:M3! 中毒."
+    "NAME": "Dance of the Gibbous Moon",
+    "DESCRIPTION": "{@@}Gain !${ModID}:A! ${ModID}:Aliemus. NL After playing !M! ${ModID}:Command_Card{!M!|>1=s}, heal !${ModID}:H! HP and gain !${ModID}:M2! ${ModID}:Aliemus. After playing \"Marvelous Cuisine\", Inflict !${ModID}:M3! stack{!${ModID}:M3!|>1=s} of Poison on all enemies."
   },
   "${ModID}:ToadStew": {
-    "NAME": "蟾蜍燉菜",
-    "DESCRIPTION": ""
+    "NAME": "Toad Stew",
+    "DESCRIPTION": "{@@}Inflict !M! stack{!M!|>1=s} of Poison and !${ModID}:M2! turn{!${ModID}:M2!|>1=s} of Weak on all enemies, and heal for !${ModID}:H! HP. NL ${ModID}:Prepare 1."
   },
   "${ModID}:SilentFealty": {
-    "NAME": "靜默守望",
-    "DESCRIPTION": ""
+    "NAME": "Silent Fealty",
+    "DESCRIPTION": "Heal !${ModID}:H! HP and gain !B! Block. If held at turn ends, [E] Cost increases by !M!, and both HP restoration and Block gain are doubled. Stacks up to !${ModID}:M2! times."
   },
   "${ModID}:PainConversion": {
     "NAME": "疼痛轉化",

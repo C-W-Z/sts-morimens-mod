@@ -283,15 +283,15 @@
   },
   "${ModID}:DanceOfTheGibbousMoon": {
     "NAME": "凸月之舞",
-    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 每打出 !M! 张 ${ModID}:指令卡 后，回复 !${ModID}:H! 点生命，获得 !${ModID}:M2! ${ModID}:狂气 。打出「奇妙料理」后，对所有敌人造成 !${ModID}:M3! 点 中毒 。"
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 每打出 !M! 张 ${ModID}:指令卡 后，回复 !${ModID}:H! 点生命，获得 !${ModID}:M2! ${ModID}:狂气 。打出「奇妙料理」后，对所有敌人造成 !${ModID}:M3! 点 中毒 。 "
   },
   "${ModID}:ToadStew": {
     "NAME": "蟾蜍炖菜",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "对所有敌人施加 !M! 层 中毒 和 !${ModID}:M2! 回合的 虚弱 ，回复 !${ModID}:H! 点生命。 NL ${ModID}:预备 1"
   },
   "${ModID}:SilentFealty": {
     "NAME": "静默守望",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "回复 !${ModID}:H! 点生命并获得 !B! 点 格挡 。回合结束时若在手中， [E] 消耗提高 !M! ，生命回复和获得的 格挡 翻倍。最多叠加 !${ModID}:M2! 次。 "
   },
   "${ModID}:PainConversion": {
     "NAME": "疼痛转化",
