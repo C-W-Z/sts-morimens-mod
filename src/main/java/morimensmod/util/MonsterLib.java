@@ -18,6 +18,7 @@ import basemod.BaseMod;
 import basemod.BaseMod.GetMonsterGroup;
 import morimensmod.monsters.bosses.LotanBoss;
 import morimensmod.monsters.elites.DevouringHowl;
+import morimensmod.monsters.elites.IronPickaxeLucen;
 import morimensmod.monsters.elites.TheVoidClaimsAll;
 import morimensmod.monsters.enemies.CollaborativeDissolute;
 import morimensmod.monsters.enemies.DissolutedHumanoid;
@@ -142,8 +143,12 @@ public class MonsterLib {
                 new TheVoidClaimsAll(-100, -50)
         }, Exordium.ID, 4, 0.8F));
 
-        eliteEncounters.put(TheVoidClaimsAll.ID, new MonsterEncounter(() -> new AbstractMonster[] {
+        eliteEncounters.put(DevouringHowl.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new DevouringHowl(-100, 0)
+        }, Exordium.ID, 4));
+
+        eliteEncounters.put(IronPickaxeLucen.ID, new MonsterEncounter(() -> new AbstractMonster[] {
+                new IronPickaxeLucen(-100, 0)
         }, Exordium.ID, 4));
 
         bosses.put(LotanBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
