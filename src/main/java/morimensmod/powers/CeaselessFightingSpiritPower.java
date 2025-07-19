@@ -24,6 +24,8 @@ public class CeaselessFightingSpiritPower extends AbstractEasyPower {
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
+        if (isPlayer != owner.isPlayer)
+            return;
         addToBot(new ReducePowerAction(owner, owner, WeakPower.POWER_ID, amount * REDUCE_PER_TURN));
         addToBot(new ReducePowerAction(owner, owner, VulnerablePower.POWER_ID, amount * REDUCE_PER_TURN));
     }
