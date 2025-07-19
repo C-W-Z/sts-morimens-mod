@@ -1,4 +1,4 @@
-package morimensmod.powers;
+package morimensmod.powers.rouse;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.actB;
@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.powers.PoisonPower;
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.interfaces.OnPowerModified;
+import morimensmod.powers.AbstractEasyPower;
 
 public class DrowningInSorrowPower extends AbstractEasyPower implements OnPowerModified {
 

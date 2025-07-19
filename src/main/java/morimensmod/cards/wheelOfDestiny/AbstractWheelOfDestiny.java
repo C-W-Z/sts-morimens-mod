@@ -1,4 +1,4 @@
-package morimensmod.cards.wheel_of_destiny;
+package morimensmod.cards.wheelOfDestiny;
 
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 

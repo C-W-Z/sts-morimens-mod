@@ -1,4 +1,4 @@
-package morimensmod.powers;
+package morimensmod.powers.rouse;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.isCommandCard;
@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+
+import morimensmod.powers.AbstractEasyPower;
 
 public class KnightsZealPower extends AbstractEasyPower {
 

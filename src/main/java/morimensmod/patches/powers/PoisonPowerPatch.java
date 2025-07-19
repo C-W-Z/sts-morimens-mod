@@ -28,7 +28,7 @@ import javassist.expr.ExprEditor;
 import javassist.expr.NewExpr;
 
 import morimensmod.config.ConfigPanel;
-import morimensmod.powers.DrowningInSorrowPower;
+import morimensmod.powers.rouse.DrowningInSorrowPower;
 import morimensmod.util.TexLoader;
 
 import static morimensmod.util.Wiz.atb;

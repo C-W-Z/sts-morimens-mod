@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import morimensmod.cards.AbstractRouseCard;
-import morimensmod.powers.KnightsZealPower;
+import morimensmod.powers.rouse.KnightsZealPower;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;

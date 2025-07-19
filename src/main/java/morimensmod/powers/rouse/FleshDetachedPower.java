@@ -1,4 +1,4 @@
-package morimensmod.powers;
+package morimensmod.powers.rouse;
 
 import static morimensmod.MorimensMod.makeID;
 
@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.interfaces.OnPowerModified;
+import morimensmod.powers.AbstractEasyPower;
 
 public class FleshDetachedPower extends AbstractEasyPower implements OnPowerModified {
 

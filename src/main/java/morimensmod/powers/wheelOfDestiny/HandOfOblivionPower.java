@@ -1,4 +1,4 @@
-package morimensmod.powers;
+package morimensmod.powers.wheelOfDestiny;
 
 import static morimensmod.MorimensMod.makeID;
 
@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.powers.AbstractEasyPower;
 
 public class HandOfOblivionPower extends AbstractEasyPower {
 

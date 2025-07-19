@@ -1,4 +1,4 @@
-package morimensmod.cards.wheel_of_destiny;
+package morimensmod.cards.wheelOfDestiny;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.actB;
@@ -9,31 +9,32 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.powers.RewindingTimePower;
+import morimensmod.powers.wheelOfDestiny.ManikinOfOblivionPower;
 
-public class RewindingTime extends AbstractWheelOfDestiny {
-    public final static String ID = makeID(RewindingTime.class.getSimpleName());
+public class ManikinOfOblivion extends AbstractWheelOfDestiny {
 
-    public RewindingTime() {
+    public final static String ID = makeID(ManikinOfOblivion.class.getSimpleName());
+
+    public ManikinOfOblivion() {
         super(ID, 3, CardRarity.RARE);
-        magicNumber = baseMagicNumber = 14; // 銀鑰充能
-        secondMagic = baseSecondMagic = 1; // 每回合最大觸發次數
+        magicNumber = baseMagicNumber = 7; // 狂氣回充
+        secondMagic = baseSecondMagic = 10; // 狂氣、中毒、治療提升%數
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new RewindingTimePower(p, secondMagic));
+        applyToSelf(new ManikinOfOblivionPower(p, secondMagic));
     }
 
     @Override
     public void upp() {
-        upgradeBaseCost(2); // cost 3 -> 2
+        upgradeBaseCost(2);
     }
 
     @Override
     public boolean atBattleStartPreDraw() {
         if (upgraded && p() instanceof AbstractAwakener)
-            actB(() -> ((AbstractAwakener) p()).keyflareRegen += magicNumber);
+            actB(() -> ((AbstractAwakener) p()).aliemusRegen += magicNumber);
         return upgraded;
     }
 }

@@ -1,4 +1,4 @@
-package morimensmod.powers;
+package morimensmod.powers.wheelOfDestiny;
 
 import static morimensmod.MorimensMod.makeID;
 
@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.interfaces.OnAfterExalt;
+import morimensmod.powers.AbstractEasyPower;
 
 public class ManikinOfOblivionPower extends AbstractEasyPower implements OnAfterExalt {
 

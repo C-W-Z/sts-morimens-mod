@@ -1,4 +1,4 @@
-package morimensmod.powers;
+package morimensmod.powers.rouse;
 
 import static morimensmod.MorimensMod.makeID;
 
@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.powers.ThornsPower;
 
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.interfaces.OnPowerModified;
+import morimensmod.powers.AbstractEasyPower;
 
 public class GiveAndTakePower extends AbstractEasyPower implements OnPowerModified {
 

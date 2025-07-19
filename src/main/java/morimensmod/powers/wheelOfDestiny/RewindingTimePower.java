@@ -1,4 +1,4 @@
-package morimensmod.powers;
+package morimensmod.powers.wheelOfDestiny;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.actB;
@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+
+import morimensmod.powers.AbstractEasyPower;
 
 public class RewindingTimePower extends AbstractEasyPower {
     public final static String POWER_ID = makeID(RewindingTimePower.class.getSimpleName());

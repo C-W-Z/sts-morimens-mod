@@ -1,4 +1,4 @@
-package morimensmod.cards.wheel_of_destiny;
+package morimensmod.cards.wheelOfDestiny;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.actB;
@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.chaos.Strike;
-import morimensmod.powers.HandOfOblivionPower;
+import morimensmod.powers.wheelOfDestiny.HandOfOblivionPower;
 
 public class HandOfOblivion extends AbstractWheelOfDestiny {
     public final static String ID = makeID(HandOfOblivion.class.getSimpleName());

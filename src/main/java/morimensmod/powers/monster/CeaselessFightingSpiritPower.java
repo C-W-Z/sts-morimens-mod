@@ -1,4 +1,4 @@
-package morimensmod.powers;
+package morimensmod.powers.monster;
 
 import static morimensmod.MorimensMod.makeID;
 
@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+
+import morimensmod.powers.AbstractEasyPower;
 
 public class CeaselessFightingSpiritPower extends AbstractEasyPower {
 
