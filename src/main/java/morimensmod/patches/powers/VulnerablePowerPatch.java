@@ -6,6 +6,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
+import morimensmod.config.ConfigPanel;
 import morimensmod.util.TexLoader;
 
 @SpirePatch2(clz = VulnerablePower.class, method = SpirePatch.CONSTRUCTOR, paramtypez = { AbstractCreature.class,
@@ -13,6 +14,7 @@ import morimensmod.util.TexLoader;
 public class VulnerablePowerPatch {
     @SpirePostfixPatch
     public static void Postfix(VulnerablePower __instance) {
-        TexLoader.loadRegion(__instance);
+        if (ConfigPanel.USE_MORIMENS_POWER_ICON)
+            TexLoader.loadRegion(__instance);
     }
 }
