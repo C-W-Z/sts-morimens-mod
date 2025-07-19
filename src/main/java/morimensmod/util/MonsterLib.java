@@ -128,7 +128,14 @@ public class MonsterLib {
                 new CollaborativeDissolute(-140, 50, 1),
                 new CollaborativeDissolute(30, -30),
                 new CollaborativeDissolute(200, 20, 1),
-        }, new String[] { Exordium.ID, TheCity.ID }, 2));
+        }, new String[] { Exordium.ID, TheCity.ID, TheBeyond.ID }, 2));
+
+        strongEncounters.put(makeID("1-3-1"), new MonsterEncounter(() -> new AbstractMonster[] {
+                new DissolutedHumanoid(-400, 0, DissolutedHumanoid.Skin.B),
+                new CollaborativeDissolute(-140, -30),
+                new DissolutedRatKing(20, 20, 2),
+                new DissolutedRatKing(270, -50),
+        }, new String[] { Exordium.ID, TheCity.ID, TheBeyond.ID }, 99));
 
         eliteEncounters.put(TheVoidClaimsAll.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new TheVoidClaimsAll(-100, -50)
