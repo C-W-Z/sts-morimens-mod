@@ -67,8 +67,8 @@ public class Hardhitter extends AbstractMorimensMonster {
 
     protected static int getMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
-            return 42 + AbstractDungeon.floorNum;
-        return 32 + AbstractDungeon.floorNum;
+            return 40 + AbstractDungeon.floorNum;
+        return 30 + AbstractDungeon.floorNum;
     }
 
     @Override

@@ -72,6 +72,10 @@
     "NAME": "Temporary Madness",
     "DESCRIPTIONS": ["Number of attacks #b+%d this round."]
   },
+  "${ModID}:InsistentBitesPower": {
+    "NAME": "Insistent Bites",
+    "DESCRIPTIONS": ["Increases the number of bite damage intances by #b%d."]
+  },
   "${ModID}:CeaselessFightingSpiritPower": {
     "NAME": "Ceaseless Fighting Spirit",
     "DESCRIPTIONS": [

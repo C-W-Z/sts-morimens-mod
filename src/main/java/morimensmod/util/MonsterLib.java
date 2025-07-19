@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import basemod.BaseMod;
 import basemod.BaseMod.GetMonsterGroup;
 import morimensmod.monsters.bosses.LotanBoss;
+import morimensmod.monsters.elites.DevouringHowl;
 import morimensmod.monsters.elites.TheVoidClaimsAll;
 import morimensmod.monsters.enemies.CollaborativeDissolute;
 import morimensmod.monsters.enemies.DissolutedHumanoid;
@@ -99,16 +100,16 @@ public class MonsterLib {
         /* ================================================== */
 
         weakEncounters.put(makeID("1-1-1"), new MonsterEncounter(() -> new AbstractMonster[] {
-                new KingOfKids(-310, 0),
-                new Hardhitter(-40, -50),
-                new Fastrunner(200, 20)
+                new Fastrunner(-310, 0),
+                new Hardhitter(-40, 50),
+                new KingOfKids(200, 0)
         }, Exordium.ID, 4));
 
         strongEncounters.put(makeID("1-1-2"), new MonsterEncounter(() -> new AbstractMonster[] {
                 new Hardhitter(-400, 20),
-                new Hardhitter(-160, -80, 2),
-                new KingOfKids(85, 40),
-                new Fastrunner(300, -30)
+                new Hardhitter(-160, -80),
+                new Fastrunner(85, 40),
+                new KingOfKids(300, -30)
         }, Exordium.ID, 4));
 
         weakEncounters.put(makeID("1-2-1"), new MonsterEncounter(() -> new AbstractMonster[] {
@@ -140,6 +141,10 @@ public class MonsterLib {
         eliteEncounters.put(TheVoidClaimsAll.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new TheVoidClaimsAll(-100, -50)
         }, Exordium.ID, 4, 0.8F));
+
+        eliteEncounters.put(TheVoidClaimsAll.ID, new MonsterEncounter(() -> new AbstractMonster[] {
+                new DevouringHowl(-100, -50)
+        }, Exordium.ID, 99));
 
         bosses.put(LotanBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new LotanBoss(0, -20)
