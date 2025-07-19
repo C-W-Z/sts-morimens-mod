@@ -1,9 +1,6 @@
-package morimensmod.patches;
-
-import static morimensmod.MorimensMod.makeUIPath;
+package morimensmod.patches.monsterRoom;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;
@@ -19,7 +16,7 @@ import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
-import morimensmod.util.TexLoader;
+import morimensmod.misc.SceneBG;
 
 public class BackgroundRenderPatch {
 
@@ -61,13 +58,12 @@ public class BackgroundRenderPatch {
             return;
 
         sb.setColor(Color.WHITE);
-        Texture bg = TexLoader.getTexture(makeUIPath("bg.png"));
 
         float screenW = Settings.WIDTH;
         float screenH = Settings.HEIGHT;
 
-        float imgW = bg.getWidth();
-        float imgH = bg.getHeight();
+        float imgW = SceneBG.texture.getWidth();
+        float imgH = SceneBG.texture.getHeight();
 
         float scaleX = screenW / imgW;
         float scaleY = screenH / imgH;
@@ -81,6 +77,6 @@ public class BackgroundRenderPatch {
         float drawX = (screenW - scaledW) / 2f;
         float drawY = (screenH - scaledH) / 2f;
 
-        sb.draw(bg, drawX, drawY, scaledW, scaledH);
+        sb.draw(SceneBG.texture, drawX, drawY, scaledW, scaledH);
     }
 }

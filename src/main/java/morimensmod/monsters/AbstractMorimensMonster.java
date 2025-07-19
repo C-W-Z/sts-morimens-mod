@@ -22,6 +22,14 @@ public abstract class AbstractMorimensMonster extends CustomMonster {
     protected int turnOffset = 0;
     protected int turn = 0;
 
+    public AbstractMorimensMonster(String name, String id, int maxHealth, float hb_w, float hb_h,
+            AbstractAnimation animation, float x, float y, int turnOffset) {
+        super(name, id, maxHealth, 0F, 0.0F, hb_w, hb_h, null, x, y);
+        this.animation = animation;
+        this.turn = this.turnOffset = turnOffset;
+    }
+
+
     public AbstractMorimensMonster(String name, String id, int maxHealth, float hb_w, float hb_h, float x, float y, int turnOffset) {
         // 名字
         // ID

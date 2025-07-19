@@ -42,7 +42,7 @@
   "${ModID}:IronPickaxeLucen": {
     "NAME": "\"Iron Pickaxe\" Lucen",
     "DIALOG": [],
-    "MOVES": ["颅骨猛击"]
+    "MOVES": ["Cranial Storm"]
   },
   "${ModID}:DSlime": {
     "NAME": "D-Slime",
@@ -52,7 +52,7 @@
   "${ModID}:DevouringHowl": {
     "NAME": "Devouring Howl",
     "DIALOG": [],
-    "MOVES": ["连续撕咬", "疯狂"]
+    "MOVES": ["Continuous Bites", "Madness"]
   },
   "${ModID}:Tailor": {
     "NAME": "Tailor",
