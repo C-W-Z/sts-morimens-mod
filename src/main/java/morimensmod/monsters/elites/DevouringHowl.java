@@ -98,11 +98,11 @@ public class DevouringHowl extends AbstractMorimensMonster {
     @Override
     public void getMove(int num) {
         switch (turn % 5) {
-            case 0: setIntent(0, Intent.ATTACK);        break;
-            case 1: setIntent(1, Intent.ATTACK_BUFF);   break;
-            case 2: setIntent(2, Intent.ATTACK);        break;
-            case 3: setIntent(3, Intent.ATTACK_BUFF);   break;
-            case 4: setIntent(4, Intent.BUFF);          break;
+            case 0: setIntent(0, Intent.ATTACK);                                break;
+            case 1: setIntent(monsterStrings.MOVES[0], 1, Intent.ATTACK_BUFF);  break;
+            case 2: setIntent(2, Intent.ATTACK);                                break;
+            case 3: setIntent(monsterStrings.MOVES[0], 3, Intent.ATTACK_BUFF);  break;
+            case 4: setIntent(monsterStrings.MOVES[1], 4, Intent.BUFF);         break;
         }
     }
 

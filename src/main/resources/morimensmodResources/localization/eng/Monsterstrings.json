@@ -52,7 +52,7 @@
   "${ModID}:DevouringHowl": {
     "NAME": "Devouring Howl",
     "DIALOG": [],
-    "MOVES": ["连续撕咬", "疯狂"]
+    "MOVES": ["Continuous Bites", "Madness"]
   },
   "${ModID}:Tailor": {
     "NAME": "Tailor",
