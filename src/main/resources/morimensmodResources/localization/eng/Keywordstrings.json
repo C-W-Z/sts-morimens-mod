@@ -110,6 +110,11 @@
     "DESCRIPTION": "Unable to unleash #yExalt. Reduced #b1 stack at turn ends."
   },
   {
+    "PROPER_NAME": "Bleed [${ModID}:BleedIcon]",
+    "NAMES": ["Bleed", "bleed"],
+    "DESCRIPTION": "At the end of this turn, lose the corresponding amount of HP."
+  },
+  {
     "PROPER_NAME": "Persistent",
     "NAMES": ["Persistent", "persistent"],
     "DESCRIPTION": "Remain in the deck after the battle ends."

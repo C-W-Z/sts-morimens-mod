@@ -7,6 +7,10 @@
     "NAME": "封印",
     "DESCRIPTIONS": ["无法释放 #y狂气爆发 。持续 #b%d 回合。"]
   },
+  "${ModID}:BleedPower": {
+    "NAME": "出血",
+    "DESCRIPTIONS": ["本回合结束时，失去 #b%d 点生命。"]
+  },
   "${ModID}:BarrierPower": {
     "NAME": "屏障",
     "DESCRIPTIONS": ["阻止下 #b%d 次受到的主动攻击伤害。"]

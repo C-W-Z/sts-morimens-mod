@@ -110,6 +110,11 @@
     "DESCRIPTION": "无法释放 #y狂气爆发 。回合结束时减少 #b1 层。"
   },
   {
+    "PROPER_NAME": "出血 [${ModID}:BleedIcon]",
+    "NAMES": ["出血", "Bleed"],
+    "DESCRIPTION": "本回合结束时，失去相应层数的生命。"
+  },
+  {
     "PROPER_NAME": "永久保留",
     "NAMES": ["永久保留", "战斗结束后仍会保存在牌库中", "Persistent"],
     "DESCRIPTION": "战斗结束后仍会保存在牌库中"

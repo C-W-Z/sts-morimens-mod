@@ -7,6 +7,10 @@
     "NAME": "Seal",
     "DESCRIPTIONS": ["Unable to unleash #yExalt. Lasts #b%d turn(s)."]
   },
+  "${ModID}:BleedPower": {
+    "NAME": "Bleed",
+    "DESCRIPTIONS": ["At the end of this turn, lose #b%d HP."]
+  },
   "${ModID}:BarrierPower": {
     "NAME": "Barrier",
     "DESCRIPTIONS": ["Negate the next #b%d active attack damage(s) received."]
