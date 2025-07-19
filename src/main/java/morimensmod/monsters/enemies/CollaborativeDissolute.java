@@ -5,7 +5,6 @@ import static morimensmod.MorimensMod.makeMonsterPath;
 import static morimensmod.util.General.removeModID;
 import static morimensmod.util.Wiz.p;
 
-import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
@@ -122,8 +121,8 @@ public class CollaborativeDissolute extends AbstractMorimensMonster {
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
                 addToBot(new NewWaitAction(22F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
-                addToBot(new AllEnemyApplyPowerAction(this, strengthAmt, (m) -> new StrengthPower(m, strengthAmt)));
                 addToBot(new AllEnemyGainBlockAction(this, blockAmt));
+                addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
                 break;
         }
 

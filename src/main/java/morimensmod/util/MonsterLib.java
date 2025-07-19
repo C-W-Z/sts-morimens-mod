@@ -19,6 +19,7 @@ import basemod.BaseMod.GetMonsterGroup;
 import morimensmod.monsters.bosses.LotanBoss;
 import morimensmod.monsters.elites.TheVoidClaimsAll;
 import morimensmod.monsters.enemies.CollaborativeDissolute;
+import morimensmod.monsters.enemies.DissolutedHumanoid;
 import morimensmod.monsters.enemies.DissolutedRatKing;
 import morimensmod.monsters.enemies.Fastrunner;
 import morimensmod.monsters.enemies.Hardhitter;
@@ -110,11 +111,24 @@ public class MonsterLib {
                 new Fastrunner(300, -30)
         }, Exordium.ID, 4));
 
+        weakEncounters.put(makeID("1-2-1"), new MonsterEncounter(() -> new AbstractMonster[] {
+                new CollaborativeDissolute(-420, 10),
+                new DissolutedHumanoid(-130, -40, DissolutedHumanoid.Skin.B, 1),
+                new DissolutedHumanoid(220, 0, DissolutedHumanoid.Skin.C, 0)
+        }, new String[] { Exordium.ID, TheCity.ID }, 4));
+
         weakEncounters.put(makeID("1-2-2"), new MonsterEncounter(() -> new AbstractMonster[] {
                 new CollaborativeDissolute(-400, -10),
                 new DissolutedRatKing(-170, 10),
                 new InterferenceTypeDissolute(110, -20)
         }, new String[] { Exordium.ID, TheCity.ID, TheBeyond.ID }, 4));
+
+        strongEncounters.put(makeID("1-3-1"), new MonsterEncounter(() -> new AbstractMonster[] {
+                new DissolutedHumanoid(-420, -40, DissolutedHumanoid.Skin.B),
+                new CollaborativeDissolute(-140, 50, 1),
+                new CollaborativeDissolute(30, -30),
+                new CollaborativeDissolute(200, 20, 1),
+        }, new String[] { Exordium.ID, TheCity.ID }, 2));
 
         eliteEncounters.put(TheVoidClaimsAll.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new TheVoidClaimsAll(-100, -50)
