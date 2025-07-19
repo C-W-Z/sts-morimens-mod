@@ -1,4 +1,4 @@
-package morimensmod.patches.monsters;
+package morimensmod.patches.monsterRoom;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;

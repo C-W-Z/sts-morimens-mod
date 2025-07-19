@@ -1,4 +1,4 @@
-package morimensmod.patches;
+package morimensmod.patches.hooks;
 
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;

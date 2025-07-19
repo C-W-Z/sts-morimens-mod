@@ -1,4 +1,4 @@
-package morimensmod.patches;
+package morimensmod.patches.hooks;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
