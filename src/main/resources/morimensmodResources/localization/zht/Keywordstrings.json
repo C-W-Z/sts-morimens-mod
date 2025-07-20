@@ -193,5 +193,10 @@
     "PROPER_NAME": "奇妙正面效果",
     "NAMES": ["奇妙正面效果", "Marvelous_Buff"],
     "DESCRIPTION": "包括獲得 #b10 #y狂氣 、 #r易傷 所有敵人 #b1 回合、 #p虛弱 所有敵人 #b1 回合、抽 #b1 張牌、獲得 #b200 點 #y銀鑰能量 。"
+  },
+  {
+    "PROPER_NAME": "迴響",
+    "NAMES": ["迴響", "Echo"],
+    "DESCRIPTION": "此卡牌打出後回到手牌中，直到回合結束前 #y刻印 失效。"
   }
 ]

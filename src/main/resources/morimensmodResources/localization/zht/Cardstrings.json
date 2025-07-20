@@ -488,11 +488,11 @@
   },
   "${ModID}:MarvelousCuisine": {
     "NAME": "奇妙料理",
-    "DESCRIPTION": "獲得 [E] 。可以使用 !${ModID}:M3! 次。",
-    "UPGRADE_DESCRIPTION": "獲得 [E] 。有 !${ModID}:M2! %機率觸發一個 ${ModID}:奇妙正面效果 。可以使用 !${ModID}:M3! 次。",
+    "DESCRIPTION": "獲得 [E] 。 NL 可以使用 !${ModID}:M3! 次。 NL ${ModID}:迴響",
+    "UPGRADE_DESCRIPTION": "獲得 [E] 。有 !${ModID}:M2! %機率觸發一個 ${ModID}:奇妙正面效果 。 NL 可以使用 !${ModID}:M3! 次。 NL ${ModID}:迴響",
     "EXTENDED_DESCRIPTION": [
-      "獲得 [E] 。可以使用 !${ModID}:M3! 次。 NL 剩餘 !stslib:ex! 次。",
-      "獲得 [E] 。有 !${ModID}:M2! %機率觸發一個 ${ModID}:奇妙正面效果 。可以使用 !${ModID}:M3! 次。 NL 剩餘 !stslib:ex! 次。"
+      "獲得 [E] 。 NL 可以使用 !${ModID}:M3! 次。 NL 剩餘 !stslib:ex! 次。 NL ${ModID}:迴響",
+      "獲得 [E] 。有 !${ModID}:M2! %機率觸發一個 ${ModID}:奇妙正面效果 。 NL 可以使用 !${ModID}:M3! 次。 NL 剩餘 !stslib:ex! 次。 NL ${ModID}:迴響"
     ]
   },
   "${ModID}:OctahedronDice": {

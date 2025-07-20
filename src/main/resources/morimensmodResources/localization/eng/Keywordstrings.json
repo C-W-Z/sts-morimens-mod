@@ -193,5 +193,10 @@
     "PROPER_NAME": "Marvelous Buff",
     "NAMES": ["Marvelous Buff", "marvelous_buff"],
     "DESCRIPTION": "Includes gaining #b10 #yAliemus, inflicting #rVulnerable on all enemies for #b1 turn, inflicting #pWeak on all enemies for #b1 turn, drawing #b1 card, gaining #b200 #yKeyflare."
+  },
+  {
+    "PROPER_NAME": "Echo",
+    "NAMES": ["Echo", "echo"],
+    "DESCRIPTION": "This card returns to your hand after being played, and the #yOrison will be disabled until the end of the turn."
   }
 ]
