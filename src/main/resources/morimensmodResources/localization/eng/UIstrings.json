@@ -114,7 +114,8 @@
       "Unremovable In Shop",
       "Counts as Strike",
       "Counts as ${ModID}:Defend",
-      "${ModID}:Phantasm"
+      "${ModID}:Phantasm",
+      "${ModID}:Echo"
     ]
   },
   "${ModID}:ConfigPanel": {
