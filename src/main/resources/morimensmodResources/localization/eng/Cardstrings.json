@@ -490,11 +490,11 @@
   },
   "${ModID}:MarvelousCuisine": {
     "NAME": "Marvelous Cuisine",
-    "DESCRIPTION": "Gain !M! [E]. Exhaust after !M! use.",
-    "UPGRADE_DESCRIPTION": "Gain !M! [E]. There is a !${ModID}:M2!% chance to trigger a ${ModID}:Marvelous_Buff. Exhaust after !M! use.",
+    "DESCRIPTION": "Gain [E]. Exhaust after !${ModID}:M3! use.",
+    "UPGRADE_DESCRIPTION": "Gain [E]. There is a !${ModID}:M2!% chance to trigger a ${ModID}:Marvelous_Buff. Exhaust after !${ModID}:M3! use.",
     "EXTENDED_DESCRIPTION": [
-      "Gain !M! [E]. Exhaust after !M! use. NL !stslib:ex! remaining.",
-      "Gain !M! [E]. There is a !${ModID}:M2!% chance to trigger a ${ModID}:Marvelous_Buff. Exhaust after !M! use. NL !stslib:ex! remaining."
+      "Gain [E]. Exhaust after !${ModID}:M3! use. NL !stslib:ex! remaining.",
+      "Gain [E]. There is a !${ModID}:M2!% chance to trigger a ${ModID}:Marvelous_Buff. Exhaust after !${ModID}:M3! use. NL !stslib:ex! remaining."
     ]
   },
   "${ModID}:OctahedronDice": {

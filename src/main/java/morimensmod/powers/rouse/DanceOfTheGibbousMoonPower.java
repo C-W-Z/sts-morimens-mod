@@ -5,6 +5,7 @@ import static morimensmod.util.Wiz.isCommandCard;
 import static morimensmod.util.Wiz.p;
 
 import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,8 +13,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.powers.PoisonPower;
 
 import morimensmod.actions.AliemusChangeAction;
+import morimensmod.cards.buffs.MarvelousCuisine;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.interfaces.OnPowerModified;
 import morimensmod.powers.AbstractEasyPower;
@@ -42,7 +45,9 @@ public class DanceOfTheGibbousMoonPower extends AbstractEasyPower implements OnP
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        // TODO: 打出奇妙料理施加中毒
+        if (card instanceof MarvelousCuisine)
+            addToBot(new AllEnemyApplyPowerAction(owner, poison, (mo) -> new PoisonPower(mo, owner, poison)));
+
         if (!isCommandCard(card))
             return;
         amount2--;
