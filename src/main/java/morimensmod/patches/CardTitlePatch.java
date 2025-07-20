@@ -2,56 +2,89 @@ package morimensmod.patches;
 
 import java.util.HashMap;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
-import com.evacipated.cardcrawl.modthespire.lib.Matcher;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInsertLocator;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-
-import javassist.CtBehavior;
 
 public class CardTitlePatch {
 
-    private static final HashMap<String, Float> scaleMap = new HashMap<>();
+    private static float offset;
+    private static AbstractCard prevCard;
+    private static final HashMap<String, Float> widthMap = new HashMap<>();
+    private static final float SCROLL_SPEED = 15F;
+    private static float dir = -1;
 
     @SpirePatch2(clz = AbstractCard.class, method = "renderTitle")
     public static class RenderTitlePatch {
-        @SpireInsertPatch(locator = Locator.class)
-        public static void Insert(AbstractCard __instance, SpriteBatch sb, boolean ___useSmallTitleFont,
-                GlyphLayout ___gl, float ___TITLE_BOX_WIDTH) {
+        @SpirePrefixPatch
+        public static SpireReturn<Void> Prefix(AbstractCard __instance, SpriteBatch sb, boolean ___useSmallTitleFont,
+                GlyphLayout ___gl, float ___TITLE_BOX_WIDTH, float ___TITLE_BOX_WIDTH_NO_COST, Color ___renderColor) {
 
-            Float scale = scaleMap.get(__instance.name);
+            if (__instance.isLocked || !__instance.isSeen || !__instance.hb.hovered)
+                return SpireReturn.Continue(); // 不改寫
 
-            if (scale == null) {
-                if (___useSmallTitleFont)
-                    FontHelper.cardTitleFont.getData().setScale(__instance.drawScale * 0.85f);
+            Float textWidth = widthMap.get(__instance.name);
+            float maxWidth = 30F * Settings.scale + __instance.cost < -1 ? ___TITLE_BOX_WIDTH_NO_COST : ___TITLE_BOX_WIDTH;
+
+            if (textWidth == null) {
+                GlyphLayout layout = new GlyphLayout();
+
+                FontHelper.cardTitleFont.getData().setScale(1.0F);
+                layout.setText(FontHelper.cardTitleFont, __instance.name, Color.WHITE, 0.0F, 1, false);
+
+                if (layout.width > maxWidth)
+                    widthMap.put(__instance.name, layout.width + 10F);
                 else
-                    FontHelper.cardTitleFont.getData().setScale(__instance.drawScale);
+                    widthMap.put(__instance.name, -1F);
 
-                GlyphLayout layout = new GlyphLayout(FontHelper.cardTitleFont, __instance.name);
-
-                if (layout.width > ___TITLE_BOX_WIDTH * 0.8F)
-                    scaleMap.put(__instance.name, 0.7F);
-                else
-                    scaleMap.put(__instance.name, 1F);
-
-                scale = scaleMap.get(__instance.name);
+                textWidth = widthMap.get(__instance.name);
             }
 
-            if (scale != 1)
-                FontHelper.cardTitleFont.getData().setScale(__instance.drawScale * scale);
-        }
+            float padding = (textWidth - maxWidth) / 2F;
 
-        private static class Locator extends SpireInsertLocator {
-            @Override
-            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
-                Matcher matcher = new Matcher.FieldAccessMatcher(AbstractCard.class, "upgraded");
-                return LineFinder.findInOrder(ctMethodToPatch, matcher);
-            }
+            if (textWidth < 0 || padding < 20F)
+                return SpireReturn.Continue();
+
+            if (prevCard != __instance)
+                offset = 0;
+            prevCard = __instance;
+
+            offset += dir * Gdx.graphics.getDeltaTime() * SCROLL_SPEED;
+            if (offset > padding)
+                dir = -1;
+            else if (offset < -padding)
+                dir = 1;
+
+            sb.flush();
+            Gdx.gl.glEnable(GL20.GL_SCISSOR_TEST);
+
+            int scissorX = (int) (__instance.current_x - maxWidth / 2);
+            int scissorY = (int) (__instance.current_y + 150F * __instance.drawScale * Settings.scale);
+            int scissorW = (int) maxWidth;
+            int scissorH = (int) (50f * __instance.drawScale * Settings.scale);
+            Gdx.gl.glScissor(scissorX, scissorY, scissorW, scissorH);
+
+            FontHelper.cardTitleFont.getData().setScale(__instance.drawScale);
+
+            Color renderColor = __instance.upgraded ? Settings.GREEN_TEXT_COLOR.cpy() : ___renderColor;
+            renderColor.a = ___renderColor.a;
+
+            FontHelper.renderRotatedText(sb, FontHelper.cardTitleFont, __instance.name, __instance.current_x + offset,
+                    __instance.current_y, 0F, 175F * __instance.drawScale * Settings.scale, __instance.angle, false,
+                    renderColor);
+
+            sb.flush();
+            Gdx.gl.glDisable(GL20.GL_SCISSOR_TEST);
+
+            return SpireReturn.Return();
         }
     }
 }
