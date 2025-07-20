@@ -342,6 +342,11 @@
     "DESCRIPTION": "${ModID}:延遲 ：獲得 !${ModID}:A! ${ModID}:狂氣 。",
     "UPGRADE_DESCRIPTION": "${ModID}:延遲 ： ${ModID}:強化 並獲得 !${ModID}:A! ${ModID}:狂氣 。"
   },
+  "${ModID}:LawOfTheStrongest": {
+    "NAME": "強者為尊",
+    "DESCRIPTION": "獲得 !M! 點 力量 。移除所有敵人的 力量 增益，下回合開始時恢復。",
+    "UPGRADE_DESCRIPTION": "獲得 !M! 點 力量 。偷取所有敵人的 力量 增益，下回合開始時恢復。"
+  },
   "${ModID}:GreatSacrifice": {
     "NAME": "偉大的犧牲",
     "DESCRIPTION": " 易傷 自身， ${ModID}:延遲 ：抽 !${ModID}:DR! 張牌。",

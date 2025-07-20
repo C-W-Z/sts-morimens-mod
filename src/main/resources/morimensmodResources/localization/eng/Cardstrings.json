@@ -344,6 +344,11 @@
     "DESCRIPTION": "${ModID}:Delay: gain !${ModID}:A! ${ModID}:Aliemus.",
     "UPGRADE_DESCRIPTION": "${ModID}:Delay: ${ModID}:Enhance and gain !${ModID}:A! ${ModID}:Aliemus."
   },
+  "${ModID}:LawOfTheStrongest": {
+    "NAME": "Law of the Strongest",
+    "DESCRIPTION": "Gain !M! Strength. Remove Strength buffs from all enemies, restoring them at the start of the next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength. Steal Strength buffs from all enemies, restoring them at the start of the next turn."
+  },
   "${ModID}:GreatSacrifice": {
     "NAME": "偉大的犧牲",
     "DESCRIPTION": " 易傷 自身,  ${ModID}:Delay:抽 !${ModID}:DR! 張牌.",
