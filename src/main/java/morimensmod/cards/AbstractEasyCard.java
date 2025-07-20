@@ -289,12 +289,12 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     }
 
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upp();
-            if (this.cardStrings.UPGRADE_DESCRIPTION != null)
-                this.uDesc();
-        }
+        if (!canUpgrade())
+            return;
+        this.upgradeName();
+        if (this.cardStrings.UPGRADE_DESCRIPTION != null)
+            this.uDesc();
+        this.upp();
     }
 
     public abstract void upp();

@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractRouseCard;
+import morimensmod.cards.buffs.MarvelousCuisine;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.powers.rouse.DanceOfTheGibbousMoonPower;
 
@@ -20,6 +21,7 @@ public class DanceOfTheGibbousMoon extends AbstractRouseCard {
         heal = baseHeal = DanceOfTheGibbousMoonPower.HEAL_PER_AMOUNT;
         secondMagic = baseSecondMagic = DanceOfTheGibbousMoonPower.ALIEMUS_PER_AMOUNT;
         thirdMagic = baseThirdMagic = DanceOfTheGibbousMoonPower.POISON_PER_AMOUNT;
+        cardsToPreview = new MarvelousCuisine();
     }
 
     @Override

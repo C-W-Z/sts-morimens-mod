@@ -64,6 +64,8 @@ public class MarvelousCuisine extends AbstractBuffCard implements StartupCard {
     @Override
     public void upp() {
         upgradeSecondMagic(50);
+        if (isInCombat())
+            atBattleStartPreDraw();
     }
 
     @Override
