@@ -26,6 +26,13 @@ public class ColorPatch {
         public static CardColor STATUS_COLOR;
         @SpireEnum
         public static CardColor POSSE_COLOR;
+
+        public static boolean isMorimensModCardColor(CardColor color) {
+            return color == AWAKENER_COLOR ||
+                    color == CHAOS_COLOR || color == AEQUOR_COLOR || color == CARO_COLOR || color == ULTRA_COLOR ||
+                    color == WHEEL_OF_DESTINY_COLOR || color == BUFF_COLOR || color == SYMPTOM_COLOR ||
+                    color == STATUS_COLOR || color == POSSE_COLOR;
+        }
     }
 
     public static class LibColorPatch {
