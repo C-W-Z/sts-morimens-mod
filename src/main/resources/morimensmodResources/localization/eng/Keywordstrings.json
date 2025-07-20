@@ -10,8 +10,8 @@
     "DESCRIPTION": "One of the four realms."
   },
   {
-    "PROPER_NAME": "#bAequer #bRealm",
-    "NAMES": ["Aequer Realm", "aequer_realm", "aequer"],
+    "PROPER_NAME": "#bAequor #bRealm",
+    "NAMES": ["Aequor Realm", "aequor_realm", "aequor"],
     "DESCRIPTION": "One of the four realms."
   },
   {
@@ -110,9 +110,9 @@
     "DESCRIPTION": "Unable to unleash #yExalt. Reduced #b1 stack when the turn ends."
   },
   {
-    "PROPER_NAME": "Bleed [${ModID}:BleedIcon]",
+    "PROPER_NAME": "#rBleed [${ModID}:BleedIcon]",
     "NAMES": ["Bleed", "bleed"],
-    "DESCRIPTION": "At the end of its turn, lose the corresponding amount of HP."
+    "DESCRIPTION": "At the end of its turn, lose the corresponding amount of HP. Healing removes double the amount of #rBleed stacks"
   },
   {
     "PROPER_NAME": "Persistent",
@@ -157,7 +157,7 @@
   {
     "PROPER_NAME": "#bTranquil #bSea",
     "NAMES": ["Tranquil Sea", "tranquil_sea"],
-    "DESCRIPTION": "A #ystance unique to the #bAequer #bRealm. When entering the #bTranquil #bSea #ystance, you gain #yBlock, but the #yTentacle #yDamage is halved during that turn."
+    "DESCRIPTION": "A #ystance unique to the #bAequor #bRealm. When entering the #bTranquil #bSea #ystance, you gain #yBlock, but the #yTentacle #yDamage is halved during that turn."
   },
   {
     "PROPER_NAME": "Negentropy [${ModID}:NegentropyIcon]",

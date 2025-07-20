@@ -110,9 +110,9 @@
     "DESCRIPTION": "无法释放 #y狂气爆发 。回合结束时减少 #b1 层。"
   },
   {
-    "PROPER_NAME": "出血 [${ModID}:BleedIcon]",
+    "PROPER_NAME": "#r出血 [${ModID}:BleedIcon]",
     "NAMES": ["出血", "Bleed"],
-    "DESCRIPTION": "本回合结束时，失去相应层数的生命。"
+    "DESCRIPTION": "本回合结束时，失去相应层数的生命。治疗时移除双倍回复量的 #r出血 层数。"
   },
   {
     "PROPER_NAME": "永久保留",

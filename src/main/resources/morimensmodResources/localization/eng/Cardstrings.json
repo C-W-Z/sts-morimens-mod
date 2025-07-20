@@ -349,6 +349,10 @@
     "DESCRIPTION": " 易傷 自身,  ${ModID}:Delay:抽 !${ModID}:DR! 張牌.",
     "UPGRADE_DESCRIPTION": " 易傷 自身, 抽 !${ModID}:DR! 張牌並使其獲得 ${ModID}:Temporary 保留."
   },
+  "${ModID}:DirgeOfBlood": {
+    "NAME": "Dirge of Blood",
+    "DESCRIPTION": "Inflict !D! ${ModID}:Bleed damage. NL ${ModID}:Phantasm"
+  },
   "${ModID}:LessonLearned": {
     "NAME": "Lesson Learned",
     "DESCRIPTION": "Deal !D! damage. If Fatal, Upgrade a random card in your deck."

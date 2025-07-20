@@ -347,6 +347,10 @@
     "DESCRIPTION": " 易傷 自身， ${ModID}:延遲 ：抽 !${ModID}:DR! 張牌。",
     "UPGRADE_DESCRIPTION": " 易傷 自身，抽 !${ModID}:DR! 張牌並使其獲得 ${ModID}:臨時 保留 。"
   },
+  "${ModID}:DirgeOfBlood": {
+    "NAME": "血之輓歌",
+    "DESCRIPTION": "造成 !D! 點 ${ModID}:出血 傷害。 NL ${ModID}:幻影"
+  },
   "${ModID}:LessonLearned": {
     "NAME": "勤學精進",
     "DESCRIPTION": "造成 !D! 點 傷害。 斬殺 時， 升級 牌組中的 1 張隨機牌。"
