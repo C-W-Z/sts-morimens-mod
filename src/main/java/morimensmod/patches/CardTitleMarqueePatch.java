@@ -62,7 +62,7 @@ public class CardTitleMarqueePatch {
             if (!prevCard.equals(__instance.name)) {
                 offset = padding;
                 dir = -1;
-                prevCard = __instance.name;
+                prevCard = new String(__instance.name);
             }
 
             offset += dir * Gdx.graphics.getDeltaTime() * SCROLL_SPEED * Settings.scale
@@ -139,7 +139,7 @@ public class CardTitleMarqueePatch {
             if (!prevCard.equals(___card.name)) {
                 offset = padding;
                 dir = -1;
-                prevCard = ___card.name;
+                prevCard = new String(___card.name);
             }
 
             offset += dir * Gdx.graphics.getDeltaTime() * SCROLL_SPEED * Settings.scale;
