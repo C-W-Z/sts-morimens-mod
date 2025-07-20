@@ -17,16 +17,17 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 
 import morimensmod.cards.AbstractEasyCard;
 
-public class CardTitlePatch {
-
-    private static float offset;
-    private static AbstractCard prevCard = null;
-    private static final HashMap<String, Float> widthMap = new HashMap<>();
-    private static final float SCROLL_SPEED = 15F;
-    private static float dir = -1;
+public class CardTitleMarqueePatch {
 
     @SpirePatch2(clz = AbstractCard.class, method = "renderTitle")
-    public static class RenderTitlePatch {
+    public static class AbstractCardRenderTitlePatch {
+
+        private static float offset;
+        private static AbstractCard prevCard = null;
+        private static final HashMap<String, Float> widthMap = new HashMap<>();
+        private static final float SCROLL_SPEED = 15F;
+        private static float dir = -1;
+
         @SpirePrefixPatch
         public static SpireReturn<Void> Prefix(AbstractCard __instance, SpriteBatch sb, Color ___renderColor) {
 
