@@ -123,7 +123,7 @@
   "${ModID}:SoulblightPower": {
     "NAME": "Soulblight",
     "DESCRIPTIONS": [
-      "At turn ends, heal #b%d HP and gain #b%d #yAliemus. NL #pStance #pof #pThe #pEnd: No longer heal HP, instead trigger !M!%% #pPoison on all enemies."
+      "When turn ends, heal #b%d HP and gain #b%d #yAliemus. NL #pStance #pof #pThe #pEnd: No longer heal HP, instead trigger !M!%% #pPoison on all enemies."
     ]
   },
   "${ModID}:DrowningInSorrowPower": {

@@ -185,7 +185,7 @@
   },
   "${ModID}:Soulblight": {
     "NAME": "Soulblight",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. NL At turn ends, heal !${ModID}:H! HP and gain ${ModID}:Aliemus equal to own ${ModID}:Aliemus_Regen. NL ${ModID}:Stance_of_The_End: No longer heal HP, instead trigger !M!% Poison on all enemies."
+    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. NL When turn ends, heal !${ModID}:H! HP and gain ${ModID}:Aliemus equal to own ${ModID}:Aliemus_Regen. NL ${ModID}:Stance_of_The_End: No longer heal HP, instead trigger !M!% Poison on all enemies."
   },
   "${ModID}:SelfDestruct": {
     "NAME": "Self-Destruct",
@@ -269,7 +269,7 @@
   },
   "${ModID}:CombatStance": {
     "NAME": "Combat Stance",
-    "DESCRIPTION": "Gain !B! Block. If in hand at turn ends, the gained Block increases by !M!. Dispel ${ModID}:Seal. NL Counts as ${ModID}:Defend."
+    "DESCRIPTION": "Gain !B! Block. If in hand when turn ends, the gained Block increases by !M!. Dispel ${ModID}:Seal. NL Counts as ${ModID}:Defend."
   },
   "${ModID}:PrecisionSlash": {
     "NAME": "Precision Slash",
@@ -293,7 +293,7 @@
   },
   "${ModID}:SilentFealty": {
     "NAME": "Silent Fealty",
-    "DESCRIPTION": "Heal !${ModID}:H! HP and gain !B! Block. If held at turn ends, [E] Cost increases by !M!, and both HP restoration and Block gain are doubled. Stacks up to !${ModID}:M2! times."
+    "DESCRIPTION": "Heal !${ModID}:H! HP and gain !B! Block. If held when turn ends, [E] Cost increases by !M!, and both HP restoration and Block gain are doubled. Stacks up to !${ModID}:M2! times."
   },
   "${ModID}:PainConversion": {
     "NAME": "疼痛轉化",
