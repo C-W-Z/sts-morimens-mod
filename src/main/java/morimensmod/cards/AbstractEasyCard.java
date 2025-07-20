@@ -35,6 +35,7 @@ import java.util.function.Consumer;
 public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     protected final CardStrings cardStrings;
+    public String cardImgID;
 
     public int secondMagic;
     public int baseSecondMagic;
@@ -84,6 +85,7 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         super(cardID, "", getCardTextureString(removeModID(cardImgID), type),
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
+        this.cardImgID = cardImgID;
         rawDescription = cardStrings.DESCRIPTION;
         name = originalName = cardStrings.NAME;
         initializeTitle();
