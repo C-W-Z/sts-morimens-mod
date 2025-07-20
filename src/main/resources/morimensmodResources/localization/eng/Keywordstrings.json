@@ -152,7 +152,7 @@
   {
     "PROPER_NAME": "Phantasm",
     "NAMES": ["Phantasm", "phantasm"],
-    "DESCRIPTION": "Each time you play another card, reduce this card's [E] Cost by #b1 for the next play; after playing this card, return it to your hand and increase its [E] Cost by #b1, reset at the turn ends or when discarded."
+    "DESCRIPTION": "Each time you play another card, reduce this card's [E] Cost by #b1 for the next play; after playing this card, return it to your hand and increase its [E] Cost by #b1, reset when the turn ends or when discarded."
   },
   {
     "PROPER_NAME": "#bTranquil #bSea",
