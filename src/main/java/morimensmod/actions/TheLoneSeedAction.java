@@ -1,9 +1,9 @@
 package morimensmod.actions;
 
 import static morimensmod.util.Wiz.getCleanCopy;
-import static morimensmod.util.Wiz.hand;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 import basemod.helpers.CardModifierManager;
@@ -21,8 +21,7 @@ public class TheLoneSeedAction extends AbstractGameAction {
     @Override
     public void update() {
         CardModifierManager.addModifier(cleanCopy, new ExhaustModifier());
-        // TODO: makeInHandTop ?
-        hand().addToHand(cleanCopy);
+        addToTop(new MakeTempCardInHandAction(cleanCopy, 1));
         isDone = true;
     }
 }
