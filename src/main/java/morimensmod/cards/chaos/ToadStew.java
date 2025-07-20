@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 
 import static morimensmod.MorimensMod.makeID;
@@ -17,7 +18,7 @@ public class ToadStew extends AbstractEasyCard {
     public final static String ID = makeID(ToadStew.class.getSimpleName());
 
     public ToadStew() {
-        super(ID, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL, CHAOS_COLOR);
+        super(ID, CardImgID.KarenSkill, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.HEALING);
         magicNumber = baseMagicNumber = 7; // 中毒

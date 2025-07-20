@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.enums.CustomTags;
 
@@ -23,7 +24,7 @@ public class KnellOfDeath extends AbstractEasyCard {
     public final static String ID = makeID(KnellOfDeath.class.getSimpleName());
 
     public KnellOfDeath() {
-        super(ID, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
+        super(ID, CardImgID.NymphaeaSkill, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         magicNumber = baseMagicNumber = 8; // 中毒
         secondMagic = baseSecondMagic = 2; // 2倍自身中毒加成

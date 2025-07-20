@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.powers.ThornsPower;
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.actions.AllEnemyRemovePowerAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.enums.CustomTags;
 
@@ -25,7 +26,7 @@ public class WaxHotDesire extends AbstractEasyCard {
     public final static String ID = makeID(WaxHotDesire.class.getSimpleName());
 
     public WaxHotDesire() {
-        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL, CHAOS_COLOR);
+        super(ID, CardImgID.PandiaSkill, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         magicNumber = baseMagicNumber = 1; // 永反
         secondMagic = baseSecondMagic = 1; // 偷力
