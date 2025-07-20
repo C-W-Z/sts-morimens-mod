@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.cards.EasyModalChoiceCard;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.enums.CustomTags;
@@ -37,7 +38,7 @@ public class PredeterminedStrike extends AbstractEasyCard {
     static final int DMG_SCALE = 2;
 
     public PredeterminedStrike() {
-        super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR);
+        super(ID, CardImgID.RamonaTimewormAttack, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         tags.add(CustomTags.LOOP);
         damageType = DamageType.NORMAL; // 必須是normal才能享受力量加成

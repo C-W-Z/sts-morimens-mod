@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.enums.CustomTags;
 
@@ -17,7 +18,7 @@ public class CombatStance extends AbstractEasyCard implements StartupCard {
     public final static String ID = makeID(CombatStance.class.getSimpleName());
 
     public CombatStance() {
-        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, CardImgID.AlvaSkill, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         tags.add(CustomTags.DEFEND);
         block = baseBlock = 5;
