@@ -11,13 +11,16 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+
+import morimensmod.cards.AbstractEasyCard;
 
 public class CardTitlePatch {
 
     private static float offset;
-    private static AbstractCard prevCard;
+    private static AbstractCard prevCard = null;
     private static final HashMap<String, Float> widthMap = new HashMap<>();
     private static final float SCROLL_SPEED = 15F;
     private static float dir = -1;
@@ -25,14 +28,14 @@ public class CardTitlePatch {
     @SpirePatch2(clz = AbstractCard.class, method = "renderTitle")
     public static class RenderTitlePatch {
         @SpirePrefixPatch
-        public static SpireReturn<Void> Prefix(AbstractCard __instance, SpriteBatch sb, boolean ___useSmallTitleFont,
-                GlyphLayout ___gl, float ___TITLE_BOX_WIDTH, float ___TITLE_BOX_WIDTH_NO_COST, Color ___renderColor) {
+        public static SpireReturn<Void> Prefix(AbstractCard __instance, SpriteBatch sb, Color ___renderColor) {
 
-            if (__instance.isLocked || !__instance.isSeen || !__instance.hb.hovered)
+            if (__instance.isLocked || !__instance.isSeen || __instance.angle != 0 ||
+                    !__instance.hb.hovered || !(__instance instanceof AbstractEasyCard))
                 return SpireReturn.Continue(); // 不改寫
 
             Float textWidth = widthMap.get(__instance.name);
-            float maxWidth = 30F * Settings.scale + __instance.cost < -1 ? ___TITLE_BOX_WIDTH_NO_COST : ___TITLE_BOX_WIDTH;
+            float maxWidth = __instance.cost < -1 ? AbstractCard.IMG_WIDTH * 0.9F : AbstractCard.IMG_WIDTH * 0.7F;
 
             if (textWidth == null) {
                 GlyphLayout layout = new GlyphLayout();
@@ -41,7 +44,7 @@ public class CardTitlePatch {
                 layout.setText(FontHelper.cardTitleFont, __instance.name, Color.WHITE, 0.0F, 1, false);
 
                 if (layout.width > maxWidth)
-                    widthMap.put(__instance.name, layout.width + 10F);
+                    widthMap.put(__instance.name, layout.width + AbstractCard.IMG_WIDTH * 0.1F);
                 else
                     widthMap.put(__instance.name, -1F);
 
@@ -50,14 +53,18 @@ public class CardTitlePatch {
 
             float padding = (textWidth - maxWidth) / 2F;
 
-            if (textWidth < 0 || padding < 20F)
+            if (textWidth < 0)
                 return SpireReturn.Continue();
 
-            if (prevCard != __instance)
-                offset = 0;
-            prevCard = __instance;
+            if (prevCard != __instance) {
+                offset = padding;
+                dir = -1;
+                prevCard = __instance;
+            }
 
-            offset += dir * Gdx.graphics.getDeltaTime() * SCROLL_SPEED;
+            offset += dir * Gdx.graphics.getDeltaTime() * SCROLL_SPEED * Settings.scale
+                    * (CardCrawlGame.isInARun() ? 2F : 1F);
+
             if (offset > padding)
                 dir = -1;
             else if (offset < -padding)
