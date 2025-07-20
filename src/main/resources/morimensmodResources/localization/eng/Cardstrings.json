@@ -322,8 +322,9 @@
     "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus.回合開始時, 將一張「協樂的交響」置入手中."
   },
   "${ModID}:SoulOverture": {
-    "NAME": "靈魂序曲",
-    "DESCRIPTION": "隨機造成 !${ModID}:AC! 次 !D! ${ModID}:穿刺傷害 , 每次造成傷害都有 50% 機率對目標隨機施加 1 種 ${ModID}:奇妙負面效果.若打出時 [E] 消耗為0, 額外造成 !M! 次傷害. NL ${ModID}:Prepare 1."
+    "NAME": "Soul Overture",
+    "DESCRIPTION": "{@@}Randomly deal !D! ${ModID}:Pierce_Damage !${ModID}:AC! time{!${ModID}:AC!|>1=s}. If used with 0 [E] Cost, deal an additional !${ModID}:M2! hit{!${ModID}:M2!|>1=s}. NL ${ModID}:Prepare 1",
+    "UPGRADE_DESCRIPTION": "{@@}Randomly deal !D! ${ModID}:Pierce_Damage !${ModID}:AC! time{!${ModID}:AC!|>1=s}. Each hit has a !M!% chance to randomly apply 1 ${ModID}:Marvelous_Debuff to the target. If used with 0 [E] Cost, deal an additional !${ModID}:M2! hit{!${ModID}:M2!|>1=s}. NL ${ModID}:Prepare 1"
   },
   "${ModID}:MemoryRondo": {
     "NAME": "Memory Rondo",

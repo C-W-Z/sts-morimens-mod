@@ -125,7 +125,7 @@
     "DESCRIPTION": "打出后将其从牌库中永久移除。"
   },
   {
-    "PROPER_NAME": "预备（X）",
+    "PROPER_NAME": "预备 X",
     "NAMES": ["预备", "Prepare"],
     "DESCRIPTION": "回合结束后 [E] 消耗减少 #bX 点。被弃掉时也会触发此效果。"
   },
@@ -193,6 +193,11 @@
     "PROPER_NAME": "奇妙正面效果",
     "NAMES": ["奇妙正面效果", "Marvelous_Buff"],
     "DESCRIPTION": "包括获得 #b10 #y狂气 、 #r易伤 所有敌人 #b1 回合、 #p虚弱 所有敌人 #b1 回合、抽 #b1 张牌、获得 #b200 点 #y银钥能量 。"
+  },
+  {
+    "PROPER_NAME": "奇妙负面效果",
+    "NAMES": ["奇妙负面效果", "Marvelous_Debuff"],
+    "DESCRIPTION": "包括造成 #b150% 伤害的 #r出血 、造成 #b75% 伤害的 #p中毒 、施加 #b1 层 #p虚弱 、施加 #b1 层 #r易伤 、 #y临时 降低 #b3 点 #y力量 。"
   },
   {
     "PROPER_NAME": "回响",

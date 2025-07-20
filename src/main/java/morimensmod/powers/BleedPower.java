@@ -2,7 +2,6 @@ package morimensmod.powers;
 
 import static morimensmod.MorimensMod.makeID;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -23,7 +22,7 @@ public class BleedPower extends AbstractEasyPower {
 
     @Override
     public int onHeal(int healAmount) {
-        addToBot(new ReducePowerAction(owner, owner, this, 2 * healAmount));
+        addToTop(new ReducePowerAction(owner, owner, this, 2 * healAmount));
         return super.onHeal(healAmount);
     }
 
@@ -32,7 +31,7 @@ public class BleedPower extends AbstractEasyPower {
         if (isPlayer != owner.isPlayer)
             return;
         flash();
-        addToBot(new LoseHPAction(owner, null, amount, AttackEffect.FIRE));
+        addToBot(new LoseHPAction(owner, null, amount));
         addToBot(new RemoveSpecificPowerAction(owner, owner, this));
     }
 

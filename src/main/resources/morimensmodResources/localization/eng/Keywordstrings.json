@@ -107,12 +107,12 @@
   {
     "PROPER_NAME": "Seal [${ModID}:SealIcon]",
     "NAMES": ["Seal", "seal", "sealed"],
-    "DESCRIPTION": "Unable to unleash #yExalt. Reduced #b1 stack at turn ends."
+    "DESCRIPTION": "Unable to unleash #yExalt. Reduced #b1 stack when the turn ends."
   },
   {
     "PROPER_NAME": "Bleed [${ModID}:BleedIcon]",
     "NAMES": ["Bleed", "bleed"],
-    "DESCRIPTION": "At the end of this turn, lose the corresponding amount of HP."
+    "DESCRIPTION": "At the end of its turn, lose the corresponding amount of HP."
   },
   {
     "PROPER_NAME": "Persistent",
@@ -125,9 +125,9 @@
     "DESCRIPTION": "Once played, it is permanently removed from the deck."
   },
   {
-    "PROPER_NAME": "Prepare (X)",
+    "PROPER_NAME": "Prepare X",
     "NAMES": ["Prepare", "prepare"],
-    "DESCRIPTION": "At turn end, reduce [E] Cost by #bX. This effect triggers even if discarded."
+    "DESCRIPTION": "When turn ends, reduce [E] Cost by #bX. This effect triggers even if discarded."
   },
   {
     "PROPER_NAME": "#bAftershock",
@@ -193,6 +193,11 @@
     "PROPER_NAME": "Marvelous Buff",
     "NAMES": ["Marvelous Buff", "marvelous_buff"],
     "DESCRIPTION": "Includes gaining #b10 #yAliemus, inflicting #rVulnerable on all enemies for #b1 turn, inflicting #pWeak on all enemies for #b1 turn, drawing #b1 card, gaining #b200 #yKeyflare."
+  },
+  {
+    "PROPER_NAME": "Marvelous Debuff",
+    "NAMES": ["Marvelous Debuff", "marvelous_debuff"],
+    "DESCRIPTION": "Includes #rBleed (equal to #b150% damage), #pPoison (equal to #b75% damage), apply #b1 #rVulnerable, apply #b1 #pWeak, #yTemporary #yStrength #b-3."
   },
   {
     "PROPER_NAME": "Echo",

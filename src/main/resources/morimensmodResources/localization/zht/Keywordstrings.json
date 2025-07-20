@@ -125,7 +125,7 @@
     "DESCRIPTION": "打出後將其從牌庫中永久移除。"
   },
   {
-    "PROPER_NAME": "預備（X）",
+    "PROPER_NAME": "預備 X",
     "NAMES": ["預備", "Prepare"],
     "DESCRIPTION": "回合結束後 [E] 消耗減少 #bX 點。被棄掉時也會觸發此效果。"
   },
@@ -193,6 +193,11 @@
     "PROPER_NAME": "奇妙正面效果",
     "NAMES": ["奇妙正面效果", "Marvelous_Buff"],
     "DESCRIPTION": "包括獲得 #b10 #y狂氣 、 #r易傷 所有敵人 #b1 回合、 #p虛弱 所有敵人 #b1 回合、抽 #b1 張牌、獲得 #b200 點 #y銀鑰能量 。"
+  },
+  {
+    "PROPER_NAME": "奇妙負面效果",
+    "NAMES": ["奇妙負面效果", "Marvelous_Debuff"],
+    "DESCRIPTION": "包括造成 #b150% 傷害的 #r出血 、造成 #b75% 傷害的 #p中毒 、施加 #b1 層 #p虛弱 、施加 #b1 層 #r易傷 、 #y臨時 降低 #b3 點 #y力量 。"
   },
   {
     "PROPER_NAME": "迴響",

@@ -321,7 +321,8 @@
   },
   "${ModID}:SoulOverture": {
     "NAME": "灵魂序曲",
-    "DESCRIPTION": "随机造成 !${ModID}:AC! 次 !D! 点 ${ModID}:穿刺伤害 ，每次造成伤害都有 50% 几率对目标随机施加 1 种 ${ModID}:奇妙负面效果 。若打出时 [E] 消耗为0，额外造成 !M! 次伤害。 NL ${ModID}:预备 1"
+    "DESCRIPTION": "随机造成 !${ModID}:AC! 次 !D! 点 ${ModID}:穿刺伤害 。若打出时 [E] 消耗为0，额外造成 !${ModID}:M2! 次伤害。 NL ${ModID}:预备 1",
+    "UPGRADE_DESCRIPTION": "随机造成 !${ModID}:AC! 次 !D! 点 ${ModID}:穿刺伤害 ，每次造成伤害都有 !M! %机率对目标随机施加 1 种 ${ModID}:奇妙负面效果 。若打出时 [E] 消耗为0，额外造成 !${ModID}:M2! 次伤害。 NL ${ModID}:预备 1"
   },
   "${ModID}:MemoryRondo": {
     "NAME": "追忆回旋曲",
