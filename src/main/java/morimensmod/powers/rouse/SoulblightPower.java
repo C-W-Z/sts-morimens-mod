@@ -1,7 +1,6 @@
 package morimensmod.powers.rouse;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.util.Wiz.p;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.HealAction;
@@ -36,7 +35,8 @@ public class SoulblightPower extends AbstractEasyPower implements OnPowerModifie
             return;
         flash();
         addToBot(new HealAction(owner, owner, heal));
-        addToBot(new AliemusChangeAction((AbstractAwakener) owner, aliemus));
+        if (aliemus > 0)
+            addToBot(new AliemusChangeAction((AbstractAwakener) owner, aliemus));
     }
 
     @Override
@@ -48,9 +48,9 @@ public class SoulblightPower extends AbstractEasyPower implements OnPowerModifie
     public void onPowerModified() {
         int healAmplify = 100 + AbstractAwakener.baseHealAmplify;
         heal = MathUtils.ceil(amount * HEAL_PER_AMOUNT * healAmplify / 100F);
-        if (p() instanceof AbstractAwakener) {
+        if (owner instanceof AbstractAwakener) {
             int aliemusAmplify = 100 + AbstractAwakener.baseAliemusAmplify;
-            aliemus = MathUtils.ceil(((AbstractAwakener) p()).aliemusRegen * aliemusAmplify / 100F);
+            aliemus = MathUtils.ceil(((AbstractAwakener) owner).aliemusRegen * aliemusAmplify / 100F);
         }
         updateDescription();
     }

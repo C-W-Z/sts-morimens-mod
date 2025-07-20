@@ -2,7 +2,6 @@ package morimensmod.powers.rouse;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.isCommandCard;
-import static morimensmod.util.Wiz.p;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
@@ -72,10 +71,8 @@ public class DanceOfTheGibbousMoonPower extends AbstractEasyPower implements OnP
     public void onPowerModified() {
         int healAmplify = 100 + AbstractAwakener.baseHealAmplify;
         heal = MathUtils.ceil(amount * HEAL_PER_AMOUNT * healAmplify / 100F);
-        if (p() instanceof AbstractAwakener) {
-            int aliemusAmplify = 100 + AbstractAwakener.baseAliemusAmplify;
-            aliemus = MathUtils.ceil(((AbstractAwakener) p()).aliemusRegen * aliemusAmplify / 100F);
-        }
+        int aliemusAmplify = 100 + AbstractAwakener.baseAliemusAmplify;
+        aliemus = MathUtils.ceil(amount * ALIEMUS_PER_AMOUNT * aliemusAmplify / 100F);
         int poisonAmplify = 100 + AbstractAwakener.basePoisonAmplify;
         poison = MathUtils.ceil(amount * POISON_PER_AMOUNT * poisonAmplify / 100F);
         updateDescription();
