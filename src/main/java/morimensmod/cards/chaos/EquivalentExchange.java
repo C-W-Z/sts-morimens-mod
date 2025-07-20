@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.enums.CustomTags;
 
@@ -18,7 +19,7 @@ public class EquivalentExchange extends AbstractEasyCard {
     public final static String ID = makeID(EquivalentExchange.class.getSimpleName());
 
     public EquivalentExchange() {
-        super(ID, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, CardImgID.DollSkill, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.HEALING);
         heal = baseHeal = 4;

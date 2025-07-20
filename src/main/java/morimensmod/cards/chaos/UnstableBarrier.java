@@ -13,13 +13,14 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.actions.EasyXCostAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 
 public class UnstableBarrier extends AbstractEasyCard {
     public final static String ID = makeID(UnstableBarrier.class.getSimpleName());
 
     public UnstableBarrier() {
-        super(ID, -1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, CardImgID.OgierSkill, -1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         block = baseBlock = 5;
         aliemus = baseAliemus = 5;

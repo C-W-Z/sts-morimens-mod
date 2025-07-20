@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 
 import static morimensmod.MorimensMod.makeID;
@@ -16,7 +17,7 @@ public class OuterSurgery extends AbstractEasyCard {
     public final static String ID = makeID(OuterSurgery.class.getSimpleName());
 
     public OuterSurgery() {
-        super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL, CHAOS_COLOR);
+        super(ID, CardImgID.DollSkill, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.HEALING);
         heal = baseHeal = 3;
