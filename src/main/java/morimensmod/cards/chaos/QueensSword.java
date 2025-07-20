@@ -21,6 +21,7 @@ import org.apache.logging.log4j.Logger;
 import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.actions.QueensSwordAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.enums.CustomTags;
 
@@ -43,7 +44,7 @@ public class QueensSword extends AbstractEasyCard {
     }
 
     public QueensSword() {
-        super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR);
+        super(ID, CardImgID.RamonaAttack, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         damage = baseDamage = 4;
         attackCount = baseAttackCount = 3;

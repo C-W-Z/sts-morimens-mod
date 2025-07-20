@@ -125,6 +125,17 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     }
 
     @Override
+    public String getSignatureImgPath() {
+        if (this.textureImg.contains("/cards/"))
+            return CardImgID.removePofix(this.textureImg).replace(".png", "_s.png").replace("/cards/", "/signature/");
+
+        if (this.textureImg.contains("/card/"))
+            return CardImgID.removePofix(this.textureImg).replace(".png", "_s.png").replace("/card/", "/signature/");
+
+        return CardImgID.removePofix(this.textureImg).replace(".png", "_s.png");
+    }
+
+    @Override
     public void applyPowers() {
         int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
         if (isStrikeOrAsStrike(this))

@@ -15,13 +15,14 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 
 public class AssaultThesis extends AbstractEasyCard {
     public final static String ID = makeID(AssaultThesis.class.getSimpleName());
 
     public AssaultThesis() {
-        super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
+        super(ID, CardImgID.RamonaSkill, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         magicNumber = baseMagicNumber = 4; // 降低臨時力量
         draw = baseDraw = 1; // 抽牌數
