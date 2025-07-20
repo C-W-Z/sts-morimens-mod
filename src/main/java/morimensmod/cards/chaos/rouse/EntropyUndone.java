@@ -1,4 +1,4 @@
-package morimensmod.cards.chaos;
+package morimensmod.cards.chaos.rouse;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
