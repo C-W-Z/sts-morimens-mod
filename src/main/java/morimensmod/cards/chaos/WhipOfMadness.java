@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.LoseThornsPower;
 
@@ -23,7 +24,7 @@ public class WhipOfMadness extends AbstractEasyCard {
     public final static String ID = makeID(WhipOfMadness.class.getSimpleName());
 
     public WhipOfMadness() {
-        super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
+        super(ID, CardImgID.PandiaAttack, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         damageType = DamageType.NORMAL;
         damage = baseDamage = 6;

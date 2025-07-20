@@ -11,13 +11,18 @@ public class PileModalSelectCard extends AbstractEasyCard {
 
     private Runnable onUseOrChosen;
 
+    public static String getCardImgID(AbstractCard card) {
+        if (card instanceof AbstractEasyCard)
+            return ((AbstractEasyCard) card).cardImgID;
+        return card.cardID;
+    }
+
     public PileModalSelectCard(AbstractCard card, Runnable onUseOrChosen) {
-        super(card.cardID, card.cost, card.type, card.rarity, card.target, card.color);
+        super(card.cardID, getCardImgID(card), card.cost, card.type, card.rarity, card.target, card.color);
         this.onUseOrChosen = onUseOrChosen;
 
-        for(int i = 0; i < this.timesUpgraded; ++i) {
+        for(int i = 0; i < this.timesUpgraded; ++i)
             card.upgrade();
-        }
 
         this.name = card.name;
         this.target = card.target;

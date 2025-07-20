@@ -35,6 +35,7 @@ import java.util.function.Consumer;
 public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     protected final CardStrings cardStrings;
+    public String cardImgID;
 
     public int secondMagic;
     public int baseSecondMagic;
@@ -79,24 +80,30 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
 
     public int prepare = 0;
 
-    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity,
+    public AbstractEasyCard(final String cardID, final String cardImgID, final int cost, final CardType type, final CardRarity rarity,
             final CardTarget target, final CardColor color) {
-        super(cardID, "", getCardTextureString(removeModID(cardID), type),
+        super(cardID, "", getCardTextureString(removeModID(cardImgID), type),
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
+        this.cardImgID = cardImgID;
         rawDescription = cardStrings.DESCRIPTION;
         name = originalName = cardStrings.NAME;
         initializeTitle();
         initializeDescription();
 
         if (textureImg.contains("ui/missing.png")) {
-            if (CardLibrary.cards != null && !CardLibrary.cards.isEmpty()) {
+            if (CardLibrary.cards != null && !CardLibrary.cards.isEmpty())
                 CardArtRoller.computeCard(this);
-            } else
+            else
                 needsArtRefresh = true;
         }
 
         CommonKeywordIconsField.useIcons.set(this, true);
+    }
+
+    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity,
+            final CardTarget target, final CardColor color) {
+        this(cardID, cardID, cost, type, rarity, target, color);
     }
 
     @Override
@@ -117,6 +124,17 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
             textureString = makeImagePath("ui/missing.png");
         }
         return textureString;
+    }
+
+    @Override
+    public String getSignatureImgPath() {
+        if (this.textureImg.contains("/cards/"))
+            return CardImgID.removePofix(this.textureImg).replace(".png", "_s.png").replace("/cards/", "/signature/");
+
+        if (this.textureImg.contains("/card/"))
+            return CardImgID.removePofix(this.textureImg).replace(".png", "_s.png").replace("/card/", "/signature/");
+
+        return CardImgID.removePofix(this.textureImg).replace(".png", "_s.png");
     }
 
     @Override
@@ -284,12 +302,12 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
     }
 
     public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upp();
-            if (this.cardStrings.UPGRADE_DESCRIPTION != null)
-                this.uDesc();
-        }
+        if (!canUpgrade())
+            return;
+        this.upgradeName();
+        if (this.cardStrings.UPGRADE_DESCRIPTION != null)
+            this.uDesc();
+        this.upp();
     }
 
     public abstract void upp();

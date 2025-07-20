@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 
 public class InsightStrike extends AbstractEasyCard {
@@ -19,7 +20,7 @@ public class InsightStrike extends AbstractEasyCard {
     public final static String ID = makeID(InsightStrike.class.getSimpleName());
 
     public InsightStrike() {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL, CHAOS_COLOR);
+        super(ID, CardImgID.AlvaAttack, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STRIKE);
         damage = baseDamage = 4;

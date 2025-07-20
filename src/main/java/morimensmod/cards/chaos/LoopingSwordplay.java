@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import basemod.abstracts.CustomSavable;
 import morimensmod.actions.LoopingSwordplayAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.enums.CustomTags;
 
@@ -20,7 +21,7 @@ public class LoopingSwordplay extends AbstractEasyCard implements CustomSavable<
     public final static String ID = makeID(LoopingSwordplay.class.getSimpleName());
 
     public LoopingSwordplay() {
-        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR);
+        super(ID, CardImgID.LotanAttack, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STRIKE);
         damage = baseDamage = misc = 16;

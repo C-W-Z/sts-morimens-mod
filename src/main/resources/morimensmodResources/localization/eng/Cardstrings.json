@@ -147,7 +147,7 @@
   },
   "${ModID}:KnightsZeal": {
     "NAME": "Knight's Zeal",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. NL Gain !M! Strength, After each !${ModID}:M3! ${ModID}:Command_Card is played, gain !${ModID}:M2! Strength."
+    "DESCRIPTION": "{@@}Gain !${ModID}:A! ${ModID}:Aliemus. NL Gain !M! Strength, After playing each !${ModID}:M3! ${ModID}:Command_Card{!${ModID}:M3!|>1=s}, gain !${ModID}:M2! Strength."
   },
   "${ModID}:UnstableBarrier": {
     "NAME": "Unstable Barrier",
@@ -185,7 +185,7 @@
   },
   "${ModID}:Soulblight": {
     "NAME": "Soulblight",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. NL At turn ends, heal !${ModID}:H! HP and gain ${ModID}:Aliemus equal to own ${ModID}:Aliemus_Regen. NL ${ModID}:Stance_of_The_End: No longer heal HP, instead trigger !M!% Poison on all enemies."
+    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. NL When turn ends, heal !${ModID}:H! HP and gain ${ModID}:Aliemus equal to own ${ModID}:Aliemus_Regen. NL ${ModID}:Stance_of_The_End: No longer heal HP, instead trigger !M!% Poison on all enemies."
   },
   "${ModID}:SelfDestruct": {
     "NAME": "Self-Destruct",
@@ -269,7 +269,7 @@
   },
   "${ModID}:CombatStance": {
     "NAME": "Combat Stance",
-    "DESCRIPTION": "Gain !B! Block. If in hand at turn ends, the gained Block increases by !M!. Dispel ${ModID}:Seal. NL Counts as ${ModID}:Defend."
+    "DESCRIPTION": "Gain !B! Block. If in hand when turn ends, the gained Block increases by !M!. Dispel ${ModID}:Seal. NL Counts as ${ModID}:Defend."
   },
   "${ModID}:PrecisionSlash": {
     "NAME": "Precision Slash",
@@ -284,16 +284,16 @@
     "DESCRIPTION": "Deal !D! damage to the enemy with the highest HP and Block, and gain Block equal to !M!% of the damage dealt. NL Counts as Strike."
   },
   "${ModID}:DanceOfTheGibbousMoon": {
-    "NAME": "凸月之舞",
-    "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. NL 每打出 !M! 張 ${ModID}:指令卡 後, 回復 !${ModID}:H! 點生命, 獲得 !${ModID}:M2! ${ModID}:Aliemus.打出「奇妙料理」後, 對所有敵人造成 !${ModID}:M3! 中毒."
+    "NAME": "Dance of the Gibbous Moon",
+    "DESCRIPTION": "{@@}Gain !${ModID}:A! ${ModID}:Aliemus. NL After playing !M! ${ModID}:Command_Card{!M!|>1=s}, heal !${ModID}:H! HP and gain !${ModID}:M2! ${ModID}:Aliemus. After playing \"Marvelous Cuisine\", inflict !${ModID}:M3! stack{!${ModID}:M3!|>1=s} of Poison on all enemies."
   },
   "${ModID}:ToadStew": {
-    "NAME": "蟾蜍燉菜",
-    "DESCRIPTION": ""
+    "NAME": "Toad Stew",
+    "DESCRIPTION": "{@@}Inflict !M! stack{!M!|>1=s} of Poison and !${ModID}:M2! turn{!${ModID}:M2!|>1=s} of Weak on all enemies, and heal for !${ModID}:H! HP. NL ${ModID}:Prepare 1."
   },
   "${ModID}:SilentFealty": {
-    "NAME": "靜默守望",
-    "DESCRIPTION": ""
+    "NAME": "Silent Fealty",
+    "DESCRIPTION": "Heal !${ModID}:H! HP and gain !B! Block. If held when turn ends, [E] Cost increases by !M!, and both HP restoration and Block gain are doubled. Stacks up to !${ModID}:M2! times."
   },
   "${ModID}:PainConversion": {
     "NAME": "疼痛轉化",
@@ -322,8 +322,9 @@
     "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus.回合開始時, 將一張「協樂的交響」置入手中."
   },
   "${ModID}:SoulOverture": {
-    "NAME": "靈魂序曲",
-    "DESCRIPTION": "隨機造成 !${ModID}:AC! 次 !D! ${ModID}:穿刺傷害 , 每次造成傷害都有 50% 機率對目標隨機施加 1 種 ${ModID}:奇妙負面效果.若打出時 [E] 消耗為0, 額外造成 !M! 次傷害. NL ${ModID}:Prepare 1."
+    "NAME": "Soul Overture",
+    "DESCRIPTION": "{@@}Randomly deal !D! ${ModID}:Pierce_Damage !${ModID}:AC! time{!${ModID}:AC!|>1=s}. If used with 0 [E] Cost, deal an additional !${ModID}:M2! hit{!${ModID}:M2!|>1=s}. NL ${ModID}:Prepare 1",
+    "UPGRADE_DESCRIPTION": "{@@}Randomly deal !D! ${ModID}:Pierce_Damage !${ModID}:AC! time{!${ModID}:AC!|>1=s}. Each hit has a !M!% chance to randomly apply 1 ${ModID}:Marvelous_Debuff to the target. If used with 0 [E] Cost, deal an additional !${ModID}:M2! hit{!${ModID}:M2!|>1=s}. NL ${ModID}:Prepare 1"
   },
   "${ModID}:MemoryRondo": {
     "NAME": "Memory Rondo",
@@ -343,10 +344,19 @@
     "DESCRIPTION": "${ModID}:Delay: gain !${ModID}:A! ${ModID}:Aliemus.",
     "UPGRADE_DESCRIPTION": "${ModID}:Delay: ${ModID}:Enhance and gain !${ModID}:A! ${ModID}:Aliemus."
   },
+  "${ModID}:LawOfTheStrongest": {
+    "NAME": "Law of the Strongest",
+    "DESCRIPTION": "Gain !M! Strength. Remove Strength buffs from all enemies, restoring them at the start of the next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength. Steal Strength buffs from all enemies, restoring them at the start of the next turn."
+  },
   "${ModID}:GreatSacrifice": {
     "NAME": "偉大的犧牲",
     "DESCRIPTION": " 易傷 自身,  ${ModID}:Delay:抽 !${ModID}:DR! 張牌.",
     "UPGRADE_DESCRIPTION": " 易傷 自身, 抽 !${ModID}:DR! 張牌並使其獲得 ${ModID}:Temporary 保留."
+  },
+  "${ModID}:DirgeOfBlood": {
+    "NAME": "Dirge of Blood",
+    "DESCRIPTION": "Inflict !D! ${ModID}:Bleed damage. NL ${ModID}:Phantasm"
   },
   "${ModID}:LessonLearned": {
     "NAME": "Lesson Learned",
@@ -486,6 +496,15 @@
       "Discard all your cards, then draw a number of cards equal to the number of discarded cards + !${ModID}:DR!. In Boss Battle, reduce [E] Cost of drawn cards by !${ModID}:M2! and Exhaust after !M! use.",
       "Discard all your cards, then draw a number of cards equal to the number of discarded cards + !${ModID}:DR!. Exhaust after !M! use in Boss Battle. NL !stslib:ex! remaining.",
       "Discard all your cards, then draw a number of cards equal to the number of discarded cards + !${ModID}:DR!. In Boss Battle, reduce [E] Cost of drawn cards by !${ModID}:M2! and Exhaust after !M! use. NL !stslib:ex! remaining."
+    ]
+  },
+  "${ModID}:MarvelousCuisine": {
+    "NAME": "Marvelous Cuisine",
+    "DESCRIPTION": "Gain [E]. NL Exhaust after !${ModID}:M3! use. NL ${ModID}:Echo.",
+    "UPGRADE_DESCRIPTION": "Gain [E]. There is a !${ModID}:M2!% chance to trigger a ${ModID}:Marvelous_Buff. NL Exhaust after !${ModID}:M3! use. NL ${ModID}:Echo.",
+    "EXTENDED_DESCRIPTION": [
+      "Gain [E]. NL Exhaust after !${ModID}:M3! use. NL !stslib:ex! remaining. NL ${ModID}:Echo.",
+      "Gain [E]. There is a !${ModID}:M2!% chance to trigger a ${ModID}:Marvelous_Buff. NL Exhaust after !${ModID}:M3! use. NL !stslib:ex! remaining. NL ${ModID}:Echo."
     ]
   },
   "${ModID}:OctahedronDice": {

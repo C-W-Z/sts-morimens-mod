@@ -8,13 +8,14 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 
 public class ShortTermMemory extends AbstractEasyCard {
     public final static String ID = makeID(ShortTermMemory.class.getSimpleName());
 
     public ShortTermMemory() {
-        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, CardImgID.NautilaSkill, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         block = baseBlock = 4;
         aliemus = baseAliemus = 10;

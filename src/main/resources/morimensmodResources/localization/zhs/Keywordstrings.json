@@ -110,6 +110,11 @@
     "DESCRIPTION": "无法释放 #y狂气爆发 。回合结束时减少 #b1 层。"
   },
   {
+    "PROPER_NAME": "#r出血 [${ModID}:BleedIcon]",
+    "NAMES": ["出血", "Bleed"],
+    "DESCRIPTION": "本回合结束时，失去相应层数的生命。治疗时移除双倍回复量的 #r出血 层数。"
+  },
+  {
     "PROPER_NAME": "永久保留",
     "NAMES": ["永久保留", "战斗结束后仍会保存在牌库中", "Persistent"],
     "DESCRIPTION": "战斗结束后仍会保存在牌库中"
@@ -120,7 +125,7 @@
     "DESCRIPTION": "打出后将其从牌库中永久移除。"
   },
   {
-    "PROPER_NAME": "预备（X）",
+    "PROPER_NAME": "预备 X",
     "NAMES": ["预备", "Prepare"],
     "DESCRIPTION": "回合结束后 [E] 消耗减少 #bX 点。被弃掉时也会触发此效果。"
   },
@@ -183,5 +188,20 @@
     "PROPER_NAME": "屏障 [${ModID}:BarrierIcon]",
     "NAMES": ["屏障", "Barrier"],
     "DESCRIPTION": "阻止下次受到的主动攻击伤害。"
+  },
+  {
+    "PROPER_NAME": "奇妙正面效果",
+    "NAMES": ["奇妙正面效果", "Marvelous_Buff"],
+    "DESCRIPTION": "包括获得 #b10 #y狂气 、 #r易伤 所有敌人 #b1 回合、 #p虚弱 所有敌人 #b1 回合、抽 #b1 张牌、获得 #b200 点 #y银钥能量 。"
+  },
+  {
+    "PROPER_NAME": "奇妙负面效果",
+    "NAMES": ["奇妙负面效果", "Marvelous_Debuff"],
+    "DESCRIPTION": "包括造成 #b150% 伤害的 #r出血 、造成 #b75% 伤害的 #p中毒 、施加 #b1 层 #p虚弱 、施加 #b1 层 #r易伤 、 #y临时 降低 #b3 点 #y力量 。"
+  },
+  {
+    "PROPER_NAME": "回响",
+    "NAMES": ["回响", "Echo"],
+    "DESCRIPTION": "此卡牌打出后回到手牌中，直到回合结束前 #y刻印 失效。"
   }
 ]

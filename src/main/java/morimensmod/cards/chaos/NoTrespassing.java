@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.LoseThornsPower;
@@ -21,7 +22,7 @@ public class NoTrespassing extends AbstractEasyCard {
     public final static String ID = makeID(NoTrespassing.class.getSimpleName());
 
     public NoTrespassing() {
-        super(ID, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, CardImgID.NautilaSkill, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         block = baseBlock = 15;
         magicNumber = baseMagicNumber = 5; // 反擊

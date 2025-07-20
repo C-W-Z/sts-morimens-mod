@@ -287,11 +287,11 @@
   },
   "${ModID}:ToadStew": {
     "NAME": "蟾蜍燉菜",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "對所有敵人施加 !M! 層 中毒 和 !${ModID}:M2! 回合的 虛弱 ，回復 !${ModID}:H! 點生命。 NL ${ModID}:預備 1"
   },
   "${ModID}:SilentFealty": {
     "NAME": "靜默守望",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "回復 !${ModID}:H! 點生命並獲得 !B! 點 格擋 。回合結束時若在手中， [E] 消耗提高 !M! ，生命回復和獲得的 格擋 翻倍。最多疊加 !${ModID}:M2! 次。"
   },
   "${ModID}:PainConversion": {
     "NAME": "疼痛轉化",
@@ -321,7 +321,8 @@
   },
   "${ModID}:SoulOverture": {
     "NAME": "靈魂序曲",
-    "DESCRIPTION": "隨機造成 !${ModID}:AC! 次 !D! 點 ${ModID}:穿刺傷害 ，每次造成傷害都有 50% 機率對目標隨機施加 1 種 ${ModID}:奇妙負面效果 。若打出時 [E] 消耗為0，額外造成 !M! 次傷害。 NL ${ModID}:預備 1"
+    "DESCRIPTION": "隨機造成 !${ModID}:AC! 次 !D! 點 ${ModID}:穿刺傷害 。若打出時 [E] 消耗為0，額外造成 !${ModID}:M2! 次傷害。 NL ${ModID}:預備 1",
+    "UPGRADE_DESCRIPTION": "隨機造成 !${ModID}:AC! 次 !D! 點 ${ModID}:穿刺傷害 ，每次造成傷害都有 !M! %機率對目標隨機施加 1 種 ${ModID}:奇妙負面效果 。若打出時 [E] 消耗為0，額外造成 !${ModID}:M2! 次傷害。 NL ${ModID}:預備 1"
   },
   "${ModID}:MemoryRondo": {
     "NAME": "追憶迴旋曲",
@@ -341,10 +342,19 @@
     "DESCRIPTION": "${ModID}:延遲 ：獲得 !${ModID}:A! ${ModID}:狂氣 。",
     "UPGRADE_DESCRIPTION": "${ModID}:延遲 ： ${ModID}:強化 並獲得 !${ModID}:A! ${ModID}:狂氣 。"
   },
+  "${ModID}:LawOfTheStrongest": {
+    "NAME": "強者為尊",
+    "DESCRIPTION": "獲得 !M! 點 力量 。移除所有敵人的 力量 增益，下回合開始時恢復。",
+    "UPGRADE_DESCRIPTION": "獲得 !M! 點 力量 。偷取所有敵人的 力量 增益，下回合開始時恢復。"
+  },
   "${ModID}:GreatSacrifice": {
     "NAME": "偉大的犧牲",
     "DESCRIPTION": " 易傷 自身， ${ModID}:延遲 ：抽 !${ModID}:DR! 張牌。",
     "UPGRADE_DESCRIPTION": " 易傷 自身，抽 !${ModID}:DR! 張牌並使其獲得 ${ModID}:臨時 保留 。"
+  },
+  "${ModID}:DirgeOfBlood": {
+    "NAME": "血之輓歌",
+    "DESCRIPTION": "造成 !D! 點 ${ModID}:出血 傷害。 NL ${ModID}:幻影"
   },
   "${ModID}:LessonLearned": {
     "NAME": "勤學精進",
@@ -473,7 +483,7 @@
     "DESCRIPTION": "獲得 !${ModID}:A! ${ModID}:狂氣 。",
     "UPGRADE_DESCRIPTION": "獲得 !${ModID}:A! ${ModID}:狂氣 。首領戰中可使用 !M! 次。",
     "EXTENDED_DESCRIPTION": [
-      "獲得 !${ModID}:A! ${ModID}:狂氣 。首領戰中可使用 !M! 次。剩餘 !stslib:ex! 次。"
+      "獲得 !${ModID}:A! ${ModID}:狂氣 。首領戰中可使用 !M! 次。 NL 剩餘 !stslib:ex! 次。"
     ]
   },
   "${ModID}:MutatedHeart": {
@@ -482,8 +492,17 @@
     "EXTENDED_DESCRIPTION": [
       "棄掉所有手牌，抽取棄掉數量 + !${ModID}:DR! 的牌。首領戰中可使用 !M! 次。",
       "棄掉所有手牌，抽取棄掉數量 + !${ModID}:DR! 的牌。首領戰中可使用 !M! 次，且抽到的牌本回合 [E] 消耗降低 !${ModID}:M2! 。",
-      "棄掉所有手牌，抽取棄掉數量 + !${ModID}:DR! 的牌。首領戰中可使用 !M! 次。剩餘 !stslib:ex! 次。",
-      "棄掉所有手牌，抽取棄掉數量 + !${ModID}:DR! 的牌。首領戰中可使用 !M! 次，且抽到的牌本回合 [E] 消耗降低 !${ModID}:M2! 。剩餘 !stslib:ex! 次。"
+      "棄掉所有手牌，抽取棄掉數量 + !${ModID}:DR! 的牌。首領戰中可使用 !M! 次。 NL 剩餘 !stslib:ex! 次。",
+      "棄掉所有手牌，抽取棄掉數量 + !${ModID}:DR! 的牌。首領戰中可使用 !M! 次，且抽到的牌本回合 [E] 消耗降低 !${ModID}:M2! 。 NL 剩餘 !stslib:ex! 次。"
+    ]
+  },
+  "${ModID}:MarvelousCuisine": {
+    "NAME": "奇妙料理",
+    "DESCRIPTION": "獲得 [E] 。 NL 可以使用 !${ModID}:M3! 次。 NL ${ModID}:迴響",
+    "UPGRADE_DESCRIPTION": "獲得 [E] 。有 !${ModID}:M2! %機率觸發一個 ${ModID}:奇妙正面效果 。 NL 可以使用 !${ModID}:M3! 次。 NL ${ModID}:迴響",
+    "EXTENDED_DESCRIPTION": [
+      "獲得 [E] 。 NL 可以使用 !${ModID}:M3! 次。 NL 剩餘 !stslib:ex! 次。 NL ${ModID}:迴響",
+      "獲得 [E] 。有 !${ModID}:M2! %機率觸發一個 ${ModID}:奇妙正面效果 。 NL 可以使用 !${ModID}:M3! 次。 NL 剩餘 !stslib:ex! 次。 NL ${ModID}:迴響"
     ]
   },
   "${ModID}:OctahedronDice": {

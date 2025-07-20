@@ -10,13 +10,14 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 
 public class StunningTone extends AbstractEasyCard {
     public final static String ID = makeID(StunningTone.class.getSimpleName());
 
     public StunningTone() {
-        super(ID, 4, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, CHAOS_COLOR);
+        super(ID, CardImgID.HamelnAttack, 4, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         damage = baseDamage = 35;
         attackCount = baseAttackCount = 1;

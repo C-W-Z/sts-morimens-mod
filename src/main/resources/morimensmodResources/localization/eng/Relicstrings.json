@@ -82,7 +82,7 @@
     "NAME": "Prasno Mirror",
     "FLAVOR": "The trick of Light and Shadow",
     "DESCRIPTIONS": [
-      "At the turn start, draw #b%d cards. At the start of the combat, shuffle #b%d \"Insight\" into your Draw Pile. Each #b%d battle will increase the number of \"Insight\" cards shuffled into Draw Pile by #b%d, up to #b%d cards."
+      "When the turn starts, draw #b%d card. At the start of the combat, shuffle #b%d \"Insight\" into your Draw Pile. Each #b%d battle will increase the number of \"Insight\" cards shuffled into Draw Pile by #b%d, up to #b%d cards."
     ]
   },
   "${ModID}:StellarBrew": {
@@ -96,7 +96,7 @@
     "NAME": "Prototype Battery",
     "FLAVOR": "Portable Hope",
     "DESCRIPTIONS": [
-      "At the turn ends, gain #b%d #y${ModID}:Aliemus. For each remaining [E] , gain #b%d additional #y${ModID}:Aliemus."
+      "When the turn ends, gain #b%d #y${ModID}:Aliemus. For each remaining [E] , gain #b%d additional #y${ModID}:Aliemus."
     ]
   },
   "${ModID}:PriestsStaff": {

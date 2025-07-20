@@ -10,13 +10,14 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 
 public class BladeOfDefiance extends AbstractEasyCard {
     public final static String ID = makeID(BladeOfDefiance.class.getSimpleName());
 
     public BladeOfDefiance() {
-        super(ID, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
+        super(ID, CardImgID.LotanAttack, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STRIKE);
         damage = baseDamage = 6;

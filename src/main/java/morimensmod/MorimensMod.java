@@ -79,7 +79,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
 
-@SuppressWarnings({ "unused", "WeakerAccess" })
 @SpireInitializer
 public class MorimensMod implements
         OnCardUseSubscriber,
@@ -103,7 +102,7 @@ public class MorimensMod implements
         loadModInfo();
     }
 
-    public static String makeID(String idText) {
+    public static final String makeID(String idText) {
         return modID + ":" + idText;
     }
 
@@ -210,48 +209,48 @@ public class MorimensMod implements
         BaseMod.subscribe(this);
     }
 
-    public static String makePath(String resourcePath) {
+    public static final String makePath(String resourcePath) {
         return modID + "Resources/" + resourcePath;
     }
 
-    public static String makeImagePath(String resourcePath) {
+    public static final String makeImagePath(String resourcePath) {
         return modID + "Resources/images/" + resourcePath;
     }
 
-    public static String makeRelicPath(String resourcePath) {
+    public static final String makeRelicPath(String resourcePath) {
         return modID + "Resources/images/relics/" + resourcePath;
     }
 
-    public static String makePowerPath(String resourcePath) {
+    public static final String makePowerPath(String resourcePath) {
         return modID + "Resources/images/powers/" + resourcePath;
     }
 
-    public static String makeCharacterPath(String resourcePath) {
+    public static final String makeCharacterPath(String resourcePath) {
         return modID + "Resources/images/char/" + resourcePath;
     }
 
-    public static String makeCardPath(String resourcePath) {
+    public static final String makeCardPath(String resourcePath) {
         return modID + "Resources/images/cards/" + resourcePath;
     }
 
-    public static String makeUIPath(String resourcePath) {
+    public static final String makeUIPath(String resourcePath) {
         return modID + "Resources/images/ui/" + resourcePath;
     }
 
-    public static String makeVFXPath(String resourcePath) {
+    public static final String makeVFXPath(String resourcePath) {
         return modID + "Resources/images/vfx/" + resourcePath;
     }
 
-    public static String makeIconPath(String resourcePath) {
+    public static final String makeIconPath(String resourcePath) {
         return modID + "Resources/images/icons/" + resourcePath;
     }
 
-    public static String makeMonsterPath(String resourcePath) {
+    public static final String makeMonsterPath(String resourcePath) {
         return modID + "Resources/images/monsters/" + resourcePath;
     }
 
     public static void initialize() {
-        MorimensMod thismod = new MorimensMod();
+        new MorimensMod();
     }
 
     @Override

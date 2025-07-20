@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 
 public class MidnightTide extends AbstractEasyCard {
@@ -26,7 +27,7 @@ public class MidnightTide extends AbstractEasyCard {
     public final static String ID = makeID(MidnightTide.class.getSimpleName());
 
     public MidnightTide() {
-        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
+        super(ID, CardImgID.NymphaeaAttack, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
         tags.add(CustomTags.COMMAND);
         damageType = DamageType.NORMAL; // 必須是normal才能享受力量加成
         damage = baseDamage = 10;

@@ -7,6 +7,10 @@
     "NAME": "Seal",
     "DESCRIPTIONS": ["Unable to unleash #yExalt. Lasts #b%d turn(s)."]
   },
+  "${ModID}:BleedPower": {
+    "NAME": "Bleed",
+    "DESCRIPTIONS": ["At the end of its turn, lose #b%d HP."]
+  },
   "${ModID}:BarrierPower": {
     "NAME": "Barrier",
     "DESCRIPTIONS": ["Negate the next #b%d active attack damage(s) received."]
@@ -107,7 +111,7 @@
   "${ModID}:KnightsZealPower": {
     "NAME": "Knight's Zeal",
     "DESCRIPTIONS": [
-      "After each #b%d #yCommand #yCard is played, gain #b%d Strength. #b%d more card(s) need."
+      "After each #b%d #yCommand #yCard is played, gain #b%d Strength. #b%d more card(s) needed."
     ]
   },
   "${ModID}:EntropyUndonePower": {
@@ -119,7 +123,7 @@
   "${ModID}:SoulblightPower": {
     "NAME": "Soulblight",
     "DESCRIPTIONS": [
-      "At turn ends, heal #b%d HP and gain #b%d #yAliemus. NL #pStance #pof #pThe #pEnd: No longer heal HP, instead trigger !M!%% #pPoison on all enemies."
+      "When turn ends, heal #b%d HP and gain #b%d #yAliemus. NL #pStance #pof #pThe #pEnd: No longer heal HP, instead trigger !M!%% #pPoison on all enemies."
     ]
   },
   "${ModID}:DrowningInSorrowPower": {
@@ -136,6 +140,12 @@
     "NAME": "Outstanding Veteran",
     "DESCRIPTIONS": [
       "Damage of #yStrike increases with #b%d time(s) of the current #yBlock."
+    ]
+  },
+  "${ModID}:DanceOfTheGibbousMoonPower": {
+    "NAME": "Dance of the Gibbous Moon",
+    "DESCRIPTIONS": [
+      "After playing #b%d #yCommand #yCards, heal #b%d HP and gain #b%d #yAliemus. After playing \"Marvelous Cuisine\", inflict #b%d stacks of #pPoison on all enemies. #b%d more card(s) needed."
     ]
   },
   "${ModID}:RewindingTimePower": {

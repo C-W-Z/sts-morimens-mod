@@ -10,8 +10,8 @@
     "DESCRIPTION": "One of the four realms."
   },
   {
-    "PROPER_NAME": "#bAequer #bRealm",
-    "NAMES": ["Aequer Realm", "aequer_realm", "aequer"],
+    "PROPER_NAME": "#bAequor #bRealm",
+    "NAMES": ["Aequor Realm", "aequor_realm", "aequor"],
     "DESCRIPTION": "One of the four realms."
   },
   {
@@ -107,7 +107,12 @@
   {
     "PROPER_NAME": "Seal [${ModID}:SealIcon]",
     "NAMES": ["Seal", "seal", "sealed"],
-    "DESCRIPTION": "Unable to unleash #yExalt. Reduced #b1 stack at turn ends."
+    "DESCRIPTION": "Unable to unleash #yExalt. Reduced #b1 stack when the turn ends."
+  },
+  {
+    "PROPER_NAME": "#rBleed [${ModID}:BleedIcon]",
+    "NAMES": ["Bleed", "bleed"],
+    "DESCRIPTION": "At the end of its turn, lose the corresponding amount of HP. Healing removes double the amount of #rBleed stacks"
   },
   {
     "PROPER_NAME": "Persistent",
@@ -120,9 +125,9 @@
     "DESCRIPTION": "Once played, it is permanently removed from the deck."
   },
   {
-    "PROPER_NAME": "Prepare (X)",
+    "PROPER_NAME": "Prepare X",
     "NAMES": ["Prepare", "prepare"],
-    "DESCRIPTION": "At turn end, reduce [E] Cost by #bX. This effect triggers even if discarded."
+    "DESCRIPTION": "When turn ends, reduce [E] Cost by #bX. This effect triggers even if discarded."
   },
   {
     "PROPER_NAME": "#bAftershock",
@@ -147,12 +152,12 @@
   {
     "PROPER_NAME": "Phantasm",
     "NAMES": ["Phantasm", "phantasm"],
-    "DESCRIPTION": "Each time you play another card, reduce this card's [E] Cost by #b1 for the next play; after playing this card, return it to your hand and increase its [E] Cost by #b1, reset at the turn ends or when discarded."
+    "DESCRIPTION": "Each time you play another card, reduce this card's [E] Cost by #b1 for the next play; after playing this card, return it to your hand and increase its [E] Cost by #b1, reset when the turn ends or when discarded."
   },
   {
     "PROPER_NAME": "#bTranquil #bSea",
     "NAMES": ["Tranquil Sea", "tranquil_sea"],
-    "DESCRIPTION": "A #ystance unique to the #bAequer #bRealm. When entering the #bTranquil #bSea #ystance, you gain #yBlock, but the #yTentacle #yDamage is halved during that turn."
+    "DESCRIPTION": "A #ystance unique to the #bAequor #bRealm. When entering the #bTranquil #bSea #ystance, you gain #yBlock, but the #yTentacle #yDamage is halved during that turn."
   },
   {
     "PROPER_NAME": "Negentropy [${ModID}:NegentropyIcon]",
@@ -183,5 +188,20 @@
     "PROPER_NAME": "Barrier [${ModID}:BarrierIcon]",
     "NAMES": ["Barrier", "barrier"],
     "DESCRIPTION": "Negate the next active attack damage received."
+  },
+  {
+    "PROPER_NAME": "Marvelous Buff",
+    "NAMES": ["Marvelous Buff", "marvelous_buff"],
+    "DESCRIPTION": "Includes gaining #b10 #yAliemus, inflicting #rVulnerable on all enemies for #b1 turn, inflicting #pWeak on all enemies for #b1 turn, drawing #b1 card, gaining #b200 #yKeyflare."
+  },
+  {
+    "PROPER_NAME": "Marvelous Debuff",
+    "NAMES": ["Marvelous Debuff", "marvelous_debuff"],
+    "DESCRIPTION": "Includes #rBleed (equal to #b150% damage), #pPoison (equal to #b75% damage), apply #b1 #rVulnerable, apply #b1 #pWeak, #yTemporary #yStrength #b-3."
+  },
+  {
+    "PROPER_NAME": "Echo",
+    "NAMES": ["Echo", "echo"],
+    "DESCRIPTION": "This card returns to your hand after being played, and the #yOrison will be disabled until the end of the turn."
   }
 ]

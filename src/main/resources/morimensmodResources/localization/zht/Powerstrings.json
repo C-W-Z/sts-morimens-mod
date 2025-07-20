@@ -7,6 +7,10 @@
     "NAME": "封印",
     "DESCRIPTIONS": ["無法釋放 #y狂氣爆發 。持續 #b%d 回合。"]
   },
+  "${ModID}:BleedPower": {
+    "NAME": "出血",
+    "DESCRIPTIONS": ["本回合結束時，失去 #b%d 點生命。"]
+  },
   "${ModID}:BarrierPower": {
     "NAME": "屏障",
     "DESCRIPTIONS": ["阻止下 #b%d 次受到的主動攻擊傷害。"]
@@ -121,6 +125,12 @@
   "${ModID}:OutstandingVeteranPower": {
     "NAME": "戰地卓識",
     "DESCRIPTIONS": ["「 #y打擊 」造成的傷害享受 #b%d 倍 #y格擋 加成。"]
+  },
+  "${ModID}:DanceOfTheGibbousMoonPower": {
+    "NAME": "凸月之舞",
+    "DESCRIPTIONS": [
+      "每打出 #b%d 張 #y指令卡 後，回復 #b%d 點生命，獲得 #b%d #y狂氣 。打出「奇妙料理」後，對所有敵人造成 #b%d 點 #p中毒 。當前還需要 #b%d 張。"
+    ]
   },
   "${ModID}:RewindingTimePower": {
     "NAME": "溯洄時計",

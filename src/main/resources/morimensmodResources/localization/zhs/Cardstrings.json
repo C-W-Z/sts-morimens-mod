@@ -283,15 +283,15 @@
   },
   "${ModID}:DanceOfTheGibbousMoon": {
     "NAME": "凸月之舞",
-    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 每打出 !M! 张 ${ModID}:指令卡 后，回复 !${ModID}:H! 点生命，获得 !${ModID}:M2! ${ModID}:狂气 。打出「奇妙料理」后，对所有敌人造成 !${ModID}:M3! 点 中毒 。"
+    "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 每打出 !M! 张 ${ModID}:指令卡 后，回复 !${ModID}:H! 点生命，获得 !${ModID}:M2! ${ModID}:狂气 。打出「奇妙料理」后，对所有敌人造成 !${ModID}:M3! 点 中毒 。 "
   },
   "${ModID}:ToadStew": {
     "NAME": "蟾蜍炖菜",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "对所有敌人施加 !M! 层 中毒 和 !${ModID}:M2! 回合的 虚弱 ，回复 !${ModID}:H! 点生命。 NL ${ModID}:预备 1"
   },
   "${ModID}:SilentFealty": {
     "NAME": "静默守望",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "回复 !${ModID}:H! 点生命并获得 !B! 点 格挡 。回合结束时若在手中， [E] 消耗提高 !M! ，生命回复和获得的 格挡 翻倍。最多叠加 !${ModID}:M2! 次。 "
   },
   "${ModID}:PainConversion": {
     "NAME": "疼痛转化",
@@ -321,7 +321,8 @@
   },
   "${ModID}:SoulOverture": {
     "NAME": "灵魂序曲",
-    "DESCRIPTION": "随机造成 !${ModID}:AC! 次 !D! 点 ${ModID}:穿刺伤害 ，每次造成伤害都有 50% 几率对目标随机施加 1 种 ${ModID}:奇妙负面效果 。若打出时 [E] 消耗为0，额外造成 !M! 次伤害。 NL ${ModID}:预备 1"
+    "DESCRIPTION": "随机造成 !${ModID}:AC! 次 !D! 点 ${ModID}:穿刺伤害 。若打出时 [E] 消耗为0，额外造成 !${ModID}:M2! 次伤害。 NL ${ModID}:预备 1",
+    "UPGRADE_DESCRIPTION": "随机造成 !${ModID}:AC! 次 !D! 点 ${ModID}:穿刺伤害 ，每次造成伤害都有 !M! %机率对目标随机施加 1 种 ${ModID}:奇妙负面效果 。若打出时 [E] 消耗为0，额外造成 !${ModID}:M2! 次伤害。 NL ${ModID}:预备 1"
   },
   "${ModID}:MemoryRondo": {
     "NAME": "追忆回旋曲",
@@ -341,10 +342,19 @@
     "DESCRIPTION": "${ModID}:延迟 ：获得 !${ModID}:A! ${ModID}:狂气 。",
     "UPGRADE_DESCRIPTION": "${ModID}:延迟 ： ${ModID}:强化 并获得 !${ModID}:A! ${ModID}:狂气 。"
   },
+  "${ModID}:LawOfTheStrongest": {
+    "NAME": "强者为尊",
+    "DESCRIPTION": "获得 !M! 点 力量 。移除所有敌人的 力量 增益，下回合开始时恢复。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 点 力量 。偷取所有敌人的 力量 增益，下回合开始时恢复。"
+  },
   "${ModID}:GreatSacrifice": {
     "NAME": "伟大的牺牲",
     "DESCRIPTION": " 易伤 自身， ${ModID}:延迟 ：抽 !${ModID}:DR! 张牌。",
     "UPGRADE_DESCRIPTION": " 易伤 自身，抽 !${ModID}:DR! 张牌并使其获得 ${ModID}:临时 保留 。"
+  },
+  "${ModID}:DirgeOfBlood": {
+    "NAME": "血之挽歌",
+    "DESCRIPTION": "造成 !D! 点 ${ModID}:出血 伤害。 NL ${ModID}:幻影"
   },
   "${ModID}:LessonLearned": {
     "NAME": "勤学精进",
@@ -473,7 +483,7 @@
     "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。",
     "UPGRADE_DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。首领战中可使用 !M! 次。",
     "EXTENDED_DESCRIPTION": [
-      "获得 !${ModID}:A! ${ModID}:狂气 。首领战中可使用 !M! 次。剩余 !stslib:ex! 次。"
+      "获得 !${ModID}:A! ${ModID}:狂气 。首领战中可使用 !M! 次。 NL 剩余 !stslib:ex! 次。"
     ]
   },
   "${ModID}:MutatedHeart": {
@@ -482,8 +492,17 @@
     "EXTENDED_DESCRIPTION": [
       "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。首领战中可使用 !M! 次。",
       "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。首领战中可使用 !M! 次，且抽到的牌本回合 [E] 消耗降低 !${ModID}:M2! 。",
-      "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。首领战中可使用 !M! 次。剩余 !stslib:ex! 次。",
-      "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。首领战中可使用 !M! 次，且抽到的牌本回合 [E] 消耗降低 !${ModID}:M2! 。剩余 !stslib:ex! 次。"
+      "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。首领战中可使用 !M! 次。 NL 剩余 !stslib:ex! 次。",
+      "弃掉所有手牌，抽取弃掉数量 + !${ModID}:DR! 的牌。首领战中可使用 !M! 次，且抽到的牌本回合 [E] 消耗降低 !${ModID}:M2! 。 NL 剩余 !stslib:ex! 次。"
+    ]
+  },
+  "${ModID}:MarvelousCuisine": {
+    "NAME": "奇妙料理",
+    "DESCRIPTION": "获得 [E] 。 NL 可以使用 !${ModID}:M3! 次。 NL ${ModID}:回响",
+    "UPGRADE_DESCRIPTION": "获得 [E] 。有 !${ModID}:M2! %机率触发一个 ${ModID}:奇妙正面效果 。 NL 可以使用 !${ModID}:M3! 次。 NL ${ModID}:回响",
+    "EXTENDED_DESCRIPTION": [
+      "获得 [E] 。 NL 可以使用 !${ModID}:M3! 次。 NL 剩余 !stslib:ex! 次。 NL ${ModID}:回响",
+      "获得 [E] 。有 !${ModID}:M2! %机率触发一个 ${ModID}:奇妙正面效果 。 NL 可以使用 !${ModID}:M3! 次。 NL 剩余 !stslib:ex! 次。 NL ${ModID}:回响"
     ]
   },
   "${ModID}:OctahedronDice": {
