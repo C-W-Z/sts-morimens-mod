@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 
 import morimensmod.cards.AbstractEasyCard;
 
+// TODO: 最上面ColorBar最右邊勾選查看升級的Toggle，所有牌升級之後似乎不是呼叫renderTitle，但我找不到要patch哪裡
 public class CardTitleMarqueePatch {
 
     @SpirePatch2(clz = AbstractCard.class, method = "renderTitle")
