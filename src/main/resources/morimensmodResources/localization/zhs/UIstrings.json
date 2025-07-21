@@ -29,6 +29,9 @@
   "POSSE_COLOR": {
     "TEXT": ["钥令"]
   },
+  "DERIVATIVE_COLOR": {
+    "TEXT": ["衍生"]
+  },
   "COMMAND": {
     "TEXT": ["指令"]
   },
@@ -49,6 +52,9 @@
   },
   "POSSE": {
     "TEXT": ["钥令"]
+  },
+  "DERIVATIVE": {
+    "TEXT": ["衍生"]
   },
   "${ModID}:choosePosse": {
     "TEXT": ["选择携带的钥令（滚动以查看更多）"]

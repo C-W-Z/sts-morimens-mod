@@ -62,6 +62,7 @@ import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CARO_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.DERIVATIVE_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.POSSE_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.STATUS_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
@@ -202,6 +203,11 @@ public class MorimensMod implements
                 CARD_ENERGY_L, TEXT_ENERGY);
 
         BaseMod.addColor(POSSE_COLOR, ModSettings.POSSE_COLOR,
+                ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
+                ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
+                CARD_ENERGY_L, TEXT_ENERGY);
+
+        BaseMod.addColor(DERIVATIVE_COLOR, ModSettings.DERIVATIVE_COLOR,
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);

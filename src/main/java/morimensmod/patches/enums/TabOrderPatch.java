@@ -52,6 +52,12 @@ public class TabOrderPatch {
             }
 
         for (ModColorTab button : modTabs)
+            if (button.color == CardColorPatch.DERIVATIVE_COLOR) {
+                newButton.add(button);
+                break;
+            }
+
+        for (ModColorTab button : modTabs)
             if (button.color == CardColorPatch.WHEEL_OF_DESTINY_COLOR) {
                 newButton.add(button);
                 break;

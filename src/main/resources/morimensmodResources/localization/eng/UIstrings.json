@@ -29,6 +29,9 @@
   "POSSE_COLOR": {
     "TEXT": ["Posse"]
   },
+  "DERIVATIVE_COLOR": {
+    "TEXT": ["Derivative"]
+  },
   "COMMAND": {
     "TEXT": ["Command"]
   },
@@ -49,6 +52,9 @@
   },
   "POSSE": {
     "TEXT": ["Posse"]
+  },
+  "DERIVATIVE": {
+    "TEXT": ["Derivative"]
   },
   "${ModID}:choosePosse": {
     "TEXT": ["Select the Posse to carry (scroll to see more)"]

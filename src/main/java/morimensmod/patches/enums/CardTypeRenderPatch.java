@@ -1,5 +1,7 @@
 package morimensmod.patches.enums;
 
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.DERIVATIVE_COLOR;
+
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
@@ -25,12 +27,15 @@ public class CardTypeRenderPatch {
     private static final UIStrings SYMPTOM_STRINGS = CardCrawlGame.languagePack.getUIString(CustomTags.SYMPTOM.name());
     private static final UIStrings STATUS_STRINGS = CardCrawlGame.languagePack.getUIString(CustomTags.STATUS.name());
     private static final UIStrings POSSE_STRINGS = CardCrawlGame.languagePack.getUIString(CustomTags.POSSE.name());
+    private static final UIStrings DERIVATIVE_STRINGS = CardCrawlGame.languagePack.getUIString(DERIVATIVE_COLOR.name());
 
     @SpirePatch2(clz = AbstractCard.class, method = "renderType")
     public static class _CardTypeRenderPatch {
         @SpireInsertPatch(locator = Locator.class, localvars = { "text" })
         public static void Insert(AbstractCard __instance, SpriteBatch sb, @ByRef String[] text) {
-            if (__instance.hasTag(CustomTags.COMMAND))
+            if (__instance.color == DERIVATIVE_COLOR)
+                text[0] = DERIVATIVE_STRINGS.TEXT[0];
+            else if (__instance.hasTag(CustomTags.COMMAND))
                 text[0] = COMMAND_STRINGS.TEXT[0];
             else if (__instance.hasTag(CustomTags.ROUSE))
                 text[0] = ROUSE_STRINGS.TEXT[0];
@@ -60,7 +65,9 @@ public class CardTypeRenderPatch {
         @SpireInsertPatch(locator = Locator.class, localvars = { "label" })
         public static void Insert(SingleCardViewPopup __instance, SpriteBatch sb, @ByRef String[] label,
                 AbstractCard ___card) {
-            if (___card.hasTag(CustomTags.COMMAND))
+            if (___card.color == DERIVATIVE_COLOR)
+                label[0] = DERIVATIVE_STRINGS.TEXT[0];
+            else if (___card.hasTag(CustomTags.COMMAND))
                 label[0] = COMMAND_STRINGS.TEXT[0];
             else if (___card.hasTag(CustomTags.ROUSE))
                 label[0] = ROUSE_STRINGS.TEXT[0];
@@ -89,7 +96,9 @@ public class CardTypeRenderPatch {
     public static class SignatureCardTypeRenderPatch {
         @SpireInsertPatch(locator = Locator.class, localvars = { "text" })
         public static void Insert(AbstractSignatureCard __instance, SpriteBatch sb, @ByRef String[] text) {
-            if (__instance.hasTag(CustomTags.COMMAND))
+            if (__instance.color == DERIVATIVE_COLOR)
+                text[0] = DERIVATIVE_STRINGS.TEXT[0];
+            else if (__instance.hasTag(CustomTags.COMMAND))
                 text[0] = COMMAND_STRINGS.TEXT[0];
             else if (__instance.hasTag(CustomTags.ROUSE))
                 text[0] = ROUSE_STRINGS.TEXT[0];
