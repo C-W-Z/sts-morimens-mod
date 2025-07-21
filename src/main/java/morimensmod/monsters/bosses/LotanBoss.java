@@ -21,8 +21,8 @@ import morimensmod.config.ModSettings;
 import morimensmod.config.ModSettings.ASCENSION_LVL;
 import morimensmod.misc.Animator;
 import morimensmod.monsters.AbstractAwakenableBoss;
-import morimensmod.powers.MadnessPower;
 import morimensmod.powers.monster.CeaselessFightingSpiritPower;
+import morimensmod.powers.monster.MadnessPower;
 
 public class LotanBoss extends AbstractAwakenableBoss {
 

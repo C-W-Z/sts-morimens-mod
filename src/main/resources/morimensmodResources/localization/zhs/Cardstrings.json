@@ -90,6 +90,10 @@
     "NAME": "防御",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !${ModID}:A! ${ModID}:狂气 。"
   },
+  "${ModID}:Strike_RamonaTimeworm": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !${ModID}:A! ${ModID}:狂气 。 NL ${ModID}:回环 ：额外造成 !M! 次伤害。"
+  },
   "${ModID}:FirstDoctrine": {
     "NAME": "第一哲学",
     "DESCRIPTION": "获得 !${ModID}:A! ${ModID}:狂气 。 NL 打出卡牌后，获得 !M! 点 [E] ，每回合最多触发 !${ModID}:M2! 次。"

@@ -1,16 +1,13 @@
-package morimensmod.powers;
+package morimensmod.powers.monster;
 
 import static morimensmod.MorimensMod.makeID;
 
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import morimensmod.cards.AbstractEasyCard;
+import morimensmod.powers.AbstractEasyPower;
 
 public class TmpMadnessPower extends AbstractEasyPower {
 
@@ -21,14 +18,6 @@ public class TmpMadnessPower extends AbstractEasyPower {
 
     public TmpMadnessPower(AbstractCreature owner, int amount) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, amount);
-    }
-
-    @Override
-    public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        if (card instanceof AbstractEasyCard && owner instanceof AbstractPlayer) {
-            flash();
-            ((AbstractEasyCard) card).attackCount = ((AbstractEasyCard) card).baseAttackCount + amount;
-        }
     }
 
     @Override

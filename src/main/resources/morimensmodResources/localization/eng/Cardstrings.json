@@ -92,6 +92,10 @@
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block. NL Gain !${ModID}:A! ${ModID}:Aliemus."
   },
+  "${ModID}:Strike_RamonaTimeworm": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage. NL gain !${ModID}:A! ${ModID}:Aliemus. NL ${ModID}:Loop: deal damage !M! additional times."
+  },
   "${ModID}:FirstDoctrine": {
     "NAME": "First Doctrine",
     "DESCRIPTION": "Gain !${ModID}:A! ${ModID}:Aliemus. NL After playing a card, gain !M! [E]. Up to !${ModID}:M2! times per turn."

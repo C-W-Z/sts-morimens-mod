@@ -10,8 +10,8 @@ import basemod.abstracts.CustomMonster;
 import basemod.animations.AbstractAnimation;
 import morimensmod.config.ModSettings;
 import morimensmod.misc.Animator;
-import morimensmod.powers.MadnessPower;
-import morimensmod.powers.TmpMadnessPower;
+import morimensmod.powers.monster.MadnessPower;
+import morimensmod.powers.monster.TmpMadnessPower;
 
 import static morimensmod.util.Wiz.getPowerAmount;
 import static morimensmod.util.Wiz.p;
