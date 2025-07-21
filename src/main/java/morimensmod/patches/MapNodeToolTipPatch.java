@@ -42,10 +42,11 @@ public class MapNodeToolTipPatch {
         logger.debug("Pos: " + InputHelper.mX + ", " + (InputHelper.mY + 100F * Settings.scale));
 
         float size = 128F * Settings.scale;
+        float distance = 100 * Settings.scale;
         sb.setColor(Color.WHITE);
-        sb.draw(texture, InputHelper.mX - size / 2F, InputHelper.mY + size, size, size);
+        sb.draw(texture, InputHelper.mX - size / 2F, InputHelper.mY + distance, size, size);
         FontHelper.renderFontCentered(sb, FontHelper.cardDescFont_N, getBossName(),
-                InputHelper.mX, InputHelper.mY + size / 2, Color.WHITE);
+                InputHelper.mX, InputHelper.mY + distance / 2, Settings.GOLD_COLOR);
     }
 
     private static String getBossName() {
