@@ -94,7 +94,7 @@
   },
   "${ModID}:Strike_RamonaTimeworm": {
     "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage. NL gain !${ModID}:A! ${ModID}:Aliemus. NL ${ModID}:Loop: deal damage !M! additional times."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !${ModID}:A! ${ModID}:Aliemus. NL ${ModID}:Loop: Deal damage !M! additional times."
   },
   "${ModID}:FirstDoctrine": {
     "NAME": "First Doctrine",

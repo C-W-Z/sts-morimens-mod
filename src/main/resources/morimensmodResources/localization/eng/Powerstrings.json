@@ -145,7 +145,7 @@
   "${ModID}:DanceOfTheGibbousMoonPower": {
     "NAME": "Dance of the Gibbous Moon",
     "DESCRIPTIONS": [
-      "After playing #b%d #yCommand #yCards, heal #b%d HP and gain #b%d #yAliemus. After playing \"Marvelous Cuisine\", inflict #b%d stacks of #pPoison on all enemies. #b%d more card(s) needed."
+      "After playing #b%d #yCommand #yCards, heal #b%d HP and gain #b%d #yAliemus. #b%d more card(s) needed. After playing \"Marvelous Cuisine\", inflict #b%d stacks of #pPoison on all enemies."
     ]
   },
   "${ModID}:RewindingTimePower": {

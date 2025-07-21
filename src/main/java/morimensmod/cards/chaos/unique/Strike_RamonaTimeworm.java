@@ -28,7 +28,7 @@ public class Strike_RamonaTimeworm extends AbstractEasyCard {
         damage = baseDamage = 6;
         attackCount = baseAttackCount = 1;
         aliemus = baseAliemus = 5;
-        magicNumber = 4;
+        magicNumber = baseMagicNumber = 3;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -51,5 +51,6 @@ public class Strike_RamonaTimeworm extends AbstractEasyCard {
     public void upp() {
         upgradeDamage(3);
         upgradeAliemus(5);
+        upgradeMagicNumber(1);
     }
 }
