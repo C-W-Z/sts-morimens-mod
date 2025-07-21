@@ -94,7 +94,11 @@
   },
   "${ModID}:Strike_RamonaTimeworm": {
     "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !${ModID}:A! ${ModID}:Aliemus. NL ${ModID}:Loop: Deal damage !M! additional times."
+    "DESCRIPTION": "{@@}Deal !D! damage. NL Gain !${ModID}:A! ${ModID}:Aliemus. NL ${ModID}:Loop: Deal damage !M! additional time{!M!|>1=s}."
+  },
+  "${ModID}:Defend_RamonaTimeworm": {
+    "NAME": "Defend",
+    "DESCRIPTION": "{@@}Gain !B! Block. NL Gain !${ModID}:A! ${ModID}:Aliemus. NL ${ModID}:Loop: All enemies -!M! ${ModID}:Temporary Strength, draw !${ModID}:DR! card{!${ModID}:DR!|>1=s}, gain an additional !${ModID}:M2! ${ModID}:Aliemus."
   },
   "${ModID}:FirstDoctrine": {
     "NAME": "First Doctrine",
