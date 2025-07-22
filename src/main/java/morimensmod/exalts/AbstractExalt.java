@@ -1,6 +1,7 @@
 package morimensmod.exalts;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public abstract class AbstractExalt {
     public int damage;
@@ -36,4 +37,8 @@ public abstract class AbstractExalt {
     }
 
     public void onCardUse(AbstractCard card) {}
+
+    public void onPostBattle(AbstractRoom room) {}
+
+    public void onPlayerTurnStart() {}
 }

@@ -14,6 +14,7 @@ import morimensmod.cards.chaos.QueensSword;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.characters.Lotan;
 import morimensmod.characters.Ramona;
+import morimensmod.characters.RamonaTimeworm;
 import morimensmod.config.ConfigPanel;
 import morimensmod.config.ModSettings;
 import morimensmod.glowinfos.AbstractGlowInfo;
@@ -263,6 +264,10 @@ public class MorimensMod implements
     public void receiveEditCharacters() {
         Ramona.register();
         Lotan.register();
+        RamonaTimeworm.register();
+        // new AutoAdd(modID)
+        //         .packageFilter(AbstractAwakener.class)
+        //         .any(AbstractAwakener.class, (info, awaker) -> awaker.register());
 
         new AutoAdd(modID)
                 .packageFilter(AbstractEasyPotion.class)
@@ -407,6 +412,8 @@ public class MorimensMod implements
     @Override
     public void receiveOnPlayerTurnStart() {
         AbstractAwakener.onPlayerTurnStart(); // 每回合重設
+        if (p() instanceof AbstractAwakener)
+            ((AbstractAwakener) p()).getExalt().onPlayerTurnStart();
     }
 
     // @Override
@@ -418,6 +425,8 @@ public class MorimensMod implements
     public void receivePostBattle(AbstractRoom room) {
         AbstractAwakener.onPostBattle();
         AbstractEasyCard.onPostBattle();
+        if (p() instanceof AbstractAwakener)
+            ((AbstractAwakener) p()).getExalt().onPostBattle(room);
     }
 
     @Override
