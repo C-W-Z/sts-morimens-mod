@@ -1,8 +1,11 @@
 package morimensmod.exalts;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.util.General.removeModID;
 import static morimensmod.util.Wiz.actionify;
+import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.atb;
+import static morimensmod.util.Wiz.getAllPosses;
 import static morimensmod.util.Wiz.getCleanCopy;
 import static morimensmod.util.Wiz.isCommandCard;
 import static morimensmod.util.Wiz.makeInHand;
@@ -11,6 +14,7 @@ import static morimensmod.util.Wiz.p;
 import java.util.ArrayList;
 
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField.ExhaustiveFields;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -18,23 +22,30 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import basemod.helpers.CardModifierManager;
+import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.cardmodifiers.ChangeCostUntilUseModifier;
 import morimensmod.cardmodifiers.EtherealModifier;
 import morimensmod.cardmodifiers.ExhaustModifier;
+import morimensmod.cards.PileModalSelectCard;
 import morimensmod.cards.posses.AbstractPosse;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.config.ModSettings;
+import morimensmod.interfaces.OnAfterPosse;
+import morimensmod.powers.NegentropyPower;
+import morimensmod.vfx.LargPortraitFlashInEffect;
 
-public class ParadoxConverged extends AbstractExalt {
+public class ParadoxConverged extends AbstractExalt implements OnAfterPosse {
 
     public static final String ID = makeID(ParadoxConverged.class.getSimpleName());
     private static final UIStrings UI_STRINGS = CardCrawlGame.languagePack.getUIString(ID);
 
-    private AbstractPosse originPosse = null;
+    private String originPosse = null;
 
     private ArrayList<AbstractCard> lastTurnNonExhaustCards = new ArrayList<>();
     private ArrayList<AbstractCard> thisTurnNonExhaustCards = new ArrayList<>();
     public static final int MAX_CARD_PER_TURN = 3;
     public static final int COST_CHANGE = -1;
+    public static final int NEGENTROPY = 3;
 
     @Override
     public void onCardUse(AbstractCard card) {
@@ -42,6 +53,21 @@ public class ParadoxConverged extends AbstractExalt {
             return;
         if (!isCommandCard(card))
             return;
+
+        // 檢查是否已存在相同 cardID 的卡牌
+        for (int i = 0; i < thisTurnNonExhaustCards.size(); i++) {
+            AbstractCard c = thisTurnNonExhaustCards.get(i);
+            if (c.cardID.equals(card.cardID)) { // 假設 cardID 是 String，否則改用 ==
+                if (c.timesUpgraded == card.timesUpgraded) {
+                    return; // 相同升級次數，不添加
+                } else if (c.timesUpgraded < card.timesUpgraded) {
+                    thisTurnNonExhaustCards.set(i, card); // 替換現有卡牌
+                    return;
+                }
+                // 如果現有卡牌的 timesUpgraded 更大，則不添加新卡牌
+            }
+        }
+
         thisTurnNonExhaustCards.add(card);
         if (thisTurnNonExhaustCards.size() > MAX_CARD_PER_TURN)
             thisTurnNonExhaustCards.remove(0);
@@ -51,14 +77,29 @@ public class ParadoxConverged extends AbstractExalt {
     public void onBattleStart() {
         lastTurnNonExhaustCards.clear();
         thisTurnNonExhaustCards.clear();
-        if (originPosse != null)
-            ((AbstractAwakener) p()).setPosse(originPosse);
-        originPosse = null;
+        resetPosse();
     }
 
     @Override
     public void onPostBattle(AbstractRoom room) {
-        onBattleStart();
+        resetPosse();
+    }
+
+    @Override
+    public void onAfterPosse(AbstractPosse posse, int exhaustKeyflare) {
+        resetPosse();
+    }
+
+    public void resetPosse() {
+        if (originPosse != null) {
+            for (AbstractPosse p : getAllPosses()) {
+                if (p.cardID.equals(originPosse)) {
+                    ((AbstractAwakener) p()).setPosse((AbstractPosse) p.makeCopy());
+                    break;
+                }
+            }
+        }
+        originPosse = null;
     }
 
     @Override
@@ -69,6 +110,8 @@ public class ParadoxConverged extends AbstractExalt {
 
     @Override
     public void exalt() {
+        atb(new VFXAction(p(), new LargPortraitFlashInEffect(removeModID(ID)), ModSettings.EXALT_PROTRAIT_DURATION, true));
+
         for (AbstractCard c : lastTurnNonExhaustCards) {
             AbstractCard copy = getCleanCopy(c);
             CardModifierManager.addModifier(copy, new ExhaustModifier());
@@ -82,10 +125,23 @@ public class ParadoxConverged extends AbstractExalt {
                     CardModifierManager.addModifier(_c, new ChangeCostUntilUseModifier(COST_CHANGE));
                 }
             })));
+
+        ArrayList<AbstractCard> cardList = new ArrayList<>();
+        for (AbstractPosse p : getAllPosses()) {
+            cardList.add(new PileModalSelectCard(p, () -> {
+                originPosse = ((AbstractAwakener) p()).getPosseID();
+                ((AbstractAwakener) p()).setPosse((AbstractPosse) p.makeCopy());
+            }));
+        }
+        atb(new EasyModalChoiceAction(cardList));
     }
 
     @Override
     public void overExalt() {
+        atb(new VFXAction(p(), new LargPortraitFlashInEffect(removeModID(ID)), ModSettings.EXALT_PROTRAIT_DURATION, true));
+
+        applyToSelf(new NegentropyPower(p(), NEGENTROPY));
+
         for (AbstractCard c : lastTurnNonExhaustCards) {
             AbstractCard copy = getCleanCopy(c);
             CardModifierManager.addModifier(copy, new ExhaustModifier());
@@ -98,6 +154,15 @@ public class ParadoxConverged extends AbstractExalt {
                 for (AbstractCard _c : DrawCardAction.drawnCards)
                     _c.freeToPlayOnce = true;
             })));
+
+        ArrayList<AbstractCard> cardList = new ArrayList<>();
+        for (AbstractPosse p : getAllPosses()) {
+            cardList.add(new PileModalSelectCard(p, () -> {
+                originPosse = ((AbstractAwakener) p()).getPosseID();
+                ((AbstractAwakener) p()).setPosse((AbstractPosse) p.makeCopy());
+            }));
+        }
+        atb(new EasyModalChoiceAction(cardList));
     }
 
     @Override
