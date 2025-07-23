@@ -28,6 +28,13 @@
       "After releasing a #y${ModID}:Posse, gain #b%d #y${ModID}:Temporary #yStrength."
     ]
   },
+  "${ModID}:RamonaTimewormRelic": {
+    "NAME": "Penrose Pilgrim",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "Gain #b%d stack of #y${ModID}:Negentropy at the end of each turn."
+    ]
+  },
   "${ModID}:LaurelCufflinks": {
     "NAME": "Laurel Cufflinks",
     "FLAVOR": "Silver cufflinks engraved with osmanthus leaf patterns. Finely crafted and gleaming, they once embodied the friendship of two children.",

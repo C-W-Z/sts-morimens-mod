@@ -12,7 +12,7 @@ public class CardImgID {
     public static final String LotanAttack  = makeAttack("Lotan");
 
     public static final String RamonaTimewormAttack = makeAttack("RamonaTimeworm");
-    // public static final String RamonaTimewormSkill  = makeSkill("RamonaTimeworm");
+    public static final String RamonaTimewormSkill  = makeSkill("RamonaTimeworm");
 
     // public static final String DollInfernoSkill     = makeSkill("DollInferno");
 

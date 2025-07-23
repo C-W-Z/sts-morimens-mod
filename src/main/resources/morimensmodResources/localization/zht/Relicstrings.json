@@ -21,6 +21,11 @@
       "「 #y打擊 」基礎傷害 #b+%d%% 。每造成 1 次主動攻擊傷害，本場戰鬥中卡牌基礎傷害 #b+%d%% "
     ]
   },
+  "${ModID}:RamonaTimewormRelic": {
+    "NAME": "彭羅斯行者",
+    "FLAVOR": "",
+    "DESCRIPTIONS": ["每回合結束時獲得 #b%d 層 #y${ModID}:負熵 。"]
+  },
   "${ModID}:KleinBottleVoyager": {
     "NAME": "遺失的振響",
     "FLAVOR": "",

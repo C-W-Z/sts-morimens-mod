@@ -1,8 +1,10 @@
 package morimensmod.util;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.MorimensMod.makeCharacterPath;
 import static morimensmod.MorimensMod.makeUIPath;
 import static morimensmod.util.General.getFloats;
+import static morimensmod.util.General.removeModID;
 
 import java.util.HashMap;
 import java.util.function.Supplier;
@@ -16,6 +18,7 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 
 import basemod.BaseMod;
 import basemod.BaseMod.GetMonsterGroup;
+import morimensmod.characters.Lotan;
 import morimensmod.monsters.bosses.LotanBoss;
 import morimensmod.monsters.elites.DevouringHowl;
 import morimensmod.monsters.elites.IronPickaxeLucen;
@@ -35,34 +38,26 @@ public class MonsterLib {
         public float animScale;
         public String[] actIDs;
         public float[] weights;
+        public String[] mapIcons;
 
-        public MonsterEncounter(GetMonsterGroup group, String[] actIDs, float[] weight, float scale) {
+        public MonsterEncounter(GetMonsterGroup group, String[] actIDs, float[] weight, float scale,
+                String[] mapIcons) {
             if (actIDs.length != weight.length)
                 throw new RuntimeException("actIDs.length != weight.length");
             this.group = group;
             this.animScale = scale;
             this.actIDs = actIDs;
             this.weights = weight;
+            this.mapIcons = mapIcons;
         }
 
-        public MonsterEncounter(GetMonsterGroup group, String[] actIDs, float weight) {
-            this(group, actIDs, getFloats(actIDs.length, weight));
-        }
-
-        public MonsterEncounter(GetMonsterGroup group, String[] actIDs, float[] weight) {
-            this(group, actIDs, weight, 1F);
-        }
-
-        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String[] actIDs, float[] weight) {
-            this(monsters, actIDs, weight, 1F);
-        }
-
-        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String[] actIDs, float weight) {
-            this(monsters, actIDs, getFloats(actIDs.length, weight));
+        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String[] actIDs, float[] weight, float scale,
+                String[] mapIcons) {
+            this(() -> new MonsterGroup(monsters.get()), actIDs, weight, scale, mapIcons);
         }
 
         public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String[] actIDs, float[] weight, float scale) {
-            this(() -> new MonsterGroup(monsters.get()), actIDs, weight, scale);
+            this(monsters, actIDs, weight, scale, new String[] {});
         }
 
         public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String[] actIDs, float weight, float scale) {
@@ -73,8 +68,26 @@ public class MonsterLib {
             this(monsters, new String[] { actID }, weight, scale);
         }
 
+        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String[] actIDs, float[] weight) {
+            this(monsters, actIDs, weight, 1F);
+        }
+
+        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String[] actIDs, float weight) {
+            this(monsters, actIDs, getFloats(actIDs.length, weight));
+        }
+
         public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String actID, float weight) {
             this(monsters, new String[] { actID }, weight);
+        }
+
+        // for Bosses
+        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String[] actIDs, float scale, String[] mapIcons) {
+            this(monsters, actIDs, getFloats(actIDs.length, 1F), scale, mapIcons);
+        }
+
+        // for Bosses
+        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String actID, float scale, String[] mapIcons) {
+            this(monsters, new String[] { actID }, new float[] { 1F }, scale, mapIcons);
         }
     }
 
@@ -153,7 +166,9 @@ public class MonsterLib {
 
         bosses.put(LotanBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new LotanBoss(0, -20)
-        }, TheCity.ID, 0));
+        }, TheCity.ID, 0, new String[] {
+                makeCharacterPath(removeModID(Lotan.ID) + "/MapIcon.png")
+        }));
     }
 
     public static void register() {

@@ -31,6 +31,7 @@ public class GeniusForesight extends AbstractEasyCard {
 
         AbstractCard choiceA = new EasyModalChoiceCard(
                 ID,
+                cardImgID,
                 cardStrings.EXTENDED_DESCRIPTION[0],
                 cardStrings.EXTENDED_DESCRIPTION[1],
                 () -> addToBot(new GainEnergyAction(magicNumber)),
@@ -41,6 +42,7 @@ public class GeniusForesight extends AbstractEasyCard {
 
         AbstractCard choiceB = new EasyModalChoiceCard(
                 ID,
+                cardImgID,
                 cardStrings.EXTENDED_DESCRIPTION[2],
                 cardStrings.EXTENDED_DESCRIPTION[3],
                 () -> addToBot(new DrawCardAction(draw)),

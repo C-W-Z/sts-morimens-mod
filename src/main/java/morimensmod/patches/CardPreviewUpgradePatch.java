@@ -201,8 +201,8 @@ public class CardPreviewUpgradePatch {
             if (clickToClose)
                 __instance.close();
             InputHelper.justClickedLeft = !clickToClose;
-            if (clickToClose)
-                FontHelper.ClearSCPFontTextures();
+            // if (clickToClose)
+            //     FontHelper.ClearSCPFontTextures();
 
             // 繼續之後的Codes
             if (___prevCard != null && InputActionSet.left.isJustPressed())

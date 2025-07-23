@@ -90,6 +90,14 @@
     "NAME": "防禦",
     "DESCRIPTION": "獲得 !B! 點 格擋 。 NL 獲得 !${ModID}:A! ${ModID}:狂氣 。"
   },
+  "${ModID}:Strike_RamonaTimeworm": {
+    "NAME": "打擊",
+    "DESCRIPTION": "造成 !D! 點傷害。 NL 獲得 !${ModID}:A! ${ModID}:狂氣 。 NL ${ModID}:回環 ：額外造成 !M! 次傷害。"
+  },
+  "${ModID}:Defend_RamonaTimeworm": {
+    "NAME": "防禦",
+    "DESCRIPTION": "獲得 !B! 點 格擋 。 NL 獲得 !${ModID}:A! ${ModID}:狂氣 。 NL ${ModID}:回環 ：所有敵人 - !M! ${ModID}:臨時 力量 ，抽 !${ModID}:DR! 張牌，額外獲得 !${ModID}:M2! ${ModID}:狂氣 。"
+  },
   "${ModID}:FirstDoctrine": {
     "NAME": "第一哲學",
     "DESCRIPTION": "獲得 !${ModID}:A! ${ModID}:狂氣 。 NL 打出卡牌後，獲得 !M! 點 [E] ，每回合最多觸發 !${ModID}:M2! 次。"

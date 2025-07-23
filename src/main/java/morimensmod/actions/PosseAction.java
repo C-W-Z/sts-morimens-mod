@@ -2,6 +2,7 @@ package morimensmod.actions;
 
 import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.hand;
+import static morimensmod.util.Wiz.p;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -78,6 +79,10 @@ public class PosseAction extends AbstractGameAction {
             for (AbstractCard c : hand().group)
                 if (c instanceof OnAfterPosse)
                     ((OnAfterPosse) c).onAfterPosse(posse, exhaustKeyflare);
+            // 呼叫Exalt的hook
+            if (p() instanceof AbstractAwakener)
+                if (((AbstractAwakener) p()).getExalt() instanceof OnAfterPosse)
+                    ((OnAfterPosse) ((AbstractAwakener) p()).getExalt()).onAfterPosse(posse, exhaustKeyflare);
         });
     }
 }

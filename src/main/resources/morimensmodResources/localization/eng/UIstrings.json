@@ -29,6 +29,9 @@
   "POSSE_COLOR": {
     "TEXT": ["Posse"]
   },
+  "DERIVATIVE_COLOR": {
+    "TEXT": ["Derivative"]
+  },
   "COMMAND": {
     "TEXT": ["Command"]
   },
@@ -49,6 +52,9 @@
   },
   "POSSE": {
     "TEXT": ["Posse"]
+  },
+  "DERIVATIVE": {
+    "TEXT": ["Derivative"]
   },
   "${ModID}:choosePosse": {
     "TEXT": ["Select the Posse to carry (scroll to see more)"]
@@ -146,6 +152,16 @@
     "EXTRA_TEXT": [
       "#rUntil #rthe #rPlanet's #rEnd",
       "Base on \"Beast of Chaos\", deal an additional #yFixed #yDamage equal to #b15% of the target's Max HP to all enemies. The Base Damage of \"Beast of Chaos\" is increased by #b100% for this battle."
+    ]
+  },
+  "${ModID}:ParadoxConverged": {
+    "TEXT": [
+      "Paradox Converged",
+      "Gain #b200 #yKeyflare. Place Base Copies of the last #b3 different #ynon-Exhaust #ynon-Ethereal #yCommand #yCards played last turn into hand, reducing their [E] Cost by #b1 and grants them #yExhaust and #yEthereal. If there are not enough #yCommand #yCards to place in your hand, draw an equal number of cards instead. Choose an arbitrary #yPosse to replace the current #yPosse, and restore it after using the #yPosse or at the end of the battle."
+    ],
+    "EXTRA_TEXT": [
+      "#rReach #rinto #rYesterday",
+      "Based on \"Paradox Converged\", gain #b3 stacks of #yNegentropy that ignores the stacking limit, reduce the [E] Cost of copied cards to #b0. "
     ]
   },
   "${ModID}:TerminalGateWayOfTruthAndAbyss": {

@@ -12,6 +12,7 @@ public class ModSettings {
     public static final Color SYMPTOM_COLOR             = new Color(30 / 255F, 30 / 255F, 34 / 255F, 1);
     public static final Color STATUS_COLOR              = new Color(47 / 255F, 28 / 255F, 27 / 255F, 1);
     public static final Color POSSE_COLOR               = Color.WHITE;
+    public static final Color DERIVATIVE_COLOR          = Color.WHITE;
 
     public static final Color ALIEMUS_INCREASE_TEXT_COLOR   = Color.GOLD;
     public static final Color ALIEMUS_DECREASE_TEXT_COLOR   = Color.FIREBRICK;

@@ -13,14 +13,22 @@ public class EasyModalChoiceCard extends AbstractEasyCard {
     private String passedName;
     private String passedDesc;
 
-    public EasyModalChoiceCard(String cardID, String name, String description, Runnable onUseOrChosen) {
-        this(cardID, name, description, onUseOrChosen, CardColor.COLORLESS, null);
+    public EasyModalChoiceCard(String cardID, String cardImgID, String name, String description,
+            Runnable onUseOrChosen) {
+        this(cardID, cardImgID, name, description, onUseOrChosen, CardColor.COLORLESS, new CardTags[] {});
     }
 
-    public EasyModalChoiceCard(String cardID, String name, String description, Runnable onUseOrChosen, CardColor color, CardTags tag) {
-        super(cardID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, color);
-        if (tag != null)
-            tags.add(tag);
+    public EasyModalChoiceCard(String cardID, String cardImgID, String name, String description, Runnable onUseOrChosen,
+            CardColor color, CardTags tag) {
+        this(cardID, cardImgID, name, description, onUseOrChosen, color, new CardTags[] { tag });
+    }
+
+    public EasyModalChoiceCard(String cardID, String cardImgID, String name, String description, Runnable onUseOrChosen,
+            CardColor color, CardTags[] tags) {
+        super(cardID, cardImgID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, color);
+        if (tags != null)
+            for (CardTags t : tags)
+                this.tags.add(t);
         this.name = this.originalName = passedName = name;
         this.rawDescription = passedDesc = description;
         this.onUseOrChosen = onUseOrChosen;
@@ -53,6 +61,7 @@ public class EasyModalChoiceCard extends AbstractEasyCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return new EasyModalChoiceCard(cardID, passedName, passedDesc, onUseOrChosen);
+        return new EasyModalChoiceCard(cardID, cardImgID, passedName, passedDesc, onUseOrChosen, color,
+                this.tags.toArray(new CardTags[this.tags.size()]));
     }
 }

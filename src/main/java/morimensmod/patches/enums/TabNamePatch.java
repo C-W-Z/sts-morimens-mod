@@ -11,6 +11,7 @@ import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AEQUOR_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CARO_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.DERIVATIVE_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.POSSE_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.STATUS_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
@@ -31,6 +32,7 @@ public class TabNamePatch {
     private static final UIStrings SYMPTOM_STRINGS = CardCrawlGame.languagePack.getUIString(SYMPTOM_COLOR.name());
     private static final UIStrings STATUS_STRINGS = CardCrawlGame.languagePack.getUIString(STATUS_COLOR.name());
     private static final UIStrings POSSE_STRINGS = CardCrawlGame.languagePack.getUIString(POSSE_COLOR.name());
+    private static final UIStrings DERIVATIVE_STRINGS = CardCrawlGame.languagePack.getUIString(DERIVATIVE_COLOR.name());
 
     @SpireInsertPatch(locator = Locator.class, localvars = { "i", "tabName" })
     public static void InsertFix(int i, @ByRef String[] tabName) {
@@ -54,6 +56,8 @@ public class TabNamePatch {
             tabName[0] = STATUS_STRINGS.TEXT[0];
         else if (modTabs.get(i).color == POSSE_COLOR)
             tabName[0] = POSSE_STRINGS.TEXT[0];
+        else if (modTabs.get(i).color == DERIVATIVE_COLOR)
+            tabName[0] = DERIVATIVE_STRINGS.TEXT[0];
     }
 
     private static class Locator extends SpireInsertLocator {

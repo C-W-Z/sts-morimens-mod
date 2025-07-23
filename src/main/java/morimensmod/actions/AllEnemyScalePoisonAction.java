@@ -21,7 +21,8 @@ public class AllEnemyScalePoisonAction extends AbstractGameAction {
             return !m.isDeadOrEscaped();
         }).forEach((q) -> {
             int poisonAmount = getPowerAmount(q, PoisonPower.POWER_ID) * (scale - 1);
-            this.actions.add(new ApplyPowerAction(q, source, new PoisonPower(q, source, poisonAmount), poisonAmount));
+            if (poisonAmount > 0)
+                this.actions.add(new ApplyPowerAction(q, source, new PoisonPower(q, source, poisonAmount), poisonAmount));
         });
     }
 

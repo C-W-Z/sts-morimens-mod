@@ -21,6 +21,11 @@
       "「 #y打击 」基础伤害 #b+%d%% 。每造成 1 次主动攻击伤害，本场战斗中卡牌基础伤害 #b+%d%% "
     ]
   },
+  "${ModID}:RamonaTimewormRelic": {
+    "NAME": "彭罗斯行者",
+    "FLAVOR": "",
+    "DESCRIPTIONS": ["每回合结束时获得 #b%d 层 #y${ModID}:负熵 。"]
+  },
   "${ModID}:KleinBottleVoyager": {
     "NAME": "遗失的振响",
     "FLAVOR": "",

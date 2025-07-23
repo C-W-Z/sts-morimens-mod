@@ -3,6 +3,7 @@ package morimensmod.misc;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.MorimensMod.makeUIPath;
 import static morimensmod.util.General.removeModID;
+import static morimensmod.util.Wiz.p;
 
 import java.util.ArrayList;
 
@@ -58,10 +59,16 @@ public class TopPanelDeathResistanceUI extends TopPanelItem {
         super.render(sb);
         float halfWidth = this.image.getWidth() / 2F;
         // see TopPanel.renderTopRightIcons(SpriteBatch sb)
+        String text;
+        if (p() instanceof AbstractAwakener)
+            text = AbstractAwakener.getDeathResistanceUIText();
+        else
+            text = "0%";
+
         FontHelper.renderFontCentered(
                 sb,
                 FontHelper.topPanelAmountFont,
-                AbstractAwakener.getDeathResistanceUIText(),
+                text,
                 this.x - halfWidth + halfWidth * Settings.scale + 36F * Settings.scale,
                 ICON_Y + 16F * Settings.scale,
                 Color.WHITE);

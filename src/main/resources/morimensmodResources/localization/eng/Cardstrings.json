@@ -34,7 +34,7 @@
     "NAME": "Obsession Eternal",
     "DESCRIPTION": "Gain 3 Strength, and gain an additional ${ModID}:Temporary Strength equal to 25% of your ${ModID}:Permanent_Strength.",
     "EXTENDED_DESCRIPTION": [
-      "Gain #b3 #yStrength, and gain an additional ${ModID}:Temporary Strength equal to #b25% of your ${ModID}:Permanent_Strength."
+      "Gain #b3 #yStrength, and gain an additional #yTemporary #yStrength equal to #b25% of your #yPermanent #yStrength."
     ]
   },
   "${ModID}:TheLoneSeed": {
@@ -91,6 +91,14 @@
   "${ModID}:Defend": {
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block. NL Gain !${ModID}:A! ${ModID}:Aliemus."
+  },
+  "${ModID}:Strike_RamonaTimeworm": {
+    "NAME": "Strike",
+    "DESCRIPTION": "{@@}Deal !D! damage. NL Gain !${ModID}:A! ${ModID}:Aliemus. NL ${ModID}:Loop: Deal damage !M! additional time{!M!|>1=s}."
+  },
+  "${ModID}:Defend_RamonaTimeworm": {
+    "NAME": "Defend",
+    "DESCRIPTION": "{@@}Gain !B! Block. NL Gain !${ModID}:A! ${ModID}:Aliemus. NL ${ModID}:Loop: All enemies -!M! ${ModID}:Temporary Strength, draw !${ModID}:DR! card{!${ModID}:DR!|>1=s}, gain an additional !${ModID}:M2! ${ModID}:Aliemus."
   },
   "${ModID}:FirstDoctrine": {
     "NAME": "First Doctrine",

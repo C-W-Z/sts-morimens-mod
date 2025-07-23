@@ -57,6 +57,7 @@ public class PredeterminedStrike extends AbstractEasyCard {
 
             EasyModalChoiceCard rebirthTribunal = new EasyModalChoiceCard(
                     ID,
+                    CardImgID.RamonaTimewormSkill,
                     cardStrings.EXTENDED_DESCRIPTION[0],
                     cardStrings.EXTENDED_DESCRIPTION[1],
                     () -> useRebirthTribunal(p),
@@ -67,6 +68,7 @@ public class PredeterminedStrike extends AbstractEasyCard {
 
             EasyModalChoiceCard odeToTomorrow = new EasyModalChoiceCard(
                     ID,
+                    CardImgID.RamonaTimewormSkill,
                     cardStrings.EXTENDED_DESCRIPTION[2],
                     cardStrings.EXTENDED_DESCRIPTION[3],
                     () -> useOdeToTomorrow(p),
