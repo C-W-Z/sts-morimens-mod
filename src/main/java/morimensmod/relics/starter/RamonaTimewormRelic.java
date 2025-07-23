@@ -18,7 +18,8 @@ public class RamonaTimewormRelic extends AbstractEasyRelic {
 
     @Override
     public void onPlayerEndTurn() {
-        applyToSelf(new NegentropyPower(p(), NEGENTROPY));
+        if (getPowerAmount(p(), NegentropyPower.POWER_ID) < NegentropyPower.INVOKE_AMOUNT)
+            applyToSelf(new NegentropyPower(p(), NEGENTROPY));
     }
 
     @Override
