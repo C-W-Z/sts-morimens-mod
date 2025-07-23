@@ -157,11 +157,11 @@
   "${ModID}:ParadoxConverged": {
     "TEXT": [
       "Paradox Converged",
-      "Gain #b200 #yKeyflare. Place the last #b3 original copies of different non-#yExhaust non#yEthereal #yCommand #yCards played in the previous turn into your hand, reducing their [E] Cost by #b1 and grants them #yExhaust and #yEthereal. If you don't have enough #yCommand #yCards played last turn, draw an equal number of cards instead. Choose an arbitrary #yPosse to replace the current #yPosse, and restore it after using the #yPosse or after the battle."
+      "Gain #b200 #yKeyflare. Place Base Copies of the last #b3 different #ynon-Exhaust #ynon-Ethereal #yCommand #yCards played last turn into hand, reducing their [E] Cost by #b1 and grants them #yExhaust and #yEthereal. If there are not enough #yCommand #yCards to place in your hand, draw an equal number of cards instead. Choose an arbitrary #yPosse to replace the current #yPosse, and restore it after using the #yPosse or at the end of the battle."
     ],
     "EXTRA_TEXT": [
-      "#rFingers Reaching for the Past",
-      "Based on \"Paradox Converged\", gain #b3 layers of #yNegative Entropy that ignores the upper limit, making the [E] cost of the obtained copy #b0. "
+      "#rReach #rinto #rYesterday",
+      "Based on \"Paradox Converged\", gain #b3 stacks of #yNegentropy that ignores the stacking limit, reduce the [E] Cost of copied cards to #b0. "
     ]
   },
   "${ModID}:TerminalGateWayOfTruthAndAbyss": {
