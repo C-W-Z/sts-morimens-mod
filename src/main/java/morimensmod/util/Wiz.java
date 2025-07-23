@@ -1,5 +1,6 @@
 package morimensmod.util;
 
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField.ExhaustiveFields;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
@@ -328,6 +329,10 @@ public class Wiz {
 
     public static boolean isCommandCard(AbstractCard card) {
         return card.hasTag(CustomTags.COMMAND);
+    }
+
+    public static boolean isNonExhaustCommandCard(AbstractCard card) {
+        return !card.exhaust && ExhaustiveFields.exhaustive.get(card) < 0 && isCommandCard(card);
     }
 
     public static boolean isStrikeOrAsStrike(AbstractCard card) {

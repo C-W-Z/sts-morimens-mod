@@ -154,6 +154,16 @@
       "Base on \"Beast of Chaos\", deal an additional #yFixed #yDamage equal to #b15% of the target's Max HP to all enemies. The Base Damage of \"Beast of Chaos\" is increased by #b100% for this battle."
     ]
   },
+  "${ModID}:ParadoxConverged": {
+    "TEXT": [
+      "Paradox Converged",
+      "Gain #b200 #yKeyflare. Place the last #b3 original copies of different non-#yExhaust non#yEthereal #yCommand #yCards played in the previous turn into your hand, reducing their [E] Cost by #b1 and grants them #yExhaust and #yEthereal. If you don't have enough #yCommand #yCards played last turn, draw an equal number of cards instead. Choose an arbitrary #yPosse to replace the current #yPosse, and restore it after using the #yPosse or after the battle."
+    ],
+    "EXTRA_TEXT": [
+      "#rFingers Reaching for the Past",
+      "Based on \"Paradox Converged\", gain #b3 layers of #yNegative Entropy that ignores the upper limit, making the [E] cost of the obtained copy #b0. "
+    ]
+  },
   "${ModID}:TerminalGateWayOfTruthAndAbyss": {
     "TEXT": [
       "終點，真理與深淵之門",

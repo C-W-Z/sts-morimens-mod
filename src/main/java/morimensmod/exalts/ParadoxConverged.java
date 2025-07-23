@@ -7,13 +7,12 @@ import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.atb;
 import static morimensmod.util.Wiz.getAllPosses;
 import static morimensmod.util.Wiz.getCleanCopy;
-import static morimensmod.util.Wiz.isCommandCard;
+import static morimensmod.util.Wiz.isNonExhaustCommandCard;
 import static morimensmod.util.Wiz.makeInHand;
 import static morimensmod.util.Wiz.p;
 
 import java.util.ArrayList;
 
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField.ExhaustiveFields;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -31,6 +30,7 @@ import morimensmod.cards.posses.AbstractPosse;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.config.ModSettings;
 import morimensmod.interfaces.OnAfterPosse;
+import morimensmod.misc.PosseType;
 import morimensmod.powers.NegentropyPower;
 import morimensmod.vfx.LargPortraitFlashInEffect;
 
@@ -49,9 +49,7 @@ public class ParadoxConverged extends AbstractExalt implements OnAfterPosse {
 
     @Override
     public void onCardUse(AbstractCard card) {
-        if (card.exhaust || card.isEthereal || ExhaustiveFields.exhaustive.get(card) >= 0)
-            return;
-        if (!isCommandCard(card))
+        if (!isNonExhaustCommandCard(card))
             return;
 
         // 檢查是否已存在相同 cardID 的卡牌
@@ -87,7 +85,8 @@ public class ParadoxConverged extends AbstractExalt implements OnAfterPosse {
 
     @Override
     public void onAfterPosse(AbstractPosse posse, int exhaustKeyflare) {
-        resetPosse();
+        if (posse.getType() == PosseType.REGULAR)
+            resetPosse();
     }
 
     public void resetPosse() {

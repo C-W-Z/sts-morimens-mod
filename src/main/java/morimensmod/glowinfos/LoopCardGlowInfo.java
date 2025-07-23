@@ -6,6 +6,7 @@ import static morimensmod.util.Wiz.getPowerAmount;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 
 import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.NegentropyPower;
@@ -16,7 +17,7 @@ public class LoopCardGlowInfo extends AbstractGlowInfo {
 
     @Override
     public Color getColor(AbstractCard card) {
-        return Color.GOLD.cpy();
+        return Settings.GOLD_COLOR.cpy();
     }
 
     @Override
