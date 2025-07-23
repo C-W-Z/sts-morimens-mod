@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -28,7 +29,7 @@ public class MapNodeToolTipPatch {
 
     @SpirePostfixPatch
     public static void Postfix(DungeonMap __instance, SpriteBatch sb) {
-        if (!__instance.bossHb.hovered)
+        if (!__instance.bossHb.hovered || !AbstractDungeon.isScreenUp)
             return;
 
         logger.debug("bossKey: " + AbstractDungeon.bossKey);
