@@ -104,7 +104,7 @@ public class CardTitleMarqueePatch {
         private static float offset;
         private static String prevCard = "";
         private static final HashMap<String, Float> widthMap = new HashMap<>();
-        private static final float SCROLL_SPEED = 40.F;
+        private static final float SCROLL_SPEED = 50F;
         private static float dir = -1;
         private static final float IMG_WIDTH = 594F * Settings.scale;
 
