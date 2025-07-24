@@ -44,7 +44,7 @@ public class PredeterminedStrike extends AbstractEasyCard {
         damageType = DamageType.NORMAL; // 必須是normal才能享受力量加成
         damage = baseDamage = 10;
         attackCount = baseAttackCount = 1;
-        magicNumber = baseMagicNumber = 2; // 2倍力量
+        magicNumber = baseMagicNumber = 3; // 3倍力量
         secondMagic = baseSecondMagic = 3; // 3能量
         thirdMagic = baseThirdMagic = 3; // 3倍銀鑰能量
     }
@@ -103,7 +103,6 @@ public class PredeterminedStrike extends AbstractEasyCard {
     @Override
     public void upp() {
         upgradeDamage(5);
-        upgradeMagicNumber(1);
     }
 
     // 讓卡面顯示的傷害包含三倍力量加成
