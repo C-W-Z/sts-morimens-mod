@@ -1,5 +1,6 @@
 package morimensmod.patches.monsterRoom;
 
+import static morimensmod.MorimensMod.modID;
 import static morimensmod.util.Wiz.p;
 
 import java.util.ArrayList;
@@ -29,20 +30,9 @@ public class DungeonsPatch {
     public static class ExordiumBossPatch {
         @SpirePostfixPatch
         public static void Postfix(Exordium __instance) {
-            // if (!ModSettings.OTHER_CHAR_ENCOUNTER_MOD_MONSTER)
-            // return;
-            if (!BaseMod.getBossIDs(Exordium.ID).isEmpty())
-                AbstractDungeon.bossList.clear();
-        }
-    }
-
-    @SpirePatch2(clz = TheBeyond.class, method = "initializeBoss")
-    public static class TheBeyondBossPatch {
-        @SpirePostfixPatch
-        public static void Postfix(TheBeyond __instance) {
-            // if (!ModSettings.OTHER_CHAR_ENCOUNTER_MOD_MONSTER)
-            // return;
-            if (!BaseMod.getBossIDs(TheBeyond.ID).isEmpty())
+            if (!MonsterEncounterTogglePatch.shouldApplyMorimensMonster())
+                return;
+            if (BaseMod.getBossIDs(Exordium.ID).stream().anyMatch(boss -> boss.startsWith(modID)))
                 AbstractDungeon.bossList.clear();
         }
     }
@@ -51,9 +41,20 @@ public class DungeonsPatch {
     public static class TheCityBossPatch {
         @SpirePostfixPatch
         public static void Postfix(TheCity __instance) {
-            // if (!ModSettings.OTHER_CHAR_ENCOUNTER_MOD_MONSTER)
-            // return;
-            if (!BaseMod.getBossIDs(TheCity.ID).isEmpty())
+            if (!MonsterEncounterTogglePatch.shouldApplyMorimensMonster())
+                return;
+            if (BaseMod.getBossIDs(TheCity.ID).stream().anyMatch(boss -> boss.startsWith(modID)))
+                AbstractDungeon.bossList.clear();
+        }
+    }
+
+    @SpirePatch2(clz = TheBeyond.class, method = "initializeBoss")
+    public static class TheBeyondBossPatch {
+        @SpirePostfixPatch
+        public static void Postfix(TheBeyond __instance) {
+            if (!MonsterEncounterTogglePatch.shouldApplyMorimensMonster())
+                return;
+            if (BaseMod.getBossIDs(TheBeyond.ID).stream().anyMatch(boss -> boss.startsWith(modID)))
                 AbstractDungeon.bossList.clear();
         }
     }
@@ -62,9 +63,9 @@ public class DungeonsPatch {
     public static class TheEndingBossPatch {
         @SpirePostfixPatch
         public static void Postfix(TheEnding __instance) {
-            // if (!ModSettings.OTHER_CHAR_ENCOUNTER_MOD_MONSTER)
-            // return;
-            if (!BaseMod.getBossIDs(TheEnding.ID).isEmpty())
+            if (!MonsterEncounterTogglePatch.shouldApplyMorimensMonster())
+                return;
+            if (BaseMod.getBossIDs(TheEnding.ID).stream().anyMatch(boss -> boss.startsWith(modID)))
                 AbstractDungeon.bossList.clear();
         }
     }
