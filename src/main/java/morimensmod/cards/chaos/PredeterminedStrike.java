@@ -42,7 +42,7 @@ public class PredeterminedStrike extends AbstractEasyCard {
         tags.add(CustomTags.COMMAND);
         tags.add(CustomTags.LOOP);
         damageType = DamageType.NORMAL; // 必須是normal才能享受力量加成
-        damage = baseDamage = 6;
+        damage = baseDamage = 10;
         attackCount = baseAttackCount = 1;
         magicNumber = baseMagicNumber = 2; // 2倍力量
         secondMagic = baseSecondMagic = 3; // 3能量
@@ -102,6 +102,7 @@ public class PredeterminedStrike extends AbstractEasyCard {
 
     @Override
     public void upp() {
+        upgradeDamage(5);
         upgradeMagicNumber(1);
     }
 

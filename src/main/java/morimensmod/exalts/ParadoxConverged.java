@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import basemod.helpers.CardModifierManager;
 import morimensmod.actions.EasyModalChoiceAction;
+import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.cardmodifiers.ChangeCostUntilUseModifier;
 import morimensmod.cardmodifiers.EtherealModifier;
 import morimensmod.cardmodifiers.ExhaustModifier;
@@ -111,6 +112,8 @@ public class ParadoxConverged extends AbstractExalt implements OnAfterPosse {
     public void exalt() {
         atb(new VFXAction(p(), new LargPortraitFlashInEffect(removeModID(ID)), ModSettings.EXALT_PROTRAIT_DURATION, true));
 
+        atb(new KeyflareChangeAction(p(), 200));
+
         for (AbstractCard c : lastTurnNonExhaustCards) {
             AbstractCard copy = getCleanCopy(c);
             CardModifierManager.addModifier(copy, new ExhaustModifier());
@@ -138,6 +141,8 @@ public class ParadoxConverged extends AbstractExalt implements OnAfterPosse {
     @Override
     public void overExalt() {
         atb(new VFXAction(p(), new LargPortraitFlashInEffect(removeModID(ID)), ModSettings.EXALT_PROTRAIT_DURATION, true));
+
+        atb(new KeyflareChangeAction(p(), 200));
 
         applyToSelf(new NegentropyPower(p(), NEGENTROPY));
 
