@@ -24,7 +24,9 @@
   "${ModID}:RamonaTimewormRelic": {
     "NAME": "彭罗斯行者",
     "FLAVOR": "",
-    "DESCRIPTIONS": ["每回合结束时获得 #b%d 层 #y${ModID}:负熵 。"]
+    "DESCRIPTIONS": [
+      "每回合结束时获得 #b%d 层 #y${ModID}:负熵 。每回合首次触发 #y${ModID}:回环 时，获得 #b%d 层 #y负熵 。"
+    ]
   },
   "${ModID}:KleinBottleVoyager": {
     "NAME": "遗失的振响",
