@@ -1,0 +1,16 @@
+{
+  "${ModID}:Junction": {
+    "NAME": "Junction",
+    "DESCRIPTIONS": [
+      "Exploring in the Mist, suddenly, your badge emits a faint silver glow. Who is calling you through the communicator?",
+      "You've accepted a contact request from the school. The familiar voice calms your mind. You gather your spirits and move forward."
+    ],
+    "OPTIONS": [
+      "[Connect] Restore #b%d HP.",
+      "[Meditate] Obatain #y%s.",
+      "[Leave]",
+      "Connect",
+      "Meditate"
+    ]
+  }
+}

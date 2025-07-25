@@ -66,7 +66,7 @@ public abstract class AbstractRouseCard extends AbstractEasyCard implements Spaw
     @Override
     public boolean canSpawn(ArrayList<AbstractCard> currentRewardCards) {
         //Player can't already have the card.
-        for(AbstractCard c : AbstractDungeon.player.masterDeck.group)
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
             if (c.cardID.equals(this.cardID))
                 return false;
         return true;

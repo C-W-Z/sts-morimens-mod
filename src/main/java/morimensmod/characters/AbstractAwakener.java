@@ -98,6 +98,8 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public static ArrayList<Pair<String, Integer>> persistentPowers;
 
+    public AbstractCard rouseCard;
+
     public AbstractAwakener(String name, PlayerClass setClass, AbstractAnimation anim) {
         super(name, setClass,
                 new CustomEnergyOrb(orbTextures, makeCharacterPath("ChaosRealm/orb/vfx.png"), null),
