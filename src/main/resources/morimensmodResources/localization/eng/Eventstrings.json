@@ -7,7 +7,7 @@
     ],
     "OPTIONS": [
       "[Connect] Restore #b%d HP.",
-      "[Meditate] Obatain #y%s.",
+      "[Meditate] Obatain %s.",
       "[Leave]",
       "Connect",
       "Meditate"

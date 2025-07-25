@@ -2,6 +2,7 @@ package morimensmod.events;
 
 import static morimensmod.MorimensMod.makeEventPath;
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.util.General.normalizeWhitespace;
 import static morimensmod.util.General.removeModID;
 import static morimensmod.util.Wiz.p;
 
@@ -59,10 +60,14 @@ public class Junction extends AbstractImageEvent {
         if (canRouse) {
             AbstractAwakener awaker = (AbstractAwakener) p();
             obtainCard = awaker.rouseCard.makeCopy();
-            this.imageEventText.setDialogOption(String.format(OPTIONS[1], obtainCard.name), obtainCard);
+            this.imageEventText.setDialogOption(
+                    String.format(OPTIONS[1], "#y" + normalizeWhitespace(obtainCard.name).replaceAll(" ", " #y")),
+                    obtainCard);
         } else {
             obtainCard = new Insight();
-            this.imageEventText.setDialogOption(String.format(OPTIONS[1], obtainCard.name), obtainCard);
+            this.imageEventText.setDialogOption(
+                    String.format(OPTIONS[1], "#y" + normalizeWhitespace(obtainCard.name)).replaceAll(" ", " #y"),
+                    obtainCard);
         }
     }
 
