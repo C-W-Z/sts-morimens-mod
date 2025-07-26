@@ -20,6 +20,8 @@ public class ButterflySpecimen extends AbstractEasyRelic {
 
     @Override
     public int onPlayerHeal(int healAmount) {
+        if (!isInCombat())
+            return super.onPlayerHeal(healAmount);
         flash();
         addToTop(new GainBlockAction(p(), BLOCK_PER_HEAL));
         return super.onPlayerHeal(healAmount);
