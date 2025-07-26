@@ -548,31 +548,31 @@
     "DESCRIPTION": "Lose !M! HP, gain [E] [E]. NL Unremovable In Shop."
   },
   "${ModID}:SymptomEpilepsy": {
-    "NAME": "Symptom: 癲癇",
-    "DESCRIPTION": "失去 !M! 點生命, 抽 !${ModID}:DR! 張牌. NL 無法在商店移除 "
+    "NAME": "Symptom: Epilepsy",
+    "DESCRIPTION": "Lose !M! HP, draw !${ModID}:DR! cards. NL Unremovable In Shop."
   },
   "${ModID}:SymptomMadness": {
-    "NAME": "Symptom: 瘋狂",
+    "NAME": "Symptom: Madness",
     "DESCRIPTION": "失去 !M! 點生命, Gain !${ModID}:A! ${ModID}:Aliemus. NL 無法在商店移除 "
   },
   "${ModID}:SymptomWeakness": {
-    "NAME": "Symptom: 衰弱",
+    "NAME": "Symptom: Weakness",
     "DESCRIPTION": "回合結束時若在手中, 自身 虛弱 !M! 回合.使用後 虛弱 所有敵人 !M! 回合. NL 無法在商店移除 "
   },
   "${ModID}:SymptomBreakdown": {
-    "NAME": "Symptom: 崩潰",
+    "NAME": "Symptom: Breakdown",
     "DESCRIPTION": "回合結束時若在手中, 自身 脆弱 !M! 回合.使用後 易傷 所有敵人 !M! 回合. NL 無法在商店移除 "
   },
   "${ModID}:SymptomClaustrophobia": {
-    "NAME": "Symptom: 幽閉",
+    "NAME": "Symptom: Claustrophobia",
     "DESCRIPTION": "失去 !M! 點生命, 獲得雙倍於該值的 Block. NL 無法在商店移除 "
   },
   "${ModID}:SymptomSomniloquy": {
-    "NAME": "Symptom: 囈語",
+    "NAME": "Symptom: Somniloquy",
     "DESCRIPTION": "抽 !${ModID}:DR! 張牌, 將 !M! 張「Symptom: 囈語」加入棄牌堆中. NL 無法在商店移除 "
   },
   "${ModID}:SymptomHysteria": {
-    "NAME": "Symptom: 癔想",
+    "NAME": "Symptom: Hysteria",
     "DESCRIPTION": "獲得 [E] , 將 !M! 張「Symptom: 癔想」加入棄牌堆中. NL 無法在商店移除 "
   },
   "${ModID}:SymptomObedience": {
@@ -580,7 +580,7 @@
     "DESCRIPTION": "回合結束時若在手中, 將 !M! 張隨機 ${ModID}:症狀卡 加入抽牌堆."
   },
   "${ModID}:SymptomExcitement": {
-    "NAME": "Symptom: 興奮",
+    "NAME": "Symptom: Excitement",
     "DESCRIPTION": ""
   },
   "${ModID}:Wound": {
