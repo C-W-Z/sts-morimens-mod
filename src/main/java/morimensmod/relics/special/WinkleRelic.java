@@ -7,9 +7,6 @@ import static morimensmod.util.Wiz.p;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.relics.AbstractEasyRelic;
 
-import basemod.AutoAdd;
-
-@AutoAdd.Ignore
 public class WinkleRelic extends AbstractEasyRelic {
     public static final String ID = makeID(WinkleRelic.class.getSimpleName());
 
