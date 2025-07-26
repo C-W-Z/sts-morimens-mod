@@ -6,11 +6,29 @@
       "You've accepted a contact request from the school. The familiar voice calms your mind. You gather your spirits and move forward."
     ],
     "OPTIONS": [
-      "[Connect] Restore #b%d HP.",
+      "[Connect] Heal #b%d HP.",
       "[Meditate] Obatain %s.",
       "[Leave]",
       "Connect",
       "Meditate"
+    ]
+  },
+  "${ModID}:PoolOfGore": {
+    "NAME": "Pool of Gore",
+    "DESCRIPTIONS": [
+      "As you step onto the flickering pool of bloodstains, its true form is revealed. The crimson-black blood extends countless arms, clinging to your ankles and pulling you relentlessly toward the unfathomable abyss.",
+      "The emergent Awakener pulled you out of the pool of blood without hesitation. Your linked arm was torn, muddy water splashing, and countless barely visible creatures writhed in the water as if craving and devouring something.",
+      "You struggle desperately, but sink deeper, tormented by cursed whispers in your mind. When you come to, the blood-red Tentacles have withdrawn, satisfied. You feel strangely refreshed, though something seems lost forever...",
+      "The Silver Key glimmers; the arms seem intimidated by some force, retreating into the pool and then disappearing."
+    ],
+    "OPTIONS": [
+      "[Summon Awakeners] Max HP #b+%d. Deduct #b%d #yAliemus and remove #b%d #ySymptom #yCard.",
+      "[Struggle] Max HP #b+%d. Heal #b%d HP, infect #b%d %s.",
+      "[Insert Silver Key] Max HP #b+%d. Clear all #yKeyflare.",
+      "[Leave]",
+      "Summon Awakeners",
+      "Struggle",
+      "Insert Silver Key"
     ]
   }
 }
