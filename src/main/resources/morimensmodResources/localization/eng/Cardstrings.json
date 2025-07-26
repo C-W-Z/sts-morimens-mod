@@ -557,15 +557,15 @@
   },
   "${ModID}:SymptomWeakness": {
     "NAME": "Symptom: Weakness",
-    "DESCRIPTION": "回合結束時若在手中, 自身 虛弱 !M! 回合.使用後 虛弱 所有敵人 !M! 回合. NL 無法在商店移除 "
+    "DESCRIPTION": "{@@}At the end of the turn, if in hand, gain Weak for !M! turn{!M!|>1=s}. After use, apply Weak to all enemies for !M! turn{!M!|>1=s}. NL Unremovable In Shop."
   },
   "${ModID}:SymptomBreakdown": {
     "NAME": "Symptom: Breakdown",
-    "DESCRIPTION": "回合結束時若在手中, 自身 脆弱 !M! 回合.使用後 易傷 所有敵人 !M! 回合. NL 無法在商店移除 "
+    "DESCRIPTION": "{@@}At the end of the turn, if in hand, gain Frail for !M! turn{!M!|>1=s}. After use, apply Vulnerable to all enemies for !M! turn{!M!|>1=s}. NL Unremovable In Shop."
   },
   "${ModID}:SymptomClaustrophobia": {
     "NAME": "Symptom: Claustrophobia",
-    "DESCRIPTION": "失去 !M! 點生命, 獲得雙倍於該值的 Block. NL 無法在商店移除 "
+    "DESCRIPTION": "Lose !M! HP, gain double that amount in Block. NL Unremovable In Shop."
   },
   "${ModID}:SymptomSomniloquy": {
     "NAME": "Symptom: Somniloquy",
