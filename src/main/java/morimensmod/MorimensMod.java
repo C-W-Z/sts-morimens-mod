@@ -20,6 +20,7 @@ import morimensmod.characters.RamonaTimeworm;
 import morimensmod.config.ConfigPanel;
 import morimensmod.config.ModSettings;
 import morimensmod.events.Junction;
+import morimensmod.events.PoolOfGore;
 import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.icons.AbstractIcon;
 import morimensmod.misc.TopPanelDeathResistanceUI;
@@ -49,6 +50,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
@@ -113,14 +115,14 @@ public class MorimensMod implements
         return modID + ":" + idText;
     }
 
-    private static final String ATTACK_S_ART  = makeImagePath("512/attack.png");
-    private static final String SKILL_S_ART   = makeImagePath("512/skill.png");
-    private static final String POWER_S_ART   = makeImagePath("512/power.png");
+    private static final String ATTACK_S_ART = makeImagePath("512/attack.png");
+    private static final String SKILL_S_ART = makeImagePath("512/skill.png");
+    private static final String POWER_S_ART = makeImagePath("512/power.png");
     private static final String CARD_ENERGY_S = makeImagePath("512/energy.png");
-    private static final String TEXT_ENERGY   = makeImagePath("512/text_energy.png");
-    private static final String ATTACK_L_ART  = makeImagePath("1024/attack.png");
-    private static final String SKILL_L_ART   = makeImagePath("1024/skill.png");
-    private static final String POWER_L_ART   = makeImagePath("1024/power.png");
+    private static final String TEXT_ENERGY = makeImagePath("512/text_energy.png");
+    private static final String ATTACK_L_ART = makeImagePath("1024/attack.png");
+    private static final String SKILL_L_ART = makeImagePath("1024/skill.png");
+    private static final String POWER_L_ART = makeImagePath("1024/power.png");
     private static final String CARD_ENERGY_L = makeImagePath("1024/energy.png");
 
     public static Settings.GameLanguage[] SupportedLanguages = {
@@ -275,8 +277,8 @@ public class MorimensMod implements
         Lotan.register();
         RamonaTimeworm.register();
         // new AutoAdd(modID)
-        //         .packageFilter(AbstractAwakener.class)
-        //         .any(AbstractAwakener.class, (info, awaker) -> awaker.register());
+        // .packageFilter(AbstractAwakener.class)
+        // .any(AbstractAwakener.class, (info, awaker) -> awaker.register());
 
         new AutoAdd(modID)
                 .packageFilter(AbstractEasyPotion.class)
@@ -381,7 +383,13 @@ public class MorimensMod implements
 
         CardLib.initialize();
 
-        BaseMod.addEvent(new AddEventParams.Builder(Junction.ID, Junction.class).eventType(EventType.NORMAL).create());
+        BaseMod.addEvent(new AddEventParams.Builder(Junction.ID, Junction.class)
+                .eventType(EventType.NORMAL)
+                .create());
+        BaseMod.addEvent(new AddEventParams.Builder(PoolOfGore.ID, PoolOfGore.class)
+                .overrideEvent(Vampires.ID)
+                .eventType(EventType.OVERRIDE)
+                .create());
 
         new AutoAdd(modID)
                 .packageFilter(AbstractEasyCard.class)

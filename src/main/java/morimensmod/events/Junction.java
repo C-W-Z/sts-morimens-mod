@@ -66,7 +66,7 @@ public class Junction extends AbstractImageEvent {
         } else {
             obtainCard = new Insight();
             this.imageEventText.setDialogOption(
-                    String.format(OPTIONS[1], "#y" + normalizeWhitespace(obtainCard.name)).replaceAll(" ", " #y"),
+                    String.format(OPTIONS[1], "#y" + normalizeWhitespace(obtainCard.name).replaceAll(" ", " #y")),
                     obtainCard);
         }
     }

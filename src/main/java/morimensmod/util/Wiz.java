@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
+import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -361,8 +362,9 @@ public class Wiz {
     }
 
     public static CardGroup getSymptomsInDeckForPurge() {
-        CardGroup retVal = AbstractDungeon.player.masterDeck.getPurgeableCards();
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
+        CardGroup purgable = AbstractDungeon.player.masterDeck.getPurgeableCards();
+        CardGroup retVal = new CardGroup(CardGroupType.UNSPECIFIED);
+        for (AbstractCard c : purgable.group)
             if (c.color == SYMPTOM_COLOR)
                 retVal.group.add(c);
         return retVal;

@@ -40,6 +40,7 @@ public class PoolOfGore extends AbstractImageEvent {
 
     private CurScreen screen;
     private boolean purgeResult = false;
+    private CardGroup purgeGroup;
 
     private int maxHPAmt;
     private static final int ALIEMUS_DEDUCT = 100;
@@ -86,21 +87,27 @@ public class PoolOfGore extends AbstractImageEvent {
     protected void buttonEffect(int buttonPressed) {
         switch (this.screen) {
             case INTRO:
-                this.imageEventText.updateBodyText(DESCRIPTIONS[buttonPressed]);
+                this.imageEventText.updateBodyText(DESCRIPTIONS[buttonPressed + 1]);
                 p().increaseMaxHp(maxHPAmt, true);
                 switch (buttonPressed) {
                     case 0:
-                        this.imageEventText.clearAllDialogs();
-                        this.imageEventText.setDialogOption(OPTIONS[7]);
-                        this.screen = CurScreen.PURGE;
-                        return;
+                        if (p() instanceof AbstractAwakener)
+                            AbstractAwakener.changeAliemus(-100);
+                        purgeGroup = CardGroup.getGroupWithoutBottledCards(getSymptomsInDeckForPurge());
+                        if (purgeGroup.size() >= SYMPTOM_REMOVE) {
+                            this.imageEventText.clearAllDialogs();
+                            this.imageEventText.setDialogOption(OPTIONS[7]);
+                            this.screen = CurScreen.PURGE;
+                            return;
+                        } else
+                            break;
                     case 1:
                         p().heal(healAmt, true);
                         for (int i = 0; i < SYMPTOM_INFECT; i++) {
                             // 究極噁心玩意，到底哪個大聰明把獲得卡牌跟特效綁定在一起的
                             AbstractDungeon.effectList.add(
                                     new ShowCardAndObtainEffect(
-                                            symptomInfect,
+                                            symptomInfect.makeCopy(),
                                             Settings.WIDTH / 2F,
                                             Settings.HEIGHT / 2F));
                         }
@@ -123,8 +130,7 @@ public class PoolOfGore extends AbstractImageEvent {
                 break;
             case PURGE:
                 AbstractDungeon.gridSelectScreen.open(
-                        CardGroup.getGroupWithoutBottledCards(getSymptomsInDeckForPurge()),
-                        SYMPTOM_REMOVE, OPTIONS[8], false, false, false, true);
+                        purgeGroup, SYMPTOM_REMOVE, OPTIONS[8], false, false, false, true);
                 this.imageEventText.updateDialogOption(0, OPTIONS[3]);
                 this.purgeResult = true;
                 this.screen = CurScreen.RESULT;
