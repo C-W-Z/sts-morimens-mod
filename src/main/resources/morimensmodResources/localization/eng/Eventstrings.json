@@ -6,7 +6,7 @@
       "You've accepted a contact request from the school. The familiar voice calms your mind. You gather your spirits and move forward."
     ],
     "OPTIONS": [
-      "[Connect] Heal #b%d HP.",
+      "[Connect] Heal #g%d HP.",
       "[Meditate] Obatain %s.",
       "[Leave]",
       "Connect",
@@ -22,13 +22,15 @@
       "The Silver Key glimmers; the arms seem intimidated by some force, retreating into the pool and then disappearing."
     ],
     "OPTIONS": [
-      "[Summon Awakeners] Max HP #b+%d. Deduct #b%d #yAliemus and remove #b%d #ySymptom #yCard.",
-      "[Struggle] Max HP #b+%d. Heal #b%d HP, infect #b%d %s.",
-      "[Insert Silver Key] Max HP #b+%d. Clear all #yKeyflare.",
+      "[Summon Awakeners] Max HP #g+%d. Deduct #r%d #yAliemus and remove #b%d #ySymptom #yCard.",
+      "[Struggle] Max HP #g+%d. Heal #g%d HP, infect #r%d %s.",
+      "[Insert Silver Key] Max HP #g+%d. Clear all #yKeyflare.",
       "[Leave]",
       "Summon Awakeners",
       "Struggle",
-      "Insert Silver Key"
+      "Insert Silver Key",
+      "[Continue]",
+      "Select a Symptom Card to Remove"
     ]
   }
 }

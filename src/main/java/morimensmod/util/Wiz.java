@@ -27,6 +27,7 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import morimensmod.patches.enums.CustomTags;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -123,7 +124,8 @@ public class Wiz {
 
     public static boolean isInBossCombat() {
         return CardCrawlGame.isInARun() && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom() != null
-                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss;
+                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
+                && AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss;
     }
 
     public static void atb(AbstractGameAction action) {
@@ -356,5 +358,13 @@ public class Wiz {
             if (rawDescription.contains(text))
                 return true;
         return false;
+    }
+
+    public static CardGroup getSymptomsInDeckForPurge() {
+        CardGroup retVal = AbstractDungeon.player.masterDeck.getPurgeableCards();
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
+            if (c.color == SYMPTOM_COLOR)
+                retVal.group.add(c);
+        return retVal;
     }
 }
