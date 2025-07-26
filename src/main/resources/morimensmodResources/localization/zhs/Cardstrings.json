@@ -561,12 +561,12 @@
     "DESCRIPTION": "失去 !M! 点生命，获得双倍于该值的 格挡 。 NL 无法在商店移除 "
   },
   "${ModID}:SymptomSomniloquy": {
-    "NAME": "症状：谵语",
-    "DESCRIPTION": "抽 !${ModID}:DR! 张牌，将 !M! 张「症状：谵语」加入弃牌堆中。 NL 无法在商店移除 "
+    "NAME": "症状：呓语",
+    "DESCRIPTION": "抽 !${ModID}:DR! 张牌，将 !M! 张「症状：呓语」加入弃牌堆中。 NL 无法在商店移除 "
   },
   "${ModID}:SymptomHysteria": {
-    "NAME": "症状：臆想",
-    "DESCRIPTION": "获得 [E] ，将 !M! 张「症状：臆想」加入弃牌堆中。 NL 无法在商店移除 "
+    "NAME": "症状：癔想",
+    "DESCRIPTION": "获得 [E] ，将 !M! 张「症状：癔想」加入弃牌堆中。 NL 无法在商店移除 "
   },
   "${ModID}:SymptomObedience": {
     "NAME": "症状：盲从",
