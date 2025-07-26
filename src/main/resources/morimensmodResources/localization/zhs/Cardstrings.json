@@ -578,7 +578,8 @@
   },
   "${ModID}:Wound": {
     "NAME": "伤口",
-    "DESCRIPTION": "一点小伤，无伤大体。受到 !M! 点伤害，抽 !${ModID}:DR! 张牌。 NL 弃掉时移除 "
+    "DESCRIPTION": "受到 !M! 点伤害，抽 !${ModID}:DR! 张牌。 NL 弃掉时移除 ",
+    "FLAVOR": "一点小伤，无伤大体。"
   },
   "${ModID}:Convulsion": {
     "NAME": "惊厥",

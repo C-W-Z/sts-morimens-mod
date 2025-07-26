@@ -585,7 +585,8 @@
   },
   "${ModID}:Wound": {
     "NAME": "Wound",
-    "DESCRIPTION": "{@@}A minor injury, nothing serious. Take !M! damage. draw !${ModID}:DR! card{!${ModID}:DR!|>1=s}. NL Removed When Discarded."
+    "DESCRIPTION": "{@@}Take !M! damage. draw !${ModID}:DR! card{!${ModID}:DR!|>1=s}. NL Removed When Discarded.",
+    "FLAVOR": "A minor injury, nothing serious."
   },
   "${ModID}:Convulsion": {
     "NAME": "Convulsion",
