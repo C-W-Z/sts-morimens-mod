@@ -8,12 +8,14 @@ import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.SpawnModificationCar
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.patches.enums.CustomTags;
 
 public abstract class AbstractDerivative extends AbstractEasyCard implements SpawnModificationCard {
 
     public AbstractDerivative(final String cardID, final String cardImgID, final int cost, final CardType type,
             final CardRarity rarity, final CardTarget target) {
         super(cardID, cardImgID, cost, type, rarity, target, DERIVATIVE_COLOR);
+        tags.add(CustomTags.DERIVATIVE);
     }
 
     public AbstractDerivative(final String cardID, final int cost, final CardType type, final CardRarity rarity,
