@@ -3,8 +3,6 @@ package morimensmod;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.abstracts.DynamicVariable;
-import basemod.eventUtil.AddEventParams;
-import basemod.eventUtil.EventUtils.EventType;
 import basemod.helpers.CardBorderGlowManager;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
@@ -19,8 +17,6 @@ import morimensmod.characters.Ramona;
 import morimensmod.characters.RamonaTimeworm;
 import morimensmod.config.ConfigPanel;
 import morimensmod.config.ModSettings;
-import morimensmod.events.Junction;
-import morimensmod.events.PoolOfGore;
 import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.icons.AbstractIcon;
 import morimensmod.misc.TopPanelDeathResistanceUI;
@@ -33,6 +29,7 @@ import morimensmod.savables.SaveAwakenerPosse;
 import morimensmod.savables.SaveAwakenerProperties;
 import morimensmod.savables.SavePersistentPowers;
 import morimensmod.util.CardLib;
+import morimensmod.util.EventLib;
 import morimensmod.util.MonsterLib;
 import morimensmod.util.PersistentPowerLib;
 import morimensmod.util.ProAudio;
@@ -50,7 +47,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
@@ -383,13 +379,7 @@ public class MorimensMod implements
 
         CardLib.initialize();
 
-        BaseMod.addEvent(new AddEventParams.Builder(Junction.ID, Junction.class)
-                .eventType(EventType.NORMAL)
-                .create());
-        BaseMod.addEvent(new AddEventParams.Builder(PoolOfGore.ID, PoolOfGore.class)
-                .overrideEvent(Vampires.ID)
-                .eventType(EventType.OVERRIDE)
-                .create());
+        EventLib.register();
 
         new AutoAdd(modID)
                 .packageFilter(AbstractEasyCard.class)
