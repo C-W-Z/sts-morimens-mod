@@ -220,7 +220,7 @@
     "DESCRIPTION": "{@@}Choose: Gain !M! [E] or Draw !${ModID}:DR! card{!${ModID}:DR!|>1=s}.",
     "EXTENDED_DESCRIPTION": [
       "Energy",
-      "Gain !M! [E]",
+      "Gain !M! [E].",
       "Draw",
       "{@@}Draw !${ModID}:DR! card{!${ModID}:DR!|>1=s}."
     ]
