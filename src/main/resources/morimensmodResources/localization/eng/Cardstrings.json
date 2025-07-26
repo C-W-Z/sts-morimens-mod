@@ -549,7 +549,7 @@
   },
   "${ModID}:SymptomEpilepsy": {
     "NAME": "Symptom: Epilepsy",
-    "DESCRIPTION": "Lose !M! HP, draw !${ModID}:DR! cards. NL Unremovable In Shop."
+    "DESCRIPTION": "{@@}Lose !M! HP, draw !${ModID}:DR! card{!${ModID}:DR!|>1=s}. NL Unremovable In Shop."
   },
   "${ModID}:SymptomMadness": {
     "NAME": "Symptom: Madness",
@@ -569,7 +569,7 @@
   },
   "${ModID}:SymptomSomniloquy": {
     "NAME": "Symptom: Somniloquy",
-    "DESCRIPTION": "Draw !${ModID}:DR! cards and add !M! \"Symptom: Somniloquy\" to the discard pile. NL Unremovable In Shop."
+    "DESCRIPTION": "{@@}Draw !${ModID}:DR! card{!${ModID}:DR!|>1=s} and add !M! \"Symptom: Somniloquy\" to the discard pile. NL Unremovable In Shop."
   },
   "${ModID}:SymptomHysteria": {
     "NAME": "Symptom: Hysteria",
