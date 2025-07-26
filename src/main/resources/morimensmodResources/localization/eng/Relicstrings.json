@@ -35,6 +35,11 @@
       "Gain #b%d stack of #y${ModID}:Negentropy at the end of each turn. The first time #y${ModID}:Loop is triggered each turn, gain #b%d stack of #yNegentropy."
     ]
   },
+  "${ModID}:WinkleRelic": {
+    "NAME": "Space-Time Fold",
+    "FLAVOR": "",
+    "DESCRIPTIONS": ["You can unleash #y${ModID}:Exalt twice per turn."]
+  },
   "${ModID}:LaurelCufflinks": {
     "NAME": "Laurel Cufflinks",
     "FLAVOR": "Silver cufflinks engraved with osmanthus leaf patterns. Finely crafted and gleaming, they once embodied the friendship of two children.",

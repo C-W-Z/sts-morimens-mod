@@ -28,6 +28,11 @@
       "每回合结束时获得 #b%d 层 #y${ModID}:负熵 。每回合首次触发 #y${ModID}:回环 时，获得 #b%d 层 #y负熵 。"
     ]
   },
+  "${ModID}:WinkleRelic": {
+    "NAME": "时空折跃",
+    "FLAVOR": "",
+    "DESCRIPTIONS": ["你每回合可以释放两次 #y${ModID}:狂气爆发 。"]
+  },
   "${ModID}:KleinBottleVoyager": {
     "NAME": "遗失的振响",
     "FLAVOR": "",

@@ -204,6 +204,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
         exalting = false;
         possing = false;
+        maxExaltPerTurn = NORMAL_MAX_EXALT_PER_TURN;
 
         aliemusLimit = NORMAL_ALIEMUS_LIMIT;
         extremeAlimus = 2 * NORMAL_ALIEMUS_LIMIT;
@@ -245,7 +246,6 @@ public abstract class AbstractAwakener extends CustomPlayer {
     // called in Main Mod File
     public static void onPlayerTurnStart() {
         exaltedThisTurn = 0;
-        maxExaltPerTurn = NORMAL_MAX_EXALT_PER_TURN;
 
         regularPossedThisTurn = 0;
         extraPossedThisTurn = 0;
@@ -383,6 +383,10 @@ public abstract class AbstractAwakener extends CustomPlayer {
             exalt.exalt();
 
         exalting = false;
+    }
+
+    public static void updateMaxExaltPerTurn(int count) {
+        maxExaltPerTurn += count;
     }
 
     public static void upgradeAliemusLimit(int amount) {
