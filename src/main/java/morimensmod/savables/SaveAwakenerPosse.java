@@ -4,7 +4,7 @@ import basemod.abstracts.CustomSavable;
 import morimensmod.cards.posses.AbstractPosse;
 import morimensmod.characters.AbstractAwakener;
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.util.Wiz.getAllPosses;
+import static morimensmod.util.CardLib.getAllPosses;
 import static morimensmod.util.Wiz.p;
 
 import java.lang.reflect.Type;

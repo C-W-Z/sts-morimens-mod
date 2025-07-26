@@ -569,15 +569,15 @@
   },
   "${ModID}:SymptomSomniloquy": {
     "NAME": "Symptom: Somniloquy",
-    "DESCRIPTION": "{@@}Draw !${ModID}:DR! card{!${ModID}:DR!|>1=s} and add !M! \"Symptom: Somniloquy\" to the discard pile. NL Unremovable In Shop."
+    "DESCRIPTION": "{@@}Draw !${ModID}:DR! card{!${ModID}:DR!|>1=s} and add !M! \"Symptom: Somniloquy\" to the Discard Pile. NL Unremovable In Shop."
   },
   "${ModID}:SymptomHysteria": {
     "NAME": "Symptom: Hysteria",
-    "DESCRIPTION": "Gain [E] and add !M! \"Symptom: Hysteria\" to the discard pile. NL Unremovable In Shop."
+    "DESCRIPTION": "Gain [E] and add !M! \"Symptom: Hysteria\" to the Discard Pile. NL Unremovable In Shop."
   },
   "${ModID}:SymptomObedience": {
     "NAME": "Symptom: Obedience",
-    "DESCRIPTION": "回合結束時若在手中, 將 !M! 張隨機 ${ModID}:症狀卡 加入抽牌堆."
+    "DESCRIPTION": "At the end of the turn, if in hand, !M! random ${ModID}:Symptom_Card will be added to the Draw Pile."
   },
   "${ModID}:SymptomExcitement": {
     "NAME": "Symptom: Excitement",

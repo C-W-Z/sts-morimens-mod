@@ -1,7 +1,7 @@
 package morimensmod.cards.posses;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.util.Wiz.getAllPosses;
+import static morimensmod.util.CardLib.getAllPosses;
 
 import java.util.ArrayList;
 import java.util.Collections;

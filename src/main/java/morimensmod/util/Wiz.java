@@ -24,11 +24,9 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
-import morimensmod.cards.posses.AbstractPosse;
 import morimensmod.patches.enums.CustomTags;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.enums.ColorPatch.CardColorPatch.POSSE_COLOR;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -348,22 +346,6 @@ public class Wiz {
         for (int i = 0; i < card.timesUpgraded; i++)
             c.upgrade();
         return c;
-    }
-
-    public static ArrayList<AbstractPosse> getAllPosses() {
-        ArrayList<AbstractPosse> pool = new ArrayList<>();
-        for (AbstractCard c : CardLibrary.getAllCards())
-            if (c.color == POSSE_COLOR)
-                pool.add((AbstractPosse) c.makeCopy());
-        return pool;
-    }
-
-    public static ArrayList<AbstractPosse> getAllPossesExcept(ArrayList<String> posseIDs) {
-        ArrayList<AbstractPosse> pool = new ArrayList<>();
-        for (AbstractCard c : CardLibrary.getAllCards())
-            if (c.color == POSSE_COLOR && !posseIDs.contains(c.cardID))
-                pool.add((AbstractPosse) c.makeCopy());
-        return pool;
     }
 
     // Wiz.* must used after receiveEditStrings() !

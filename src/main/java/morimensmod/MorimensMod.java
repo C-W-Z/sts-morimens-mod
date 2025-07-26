@@ -31,6 +31,7 @@ import morimensmod.savables.SaveAwakenerFloatProperties;
 import morimensmod.savables.SaveAwakenerPosse;
 import morimensmod.savables.SaveAwakenerProperties;
 import morimensmod.savables.SavePersistentPowers;
+import morimensmod.util.CardLib;
 import morimensmod.util.MonsterLib;
 import morimensmod.util.PersistentPowerLib;
 import morimensmod.util.ProAudio;
@@ -377,6 +378,8 @@ public class MorimensMod implements
         // Panel".
         BaseMod.registerModBadge(badgeTexture, info.Name, arrToString(info.Authors), info.Description,
                 new ConfigPanel());
+
+        CardLib.initialize();
 
         BaseMod.addEvent(new AddEventParams.Builder(Junction.ID, Junction.class).eventType(EventType.NORMAL).create());
 
