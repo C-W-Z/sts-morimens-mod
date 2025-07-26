@@ -553,7 +553,7 @@
   },
   "${ModID}:SymptomMadness": {
     "NAME": "Symptom: Madness",
-    "DESCRIPTION": "失去 !M! 點生命, Gain !${ModID}:A! ${ModID}:Aliemus. NL 無法在商店移除 "
+    "DESCRIPTION": "Lose !M! HP, gain !${ModID}:A! ${ModID}:Aliemus. NL Unremovable In Shop."
   },
   "${ModID}:SymptomWeakness": {
     "NAME": "Symptom: Weakness",
