@@ -64,6 +64,7 @@ However, all included art, animation, and other media assets are excluded from t
   - 繁衍狂热里的床 — 事件提供與建議
   - YourSchizophrenic 『N』 Fan — 遊戲測試與建議
   - 恆燐 — 遊戲建議
+  - 樱小路丶露娜 — 問題回報
 - **MegaCrit** — Slay the Spire
 - **BaseMod / ModTheSpire 社群** — 技術支援與模組框架
 
