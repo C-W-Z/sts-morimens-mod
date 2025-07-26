@@ -1,5 +1,6 @@
 package morimensmod.patches;
 
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.util.Wiz.p;
 
 import java.util.ArrayList;
@@ -20,7 +21,6 @@ import com.megacrit.cardcrawl.shop.ShopScreen;
 
 import javassist.CtBehavior;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.patches.enums.CustomTags;
 
 @SpirePatch2(clz = Merchant.class, method = SpirePatch.CONSTRUCTOR, paramtypez = { float.class, float.class,
         int.class })
@@ -37,7 +37,7 @@ public class ShopColorlessCardPatch {
         ArrayList<AbstractCard> rare_buffs = new ArrayList<>();
 
         for (AbstractCard c : CardLibrary.getAllCards()) {
-            if (!c.hasTag(CustomTags.BUFF))
+            if (c.color != BUFF_COLOR)
                 continue;
             if (c.rarity == CardRarity.RARE)
                 rare_buffs.add(c.makeCopy());

@@ -57,8 +57,29 @@ public class GeniusForesight extends AbstractEasyCard {
     }
 
     @Override
+    public boolean canUpgrade() {
+        return (timesUpgraded < 2);
+    }
+
+    @Override
+    protected void upgradeName() {
+        ++this.timesUpgraded;
+        this.upgraded = true;
+        this.name = cardStrings.NAME + "+" + this.timesUpgraded;
+        this.initializeTitle();
+    }
+
+    @Override
     public void upp() {
-        upgradeDraw(1);
-        upgradeMagicNumber(1);
+        switch (timesUpgraded) {
+            case 1:
+                upgradeMagicNumber(1);
+                break;
+            case 2:
+                upgradeDraw(1);
+                break;
+            default:
+                break;
+        }
     }
 }

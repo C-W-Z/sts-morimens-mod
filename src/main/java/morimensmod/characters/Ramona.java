@@ -4,6 +4,7 @@ import morimensmod.cards.chaos.AssaultThesis;
 import morimensmod.cards.chaos.Defend;
 import morimensmod.cards.chaos.QueensSword;
 import morimensmod.cards.chaos.Strike;
+import morimensmod.cards.chaos.rouse.FirstDoctrine;
 import morimensmod.config.ModSettings;
 import morimensmod.exalts.MundusDecree;
 import morimensmod.misc.Animator;
@@ -48,6 +49,7 @@ public class Ramona extends AbstractAwakener {
     public Ramona() {
         super(NAMES[0], Enums.RAMONA, getAnimation());
         exalt = new MundusDecree();
+        rouseCard = new FirstDoctrine();
         baseAliemusRegen = 0;
         baseKeyflareRegen = 60;
         deathResistance = 100;

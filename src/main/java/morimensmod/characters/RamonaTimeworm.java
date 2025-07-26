@@ -2,6 +2,7 @@ package morimensmod.characters;
 
 import morimensmod.cards.chaos.PredeterminedStrike;
 import morimensmod.cards.chaos.SightUnbound;
+import morimensmod.cards.chaos.rouse.EntropyUndone;
 import morimensmod.cards.chaos.unique.Defend_RamonaTimeworm;
 import morimensmod.cards.chaos.unique.Strike_RamonaTimeworm;
 import morimensmod.config.ModSettings;
@@ -48,6 +49,7 @@ public class RamonaTimeworm extends AbstractAwakener {
     public RamonaTimeworm() {
         super(NAMES[0], Enums.RamonaTimeworm, getAnimation());
         exalt = new ParadoxConverged();
+        rouseCard = new EntropyUndone();
         baseAliemusRegen = 0;
         baseKeyflareRegen = 60;
         deathResistance = 100;

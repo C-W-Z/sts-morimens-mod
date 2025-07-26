@@ -19,6 +19,8 @@ public class CustomTags {
     @SpireEnum
     public static CardTags POSSE;
     @SpireEnum
+    public static CardTags DERIVATIVE;
+    @SpireEnum
     public static CardTags DEFEND;
     @SpireEnum
     public static CardTags LOOP;

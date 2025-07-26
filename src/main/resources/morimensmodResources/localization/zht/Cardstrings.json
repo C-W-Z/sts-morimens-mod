@@ -218,7 +218,7 @@
     "DESCRIPTION": "選擇：獲得 !M! 點 [E] 或 抽 !${ModID}:DR! 張牌。",
     "EXTENDED_DESCRIPTION": [
       "能量",
-      "獲得 !M! 點 [E]",
+      "獲得 !M! 點 [E] 。",
       "抽牌",
       "抽 !${ModID}:DR! 張牌。"
     ]

@@ -4,6 +4,7 @@ import morimensmod.cards.chaos.BladeOfDefiance;
 import morimensmod.cards.chaos.Defend;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.cards.chaos.TidesOfHubris;
+import morimensmod.cards.chaos.rouse.BattleThirst;
 import morimensmod.config.ModSettings;
 import morimensmod.exalts.BeastOfChaos;
 import morimensmod.misc.Animator;
@@ -48,6 +49,7 @@ public class Lotan extends AbstractAwakener {
     public Lotan() {
         super(NAMES[0], Enums.LOTAN, getAnimation());
         exalt = new BeastOfChaos();
+        rouseCard = new BattleThirst();
         baseAliemusRegen = 0;
         baseKeyflareRegen = 25;
         deathResistance = 100;

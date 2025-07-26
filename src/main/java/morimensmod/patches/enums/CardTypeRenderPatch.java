@@ -33,9 +33,7 @@ public class CardTypeRenderPatch {
     public static class _CardTypeRenderPatch {
         @SpireInsertPatch(locator = Locator.class, localvars = { "text" })
         public static void Insert(AbstractCard __instance, SpriteBatch sb, @ByRef String[] text) {
-            if (__instance.color == DERIVATIVE_COLOR)
-                text[0] = DERIVATIVE_STRINGS.TEXT[0];
-            else if (__instance.hasTag(CustomTags.COMMAND))
+            if (__instance.hasTag(CustomTags.COMMAND))
                 text[0] = COMMAND_STRINGS.TEXT[0];
             else if (__instance.hasTag(CustomTags.ROUSE))
                 text[0] = ROUSE_STRINGS.TEXT[0];
@@ -49,6 +47,8 @@ public class CardTypeRenderPatch {
                 text[0] = STATUS_STRINGS.TEXT[0];
             else if (__instance.hasTag(CustomTags.POSSE))
                 text[0] = POSSE_STRINGS.TEXT[0];
+            if (__instance.color == DERIVATIVE_COLOR)
+                text[0] = DERIVATIVE_STRINGS.TEXT[0] + text[0];
         }
 
         private static class Locator extends SpireInsertLocator {
@@ -65,9 +65,7 @@ public class CardTypeRenderPatch {
         @SpireInsertPatch(locator = Locator.class, localvars = { "label" })
         public static void Insert(SingleCardViewPopup __instance, SpriteBatch sb, @ByRef String[] label,
                 AbstractCard ___card) {
-            if (___card.color == DERIVATIVE_COLOR)
-                label[0] = DERIVATIVE_STRINGS.TEXT[0];
-            else if (___card.hasTag(CustomTags.COMMAND))
+            if (___card.hasTag(CustomTags.COMMAND))
                 label[0] = COMMAND_STRINGS.TEXT[0];
             else if (___card.hasTag(CustomTags.ROUSE))
                 label[0] = ROUSE_STRINGS.TEXT[0];
@@ -81,6 +79,8 @@ public class CardTypeRenderPatch {
                 label[0] = STATUS_STRINGS.TEXT[0];
             else if (___card.hasTag(CustomTags.POSSE))
                 label[0] = POSSE_STRINGS.TEXT[0];
+            if (___card.color == DERIVATIVE_COLOR)
+                label[0] = DERIVATIVE_STRINGS.TEXT[0] + label[0];
         }
 
         private static class Locator extends SpireInsertLocator {
@@ -96,9 +96,7 @@ public class CardTypeRenderPatch {
     public static class SignatureCardTypeRenderPatch {
         @SpireInsertPatch(locator = Locator.class, localvars = { "text" })
         public static void Insert(AbstractSignatureCard __instance, SpriteBatch sb, @ByRef String[] text) {
-            if (__instance.color == DERIVATIVE_COLOR)
-                text[0] = DERIVATIVE_STRINGS.TEXT[0];
-            else if (__instance.hasTag(CustomTags.COMMAND))
+            if (__instance.hasTag(CustomTags.COMMAND))
                 text[0] = COMMAND_STRINGS.TEXT[0];
             else if (__instance.hasTag(CustomTags.ROUSE))
                 text[0] = ROUSE_STRINGS.TEXT[0];
@@ -112,6 +110,8 @@ public class CardTypeRenderPatch {
                 text[0] = STATUS_STRINGS.TEXT[0];
             else if (__instance.hasTag(CustomTags.POSSE))
                 text[0] = POSSE_STRINGS.TEXT[0];
+            if (__instance.color == DERIVATIVE_COLOR)
+                text[0] = DERIVATIVE_STRINGS.TEXT[0] + text[0];
         }
 
         private static class Locator extends SpireInsertLocator {
