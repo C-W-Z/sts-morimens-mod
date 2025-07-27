@@ -3,23 +3,16 @@ package morimensmod.cards.chaos;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
-import static morimensmod.util.Wiz.drawPile;
-import static morimensmod.util.Wiz.discardPile;
 import static morimensmod.util.Wiz.getPowerAmount;
 
-import java.util.ArrayList;
-
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.actions.MoveFromDrawPileAndChangeCostAction;
 import morimensmod.actions.MundusDecreeAction;
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.cards.PileModalSelectCard;
 import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.NegentropyPower;
 
@@ -38,28 +31,13 @@ public class SightUnbound extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         applyToSelf(new StrengthPower(p, magicNumber));
 
-        ArrayList<AbstractCard> cardList = new ArrayList<>();
-
         if (getPowerAmount(p, NegentropyPower.POWER_ID) >= NegentropyPower.INVOKE_AMOUNT) {
             addToBot(new ReducePowerAction(p, p, NegentropyPower.POWER_ID, NegentropyPower.INVOKE_AMOUNT));
 
-            for (AbstractCard c : drawPile().group) {
-                cardList.add(new PileModalSelectCard(c, () -> addToTop(new MundusDecreeAction(c))));
-            }
-
-            for (AbstractCard c : discardPile().group) {
-                cardList.add(new PileModalSelectCard(c, () -> addToTop(new MundusDecreeAction(c))));
-            }
+            addToBot(new MundusDecreeAction());
+        } else {
+            addToBot(new MoveFromDrawPileAndChangeCostAction(-thirdMagic));
         }
-        else
-        {
-            for (AbstractCard c : drawPile().group) {
-                cardList.add(new PileModalSelectCard(c,
-                        () -> addToTop(new MoveFromDrawPileAndChangeCostAction(c, -thirdMagic))));
-            }
-        }
-
-        addToBot(new EasyModalChoiceAction(cardList));
     }
 
     @Override

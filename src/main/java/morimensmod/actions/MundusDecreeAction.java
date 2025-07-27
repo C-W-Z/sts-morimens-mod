@@ -1,34 +1,18 @@
 package morimensmod.actions;
 
-import static morimensmod.util.Wiz.discardPile;
-import static morimensmod.util.Wiz.drawPile;
-
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.MultiGroupSelectAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 
-public class MundusDecreeAction extends AbstractGameAction {
+public class MundusDecreeAction extends MultiGroupSelectAction {
 
-    AbstractCard card;
-
-    public MundusDecreeAction(AbstractCard card) {
-        this.card = card;
-        this.actionType = ActionType.CARD_MANIPULATION;
-    }
-
-    @Override
-    public void update() {
-        if (drawPile().group.contains(card))
-        {
-            if (card.cost >= 0)
-                card.freeToPlayOnce = true;
-            drawPile().moveToHand(card);
-        }
-        else if (discardPile().group.contains(card))
-        {
-            if (card.cost >= 0)
-                card.freeToPlayOnce = true;
-            discardPile().moveToHand(card);
-        }
-        isDone = true;
+    public MundusDecreeAction() {
+        super("Select 1 card to move to hand", (cards, card2Group) -> {
+            for (AbstractCard c : cards) {
+                if (c.cost >= 0)
+                    c.freeToPlayOnce = true;
+                card2Group.get(c).moveToHand(c);
+            }
+        }, 1, CardGroupType.DRAW_PILE, CardGroupType.DISCARD_PILE);
     }
 }

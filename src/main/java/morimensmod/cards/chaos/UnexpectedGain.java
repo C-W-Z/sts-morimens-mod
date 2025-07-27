@@ -2,22 +2,16 @@ package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
-import static morimensmod.util.Wiz.drawPile;
 import static morimensmod.util.Wiz.actB;
-
-import java.util.ArrayList;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.actions.MoveFromDrawPileAndChangeCostAction;
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.cards.PileModalSelectCard;
 import morimensmod.patches.enums.CustomTags;
 
 public class UnexpectedGain extends AbstractEasyCard {
@@ -39,19 +33,12 @@ public class UnexpectedGain extends AbstractEasyCard {
                 dmgTop(m, AttackEffect.NONE);
             });
 
-        ArrayList<AbstractCard> cardList = new ArrayList<>();
-
         float r = AbstractDungeon.cardRandomRng.random();
         final int costReduce = (r < secondMagic / 100F) ? -2 : ((r < (magicNumber + secondMagic) / 100F) ? -1 : 0);
 
-        for (AbstractCard c : drawPile().group) {
-            cardList.add(new PileModalSelectCard(c,
-                    () -> addToTop(new MoveFromDrawPileAndChangeCostAction(c, costReduce))));
-        }
-
         addToBot(new WaitAction(Settings.ACTION_DUR_MED));
 
-        addToBot(new EasyModalChoiceAction(cardList));
+        addToBot(new MoveFromDrawPileAndChangeCostAction(costReduce));
     }
 
     @Override
