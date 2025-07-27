@@ -1,27 +1,30 @@
 package morimensmod.actions;
 
 import static morimensmod.util.Wiz.getCleanCopy;
+import static morimensmod.util.Wiz.isCommandCard;
+import static morimensmod.MorimensMod.makeID;
+import static morimensmod.util.Wiz.att;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 
 import basemod.helpers.CardModifierManager;
 import morimensmod.cardmodifiers.ExhaustModifier;
 
-public class TheLoneSeedAction extends AbstractGameAction {
+public class TheLoneSeedAction extends SelectCardsInHandAction {
 
-    AbstractCard cleanCopy;
+    private static final String TEXT = CardCrawlGame.languagePack
+            .getUIString(makeID(TheLoneSeedAction.class.getSimpleName())).TEXT[0];
 
-    public TheLoneSeedAction(AbstractCard card) {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.cleanCopy = getCleanCopy(card);
-    }
-
-    @Override
-    public void update() {
-        CardModifierManager.addModifier(cleanCopy, new ExhaustModifier());
-        addToTop(new MakeTempCardInHandAction(cleanCopy, 1));
-        isDone = true;
+    public TheLoneSeedAction() {
+        super(1, TEXT, c -> isCommandCard(c), cards -> {
+            for (AbstractCard c : cards) {
+                AbstractCard cleanCopy = getCleanCopy(c);
+                CardModifierManager.addModifier(cleanCopy, new ExhaustModifier());
+                att(new MakeTempCardInHandAction(cleanCopy, 1));
+            }
+        });
     }
 }

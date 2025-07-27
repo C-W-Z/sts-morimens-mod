@@ -16,6 +16,6 @@ public class MoveFromDrawPileAndChangeCostAction extends MultiGroupSelectAction 
                     CardModifierManager.addModifier(c, new ChangeCostUntilUseModifier(amount));
                 card2Group.get(c).moveToHand(c);
             }
-        }, 1, CardGroupType.DRAW_PILE, CardGroupType.DISCARD_PILE);
+        }, 1, CardGroupType.DRAW_PILE);
     }
 }

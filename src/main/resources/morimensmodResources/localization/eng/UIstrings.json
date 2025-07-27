@@ -62,6 +62,9 @@
   "${ModID}:EasyModalChoiceAction": {
     "TEXT": ["Choose ", " item(s)"]
   },
+  "${ModID}:TheLoneSeedAction": {
+    "TEXT": ["Place 1 Base Copy of it in your hand"]
+  },
   "${ModID}:AliemusChangeAction": {
     "TEXT": [" Aliemus"]
   },
