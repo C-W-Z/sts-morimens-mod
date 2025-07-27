@@ -41,14 +41,14 @@ public class LotanBoss extends AbstractAwakenableBoss {
         super(NAME, ID, 500, 310, x, y);
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_DMG) {
-            addDamage(11, 3);
-            addDamage(19, 1);
+            addDamage(10, 3);
+            addDamage(18, 1);
             addDamage(42, 1);
             addNoDamage();
         } else {
             addDamage(9, 3);
-            addDamage(16, 1);
-            addDamage(39, 1);
+            addDamage(15, 1);
+            addDamage(38, 1);
             addNoDamage();
         }
 
