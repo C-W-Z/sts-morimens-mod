@@ -3,9 +3,11 @@ package morimensmod.monsters.bosses;
 import static morimensmod.MorimensMod.makeCharacterPath;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.General.removeModID;
+import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.p;
 import static morimensmod.util.Wiz.shuffleIn;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.DamageCallbackAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -42,18 +44,18 @@ public class LeighBoss extends AbstractAwakenableBoss {
     private int strengthAmt = 5;
     private int unmePainAmt = 2;
     private int unmePainAmtRoused = 1;
-    private int bloodBarrierAmt = 372;
+    private static final float BLOOD_BARRIER_PERCENT = 0.25F;
 
     public LeighBoss(float x, float y) {
         super(NAME, ID, 500, 330, x, y);
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_DMG) {
             addNoDamage();
-            addDamage(17, 3);
+            addDamage(18, 3);
             addDamage(32, 1);
             addDamage(42, 1);
             addNoDamage();
-            addDamage(17, 3);
+            addDamage(18, 3);
             addDamage(32, 1);
         } else {
             addNoDamage();
@@ -67,32 +69,27 @@ public class LeighBoss extends AbstractAwakenableBoss {
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION) {
             strengthAmt = 7;
-            unmePainAmt = 2;
+            unmePainAmt = 3;
             unmePainAmtRoused = 2;
         } else {
             strengthAmt = 5;
             unmePainAmt = 2;
             unmePainAmtRoused = 1;
         }
-
-        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
-            bloodBarrierAmt = 447;
-        else
-            bloodBarrierAmt = 372;
     }
 
     @Override
     protected final int getMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
-            return 1190;
-        return 991;
+            return 991;
+        return 793;
     }
 
     @Override
     protected final int getRousedMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
-            return 1785;
-        return 1487;
+            return 1487;
+        return 1190;
     }
 
     @Override
@@ -205,7 +202,8 @@ public class LeighBoss extends AbstractAwakenableBoss {
                 addToBot(new VFXAction(this, new IntenseZoomEffect(this.hb.cX, this.hb.cY, true), 0.05F, true));
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ROUSE_ANIM));
                 addToBot(new NewWaitAction(23F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
-                addToBot(new ApplyPowerAction(this, this, new BloodBarrierPower(this, bloodBarrierAmt)));
+                actB(() -> addToTop(new ApplyPowerAction(this, this,
+                        new BloodBarrierPower(this, MathUtils.ceil(maxHealth * BLOOD_BARRIER_PERCENT)))));
                 break;
             case 5:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));

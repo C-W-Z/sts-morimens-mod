@@ -173,7 +173,7 @@ public class MonsterLib {
 
         bosses.put(LeighBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new LeighBoss(0, -8)
-        }, TheBeyond.ID, 0, new String[] {
+        }, TheCity.ID, 0, new String[] {
                 makeCharacterPath(removeModID(LeighBoss.LeighID) + "/MapIcon.png")
         }));
     }

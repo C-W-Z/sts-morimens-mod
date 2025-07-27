@@ -24,8 +24,9 @@ public class PainAndPleaurePower extends AbstractEasyPower {
 
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
-        addToBot(new ApplyPowerAction(owner, owner,
-                new ShieldOfPainAndPleaurePower(owner, MathUtils.ceil(damageAmount / 2F))));
+        if (damageAmount > 0)
+            addToTop(new ApplyPowerAction(owner, owner,
+                    new ShieldOfPainAndPleaurePower(owner, MathUtils.ceil(damageAmount / 2F))));
         return super.onAttacked(info, damageAmount);
     }
 

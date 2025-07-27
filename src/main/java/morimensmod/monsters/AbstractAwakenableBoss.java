@@ -99,7 +99,7 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
         super.damage(info);
         if (this.animation instanceof Animator && info.owner != null
                 && info.type != DamageInfo.DamageType.THORNS && info.output > 0) {
-            if (hp == currentHealth && block > 0 && currentBlock >= 0 && !info.owner.isPlayer)
+            if (hp == currentHealth && block > 0 && currentBlock >= 0 && info.owner.isPlayer)
                 ((Animator) this.animation).setAnimation(defenceAnim);
             else
                 ((Animator) this.animation).setAnimation(hitAnim);
