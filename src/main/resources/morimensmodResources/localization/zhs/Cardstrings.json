@@ -561,12 +561,20 @@
     "DESCRIPTION": "失去 !M! 点生命，获得双倍于该值的 格挡 。 NL 无法在商店移除 "
   },
   "${ModID}:SymptomSomniloquy": {
-    "NAME": "症状：谵语",
-    "DESCRIPTION": "抽 !${ModID}:DR! 张牌，将 !M! 张「症状：谵语」加入弃牌堆中。 NL 无法在商店移除 "
+    "NAME": "症状：呓语",
+    "DESCRIPTION": "抽 !${ModID}:DR! 张牌，将 !M! 张「症状：呓语」加入弃牌堆中。 NL 无法在商店移除 "
   },
   "${ModID}:SymptomHysteria": {
-    "NAME": "症状：臆想",
-    "DESCRIPTION": "获得 [E] ，将 !M! 张「症状：臆想」加入弃牌堆中。 NL 无法在商店移除 "
+    "NAME": "症状：癔想",
+    "DESCRIPTION": "获得 [E] ，将 !M! 张「症状：癔想」加入弃牌堆中。 NL 无法在商店移除 "
+  },
+  "${ModID}:SymptomDespondency": {
+    "NAME": "症状：颓丧",
+    "DESCRIPTION": "打出时获得 !M! 点 格挡 。抽到时失去 !${ModID}:A! ${ModID}:狂气 。"
+  },
+  "${ModID}:SymptomShock": {
+    "NAME": "症状：休克",
+    "DESCRIPTION": "打出时获得 !M! 点 ${ModID}:临时 力量 。抽到时降低 !${ModID}:M2! 点 ${ModID}:临时 力量 。"
   },
   "${ModID}:SymptomObedience": {
     "NAME": "症状：盲从",
@@ -578,7 +586,8 @@
   },
   "${ModID}:Wound": {
     "NAME": "伤口",
-    "DESCRIPTION": "一点小伤，无伤大体。受到 !M! 点伤害，抽 !${ModID}:DR! 张牌。 NL 弃掉时移除 "
+    "DESCRIPTION": "受到 !M! 点伤害，抽 !${ModID}:DR! 张牌。 NL 弃掉时移除 ",
+    "FLAVOR": "一点小伤，无伤大体。"
   },
   "${ModID}:Convulsion": {
     "NAME": "惊厥",

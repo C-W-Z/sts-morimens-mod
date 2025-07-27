@@ -36,6 +36,11 @@ public class AliemusChangeAction extends AbstractGameAction {
 
     @Override
     public void update() {
+        if (this.awaker == null) {
+            isDone = true;
+            return;
+        }
+
         if (amount > 0) {
 
             AbstractAwakener.changeAliemus(amount);

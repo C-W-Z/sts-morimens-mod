@@ -34,6 +34,7 @@ import static morimensmod.MorimensMod.*;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.*;
+import static morimensmod.util.CardLib.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;

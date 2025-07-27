@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
+import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -24,11 +25,10 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
-import morimensmod.cards.posses.AbstractPosse;
 import morimensmod.patches.enums.CustomTags;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.patches.enums.ColorPatch.CardColorPatch.POSSE_COLOR;
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -125,7 +125,8 @@ public class Wiz {
 
     public static boolean isInBossCombat() {
         return CardCrawlGame.isInARun() && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom() != null
-                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss;
+                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
+                && AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss;
     }
 
     public static void atb(AbstractGameAction action) {
@@ -350,22 +351,6 @@ public class Wiz {
         return c;
     }
 
-    public static ArrayList<AbstractPosse> getAllPosses() {
-        ArrayList<AbstractPosse> pool = new ArrayList<>();
-        for (AbstractCard c : CardLibrary.getAllCards())
-            if (c.color == POSSE_COLOR)
-                pool.add((AbstractPosse) c.makeCopy());
-        return pool;
-    }
-
-    public static ArrayList<AbstractPosse> getAllPossesExcept(ArrayList<String> posseIDs) {
-        ArrayList<AbstractPosse> pool = new ArrayList<>();
-        for (AbstractCard c : CardLibrary.getAllCards())
-            if (c.color == POSSE_COLOR && !posseIDs.contains(c.cardID))
-                pool.add((AbstractPosse) c.makeCopy());
-        return pool;
-    }
-
     // Wiz.* must used after receiveEditStrings() !
     private static final UIStrings MODIFIER_STRINGS = CardCrawlGame.languagePack.getUIString(makeID("CardModifiers"));
 
@@ -374,5 +359,14 @@ public class Wiz {
             if (rawDescription.contains(text))
                 return true;
         return false;
+    }
+
+    public static CardGroup getSymptomsInDeckForPurge() {
+        CardGroup purgable = AbstractDungeon.player.masterDeck.getPurgeableCards();
+        CardGroup retVal = new CardGroup(CardGroupType.UNSPECIFIED);
+        for (AbstractCard c : purgable.group)
+            if (c.color == SYMPTOM_COLOR)
+                retVal.group.add(c);
+        return retVal;
     }
 }

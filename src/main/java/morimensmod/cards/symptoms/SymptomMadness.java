@@ -2,26 +2,26 @@ package morimensmod.cards.symptoms;
 
 import static morimensmod.MorimensMod.makeID;
 
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import morimensmod.actions.AliemusChangeAction;
 import morimensmod.patches.enums.CustomTags;
 
-public class SymptomDelusion extends AbstractSymptomCard {
-    public final static String ID = makeID(SymptomDelusion.class.getSimpleName());
+public class SymptomMadness extends AbstractSymptomCard {
+    public final static String ID = makeID(SymptomMadness.class.getSimpleName());
 
-    public SymptomDelusion() {
+    public SymptomMadness() {
         super(ID, 0, CardTarget.SELF);
         tags.add(CustomTags.UNREMOVABLE_IN_SHOP);
         magicNumber = baseMagicNumber = 15; // 失去生命
-        secondMagic = baseSecondMagic = 2; // 獲得能量
+        aliemus = baseAliemus = 10;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new LoseHPAction(p, null, magicNumber));
-        addToBot(new GainEnergyAction(secondMagic));
+        addToBot(new AliemusChangeAction(p, aliemus));
     }
 }

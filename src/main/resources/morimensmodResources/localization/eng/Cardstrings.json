@@ -548,44 +548,53 @@
     "DESCRIPTION": "Lose !M! HP, gain [E] [E]. NL Unremovable In Shop."
   },
   "${ModID}:SymptomEpilepsy": {
-    "NAME": "Symptom: 癲癇",
-    "DESCRIPTION": "失去 !M! 點生命, 抽 !${ModID}:DR! 張牌. NL 無法在商店移除 "
+    "NAME": "Symptom: Epilepsy",
+    "DESCRIPTION": "{@@}Lose !M! HP, draw !${ModID}:DR! card{!${ModID}:DR!|>1=s}. NL Unremovable In Shop."
   },
   "${ModID}:SymptomMadness": {
-    "NAME": "Symptom: 瘋狂",
-    "DESCRIPTION": "失去 !M! 點生命, Gain !${ModID}:A! ${ModID}:Aliemus. NL 無法在商店移除 "
+    "NAME": "Symptom: Madness",
+    "DESCRIPTION": "Lose !M! HP, gain !${ModID}:A! ${ModID}:Aliemus. NL Unremovable In Shop."
   },
   "${ModID}:SymptomWeakness": {
-    "NAME": "Symptom: 衰弱",
-    "DESCRIPTION": "回合結束時若在手中, 自身 虛弱 !M! 回合.使用後 虛弱 所有敵人 !M! 回合. NL 無法在商店移除 "
+    "NAME": "Symptom: Weakness",
+    "DESCRIPTION": "{@@}At the end of the turn, if in hand, gain Weak for !M! turn{!M!|>1=s}. After use, apply Weak to all enemies for !M! turn{!M!|>1=s}. NL Unremovable In Shop."
   },
   "${ModID}:SymptomBreakdown": {
-    "NAME": "Symptom: 崩潰",
-    "DESCRIPTION": "回合結束時若在手中, 自身 脆弱 !M! 回合.使用後 易傷 所有敵人 !M! 回合. NL 無法在商店移除 "
+    "NAME": "Symptom: Breakdown",
+    "DESCRIPTION": "{@@}At the end of the turn, if in hand, gain Frail for !M! turn{!M!|>1=s}. After use, apply Vulnerable to all enemies for !M! turn{!M!|>1=s}. NL Unremovable In Shop."
   },
   "${ModID}:SymptomClaustrophobia": {
-    "NAME": "Symptom: 幽閉",
-    "DESCRIPTION": "失去 !M! 點生命, 獲得雙倍於該值的 Block. NL 無法在商店移除 "
+    "NAME": "Symptom: Claustrophobia",
+    "DESCRIPTION": "Lose !M! HP, gain double that amount in Block. NL Unremovable In Shop."
   },
   "${ModID}:SymptomSomniloquy": {
-    "NAME": "Symptom: 囈語",
-    "DESCRIPTION": "抽 !${ModID}:DR! 張牌, 將 !M! 張「Symptom: 囈語」加入棄牌堆中. NL 無法在商店移除 "
+    "NAME": "Symptom: Somniloquy",
+    "DESCRIPTION": "{@@}Draw !${ModID}:DR! card{!${ModID}:DR!|>1=s} and add !M! \"Symptom: Somniloquy\" to the Discard Pile. NL Unremovable In Shop."
   },
   "${ModID}:SymptomHysteria": {
-    "NAME": "Symptom: 癔想",
-    "DESCRIPTION": "獲得 [E] , 將 !M! 張「Symptom: 癔想」加入棄牌堆中. NL 無法在商店移除 "
+    "NAME": "Symptom: Hysteria",
+    "DESCRIPTION": "Gain [E] and add !M! \"Symptom: Hysteria\" to the Discard Pile. NL Unremovable In Shop."
   },
   "${ModID}:SymptomObedience": {
     "NAME": "Symptom: Obedience",
-    "DESCRIPTION": "回合結束時若在手中, 將 !M! 張隨機 ${ModID}:症狀卡 加入抽牌堆."
+    "DESCRIPTION": "At the end of the turn, if in hand, !M! random ${ModID}:Symptom_Card will be added to the Draw Pile."
+  },
+  "${ModID}:SymptomDespondency": {
+    "NAME": "Symptom: Despondency",
+    "DESCRIPTION": "Gain !M! Block when played. Lose !${ModID}:A! ${ModID}:Aliemus when drawn."
+  },
+  "${ModID}:SymptomShock": {
+    "NAME": "Symptom: Shock",
+    "DESCRIPTION": "Gain !M! ${ModID}:Temporary Strength when played. Reduce !${ModID}:M2! ${ModID}:Temporary Strength when drawn."
   },
   "${ModID}:SymptomExcitement": {
-    "NAME": "Symptom: 興奮",
+    "NAME": "Symptom: Excitement",
     "DESCRIPTION": ""
   },
   "${ModID}:Wound": {
     "NAME": "Wound",
-    "DESCRIPTION": "{@@}A minor injury, nothing serious. Take !M! damage. draw !${ModID}:DR! card{!${ModID}:DR!|>1=s}. NL Removed When Discarded."
+    "DESCRIPTION": "{@@}Take !M! damage. draw !${ModID}:DR! card{!${ModID}:DR!|>1=s}. NL Removed When Discarded.",
+    "FLAVOR": "A minor injury, nothing serious."
   },
   "${ModID}:Convulsion": {
     "NAME": "Convulsion",

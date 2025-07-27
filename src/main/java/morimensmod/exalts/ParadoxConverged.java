@@ -5,7 +5,7 @@ import static morimensmod.util.General.removeModID;
 import static morimensmod.util.Wiz.actionify;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.atb;
-import static morimensmod.util.Wiz.getAllPosses;
+import static morimensmod.util.CardLib.getAllPosses;
 import static morimensmod.util.Wiz.getCleanCopy;
 import static morimensmod.util.Wiz.isNonExhaustCommandCard;
 import static morimensmod.util.Wiz.makeInHand;
