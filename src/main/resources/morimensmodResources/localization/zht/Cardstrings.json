@@ -568,6 +568,14 @@
     "NAME": "症狀：癔想",
     "DESCRIPTION": "獲得 [E] ，將 !M! 張「症狀：癔想」加入棄牌堆中。 NL 無法在商店移除 "
   },
+  "${ModID}:SymptomDespondency": {
+    "NAME": "症狀：頹喪",
+    "DESCRIPTION": "打出時獲得 !M! 點 格擋 。抽到時失去 !${ModID}:A! ${ModID}:狂氣 。"
+  },
+  "${ModID}:SymptomShock": {
+    "NAME": "症狀：休克",
+    "DESCRIPTION": "打出時獲得 !M! 點 ${ModID}:臨時 力量 。抽到時降低 !${ModID}:M2! 點 ${ModID}:臨時 力量 。"
+  },
   "${ModID}:SymptomObedience": {
     "NAME": "症狀：盲從",
     "DESCRIPTION": "回合結束時若在手中，將 !M! 張隨機 ${ModID}:症狀卡 加入抽牌堆。"

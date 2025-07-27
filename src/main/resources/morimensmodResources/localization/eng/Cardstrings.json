@@ -579,6 +579,14 @@
     "NAME": "Symptom: Obedience",
     "DESCRIPTION": "At the end of the turn, if in hand, !M! random ${ModID}:Symptom_Card will be added to the Draw Pile."
   },
+  "${ModID}:SymptomDespondency": {
+    "NAME": "Symptom: Despondency",
+    "DESCRIPTION": "Gain !M! Block when played. Lose !${ModID}:A! ${ModID}:Aliemus when drawn."
+  },
+  "${ModID}:SymptomShock": {
+    "NAME": "Symptom: Shock",
+    "DESCRIPTION": "Gain !M! ${ModID}:Temporary Strength when played. Reduce !${ModID}:M2! ${ModID}:Temporary Strength when drawn."
+  },
   "${ModID}:SymptomExcitement": {
     "NAME": "Symptom: Excitement",
     "DESCRIPTION": ""
