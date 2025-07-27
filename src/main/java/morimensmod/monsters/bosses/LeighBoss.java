@@ -51,11 +51,11 @@ public class LeighBoss extends AbstractAwakenableBoss {
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_DMG) {
             addNoDamage();
-            addDamage(18, 3);
+            addDamage(17, 3);
             addDamage(32, 1);
             addDamage(42, 1);
             addNoDamage();
-            addDamage(18, 3);
+            addDamage(17, 3);
             addDamage(32, 1);
         } else {
             addNoDamage();
