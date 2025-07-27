@@ -2,7 +2,8 @@ package morimensmod.monsters;
 
 import static morimensmod.util.Wiz.actB;
 
-import com.megacrit.cardcrawl.actions.ClearCardQueueAction;
+import java.util.Collections;
+
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.unique.CanLoseAction;
@@ -15,11 +16,13 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import morimensmod.config.ModSettings;
 import morimensmod.misc.Animator;
+import morimensmod.powers.ImmunePower;
 
 public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
 
     private int moveID;
-    protected boolean roused;
+    private boolean roused;
+    private boolean preRoused; // 作用相當於halfDead，但不會有halfDead造成的奇怪狀況
     protected String hitAnim;
     protected String defenceAnim;
     protected String rouseAnim;
@@ -30,6 +33,7 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
         this.setHp(getMaxHP());
         this.moveID = getFirstMoveID();
         this.roused = false;
+        this.preRoused = false;
         this.setAnimStrings();
     }
 
@@ -52,6 +56,8 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
             return getRouseMoveID();
         return getNextMoveIDExceptRouse(_moveID);
     }
+
+    public boolean hasRoused() { return roused; }
 
     protected abstract int getMaxHP();
 
@@ -104,21 +110,27 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
             else
                 ((Animator) this.animation).setAnimation(hitAnim);
         }
-        if (this.currentHealth <= 0 && !this.halfDead) {
-            if (AbstractDungeon.getCurrRoom().cannotLose)
-                this.halfDead = true;
+        if (this.currentHealth <= 0 && !this.preRoused) {
+            if (!roused || AbstractDungeon.getCurrRoom().cannotLose) {
+                this.preRoused = true;
+            }
             for (AbstractPower p : this.powers)
                 p.onDeath();
             for (AbstractRelic r : AbstractDungeon.player.relics)
                 r.onMonsterDeath(this);
-            addToTop(new ClearCardQueueAction());
+            // addToTop(new ClearCardQueueAction());
+            addToTop(new ApplyPowerAction(this, this, new ImmunePower(this)));
             this.powers.removeIf(p -> p.ID == UnawakenedPower.POWER_ID);
+            Collections.sort(this.powers);
             moveID = getNextMoveID(moveID);
             setMoveIntent(moveID);
             createIntent();
             onHalfDead();
             // addToBot(new ShoutAction(this, monsterStrings.DIALOG[0]));
-            actB(() -> setMoveIntent(moveID));
+            // actB(() -> setMoveIntent(moveID));
+            setHp(getRousedMaxHP());
+            this.currentHealth = 0;
+            addToBot(new HealAction(this, this, this.maxHealth));
             applyPowers();
         }
     }
@@ -128,17 +140,14 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
         super.changeState(stateName);
         if (stateName != rouseAnim)
             return;
-        setHp(getRousedMaxHP());
-        this.currentHealth = 0;
-        this.halfDead = false;
-        this.roused = true;
-        addToBot(new HealAction(this, this, this.maxHealth));
+        this.preRoused = false;
+        actB(() -> this.roused = true);
         addToBot(new CanLoseAction());
     }
 
     @Override
     public final void die() {
-        if (!AbstractDungeon.getCurrRoom().cannotLose) {
+        if (roused && !AbstractDungeon.getCurrRoom().cannotLose) {
             super.die();
             useFastShakeAnimation(5.0F);
             CardCrawlGame.screenShake.rumble(4.0F);

@@ -148,7 +148,7 @@ public class LeighBoss extends AbstractAwakenableBoss {
             case 0: return 1;
             case 1: return lastMove((byte) 0) ? 1 : 2;
             case 2: return 3;
-            case 3: return roused ? 5 : 1;
+            case 3: return hasRoused() ? 5 : 1;
             case 4: return 3;
             case 5: return 6;
             case 6: return 3;
