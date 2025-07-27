@@ -57,22 +57,22 @@ public class LeighBoss extends AbstractAwakenableBoss {
             addDamage(29, 1);
             addDamage(40, 1);
             addNoDamage();
-            addDamage(15, 3);
+            addDamage(16, 3);
             addDamage(30, 1);
             unmetPainDamage = PainOfUnfulfilledDesires.DEFAULT_DAMAGE + 4;
         } else {
             addNoDamage();
-            addDamage(13, 3);
-            addDamage(26, 1);
+            addDamage(14, 3);
+            addDamage(27, 1);
             addDamage(35, 1);
             addNoDamage();
             addDamage(15, 3);
-            addDamage(27, 1);
+            addDamage(28, 1);
             unmetPainDamage = PainOfUnfulfilledDesires.DEFAULT_DAMAGE;
         }
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION) {
-            strengthAmt = 6;
+            strengthAmt = 7;
             unmetPainAmt = 3;
             unmetPainAmtRoused = 2;
         } else {
