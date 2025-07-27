@@ -92,6 +92,22 @@
       "At the end of each turn, remove #b%d stacks of #pWeak and #rVulnerable."
     ]
   },
+  "${ModID}:PainAndPleaurePower": {
+    "NAME": "Pain and Pleaure",
+    "DESCRIPTIONS": [
+      "When turn starts, gain #yBlock equal to half the HP lost last turn."
+    ]
+  },
+  "${ModID}:ShieldOfPainAndPleaurePower": {
+    "NAME": "Shield of Pain and Pleaure",
+    "DESCRIPTIONS": ["At the start of the next turn, gain #b%d #yBlock."]
+  },
+  "${ModID}:BloodBarrierPower": {
+    "NAME": "Blood Barrier",
+    "DESCRIPTIONS": [
+      "After losing #b%d HP, gain #yBlock equal to maximum HP. #b%d HP loss needed."
+    ]
+  },
   "${ModID}:FirstDoctrinePower": {
     "NAME": "First Doctrine",
     "DESCRIPTIONS": [

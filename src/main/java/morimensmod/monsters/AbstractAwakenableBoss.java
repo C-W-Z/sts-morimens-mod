@@ -19,8 +19,9 @@ import morimensmod.misc.Animator;
 public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
 
     private int moveID;
-    private boolean roused;
+    protected boolean roused;
     protected String hitAnim;
+    protected String defenceAnim;
     protected String rouseAnim;
 
     public AbstractAwakenableBoss(String name, String id, float hb_w, float hb_h, float x, float y) {
@@ -36,8 +37,9 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
      * Override Me
      */
     protected void setAnimStrings() {
-        hitAnim = ModSettings.PLAYER_HIT_ANIM;
-        rouseAnim = ModSettings.PLAYER_ROUSE_ANIM;
+        hitAnim     = ModSettings.PLAYER_HIT_ANIM;
+        defenceAnim = ModSettings.PLAYER_DEFENCE_ANIM;
+        rouseAnim   = ModSettings.PLAYER_ROUSE_ANIM;
     }
 
     @Override
@@ -92,10 +94,16 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
 
     @Override
     public final void damage(DamageInfo info) {
+        int hp = currentHealth;
+        int block = currentBlock;
         super.damage(info);
-        if (this.animation instanceof Animator
-                && info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > 0)
-            ((Animator) this.animation).setAnimation(hitAnim);
+        if (this.animation instanceof Animator && info.owner != null
+                && info.type != DamageInfo.DamageType.THORNS && info.output > 0) {
+            if (hp == currentHealth && block > 0 && currentBlock >= 0 && !info.owner.isPlayer)
+                ((Animator) this.animation).setAnimation(defenceAnim);
+            else
+                ((Animator) this.animation).setAnimation(hitAnim);
+        }
         if (this.currentHealth <= 0 && !this.halfDead) {
             if (AbstractDungeon.getCurrRoom().cannotLose)
                 this.halfDead = true;

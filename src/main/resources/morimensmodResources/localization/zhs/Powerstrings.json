@@ -80,6 +80,20 @@
     "NAME": "永不停歇的战意",
     "DESCRIPTIONS": ["每回合结束时，解除 #b%d 层 #p虚弱 和 #r易伤 状态。"]
   },
+  "${ModID}:PainAndPleaurePower": {
+    "NAME": "苦痛与欢愉",
+    "DESCRIPTIONS": ["回合开始时，获得上回合损失生命一半的 #y格挡 。"]
+  },
+  "${ModID}:ShieldOfPainAndPleaurePower": {
+    "NAME": "苦痛与欢愉护盾",
+    "DESCRIPTIONS": ["下回合开始时，获得 #b%d 点 #y格挡 。"]
+  },
+  "${ModID}:BloodBarrierPower": {
+    "NAME": "血之屏障",
+    "DESCRIPTIONS": [
+      "每损失 #b%d 点生命后，获得等于最大生命的 #y格挡 。还需要损失 #b%d 点生命。"
+    ]
+  },
   "${ModID}:FirstDoctrinePower": {
     "NAME": "第一哲学",
     "DESCRIPTIONS": [

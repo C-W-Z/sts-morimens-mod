@@ -64,14 +64,32 @@
     "DIALOG": [],
     "MOVES": []
   },
-  "${ModID}:SkulkerJenkin": {
-    "NAME": "\"Skulker\" Jenkin",
+  "${ModID}:JenkinBoss": {
+    "NAME": "\"Skulker\"",
     "DIALOG": [],
     "MOVES": ["致伤打击", "集结鼠群", "鼠群冲击", "布朗出动！ "]
   },
   "${ModID}:LotanBoss": {
     "NAME": "\"Whale Leap\"",
     "DIALOG": [],
-    "MOVES": ["Blade of Defiance", "Tides of Hubris", "Beast of Chaos", "Battle Thirst"]
+    "MOVES": [
+      "Blade of Defiance",
+      "Tides of Hubris",
+      "Beast of Chaos",
+      "Battle Thirst"
+    ]
+  },
+  "${ModID}:LeighBoss": {
+    "NAME": "\"Sanguivore Patient\"",
+    "DIALOG": [],
+    "MOVES": [
+      "Flatterer's Embrace",
+      "Agony",
+      "Pleasure",
+      "Blood",
+      "Sanguivore",
+      "Agony and Blood",
+      "Pleasure and Blood"
+    ]
   }
 }

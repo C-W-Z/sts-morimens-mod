@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import basemod.BaseMod;
 import basemod.BaseMod.GetMonsterGroup;
 import morimensmod.characters.Lotan;
+import morimensmod.monsters.bosses.LeighBoss;
 import morimensmod.monsters.bosses.LotanBoss;
 import morimensmod.monsters.elites.DevouringHowl;
 import morimensmod.monsters.elites.IronPickaxeLucen;
@@ -165,9 +166,15 @@ public class MonsterLib {
         }, Exordium.ID, 1));
 
         bosses.put(LotanBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
-                new LotanBoss(0, -20)
+                new LotanBoss(0, -8)
         }, TheCity.ID, 0, new String[] {
                 makeCharacterPath(removeModID(Lotan.ID) + "/MapIcon.png")
+        }));
+
+        bosses.put(LeighBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
+                new LeighBoss(0, -8)
+        }, TheBeyond.ID, 0, new String[] {
+                makeCharacterPath(removeModID(LeighBoss.LeighID) + "/MapIcon.png")
         }));
     }
 
