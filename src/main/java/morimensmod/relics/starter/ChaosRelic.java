@@ -53,6 +53,8 @@ public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse {
     @Override
     public void onEquip() {
         AbstractDungeon.topLevelEffects.add(new AbstractGameEffect() {
+
+            // TODO: 把這個triggered變成CustomSavable，且不只在onEquip觸發獲得，例如改在update中呼叫之類的
             private boolean triggered = false;
 
             @Override
