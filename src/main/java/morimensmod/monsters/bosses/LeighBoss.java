@@ -46,6 +46,7 @@ public class LeighBoss extends AbstractAwakenableBoss {
     private int unmetPainAmt = 2;
     private int unmetPainAmtRoused = 1;
     private static final float BLOOD_BARRIER_PERCENT = 0.25F;
+    private float bloodHealAmplify = 1F;
 
     public LeighBoss(float x, float y) {
         super(NAME, ID, 500, 330, x, y);
@@ -54,10 +55,10 @@ public class LeighBoss extends AbstractAwakenableBoss {
             addNoDamage();
             addDamage(15, 3);
             addDamage(29, 1);
-            addDamage(39, 1);
+            addDamage(40, 1);
             addNoDamage();
             addDamage(15, 3);
-            addDamage(29, 1);
+            addDamage(30, 1);
             unmetPainDamage = PainOfUnfulfilledDesires.DEFAULT_DAMAGE + 4;
         } else {
             addNoDamage();
@@ -66,7 +67,7 @@ public class LeighBoss extends AbstractAwakenableBoss {
             addDamage(35, 1);
             addNoDamage();
             addDamage(15, 3);
-            addDamage(29, 1);
+            addDamage(27, 1);
             unmetPainDamage = PainOfUnfulfilledDesires.DEFAULT_DAMAGE;
         }
 
@@ -79,6 +80,11 @@ public class LeighBoss extends AbstractAwakenableBoss {
             unmetPainAmt = 2;
             unmetPainAmtRoused = 1;
         }
+
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
+            bloodHealAmplify = 2F;
+        else
+            bloodHealAmplify = 1F;
     }
 
     @Override
@@ -228,7 +234,8 @@ public class LeighBoss extends AbstractAwakenableBoss {
     protected void bloodAction(int move, AttackEffect effect) {
         for (int i = 0; i < getAttackCount(move); i++)
             addToBot(new DamageCallbackAction(p(), damage.get(move), effect,
-                    unblockedDamage -> addToTop(new HealAction(this, this, unblockedDamage))));
+                    unblockedDamage -> addToTop(
+                            new HealAction(this, this, MathUtils.ceil(unblockedDamage * bloodHealAmplify)))));
     }
 
     @Override
