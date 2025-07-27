@@ -21,6 +21,10 @@
       "Negate the next #b%d active attack damage(s) received this round."
     ]
   },
+  "${ModID}:ImmunePower": {
+    "NAME": "Immune to Damage",
+    "DESCRIPTIONS": ["Immune to all damage, removed when turn starts."]
+  },
   "${ModID}:TraumaPower": {
     "NAME": "Trauma",
     "DESCRIPTIONS": [
