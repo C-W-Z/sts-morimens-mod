@@ -19,7 +19,7 @@ public class PainOfUnfulfilledDesires extends AbstractStatusCard {
     public PainOfUnfulfilledDesires() {
         super(ID, 0, CardRarity.COMMON, CardTarget.SELF);
         damageType = DamageType.NORMAL;
-        magicNumber = baseMagicNumber = 10; // 受傷
+        magicNumber = baseMagicNumber = 6; // 受傷
         secondMagic = baseSecondMagic = 1; // 臨時力量
         draw = baseDraw = 1;
         exhaust = true;

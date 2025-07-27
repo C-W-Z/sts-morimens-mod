@@ -36,7 +36,7 @@ public class UseCardActionPatch {
             Matcher matcher = new Matcher.FieldAccessMatcher(UseCardAction.class, "duration");
             int[] lines = LineFinder.findInOrder(ctMethodToPatch, matcher);
             // 插入點是 if (duration == 0.15F) 之後一行
-            return new int[]{lines[0] + 1};
+            return new int[] { lines[0] + 1 };
         }
     }
 }

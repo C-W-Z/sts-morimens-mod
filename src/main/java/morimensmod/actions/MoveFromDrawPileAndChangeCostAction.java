@@ -1,31 +1,21 @@
 package morimensmod.actions;
 
-import static morimensmod.util.Wiz.drawPile;
-
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.MultiGroupSelectAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 
 import basemod.helpers.CardModifierManager;
 import morimensmod.cardmodifiers.ChangeCostUntilUseModifier;
 
-public class MoveFromDrawPileAndChangeCostAction extends AbstractGameAction {
+public class MoveFromDrawPileAndChangeCostAction extends MultiGroupSelectAction {
 
-    AbstractCard card;
-
-    public MoveFromDrawPileAndChangeCostAction(AbstractCard card, int amount) {
-        this.card = card;
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.amount = amount;
-    }
-
-    @Override
-    public void update() {
-        if (drawPile().group.contains(card))
-        {
-            if (amount != 0)
-                CardModifierManager.addModifier(card, new ChangeCostUntilUseModifier(amount));
-            drawPile().moveToHand(card);
-        }
-        isDone = true;
+    public MoveFromDrawPileAndChangeCostAction(int amount) {
+        super("Select 1 card to move to hand", (cards, card2Group) -> {
+            for (AbstractCard c : cards) {
+                if (amount != 0)
+                    CardModifierManager.addModifier(c, new ChangeCostUntilUseModifier(amount));
+                card2Group.get(c).moveToHand(c);
+            }
+        }, 1, CardGroupType.DRAW_PILE);
     }
 }

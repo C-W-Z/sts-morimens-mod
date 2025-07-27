@@ -43,8 +43,8 @@ public class RamonaTimeworm extends AbstractAwakener {
     private static final String CHARSELECT_BUTTON = makeCharacterPath("RamonaTimeworm/button.png");
     private static final String CHARSELECT_PORTRAIT = makeCharacterPath("RamonaTimeworm/charBG.png");
 
-    private static final float xOffset = -22;
-    private static final float yOffset = -10;
+    private static final float xOffset = 0;
+    private static final float yOffset = -14;
 
     public RamonaTimeworm() {
         super(NAMES[0], Enums.RamonaTimeworm, getAnimation());

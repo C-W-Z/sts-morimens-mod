@@ -30,8 +30,8 @@ public class LotanBoss extends AbstractAwakenableBoss {
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
     public static final String NAME = monsterStrings.NAME;
 
-    private static final float xOffset = 0;
-    private static final float yOffset = 0;
+    private static final float xOffset = -1;
+    private static final float yOffset = -12;
 
     private int strengthAmt = 4;
     private int madnessAmt = 1;
@@ -41,7 +41,7 @@ public class LotanBoss extends AbstractAwakenableBoss {
         super(NAME, ID, 500, 310, x, y);
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_DMG) {
-            addDamage(12, 3);
+            addDamage(11, 3);
             addDamage(19, 1);
             addDamage(42, 1);
             addNoDamage();

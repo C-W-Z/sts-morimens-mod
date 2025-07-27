@@ -62,6 +62,9 @@
   "${ModID}:EasyModalChoiceAction": {
     "TEXT": ["选择 ", " 个"]
   },
+  "${ModID}:TheLoneSeedAction": {
+    "TEXT": ["将其1张原始复制置入手中"]
+  },
   "${ModID}:AliemusChangeAction": {
     "TEXT": ["狂气"]
   },

@@ -40,7 +40,7 @@ public class DevouringHowl extends AbstractMorimensMonster {
     }
 
     public DevouringHowl(float x, float y, int turnOffset) {
-        super(NAME, ID, getMaxHP(), 430F, 550F, x, y, turnOffset);
+        super(NAME, ID, getMaxHP(), 430F, 500F, x, y, turnOffset);
 
         this.type = EnemyType.ELITE;
 
