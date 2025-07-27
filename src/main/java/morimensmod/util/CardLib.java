@@ -32,6 +32,13 @@ public class CardLib {
         return pool;
     }
 
+    public static ArrayList<AbstractCard> getAllPosseCards() {
+        ArrayList<AbstractCard> pool = new ArrayList<>();
+        for (AbstractCard c : posses)
+            pool.add(c.makeCopy());
+        return pool;
+    }
+
     public static ArrayList<AbstractPosse> getAllPossesExcept(ArrayList<String> posseIDs) {
         ArrayList<AbstractPosse> pool = new ArrayList<>();
         for (AbstractPosse c : posses)

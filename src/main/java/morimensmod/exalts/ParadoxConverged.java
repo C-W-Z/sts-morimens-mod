@@ -6,6 +6,7 @@ import static morimensmod.util.Wiz.actionify;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.atb;
 import static morimensmod.util.CardLib.getAllPosses;
+import static morimensmod.util.CardLib.getAllPosseCards;
 import static morimensmod.util.Wiz.getCleanCopy;
 import static morimensmod.util.Wiz.isNonExhaustCommandCard;
 import static morimensmod.util.Wiz.makeInHand;
@@ -13,6 +14,7 @@ import static morimensmod.util.Wiz.p;
 
 import java.util.ArrayList;
 
+import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsCenteredAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -21,12 +23,10 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import basemod.helpers.CardModifierManager;
-import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.cardmodifiers.ChangeCostUntilUseModifier;
 import morimensmod.cardmodifiers.EtherealModifier;
 import morimensmod.cardmodifiers.ExhaustModifier;
-import morimensmod.cards.PileModalSelectCard;
 import morimensmod.cards.posses.AbstractPosse;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.config.ModSettings;
@@ -92,7 +92,7 @@ public class ParadoxConverged extends AbstractExalt implements OnAfterPosse {
 
     public void resetPosse() {
         if (originPosse != null) {
-            for (AbstractPosse p : getAllPosses()) {
+            for (AbstractCard p : getAllPosses()) {
                 if (p.cardID.equals(originPosse)) {
                     ((AbstractAwakener) p()).setPosse((AbstractPosse) p.makeCopy());
                     break;
@@ -128,14 +128,10 @@ public class ParadoxConverged extends AbstractExalt implements OnAfterPosse {
                 }
             })));
 
-        ArrayList<AbstractCard> cardList = new ArrayList<>();
-        for (AbstractPosse p : getAllPosses()) {
-            cardList.add(new PileModalSelectCard(p, () -> {
-                originPosse = ((AbstractAwakener) p()).getPosseID();
-                ((AbstractAwakener) p()).setPosse((AbstractPosse) p.makeCopy());
-            }));
-        }
-        atb(new EasyModalChoiceAction(cardList));
+        atb(new SelectCardsCenteredAction(getAllPosseCards(), "Select a Posse", cards -> {
+            originPosse = ((AbstractAwakener) p()).getPosseID();
+            ((AbstractAwakener) p()).setPosse((AbstractPosse) cards.get(0).makeCopy());
+        }));
     }
 
     @Override
@@ -159,14 +155,10 @@ public class ParadoxConverged extends AbstractExalt implements OnAfterPosse {
                     _c.freeToPlayOnce = true;
             })));
 
-        ArrayList<AbstractCard> cardList = new ArrayList<>();
-        for (AbstractPosse p : getAllPosses()) {
-            cardList.add(new PileModalSelectCard(p, () -> {
-                originPosse = ((AbstractAwakener) p()).getPosseID();
-                ((AbstractAwakener) p()).setPosse((AbstractPosse) p.makeCopy());
-            }));
-        }
-        atb(new EasyModalChoiceAction(cardList));
+        atb(new SelectCardsCenteredAction(getAllPosseCards(), "Select a Posse", cards -> {
+            originPosse = ((AbstractAwakener) p()).getPosseID();
+            ((AbstractAwakener) p()).setPosse((AbstractPosse) cards.get(0).makeCopy());
+        }));
     }
 
     @Override
