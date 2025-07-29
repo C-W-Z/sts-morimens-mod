@@ -16,10 +16,16 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 public class PainOfUnfulfilledDesires extends AbstractStatusCard {
     public final static String ID = makeID(PainOfUnfulfilledDesires.class.getSimpleName());
 
+    public static final int DEFAULT_DAMAGE = 6;
+
     public PainOfUnfulfilledDesires() {
+        this(DEFAULT_DAMAGE);
+    }
+
+    public PainOfUnfulfilledDesires(int damageToSelf) {
         super(ID, 0, CardRarity.COMMON, CardTarget.SELF);
         damageType = DamageType.NORMAL;
-        magicNumber = baseMagicNumber = 6; // 受傷
+        magicNumber = baseMagicNumber = damageToSelf; // 受傷
         secondMagic = baseSecondMagic = 1; // 臨時力量
         draw = baseDraw = 1;
         exhaust = true;

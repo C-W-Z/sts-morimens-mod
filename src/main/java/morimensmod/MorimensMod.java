@@ -23,6 +23,7 @@ import morimensmod.misc.TopPanelDeathResistanceUI;
 import morimensmod.misc.TopPanelTurnUI;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.powers.AbstractPersistentPower;
+import morimensmod.powers.ImmunePower;
 import morimensmod.relics.AbstractEasyRelic;
 import morimensmod.savables.SaveAwakenerFloatProperties;
 import morimensmod.savables.SaveAwakenerPosse;
@@ -57,6 +58,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.StanceStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
@@ -86,6 +88,7 @@ import org.scannotation.AnnotationDB;
 
 @SpireInitializer
 public class MorimensMod implements
+        PreMonsterTurnSubscriber,
         OnCardUseSubscriber,
         // OnPlayerTurnStartPostDrawSubscriber,
         OnPlayerTurnStartSubscriber,
@@ -446,5 +449,12 @@ public class MorimensMod implements
     public void receiveCardUsed(AbstractCard card) {
         if (p() instanceof AbstractAwakener)
             ((AbstractAwakener) p()).getExalt().onCardUse(card);
+    }
+
+    @Override
+    public boolean receivePreMonsterTurn(AbstractMonster monster) {
+        if (monster.hasPower(ImmunePower.POWER_ID))
+            return ImmunePower.onPreMonsterTurn(monster);
+        return true;
     }
 }

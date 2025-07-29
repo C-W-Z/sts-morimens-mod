@@ -42,7 +42,7 @@ public class InterferenceTypeDissolute extends AbstractMorimensMonster {
     public InterferenceTypeDissolute(float x, float y, int turnOffset) {
         super(NAME, ID, getMaxHP(), 240F, 450F, x, y, turnOffset);
 
-        int dmgAddition = AbstractDungeon.floorNum / 10;
+        int dmgAddition =  2 * AbstractDungeon.floorNum / 10;
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addNoDamage();

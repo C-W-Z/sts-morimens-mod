@@ -1,8 +1,10 @@
 package morimensmod.monsters;
 
-import static morimensmod.util.Wiz.actB;
+import static morimensmod.util.Wiz.actT;
 
-import com.megacrit.cardcrawl.actions.ClearCardQueueAction;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.unique.CanLoseAction;
@@ -15,11 +17,16 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import morimensmod.config.ModSettings;
 import morimensmod.misc.Animator;
+import morimensmod.powers.ImmunePower;
 
 public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
 
+    private static final Logger logger = LogManager.getLogger(AbstractAwakenableBoss.class);
+
     private int moveID;
-    protected boolean roused;
+    private boolean roused;
+    private boolean preRoused; // 作用相當於halfDead，但不會有halfDead造成的奇怪狀況
+    private boolean rebirthed; // 是否已經二階段重生過了，用於可以被穿刺傷害在轉階段殺死的判定
     protected String hitAnim;
     protected String defenceAnim;
     protected String rouseAnim;
@@ -30,6 +37,8 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
         this.setHp(getMaxHP());
         this.moveID = getFirstMoveID();
         this.roused = false;
+        this.preRoused = false;
+        this.rebirthed = false;
         this.setAnimStrings();
     }
 
@@ -37,9 +46,9 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
      * Override Me
      */
     protected void setAnimStrings() {
-        hitAnim     = ModSettings.PLAYER_HIT_ANIM;
+        hitAnim = ModSettings.PLAYER_HIT_ANIM;
         defenceAnim = ModSettings.PLAYER_DEFENCE_ANIM;
-        rouseAnim   = ModSettings.PLAYER_ROUSE_ANIM;
+        rouseAnim = ModSettings.PLAYER_ROUSE_ANIM;
     }
 
     @Override
@@ -52,6 +61,10 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
             return getRouseMoveID();
         return getNextMoveIDExceptRouse(_moveID);
     }
+
+    public boolean hasRoused() { return roused; }
+
+    public boolean hasRebirthed() { return rebirthed; }
 
     protected abstract int getMaxHP();
 
@@ -96,7 +109,7 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
     public final void damage(DamageInfo info) {
         int hp = currentHealth;
         int block = currentBlock;
-        super.damage(info);
+        super.superDamage(info);
         if (this.animation instanceof Animator && info.owner != null
                 && info.type != DamageInfo.DamageType.THORNS && info.output > 0) {
             if (hp == currentHealth && block > 0 && currentBlock >= 0 && info.owner.isPlayer)
@@ -104,22 +117,30 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
             else
                 ((Animator) this.animation).setAnimation(hitAnim);
         }
-        if (this.currentHealth <= 0 && !this.halfDead) {
-            if (AbstractDungeon.getCurrRoom().cannotLose)
-                this.halfDead = true;
+        if (this.currentHealth <= 0 && !this.preRoused) {
+            this.preRoused = true;
             for (AbstractPower p : this.powers)
                 p.onDeath();
             for (AbstractRelic r : AbstractDungeon.player.relics)
                 r.onMonsterDeath(this);
-            addToTop(new ClearCardQueueAction());
+            // addToTop(new ClearCardQueueAction());
             this.powers.removeIf(p -> p.ID == UnawakenedPower.POWER_ID);
+            // Collections.sort(this.powers);
             moveID = getNextMoveID(moveID);
             setMoveIntent(moveID);
             createIntent();
             onHalfDead();
             // addToBot(new ShoutAction(this, monsterStrings.DIALOG[0]));
-            actB(() -> setMoveIntent(moveID));
+            // actB(() -> setMoveIntent(moveID));
+            setHp(getRousedMaxHP());
+            this.currentHealth = 0;
+            addToTop(new CanLoseAction());
+            actT(() -> this.rebirthed = true);
+            addToTop(new HealAction(this, this, this.maxHealth));
+            addToTop(new ApplyPowerAction(this, this, new ImmunePower(this)));
             applyPowers();
+
+            logger.debug("isDying: " + isDying);
         }
     }
 
@@ -128,29 +149,26 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
         super.changeState(stateName);
         if (stateName != rouseAnim)
             return;
-        setHp(getRousedMaxHP());
-        this.currentHealth = 0;
-        this.halfDead = false;
+        this.preRoused = false;
         this.roused = true;
-        addToBot(new HealAction(this, this, this.maxHealth));
-        addToBot(new CanLoseAction());
     }
 
     @Override
     public final void die() {
-        if (!AbstractDungeon.getCurrRoom().cannotLose) {
-            super.die();
-            useFastShakeAnimation(5.0F);
-            CardCrawlGame.screenShake.rumble(4.0F);
-            // if (this.saidPower) {
-            //     CardCrawlGame.sound.play("VO_AWAKENEDONE_2");
-            //     AbstractDungeon.effectList.add(
-            //             new SpeechBubble(this.hb.cX + this.dialogX, this.hb.cY + this.dialogY, 2.5F, DIALOG[1], false));
-            //     this.saidPower = true;
-            // }
-            onBossVictoryLogic();
-            if (AbstractDungeon.actNum >= 3)
-                onFinalBossVictoryLogic();
-        }
+        if (!this.rebirthed)
+            return;
+        super.die();
+        useFastShakeAnimation(5.0F);
+        CardCrawlGame.screenShake.rumble(4.0F);
+        // if (this.saidPower) {
+        // CardCrawlGame.sound.play("VO_AWAKENEDONE_2");
+        // AbstractDungeon.effectList.add(
+        // new SpeechBubble(this.hb.cX + this.dialogX, this.hb.cY + this.dialogY, 2.5F,
+        // DIALOG[1], false));
+        // this.saidPower = true;
+        // }
+        onBossVictoryLogic();
+        if (AbstractDungeon.actNum >= 3)
+            onFinalBossVictoryLogic();
     }
 }

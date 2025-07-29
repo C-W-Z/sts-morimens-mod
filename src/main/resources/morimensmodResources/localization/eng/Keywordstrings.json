@@ -137,7 +137,7 @@
   {
     "PROPER_NAME": "Pierce Damage",
     "NAMES": ["Pierce Damage", "pierce_damage"],
-    "DESCRIPTION": "Damage reduce both #yBlock and HP, Cannot be bloced by #yBarrier."
+    "DESCRIPTION": "Damage reduce both #yBlock and HP, Cannot be immune."
   },
   {
     "PROPER_NAME": "Passive",
@@ -187,7 +187,7 @@
   {
     "PROPER_NAME": "Barrier [${ModID}:BarrierIcon]",
     "NAMES": ["Barrier", "barrier"],
-    "DESCRIPTION": "Negate the next active attack damage received."
+    "DESCRIPTION": "Immune to the next active attack damage received."
   },
   {
     "PROPER_NAME": "Marvelous Buff",

@@ -105,4 +105,8 @@ public abstract class AbstractMorimensMonster extends CustomMonster {
         if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > 0)
             ((Animator) this.animation).setAnimation(ModSettings.MONSTER_HIT_ANIM);
     }
+
+    protected void superDamage(DamageInfo info) {
+        super.damage(info);
+    }
 }

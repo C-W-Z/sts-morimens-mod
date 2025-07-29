@@ -19,6 +19,10 @@
     "NAME": "臨時屏障",
     "DESCRIPTIONS": ["阻止本回合下 #b%d 次受到的主動攻擊傷害。"]
   },
+  "${ModID}:ImmunePower": {
+    "NAME": "免疫傷害",
+    "DESCRIPTIONS": ["免疫一切傷害，回合開始後移除。"]
+  },
   "${ModID}:TraumaPower": {
     "NAME": "創傷",
     "DESCRIPTIONS": [
