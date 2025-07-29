@@ -4,6 +4,7 @@ import static morimensmod.MorimensMod.makeID;
 
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -24,6 +25,9 @@ public class ImmunePower extends AbstractEasyPower implements OnBeforeDamaged {
 
     @Override
     public int onBeforeDamaged(DamageInfo info, int damageAmount) {
+        // cannot immune to HP_LOSS (e.g. Pierce Damage)
+        if (info.type == DamageType.HP_LOSS)
+            return damageAmount;
         return 0;
     }
 

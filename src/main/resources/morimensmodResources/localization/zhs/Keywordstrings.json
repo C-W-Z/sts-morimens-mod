@@ -137,7 +137,7 @@
   {
     "PROPER_NAME": "穿刺伤害",
     "NAMES": ["穿刺伤害", "穿刺攻击", "PierceDMG"],
-    "DESCRIPTION": "同时对 #y格挡 与生命造成伤害。无视屏障。"
+    "DESCRIPTION": "同时对 #y格挡 与生命造成伤害。无法被免疫。"
   },
   {
     "PROPER_NAME": "被动",
@@ -187,7 +187,7 @@
   {
     "PROPER_NAME": "屏障 [${ModID}:BarrierIcon]",
     "NAMES": ["屏障", "Barrier"],
-    "DESCRIPTION": "阻止下次受到的主动攻击伤害。"
+    "DESCRIPTION": "免疫下次受到的主动攻击伤害。"
   },
   {
     "PROPER_NAME": "奇妙正面效果",
