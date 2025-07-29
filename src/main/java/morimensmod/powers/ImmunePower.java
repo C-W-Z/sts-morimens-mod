@@ -8,8 +8,10 @@ import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.interfaces.OnBeforeDamaged;
+import morimensmod.monsters.AbstractAwakenableBoss;
 
 public class ImmunePower extends AbstractEasyPower implements OnBeforeDamaged {
 
@@ -39,5 +41,12 @@ public class ImmunePower extends AbstractEasyPower implements OnBeforeDamaged {
     @Override
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
+    }
+
+    // Called in MorimensMod file
+    public static boolean onPreMonsterTurn(AbstractMonster monster) {
+        if (monster instanceof AbstractAwakenableBoss)
+            return false; // skip a turn if half killed by Poison or something at turn starts
+        return true;
     }
 }
