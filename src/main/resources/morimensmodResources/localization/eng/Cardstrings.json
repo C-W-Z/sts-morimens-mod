@@ -628,5 +628,21 @@
   "${ModID}:Unrestrained": {
     "NAME": "Unrestrained",
     "DESCRIPTION": "Gain !M! ${ModID}:Temporary Strength . All enemies gain !${ModID}:M2! ${ModID}:Temporary Strength. NL ${ModID}:Persistent. ${ModID}:Destroy."
+  },
+  "${ModID}:ShacklesLadyGovernor": {
+    "NAME": "Shackles: Lady Governor",
+    "DESCRIPTION": "Gain !M! Block, lose !${ModID}:M2! Dexterity."
+  },
+  "${ModID}:ShacklesTorturedSlave": {
+    "NAME": "Shackles: Tortured Slave",
+    "DESCRIPTION": "Heal !${ModID}:H! HP, lose all Block at the end of the turn."
+  },
+  "${ModID}:ShacklesDivineMaidenReturn": {
+    "NAME": "Shackles: Divine Maiden Return",
+    "DESCRIPTION": "Gain !M! ${ModID}:Temporary ${ModID}:Barrier, [E] permanently reduced by !${ModID}:M2!."
+  },
+  "${ModID}:ShacklesBladeAdrift": {
+    "NAME": "Shackles: Blade Adrift",
+    "DESCRIPTION": "Gain !M! ${ModID}:Temporary Strength. Lose an additional !${ModID}:M2! Strength at the end of the turn."
   }
 }

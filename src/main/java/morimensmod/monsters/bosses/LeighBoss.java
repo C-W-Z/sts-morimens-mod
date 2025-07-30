@@ -36,6 +36,7 @@ public class LeighBoss extends AbstractAwakenableBoss {
     public static final String ID = makeID(LeighBoss.class.getSimpleName());
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
     public static final String NAME = monsterStrings.NAME;
+    public static final String[] MOVES = monsterStrings.MOVES;
 
     public static final String LeighID = makeID("Leigh");
     private static final float xOffset = -20;
@@ -158,27 +159,13 @@ public class LeighBoss extends AbstractAwakenableBoss {
     @Override
     protected void setMoveIntent(int _moveID) {
         switch (_moveID) {
-            case 0:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.BUFF);
-                break;
-            case 1:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.ATTACK_DEBUFF);
-                break;
-            case 2:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.ATTACK_BUFF);
-                break;
-            case 3:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.ATTACK_BUFF);
-                break;
-            case 4:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.MAGIC);
-                break;
-            case 5:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.ATTACK_DEBUFF);
-                break;
-            case 6:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.ATTACK_BUFF);
-                break;
+            case 0: setIntent(MOVES[_moveID], _moveID, Intent.BUFF);            break;
+            case 1: setIntent(MOVES[_moveID], _moveID, Intent.ATTACK_DEBUFF);   break;
+            case 2: setIntent(MOVES[_moveID], _moveID, Intent.ATTACK_BUFF);     break;
+            case 3: setIntent(MOVES[_moveID], _moveID, Intent.ATTACK_BUFF);     break;
+            case 4: setIntent(MOVES[_moveID], _moveID, Intent.MAGIC);           break;
+            case 5: setIntent(MOVES[_moveID], _moveID, Intent.ATTACK_DEBUFF);   break;
+            case 6: setIntent(MOVES[_moveID], _moveID, Intent.ATTACK_BUFF);     break;
         }
     }
 
@@ -209,7 +196,7 @@ public class LeighBoss extends AbstractAwakenableBoss {
                 break;
             case 4:
                 addToBot(new VFXAction(this, new IntenseZoomEffect(this.hb.cX, this.hb.cY, true), 0.05F, true));
-                addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ROUSE_ANIM));
+                addToBot(new ChangeStateAction(this, rouseAnim));
                 addToBot(new NewWaitAction(23F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 actB(() -> addToTop(new ApplyPowerAction(this, this,
                         new BloodBarrierPower(this, MathUtils.ceil(maxHealth * BLOOD_BARRIER_PERCENT)))));

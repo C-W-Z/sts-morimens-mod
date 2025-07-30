@@ -91,5 +91,21 @@
       "Agony and Blood",
       "Pleasure and Blood"
     ]
+  },
+  "${ModID}:HelotBoss": {
+    "NAME": "\"Chainbreaker\"",
+    "DIALOG": [
+      "I was once the apple of your eye...",
+      "Is that a mercy not permitted?",
+      "I will forsake the life of the Holy Maiden.",
+      "Listen to the wrath of the avenger!"
+    ],
+    "MOVES": [
+      "Lasting Loathe",
+      "",
+      "Surviving Impasse",
+      "Vengeance Declaration",
+      "Shattering Strike"
+    ]
   }
 }

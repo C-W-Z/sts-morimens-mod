@@ -112,6 +112,12 @@
       "After losing #b%d HP, gain #yBlock equal to maximum HP. #b%d HP loss needed."
     ]
   },
+  "${ModID}:LoseAllBlockPower": {
+    "NAME": "Shackles: Father",
+    "DESCRIPTIONS": [
+      "Loss all #yBlocks at the end of the turn, lasting #b%d turns."
+    ]
+  },
   "${ModID}:FirstDoctrinePower": {
     "NAME": "First Doctrine",
     "DESCRIPTIONS": [

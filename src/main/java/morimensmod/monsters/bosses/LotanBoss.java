@@ -153,7 +153,7 @@ public class LotanBoss extends AbstractAwakenableBoss {
                 break;
             case 3:
                 addToBot(new VFXAction(this, new IntenseZoomEffect(this.hb.cX, this.hb.cY, true), 0.05F, true));
-                addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ROUSE_ANIM));
+                addToBot(new ChangeStateAction(this, rouseAnim));
                 addToBot(new NewWaitAction(31F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 addToBot(new ApplyPowerAction(this, this, new MadnessPower(this, madnessAmt)));
                 if (ceaselessFightingSpiritAmt > 0)

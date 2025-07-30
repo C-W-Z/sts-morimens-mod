@@ -98,6 +98,10 @@
       "每損失 #b%d 點生命後，獲得等於最大生命的 #y格擋 。還需要損失 #b%d 點生命。"
     ]
   },
+  "${ModID}:LoseAllBlockPower": {
+    "NAME": "枷鎖：生父",
+    "DESCRIPTIONS": ["回合結束時失去所有 #y格擋 ，持續 #b%d 回合。"]
+  },
   "${ModID}:FirstDoctrinePower": {
     "NAME": "第一哲學",
     "DESCRIPTIONS": [
