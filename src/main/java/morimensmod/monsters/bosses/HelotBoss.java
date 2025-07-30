@@ -56,20 +56,20 @@ public class HelotBoss extends AbstractAwakenableBoss {
             addDamage(43, 1);
             addNoDamage();
             addNoDamage();
-            addDamage(75, 1);
+            addDamage(80, 1);
         } else {
             addDamage(50, 1);
             addDamage(40, 1);
             addNoDamage();
             addNoDamage();
-            addDamage(70, 1);
+            addDamage(72, 1);
         }
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION) {
-            strengthAmt = 16;
+            strengthAmt = 18;
             rouseStrengthAmt = 27;
         } else {
-            strengthAmt = 12;
+            strengthAmt = 14;
             rouseStrengthAmt = 24;
         }
 
@@ -81,14 +81,14 @@ public class HelotBoss extends AbstractAwakenableBoss {
     protected final int getMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
             return 1188;
-        return 951;
+        return 1070; // 1188 x 0.9
     }
 
     @Override
     protected final int getRousedMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
             return 1740;
-        return 1392;
+        return 1566; // 1740 x 0.9
     }
 
     @Override

@@ -179,7 +179,7 @@ public class MonsterLib {
         }));
 
         bosses.put(HelotBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
-                new HelotBoss(0, -8)
+                new HelotBoss(0, 0)
         }, TheBeyond.ID, 0, new String[] {
                 makeCharacterPath(removeModID(HelotBoss.HelotID) + "/MapIcon.png")
         }));

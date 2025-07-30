@@ -26,7 +26,7 @@ public class PainOfUnfulfilledDesires_Status extends AbstractStatusCard {
         super(ID, 0, CardRarity.COMMON, CardTarget.SELF);
         damageType = DamageType.NORMAL;
         magicNumber = baseMagicNumber = damageToSelf; // 受傷
-        secondMagic = baseSecondMagic = 1; // 臨時力量
+        secondMagic = baseSecondMagic = 2; // 臨時力量
         draw = baseDraw = 1;
         exhaust = true;
         selfRetain = true;

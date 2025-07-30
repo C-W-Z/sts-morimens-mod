@@ -63,7 +63,7 @@ public class LeighBoss extends AbstractAwakenableBoss {
             unmetPainDamage = PainOfUnfulfilledDesires_Status.DEFAULT_DAMAGE + 4;
         } else {
             addNoDamage();
-            addDamage(14, 3);
+            addDamage(13, 3);
             addDamage(27, 1);
             addDamage(35, 1);
             addNoDamage();
@@ -73,7 +73,7 @@ public class LeighBoss extends AbstractAwakenableBoss {
         }
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION) {
-            strengthAmt = 7;
+            strengthAmt = 6;
             unmetPainAmt = 3;
             unmetPainAmtRoused = 2;
         } else {
@@ -91,14 +91,14 @@ public class LeighBoss extends AbstractAwakenableBoss {
     @Override
     protected final int getMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
-            return 991;
-        return 793;
+            return 991; // 991 x 0.9
+        return 793; // 991 x 0.8
     }
 
     @Override
     protected final int getRousedMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
-            return 1487;
+            return 1339; // 1487 x 0.9
         return 1190;
     }
 
