@@ -21,7 +21,9 @@ public class LoseAllBlockPower extends AbstractEasyPower {
     }
 
     @Override
-    public void atStartOfTurn() {
+    public void atEndOfTurn(boolean isPlayer) {
+        if (isPlayer != owner.isPlayer)
+            return;
         flash();
         actB(() -> addToTop(new LoseBlockAction(owner, owner, owner.currentBlock)));
         addToBot(new ReducePowerAction(owner, owner, this, 1));

@@ -609,7 +609,7 @@
     "NAME": "窒息",
     "DESCRIPTION": "回合結束時若在手中，獲得 !M! 層 中毒 。"
   },
-  "${ModID}:PainOfUnfulfilledDesires": {
+  "${ModID}:PainOfUnfulfilledDesires_Status": {
     "NAME": "未被滿足之痛",
     "DESCRIPTION": "對自身造成 !M! 點傷害，獲得 !${ModID}:M2! 點 ${ModID}:臨時 力量 ，抽 !${ModID}:DR! 張牌。"
   },

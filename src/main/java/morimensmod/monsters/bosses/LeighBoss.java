@@ -23,7 +23,7 @@ import com.megacrit.cardcrawl.vfx.combat.IntenseZoomEffect;
 import basemod.animations.AbstractAnimation;
 
 import morimensmod.actions.NewWaitAction;
-import morimensmod.cards.status.PainOfUnfulfilledDesires;
+import morimensmod.cards.status.PainOfUnfulfilledDesires_Status;
 import morimensmod.config.ModSettings;
 import morimensmod.config.ModSettings.ASCENSION_LVL;
 import morimensmod.misc.Animator;
@@ -43,7 +43,7 @@ public class LeighBoss extends AbstractAwakenableBoss {
     private static final float yOffset = -1;
 
     private int strengthAmt = 5;
-    private int unmetPainDamage = PainOfUnfulfilledDesires.DEFAULT_DAMAGE;
+    private int unmetPainDamage = PainOfUnfulfilledDesires_Status.DEFAULT_DAMAGE;
     private int unmetPainAmt = 2;
     private int unmetPainAmtRoused = 1;
     private static final float BLOOD_BARRIER_PERCENT = 0.25F;
@@ -60,7 +60,7 @@ public class LeighBoss extends AbstractAwakenableBoss {
             addNoDamage();
             addDamage(16, 3);
             addDamage(30, 1);
-            unmetPainDamage = PainOfUnfulfilledDesires.DEFAULT_DAMAGE + 4;
+            unmetPainDamage = PainOfUnfulfilledDesires_Status.DEFAULT_DAMAGE + 4;
         } else {
             addNoDamage();
             addDamage(14, 3);
@@ -69,7 +69,7 @@ public class LeighBoss extends AbstractAwakenableBoss {
             addNoDamage();
             addDamage(15, 3);
             addDamage(28, 1);
-            unmetPainDamage = PainOfUnfulfilledDesires.DEFAULT_DAMAGE;
+            unmetPainDamage = PainOfUnfulfilledDesires_Status.DEFAULT_DAMAGE;
         }
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION) {
@@ -181,7 +181,7 @@ public class LeighBoss extends AbstractAwakenableBoss {
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
                 addToBot(new NewWaitAction(7F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(_moveID, AttackEffect.SLASH_HORIZONTAL);
-                shuffleIn(new PainOfUnfulfilledDesires(unmetPainDamage), unmetPainAmt);
+                shuffleIn(new PainOfUnfulfilledDesires_Status(unmetPainDamage), unmetPainAmt);
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
@@ -205,7 +205,7 @@ public class LeighBoss extends AbstractAwakenableBoss {
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
                 addToBot(new NewWaitAction(7F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 bloodAction(_moveID, AttackEffect.SLASH_HORIZONTAL);
-                shuffleIn(new PainOfUnfulfilledDesires(unmetPainDamage), unmetPainAmtRoused);
+                shuffleIn(new PainOfUnfulfilledDesires_Status(unmetPainDamage), unmetPainAmtRoused);
                 break;
             case 6:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));

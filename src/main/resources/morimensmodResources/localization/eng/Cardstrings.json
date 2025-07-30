@@ -616,7 +616,7 @@
     "NAME": "Suffocation",
     "DESCRIPTION": "{@@}At the end of the turn, if in hand, gain !M! stack{!M!|>1=s} of Poison."
   },
-  "${ModID}:PainOfUnfulfilledDesires": {
+  "${ModID}:PainOfUnfulfilledDesires_Status": {
     "NAME": "Pain of Unfulfilled Desires",
     "DESCRIPTION": "{@@}Deal !M! damage to self. Gain !${ModID}:M2! ${ModID}:Temporary Strength, draw !${ModID}:DR! card{!${ModID}:DR!|>1=s}."
   },
