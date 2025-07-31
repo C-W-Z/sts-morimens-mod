@@ -105,11 +105,11 @@ public class LotanBoss extends AbstractAwakenableBoss {
         animator.addAnimation(
                 ModSettings.PLAYER_SKILL1_ANIM,
                 makeCharacterPath(removeModID(Lotan.ID) + "/" + ModSettings.PLAYER_SKILL1_ANIM + ".png"),
-                10, 4, 0, false, xOffset + 124F, yOffset - 103F);
+                10, 4, 0, false, xOffset + 54F, yOffset - 102F);
         animator.addAnimation(
                 ModSettings.PLAYER_SKILL2_ANIM,
                 makeCharacterPath(removeModID(Lotan.ID) + "/" + ModSettings.PLAYER_SKILL2_ANIM + ".png"),
-                6, 7, 0, false, xOffset + 119F, yOffset - 106F);
+                6, 7, 0, false, xOffset + 96F, yOffset - 106F);
         animator.setFlip(true, false);
         animator.setDefaultAnim(ModSettings.PLAYER_IDLE_ANIM);
         return animator;
