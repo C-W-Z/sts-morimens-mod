@@ -11,9 +11,15 @@ import com.megacrit.cardcrawl.powers.PoisonPower;
 public class Suffocation extends AbstractStatusCard {
     public final static String ID = makeID(Suffocation.class.getSimpleName());
 
+    public static final int DEFAULT_POISON = 3;
+
     public Suffocation() {
+        this(DEFAULT_POISON);
+    }
+
+    public Suffocation(int poison) {
         super(ID, 1, CardRarity.COMMON, CardTarget.NONE);
-        magicNumber = baseMagicNumber = 3; // 中毒
+        magicNumber = baseMagicNumber = poison; // 中毒
     }
 
     @Override
