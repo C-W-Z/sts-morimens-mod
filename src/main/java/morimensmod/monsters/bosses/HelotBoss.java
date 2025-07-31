@@ -113,11 +113,19 @@ public class HelotBoss extends AbstractAwakenableBoss {
         animator.addAnimation(
                 ModSettings.PLAYER_ROUSE_ANIM,
                 makeCharacterPath(removeModID(HelotID) + "/" + ModSettings.PLAYER_ROUSE_ANIM + ".png"),
-                9, 8, 0, false, xOffset + 70F, yOffset - 19F);
+                9, 8, 1, false, xOffset + 70F, yOffset - 19F);
         animator.addAnimation(
                 ModSettings.PLAYER_EXALT_ANIM,
                 makeCharacterPath(removeModID(HelotID) + "/" + ModSettings.PLAYER_EXALT_ANIM + ".png"),
                 11, 16, 0, false, xOffset + 55F, yOffset - 8F);
+        animator.addAnimation(
+                ModSettings.PLAYER_SKILL1_ANIM,
+                makeCharacterPath(removeModID(HelotID) + "/" + ModSettings.PLAYER_SKILL1_ANIM + ".png"),
+                9, 6, 3, false, xOffset + 20F, yOffset - 38F);
+        animator.addAnimation(
+                ModSettings.PLAYER_SKILL2_ANIM,
+                makeCharacterPath(removeModID(HelotID) + "/" + ModSettings.PLAYER_SKILL2_ANIM + ".png"),
+                8, 6, 1, false, xOffset + 145F, yOffset);
         animator.setFlip(true, false);
         animator.setDefaultAnim(ModSettings.PLAYER_IDLE_ANIM);
         return animator;
@@ -158,8 +166,8 @@ public class HelotBoss extends AbstractAwakenableBoss {
     protected void takeMoveAction(int _moveID) {
         switch (_moveID) {
             case 0:
-                addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(10F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                addToBot(new ChangeStateAction(this, ModSettings.PLAYER_SKILL1_ANIM));
+                addToBot(new NewWaitAction(12F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(_moveID, AttackEffect.SLASH_HORIZONTAL);
                 break;
             case 1:
@@ -177,7 +185,7 @@ public class HelotBoss extends AbstractAwakenableBoss {
             case 3:
                 addToBot(new VFXAction(this, new IntenseZoomEffect(this.hb.cX, this.hb.cY, true), 0.05F, true));
                 addToBot(new ChangeStateAction(this, rouseAnim));
-                addToBot(new NewWaitAction(30F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                addToBot(new NewWaitAction(29F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, rouseStrengthAmt)));
                 makeInHand(new ShacklesLadyGovernor());
                 makeInHand(new ShacklesTorturedSlave());
@@ -185,8 +193,8 @@ public class HelotBoss extends AbstractAwakenableBoss {
                 makeInHand(new ShacklesBladeAdrift());
                 break;
             case 4:
-                addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(10F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                addToBot(new ChangeStateAction(this, ModSettings.PLAYER_SKILL2_ANIM));
+                addToBot(new NewWaitAction(14F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(_moveID, AttackEffect.SLASH_HORIZONTAL);
                 break;
             default:

@@ -98,6 +98,18 @@ public class LotanBoss extends AbstractAwakenableBoss {
                 ModSettings.PLAYER_ROUSE_ANIM,
                 makeCharacterPath(removeModID(Lotan.ID) + "/" + ModSettings.PLAYER_ROUSE_ANIM + ".png"),
                 7, 10, 3, false, xOffset - 28F, yOffset);
+        animator.addAnimation(
+                ModSettings.PLAYER_EXALT_ANIM,
+                makeCharacterPath(removeModID(Lotan.ID) + "/" + ModSettings.PLAYER_EXALT_ANIM + ".png"),
+                15, 10, 9, false, xOffset + 45F, yOffset - 80F);
+        animator.addAnimation(
+                ModSettings.PLAYER_SKILL1_ANIM,
+                makeCharacterPath(removeModID(Lotan.ID) + "/" + ModSettings.PLAYER_SKILL1_ANIM + ".png"),
+                10, 4, 0, false, xOffset + 124F, yOffset - 103F);
+        animator.addAnimation(
+                ModSettings.PLAYER_SKILL2_ANIM,
+                makeCharacterPath(removeModID(Lotan.ID) + "/" + ModSettings.PLAYER_SKILL2_ANIM + ".png"),
+                6, 7, 0, false, xOffset + 119F, yOffset - 106F);
         animator.setFlip(true, false);
         animator.setDefaultAnim(ModSettings.PLAYER_IDLE_ANIM);
         return animator;
@@ -136,19 +148,19 @@ public class LotanBoss extends AbstractAwakenableBoss {
     protected void takeMoveAction(int _moveID) {
         switch (_moveID) {
             case 0:
-                addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(9F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                addToBot(new ChangeStateAction(this, ModSettings.PLAYER_SKILL1_ANIM));
+                addToBot(new NewWaitAction(10F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(_moveID, AttackEffect.SLASH_DIAGONAL);
                 break;
             case 1:
-                addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(9F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                addToBot(new ChangeStateAction(this, ModSettings.PLAYER_SKILL2_ANIM));
+                addToBot(new NewWaitAction(23F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(_moveID, AttackEffect.SLASH_HORIZONTAL);
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
                 break;
             case 2:
-                addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
-                addToBot(new NewWaitAction(9F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                addToBot(new ChangeStateAction(this, ModSettings.PLAYER_EXALT_ANIM));
+                addToBot(new NewWaitAction(56F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(_moveID, AttackEffect.SLASH_DIAGONAL);
                 break;
             case 3:
