@@ -1,6 +1,7 @@
 package morimensmod.monsters;
 
 import static morimensmod.util.Wiz.actT;
+import static morimensmod.util.Wiz.isInCombat;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -40,6 +41,9 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
         this.preRoused = false;
         this.rebirthed = false;
         this.setAnimStrings();
+
+        if (isInCombat() && !hasPower(UnawakenedPower.POWER_ID))
+            addToBot(new ApplyPowerAction(this, null, new UnawakenedPower(this)));
     }
 
     /**
@@ -100,8 +104,8 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
         // CardCrawlGame.music.unsilenceBGM();
         // AbstractDungeon.scene.fadeOutAmbiance();
         // AbstractDungeon.getCurrRoom().playBgmInstantly("BOSS_BEYOND");
-        AbstractDungeon.getCurrRoom().cannotLose = true;
-        addToBot(new ApplyPowerAction(this, this, new UnawakenedPower(this)));
+        if (!hasPower(UnawakenedPower.POWER_ID))
+            addToBot(new ApplyPowerAction(this, null, new UnawakenedPower(this)));
         preBattle();
     }
 
