@@ -11,8 +11,12 @@ import morimensmod.misc.Animator;
 
 public class CetaceanEffect extends AbstractGameEffect {
 
+    public static final String NAME = "Cetacean";
+
     protected static Animator animator;
     protected float x, y;
+
+    static { initializeAnimator(); }
 
     public CetaceanEffect() {
         this(getX(), getY(), false);
@@ -23,21 +27,21 @@ public class CetaceanEffect extends AbstractGameEffect {
     }
 
     public CetaceanEffect(float x, float y, boolean flipX) {
-        initializeAnimator(flipX);
+        animator.setFlip(flipX, false);
         this.x = x;
         this.y = y;
         this.duration = animator.getDuration();
+        animator.setAnimation(NAME, true);
     }
 
-    public static void initializeAnimator(boolean flipX) {
+    public static void initializeAnimator() {
         animator = new Animator();
         animator.addAnimation(
-                "Cetacean",
-                makeVFXPath("Cetacean.png"),
-                7, 5, 2, false, -108, 96);
-        animator.setFlip(flipX, false);
+                NAME,
+                makeVFXPath(NAME + ".png"),
+                7, 5, 2, false, -108, 0);
         animator.setScale(1.5F);
-        animator.setDefaultAnim("Cetacean");
+        animator.setDefaultAnim(NAME);
     }
 
     protected static float getX() {
@@ -60,7 +64,7 @@ public class CetaceanEffect extends AbstractGameEffect {
 
     @Override
     public void render(SpriteBatch sb) {
-        animator.renderSprite(sb, x, y);
+        animator.renderSprite(sb, x, y + AbstractDungeon.sceneOffsetY);
     }
 
     @Override
