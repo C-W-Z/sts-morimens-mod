@@ -15,6 +15,10 @@ import com.megacrit.cardcrawl.core.Settings;
 import morimensmod.config.ModSettings;
 import morimensmod.util.TexLoader;
 
+/**
+ * @deprecated
+ */
+@Deprecated
 public class SpriteSheetAnimation {
 
     private static final Logger logger = LogManager.getLogger(SpriteSheetAnimation.class);

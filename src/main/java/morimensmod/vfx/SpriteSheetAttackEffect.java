@@ -7,6 +7,10 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import morimensmod.misc.SpriteSheetAnimation;
 
+/**
+ * @deprecated
+ */
+@Deprecated
 public class SpriteSheetAttackEffect extends AbstractGameEffect {
     private SpriteSheetAnimation animation;
     private float x, y;
