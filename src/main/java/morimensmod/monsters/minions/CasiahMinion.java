@@ -56,7 +56,7 @@ public class CasiahMinion extends AbstractMinion {
 
     @Override
     protected void onSummon() {
-        addToBot(new ApplyPowerAction(this, this, new BarrierPower(this, barrierAmt)));
+        addPower(new BarrierPower(this, barrierAmt));
     }
 
     @Override

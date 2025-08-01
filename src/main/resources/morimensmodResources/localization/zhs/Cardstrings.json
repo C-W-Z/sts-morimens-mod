@@ -637,5 +637,9 @@
   "${ModID}:ShacklesBladeAdrift": {
     "NAME": "枷锁：彷徨的利刃",
     "DESCRIPTION": "获得 !M! 点 ${ModID}:临时 力量 ，回合结束时额外失去 !${ModID}:M2! 点 力量 。"
+  },
+  "${ModID}:Joker": {
+    "NAME": "鬼牌",
+    "DESCRIPTION": "对自身造成 !M! 点伤害，抽 !${ModID}:DR! 张牌。"
   }
 }

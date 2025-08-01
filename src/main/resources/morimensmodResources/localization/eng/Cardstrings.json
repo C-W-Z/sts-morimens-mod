@@ -644,5 +644,9 @@
   "${ModID}:ShacklesBladeAdrift": {
     "NAME": "Shackles: Blade Adrift",
     "DESCRIPTION": "Gain !M! ${ModID}:Temporary Strength. Lose an additional !${ModID}:M2! Strength at the end of the turn."
+  },
+  "${ModID}:Joker": {
+    "NAME": "Joker",
+    "DESCRIPTION": "{@@}Deal !M! damage to self, draw !${ModID}:DR! card{!${ModID}:DR!|>1=s}."
   }
 }

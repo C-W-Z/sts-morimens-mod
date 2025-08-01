@@ -107,5 +107,27 @@
       "Vengeance Declaration",
       "Shattering Strike"
     ]
+  },
+  "${ModID}:CasiahBoss": {
+    "NAME": "\"The Magician\"",
+    "DIALOG": [
+      "Welcome to the incredible realm!",
+      "Here comes the opening tribute!",
+      "Since you no longer want it, why not make it disappear?",
+      "It doesn't matter which one you choose, it's useless!"
+    ],
+    "MOVES": [
+      "Magic Carnival",
+      "Magic Card: Weakening",
+      "Poof!",
+      "Magic Card: Penetration",
+      "Telekinesis",
+      "Opening Act"
+    ]
+  },
+  "${ModID}:CasiahMinion": {
+    "NAME": "\"The Magician's Doppelganger\"",
+    "DIALOG": [],
+    "MOVES": ["Surprise!"]
   }
 }
