@@ -1,10 +1,11 @@
 package morimensmod.monsters.minions;
 
+import static morimensmod.MorimensMod.makeCharacterPath;
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.util.General.removeModID;
 import static morimensmod.util.Wiz.topDeck;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -15,6 +16,7 @@ import morimensmod.actions.NewWaitAction;
 import morimensmod.cards.status.Joker;
 import morimensmod.config.ModSettings;
 import morimensmod.config.ModSettings.ASCENSION_LVL;
+import morimensmod.misc.Animator;
 import morimensmod.powers.BarrierPower;
 
 public class CasiahMinion extends AbstractMinion {
@@ -23,6 +25,10 @@ public class CasiahMinion extends AbstractMinion {
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
     public static final String NAME = monsterStrings.NAME;
     public static final String[] MOVES = monsterStrings.MOVES;
+
+    public static final String CasiahID = makeID("Casiah");
+    private static final float xOffset = -40;
+    private static final float yOffset = -3;
 
     private int jokerDmg = Joker.DEFAULT_DAMAGE;
     private int jokerAmt = 1;
@@ -61,8 +67,18 @@ public class CasiahMinion extends AbstractMinion {
 
     @Override
     protected AbstractAnimation getAnimation() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAnimation'");
+        Animator animator = new Animator();
+        animator.addAnimation(
+                ModSettings.PLAYER_IDLE_ANIM,
+                makeCharacterPath(removeModID(CasiahID) + "/" + ModSettings.PLAYER_IDLE_ANIM + ".png"),
+                7, 9, 2, true, xOffset, yOffset);
+        animator.addAnimation(
+                ModSettings.PLAYER_ATTACK_ANIM,
+                makeCharacterPath(removeModID(CasiahID) + "/" + ModSettings.PLAYER_ATTACK_ANIM + ".png"),
+                5, 7, 2, false, xOffset + 31F, yOffset);
+        animator.setFlip(true, false);
+        animator.setDefaultAnim(ModSettings.PLAYER_IDLE_ANIM);
+        return animator;
     }
 
     @Override
