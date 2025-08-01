@@ -175,6 +175,14 @@ public class Wiz {
         topDeck(c, 1);
     }
 
+    public static void addToDiscard(AbstractCard c, int i) {
+        atb(new MakeTempCardInDiscardAction(c, i));
+    }
+
+    public static void addToDiscardTop(AbstractCard c, int i) {
+        att(new MakeTempCardInDiscardAction(c, i));
+    }
+
     public static void applyToEnemy(AbstractMonster m, AbstractPower po) {
         atb(new ApplyPowerAction(m, AbstractDungeon.player, po, po.amount));
     }

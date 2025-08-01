@@ -76,6 +76,14 @@ public class CasiahMinion extends AbstractMinion {
                 ModSettings.PLAYER_ATTACK_ANIM,
                 makeCharacterPath(removeModID(CasiahID) + "/" + ModSettings.PLAYER_ATTACK_ANIM + ".png"),
                 5, 7, 2, false, xOffset + 31F, yOffset);
+        animator.addAnimation(
+                ModSettings.PLAYER_DEFENCE_ANIM,
+                makeCharacterPath(removeModID(CasiahID) + "/" + ModSettings.PLAYER_DEFENCE_ANIM + ".png"),
+                6, 7, 1, false, xOffset + 42F, yOffset - 2F);
+        animator.addAnimation(
+                ModSettings.PLAYER_HIT_ANIM,
+                makeCharacterPath(removeModID(CasiahID) + "/" + ModSettings.PLAYER_HIT_ANIM + ".png"),
+                4, 5, 0, false, xOffset - 59F, yOffset - 14F);
         animator.setFlip(true, false);
         animator.setDefaultAnim(ModSettings.PLAYER_IDLE_ANIM);
         return animator;

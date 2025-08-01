@@ -1,9 +1,9 @@
 package morimensmod.cards.symptoms;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.util.Wiz.addToDiscard;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -22,6 +22,6 @@ public class SymptomSomniloquy extends AbstractSymptomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DrawCardAction(draw));
-        addToBot(new MakeTempCardInDiscardAction(new SymptomSomniloquy(), magicNumber));
+        addToDiscard(new SymptomSomniloquy(), magicNumber);
     }
 }

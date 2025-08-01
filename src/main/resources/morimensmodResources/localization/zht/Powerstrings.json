@@ -1,7 +1,11 @@
 {
+  "${ModID}:DrawLessPower": {
+    "NAME": "抽牌數降低",
+    "DESCRIPTIONS": ["下回合開始時，少抽 #b%d 張牌。"]
+  },
   "${ModID}:LoseThornsPower": {
     "NAME": "荊棘叢生",
-    "DESCRIPTIONS": ["回合開始時，失去 #b%d 層 #y荊棘 。"]
+    "DESCRIPTIONS": ["下回合開始時，失去 #b%d 層 #y荊棘 。"]
   },
   "${ModID}:SealPower": {
     "NAME": "封印",

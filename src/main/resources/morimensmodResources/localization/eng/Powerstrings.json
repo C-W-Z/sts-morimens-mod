@@ -1,7 +1,11 @@
 {
+  "${ModID}:DrawLessPower": {
+    "NAME": "Draw Less Power",
+    "DESCRIPTIONS": ["At the start of the next turn, draw #b%d fewer cards."]
+  },
   "${ModID}:LoseThornsPower": {
     "NAME": "Lose Thorns",
-    "DESCRIPTIONS": ["At the start of turn, lose #b%d layers of #yThorns."]
+    "DESCRIPTIONS": ["At the start of the next turn, lose #b%d layers of #yThorns."]
   },
   "${ModID}:SealPower": {
     "NAME": "Seal",
