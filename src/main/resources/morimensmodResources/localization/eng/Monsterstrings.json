@@ -71,7 +71,7 @@
   },
   "${ModID}:LotanBoss": {
     "NAME": "\"Whale Leap\"",
-    "DIALOG": [],
+    "DIALOG": ["\"Lotan\""],
     "MOVES": [
       "Blade of Defiance",
       "Tides of Hubris",

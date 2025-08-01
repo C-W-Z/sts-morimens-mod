@@ -71,7 +71,7 @@
   },
   "${ModID}:LotanBoss": {
     "NAME": "「鲸跃」",
-    "DIALOG": [],
+    "DIALOG": ["「萝坦」"],
     "MOVES": ["桀骜之刃", "恣睢之浪", "混沌之兽", "战欲难平"]
   },
   "${ModID}:LeighBoss": {

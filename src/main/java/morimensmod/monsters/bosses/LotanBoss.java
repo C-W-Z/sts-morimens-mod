@@ -32,7 +32,6 @@ public class LotanBoss extends AbstractAwakenableBoss {
 
     public static final String ID = makeID(LotanBoss.class.getSimpleName());
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
-    public static final String NAME = monsterStrings.NAME;
 
     private static final float xOffset = -1;
     private static final float yOffset = -12;
@@ -48,8 +47,17 @@ public class LotanBoss extends AbstractAwakenableBoss {
         HARD
     }
 
+    protected static String getName(LVL lvl) {
+        switch (lvl) {
+            case HARD:
+                return monsterStrings.NAME;
+            default:
+                return monsterStrings.DIALOG[0];
+        }
+    }
+
     public LotanBoss(float x, float y, LVL lvl) {
-        super(NAME, ID, 500, 310, x, y);
+        super(getName(lvl), ID, 500, 310, x, y);
         this.lvl = lvl;
         switch (lvl) {
             case MEDIUM:
