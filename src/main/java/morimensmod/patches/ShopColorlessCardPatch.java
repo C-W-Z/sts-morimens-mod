@@ -41,7 +41,7 @@ public class ShopColorlessCardPatch {
                 continue;
             if (c.rarity == CardRarity.RARE)
                 rare_buffs.add(c.makeCopy());
-            else
+            else if (c.rarity == CardRarity.UNCOMMON || c.rarity == CardRarity.COMMON)
                 unrare_buffs.add(c.makeCopy());
         }
 

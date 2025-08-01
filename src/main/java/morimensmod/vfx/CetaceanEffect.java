@@ -3,6 +3,7 @@ package morimensmod.vfx;
 import static morimensmod.MorimensMod.makeVFXPath;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
@@ -22,14 +23,14 @@ public class CetaceanEffect extends AbstractGameEffect {
         this(getX(), getY(), false);
     }
 
-    public CetaceanEffect(float x, float y) {
-        this(x, y, false);
+    public CetaceanEffect(float centerX, float bottomY) {
+        this(centerX, bottomY, false);
     }
 
-    public CetaceanEffect(float x, float y, boolean flipX) {
+    public CetaceanEffect(float centerX, float bottomY, boolean flipX) {
         animator.setFlip(flipX, false);
-        this.x = x;
-        this.y = y;
+        this.x = centerX;
+        this.y = bottomY;
         this.duration = animator.getDuration();
         animator.setAnimation(NAME, true);
     }
@@ -39,27 +40,26 @@ public class CetaceanEffect extends AbstractGameEffect {
         animator.addAnimation(
                 NAME,
                 makeVFXPath(NAME + ".png"),
-                7, 5, 2, false, -108, 0);
+                7, 5, 2, false, -108, -80);
         animator.setScale(1.5F);
         animator.setDefaultAnim(NAME);
     }
 
     protected static float getX() {
+        if (AbstractDungeon.getMonsters().monsters.isEmpty())
+            return 3 * Settings.WIDTH / 4;
         float centerX = 0f;
         for (AbstractMonster m : AbstractDungeon.getMonsters().monsters)
             centerX += m.hb.cX;
-        if (!AbstractDungeon.getMonsters().monsters.isEmpty())
-            centerX /= AbstractDungeon.getMonsters().monsters.size();
+        centerX /= AbstractDungeon.getMonsters().monsters.size();
         return centerX;
     }
 
     protected static float getY() {
-        float centerY = 0f;
+        float bottomY = Settings.HEIGHT / 2F;
         for (AbstractMonster m : AbstractDungeon.getMonsters().monsters)
-            centerY += m.hb.cY - m.hb.height / 4;
-        if (!AbstractDungeon.getMonsters().monsters.isEmpty())
-            centerY /= AbstractDungeon.getMonsters().monsters.size();
-        return centerY;
+            bottomY = Math.min(bottomY, m.hb.cY - m.hb.height / 2);
+        return bottomY;
     }
 
     @Override

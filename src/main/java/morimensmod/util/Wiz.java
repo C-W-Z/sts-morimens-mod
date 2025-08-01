@@ -124,9 +124,7 @@ public class Wiz {
     }
 
     public static boolean isInBossCombat() {
-        return CardCrawlGame.isInARun() && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom() != null
-                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
-                && AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss;
+        return isInCombat() && AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss;
     }
 
     public static void atb(AbstractGameAction action) {

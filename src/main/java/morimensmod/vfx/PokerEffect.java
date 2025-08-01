@@ -17,10 +17,10 @@ public class PokerEffect extends AbstractGameEffect {
 
     static { initializeAnimator(); }
 
-    public PokerEffect(int variety, float x, float y, boolean flipX) {
+    public PokerEffect(int variety, float centerX, float bottomY, boolean flipX) {
         animator.setFlip(flipX, false);
-        this.x = x;
-        this.y = y;
+        this.x = centerX;
+        this.y = bottomY;
         this.duration = animator.getDuration();
         animator.setAnimation(NAMES[variety], true);
     }

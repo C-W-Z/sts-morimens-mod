@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.powers.StrengthPower;
@@ -163,8 +164,9 @@ public class LotanBoss extends AbstractAwakenableBoss {
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_EXALT_ANIM));
-                addToBot(new NewWaitAction(53F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
-                addToBot(new VFXAction(new CetaceanEffect(p().hb.cX, p().hb.cY, true), 3F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                addToBot(new NewWaitAction(52F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                addToBot(new VFXAction(new CetaceanEffect(p().hb.cX, p().hb.cY, true),
+                        4F / ModSettings.SPRITE_SHEET_ANIMATION_FPS * (Settings.FAST_MODE ? 0.5F : 1F)));
                 attackAction(_moveID, AttackEffect.NONE);
                 break;
             case 3:
