@@ -52,11 +52,11 @@ public class HelotBoss extends AbstractAwakenableBoss {
         super(NAME, ID, 500, 330, x, y);
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_DMG) {
-            addDamage(53, 1);
-            addDamage(43, 1);
+            addDamage(53, 1); // 53
+            addDamage(43, 1); // 43
             addNoDamage();
             addNoDamage();
-            addDamage(80, 1);
+            addDamage(80, 1); // 75
         } else {
             addDamage(50, 1);
             addDamage(40, 1);

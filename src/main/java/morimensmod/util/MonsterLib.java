@@ -167,7 +167,7 @@ public class MonsterLib {
         }, Exordium.ID, 1));
 
         bosses.put(LotanBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
-                new LotanBoss(0, 0)
+                new LotanBoss(0, 0, LotanBoss.LVL.MEDIUM)
         }, TheCity.ID, 0, new String[] {
                 makeCharacterPath(removeModID(Lotan.ID) + "/MapIcon.png")
         }));
@@ -182,6 +182,12 @@ public class MonsterLib {
                 new HelotBoss(0, 0)
         }, TheBeyond.ID, 0, new String[] {
                 makeCharacterPath(removeModID(HelotBoss.HelotID) + "/MapIcon.png")
+        }));
+
+        bosses.put(LotanBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
+                new LotanBoss(0, 0, LotanBoss.LVL.HARD)
+        }, TheBeyond.ID, 0, new String[] {
+                makeCharacterPath(removeModID(Lotan.ID) + "/MapIcon.png")
         }));
     }
 

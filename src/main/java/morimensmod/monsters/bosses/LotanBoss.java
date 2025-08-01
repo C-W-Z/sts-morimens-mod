@@ -37,46 +37,94 @@ public class LotanBoss extends AbstractAwakenableBoss {
     private static final float xOffset = -1;
     private static final float yOffset = -12;
 
+    private LVL lvl;
+
     private int strengthAmt = 4;
     private int madnessAmt = 1;
     private int ceaselessFightingSpiritAmt = 0;
 
-    public LotanBoss(float x, float y) {
+    public enum LVL {
+        MEDIUM,
+        HARD
+    }
+
+    public LotanBoss(float x, float y, LVL lvl) {
         super(NAME, ID, 500, 310, x, y);
-
-        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_DMG) {
-            addDamage(10, 3);
-            addDamage(18, 1);
-            addDamage(42, 1);
-            addNoDamage();
-        } else {
-            addDamage(9, 3);
-            addDamage(15, 1);
-            addDamage(38, 1);
-            addNoDamage();
-        }
-
-        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION) {
-            strengthAmt = 5;
-            ceaselessFightingSpiritAmt = 1;
-        } else {
-            strengthAmt = 4;
-            ceaselessFightingSpiritAmt = 0;
+        this.lvl = lvl;
+        switch (lvl) {
+            case MEDIUM:
+                if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_DMG) {
+                    addDamage(10, 3);
+                    addDamage(18, 1);
+                    addDamage(42, 1);
+                    addNoDamage();
+                } else {
+                    addDamage(9, 3);
+                    addDamage(15, 1);
+                    addDamage(38, 1);
+                    addNoDamage();
+                }
+                if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION) {
+                    strengthAmt = 5;
+                    ceaselessFightingSpiritAmt = 0;
+                } else {
+                    strengthAmt = 4;
+                    ceaselessFightingSpiritAmt = 0;
+                }
+                break;
+            case HARD:
+                if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_DMG) {
+                    addDamage(15, 3); // 14x3
+                    addDamage(32, 1); // 32
+                    addDamage(51, 1); // 51
+                    addNoDamage();
+                } else {
+                    addDamage(14, 3);
+                    addDamage(30, 1);
+                    addDamage(48, 1);
+                    addNoDamage();
+                }
+                if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION) {
+                    strengthAmt = 5;
+                    ceaselessFightingSpiritAmt = 1;
+                } else {
+                    strengthAmt = 4;
+                    ceaselessFightingSpiritAmt = 0;
+                }
+                break;
+            default:
+                break;
         }
     }
 
     @Override
     protected final int getMaxHP() {
-        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
-            return 720;
-        return 650;
+        switch (lvl) {
+            default:
+            case MEDIUM:
+                if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
+                    return 732;
+                return 650;
+            case HARD:
+                if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
+                    return 1083; // 1083
+                return 975; // 1083 x 0.9
+        }
     }
 
     @Override
     protected final int getRousedMaxHP() {
-        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
-            return 1080;
-        return 975;
+        switch (lvl) {
+            default:
+            case MEDIUM:
+                if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
+                    return 1097;
+                return 975;
+            case HARD:
+                if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
+                    return 1625; // 1625
+                return 1463; // 1625 x 0.9
+        }
     }
 
     @Override
@@ -120,14 +168,21 @@ public class LotanBoss extends AbstractAwakenableBoss {
     }
 
     @Override
-    protected final int getFirstMoveID() { return 2; }
+    protected final int getFirstMoveID() {
+        switch (lvl) {
+            case HARD:
+                return 2;
+            default:
+                return 0;
+        }
+    }
 
     @Override
     protected final int getRouseMoveID() { return 3; }
 
     @Override
     protected int getNextMoveIDExceptRouse(int _moveID) {
-        // 2 -> 0 -> 1 loop
+        // 0 -> 1 -> 2 loop; HARD: 2 -> 0 -> 1 loop
         // 3 -> (0 -> 1 -> 2 loop)
         switch (_moveID) {
             default:
