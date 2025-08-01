@@ -136,14 +136,22 @@ public abstract class AbstractAwakener extends CustomPlayer {
         int hp = currentHealth;
         int block = currentBlock;
         super.damage(info);
-        if (!(this.animation instanceof Animator))
-            return;
         if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > 0) {
             if (hp == currentHealth && block > 0 && currentBlock >= 0 && !info.owner.isPlayer)
-                ((Animator) this.animation).setAnimation(ModSettings.PLAYER_DEFENCE_ANIM);
+                setAnimation(ModSettings.PLAYER_DEFENCE_ANIM);
             else
-                ((Animator) this.animation).setAnimation(ModSettings.PLAYER_HIT_ANIM);
+                setAnimation(ModSettings.PLAYER_HIT_ANIM);
         }
+    }
+
+    public void setAnimation(String name) {
+        setAnimation(name, false);
+    }
+
+    public void setAnimation(String name, boolean forceReset) {
+        if (!(this.animation instanceof Animator))
+            return;
+        ((Animator) this.animation).setAnimation(name, forceReset);
     }
 
     public void setPosse(AbstractPosse posse) {

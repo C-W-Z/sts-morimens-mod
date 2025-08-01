@@ -78,6 +78,18 @@ public class Lotan extends AbstractAwakener {
                 ModSettings.PLAYER_ROUSE_ANIM,
                 makeCharacterPath(removeModID(ID) + "/" + ModSettings.PLAYER_ROUSE_ANIM + ".png"),
                 7, 10, 3, false, xOffset - 28F, yOffset);
+        animator.addAnimation(
+                ModSettings.PLAYER_EXALT_ANIM,
+                makeCharacterPath(removeModID(Lotan.ID) + "/" + ModSettings.PLAYER_EXALT_ANIM + ".png"),
+                15, 10, 9, false, xOffset + 45F, yOffset - 80F);
+        animator.addAnimation(
+                ModSettings.PLAYER_SKILL1_ANIM,
+                makeCharacterPath(removeModID(Lotan.ID) + "/" + ModSettings.PLAYER_SKILL1_ANIM + ".png"),
+                10, 4, 0, false, xOffset + 54F, yOffset - 102F);
+        animator.addAnimation(
+                ModSettings.PLAYER_SKILL2_ANIM,
+                makeCharacterPath(removeModID(Lotan.ID) + "/" + ModSettings.PLAYER_SKILL2_ANIM + ".png"),
+                6, 7, 0, false, xOffset + 96F, yOffset - 106F);
         animator.setDefaultAnim(ModSettings.PLAYER_IDLE_ANIM);
         return animator;
     }

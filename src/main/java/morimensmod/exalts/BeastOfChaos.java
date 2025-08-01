@@ -27,14 +27,16 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.helpers.CardModifierManager;
+import morimensmod.actions.NewWaitAction;
 import morimensmod.cardmodifiers.EtherealModifier;
 import morimensmod.cardmodifiers.ExhaustModifier;
 import morimensmod.cards.NullCard;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.characters.Lotan;
 import morimensmod.config.ModSettings;
+import morimensmod.vfx.CetaceanEffect;
 import morimensmod.vfx.LargPortraitFlashInEffect;
-import morimensmod.vfx.SpriteSheetAttackEffect;
 
 public class BeastOfChaos extends AbstractExalt {
 
@@ -69,23 +71,12 @@ public class BeastOfChaos extends AbstractExalt {
 
         atb(new RemoveSpecificPowerAction(p(), p(), WeakPower.POWER_ID));
 
-        float centerX = 0f;
-        float centerY = 0f;
-        int count = 0;
-        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-            centerX += m.hb.cX;
-            centerY += m.hb.cY - m.hb.height / 4;
-            count++;
-        }
-        if (count > 0) {
-            centerX /= count;
-            centerY /= count;
+        if (p() instanceof Lotan) {
+            ((Lotan) p()).setAnimation(ModSettings.PLAYER_EXALT_ANIM);
+            atb(new NewWaitAction(53F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
         }
 
-        atb(new VFXAction(new SpriteSheetAttackEffect(
-                "Cetacean", 7, 5, 2,
-                centerX, centerY, -108, 96, false, false),
-                0F));
+        atb(new VFXAction(new CetaceanEffect(), 3F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
 
         actB(() -> {
             for (int i = 0; i < 2; i++) {

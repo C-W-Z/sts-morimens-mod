@@ -3,6 +3,8 @@ package morimensmod.monsters.bosses;
 import static morimensmod.MorimensMod.makeCharacterPath;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.General.removeModID;
+import static morimensmod.util.Wiz.p;
+
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -23,6 +25,7 @@ import morimensmod.misc.Animator;
 import morimensmod.monsters.AbstractAwakenableBoss;
 import morimensmod.powers.monster.CeaselessFightingSpiritPower;
 import morimensmod.powers.monster.MadnessPower;
+import morimensmod.vfx.CetaceanEffect;
 
 public class LotanBoss extends AbstractAwakenableBoss {
 
@@ -160,8 +163,9 @@ public class LotanBoss extends AbstractAwakenableBoss {
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_EXALT_ANIM));
-                addToBot(new NewWaitAction(56F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
-                attackAction(_moveID, AttackEffect.SLASH_DIAGONAL);
+                addToBot(new NewWaitAction(53F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                addToBot(new VFXAction(new CetaceanEffect(p().hb.cX, p().hb.cY, true), 3F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                attackAction(_moveID, AttackEffect.NONE);
                 break;
             case 3:
                 addToBot(new VFXAction(this, new IntenseZoomEffect(this.hb.cX, this.hb.cY, true), 0.05F, true));
