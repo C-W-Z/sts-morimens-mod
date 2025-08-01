@@ -184,7 +184,7 @@ public class MonsterLib {
                 makeCharacterPath(removeModID(HelotBoss.HelotID) + "/MapIcon.png")
         }));
 
-        bosses.put(LotanBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
+        bosses.put(LotanBoss.ID + LotanBoss.LVL.HARD.name(), new MonsterEncounter(() -> new AbstractMonster[] {
                 new LotanBoss(0, 0, LotanBoss.LVL.HARD)
         }, TheBeyond.ID, 0, new String[] {
                 makeCharacterPath(removeModID(Lotan.ID) + "/MapIcon.png")

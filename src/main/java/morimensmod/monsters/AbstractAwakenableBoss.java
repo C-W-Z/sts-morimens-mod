@@ -1,6 +1,7 @@
 package morimensmod.monsters;
 
 import static morimensmod.util.Wiz.actT;
+import static morimensmod.util.Wiz.getPowerAmount;
 import static morimensmod.util.Wiz.isInCombat;
 
 import org.apache.logging.log4j.LogManager;
@@ -18,7 +19,9 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import morimensmod.config.ModSettings;
 import morimensmod.misc.Animator;
+import morimensmod.powers.BarrierPower;
 import morimensmod.powers.ImmunePower;
+import morimensmod.powers.TmpBarrierPower;
 
 public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
 
@@ -53,6 +56,10 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
         hitAnim = ModSettings.PLAYER_HIT_ANIM;
         defenceAnim = ModSettings.PLAYER_DEFENCE_ANIM;
         rouseAnim = ModSettings.PLAYER_ROUSE_ANIM;
+    }
+
+    protected final void setMoveID(int move) {
+        this.moveID = move;
     }
 
     @Override
@@ -112,7 +119,7 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
     @Override
     public final void damage(DamageInfo info) {
         int hp = currentHealth;
-        int block = currentBlock;
+        int block = currentBlock + getPowerAmount(this, BarrierPower.POWER_ID) + getPowerAmount(this, TmpBarrierPower.POWER_ID);
         super.superDamage(info);
         if (this.animation instanceof Animator && info.owner != null
                 && info.type != DamageInfo.DamageType.THORNS && info.output > 0) {

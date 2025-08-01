@@ -9,11 +9,13 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.IntenseZoomEffect;
 
 import basemod.animations.AbstractAnimation;
@@ -41,6 +43,7 @@ public class LotanBoss extends AbstractAwakenableBoss {
     private int strengthAmt = 4;
     private int madnessAmt = 1;
     private int ceaselessFightingSpiritAmt = 0;
+    private int reduceWeakAmt = 0;
 
     public enum LVL {
         MEDIUM,
@@ -59,6 +62,8 @@ public class LotanBoss extends AbstractAwakenableBoss {
     public LotanBoss(float x, float y, LVL lvl) {
         super(getName(lvl), ID, 500, 310, x, y);
         this.lvl = lvl;
+        this.setHp(getMaxHP());
+        this.setMoveID(getFirstMoveID());
         switch (lvl) {
             case MEDIUM:
                 if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_DMG) {
@@ -72,13 +77,12 @@ public class LotanBoss extends AbstractAwakenableBoss {
                     addDamage(38, 1);
                     addNoDamage();
                 }
-                if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION) {
+                if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION)
                     strengthAmt = 5;
-                    ceaselessFightingSpiritAmt = 0;
-                } else {
+                else
                     strengthAmt = 4;
-                    ceaselessFightingSpiritAmt = 0;
-                }
+                ceaselessFightingSpiritAmt = 0;
+                reduceWeakAmt = 0;
                 break;
             case HARD:
                 if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_DMG) {
@@ -94,11 +98,12 @@ public class LotanBoss extends AbstractAwakenableBoss {
                 }
                 if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION) {
                     strengthAmt = 5;
-                    ceaselessFightingSpiritAmt = 1;
+                    reduceWeakAmt = 0; // 1
                 } else {
                     strengthAmt = 4;
-                    ceaselessFightingSpiritAmt = 0;
+                    reduceWeakAmt = 0;
                 }
+                ceaselessFightingSpiritAmt = 1;
                 break;
             default:
                 break;
@@ -107,6 +112,8 @@ public class LotanBoss extends AbstractAwakenableBoss {
 
     @Override
     protected final int getMaxHP() {
+        if (lvl == null)
+            return 1083;
         switch (lvl) {
             default:
             case MEDIUM:
@@ -177,6 +184,8 @@ public class LotanBoss extends AbstractAwakenableBoss {
 
     @Override
     protected final int getFirstMoveID() {
+        if (lvl == null)
+            return 2;
         switch (lvl) {
             case HARD:
                 return 2;
@@ -228,6 +237,8 @@ public class LotanBoss extends AbstractAwakenableBoss {
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_EXALT_ANIM));
                 addToBot(new NewWaitAction(52F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                if (reduceWeakAmt > 0)
+                    addToBot(new ReducePowerAction(this, this, WeakPower.POWER_ID, reduceWeakAmt));
                 addToBot(new VFXAction(new CetaceanEffect(p().hb.cX, p().hb.cY - p().hb.height / 2, true),
                         4F / ModSettings.SPRITE_SHEET_ANIMATION_FPS * (Settings.FAST_MODE ? 0.5F : 1F)));
                 attackAction(_moveID, AttackEffect.NONE);

@@ -20,6 +20,8 @@ public class SuspiciousOintment extends AbstractEasyRelic {
     @Override
     public void onPlayerEndTurn() {
         int poison = hand().size() * POISON_PER_CARD;
+        if (poison == 0)
+            return;
         flash();
         addToBot(new AllEnemyApplyPowerAction(p(), poison, (mo) -> new PoisonPower(mo, p(), poison)));
     }
