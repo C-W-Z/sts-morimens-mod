@@ -43,7 +43,7 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
         this.setAnimStrings();
 
         if (isInCombat() && !hasPower(UnawakenedPower.POWER_ID))
-            addToBot(new ApplyPowerAction(this, null, new UnawakenedPower(this)));
+            addPower(new UnawakenedPower(this));
     }
 
     /**
@@ -105,7 +105,7 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
         // AbstractDungeon.scene.fadeOutAmbiance();
         // AbstractDungeon.getCurrRoom().playBgmInstantly("BOSS_BEYOND");
         if (!hasPower(UnawakenedPower.POWER_ID))
-            addToBot(new ApplyPowerAction(this, null, new UnawakenedPower(this)));
+            addPower(new UnawakenedPower(this));
         preBattle();
     }
 

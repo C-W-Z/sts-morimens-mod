@@ -165,7 +165,7 @@ public class LotanBoss extends AbstractAwakenableBoss {
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_EXALT_ANIM));
                 addToBot(new NewWaitAction(52F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
-                addToBot(new VFXAction(new CetaceanEffect(p().hb.cX, p().hb.cY, true),
+                addToBot(new VFXAction(new CetaceanEffect(p().hb.cX, p().hb.cY - p().hb.height / 2, true),
                         4F / ModSettings.SPRITE_SHEET_ANIMATION_FPS * (Settings.FAST_MODE ? 0.5F : 1F)));
                 attackAction(_moveID, AttackEffect.NONE);
                 break;
