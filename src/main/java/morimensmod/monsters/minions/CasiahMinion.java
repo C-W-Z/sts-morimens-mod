@@ -10,16 +10,15 @@ import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-
 import basemod.animations.AbstractAnimation;
 import morimensmod.actions.NewWaitAction;
 import morimensmod.cards.status.Joker;
 import morimensmod.config.ModSettings;
 import morimensmod.config.ModSettings.ASCENSION_LVL;
 import morimensmod.misc.Animator;
-import morimensmod.powers.BarrierPower;
+import morimensmod.monsters.AbstractMorimensMonster;
 
-public class CasiahMinion extends AbstractMinion {
+public class CasiahMinion extends AbstractMorimensMonster {
 
     public static final String ID = makeID(CasiahMinion.class.getSimpleName());
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
@@ -32,7 +31,6 @@ public class CasiahMinion extends AbstractMinion {
 
     private int jokerDmg = Joker.DEFAULT_DAMAGE;
     private int jokerAmt = 1;
-    private int barrierAmt = 3;
 
     public CasiahMinion(float x, float y) {
         super(NAME, ID, getMaxHP(), 220, 340, x, y, 0);
@@ -44,25 +42,12 @@ public class CasiahMinion extends AbstractMinion {
             addDamage(8, 1);
             jokerDmg = Joker.DEFAULT_DAMAGE;
         }
-
-        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_MONSTER_ACTION) {
-            barrierAmt = 4;
-        } else if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
-            barrierAmt = 3;
-        else {
-            barrierAmt = 2;
-        }
     }
 
     protected static int getMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
             return 39;
         return 29;
-    }
-
-    @Override
-    protected void onSummon() {
-        addPower(new BarrierPower(this, barrierAmt));
     }
 
     @Override
@@ -83,7 +68,7 @@ public class CasiahMinion extends AbstractMinion {
         animator.addAnimation(
                 ModSettings.PLAYER_HIT_ANIM,
                 makeCharacterPath(removeModID(CasiahID) + "/" + ModSettings.PLAYER_HIT_ANIM + ".png"),
-                4, 5, 0, false, xOffset - 59F, yOffset - 14F);
+                4, 5, 0, false, xOffset - 19F, yOffset - 6F);
         animator.setFlip(true, false);
         animator.setDefaultAnim(ModSettings.PLAYER_IDLE_ANIM);
         return animator;

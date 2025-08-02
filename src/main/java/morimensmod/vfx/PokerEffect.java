@@ -15,17 +15,17 @@ public class PokerEffect extends AbstractGameEffect {
     protected static Animator animator;
     protected float x, y;
 
-    static { initializeAnimator(); }
-
     public PokerEffect(int variety, float centerX, float bottomY, boolean flipX) {
+        assert variety >= 1 && variety <= 3;
+        initializeAnimator();
         animator.setFlip(flipX, false);
+        animator.setDefaultAnim(NAMES[variety]);
         this.x = centerX;
         this.y = bottomY;
-        this.duration = animator.getDuration();
-        animator.setAnimation(NAMES[variety], true);
+        this.duration = animator.getDuration() * 5;
     }
 
-    public static void initializeAnimator() {
+    public void initializeAnimator() {
         animator = new Animator();
         animator.addAnimation(
                 NAMES[1],
@@ -40,7 +40,6 @@ public class PokerEffect extends AbstractGameEffect {
                 makeVFXPath(NAMES[3] + ".png"),
                 5, 6, 2, false, 0, 0);
         animator.setScale(1F);
-        animator.setDefaultAnim(NAMES[1]);
     }
 
     @Override
@@ -50,7 +49,8 @@ public class PokerEffect extends AbstractGameEffect {
 
     @Override
     public void update() {
-        if (animator.isFinished())
+        super.update();
+        if (animator.isFinished() && this.duration < animator.getDuration())
             this.isDone = true;
     }
 

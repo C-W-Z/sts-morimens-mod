@@ -4,6 +4,7 @@ import static morimensmod.MorimensMod.makeCharacterPath;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.General.removeModID;
 import static morimensmod.util.Wiz.actB;
+import static morimensmod.util.Wiz.actT;
 import static morimensmod.util.Wiz.addToDiscard;
 import static morimensmod.util.Wiz.isCommandCard;
 import static morimensmod.util.Wiz.makeInHand;
@@ -14,6 +15,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
+import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -39,8 +41,10 @@ import morimensmod.misc.Animator;
 import morimensmod.monsters.AbstractAwakenableBoss;
 import morimensmod.monsters.minions.CasiahMinion;
 import morimensmod.powers.AbstractEasyPower;
+import morimensmod.powers.BarrierPower;
 import morimensmod.powers.DrawLessPower;
 import morimensmod.powers.PickFromTop3DrawPileCardsPower;
+import morimensmod.vfx.PokerEffect;
 public class CasiahBoss extends AbstractAwakenableBoss {
 
     public static final String ID = makeID(CasiahBoss.class.getSimpleName());
@@ -65,8 +69,8 @@ public class CasiahBoss extends AbstractAwakenableBoss {
     private int loseDrawAmtLess = 1;
 
     protected AbstractMonster[] minions = new AbstractMonster[2];
-    public static final float[] MINION_X = new float[] { -350, -150 };
-    public static final float[] MINION_Y = new float[] { -25, 75 };
+    public static final float[] MINION_X = new float[] { -400, -200 };
+    public static final float[] MINION_Y = new float[] { -25, 25 };
 
     public CasiahBoss(float x, float y) {
         super(NAME, ID, 350, 340, x, y);
@@ -99,7 +103,7 @@ public class CasiahBoss extends AbstractAwakenableBoss {
             frailAmt = 2;
         }
 
-        this.dialogX = -75F * Settings.scale;
+        this.dialogX = -100F * Settings.scale;
         this.dialogY = 50F * Settings.scale;
     }
 
@@ -135,8 +139,7 @@ public class CasiahBoss extends AbstractAwakenableBoss {
         animator.addAnimation(
                 ModSettings.PLAYER_HIT_ANIM,
                 makeCharacterPath(removeModID(CasiahID) + "/" + ModSettings.PLAYER_HIT_ANIM + ".png"),
-                4, 5, 0, false, xOffset - 59F, yOffset - 14F);
-        // TODO:
+                4, 5, 0, false, xOffset - 19F, yOffset - 6F);
         animator.addAnimation(
                 ModSettings.PLAYER_ROUSE_ANIM,
                 makeCharacterPath(removeModID(CasiahID) + "/" + ModSettings.PLAYER_ROUSE_ANIM + ".png"),
@@ -162,7 +165,7 @@ public class CasiahBoss extends AbstractAwakenableBoss {
     protected final int getFirstMoveID() { return 0; }
 
     @Override
-    protected final int getRouseMoveID() { return 3; }
+    protected final int getRouseMoveID() { return 5; }
 
     @Override
     protected int getNextMoveIDExceptRouse(int _moveID) {
@@ -195,9 +198,14 @@ public class CasiahBoss extends AbstractAwakenableBoss {
     protected void takeMoveAction(int _moveID) {
         switch (_moveID) {
             case 0:
+                dailogAction(AbstractDungeon.miscRng.random(0, 1));
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_EXALT_ANIM));
                 addToBot(new NewWaitAction(92F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
-                actB(()-> dailogAction(AbstractDungeon.miscRng.random(0, 1)));
+                float playerRightX = p().hb.cX + p().hb.width / 2;
+                float playerBottomY = p().hb.cY - 100F;
+                addToBot(new VFXAction(new PokerEffect(1, playerRightX + 80, playerBottomY, false)));
+                addToBot(new VFXAction(new PokerEffect(2, playerRightX + 240, playerBottomY, false)));
+                addToBot(new VFXAction(new PokerEffect(3, playerRightX + 400, playerBottomY, false)));
                 attackAction(_moveID, AttackEffect.BLUNT_LIGHT);
                 makeInHand(new Joker(jokerDmg), jokerAmtHand);
                 shuffleIn(new Joker(jokerDmg), jokerAmtDraw);
@@ -270,7 +278,7 @@ public class CasiahBoss extends AbstractAwakenableBoss {
 
         @Override
         public void updateDescription() {
-            this.description = String.format(DESCRIPTIONS[0], amount, amount2);
+            this.description = String.format(DESCRIPTIONS[0], N_CARDS, amount2);
         }
 
         @Override
@@ -283,11 +291,20 @@ public class CasiahBoss extends AbstractAwakenableBoss {
 
             CasiahBoss boss = (CasiahBoss) owner;
 
+            int barrierAmt = 2;
+            if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_MONSTER_ACTION)
+                barrierAmt = 4;
+            else if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_HP)
+                barrierAmt = 3;
+
             for (int i = 0; i < boss.minions.length; i++) {
                 if (boss.minions[i] == null || boss.minions[i].isDeadOrEscaped()) {
                     AbstractMonster m = new CasiahMinion(CasiahBoss.MINION_X[i], CasiahBoss.MINION_Y[i]);
                     boss.minions[i] = m;
-                    addToBot(new SpawnMonsterAction(m, true));
+                    actT(() -> m.createIntent());
+                    addToTop(new RollMoveAction(m));
+                    addToTop(new ApplyPowerAction(m, m, new BarrierPower(m, barrierAmt)));
+                    addToTop(new SpawnMonsterAction(m, true));
                     break;
                 }
             }
