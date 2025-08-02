@@ -3,7 +3,9 @@ package morimensmod.monsters.bosses;
 import static morimensmod.MorimensMod.makeCharacterPath;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.General.removeModID;
+import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.addToDiscard;
+import static morimensmod.util.Wiz.isCommandCard;
 import static morimensmod.util.Wiz.makeInHand;
 import static morimensmod.util.Wiz.p;
 import static morimensmod.util.Wiz.shuffleIn;
@@ -12,10 +14,15 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
+import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
@@ -30,9 +37,10 @@ import morimensmod.config.ModSettings;
 import morimensmod.config.ModSettings.ASCENSION_LVL;
 import morimensmod.misc.Animator;
 import morimensmod.monsters.AbstractAwakenableBoss;
+import morimensmod.monsters.minions.CasiahMinion;
+import morimensmod.powers.AbstractEasyPower;
 import morimensmod.powers.DrawLessPower;
 import morimensmod.powers.PickFromTop3DrawPileCardsPower;
-
 public class CasiahBoss extends AbstractAwakenableBoss {
 
     public static final String ID = makeID(CasiahBoss.class.getSimpleName());
@@ -55,6 +63,10 @@ public class CasiahBoss extends AbstractAwakenableBoss {
     private int loseDrawAmtMore = 3;
     private int frailAmt = 2;
     private int loseDrawAmtLess = 1;
+
+    protected AbstractMonster[] minions = new AbstractMonster[2];
+    public static final float[] MINION_X = new float[] { -350, -150 };
+    public static final float[] MINION_Y = new float[] { -25, 75 };
 
     public CasiahBoss(float x, float y) {
         super(NAME, ID, 350, 340, x, y);
@@ -128,19 +140,19 @@ public class CasiahBoss extends AbstractAwakenableBoss {
         animator.addAnimation(
                 ModSettings.PLAYER_ROUSE_ANIM,
                 makeCharacterPath(removeModID(CasiahID) + "/" + ModSettings.PLAYER_ROUSE_ANIM + ".png"),
-                7, 11, 2, false, xOffset, yOffset);
+                7, 11, 2, false, xOffset + 23F, yOffset - 16F);
         animator.addAnimation(
                 ModSettings.PLAYER_EXALT_ANIM,
                 makeCharacterPath(removeModID(CasiahID) + "/" + ModSettings.PLAYER_EXALT_ANIM + ".png"),
-                11, 15, 2, false, xOffset, yOffset);
+                11, 15, 2, false, xOffset + 55F, yOffset - 4F);
         animator.addAnimation(
                 ModSettings.PLAYER_SKILL1_ANIM,
                 makeCharacterPath(removeModID(CasiahID) + "/" + ModSettings.PLAYER_SKILL1_ANIM + ".png"),
-                6, 10, 2, false, xOffset, yOffset);
+                6, 10, 2, false, xOffset + 105F, yOffset - 5F);
         animator.addAnimation(
                 ModSettings.PLAYER_SKILL2_ANIM,
                 makeCharacterPath(removeModID(CasiahID) + "/" + ModSettings.PLAYER_SKILL2_ANIM + ".png"),
-                6, 9, 3, false, xOffset, yOffset);
+                6, 9, 3, false, xOffset + 32F, yOffset - 5F);
         animator.setFlip(true, false);
         animator.setDefaultAnim(ModSettings.PLAYER_IDLE_ANIM);
         return animator;
@@ -185,6 +197,7 @@ public class CasiahBoss extends AbstractAwakenableBoss {
             case 0:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_EXALT_ANIM));
                 addToBot(new NewWaitAction(92F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                actB(()-> dailogAction(AbstractDungeon.miscRng.random(0, 1)));
                 attackAction(_moveID, AttackEffect.BLUNT_LIGHT);
                 makeInHand(new Joker(jokerDmg), jokerAmtHand);
                 shuffleIn(new Joker(jokerDmg), jokerAmtDraw);
@@ -203,25 +216,27 @@ public class CasiahBoss extends AbstractAwakenableBoss {
                 addToBot(new ApplyPowerAction(p(), this, new StrengthPower(p(), -strengthAmt)));
                 addToBot(new ApplyPowerAction(p(), this, new DrawLessPower(p(), loseDrawAmtMore)));
                 addToBot(new ApplyPowerAction(p(), this, new PickFromTop3DrawPileCardsPower(p(), 1)));
+                actB(()-> dailogAction(2));
                 break;
             case 3:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
                 addToBot(new NewWaitAction(12F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(_moveID, AttackEffect.BLUNT_LIGHT);
-                addToBot(new ApplyPowerAction(p(), this, new FrailPower(p(), weakAmt, true)));
+                addToBot(new ApplyPowerAction(p(), this, new FrailPower(p(), frailAmt, true)));
                 break;
             case 4:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_SKILL2_ANIM));
                 addToBot(new NewWaitAction(26F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(_moveID, AttackEffect.BLUNT_LIGHT);
                 addToBot(new ApplyPowerAction(p(), this, new DrawLessPower(p(), loseDrawAmtLess)));
-                addToBot(new MoveLastPlayedCardToDrawPileTopAction());
+                addToBot(new MoveLastPlayedCardToDrawPileTopAction(c -> isCommandCard(c)));
+                actB(()-> dailogAction(3));
                 break;
             default:
                 addToBot(new VFXAction(this, new IntenseZoomEffect(this.hb.cX, this.hb.cY, true), 0.05F, true));
                 addToBot(new ChangeStateAction(this, rouseAnim));
                 addToBot(new NewWaitAction(31F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
-                // TODO:
+                addToBot(new ApplyPowerAction(this, this, new CasiahBossPhantasmPower(this)));
                 break;
         }
     }
@@ -235,5 +250,47 @@ public class CasiahBoss extends AbstractAwakenableBoss {
     public void dailogAction(int dialogID) {
         AbstractDungeon.effectList.add(
                 new SpeechBubble(hb.cX + dialogX, hb.cY + dialogY, DIALOG_DURATION, DIALOG[dialogID], false));
+    }
+
+    public static class CasiahBossPhantasmPower extends AbstractEasyPower {
+
+        public static final String POWER_ID = makeID(CasiahBossPhantasmPower.class.getSimpleName());
+        private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+        private static final String NAME = powerStrings.NAME;
+        private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+
+        public static final int N_CARDS = 10;
+
+        public CasiahBossPhantasmPower(CasiahBoss owner) {
+            super(POWER_ID, NAME, PowerType.BUFF, false, owner, -1);
+            isTwoAmount = true;
+            amount2 = N_CARDS;
+            updateDescription();
+        }
+
+        @Override
+        public void updateDescription() {
+            this.description = String.format(DESCRIPTIONS[0], amount, amount2);
+        }
+
+        @Override
+        public void onUseCard(AbstractCard card, UseCardAction action) {
+            amount2--;
+            if (amount2 > 0)
+                return;
+            flash();
+            amount2 = N_CARDS;
+
+            CasiahBoss boss = (CasiahBoss) owner;
+
+            for (int i = 0; i < boss.minions.length; i++) {
+                if (boss.minions[i] == null || boss.minions[i].isDeadOrEscaped()) {
+                    AbstractMonster m = new CasiahMinion(CasiahBoss.MINION_X[i], CasiahBoss.MINION_Y[i]);
+                    boss.minions[i] = m;
+                    addToBot(new SpawnMonsterAction(m, true));
+                    break;
+                }
+            }
+        }
     }
 }

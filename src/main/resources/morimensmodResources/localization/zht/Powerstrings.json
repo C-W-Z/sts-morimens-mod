@@ -106,6 +106,14 @@
     "NAME": "枷鎖：生父",
     "DESCRIPTIONS": ["回合結束時失去所有 #y格擋 ，持續 #b%d 回合。"]
   },
+  "${ModID}:PickFromTop3DrawPileCardsPower": {
+    "NAME": "通通消失！",
+    "DESCRIPTIONS": ["下回合開始後，查看抽牌堆頂部的 #b%d 張牌，選擇 #b%d 張置入手中。"]
+  },
+  "${ModID}:CasiahBossPhantasmPower": {
+    "NAME": "幻影",
+    "DESCRIPTIONS": ["每打出 #b%d 張牌，召喚一個分身，最多存在 #b2 個分身。還需要打出 #b%d 張牌。"]
+  },
   "${ModID}:FirstDoctrinePower": {
     "NAME": "第一哲學",
     "DESCRIPTIONS": [
