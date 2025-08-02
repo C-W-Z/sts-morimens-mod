@@ -2,8 +2,8 @@ package morimensmod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 
-import static morimensmod.MorimensMod.lastTurnCardsPlayed;
 import static morimensmod.MorimensMod.thisTurnCardsPlayed;
 import static morimensmod.util.Wiz.*;
 
@@ -32,20 +32,27 @@ public class MoveLastPlayedCardToDrawPileTopAction extends AbstractGameAction {
             if (!filter.test(c))
                 continue;
             if (discardPile().contains(c)) {
-                discardPile().moveToDeck(c, false);
+                moveToDrawPileTop(discardPile(), c);
                 logger.debug("discardPile.moveToDeck");
                 return;
             }
             if (drawPile().contains(c)) {
-                drawPile().moveToDeck(c, false);
+                moveToDrawPileTop(drawPile(), c);
                 logger.debug("drawPile.moveToDeck");
                 return;
             }
             if (exhaustPile().contains(c)) {
-                exhaustPile().moveToDeck(c, false);
+                moveToDrawPileTop(exhaustPile(), c);
                 logger.debug("exhaustPile.moveToDeck");
                 return;
             }
         }
+    }
+
+    private void moveToDrawPileTop(CardGroup group, AbstractCard c) {
+        group.moveToDeck(c, false);
+        c.stopGlowing();
+        c.unhover();
+        c.unfadeOut();
     }
 }

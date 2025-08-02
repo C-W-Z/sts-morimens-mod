@@ -8,38 +8,31 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import morimensmod.misc.Animator;
 
-public class PokerEffect extends AbstractGameEffect {
+public class Poker3Effect extends AbstractGameEffect {
 
-    public static final String[] NAMES = { "Poker0", "Poker1", "Poker2", "Poker3" };
+    public static final String NAME = "Poker3";
 
     protected static Animator animator;
     protected float x, y;
 
-    public PokerEffect(int variety, float centerX, float bottomY, boolean flipX) {
-        assert variety >= 1 && variety <= 3;
-        initializeAnimator();
+    static { initializeAnimator(); }
+
+    public Poker3Effect(float centerX, float bottomY, boolean flipX) {
         animator.setFlip(flipX, false);
-        animator.setDefaultAnim(NAMES[variety]);
         this.x = centerX;
         this.y = bottomY;
-        this.duration = animator.getDuration() * 5;
+        animator.setAnimation(NAME, true);
+        this.duration = animator.getDuration() * 6;
     }
 
-    public void initializeAnimator() {
+    public static void initializeAnimator() {
         animator = new Animator();
         animator.addAnimation(
-                NAMES[1],
-                makeVFXPath(NAMES[1] + ".png"),
-                4, 7, 0, false, 0, 0);
-        animator.addAnimation(
-                NAMES[2],
-                makeVFXPath(NAMES[2] + ".png"),
-                4, 7, 0, false, 0, 0);
-        animator.addAnimation(
-                NAMES[3],
-                makeVFXPath(NAMES[3] + ".png"),
+                NAME,
+                makeVFXPath(NAME + ".png"),
                 5, 6, 2, false, 0, 0);
         animator.setScale(1F);
+        animator.setDefaultAnim(NAME);
     }
 
     @Override

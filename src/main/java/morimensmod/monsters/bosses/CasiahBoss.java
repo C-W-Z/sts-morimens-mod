@@ -44,7 +44,9 @@ import morimensmod.powers.AbstractEasyPower;
 import morimensmod.powers.BarrierPower;
 import morimensmod.powers.DrawLessPower;
 import morimensmod.powers.PickFromTop3DrawPileCardsPower;
-import morimensmod.vfx.PokerEffect;
+import morimensmod.vfx.Poker1Effect;
+import morimensmod.vfx.Poker2Effect;
+import morimensmod.vfx.Poker3Effect;
 public class CasiahBoss extends AbstractAwakenableBoss {
 
     public static final String ID = makeID(CasiahBoss.class.getSimpleName());
@@ -203,9 +205,9 @@ public class CasiahBoss extends AbstractAwakenableBoss {
                 addToBot(new NewWaitAction(92F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 float playerRightX = p().hb.cX + p().hb.width / 2;
                 float playerBottomY = p().hb.cY - 100F;
-                addToBot(new VFXAction(new PokerEffect(1, playerRightX + 80, playerBottomY, false)));
-                addToBot(new VFXAction(new PokerEffect(2, playerRightX + 240, playerBottomY, false)));
-                addToBot(new VFXAction(new PokerEffect(3, playerRightX + 400, playerBottomY, false)));
+                addToBot(new VFXAction(new Poker1Effect(playerRightX + 80, playerBottomY, false)));
+                addToBot(new VFXAction(new Poker2Effect(playerRightX + 240, playerBottomY, false)));
+                addToBot(new VFXAction(new Poker3Effect(playerRightX + 400, playerBottomY, false)));
                 attackAction(_moveID, AttackEffect.BLUNT_LIGHT);
                 makeInHand(new Joker(jokerDmg), jokerAmtHand);
                 shuffleIn(new Joker(jokerDmg), jokerAmtDraw);
@@ -283,13 +285,16 @@ public class CasiahBoss extends AbstractAwakenableBoss {
 
         @Override
         public void onUseCard(AbstractCard card, UseCardAction action) {
+            CasiahBoss boss = (CasiahBoss) owner;
+            if (fullMinions(boss.minions))
+                return;
+
             amount2--;
             if (amount2 > 0)
                 return;
             flash();
             amount2 = N_CARDS;
-
-            CasiahBoss boss = (CasiahBoss) owner;
+            updateDescription();
 
             int barrierAmt = 2;
             if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_MONSTER_ACTION)
@@ -308,6 +313,13 @@ public class CasiahBoss extends AbstractAwakenableBoss {
                     break;
                 }
             }
+        }
+
+        private boolean fullMinions(AbstractMonster[] minions) {
+            for (AbstractMonster m : minions)
+                if (m == null)
+                    return false;
+            return true;
         }
     }
 }

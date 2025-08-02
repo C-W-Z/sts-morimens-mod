@@ -31,8 +31,8 @@ public class CetaceanEffect extends AbstractGameEffect {
         animator.setFlip(flipX, false);
         this.x = centerX;
         this.y = bottomY;
-        this.duration = animator.getDuration();
         animator.setAnimation(NAME, true);
+        this.duration = animator.getDuration();
     }
 
     public static void initializeAnimator() {
