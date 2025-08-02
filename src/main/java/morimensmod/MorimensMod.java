@@ -77,6 +77,7 @@ import static morimensmod.patches.enums.ColorPatch.CardColorPatch.WHEEL_OF_DESTI
 import static morimensmod.util.General.*;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Optional;
@@ -416,8 +417,14 @@ public class MorimensMod implements
         MonsterLib.register();
     }
 
+    public static ArrayList<AbstractCard> lastTurnCardsPlayed = new ArrayList<>();
+    public static ArrayList<AbstractCard> thisTurnCardsPlayed = new ArrayList<>();
+
     @Override
     public void receiveOnBattleStart(AbstractRoom room) {
+        lastTurnCardsPlayed.clear();
+        thisTurnCardsPlayed.clear();
+
         QueensSword.onBattleStart();
         AbstractAwakener.onBattleStart();
         AbstractEasyCard.onBattleStart();
@@ -427,6 +434,9 @@ public class MorimensMod implements
 
     @Override
     public void receiveOnPlayerTurnStart() {
+        lastTurnCardsPlayed = thisTurnCardsPlayed;
+        thisTurnCardsPlayed = new ArrayList<>();
+
         AbstractAwakener.onPlayerTurnStart(); // 每回合重設
         if (p() instanceof AbstractAwakener)
             ((AbstractAwakener) p()).getExalt().onPlayerTurnStart();
@@ -447,6 +457,8 @@ public class MorimensMod implements
 
     @Override
     public void receiveCardUsed(AbstractCard card) {
+        thisTurnCardsPlayed.add(card);
+
         if (p() instanceof AbstractAwakener)
             ((AbstractAwakener) p()).getExalt().onCardUse(card);
     }

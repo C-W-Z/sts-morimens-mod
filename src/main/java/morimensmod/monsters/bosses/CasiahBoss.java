@@ -12,31 +12,26 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.powers.DrawReductionPower;
+import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.SpeechBubble;
 import com.megacrit.cardcrawl.vfx.combat.IntenseZoomEffect;
 
 import basemod.animations.AbstractAnimation;
-
+import morimensmod.actions.MoveLastPlayedCardToDrawPileTopAction;
 import morimensmod.actions.NewWaitAction;
 import morimensmod.cards.status.Joker;
-import morimensmod.cards.status.ShacklesBladeAdrift;
-import morimensmod.cards.status.ShacklesDivineMaidenReturn;
-import morimensmod.cards.status.ShacklesLadyGovernor;
-import morimensmod.cards.status.ShacklesTorturedSlave;
 import morimensmod.config.ModSettings;
 import morimensmod.config.ModSettings.ASCENSION_LVL;
 import morimensmod.misc.Animator;
 import morimensmod.monsters.AbstractAwakenableBoss;
 import morimensmod.powers.DrawLessPower;
+import morimensmod.powers.PickFromTop3DrawPileCardsPower;
 
 public class CasiahBoss extends AbstractAwakenableBoss {
 
@@ -60,7 +55,6 @@ public class CasiahBoss extends AbstractAwakenableBoss {
     private int loseDrawAmtMore = 3;
     private int frailAmt = 2;
     private int loseDrawAmtLess = 1;
-    private int rouseStrengthAmt = 27;
 
     public CasiahBoss(float x, float y) {
         super(NAME, ID, 350, 340, x, y);
@@ -134,7 +128,7 @@ public class CasiahBoss extends AbstractAwakenableBoss {
         animator.addAnimation(
                 ModSettings.PLAYER_ROUSE_ANIM,
                 makeCharacterPath(removeModID(CasiahID) + "/" + ModSettings.PLAYER_ROUSE_ANIM + ".png"),
-                9, 8, 1, false, xOffset, yOffset);
+                7, 11, 2, false, xOffset, yOffset);
         animator.addAnimation(
                 ModSettings.PLAYER_EXALT_ANIM,
                 makeCharacterPath(removeModID(CasiahID) + "/" + ModSettings.PLAYER_EXALT_ANIM + ".png"),
@@ -146,7 +140,7 @@ public class CasiahBoss extends AbstractAwakenableBoss {
         animator.addAnimation(
                 ModSettings.PLAYER_SKILL2_ANIM,
                 makeCharacterPath(removeModID(CasiahID) + "/" + ModSettings.PLAYER_SKILL2_ANIM + ".png"),
-                8, 6, 1, false, xOffset, yOffset);
+                6, 9, 3, false, xOffset, yOffset);
         animator.setFlip(true, false);
         animator.setDefaultAnim(ModSettings.PLAYER_IDLE_ANIM);
         return animator;
@@ -208,22 +202,26 @@ public class CasiahBoss extends AbstractAwakenableBoss {
                 addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strengthAmt)));
                 addToBot(new ApplyPowerAction(p(), this, new StrengthPower(p(), -strengthAmt)));
                 addToBot(new ApplyPowerAction(p(), this, new DrawLessPower(p(), loseDrawAmtMore)));
+                addToBot(new ApplyPowerAction(p(), this, new PickFromTop3DrawPileCardsPower(p(), 1)));
                 break;
             case 3:
-                addToBot(new VFXAction(this, new IntenseZoomEffect(this.hb.cX, this.hb.cY, true), 0.05F, true));
-                addToBot(new ChangeStateAction(this, rouseAnim));
-                addToBot(new NewWaitAction(29F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
-                makeInHand(new ShacklesLadyGovernor());
-                makeInHand(new ShacklesTorturedSlave());
-                makeInHand(new ShacklesDivineMaidenReturn());
-                makeInHand(new ShacklesBladeAdrift());
+                addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
+                addToBot(new NewWaitAction(12F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                attackAction(_moveID, AttackEffect.BLUNT_LIGHT);
+                addToBot(new ApplyPowerAction(p(), this, new FrailPower(p(), weakAmt, true)));
                 break;
             case 4:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_SKILL2_ANIM));
-                addToBot(new NewWaitAction(14F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
-                attackAction(_moveID, AttackEffect.SLASH_HORIZONTAL);
+                addToBot(new NewWaitAction(26F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                attackAction(_moveID, AttackEffect.BLUNT_LIGHT);
+                addToBot(new ApplyPowerAction(p(), this, new DrawLessPower(p(), loseDrawAmtLess)));
+                addToBot(new MoveLastPlayedCardToDrawPileTopAction());
                 break;
             default:
+                addToBot(new VFXAction(this, new IntenseZoomEffect(this.hb.cX, this.hb.cY, true), 0.05F, true));
+                addToBot(new ChangeStateAction(this, rouseAnim));
+                addToBot(new NewWaitAction(31F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
+                // TODO:
                 break;
         }
     }
