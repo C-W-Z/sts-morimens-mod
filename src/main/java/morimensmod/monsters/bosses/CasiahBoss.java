@@ -87,7 +87,7 @@ public class CasiahBoss extends AbstractAwakenableBoss {
             addDamage(18, 2); // 18x2
             addDamage(16, 3); // 16x3
             addNoDamage();
-            jokerDmg = Joker.DEFAULT_DAMAGE + 2;
+            jokerDmg = Joker.DEFAULT_DAMAGE + 1;
         } else {
             addDamage(11, 5);
             addDamage(16, 2);
