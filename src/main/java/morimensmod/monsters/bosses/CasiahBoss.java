@@ -17,6 +17,8 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
 import com.megacrit.cardcrawl.actions.common.RollMoveAction;
 import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
+import com.megacrit.cardcrawl.actions.common.SuicideAction;
+import com.megacrit.cardcrawl.actions.utility.HideHealthBarAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -44,6 +46,7 @@ import morimensmod.powers.AbstractEasyPower;
 import morimensmod.powers.BarrierPower;
 import morimensmod.powers.DrawLessPower;
 import morimensmod.powers.PickFromTop3DrawPileCardsPower;
+import morimensmod.powers.monster.TauntPower;
 import morimensmod.vfx.Poker1Effect;
 import morimensmod.vfx.Poker2Effect;
 import morimensmod.vfx.Poker3Effect;
@@ -251,15 +254,19 @@ public class CasiahBoss extends AbstractAwakenableBoss {
         }
     }
 
-    @Override
-    protected void preBattle() {}
-
-    @Override
-    protected void onHalfDead() {}
-
     public void dailogAction(int dialogID) {
         AbstractDungeon.effectList.add(
                 new SpeechBubble(hb.cX + dialogX, hb.cY + dialogY, DIALOG_DURATION, DIALOG[dialogID], false));
+    }
+
+    @Override
+    protected void onDie() {
+        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+            if (!m.isDead && !m.isDying) {
+                addToTop(new HideHealthBarAction(m));
+                addToTop(new SuicideAction(m));
+            }
+        }
     }
 
     public static class CasiahBossPhantasmPower extends AbstractEasyPower {
@@ -290,6 +297,7 @@ public class CasiahBoss extends AbstractAwakenableBoss {
                 return;
 
             amount2--;
+            updateDescription();
             if (amount2 > 0)
                 return;
             flash();
@@ -309,6 +317,7 @@ public class CasiahBoss extends AbstractAwakenableBoss {
                     actT(() -> m.createIntent());
                     addToTop(new RollMoveAction(m));
                     addToTop(new ApplyPowerAction(m, m, new BarrierPower(m, barrierAmt)));
+                    addToTop(new ApplyPowerAction(m, m, new TauntPower(m)));
                     addToTop(new SpawnMonsterAction(m, true));
                     break;
                 }
@@ -317,7 +326,7 @@ public class CasiahBoss extends AbstractAwakenableBoss {
 
         private boolean fullMinions(AbstractMonster[] minions) {
             for (AbstractMonster m : minions)
-                if (m == null)
+                if (m == null || m.isDeadOrEscaped())
                     return false;
             return true;
         }

@@ -81,8 +81,6 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
 
     protected abstract int getRousedMaxHP();
 
-    protected abstract void preBattle();
-
     protected abstract int getFirstMoveID();
 
     protected abstract int getRouseMoveID();
@@ -97,7 +95,11 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
 
     protected abstract void takeMoveAction(int _moveID);
 
-    protected abstract void onHalfDead();
+    protected void preBattle() {};
+
+    protected void onHalfDead() {};
+
+    protected void onDie() {};
 
     @Override
     public final void takeTurn() {
@@ -169,6 +171,7 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
         if (!this.rebirthed)
             return;
         super.die();
+        onDie();
         useFastShakeAnimation(5.0F);
         CardCrawlGame.screenShake.rumble(4.0F);
         // if (this.saidPower) {

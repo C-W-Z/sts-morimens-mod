@@ -202,12 +202,6 @@ public class HelotBoss extends AbstractAwakenableBoss {
         }
     }
 
-    @Override
-    protected void preBattle() {}
-
-    @Override
-    protected void onHalfDead() {}
-
     public void dailogAction(int dialogID) {
         AbstractDungeon.effectList.add(
                 new SpeechBubble(hb.cX + dialogX, hb.cY + dialogY, DIALOG_DURATION, DIALOG[dialogID], false));

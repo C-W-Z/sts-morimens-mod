@@ -68,6 +68,10 @@
     "NAME": "延迟强化",
     "DESCRIPTIONS": ["下回合开始时，获得 #b%d 层 #y强化 。"]
   },
+  "${ModID}:TauntPower": {
+    "NAME": "嘲讽",
+    "DESCRIPTIONS": ["选择单体目标时只能选择有 #y嘲讽 的目标。"]
+  },
   "${ModID}:MadnessPower": {
     "NAME": "疯狂",
     "DESCRIPTIONS": ["攻击次数 #b+%d 。"]

@@ -78,6 +78,12 @@
       "At the start of the next turn, gain #b%d stack(s) of #yEnhance."
     ]
   },
+  "${ModID}:TauntPower": {
+    "NAME": "Taunt",
+    "DESCRIPTIONS": [
+      "When selecting a single target, only targets with #yTaunt can be selected."
+    ]
+  },
   "${ModID}:MadnessPower": {
     "NAME": "Madness",
     "DESCRIPTIONS": ["Number of attacks #b+%d."]

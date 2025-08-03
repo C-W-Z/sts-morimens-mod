@@ -255,10 +255,4 @@ public class LotanBoss extends AbstractAwakenableBoss {
                 break;
         }
     }
-
-    @Override
-    protected void preBattle() {}
-
-    @Override
-    protected void onHalfDead() {}
 }

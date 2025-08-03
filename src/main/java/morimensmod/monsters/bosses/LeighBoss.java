@@ -224,10 +224,4 @@ public class LeighBoss extends AbstractAwakenableBoss {
                     unblockedDamage -> addToTop(
                             new HealAction(this, this, MathUtils.ceil(unblockedDamage * bloodHealAmplify)))));
     }
-
-    @Override
-    protected void preBattle() {}
-
-    @Override
-    protected void onHalfDead() {}
 }
