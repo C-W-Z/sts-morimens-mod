@@ -19,6 +19,8 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import basemod.BaseMod;
 import basemod.BaseMod.GetMonsterGroup;
 import morimensmod.characters.Lotan;
+import morimensmod.monsters.bosses.CasiahBoss;
+import morimensmod.monsters.bosses.HelotBoss;
 import morimensmod.monsters.bosses.LeighBoss;
 import morimensmod.monsters.bosses.LotanBoss;
 import morimensmod.monsters.elites.DevouringHowl;
@@ -166,15 +168,33 @@ public class MonsterLib {
         }, Exordium.ID, 1));
 
         bosses.put(LotanBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
-                new LotanBoss(0, -8)
+                new LotanBoss(0, 0, LotanBoss.LVL.MEDIUM)
         }, TheCity.ID, 0, new String[] {
                 makeCharacterPath(removeModID(Lotan.ID) + "/MapIcon.png")
         }));
 
         bosses.put(LeighBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
-                new LeighBoss(0, -8)
+                new LeighBoss(0, 0)
         }, TheCity.ID, 0, new String[] {
                 makeCharacterPath(removeModID(LeighBoss.LeighID) + "/MapIcon.png")
+        }));
+
+        bosses.put(HelotBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
+                new HelotBoss(0, 0)
+        }, TheBeyond.ID, 0, new String[] {
+                makeCharacterPath(removeModID(HelotBoss.HelotID) + "/MapIcon.png")
+        }));
+
+        bosses.put(LotanBoss.ID + LotanBoss.LVL.HARD.name(), new MonsterEncounter(() -> new AbstractMonster[] {
+                new LotanBoss(0, 0, LotanBoss.LVL.HARD)
+        }, TheBeyond.ID, 0, new String[] {
+                makeCharacterPath(removeModID(Lotan.ID) + "/MapIcon.png")
+        }));
+
+        bosses.put(CasiahBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
+                new CasiahBoss(75, 0)
+        }, TheBeyond.ID, 0, new String[] {
+                makeCharacterPath(removeModID(CasiahBoss.CasiahID) + "/MapIcon.png")
         }));
     }
 

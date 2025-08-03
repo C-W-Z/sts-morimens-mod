@@ -1,6 +1,8 @@
 package morimensmod.monsters;
 
 import static morimensmod.util.Wiz.actT;
+import static morimensmod.util.Wiz.getPowerAmount;
+import static morimensmod.util.Wiz.isInCombat;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,7 +19,9 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import morimensmod.config.ModSettings;
 import morimensmod.misc.Animator;
+import morimensmod.powers.BarrierPower;
 import morimensmod.powers.ImmunePower;
+import morimensmod.powers.TmpBarrierPower;
 
 public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
 
@@ -40,6 +44,9 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
         this.preRoused = false;
         this.rebirthed = false;
         this.setAnimStrings();
+
+        if (isInCombat() && !hasPower(UnawakenedPower.POWER_ID))
+            addPower(new UnawakenedPower(this));
     }
 
     /**
@@ -49,6 +56,10 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
         hitAnim = ModSettings.PLAYER_HIT_ANIM;
         defenceAnim = ModSettings.PLAYER_DEFENCE_ANIM;
         rouseAnim = ModSettings.PLAYER_ROUSE_ANIM;
+    }
+
+    protected final void setMoveID(int move) {
+        this.moveID = move;
     }
 
     @Override
@@ -70,8 +81,6 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
 
     protected abstract int getRousedMaxHP();
 
-    protected abstract void preBattle();
-
     protected abstract int getFirstMoveID();
 
     protected abstract int getRouseMoveID();
@@ -86,7 +95,11 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
 
     protected abstract void takeMoveAction(int _moveID);
 
-    protected abstract void onHalfDead();
+    protected void preBattle() {};
+
+    protected void onHalfDead() {};
+
+    protected void onDie() {};
 
     @Override
     public final void takeTurn() {
@@ -100,15 +113,15 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
         // CardCrawlGame.music.unsilenceBGM();
         // AbstractDungeon.scene.fadeOutAmbiance();
         // AbstractDungeon.getCurrRoom().playBgmInstantly("BOSS_BEYOND");
-        AbstractDungeon.getCurrRoom().cannotLose = true;
-        addToBot(new ApplyPowerAction(this, this, new UnawakenedPower(this)));
+        if (!hasPower(UnawakenedPower.POWER_ID))
+            addPower(new UnawakenedPower(this));
         preBattle();
     }
 
     @Override
     public final void damage(DamageInfo info) {
         int hp = currentHealth;
-        int block = currentBlock;
+        int block = currentBlock + getPowerAmount(this, BarrierPower.POWER_ID) + getPowerAmount(this, TmpBarrierPower.POWER_ID);
         super.superDamage(info);
         if (this.animation instanceof Animator && info.owner != null
                 && info.type != DamageInfo.DamageType.THORNS && info.output > 0) {
@@ -158,6 +171,7 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
         if (!this.rebirthed)
             return;
         super.die();
+        onDie();
         useFastShakeAnimation(5.0F);
         CardCrawlGame.screenShake.rumble(4.0F);
         // if (this.saidPower) {

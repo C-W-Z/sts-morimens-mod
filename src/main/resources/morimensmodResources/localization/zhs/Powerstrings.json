@@ -1,7 +1,11 @@
 {
+  "${ModID}:DrawLessPower": {
+    "NAME": "抽牌数降低",
+    "DESCRIPTIONS": ["下回合开始时，少抽 #b%d 张牌。"]
+  },
   "${ModID}:LoseThornsPower": {
     "NAME": "荆棘丛生",
-    "DESCRIPTIONS": ["回合开始时，失去 #b%d 层 #y荆棘 。"]
+    "DESCRIPTIONS": ["下回合开始时，失去 #b%d 层 #y荆棘 。"]
   },
   "${ModID}:SealPower": {
     "NAME": "封印",
@@ -64,6 +68,10 @@
     "NAME": "延迟强化",
     "DESCRIPTIONS": ["下回合开始时，获得 #b%d 层 #y强化 。"]
   },
+  "${ModID}:TauntPower": {
+    "NAME": "嘲讽",
+    "DESCRIPTIONS": ["选择单体目标时只能选择有 #y嘲讽 的目标。"]
+  },
   "${ModID}:MadnessPower": {
     "NAME": "疯狂",
     "DESCRIPTIONS": ["攻击次数 #b+%d 。"]
@@ -96,6 +104,22 @@
     "NAME": "血之屏障",
     "DESCRIPTIONS": [
       "每损失 #b%d 点生命后，获得等于最大生命的 #y格挡 。还需要损失 #b%d 点生命。"
+    ]
+  },
+  "${ModID}:LoseAllBlockPower": {
+    "NAME": "枷锁：生父",
+    "DESCRIPTIONS": ["回合结束时失去所有 #y格挡 ，持续 #b%d 回合。"]
+  },
+  "${ModID}:PickFromTop3DrawPileCardsPower": {
+    "NAME": "通通消失！",
+    "DESCRIPTIONS": [
+      "下回合开始后，查看抽牌堆顶部的 #b%d 张牌，选择 #b%d 张置入手中。"
+    ]
+  },
+  "${ModID}:CasiahBossPhantasmPower": {
+    "NAME": "幻影",
+    "DESCRIPTIONS": [
+      "每打出 #b%d 张牌，召唤一个分身，最多存在 #b2 个分身。还需要打出 #b%d 张牌。"
     ]
   },
   "${ModID}:FirstDoctrinePower": {

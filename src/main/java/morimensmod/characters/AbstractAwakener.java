@@ -12,6 +12,8 @@ import morimensmod.misc.Animator;
 import morimensmod.misc.PosseType;
 import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.AbstractPersistentPower;
+import morimensmod.powers.BarrierPower;
+import morimensmod.powers.TmpBarrierPower;
 import morimensmod.util.PersistentPowerLib;
 import morimensmod.cards.posses.AbstractPosse;
 import morimensmod.config.ModSettings;
@@ -134,16 +136,24 @@ public abstract class AbstractAwakener extends CustomPlayer {
     @Override
     public void damage(DamageInfo info) {
         int hp = currentHealth;
-        int block = currentBlock;
+        int block = currentBlock + getPowerAmount(this, BarrierPower.POWER_ID) + getPowerAmount(this, TmpBarrierPower.POWER_ID);
         super.damage(info);
-        if (!(this.animation instanceof Animator))
-            return;
         if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > 0) {
             if (hp == currentHealth && block > 0 && currentBlock >= 0 && !info.owner.isPlayer)
-                ((Animator) this.animation).setAnimation(ModSettings.PLAYER_DEFENCE_ANIM);
+                setAnimation(ModSettings.PLAYER_DEFENCE_ANIM);
             else
-                ((Animator) this.animation).setAnimation(ModSettings.PLAYER_HIT_ANIM);
+                setAnimation(ModSettings.PLAYER_HIT_ANIM);
         }
+    }
+
+    public void setAnimation(String name) {
+        setAnimation(name, false);
+    }
+
+    public void setAnimation(String name, boolean forceReset) {
+        if (!(this.animation instanceof Animator))
+            return;
+        ((Animator) this.animation).setAnimation(name, forceReset);
     }
 
     public void setPosse(AbstractPosse posse) {

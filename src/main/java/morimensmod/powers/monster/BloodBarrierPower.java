@@ -44,9 +44,11 @@ public class BloodBarrierPower extends AbstractEasyPower {
 
     private void checkAndTrigger(int damage) {
         amount2 -= damage;
+        updateDescription();
         if (amount2 > 0)
             return;
         amount2 = amount;
+        updateDescription();
         addToTop(new GainBlockAction(owner, owner, owner.maxHealth));
     }
 

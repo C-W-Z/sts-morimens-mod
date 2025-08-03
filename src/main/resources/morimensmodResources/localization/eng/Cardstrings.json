@@ -616,7 +616,7 @@
     "NAME": "Suffocation",
     "DESCRIPTION": "{@@}At the end of the turn, if in hand, gain !M! stack{!M!|>1=s} of Poison."
   },
-  "${ModID}:PainOfUnfulfilledDesires": {
+  "${ModID}:PainOfUnfulfilledDesires_Status": {
     "NAME": "Pain of Unfulfilled Desires",
     "DESCRIPTION": "{@@}Deal !M! damage to self. Gain !${ModID}:M2! ${ModID}:Temporary Strength, draw !${ModID}:DR! card{!${ModID}:DR!|>1=s}."
   },
@@ -628,5 +628,25 @@
   "${ModID}:Unrestrained": {
     "NAME": "Unrestrained",
     "DESCRIPTION": "Gain !M! ${ModID}:Temporary Strength . All enemies gain !${ModID}:M2! ${ModID}:Temporary Strength. NL ${ModID}:Persistent. ${ModID}:Destroy."
+  },
+  "${ModID}:ShacklesLadyGovernor": {
+    "NAME": "Shackles: Lady Governor",
+    "DESCRIPTION": "Gain !M! Block, lose !${ModID}:M2! Dexterity."
+  },
+  "${ModID}:ShacklesTorturedSlave": {
+    "NAME": "Shackles: Tortured Slave",
+    "DESCRIPTION": "Heal !${ModID}:H! HP, lose all Block at the end of the turn."
+  },
+  "${ModID}:ShacklesDivineMaidenReturn": {
+    "NAME": "Shackles: Divine Maiden Return",
+    "DESCRIPTION": "Gain !M! ${ModID}:Temporary ${ModID}:Barrier, [E] permanently reduced by !${ModID}:M2!."
+  },
+  "${ModID}:ShacklesBladeAdrift": {
+    "NAME": "Shackles: Blade Adrift",
+    "DESCRIPTION": "Gain !M! ${ModID}:Temporary Strength. Lose an additional !${ModID}:M2! Strength at the end of the turn."
+  },
+  "${ModID}:Joker": {
+    "NAME": "Joker",
+    "DESCRIPTION": "{@@}Deal !M! damage to self, draw !${ModID}:DR! card{!${ModID}:DR!|>1=s}."
   }
 }

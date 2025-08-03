@@ -23,7 +23,7 @@ import com.megacrit.cardcrawl.vfx.combat.IntenseZoomEffect;
 import basemod.animations.AbstractAnimation;
 
 import morimensmod.actions.NewWaitAction;
-import morimensmod.cards.status.PainOfUnfulfilledDesires;
+import morimensmod.cards.status.PainOfUnfulfilledDesires_Status;
 import morimensmod.config.ModSettings;
 import morimensmod.config.ModSettings.ASCENSION_LVL;
 import morimensmod.misc.Animator;
@@ -36,13 +36,14 @@ public class LeighBoss extends AbstractAwakenableBoss {
     public static final String ID = makeID(LeighBoss.class.getSimpleName());
     private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
     public static final String NAME = monsterStrings.NAME;
+    public static final String[] MOVES = monsterStrings.MOVES;
 
     public static final String LeighID = makeID("Leigh");
     private static final float xOffset = -20;
     private static final float yOffset = -1;
 
     private int strengthAmt = 5;
-    private int unmetPainDamage = PainOfUnfulfilledDesires.DEFAULT_DAMAGE;
+    private int unmetPainDamage = PainOfUnfulfilledDesires_Status.DEFAULT_DAMAGE;
     private int unmetPainAmt = 2;
     private int unmetPainAmtRoused = 1;
     private static final float BLOOD_BARRIER_PERCENT = 0.25F;
@@ -53,26 +54,26 @@ public class LeighBoss extends AbstractAwakenableBoss {
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_DMG) {
             addNoDamage();
-            addDamage(15, 3);
-            addDamage(29, 1);
-            addDamage(40, 1);
+            addDamage(15, 3); // 15x3
+            addDamage(29, 1); // 29
+            addDamage(40, 1); // 39
             addNoDamage();
             addDamage(16, 3);
             addDamage(30, 1);
-            unmetPainDamage = PainOfUnfulfilledDesires.DEFAULT_DAMAGE + 4;
+            unmetPainDamage = PainOfUnfulfilledDesires_Status.DEFAULT_DAMAGE + 4;
         } else {
             addNoDamage();
-            addDamage(14, 3);
+            addDamage(13, 3);
             addDamage(27, 1);
             addDamage(35, 1);
             addNoDamage();
             addDamage(15, 3);
             addDamage(28, 1);
-            unmetPainDamage = PainOfUnfulfilledDesires.DEFAULT_DAMAGE;
+            unmetPainDamage = PainOfUnfulfilledDesires_Status.DEFAULT_DAMAGE;
         }
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION) {
-            strengthAmt = 7;
+            strengthAmt = 6;
             unmetPainAmt = 3;
             unmetPainAmtRoused = 2;
         } else {
@@ -90,14 +91,14 @@ public class LeighBoss extends AbstractAwakenableBoss {
     @Override
     protected final int getMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
-            return 991;
-        return 793;
+            return 991; // 991 x 0.9
+        return 793; // 991 x 0.8
     }
 
     @Override
     protected final int getRousedMaxHP() {
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_BOSS_HP)
-            return 1487;
+            return 1339; // 1487 x 0.9
         return 1190;
     }
 
@@ -158,27 +159,13 @@ public class LeighBoss extends AbstractAwakenableBoss {
     @Override
     protected void setMoveIntent(int _moveID) {
         switch (_moveID) {
-            case 0:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.BUFF);
-                break;
-            case 1:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.ATTACK_DEBUFF);
-                break;
-            case 2:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.ATTACK_BUFF);
-                break;
-            case 3:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.ATTACK_BUFF);
-                break;
-            case 4:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.MAGIC);
-                break;
-            case 5:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.ATTACK_DEBUFF);
-                break;
-            case 6:
-                setIntent(monsterStrings.MOVES[_moveID], _moveID, Intent.ATTACK_BUFF);
-                break;
+            case 0: setIntent(MOVES[_moveID], _moveID, Intent.BUFF);            break;
+            case 1: setIntent(MOVES[_moveID], _moveID, Intent.ATTACK_DEBUFF);   break;
+            case 2: setIntent(MOVES[_moveID], _moveID, Intent.ATTACK_BUFF);     break;
+            case 3: setIntent(MOVES[_moveID], _moveID, Intent.ATTACK_BUFF);     break;
+            case 4: setIntent(MOVES[_moveID], _moveID, Intent.MAGIC);           break;
+            case 5: setIntent(MOVES[_moveID], _moveID, Intent.ATTACK_DEBUFF);   break;
+            case 6: setIntent(MOVES[_moveID], _moveID, Intent.ATTACK_BUFF);     break;
         }
     }
 
@@ -194,7 +181,7 @@ public class LeighBoss extends AbstractAwakenableBoss {
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
                 addToBot(new NewWaitAction(7F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 attackAction(_moveID, AttackEffect.SLASH_HORIZONTAL);
-                shuffleIn(new PainOfUnfulfilledDesires(unmetPainDamage), unmetPainAmt);
+                shuffleIn(new PainOfUnfulfilledDesires_Status(unmetPainDamage), unmetPainAmt);
                 break;
             case 2:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
@@ -209,7 +196,7 @@ public class LeighBoss extends AbstractAwakenableBoss {
                 break;
             case 4:
                 addToBot(new VFXAction(this, new IntenseZoomEffect(this.hb.cX, this.hb.cY, true), 0.05F, true));
-                addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ROUSE_ANIM));
+                addToBot(new ChangeStateAction(this, rouseAnim));
                 addToBot(new NewWaitAction(23F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 actB(() -> addToTop(new ApplyPowerAction(this, this,
                         new BloodBarrierPower(this, MathUtils.ceil(maxHealth * BLOOD_BARRIER_PERCENT)))));
@@ -218,7 +205,7 @@ public class LeighBoss extends AbstractAwakenableBoss {
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
                 addToBot(new NewWaitAction(7F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 bloodAction(_moveID, AttackEffect.SLASH_HORIZONTAL);
-                shuffleIn(new PainOfUnfulfilledDesires(unmetPainDamage), unmetPainAmtRoused);
+                shuffleIn(new PainOfUnfulfilledDesires_Status(unmetPainDamage), unmetPainAmtRoused);
                 break;
             case 6:
                 addToBot(new ChangeStateAction(this, ModSettings.PLAYER_ATTACK_ANIM));
@@ -237,10 +224,4 @@ public class LeighBoss extends AbstractAwakenableBoss {
                     unblockedDamage -> addToTop(
                             new HealAction(this, this, MathUtils.ceil(unblockedDamage * bloodHealAmplify)))));
     }
-
-    @Override
-    protected void preBattle() {}
-
-    @Override
-    protected void onHalfDead() {}
 }

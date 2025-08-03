@@ -71,7 +71,7 @@
   },
   "${ModID}:LotanBoss": {
     "NAME": "\"Whale Leap\"",
-    "DIALOG": [],
+    "DIALOG": ["\"Lotan\""],
     "MOVES": [
       "Blade of Defiance",
       "Tides of Hubris",
@@ -91,5 +91,43 @@
       "Agony and Blood",
       "Pleasure and Blood"
     ]
+  },
+  "${ModID}:HelotBoss": {
+    "NAME": "\"Chainbreaker\"",
+    "DIALOG": [
+      "I was once the apple of your eye...",
+      "Is that a mercy not permitted?",
+      "I will forsake the life of the Holy Maiden.",
+      "Listen to the wrath of the avenger!"
+    ],
+    "MOVES": [
+      "Lasting Loathe",
+      "",
+      "Surviving Impasse",
+      "Vengeance Declaration",
+      "Shattering Strike"
+    ]
+  },
+  "${ModID}:CasiahBoss": {
+    "NAME": "\"The Magician\"",
+    "DIALOG": [
+      "Welcome to the incredible realm!",
+      "Here comes the opening tribute!",
+      "Since you no longer want it, why not make it disappear?",
+      "It doesn't matter which one you choose, it's useless!"
+    ],
+    "MOVES": [
+      "Magic Carnival",
+      "Magic Card: Weakening",
+      "Poof!",
+      "Magic Card: Penetration",
+      "Telekinesis",
+      "Opening Act"
+    ]
+  },
+  "${ModID}:CasiahMinion": {
+    "NAME": "\"The Magician's Doppelganger\"",
+    "DIALOG": [],
+    "MOVES": ["Surprise!"]
   }
 }

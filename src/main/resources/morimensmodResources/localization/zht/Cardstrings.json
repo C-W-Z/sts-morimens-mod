@@ -609,7 +609,7 @@
     "NAME": "窒息",
     "DESCRIPTION": "回合結束時若在手中，獲得 !M! 層 中毒 。"
   },
-  "${ModID}:PainOfUnfulfilledDesires": {
+  "${ModID}:PainOfUnfulfilledDesires_Status": {
     "NAME": "未被滿足之痛",
     "DESCRIPTION": "對自身造成 !M! 點傷害，獲得 !${ModID}:M2! 點 ${ModID}:臨時 力量 ，抽 !${ModID}:DR! 張牌。"
   },
@@ -621,5 +621,25 @@
   "${ModID}:Unrestrained": {
     "NAME": "狂放",
     "DESCRIPTION": "獲得 !M! 點 ${ModID}:臨時 力量 ，所有敵人獲得 !${ModID}:M2! 點 ${ModID}:臨時 力量 。 NL ${ModID}:永久保留 \u2002 ${ModID}:銷毀 "
+  },
+  "${ModID}:ShacklesLadyGovernor": {
+    "NAME": "枷鎖：掌政官夫人",
+    "DESCRIPTION": "獲得 !M! 點 格擋 ，失去 !${ModID}:M2! 點 敏捷 。"
+  },
+  "${ModID}:ShacklesTorturedSlave": {
+    "NAME": "枷鎖：受刑的奴隸",
+    "DESCRIPTION": "回復 !${ModID}:H! 點生命 ，回合結束時失去所有 格擋 。"
+  },
+  "${ModID}:ShacklesDivineMaidenReturn": {
+    "NAME": "枷鎖：復甦的聖女",
+    "DESCRIPTION": "獲得 !M! 層 ${ModID}:臨時 ${ModID}:屏障 ， [E] 永久減少 !${ModID}:M2! 。"
+  },
+  "${ModID}:ShacklesBladeAdrift": {
+    "NAME": "枷鎖：徬徨的利刃",
+    "DESCRIPTION": "獲得 !M! 點 ${ModID}:臨時 力量 ，回合結束時額外失去 !${ModID}:M2! 點 力量 。"
+  },
+  "${ModID}:Joker": {
+    "NAME": "鬼牌",
+    "DESCRIPTION": "對自身造成 !M! 點傷害，抽 !${ModID}:DR! 張牌。"
   }
 }

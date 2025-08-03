@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -27,14 +28,16 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.helpers.CardModifierManager;
+import morimensmod.actions.NewWaitAction;
 import morimensmod.cardmodifiers.EtherealModifier;
 import morimensmod.cardmodifiers.ExhaustModifier;
 import morimensmod.cards.NullCard;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.characters.AbstractAwakener;
+import morimensmod.characters.Lotan;
 import morimensmod.config.ModSettings;
+import morimensmod.vfx.CetaceanEffect;
 import morimensmod.vfx.LargPortraitFlashInEffect;
-import morimensmod.vfx.SpriteSheetAttackEffect;
 
 public class BeastOfChaos extends AbstractExalt {
 
@@ -65,27 +68,22 @@ public class BeastOfChaos extends AbstractExalt {
 
     @Override
     public void exalt() {
-        atb(new VFXAction(p(), new LargPortraitFlashInEffect(removeModID(ID)), ModSettings.EXALT_PROTRAIT_DURATION, true));
+        exalt(false);
+    }
+
+    public void exalt(boolean upgradeStrike) {
+        atb(new VFXAction(p(), new LargPortraitFlashInEffect(removeModID(ID)),
+                ModSettings.EXALT_PROTRAIT_DURATION, true));
 
         atb(new RemoveSpecificPowerAction(p(), p(), WeakPower.POWER_ID));
 
-        float centerX = 0f;
-        float centerY = 0f;
-        int count = 0;
-        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-            centerX += m.hb.cX;
-            centerY += m.hb.cY - m.hb.height / 4;
-            count++;
-        }
-        if (count > 0) {
-            centerX /= count;
-            centerY /= count;
+        if (p() instanceof Lotan) {
+            ((Lotan) p()).setAnimation(ModSettings.PLAYER_EXALT_ANIM);
+            atb(new NewWaitAction(20F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
         }
 
-        atb(new VFXAction(new SpriteSheetAttackEffect(
-                "Cetacean", 7, 5, 2,
-                centerX, centerY, -108, 96, false, false),
-                0F));
+        atb(new VFXAction(new CetaceanEffect(),
+                4F / ModSettings.SPRITE_SHEET_ANIMATION_FPS * (Settings.FAST_MODE ? 0.5F : 1F)));
 
         actB(() -> {
             for (int i = 0; i < 2; i++) {
@@ -94,6 +92,8 @@ public class BeastOfChaos extends AbstractExalt {
             }
         });
         AbstractCard strike = new Strike();
+        if (upgradeStrike)
+            strike.upgrade();
         CardModifierManager.addModifier(strike, new ExhaustModifier());
         CardModifierManager.addModifier(strike, new EtherealModifier());
         makeInHand(strike, 2);
@@ -101,7 +101,7 @@ public class BeastOfChaos extends AbstractExalt {
 
     @Override
     public void overExalt() {
-        exalt();
+        exalt(true);
         calculateOverExaltDamage();
         atb(new DamageAllEnemiesAction(p(), multiDamage, DamageType.NORMAL, AttackEffect.SLASH_HEAVY));
         actB(() -> baseDamageAmplify += 100);

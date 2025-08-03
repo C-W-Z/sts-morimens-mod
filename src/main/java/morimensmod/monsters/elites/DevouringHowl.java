@@ -3,12 +3,12 @@ package morimensmod.monsters.elites;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.MorimensMod.makeMonsterPath;
 import static morimensmod.util.General.removeModID;
+import static morimensmod.util.Wiz.addToDiscard;
 import static morimensmod.util.Wiz.getPowerAmount;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ChangeStateAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
@@ -142,7 +142,7 @@ public class DevouringHowl extends AbstractMorimensMonster {
                 addToBot(new ChangeStateAction(this, ModSettings.MONSTER_SKILL1_ANIM));
                 addToBot(new NewWaitAction(40F / ModSettings.SPRITE_SHEET_ANIMATION_FPS));
                 addToBot(new ApplyPowerAction(this, this, new MadnessPower(this, madnessAmt)));
-                addToBot(new MakeTempCardInDiscardAction(new Stagger(), staggerAmt));
+                addToDiscard(new Stagger(), staggerAmt);
                 break;
         }
 

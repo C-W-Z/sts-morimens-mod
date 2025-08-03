@@ -1,7 +1,11 @@
 {
+  "${ModID}:DrawLessPower": {
+    "NAME": "抽牌數降低",
+    "DESCRIPTIONS": ["下回合開始時，少抽 #b%d 張牌。"]
+  },
   "${ModID}:LoseThornsPower": {
     "NAME": "荊棘叢生",
-    "DESCRIPTIONS": ["回合開始時，失去 #b%d 層 #y荊棘 。"]
+    "DESCRIPTIONS": ["下回合開始時，失去 #b%d 層 #y荊棘 。"]
   },
   "${ModID}:SealPower": {
     "NAME": "封印",
@@ -64,6 +68,10 @@
     "NAME": "延遲強化",
     "DESCRIPTIONS": ["下回合開始時，獲得 #b%d 層 #y強化 。"]
   },
+  "${ModID}:TauntPower": {
+    "NAME": "嘲諷",
+    "DESCRIPTIONS": ["選擇單體目標時只能選擇有 #y嘲諷 的目標。"]
+  },
   "${ModID}:MadnessPower": {
     "NAME": "瘋狂",
     "DESCRIPTIONS": ["攻擊次數 #b+%d 。"]
@@ -96,6 +104,22 @@
     "NAME": "血之屏障",
     "DESCRIPTIONS": [
       "每損失 #b%d 點生命後，獲得等於最大生命的 #y格擋 。還需要損失 #b%d 點生命。"
+    ]
+  },
+  "${ModID}:LoseAllBlockPower": {
+    "NAME": "枷鎖：生父",
+    "DESCRIPTIONS": ["回合結束時失去所有 #y格擋 ，持續 #b%d 回合。"]
+  },
+  "${ModID}:PickFromTop3DrawPileCardsPower": {
+    "NAME": "通通消失！",
+    "DESCRIPTIONS": [
+      "下回合開始後，查看抽牌堆頂部的 #b%d 張牌，選擇 #b%d 張置入手中。"
+    ]
+  },
+  "${ModID}:CasiahBossPhantasmPower": {
+    "NAME": "幻影",
+    "DESCRIPTIONS": [
+      "每打出 #b%d 張牌，召喚一個分身，最多存在 #b2 個分身。還需要打出 #b%d 張牌。"
     ]
   },
   "${ModID}:FirstDoctrinePower": {

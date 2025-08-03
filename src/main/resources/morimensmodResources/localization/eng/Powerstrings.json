@@ -1,7 +1,13 @@
 {
+  "${ModID}:DrawLessPower": {
+    "NAME": "Draw Less Power",
+    "DESCRIPTIONS": ["At the start of the next turn, draw #b%d fewer cards."]
+  },
   "${ModID}:LoseThornsPower": {
     "NAME": "Lose Thorns",
-    "DESCRIPTIONS": ["At the start of turn, lose #b%d layers of #yThorns."]
+    "DESCRIPTIONS": [
+      "At the start of the next turn, lose #b%d layers of #yThorns."
+    ]
   },
   "${ModID}:SealPower": {
     "NAME": "Seal",
@@ -72,6 +78,12 @@
       "At the start of the next turn, gain #b%d stack(s) of #yEnhance."
     ]
   },
+  "${ModID}:TauntPower": {
+    "NAME": "Taunt",
+    "DESCRIPTIONS": [
+      "When selecting a single target, only targets with #yTaunt can be selected."
+    ]
+  },
   "${ModID}:MadnessPower": {
     "NAME": "Madness",
     "DESCRIPTIONS": ["Number of attacks #b+%d."]
@@ -110,6 +122,24 @@
     "NAME": "Blood Barrier",
     "DESCRIPTIONS": [
       "After losing #b%d HP, gain #yBlock equal to maximum HP. #b%d HP loss needed."
+    ]
+  },
+  "${ModID}:PickFromTop3DrawPileCardsPower": {
+    "NAME": "Poof!",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, look at the #b%d cards on the top of the Draw Pile and choose #b%d cards to place into your hand."
+    ]
+  },
+  "${ModID}:CasiahBossPhantasmPower": {
+    "NAME": "Phantasm",
+    "DESCRIPTIONS": [
+      "For every #b%d cards played, summon a Doppelganger, up to a maximum of #b2 Doppelgangers. #b%d cards needed."
+    ]
+  },
+  "${ModID}:LoseAllBlockPower": {
+    "NAME": "Shackles: Father",
+    "DESCRIPTIONS": [
+      "Loss all #yBlocks at the end of the turn, lasting #b%d turns."
     ]
   },
   "${ModID}:FirstDoctrinePower": {

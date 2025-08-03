@@ -1,9 +1,9 @@
 package morimensmod.cards.symptoms;
 
 import static morimensmod.MorimensMod.makeID;
+import static morimensmod.util.Wiz.addToDiscard;
 
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -22,6 +22,6 @@ public class SymptomHysteria extends AbstractSymptomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainEnergyAction(secondMagic));
-        addToBot(new MakeTempCardInDiscardAction(new SymptomHysteria(), magicNumber));
+        addToDiscard(new SymptomHysteria(), magicNumber);
     }
 }
