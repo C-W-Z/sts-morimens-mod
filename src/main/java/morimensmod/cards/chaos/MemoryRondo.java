@@ -31,6 +31,7 @@ public class MemoryRondo extends AbstractEasyCard {
         tags.add(CustomTags.FORCE_PLAYABLE);
         magicNumber = baseMagicNumber = 1; // 力量
         secondMagic = baseSecondMagic = 2; // 靈感
+        thirdMagic = baseThirdMagic = 0;   // 力量
         cardsToPreview = new Insight();
     }
 
@@ -61,7 +62,7 @@ public class MemoryRondo extends AbstractEasyCard {
 
     public void forceUse(AbstractPlayer p, AbstractMonster m) {
         if (upgraded)
-            applyToSelf(new StrengthPower(p, magicNumber));
+            applyToSelf(new StrengthPower(p, thirdMagic));
         shuffleIn(cardsToPreview, secondMagic);
     }
 
@@ -103,5 +104,6 @@ public class MemoryRondo extends AbstractEasyCard {
     @Override
     public void upp() {
         upgradeMagicNumber(1);
+        upgradeThirdMagic(1);
     }
 }
