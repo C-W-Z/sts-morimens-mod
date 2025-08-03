@@ -45,7 +45,7 @@ public class CardTypeRenderPatch {
     @SpirePatch2(clz = SingleCardViewPopup.class, method = "renderCardTypeText")
     public static class SingleCardViewRenderPatch {
         @SpireInsertPatch(locator = Locator.class, localvars = { "label" })
-        public static void Insert(SingleCardViewPopup ___instanceance, SpriteBatch sb, @ByRef String[] label,
+        public static void Insert(SingleCardViewPopup __instance, SpriteBatch sb, @ByRef String[] label,
                 AbstractCard ___card) {
             if (___card.hasTag(CustomTags.COMMAND))
                 label[0] = COMMAND_STRINGS.TEXT[0];
@@ -77,40 +77,7 @@ public class CardTypeRenderPatch {
     @SpirePatch2(clz = AbstractSignatureCard.class, method = "renderType")
     public static class SignatureCardTypeRenderPatch {
         @SpireInsertPatch(locator = Locator.class, localvars = { "text" })
-        public static void Insert(AbstractSignatureCard ___instanceance, SpriteBatch sb, @ByRef String[] text) {
-            if (___instanceance.hasTag(CustomTags.COMMAND))
-                text[0] = COMMAND_STRINGS.TEXT[0];
-            else if (___instanceance.hasTag(CustomTags.ROUSE))
-                text[0] = ROUSE_STRINGS.TEXT[0];
-            else if (___instanceance.hasTag(CustomTags.BUFF))
-                text[0] = BUFF_STRINGS.TEXT[0];
-            else if (___instanceance.hasTag(CustomTags.WHEEL_OF_DESTINY))
-                text[0] = WHEEL_OF_DESTINY_STRINGS.TEXT[0];
-            else if (___instanceance.hasTag(CustomTags.SYMPTOM))
-                text[0] = SYMPTOM_STRINGS.TEXT[0];
-            else if (___instanceance.hasTag(CustomTags.STATUS))
-                text[0] = STATUS_STRINGS.TEXT[0];
-            else if (___instanceance.hasTag(CustomTags.POSSE))
-                text[0] = POSSE_STRINGS.TEXT[0];
-            if (___instanceance.color == DERIVATIVE_COLOR)
-                text[0] = DERIVATIVE_STRINGS.TEXT[0] + text[0];
-        }
-
-        private static class Locator extends SpireInsertLocator {
-            @Override
-            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
-                return LineFinder.findInOrder(ctMethodToPatch,
-                        new Matcher.MethodCallMatcher(FontHelper.class, "renderRotatedText"));
-            }
-        }
-    }
-
-    @SpirePatch2(clz = AbstractCard.class, method = "renderType")
-    public static class RenderTypePatch {
-        @SpireInsertPatch(locator = Locator.class, localvars = { "text", "font" })
-        public static SpireReturn<Void> Insert(AbstractCard __instance, SpriteBatch sb,
-                @ByRef String[] text, BitmapFont[] font) {
-
+        public static void Insert(AbstractSignatureCard __instance, SpriteBatch sb, @ByRef String[] text) {
             if (__instance.hasTag(CustomTags.COMMAND))
                 text[0] = COMMAND_STRINGS.TEXT[0];
             else if (__instance.hasTag(CustomTags.ROUSE))
@@ -127,25 +94,6 @@ public class CardTypeRenderPatch {
                 text[0] = POSSE_STRINGS.TEXT[0];
             if (__instance.color == DERIVATIVE_COLOR)
                 text[0] = DERIVATIVE_STRINGS.TEXT[0] + text[0];
-
-            if (!SignatureHelperInternal.usePatch(__instance))
-                return SpireReturn.Continue();
-
-            if (getFrame(__instance) != null) {
-                Color typeColor = ReflectionHacks.getPrivate(__instance, AbstractCard.class, "typeColor");
-                Color renderColor = ReflectionHacks.getPrivate(__instance, AbstractCard.class, "renderColor");
-
-                typeColor.a = renderColor.a;
-                if ((SignatureHelperInternal.getInfo(__instance.cardID)).hideFrame.test(__instance))
-                    typeColor.a *= getSignatureTransparency(__instance);
-                if (typeColor.a > 0.0F)
-                    FontHelper.renderRotatedText(sb, font[0], text[0], __instance.current_x,
-                            __instance.current_y - 195.0F * __instance.drawScale * Settings.scale, 0.0F,
-                            -1.0F * __instance.drawScale * Settings.scale, __instance.angle, false,
-                            typeColor);
-            }
-
-            return SpireReturn.Return();
         }
 
         private static class Locator extends SpireInsertLocator {
@@ -155,6 +103,74 @@ public class CardTypeRenderPatch {
                         new Matcher.MethodCallMatcher(FontHelper.class, "renderRotatedText"));
             }
         }
+    }
+
+    @SpirePatch2(clz = AbstractCard.class, method = "renderType")
+    public static class RenderTypePatch {
+        @SpirePrefixPatch
+        public static SpireReturn<Void> Prefix(AbstractCard __instance, SpriteBatch sb) {
+            if (!SignatureHelperInternal.usePatch(__instance))
+                return SpireReturn.Continue();
+            if (getFrame(__instance) == null)
+                return SpireReturn.Return();
+
+            String text;
+
+            if (__instance.hasTag(CustomTags.COMMAND))
+                text = COMMAND_STRINGS.TEXT[0];
+            else if (__instance.hasTag(CustomTags.ROUSE))
+                text = ROUSE_STRINGS.TEXT[0];
+            else if (__instance.hasTag(CustomTags.BUFF))
+                text = BUFF_STRINGS.TEXT[0];
+            else if (__instance.hasTag(CustomTags.WHEEL_OF_DESTINY))
+                text = WHEEL_OF_DESTINY_STRINGS.TEXT[0];
+            else if (__instance.hasTag(CustomTags.SYMPTOM))
+                text = SYMPTOM_STRINGS.TEXT[0];
+            else if (__instance.hasTag(CustomTags.STATUS))
+                text = STATUS_STRINGS.TEXT[0];
+            else if (__instance.hasTag(CustomTags.POSSE))
+                text = POSSE_STRINGS.TEXT[0];
+            else if (__instance.type == AbstractCard.CardType.ATTACK)
+                text = AbstractCard.TEXT[0];
+            else if (__instance.type == AbstractCard.CardType.SKILL)
+                text = AbstractCard.TEXT[1];
+            else if (__instance.type == AbstractCard.CardType.POWER)
+                text = AbstractCard.TEXT[2];
+            else if (__instance.type == AbstractCard.CardType.CURSE)
+                text = AbstractCard.TEXT[3];
+            else if (__instance.type == AbstractCard.CardType.STATUS)
+                text = AbstractCard.TEXT[7];
+            else
+                text = AbstractCard.TEXT[5];
+
+            if (__instance.color == DERIVATIVE_COLOR)
+                text = DERIVATIVE_STRINGS.TEXT[0] + text;
+
+            BitmapFont font = FontHelper.cardTypeFont;
+            font.getData().setScale(__instance.drawScale);
+
+            Color typeColor = ReflectionHacks.getPrivate(__instance, AbstractCard.class, "typeColor");
+            Color renderColor = ReflectionHacks.getPrivate(__instance, AbstractCard.class, "renderColor");
+
+            typeColor.a = renderColor.a;
+            if ((SignatureHelperInternal.getInfo(__instance.cardID)).hideFrame.test(__instance))
+                typeColor.a *= getSignatureTransparency(__instance);
+            if (typeColor.a > 0.0F)
+                FontHelper.renderRotatedText(sb, font, text, __instance.current_x,
+                        __instance.current_y - 195.0F * __instance.drawScale * Settings.scale, 0.0F,
+                        -1.0F * __instance.drawScale * Settings.scale, __instance.angle, false,
+                        typeColor);
+
+            return SpireReturn.Return();
+        }
+
+        // private static class Locator extends SpireInsertLocator {
+        //     @Override
+        //     public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+        //         return LineFinder.findInOrder(ctMethodToPatch,
+        //                 new Matcher.MethodCallMatcher(FontHelper.class, "renderRotatedText"));
+        //     }
+        // }
 
         private static TextureAtlas.AtlasRegion getFrame(AbstractCard card) {
             SignatureHelper.Style style = SignatureHelperInternal.getStyle(card);
