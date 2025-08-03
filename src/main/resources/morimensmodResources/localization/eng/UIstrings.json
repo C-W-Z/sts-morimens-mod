@@ -71,6 +71,9 @@
   "${ModID}:KeyflareChangeAction": {
     "TEXT": [" Keyflare"]
   },
+  "${ModID}:TauntPatch": {
+    "TEXT": ["Can only select targets with #rTaunt."]
+  },
   "${ModID}:DeathResistancePatch": {
     "TEXT": ["Death Resist!"]
   },

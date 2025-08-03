@@ -37,11 +37,14 @@ public class CasiahMinion extends AbstractMorimensMonster {
 
         if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.HIGHER_MONSTER_DMG) {
             addDamage(10, 1);
-            jokerDmg = Joker.DEFAULT_DAMAGE + 2;
         } else {
             addDamage(8, 1);
-            jokerDmg = Joker.DEFAULT_DAMAGE;
         }
+
+        if (AbstractDungeon.ascensionLevel >= ASCENSION_LVL.ENHANCE_BOSS_ACTION)
+            jokerDmg = Joker.DEFAULT_DAMAGE + 1;
+        else
+            jokerDmg = Joker.DEFAULT_DAMAGE;
     }
 
     protected static int getMaxHP() {

@@ -2,6 +2,9 @@ package morimensmod.misc;
 
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -15,6 +18,8 @@ import morimensmod.config.ModSettings;
 import morimensmod.util.TexLoader;
 
 public class Animator extends AbstractAnimation {
+
+    private static final Logger logger = LogManager.getLogger(Animator.class);
 
     private float scale = 1F;
     private boolean flipX = false;
@@ -115,8 +120,10 @@ public class Animator extends AbstractAnimation {
 
     public void setAnimation(String name, boolean forceReset) {
         AnimationState nextAnim = animations.get(name);
-        if (nextAnim == null)
-            throw new IllegalArgumentException("No such animation: " + name);
+        if (nextAnim == null) {
+            logger.error("No such animation: " + name);
+            return;
+        }
 
         // 若是不同動畫，或要求強制重設時間，才設置為新的動畫
         if (currentAnim != nextAnim || forceReset) {

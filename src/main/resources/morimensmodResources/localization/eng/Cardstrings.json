@@ -337,7 +337,7 @@
   "${ModID}:MemoryRondo": {
     "NAME": "Memory Rondo",
     "DESCRIPTION": "Gain !M! Strength. Add !${ModID}:M2! \"Insight\" to your hand. NL In you lack the required [E], you can still play this card, but it effect will be changed to shuffle !${ModID}:M2! \"Insight\" into Draw Pile.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Strength. Add !${ModID}:M2! \"Insight\" to your hand. NL In you lack the required [E], you can still play this card, but it effect will be changed to gain !M! Strength and shuffle !${ModID}:M2! \"Insight\" into Draw Pile."
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength. Add !${ModID}:M2! \"Insight\" to your hand. NL In you lack the required [E], you can still play this card, but it effect will be changed to gain !${ModID}:M3! Strength and shuffle !${ModID}:M2! \"Insight\" into Draw Pile."
   },
   "${ModID}:StunningTone": {
     "NAME": "Stunning Tone",

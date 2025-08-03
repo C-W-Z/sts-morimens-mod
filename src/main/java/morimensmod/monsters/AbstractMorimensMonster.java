@@ -99,10 +99,11 @@ public abstract class AbstractMorimensMonster extends CustomMonster {
 
     @Override
     public void damage(DamageInfo info) {
+        int hp = currentHealth;
         super.damage(info);
-        if (!(this.animation instanceof Animator))
-            return;
-        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > 0)
+        if (this.animation instanceof Animator && info.owner != null &&
+            info.type != DamageInfo.DamageType.THORNS && info.output > 0 &&
+            hp > currentHealth && info.owner.isPlayer)
             ((Animator) this.animation).setAnimation(ModSettings.MONSTER_HIT_ANIM);
     }
 

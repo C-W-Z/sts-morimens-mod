@@ -335,7 +335,7 @@
   "${ModID}:MemoryRondo": {
     "NAME": "追忆回旋曲",
     "DESCRIPTION": "获得 !M! 点 力量 ，将 !${ModID}:M2! 张「灵感」置入手中。 NL [E] 不足时仍可强行打出，效果改为将 !${ModID}:M2! 张「灵感」洗入抽牌堆。",
-    "UPGRADE_DESCRIPTION": "获得 !M! 点 力量 ，将 !${ModID}:M2! 张「灵感」置入手中。 NL [E] 不足时仍可强行打出，效果改为获得 !M! 点 力量 ，将 !${ModID}:M2! 张「灵感」洗入抽牌堆。"
+    "UPGRADE_DESCRIPTION": "获得 !M! 点 力量 ，将 !${ModID}:M2! 张「灵感」置入手中。 NL [E] 不足时仍可强行打出，效果改为获得 !${ModID}:M3! 点 力量 ，将 !${ModID}:M2! 张「灵感」洗入抽牌堆。"
   },
   "${ModID}:StunningTone": {
     "NAME": "惊愕强音",

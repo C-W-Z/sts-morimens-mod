@@ -1,7 +1,5 @@
 package morimensmod.cards;
 
-import me.antileaf.signature.card.AbstractSignatureCard;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
@@ -19,6 +17,7 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import basemod.abstracts.CustomCard;
 import basemod.helpers.CardModifierManager;
 
 import static morimensmod.MorimensMod.makeImagePath;
@@ -32,7 +31,7 @@ import morimensmod.util.CardArtRoller;
 
 import java.util.function.Consumer;
 
-public abstract class AbstractEasyCard extends AbstractSignatureCard {
+public abstract class AbstractEasyCard extends CustomCard {
 
     protected final CardStrings cardStrings;
     public String cardImgID;
@@ -126,7 +125,6 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
         return textureString;
     }
 
-    @Override
     public String getSignatureImgPath() {
         if (this.textureImg.contains("/cards/"))
             return CardImgID.removePofix(this.textureImg).replace(".png", "_s.png").replace("/cards/", "/signature/");
@@ -135,6 +133,10 @@ public abstract class AbstractEasyCard extends AbstractSignatureCard {
             return CardImgID.removePofix(this.textureImg).replace(".png", "_s.png").replace("/card/", "/signature/");
 
         return CardImgID.removePofix(this.textureImg).replace(".png", "_s.png");
+    }
+
+    public String getSignaturePortraitImgPath() {
+        return this.getSignatureImgPath().replace(".png", "_p.png");
     }
 
     @Override

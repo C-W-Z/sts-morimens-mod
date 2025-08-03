@@ -71,6 +71,9 @@
   "${ModID}:KeyflareChangeAction": {
     "TEXT": ["银钥能量"]
   },
+  "${ModID}:TauntPatch": {
+    "TEXT": ["只能选择有 #r嘲讽 的目标。"]
+  },
   "${ModID}:DeathResistancePatch": {
     "TEXT": ["死亡抵抗！"]
   },

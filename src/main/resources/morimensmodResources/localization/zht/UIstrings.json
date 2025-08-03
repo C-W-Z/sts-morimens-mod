@@ -71,6 +71,9 @@
   "${ModID}:KeyflareChangeAction": {
     "TEXT": ["銀鑰能量"]
   },
+  "${ModID}:TauntPatch": {
+    "TEXT": ["只能選擇有 #r嘲諷 的目標。"]
+  },
   "${ModID}:DeathResistancePatch": {
     "TEXT": ["死亡抵抗！"]
   },
