@@ -7,7 +7,6 @@ import basemod.helpers.CardBorderGlowManager;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import me.antileaf.signature.utils.SignatureHelper;
-import me.antileaf.signature.utils.internal.SignatureHelperInternal;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.chaos.QueensSword;
@@ -368,6 +367,7 @@ public class MorimensMod implements
         }
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void receivePostInitialize() {
         // This loads the image used as an icon in the in-game mods menu.
@@ -387,12 +387,16 @@ public class MorimensMod implements
 
         new AutoAdd(modID)
                 .packageFilter(AbstractEasyCard.class)
-                .any(AbstractEasyCard.class, (info, var) -> {
-                    if (!SignatureHelperInternal.hasSignature(var))
+                .any(AbstractEasyCard.class, (info, card) -> {
+                    if (!Gdx.files.internal(card.getSignatureImgPath()).exists())
                         return;
-                    logger.info("unlock signature:" + var.cardID);
-                    SignatureHelper.unlock(var.cardID, true);
-                    SignatureHelper.enable(var.cardID, true);
+                    logger.info("register & unlock signature:" + card.cardID);
+                    SignatureHelper.register(card.cardID, new SignatureHelper.Info(
+                            c -> ((AbstractEasyCard) c).getSignatureImgPath(),
+                            c -> ((AbstractEasyCard) c).getSignaturePortraitImgPath(),
+                            SignatureHelper.DEFAULT_STYLE));
+                    SignatureHelper.unlock(card.cardID, true);
+                    SignatureHelper.enable(card.cardID, true);
                 });
 
         new AutoAdd(modID)
