@@ -30,6 +30,14 @@ public class TauntPatch {
         if (!__result || p().hoveredCard != __instance)
             return __result;
 
+        List<AbstractMonster> tauntMonsters = AbstractDungeon.getMonsters().monsters
+                .stream()
+                .filter(_m -> !_m.isDeadOrEscaped() && _m.hasPower(TauntPower.POWER_ID))
+                .collect(Collectors.toList());
+
+        if (tauntMonsters.isEmpty())
+            return __result;
+
         // AbstractMonster hoveredMonster = ReflectionHacks.getPrivate(p(), AbstractPlayer.class, "hoveredMonster");
         // if (hoveredMonster == null)
         //     return __result;
@@ -43,12 +51,7 @@ public class TauntPatch {
         else if (m == null || (__instance.target != CardTarget.ENEMY && __instance.target != CardTarget.SELF_AND_ENEMY))
             return __result;
 
-        List<AbstractMonster> tauntMonsters = AbstractDungeon.getMonsters().monsters
-                .stream()
-                .filter(_m -> !_m.isDeadOrEscaped() && _m.hasPower(TauntPower.POWER_ID))
-                .collect(Collectors.toList());
-
-        if (!tauntMonsters.isEmpty() && !tauntMonsters.contains(m)) {
+        if (!tauntMonsters.contains(m)) {
             showThoughtBubble(TEXT, ModSettings.UI_THOUGHT_BUBBLE_TIME);
             __instance.cantUseMessage = null;
             return false;
