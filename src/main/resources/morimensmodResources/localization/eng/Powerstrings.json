@@ -133,7 +133,7 @@
   "${ModID}:CasiahBossPhantasmPower": {
     "NAME": "Phantasm",
     "DESCRIPTIONS": [
-      "For every #b%d card played, summon a Doppelganger, up to a maximum of #b2 Doppelganger. #b%d cards needed."
+      "For every #b%d cards played, summon a Doppelganger, up to a maximum of #b2 Doppelgangers. #b%d cards needed."
     ]
   },
   "${ModID}:LoseAllBlockPower": {
