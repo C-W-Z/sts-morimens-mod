@@ -1,7 +1,6 @@
 package morimensmod.monsters;
 
 import static morimensmod.util.Wiz.actT;
-import static morimensmod.util.Wiz.getPowerAmount;
 import static morimensmod.util.Wiz.isInCombat;
 
 import org.apache.logging.log4j.LogManager;
@@ -19,9 +18,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import morimensmod.config.ModSettings;
 import morimensmod.misc.Animator;
-import morimensmod.powers.BarrierPower;
 import morimensmod.powers.ImmunePower;
-import morimensmod.powers.TmpBarrierPower;
 
 public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
 
@@ -121,15 +118,11 @@ public abstract class AbstractAwakenableBoss extends AbstractMorimensMonster {
     @Override
     public final void damage(DamageInfo info) {
         int hp = currentHealth;
-        int block = currentBlock + getPowerAmount(this, BarrierPower.POWER_ID) + getPowerAmount(this, TmpBarrierPower.POWER_ID);
         super.superDamage(info);
-        if (this.animation instanceof Animator && info.owner != null
-                && info.type != DamageInfo.DamageType.THORNS && info.output > 0) {
-            if (hp == currentHealth && block > 0 && currentBlock >= 0 && info.owner.isPlayer)
-                ((Animator) this.animation).setAnimation(defenceAnim);
-            else
-                ((Animator) this.animation).setAnimation(hitAnim);
-        }
+        if (this.animation instanceof Animator && info.owner != null &&
+            info.type != DamageInfo.DamageType.THORNS && info.output > 0 &&
+            hp > currentHealth && info.owner.isPlayer)
+            ((Animator) this.animation).setAnimation(hitAnim);
         if (this.currentHealth <= 0 && !this.preRoused) {
             this.preRoused = true;
             for (AbstractPower p : this.powers)
