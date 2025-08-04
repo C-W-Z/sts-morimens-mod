@@ -180,6 +180,10 @@
       "打出卡牌后，将其从弃牌堆重新加入手牌，该效果单回合最多生效 #b%d 次。当前剩余 #b%d 次。"
     ]
   },
+  "${ModID}:WheelUnseenPower": {
+    "NAME": "隐世的转轮",
+    "DESCRIPTIONS": ["#y银钥能量 储存上限 #b+%d%% ，手牌上限 #b+%d 。"]
+  },
   "${ModID}:ManikinOfOblivionPower": {
     "NAME": "坠入虚无人偶",
     "DESCRIPTIONS": [

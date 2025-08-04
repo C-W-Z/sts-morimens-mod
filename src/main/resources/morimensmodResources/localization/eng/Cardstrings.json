@@ -398,7 +398,7 @@
   "${ModID}:RewindingTime": {
     "NAME": "Rewinding Time",
     "DESCRIPTION": "{@@}${ModID}:Passive NL After playing a ${ModID}:Command_Card, return it to your hand from the Discard Pile, This effect can only trigger !${ModID}:M2! time{!${ModID}:M2!|>1=s} per turn.",
-    "UPGRADE_DESCRIPTION": "{@@}${ModID}:Passive NL ${ModID}:Keyflare_Regen +!M!. NL After playing a ${ModID}:Command_Card, return it to your hand from the Discard Pile, This effect can only trigger !${ModID}:M2! time{!${ModID}:M2!|>1=s} per turn."
+    "UPGRADE_DESCRIPTION": "{@@}${ModID}:Passive NL ${ModID}:Keyflare_Regen +!M! NL After playing a ${ModID}:Command_Card, return it to your hand from the Discard Pile, This effect can only trigger !${ModID}:M2! time{!${ModID}:M2!|>1=s} per turn."
   },
   "${ModID}:CelestialBeast": {
     "NAME": "星天之獸",
@@ -466,10 +466,15 @@
     "NAME": "引舵之帆",
     "DESCRIPTION": ""
   },
+  "${ModID}:WheelUnseen": {
+    "NAME": "Wheel Unseen",
+    "DESCRIPTION": "${ModID}:Passive NL ${ModID}:Keyflare storage limit +!${ModID}:M2!%. Hand card limit +!${ModID}:M3!.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Passive NL ${ModID}:Keyflare_Regen +!M! NL ${ModID}:Keyflare storage limit +!${ModID}:M2!%. Hand card limit +!${ModID}:M3!."
+  },
   "${ModID}:ManikinOfOblivion": {
     "NAME": "Manikin of Oblivion",
     "DESCRIPTION": "${ModID}:Passive NL Base ${ModID}:Aliemus, Base Poison, and Base HP healing effects are increased by !${ModID}:M2!%. NL After unleashing ${ModID}:Exalt, gain ${ModID}:Aliemus equal to 20% of the ${ModID}:Aliemus consumed.",
-    "UPGRADE_DESCRIPTION": "${ModID}:Passive NL ${ModID}:Aliemus_Regen +!M!. NL Base ${ModID}:Aliemus, Base Poison, and Base HP healing effects are increased by !${ModID}:M2!%. NL After unleashing ${ModID}:Exalt, gain ${ModID}:Aliemus equal to 20% of the ${ModID}:Aliemus consumed."
+    "UPGRADE_DESCRIPTION": "${ModID}:Passive NL ${ModID}:Aliemus_Regen +!M! NL Base ${ModID}:Aliemus, Base Poison, and Base HP healing effects are increased by !${ModID}:M2!%. NL After unleashing ${ModID}:Exalt, gain ${ModID}:Aliemus equal to 20% of the ${ModID}:Aliemus consumed."
   },
   "${ModID}:HandOfOblivion": {
     "NAME": "Hand of Oblivion",

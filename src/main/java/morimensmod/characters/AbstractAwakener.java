@@ -62,20 +62,21 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     protected static int lastUsedEnergy = 0;
 
-    public static final int NORMAL_ALIEMUS_LIMIT = 100;
+    public static final int DEFAULT_ALIEMUS_LIMIT = 100;
     protected static int aliemus = 0;
-    protected static int aliemusLimit = NORMAL_ALIEMUS_LIMIT; // 普通狂氣上限 狂氣爆發
-    protected static int extremeAlimus = 2 * NORMAL_ALIEMUS_LIMIT; // 雙倍上限 超限爆發
+    protected static int aliemusLimit = DEFAULT_ALIEMUS_LIMIT; // 普通狂氣上限 狂氣爆發
+    protected static int extremeAlimus = 2 * DEFAULT_ALIEMUS_LIMIT; // 雙倍上限 超限爆發
     protected static boolean exalting = false;
     protected static int exaltedThisTurn = 0; // reset at Main Mod File
-    public static final int NORMAL_MAX_EXALT_PER_TURN = 1;
-    protected static int maxExaltPerTurn = NORMAL_MAX_EXALT_PER_TURN; // reset at Main Mod File
+    public static final int DEFAULT_MAX_EXALT_PER_TURN = 1;
+    protected static int maxExaltPerTurn = DEFAULT_MAX_EXALT_PER_TURN; // reset at Main Mod File
     protected AbstractExalt exalt = null;
 
-    public static final int NORMAL_KEYFLARE_LIMIT = 1000;
+    public static final int DEFAULT_KEYFLARE_LIMIT = 1000;
+    public static final int DEFAULT_MAX_KEYFLARE_SCALE = 200; // percent
     protected static int keyflare = 0;
-    protected static int posseNeededKeyflare = NORMAL_KEYFLARE_LIMIT;
-    protected static int maxKeyflare = 2 * NORMAL_KEYFLARE_LIMIT;
+    protected static int posseNeededKeyflare = DEFAULT_KEYFLARE_LIMIT;
+    protected static int maxKeyflareScale = 200;
     protected static boolean possing = false;
     protected static int regularPossedThisTurn = 0; // reset at Main Mod File
     protected static int extraPossedThisTurn = 0; // reset at Main Mod File
@@ -215,13 +216,13 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
         exalting = false;
         possing = false;
-        maxExaltPerTurn = NORMAL_MAX_EXALT_PER_TURN;
+        maxExaltPerTurn = DEFAULT_MAX_EXALT_PER_TURN;
 
-        aliemusLimit = NORMAL_ALIEMUS_LIMIT;
-        extremeAlimus = 2 * NORMAL_ALIEMUS_LIMIT;
+        aliemusLimit = DEFAULT_ALIEMUS_LIMIT;
+        extremeAlimus = 2 * DEFAULT_ALIEMUS_LIMIT;
 
-        posseNeededKeyflare = NORMAL_KEYFLARE_LIMIT;
-        maxKeyflare = 2 * NORMAL_KEYFLARE_LIMIT;
+        posseNeededKeyflare = DEFAULT_KEYFLARE_LIMIT;
+        maxKeyflareScale = DEFAULT_MAX_KEYFLARE_SCALE;
         possedThisBattle = 0;
         allPossedThisBattle = 0;
 
@@ -435,6 +436,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public static int setKeyflare(int amount) {
         keyflare = amount;
+        int maxKeyflare = posseNeededKeyflare * MathUtils.ceil(maxKeyflareScale / 100);
         if (keyflare > maxKeyflare)
             keyflare = maxKeyflare;
         else if (keyflare < 0)
@@ -547,8 +549,12 @@ public abstract class AbstractAwakener extends CustomPlayer {
         atb(new EasyModalChoiceAction(choiceCardList));
     }
 
-    public static void upgradeMaxKeyflare(int amount) {
-        maxKeyflare += amount;
+    public static void updateMaxKeyflareScale(int amount) {
+        maxKeyflareScale += amount;
+    }
+
+    public static int getMaxKeyflareScale() {
+        return maxKeyflareScale;
     }
 
     public static int getPossedThisBattle() {

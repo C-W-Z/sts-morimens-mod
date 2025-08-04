@@ -78,10 +78,16 @@ public class KeyflareUI extends ClickableUIElement {
         // popup text
         ArrayList<PowerTip> tips = new ArrayList<>();
         AbstractAwakener awaker = (AbstractAwakener) p();
-        if (awaker.getRealmColor() == CHAOS_COLOR)
-            tips.add(new PowerTip(TEXT.TEXT[1], TEXT.TEXT[3] + awaker.keyflareRegen + " "));
+        int maxKflr = AbstractAwakener.getMaxKeyflareScale();
+        String maxKflrStr;
+        if ((float) maxKflr / 100F == maxKflr / 100)
+            maxKflrStr = String.valueOf(maxKflr / 100);
         else
-            tips.add(new PowerTip(TEXT.TEXT[1], TEXT.TEXT[2] + awaker.keyflareRegen + " "));
+            maxKflrStr = String.valueOf((float) maxKflr / 100F);
+        if (awaker.getRealmColor() == CHAOS_COLOR)
+            tips.add(new PowerTip(TEXT.TEXT[1], String.format(TEXT.TEXT[3], maxKflrStr, awaker.keyflareRegen)));
+        else
+            tips.add(new PowerTip(TEXT.TEXT[1], String.format(TEXT.TEXT[2], maxKflrStr, awaker.keyflareRegen)));
         if (awaker.getPosseID() != null)
             tips.add(new PowerTip(awaker.getPosseTitle() + TEXT.TEXT[0], awaker.getPosseDescription()));
         TipHelper.queuePowerTips(fontX, baseY + Settings.yScale * 300f, tips);

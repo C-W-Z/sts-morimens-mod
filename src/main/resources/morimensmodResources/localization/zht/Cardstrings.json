@@ -464,6 +464,11 @@
     "NAME": "引舵之帆",
     "DESCRIPTION": ""
   },
+  "${ModID}:WheelUnseen": {
+    "NAME": "隱世的轉輪",
+    "DESCRIPTION": "${ModID}:被動 NL ${ModID}:銀鑰能量 儲存上限+ !${ModID}:M2! %，手牌上限+ !${ModID}:M3! 。",
+    "UPGRADE_DESCRIPTION": "${ModID}:被動 NL ${ModID}:銀鑰充能 + !M! NL ${ModID}:銀鑰能量 儲存上限+ !${ModID}:M2! %，手牌上限+ !${ModID}:M3! 。"
+  },
   "${ModID}:ManikinOfOblivion": {
     "NAME": "墜入虛無的人偶",
     "DESCRIPTION": "${ModID}:被動 NL 造成的基礎 ${ModID}:狂氣 、基礎 中毒 、基礎治療 提高 !${ModID}:M2! %。 NL 釋放 ${ModID}:狂氣爆發 後，獲得本次 ${ModID}:狂氣 消耗20%的 ${ModID}:狂氣 。",
