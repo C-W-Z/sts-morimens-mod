@@ -25,8 +25,9 @@ public class HandOfOblivion extends AbstractWheelOfDestiny implements PassiveCar
     }
 
     @Override
-    public void onBattleStartPreDraw() {
+    public boolean onInitDeck() {
         applyToSelf(new HandOfOblivionPower(p(), magicNumber));
         makeInHand(cardsToPreview);
+        return true;
     }
 }

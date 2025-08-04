@@ -22,12 +22,8 @@ public class ManikinOfOblivion extends AbstractWheelOfDestiny implements Passive
     @Override
     public boolean onInitDeck() {
         applyToSelf(new ManikinOfOblivionPower(p(), secondMagic));
-        return true;
-    }
-
-    @Override
-    public void onBattleStartPreDraw() {
         if (upgraded && p() instanceof AbstractAwakener)
             actB(() -> ((AbstractAwakener) p()).aliemusRegen += magicNumber);
+        return true;
     }
 }

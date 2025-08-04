@@ -20,9 +20,10 @@ public class WheelUnseen extends AbstractWheelOfDestiny implements PassiveCard {
     }
 
     @Override
-    public void onBattleStartPreDraw() {
+    public boolean onInitDeck() {
         applyToSelf(new WheelUnseenPower(p(), 1));
         if (upgraded && p() instanceof AbstractAwakener)
             actB(() -> ((AbstractAwakener) p()).keyflareRegen += magicNumber);
+        return true;
     }
 }

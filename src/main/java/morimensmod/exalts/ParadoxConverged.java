@@ -73,7 +73,8 @@ public class ParadoxConverged extends AbstractExalt implements OnAfterPosse {
     }
 
     @Override
-    public void onBattleStart() {
+    public void onInitDeck() {
+        super.onInitDeck();
         lastTurnNonExhaustCards.clear();
         thisTurnNonExhaustCards.clear();
         resetPosse();

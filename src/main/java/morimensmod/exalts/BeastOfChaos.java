@@ -55,8 +55,8 @@ public class BeastOfChaos extends AbstractExalt {
     }
 
     @Override
-    public void onBattleStart() {
-        super.onBattleStart();
+    public void onInitDeck() {
+        super.onInitDeck();
         strikeCount = 0;
     }
 

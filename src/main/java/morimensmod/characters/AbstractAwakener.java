@@ -210,9 +210,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
                 AbstractGameAction.AttackEffect.FIRE };
     }
 
-    // called in Main Mod File
-    public static void onBattleStart() {
-        logger.debug("onBattleStart");
+    // called in OnInitializeDeckPatch
+    public static void onInitDeck() {
+        logger.debug("onInitDeck");
 
         exalting = false;
         possing = false;
@@ -236,14 +236,19 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
         realmMastery = baseRealmMastery;
 
-        lastUsedEnergy = 0;
-
         baseDamageAmplify = 0;
         baseBlockAmplify = 0;
         baseHealAmplify = 0;
         baseAliemusAmplify = 0;
         basePoisonAmplify = 0;
         baseCounterAmplify = 0;
+    }
+
+    // called in Main Mod File
+    public static void onBattleStart() {
+        logger.debug("onBattleStart");
+
+        lastUsedEnergy = 0;
 
         for (Pair<String, Integer> pair : persistentPowers) {
             logger.debug("persistentPowers, ID: " + pair.getKey() + ", amount: " + pair.getValue());
@@ -277,6 +282,13 @@ public abstract class AbstractAwakener extends CustomPlayer {
                 logger.debug("onPostBattle, ID: " + p.ID + ", amount: " + p.amount);
                 persistentPowers.add(new Pair<>(p.ID, p.amount));
             }
+
+        posseNeededKeyflare = DEFAULT_KEYFLARE_LIMIT;
+        setKeyflare(keyflare);
+
+        aliemusLimit = DEFAULT_ALIEMUS_LIMIT;
+        extremeAlimus = 2 * aliemusLimit;
+        setAliemus(aliemus);
     }
 
     // called in UseCardActionPatch
@@ -401,9 +413,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
         maxExaltPerTurn += count;
     }
 
-    public static void upgradeAliemusLimit(int amount) {
+    public static void updateAliemusLimit(int amount) {
         aliemusLimit += amount;
-        extremeAlimus += 2 * amount;
+        extremeAlimus = 2 * aliemusLimit;
     }
 
     public static String getAliemusUIText() {

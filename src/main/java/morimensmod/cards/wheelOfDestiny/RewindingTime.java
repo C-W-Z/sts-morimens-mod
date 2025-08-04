@@ -21,12 +21,8 @@ public class RewindingTime extends AbstractWheelOfDestiny implements PassiveCard
     @Override
     public boolean onInitDeck() {
         applyToSelf(new RewindingTimePower(p(), secondMagic));
-        return true;
-    }
-
-    @Override
-    public void onBattleStartPreDraw() {
         if (upgraded && p() instanceof AbstractAwakener)
             actB(() -> ((AbstractAwakener) p()).keyflareRegen += magicNumber);
+        return true;
     }
 }

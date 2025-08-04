@@ -1,5 +1,8 @@
 package morimensmod.patches.hooks;
 
+import static morimensmod.util.Wiz.drawPile;
+import static morimensmod.util.Wiz.p;
+
 import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
@@ -11,18 +14,26 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
+import morimensmod.cards.AbstractEasyCard;
+import morimensmod.characters.AbstractAwakener;
 import morimensmod.interfaces.PassiveCard;
 
 @SpirePatch2(clz = CardGroup.class, method = "initializeDeck")
-public class PassiveCardPatch {
+public class OnInitializeDeckPatch {
 
-    private static final Logger logger = LogManager.getLogger(PassiveCardPatch.class);
+    private static final Logger logger = LogManager.getLogger(OnInitializeDeckPatch.class);
     protected static final ArrayList<PassiveCard> cards = new ArrayList<>();
 
     @SpirePostfixPatch
     public static void Postfix(CardGroup __instance, CardGroup masterDeck) {
-        if (__instance != AbstractDungeon.player.drawPile)
+        if (__instance != drawPile())
             return;
+
+        AbstractAwakener.onInitDeck();
+        AbstractEasyCard.onInitDeck();
+        if (p() instanceof AbstractAwakener)
+            ((AbstractAwakener) p()).getExalt().onInitDeck();
+
         cards.clear();
         logger.debug("onInitDeck");
         __instance.group.forEach(c -> {

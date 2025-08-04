@@ -20,7 +20,7 @@ import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.icons.AbstractIcon;
 import morimensmod.misc.TopPanelDeathResistanceUI;
 import morimensmod.misc.TopPanelTurnUI;
-import morimensmod.patches.hooks.PassiveCardPatch;
+import morimensmod.patches.hooks.OnInitializeDeckPatch;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.powers.ImmunePower;
@@ -434,11 +434,10 @@ public class MorimensMod implements
 
         QueensSword.onBattleStart();
         AbstractAwakener.onBattleStart();
-        AbstractEasyCard.onBattleStart();
         if (p() instanceof AbstractAwakener)
             ((AbstractAwakener) p()).getExalt().onBattleStart();
 
-        PassiveCardPatch.onBattleStartPreDraw();
+        OnInitializeDeckPatch.onBattleStartPreDraw();
     }
 
     @Override
