@@ -80,7 +80,7 @@ public class KeyflareUI extends ClickableUIElement {
         AbstractAwakener awaker = (AbstractAwakener) p();
         int maxKflr = AbstractAwakener.getMaxKeyflareScale();
         String maxKflrStr;
-        if ((float) maxKflr / 100F == maxKflr / 100)
+        if ((float) maxKflr / 100F == (float) (maxKflr / 100))
             maxKflrStr = String.valueOf(maxKflr / 100);
         else
             maxKflrStr = String.valueOf((float) maxKflr / 100F);

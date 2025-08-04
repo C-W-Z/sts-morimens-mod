@@ -436,7 +436,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     public static int setKeyflare(int amount) {
         keyflare = amount;
-        int maxKeyflare = posseNeededKeyflare * MathUtils.ceil(maxKeyflareScale / 100);
+        int maxKeyflare = posseNeededKeyflare * MathUtils.ceil(maxKeyflareScale / 100F);
         if (keyflare > maxKeyflare)
             keyflare = maxKeyflare;
         else if (keyflare < 0)
