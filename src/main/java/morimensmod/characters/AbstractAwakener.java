@@ -258,6 +258,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
         // persistentPowers.clear();
 
         posseUsedThisTurn = new ArrayList<>();
+
+        setKeyflare(keyflare);
+        setAliemus(aliemus);
     }
 
     // called in Main Mod File
@@ -350,8 +353,12 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     public static int setAliemus(int amount) {
+        return setAliemus(amount, false);
+    }
+
+    public static int setAliemus(int amount, boolean unlimited) {
         aliemus = amount;
-        if (aliemus > extremeAlimus)
+        if (!unlimited && aliemus > extremeAlimus)
             aliemus = extremeAlimus;
         else if (aliemus < 0)
             aliemus = 0;
@@ -447,9 +454,13 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     public static int setKeyflare(int amount) {
+        return setKeyflare(amount, false);
+    }
+
+    public static int setKeyflare(int amount, boolean umlimited) {
         keyflare = amount;
         int maxKeyflare = posseNeededKeyflare * MathUtils.ceil(maxKeyflareScale / 100F);
-        if (keyflare > maxKeyflare)
+        if (!umlimited && keyflare > maxKeyflare)
             keyflare = maxKeyflare;
         else if (keyflare < 0)
             keyflare = 0;
