@@ -125,10 +125,11 @@ public class MorimensMod implements
     private static final String POWER_L_ART = makeImagePath("1024/power.png");
     private static final String CARD_ENERGY_L = makeImagePath("1024/energy.png");
 
-    public static Settings.GameLanguage[] SupportedLanguages = {
-            Settings.GameLanguage.ENG,
-            Settings.GameLanguage.ZHT,
-    };
+    // public static Settings.GameLanguage[] SupportedLanguages = {
+    //         Settings.GameLanguage.ENG,
+    //         Settings.GameLanguage.ZHT,
+    //         Settings.GameLanguage.ZHS,
+    // };
 
     private String getLangString() {
         if (Settings.language == Settings.GameLanguage.ZHS || Settings.language == Settings.GameLanguage.ZHT)
@@ -157,6 +158,7 @@ public class MorimensMod implements
 
             logger.info("ModID: " + modID);
             logger.info("Name: " + info.Name);
+            logger.info("Version: " + info.ModVersion);
             logger.info("Authors: " + arrToString(info.Authors));
             logger.info("Description: " + info.Description);
         } else {
