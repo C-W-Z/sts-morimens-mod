@@ -1,7 +1,7 @@
 package morimensmod.interfaces;
 
 public interface PassiveCard {
-    boolean onInitDeck();
+    default boolean onInitDeck() { return true; }
 
     default void onBattleStartPreDraw() {}
 }

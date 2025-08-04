@@ -395,8 +395,8 @@
   },
   "${ModID}:RewindingTime": {
     "NAME": "溯洄時計",
-    "DESCRIPTION": "打出 ${ModID}:指令卡 後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 !${ModID}:M2! 次。 NL ${ModID}:預備 1",
-    "UPGRADE_DESCRIPTION": " ${ModID}:被動 ： ${ModID}:銀鑰充能 + !M! NL 打出 ${ModID}:指令卡 後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 !${ModID}:M2! 次。 NL ${ModID}:預備 1"
+    "DESCRIPTION": "${ModID}:被動 NL 打出 ${ModID}:指令卡 後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 !${ModID}:M2! 次。",
+    "UPGRADE_DESCRIPTION": "${ModID}:被動 NL ${ModID}:銀鑰充能 + !M! NL 打出 ${ModID}:指令卡 後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 !${ModID}:M2! 次。"
   },
   "${ModID}:CelestialBeast": {
     "NAME": "星天之獸",
@@ -466,13 +466,13 @@
   },
   "${ModID}:ManikinOfOblivion": {
     "NAME": "墜入虛無的人偶",
-    "DESCRIPTION": "造成的基礎 ${ModID}:狂氣 、基礎 中毒 、基礎治療 提高 !${ModID}:M2! %。 NL 釋放 ${ModID}:狂氣爆發 後，獲得本次 ${ModID}:狂氣 消耗20%的 ${ModID}:狂氣 。 NL ${ModID}:預備 1",
-    "UPGRADE_DESCRIPTION": " ${ModID}:被動 ： ${ModID}:狂氣回充 + !M! NL 造成的基礎 ${ModID}:狂氣 、基礎 中毒 、基礎治療 提高 !${ModID}:M2! %。 NL 釋放 ${ModID}:狂氣爆發 後，獲得本次 ${ModID}:狂氣 消耗20%的 ${ModID}:狂氣 。 NL ${ModID}:預備 1"
+    "DESCRIPTION": "${ModID}:被動 NL 造成的基礎 ${ModID}:狂氣 、基礎 中毒 、基礎治療 提高 !${ModID}:M2! %。 NL 釋放 ${ModID}:狂氣爆發 後，獲得本次 ${ModID}:狂氣 消耗20%的 ${ModID}:狂氣 。",
+    "UPGRADE_DESCRIPTION": "${ModID}:被動 NL ${ModID}:狂氣回充 + !M! NL 造成的基礎 ${ModID}:狂氣 、基礎 中毒 、基礎治療 提高 !${ModID}:M2! %。 NL 釋放 ${ModID}:狂氣爆發 後，獲得本次 ${ModID}:狂氣 消耗20%的 ${ModID}:狂氣 。"
   },
   "${ModID}:HandOfOblivion": {
     "NAME": "遺忘之手",
-    "DESCRIPTION": "將 1 張「打擊」加入手中，「 打擊 」的基礎傷害增加 !${ModID}:M2! %。 NL ${ModID}:預備 1",
-    "UPGRADE_DESCRIPTION": " ${ModID}:被動 ： 「 打擊 」基礎傷害 + !M! % NL 將 1 張「打擊」加入手中，「 打擊 」的基礎傷害增加 !${ModID}:M2! %。 NL ${ModID}:預備 1"
+    "DESCRIPTION": "${ModID}:被動 NL 將 1 張「打擊」加入手中，「 打擊 」的基礎傷害增加 !M! %。",
+    "UPGRADE_DESCRIPTION": "${ModID}:被動 NL 將 1 張「打擊+」加入手中，「 打擊 」的基礎傷害增加 !M! %。"
   },
   "${ModID}:Insight": {
     "NAME": "靈感",
