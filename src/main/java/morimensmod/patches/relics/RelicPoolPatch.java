@@ -1,4 +1,4 @@
-package morimensmod.patches;
+package morimensmod.patches.relics;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
