@@ -43,6 +43,7 @@ public class WheelUnseenPower extends AbstractEasyPower {
             reduceAmount = amount;
         BaseMod.MAX_HAND_SIZE -= HAND_CARD_LIMIT * reduceAmount;
         AbstractAwakener.updateMaxKeyflareScale(-KEYFLARE_LIMIT * reduceAmount);
+        AbstractAwakener.setKeyflare(AbstractAwakener.getKeyflare());
         super.reducePower(reduceAmount);
     }
 
@@ -50,6 +51,7 @@ public class WheelUnseenPower extends AbstractEasyPower {
     public void onRemove() {
         BaseMod.MAX_HAND_SIZE -= HAND_CARD_LIMIT * amount;
         AbstractAwakener.updateMaxKeyflareScale(-KEYFLARE_LIMIT * amount);
+        AbstractAwakener.setKeyflare(AbstractAwakener.getKeyflare());
     }
 
     @Override
