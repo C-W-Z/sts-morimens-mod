@@ -30,8 +30,17 @@ public abstract class AbstractWheelOfDestiny extends AbstractEasyCard implements
 
     @Override
     public boolean canSpawn(ArrayList<AbstractCard> currentRewardCards) {
-        //Player can't already have the card.
-        for(AbstractCard c : AbstractDungeon.player.masterDeck.group)
+        // Player can't already have the card.
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
+            if (c.cardID.equals(this.cardID))
+                return false;
+        return true;
+    }
+
+    @Override
+    public boolean canSpawnShop(ArrayList<AbstractCard> currentShopCards) {
+        // Player can't already have the card.
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
             if (c.cardID.equals(this.cardID))
                 return false;
         return true;
