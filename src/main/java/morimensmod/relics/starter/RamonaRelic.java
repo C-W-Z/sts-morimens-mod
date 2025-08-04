@@ -28,17 +28,17 @@ public class RamonaRelic extends AbstractEasyRelic {
         flash();
         addToTop(new KeyflareChangeAction(p(), KEYFLARE));
         addToTop(new RelicAboveCreatureAction(p(), this));
-        counter = 0;
+        // counter = 0;
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (card.purgeOnUse || !isCommandCard(card))
             return;
-        counter++;
-        if (counter < COMMAND_NUM)
-            return;
-        counter -= COMMAND_NUM;
+        // counter++;
+        // if (counter < COMMAND_NUM)
+        //     return;
+        // counter -= COMMAND_NUM;
 
         flash();
         if (p() instanceof AbstractAwakener)
