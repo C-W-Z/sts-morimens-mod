@@ -3,6 +3,8 @@ package morimensmod.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
 import static morimensmod.MorimensMod.thisTurnCardsPlayed;
 import static morimensmod.util.Wiz.*;
@@ -54,5 +56,6 @@ public class MoveLastPlayedCardToDrawPileTopAction extends AbstractGameAction {
         c.stopGlowing();
         c.unhover();
         c.unfadeOut();
+        AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy()));
     }
 }

@@ -20,6 +20,7 @@ import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.icons.AbstractIcon;
 import morimensmod.misc.TopPanelDeathResistanceUI;
 import morimensmod.misc.TopPanelTurnUI;
+import morimensmod.patches.hooks.PassiveCardPatch;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.powers.ImmunePower;
@@ -434,6 +435,8 @@ public class MorimensMod implements
         AbstractEasyCard.onBattleStart();
         if (p() instanceof AbstractAwakener)
             ((AbstractAwakener) p()).getExalt().onBattleStart();
+
+        PassiveCardPatch.onBattleStartPreDraw();
     }
 
     @Override

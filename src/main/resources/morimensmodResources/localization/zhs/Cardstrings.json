@@ -465,7 +465,7 @@
     "DESCRIPTION": ""
   },
   "${ModID}:ManikinOfOblivion": {
-    "NAME": "坠入虚无人偶",
+    "NAME": "坠入虚无的人偶",
     "DESCRIPTION": "造成的基础 ${ModID}:狂气 、基础 中毒 、基础治疗 提高 !${ModID}:M2! %。 NL 释放 ${ModID}:狂气爆发 后，获得本次 ${ModID}:狂气 消耗20%的 ${ModID}:狂气 。 NL ${ModID}:预备 1",
     "UPGRADE_DESCRIPTION": " ${ModID}:被动 ： ${ModID}:狂气回充 + !M! NL 造成的基础 ${ModID}:狂气 、基础 中毒 、基础治疗 提高 !${ModID}:M2! %。 NL 释放 ${ModID}:狂气爆发 后，获得本次 ${ModID}:狂气 消耗20%的 ${ModID}:狂气 。 NL ${ModID}:预备 1"
   },

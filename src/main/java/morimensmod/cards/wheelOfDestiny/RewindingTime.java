@@ -5,13 +5,14 @@ import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.p;
 
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.powers.wheelOfDestiny.RewindingTimePower;
 
-public class RewindingTime extends AbstractWheelOfDestiny {
+public class RewindingTime extends AbstractWheelOfDestiny implements StartupCard {
     public final static String ID = makeID(RewindingTime.class.getSimpleName());
 
     public RewindingTime() {

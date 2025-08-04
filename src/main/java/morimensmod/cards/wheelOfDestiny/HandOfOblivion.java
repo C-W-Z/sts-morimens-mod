@@ -5,6 +5,7 @@ import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.makeInHand;
 
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -12,7 +13,7 @@ import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.chaos.Strike;
 import morimensmod.powers.wheelOfDestiny.HandOfOblivionPower;
 
-public class HandOfOblivion extends AbstractWheelOfDestiny {
+public class HandOfOblivion extends AbstractWheelOfDestiny implements StartupCard {
     public final static String ID = makeID(HandOfOblivion.class.getSimpleName());
 
     public HandOfOblivion() {

@@ -5,14 +5,15 @@ import static morimensmod.patches.enums.ColorPatch.CardColorPatch.WHEEL_OF_DESTI
 import java.util.ArrayList;
 
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.SpawnModificationCard;
-import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.patches.enums.CustomTags;
 
-public abstract class AbstractWheelOfDestiny extends AbstractEasyCard implements StartupCard, SpawnModificationCard {
+public abstract class AbstractWheelOfDestiny extends AbstractEasyCard implements SpawnModificationCard {
 
     public AbstractWheelOfDestiny(final String cardID, final int cost, final CardRarity rarity) {
         super(cardID, cost, CardType.POWER, rarity, CardTarget.SELF, WHEEL_OF_DESTINY_COLOR);
@@ -20,6 +21,12 @@ public abstract class AbstractWheelOfDestiny extends AbstractEasyCard implements
         selfRetain = true;
         prepare = 1;
     }
+
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m) {}
+
+    @Override
+    public void upp() {}
 
     @Override
     public boolean canSpawn(ArrayList<AbstractCard> currentRewardCards) {
