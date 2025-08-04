@@ -29,8 +29,8 @@ public class OnInitializeDeckPatch {
         if (__instance != drawPile())
             return;
 
-        AbstractAwakener.onInitDeck();
-        AbstractEasyCard.onInitDeck();
+        AbstractAwakener.onInitializeDeck();
+        AbstractEasyCard.onInitializeDeck();
         if (p() instanceof AbstractAwakener)
             ((AbstractAwakener) p()).getExalt().onInitDeck();
 

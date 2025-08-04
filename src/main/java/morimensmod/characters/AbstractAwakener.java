@@ -211,7 +211,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     // called in OnInitializeDeckPatch
-    public static void onInitDeck() {
+    public static void onInitializeDeck() {
         logger.debug("onInitDeck");
 
         exalting = false;

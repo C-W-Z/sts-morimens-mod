@@ -417,7 +417,7 @@ public abstract class AbstractEasyCard extends CustomCard {
     }
 
     // called in OnInitializeDeckPatch
-    public static void onInitDeck() {
+    public static void onInitializeDeck() {
         baseDamageAmplify = 0;
         baseStrikeDamageAmplify = 0;
         baseBlockAmplify = 0;

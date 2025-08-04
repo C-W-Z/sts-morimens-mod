@@ -18,8 +18,6 @@ public abstract class AbstractWheelOfDestiny extends AbstractEasyCard implements
     public AbstractWheelOfDestiny(final String cardID, final int cost, final CardRarity rarity) {
         super(cardID, cost, CardType.POWER, rarity, CardTarget.SELF, WHEEL_OF_DESTINY_COLOR);
         tags.add(CustomTags.WHEEL_OF_DESTINY);
-        selfRetain = true;
-        prepare = 1;
     }
 
     @Override
