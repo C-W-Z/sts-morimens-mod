@@ -107,8 +107,8 @@
     "TEXT": [
       " (Posse)",
       "Keyflare/Keyflare Limit",
-      "You can store up to #b2 times the limit of #yKeyflare. NL When #yKeyflare reaches the limit, #gRight #gClick to release #yPosse. NL You can release #b2 #yPosse per turn, but the #b2th time will select #b1 out of #b3 random #yPosse, and the selected #yPosse cannot be selected again in this battle. NL Current #yKeyflare #yRegen: #b",
-      "You can store up to #b2 times the limit of #yKeyflare. NL When #yKeyflare reaches the limit, #gRight #gClick to release #yPosse. NL You can release #b2 #yPosse per turn, but the #b2th time will select #b1 from all #yPosse, and the selected #yPosse cannot be selected again in this battle. NL Current #yKeyflare #yRegen: #b"
+      "You can store up to #b%s times the limit of #yKeyflare. NL When #yKeyflare reaches the limit, #gRight #gClick to release #yPosse. NL You can release #b2 #yPosse per turn, but the #b2th time will select #b1 out of #b3 random #yPosse, and the selected #yPosse cannot be selected again in this battle. NL Current #yKeyflare #yRegen: #b%d",
+      "You can store up to #b%s times the limit of #yKeyflare. NL When #yKeyflare reaches the limit, #gRight #gClick to release #yPosse. NL You can release #b2 #yPosse per turn, but the #b2th time will select #b1 from all #yPosse, and the selected #yPosse cannot be selected again in this battle. NL Current #yKeyflare #yRegen: #b%d"
     ],
     "EXTRA_TEXT": [
       "You’re out of #rPosse uses this turn.",

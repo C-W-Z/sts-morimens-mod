@@ -142,7 +142,7 @@
   {
     "PROPER_NAME": "被动",
     "NAMES": ["被动"],
-    "DESCRIPTION": "战斗开始时，自动触发 #y被动 效果。"
+    "DESCRIPTION": "此卡牌不会在战斗中出现，在牌组中即可生效。"
   },
   {
     "PROPER_NAME": "延迟",

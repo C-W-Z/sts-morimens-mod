@@ -416,8 +416,8 @@ public abstract class AbstractEasyCard extends CustomCard {
         CardModifierManager.addModifier(this, new ChangeCostUntilUseModifier(-prepare));
     }
 
-    // called in Main Mod File
-    public static void onBattleStart() {
+    // called in OnInitializeDeckPatch
+    public static void onInitializeDeck() {
         baseDamageAmplify = 0;
         baseStrikeDamageAmplify = 0;
         baseBlockAmplify = 0;

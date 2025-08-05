@@ -180,6 +180,10 @@
       "打出卡牌後，將其從棄牌堆重新加入手牌，該效果單回合最多生效 #b%d 次。當前剩餘 #b%d 次。"
     ]
   },
+  "${ModID}:WheelUnseenPower": {
+    "NAME": "隱世的轉輪",
+    "DESCRIPTIONS": ["#y銀鑰能量 儲存上限 #b+%d%% ，手牌上限 #b+%d 。"]
+  },
   "${ModID}:ManikinOfOblivionPower": {
     "NAME": "墜入虛無的人偶",
     "DESCRIPTIONS": [
@@ -189,5 +193,13 @@
   "${ModID}:HandOfOblivionPower": {
     "NAME": "遺忘之手",
     "DESCRIPTIONS": ["「 #y打擊 」的基礎傷害增加 #b%d%% 。"]
+  },
+  "${ModID}:AgedPower": {
+    "NAME": "熟成",
+    "DESCRIPTIONS": ["每場戰鬥結束後獲得 #b%d #y銀鑰能量 。"]
+  },
+  "${ModID}:FrenzyPower": {
+    "NAME": "狂亂",
+    "DESCRIPTIONS": ["「 #y打擊 」獲得 #b%d #y狂氣 。"]
   }
 }

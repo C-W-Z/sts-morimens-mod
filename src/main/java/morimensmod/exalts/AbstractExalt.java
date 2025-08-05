@@ -29,12 +29,14 @@ public abstract class AbstractExalt {
     public abstract String getOverExaltTitle();
     public abstract String getOverExaltDescription();
 
-    public void onBattleStart() {
+    public void onInitDeck() {
         baseDamageAmplify = 0;
         baseBlockAmplify = 0;
         baseAliemusAmplify = 0;
         baseHealAmplify = 0;
     }
+
+    public void onBattleStart() {}
 
     public void onCardUse(AbstractCard card) {}
 

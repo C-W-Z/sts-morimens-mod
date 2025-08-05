@@ -1,4 +1,4 @@
-package morimensmod.powers.wheelOfDestiny;
+package morimensmod.powers.wheelofdestiny;
 
 import static morimensmod.MorimensMod.makeID;
 
@@ -28,7 +28,6 @@ public class ManikinOfOblivionPower extends AbstractEasyPower implements OnAfter
 
     public ManikinOfOblivionPower(AbstractCreature owner, int percent) {
         super(POWER_ID, NAME, PowerType.BUFF, false, owner, percent);
-        updateDescription();
     }
 
     @Override

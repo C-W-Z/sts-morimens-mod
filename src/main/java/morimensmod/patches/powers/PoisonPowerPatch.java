@@ -100,7 +100,7 @@ public class PoisonPowerPatch {
                 return;
             logger.debug("apply poison action atEndOfTurn");
             __instance.flashWithoutSound();
-            atb(new PoisonLoseHpAction(__instance.owner, __instance.owner, __instance.amount, AttackEffect.POISON));
+            atb(new PoisonLoseHpAction(__instance.owner, null, __instance.amount, AttackEffect.POISON));
         }
     }
 

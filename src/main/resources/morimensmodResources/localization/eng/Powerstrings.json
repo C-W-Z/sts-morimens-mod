@@ -204,6 +204,10 @@
       "After playing a #yCommand #yCard, return it to your hand from the Discard Pile, This effect can only trigger #b%d times per turn. #b%d remaining."
     ]
   },
+  "${ModID}:WheelUnseenPower": {
+    "NAME": "Wheel Unseen",
+    "DESCRIPTIONS": ["#yKeyflare storage limit #b+%d%%, hand card limit #b+%d."]
+  },
   "${ModID}:ManikinOfOblivionPower": {
     "NAME": "Manikin of Oblivion",
     "DESCRIPTIONS": [
@@ -213,5 +217,13 @@
   "${ModID}:HandOfOblivionPower": {
     "NAME": "Hand of Oblivion",
     "DESCRIPTIONS": ["Base Damage of #yStrike #b+%d%%."]
+  },
+  "${ModID}:AgedPower": {
+    "NAME": "Aged",
+    "DESCRIPTIONS": ["After each battle ends, gain #b%d #yKeyflare."]
+  },
+  "${ModID}:FrenzyPower": {
+    "NAME": "Frenzy",
+    "DESCRIPTIONS": ["#yStrike gains #b%d #yAliemus."]
   }
 }

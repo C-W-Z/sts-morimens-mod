@@ -47,6 +47,9 @@ public class ExaltAction extends AbstractGameAction {
 
         isDone = true;
 
+        // 狂氣回充
+        addToBot(new AliemusChangeAction(awaker, awaker.aliemusRegen));
+
         actB(() -> {
             // 呼叫所有遺物的 hook
             for (AbstractRelic r : awaker.relics)

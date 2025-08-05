@@ -62,20 +62,21 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
     protected static int lastUsedEnergy = 0;
 
-    public static final int NORMAL_ALIEMUS_LIMIT = 100;
+    public static final int DEFAULT_ALIEMUS_LIMIT = 100;
     protected static int aliemus = 0;
-    protected static int aliemusLimit = NORMAL_ALIEMUS_LIMIT; // 普通狂氣上限 狂氣爆發
-    protected static int extremeAlimus = 2 * NORMAL_ALIEMUS_LIMIT; // 雙倍上限 超限爆發
+    protected static int aliemusLimit = DEFAULT_ALIEMUS_LIMIT; // 普通狂氣上限 狂氣爆發
+    protected static int extremeAlimus = 2 * DEFAULT_ALIEMUS_LIMIT; // 雙倍上限 超限爆發
     protected static boolean exalting = false;
     protected static int exaltedThisTurn = 0; // reset at Main Mod File
-    public static final int NORMAL_MAX_EXALT_PER_TURN = 1;
-    protected static int maxExaltPerTurn = NORMAL_MAX_EXALT_PER_TURN; // reset at Main Mod File
+    public static final int DEFAULT_MAX_EXALT_PER_TURN = 1;
+    protected static int maxExaltPerTurn = DEFAULT_MAX_EXALT_PER_TURN; // reset at Main Mod File
     protected AbstractExalt exalt = null;
 
-    public static final int NORMAL_KEYFLARE_LIMIT = 1000;
+    public static final int DEFAULT_KEYFLARE_LIMIT = 1000;
+    public static final int DEFAULT_MAX_KEYFLARE_SCALE = 200; // percent
     protected static int keyflare = 0;
-    protected static int posseNeededKeyflare = NORMAL_KEYFLARE_LIMIT;
-    protected static int maxKeyflare = 2 * NORMAL_KEYFLARE_LIMIT;
+    protected static int posseNeededKeyflare = DEFAULT_KEYFLARE_LIMIT;
+    protected static int maxKeyflareScale = 200;
     protected static boolean possing = false;
     protected static int regularPossedThisTurn = 0; // reset at Main Mod File
     protected static int extraPossedThisTurn = 0; // reset at Main Mod File
@@ -209,19 +210,19 @@ public abstract class AbstractAwakener extends CustomPlayer {
                 AbstractGameAction.AttackEffect.FIRE };
     }
 
-    // called in Main Mod File
-    public static void onBattleStart() {
-        logger.debug("onBattleStart");
+    // called in OnInitializeDeckPatch
+    public static void onInitializeDeck() {
+        logger.debug("onInitDeck");
 
         exalting = false;
         possing = false;
-        maxExaltPerTurn = NORMAL_MAX_EXALT_PER_TURN;
+        maxExaltPerTurn = DEFAULT_MAX_EXALT_PER_TURN;
 
-        aliemusLimit = NORMAL_ALIEMUS_LIMIT;
-        extremeAlimus = 2 * NORMAL_ALIEMUS_LIMIT;
+        aliemusLimit = DEFAULT_ALIEMUS_LIMIT;
+        extremeAlimus = 2 * DEFAULT_ALIEMUS_LIMIT;
 
-        posseNeededKeyflare = NORMAL_KEYFLARE_LIMIT;
-        maxKeyflare = 2 * NORMAL_KEYFLARE_LIMIT;
+        posseNeededKeyflare = DEFAULT_KEYFLARE_LIMIT;
+        maxKeyflareScale = DEFAULT_MAX_KEYFLARE_SCALE;
         possedThisBattle = 0;
         allPossedThisBattle = 0;
 
@@ -235,14 +236,19 @@ public abstract class AbstractAwakener extends CustomPlayer {
 
         realmMastery = baseRealmMastery;
 
-        lastUsedEnergy = 0;
-
         baseDamageAmplify = 0;
         baseBlockAmplify = 0;
         baseHealAmplify = 0;
         baseAliemusAmplify = 0;
         basePoisonAmplify = 0;
         baseCounterAmplify = 0;
+    }
+
+    // called in Main Mod File
+    public static void onBattleStart() {
+        logger.debug("onBattleStart");
+
+        lastUsedEnergy = 0;
 
         for (Pair<String, Integer> pair : persistentPowers) {
             logger.debug("persistentPowers, ID: " + pair.getKey() + ", amount: " + pair.getValue());
@@ -252,6 +258,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
         // persistentPowers.clear();
 
         posseUsedThisTurn = new ArrayList<>();
+
+        setKeyflare(keyflare);
+        setAliemus(aliemus);
     }
 
     // called in Main Mod File
@@ -276,6 +285,13 @@ public abstract class AbstractAwakener extends CustomPlayer {
                 logger.debug("onPostBattle, ID: " + p.ID + ", amount: " + p.amount);
                 persistentPowers.add(new Pair<>(p.ID, p.amount));
             }
+
+        posseNeededKeyflare = DEFAULT_KEYFLARE_LIMIT;
+        setKeyflare(keyflare);
+
+        aliemusLimit = DEFAULT_ALIEMUS_LIMIT;
+        extremeAlimus = 2 * aliemusLimit;
+        setAliemus(aliemus);
     }
 
     // called in UseCardActionPatch
@@ -337,8 +353,12 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     public static int setAliemus(int amount) {
+        return setAliemus(amount, false);
+    }
+
+    public static int setAliemus(int amount, boolean unlimited) {
         aliemus = amount;
-        if (aliemus > extremeAlimus)
+        if (!unlimited && aliemus > extremeAlimus)
             aliemus = extremeAlimus;
         else if (aliemus < 0)
             aliemus = 0;
@@ -400,9 +420,9 @@ public abstract class AbstractAwakener extends CustomPlayer {
         maxExaltPerTurn += count;
     }
 
-    public static void upgradeAliemusLimit(int amount) {
+    public static void updateAliemusLimit(int amount) {
         aliemusLimit += amount;
-        extremeAlimus += 2 * amount;
+        extremeAlimus = 2 * aliemusLimit;
     }
 
     public static String getAliemusUIText() {
@@ -434,8 +454,13 @@ public abstract class AbstractAwakener extends CustomPlayer {
     }
 
     public static int setKeyflare(int amount) {
+        return setKeyflare(amount, false);
+    }
+
+    public static int setKeyflare(int amount, boolean umlimited) {
         keyflare = amount;
-        if (keyflare > maxKeyflare)
+        int maxKeyflare = posseNeededKeyflare * MathUtils.ceil(maxKeyflareScale / 100F);
+        if (!umlimited && keyflare > maxKeyflare)
             keyflare = maxKeyflare;
         else if (keyflare < 0)
             keyflare = 0;
@@ -547,8 +572,12 @@ public abstract class AbstractAwakener extends CustomPlayer {
         atb(new EasyModalChoiceAction(choiceCardList));
     }
 
-    public static void upgradeMaxKeyflare(int amount) {
-        maxKeyflare += amount;
+    public static void updateMaxKeyflareScale(int amount) {
+        maxKeyflareScale += amount;
+    }
+
+    public static int getMaxKeyflareScale() {
+        return maxKeyflareScale;
     }
 
     public static int getPossedThisBattle() {

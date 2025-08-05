@@ -2,9 +2,11 @@ package morimensmod.powers;
 
 import static morimensmod.MorimensMod.makeID;
 
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -31,7 +33,8 @@ public class BleedPower extends AbstractEasyPower {
         if (isPlayer != owner.isPlayer)
             return;
         flash();
-        addToBot(new LoseHPAction(owner, null, amount));
+        addToBot(new DamageAction(owner, new DamageInfo(null, amount, DamageType.THORNS)));
+        // addToBot(new LoseHPAction(owner, null, amount));
         addToBot(new RemoveSpecificPowerAction(owner, owner, this));
     }
 

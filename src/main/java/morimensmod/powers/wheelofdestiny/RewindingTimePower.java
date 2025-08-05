@@ -1,4 +1,4 @@
-package morimensmod.powers.wheelOfDestiny;
+package morimensmod.powers.wheelofdestiny;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.actB;
