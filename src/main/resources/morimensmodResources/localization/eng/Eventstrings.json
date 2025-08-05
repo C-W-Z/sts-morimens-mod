@@ -8,9 +8,11 @@
     "OPTIONS": [
       "[Connect] #gHeal #g%d #gHP.",
       "[Meditate] #gObatain %s.",
+      "[Fall into Madness] #gObatain %s and #r%d #random #rSymtom.",
       "[Leave]",
       "Connect",
-      "Meditate"
+      "Meditate",
+      "Fall into Madness"
     ]
   },
   "${ModID}:PoolOfGore": {
