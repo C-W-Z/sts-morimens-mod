@@ -142,7 +142,7 @@
   {
     "PROPER_NAME": "Passive",
     "NAMES": ["Passive", "passive"],
-    "DESCRIPTION": "Cards automatically take effect when battle starts."
+    "DESCRIPTION": "This card does not appear in battle and is effective in the deck."
   },
   {
     "PROPER_NAME": "Delay",

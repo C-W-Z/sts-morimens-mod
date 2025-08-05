@@ -481,11 +481,11 @@
   },
   "${ModID}:Aged": {
     "NAME": "熟成",
-    "DESCRIPTION": "每場戰鬥結束後獲得 !M! ${ModID}:銀鑰能量 。"
+    "DESCRIPTION": "${ModID}:被動 NL 每場戰鬥結束後獲得 !M! ${ModID}:銀鑰能量 。"
   },
   "${ModID}:Frenzy": {
     "NAME": "狂亂",
-    "DESCRIPTION": "「 打擊 」獲得 !M! ${ModID}:狂氣 。"
+    "DESCRIPTION": "${ModID}:被動 NL 「 打擊 」獲得 !M! ${ModID}:狂氣 。"
   },
   "${ModID}:Insight": {
     "NAME": "靈感",

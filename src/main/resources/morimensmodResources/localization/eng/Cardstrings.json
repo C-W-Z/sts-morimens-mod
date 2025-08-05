@@ -483,11 +483,11 @@
   },
   "${ModID}:Aged": {
     "NAME": "Aged",
-    "DESCRIPTION": "After each battle ends, gain !M! ${ModID}:Keyflare."
+    "DESCRIPTION": "${ModID}:Passive NL After each battle ends, gain !M! ${ModID}:Keyflare."
   },
   "${ModID}:Frenzy": {
     "NAME": "Frenzy",
-    "DESCRIPTION": "Strike gains !M! ${ModID}:Aliemus."
+    "DESCRIPTION": "${ModID}:Passive NL Strike gains !M! ${ModID}:Aliemus."
   },
   "${ModID}:Insight": {
     "NAME": "Insight",
