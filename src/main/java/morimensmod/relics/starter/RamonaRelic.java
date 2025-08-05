@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 import morimensmod.actions.KeyflareChangeAction;
-import morimensmod.characters.AbstractAwakener;
+import morimensmod.actions.KeyflareRegenChangeAction;
 import morimensmod.relics.AbstractEasyRelic;
 
 public class RamonaRelic extends AbstractEasyRelic {
@@ -41,8 +41,7 @@ public class RamonaRelic extends AbstractEasyRelic {
         // counter -= COMMAND_NUM;
 
         flash();
-        if (p() instanceof AbstractAwakener)
-            actB(() -> ((AbstractAwakener) p()).keyflareRegen += KEYFLARE_REGEN);
+        addToBot(new KeyflareRegenChangeAction(p(), KEYFLARE_REGEN));
     }
 
     @Override

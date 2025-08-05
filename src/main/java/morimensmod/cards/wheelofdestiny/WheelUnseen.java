@@ -1,11 +1,10 @@
 package morimensmod.cards.wheelofdestiny;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.p;
 
-import morimensmod.characters.AbstractAwakener;
+import morimensmod.actions.KeyflareRegenChangeAction;
 import morimensmod.interfaces.PassiveCard;
 import morimensmod.powers.wheelofdestiny.WheelUnseenPower;
 
@@ -27,8 +26,8 @@ public class WheelUnseen extends AbstractWheelOfDestiny implements PassiveCard {
     @Override
     public boolean onInitDeck() {
         applyToSelf(new WheelUnseenPower(p(), 1));
-        if (upgraded && p() instanceof AbstractAwakener)
-            actB(() -> ((AbstractAwakener) p()).keyflareRegen += magicNumber);
+        if (upgraded)
+            addToBot(new KeyflareRegenChangeAction(p(), magicNumber));
         return true;
     }
 }

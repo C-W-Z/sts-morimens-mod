@@ -31,6 +31,7 @@ public class KeyflareChangeAction extends AbstractGameAction {
         else {
             this.awaker = null;
             logger.error("awaker passed to KeyflareChangeAction is NOT an instance of AbstractAwakener");
+            isDone = true;
         }
     }
 
