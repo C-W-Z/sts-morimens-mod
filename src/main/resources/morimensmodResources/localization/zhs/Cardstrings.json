@@ -479,6 +479,10 @@
     "DESCRIPTION": "${ModID}:被动 NL 将 1 张「打击」加入手中，「 打击 」的基础伤害增加 !M! %。",
     "UPGRADE_DESCRIPTION": "${ModID}:被动 NL 将 1 张「打击+」加入手中，「 打击 」的基础伤害增加 !M! %。"
   },
+  "${ModID}:Frenzy": {
+    "NAME": "狂乱",
+    "DESCRIPTION": "「 打击 」获得 !M! ${ModID}:狂气 。"
+  },
   "${ModID}:Insight": {
     "NAME": "灵感",
     "DESCRIPTION": "获得 [E] 。 NL 抽 !${ModID}:M2! 张牌。",

@@ -481,6 +481,10 @@
     "DESCRIPTION": "${ModID}:Passive NL Place 1 \"Strike\" into your hand. Base Damage of Strike +!M!%.",
     "UPGRADE_DESCRIPTION": "${ModID}:Passive NL Place 1 \"Strike+\" into your hand. Base Damage of Strike +!M!%."
   },
+  "${ModID}:Frenzy": {
+    "NAME": "Frenzy",
+    "DESCRIPTION": "Strike gains !M! ${ModID}:Aliemus."
+  },
   "${ModID}:Insight": {
     "NAME": "Insight",
     "DESCRIPTION": "Gain [E]. NL Draw !${ModID}:M2! cards.",

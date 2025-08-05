@@ -193,5 +193,9 @@
   "${ModID}:HandOfOblivionPower": {
     "NAME": "遺忘之手",
     "DESCRIPTIONS": ["「 #y打擊 」的基礎傷害增加 #b%d%% 。"]
+  },
+  "${ModID}:FrenzyPower": {
+    "NAME": "狂亂",
+    "DESCRIPTIONS": ["「 #y打擊 」獲得 #b%d #y狂氣 。"]
   }
 }
