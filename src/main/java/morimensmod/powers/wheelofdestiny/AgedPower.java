@@ -13,7 +13,7 @@ import morimensmod.powers.AbstractEasyPower;
 
 public class AgedPower extends AbstractEasyPower {
 
-    public final static String POWER_ID = makeID(ManikinOfOblivionPower.class.getSimpleName());
+    public final static String POWER_ID = makeID(AgedPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -34,6 +34,6 @@ public class AgedPower extends AbstractEasyPower {
         if (!(owner instanceof AbstractAwakener))
             return;
         flash();
-        addToBot(new KeyflareChangeAction((AbstractPlayer) owner, amount * KEYFLARE_PER_AMOUNT));
+        new KeyflareChangeAction((AbstractPlayer) owner, amount * KEYFLARE_PER_AMOUNT).update();
     }
 }

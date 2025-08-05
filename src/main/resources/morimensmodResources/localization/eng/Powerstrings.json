@@ -224,6 +224,6 @@
   },
   "${ModID}:FrenzyPower": {
     "NAME": "Frenzy",
-    "DESCRIPTIONS": ["Strike gains #b%d #yAliemus."]
+    "DESCRIPTIONS": ["#yStrike gains #b%d #yAliemus."]
   }
 }

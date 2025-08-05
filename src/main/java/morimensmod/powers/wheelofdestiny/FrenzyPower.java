@@ -16,7 +16,7 @@ import morimensmod.powers.AbstractEasyPower;
 
 public class FrenzyPower extends AbstractEasyPower {
 
-    public final static String POWER_ID = makeID(ManikinOfOblivionPower.class.getSimpleName());
+    public final static String POWER_ID = makeID(FrenzyPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
