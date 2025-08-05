@@ -20,7 +20,7 @@ import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.icons.AbstractIcon;
 import morimensmod.misc.TopPanelDeathResistanceUI;
 import morimensmod.misc.TopPanelTurnUI;
-import morimensmod.patches.hooks.OnInitializeDeckPatch;
+import morimensmod.patches.hooks.PassiveCardPatch;
 import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.powers.ImmunePower;
@@ -437,7 +437,7 @@ public class MorimensMod implements
         if (p() instanceof AbstractAwakener)
             ((AbstractAwakener) p()).getExalt().onBattleStart();
 
-        OnInitializeDeckPatch.onBattleStartPreDraw();
+        PassiveCardPatch.onBattleStartPreDraw();
     }
 
     @Override
