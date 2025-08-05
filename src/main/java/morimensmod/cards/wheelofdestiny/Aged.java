@@ -11,12 +11,12 @@ public class Aged extends AbstractWheelOfDestiny implements PassiveCard {
 
     public Aged() {
         super(ID, -2, CardRarity.COMMON);
-        magicNumber = baseMagicNumber = 500;
+        magicNumber = baseMagicNumber = 250;
     }
 
     @Override
     public void upp() {
-        upgradeMagicNumber(500);
+        upgradeMagicNumber(250);
     }
 
     @Override
