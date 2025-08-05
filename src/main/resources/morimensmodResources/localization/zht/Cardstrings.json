@@ -479,6 +479,10 @@
     "DESCRIPTION": "${ModID}:被動 NL 將 1 張「打擊」加入手中，「 打擊 」的基礎傷害增加 !M! %。",
     "UPGRADE_DESCRIPTION": "${ModID}:被動 NL 將 1 張「打擊+」加入手中，「 打擊 」的基礎傷害增加 !M! %。"
   },
+  "${ModID}:Aged": {
+    "NAME": "熟成",
+    "DESCRIPTION": "每場戰鬥結束後獲得 !M! ${ModID}:銀鑰能量 。"
+  },
   "${ModID}:Frenzy": {
     "NAME": "狂亂",
     "DESCRIPTION": "「 打擊 」獲得 !M! ${ModID}:狂氣 。"

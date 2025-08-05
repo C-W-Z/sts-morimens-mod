@@ -481,6 +481,10 @@
     "DESCRIPTION": "${ModID}:Passive NL Place 1 \"Strike\" into your hand. Base Damage of Strike +!M!%.",
     "UPGRADE_DESCRIPTION": "${ModID}:Passive NL Place 1 \"Strike+\" into your hand. Base Damage of Strike +!M!%."
   },
+  "${ModID}:Aged": {
+    "NAME": "Aged",
+    "DESCRIPTION": "After each battle ends, gain !M! ${ModID}:Keyflare."
+  },
   "${ModID}:Frenzy": {
     "NAME": "Frenzy",
     "DESCRIPTION": "Strike gains !M! ${ModID}:Aliemus."

@@ -218,6 +218,10 @@
     "NAME": "Hand of Oblivion",
     "DESCRIPTIONS": ["Base Damage of #yStrike #b+%d%%."]
   },
+  "${ModID}:AgedPower": {
+    "NAME": "Aged",
+    "DESCRIPTIONS": ["After each battle ends, gain #b%d #yKeyflare."]
+  },
   "${ModID}:FrenzyPower": {
     "NAME": "Frenzy",
     "DESCRIPTIONS": ["Strike gains #b%d #yAliemus."]
