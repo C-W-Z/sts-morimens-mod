@@ -1,11 +1,10 @@
 package morimensmod.cards.wheelofdestiny;
 
 import static morimensmod.MorimensMod.makeID;
-import static morimensmod.util.Wiz.actB;
 import static morimensmod.util.Wiz.applyToSelf;
 import static morimensmod.util.Wiz.p;
 
-import morimensmod.characters.AbstractAwakener;
+import morimensmod.actions.AliemusRegenChangeAction;
 import morimensmod.interfaces.PassiveCard;
 import morimensmod.powers.wheelofdestiny.ManikinOfOblivionPower;
 
@@ -27,8 +26,8 @@ public class ManikinOfOblivion extends AbstractWheelOfDestiny implements Passive
     @Override
     public boolean onInitDeck() {
         applyToSelf(new ManikinOfOblivionPower(p(), secondMagic));
-        if (upgraded && p() instanceof AbstractAwakener)
-            actB(() -> ((AbstractAwakener) p()).aliemusRegen += magicNumber);
+        if (upgraded)
+            addToBot(new AliemusRegenChangeAction(p(), magicNumber));
         return true;
     }
 }
