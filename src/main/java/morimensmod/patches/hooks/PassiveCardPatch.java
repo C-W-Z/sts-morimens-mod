@@ -61,7 +61,7 @@ public class PassiveCardPatch {
             logger.debug("onVictory");
             deck().group.forEach(c -> {
                 if (c instanceof PassiveCard)
-                    ((PassiveCard) c).onVictory();
+                    ((PassiveCard) c).onVictory(!p().isDying);
             });
         }
     }

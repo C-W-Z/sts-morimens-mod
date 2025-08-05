@@ -5,5 +5,5 @@ public interface PassiveCard {
 
     default void onBattleStartPreDraw() {}
 
-    default void onVictory() {}
+    default void onVictory(boolean victory) {}
 }
