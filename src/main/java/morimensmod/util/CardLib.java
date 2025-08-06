@@ -65,7 +65,7 @@ public class CardLib {
     public static ArrayList<AbstractCard> getRandomSymptoms(int count) {
         ArrayList<AbstractCard> pool = new ArrayList<>();
         for (int i = 0; i < count; i++)
-            pool.add(symptoms.get(AbstractDungeon.cardRng.random(symptoms.size() - 1)).makeCopy());
+            pool.add(symptoms.get(AbstractDungeon.cardRandomRng.random(symptoms.size() - 1)).makeCopy());
         return pool;
     }
 
@@ -89,8 +89,11 @@ public class CardLib {
         if (pool.size() <= count)
             return pool;
         ArrayList<AbstractCard> result = new ArrayList<>();
-        for (int i = 0; i < count; i++)
-            result.add(pool.get(AbstractDungeon.cardRng.random(pool.size() - 1)).makeCopy());
+        for (int i = 0; i < count; i++) {
+            int j = AbstractDungeon.cardRandomRng.random(pool.size() - 1);
+            result.add(pool.get(j).makeCopy());
+            pool.remove(j);
+        }
         return result;
     }
 
@@ -111,8 +114,11 @@ public class CardLib {
         if (pool.size() <= count)
             return pool;
         ArrayList<AbstractCard> result = new ArrayList<>();
-        for (int i = 0; i < count; i++)
-            result.add(pool.get(AbstractDungeon.cardRng.random(pool.size() - 1)).makeCopy());
+        for (int i = 0; i < count; i++) {
+            int j = AbstractDungeon.cardRandomRng.random(pool.size() - 1);
+            result.add(pool.get(j).makeCopy());
+            pool.remove(j);
+        }
         return result;
     }
 }
