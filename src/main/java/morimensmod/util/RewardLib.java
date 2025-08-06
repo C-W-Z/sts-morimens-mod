@@ -9,7 +9,7 @@ public class RewardLib {
 
     public static void register() {
         BaseMod.registerCustomReward(
-                WheelOfDestinyReward_Random.WHEEL_OF_DESTINY_RANDOM,
+                WheelOfDestinyReward_Random.TYPE,
                 rewardSave -> { // this handles what to do when this quest type is loaded.
                     return new WheelOfDestinyReward_Random(rewardSave.amount);
                 },
