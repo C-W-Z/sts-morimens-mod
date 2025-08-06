@@ -138,6 +138,9 @@
       "OTHER_CHAR_ENCOUNTER_MOD_MONSTER": "Non-Awakener characters can also encounter monsters from Morimens"
     }
   },
+  "${ModID}:AbstractWheelOfDestinyReward": {
+    "TEXT": ["Select a Wheel of Destiny"]
+  },
   "${ModID}:MundusDecree": {
     "TEXT": [
       "Mundus Decree",

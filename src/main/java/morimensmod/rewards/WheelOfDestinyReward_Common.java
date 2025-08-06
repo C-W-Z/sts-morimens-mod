@@ -19,7 +19,7 @@ public class WheelOfDestinyReward_Common extends AbstractWheelOfDestinyReward {
     public int amount;
 
     public WheelOfDestinyReward_Common(int num) {
-        super(ICON, "Choose 1 Wheel of Destiny", TYPE);
+        super(ICON, TYPE);
         amount = num;
         wheels = CardLib.getRandomWheelOfDestiny(num, CardRarity.UNCOMMON);
     }

@@ -135,6 +135,9 @@
       "OTHER_CHAR_ENCOUNTER_MOD_MONSTER": "非喚醒體角色也能遇到忘卻前夜的怪物"
     }
   },
+  "${ModID}:AbstractWheelOfDestinyReward": {
+    "TEXT": ["選擇1張命輪"]
+  },
   "${ModID}:VoicesInYourHead": {
     "TEXT": [
       "腦中之音",
