@@ -489,6 +489,10 @@
     "NAME": "Frenzy",
     "DESCRIPTION": "${ModID}:Passive NL Strike gains !M! ${ModID}:Aliemus."
   },
+  "${ModID}:Whisper": {
+    "NAME": "Whisper",
+    "DESCRIPTION": "${ModID}:Passive NL After each battle ends, gain !M! ${ModID}:Aliemus."
+  },
   "${ModID}:Insight": {
     "NAME": "Insight",
     "DESCRIPTION": "Gain [E]. NL Draw !${ModID}:M2! cards.",

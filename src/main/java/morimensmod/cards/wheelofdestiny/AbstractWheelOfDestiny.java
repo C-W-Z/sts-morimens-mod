@@ -11,12 +11,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.interfaces.PassiveCard;
 import morimensmod.patches.enums.CustomTags;
 
-public abstract class AbstractWheelOfDestiny extends AbstractEasyCard implements SpawnModificationCard {
+public abstract class AbstractWheelOfDestiny extends AbstractEasyCard implements SpawnModificationCard, PassiveCard {
 
-    public AbstractWheelOfDestiny(final String cardID, final int cost, final CardRarity rarity) {
-        super(cardID, cost, CardType.POWER, rarity, CardTarget.SELF, WHEEL_OF_DESTINY_COLOR);
+    public AbstractWheelOfDestiny(final String cardID, final CardRarity rarity) {
+        super(cardID, -2, CardType.POWER, rarity, CardTarget.NONE, WHEEL_OF_DESTINY_COLOR);
         tags.add(CustomTags.WHEEL_OF_DESTINY);
     }
 
@@ -43,4 +44,11 @@ public abstract class AbstractWheelOfDestiny extends AbstractEasyCard implements
                 return false;
         return true;
     }
+
+    // don't applyPowers & calculateCardDamage
+    @Override
+    public void applyPowers() {}
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {}
 }

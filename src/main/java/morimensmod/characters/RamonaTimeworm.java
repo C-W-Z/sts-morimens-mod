@@ -28,7 +28,6 @@ import basemod.animations.AbstractAnimation;
 import static morimensmod.MorimensMod.*;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.BUFF_COLOR;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
-import static morimensmod.patches.enums.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
 import static morimensmod.util.General.removeModID;
 
 import java.util.ArrayList;
@@ -114,7 +113,7 @@ public class RamonaTimeworm extends AbstractAwakener {
     @Override
     public ArrayList<AbstractCard> getCardPool(ArrayList<AbstractCard> tmpPool) {
         CardLibrary.addCardsIntoPool(tmpPool, CHAOS_COLOR);
-        CardLibrary.addCardsIntoPool(tmpPool, WHEEL_OF_DESTINY_COLOR);
+        // CardLibrary.addCardsIntoPool(tmpPool, WHEEL_OF_DESTINY_COLOR);
         CardLibrary.addCardsIntoPool(tmpPool, BUFF_COLOR);
         // CardLibrary.addCardsIntoPool(tmpPool, SYMPTOM_COLOR);
         // CardLibrary.addCardsIntoPool(tmpPool, STATUS_COLOR);

@@ -37,9 +37,13 @@ public class KeyflareChangeAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        if (amount > 0) {
+        isDone = true;
+        if (this.awaker == null)
+            return;
 
-            AbstractAwakener.changeKeyflare(amount);
+        AbstractAwakener.changeKeyflare(amount);
+
+        if (amount > 0) {
 
             // addToTop(new TextAboveCreatureAction(p(), "+" + amount));
             AbstractDungeon.effectList.add(
@@ -51,8 +55,6 @@ public class KeyflareChangeAction extends AbstractGameAction {
 
         } else if (amount < 0) {
 
-            AbstractAwakener.changeKeyflare(amount);
-
             // addToTop(new TextAboveCreatureAction(p(), "" + amount));
             AbstractDungeon.effectList.add(
                     new TextAboveCreatureEffect(
@@ -61,7 +63,5 @@ public class KeyflareChangeAction extends AbstractGameAction {
                             amount + TEXT,
                             ModSettings.KEYFLARE_DECREASE_TEXT_COLOR));
         }
-
-        isDone = true;
     }
 }

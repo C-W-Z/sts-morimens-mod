@@ -57,6 +57,7 @@ public class ModSettings {
         public static final int HIGHER_MONSTER_HP       = 7;
         public static final int HIGHER_ELITE_HP         = 8;
         public static final int HIGHER_BOSS_HP          = 8;
+        public static final int BAD_EVENT               = 15;
         public static final int ENHANCE_MONSTER_ACTION  = 17;
         public static final int ENHANCE_ELITE_ACTION    = 18;
         public static final int ENHANCE_BOSS_ACTION     = 19;

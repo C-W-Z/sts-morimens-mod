@@ -60,8 +60,8 @@ public class PassiveCardPatch {
         public static void Postfix(AbstractPlayer __instance) {
             logger.debug("onVictory");
             deck().group.forEach(c -> {
-                if (c instanceof PassiveCard)
-                    ((PassiveCard) c).onVictory(!p().isDying);
+                if (c instanceof PassiveCard && ((PassiveCard) c).onVictory(!p().isDying))
+                    AbstractDungeon.effectList.add(0, new ShowCardBrieflyEffect(c.makeStatEquivalentCopy()));
             });
         }
     }

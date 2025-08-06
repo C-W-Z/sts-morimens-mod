@@ -34,6 +34,7 @@ import morimensmod.util.EventLib;
 import morimensmod.util.MonsterLib;
 import morimensmod.util.PersistentPowerLib;
 import morimensmod.util.ProAudio;
+import morimensmod.util.RewardLib;
 import morimensmod.util.TexLoader;
 
 import com.badlogic.gdx.Gdx;
@@ -269,6 +270,10 @@ public class MorimensMod implements
         return modID + "Resources/images/events/" + resourcePath;
     }
 
+    public static final String makeRewardPath(String resourcePath) {
+        return modID + "Resources/images/rewards/" + resourcePath;
+    }
+
     public static void initialize() {
         new MorimensMod();
     }
@@ -323,6 +328,8 @@ public class MorimensMod implements
                 .packageFilter(AbstractEasyCard.class)
                 .setDefaultSeen(true)
                 .cards();
+
+        CardLib.initialize();
     }
 
     @Override
@@ -384,8 +391,6 @@ public class MorimensMod implements
         BaseMod.registerModBadge(badgeTexture, info.Name, arrToString(info.Authors), info.Description,
                 new ConfigPanel());
 
-        CardLib.initialize();
-
         EventLib.register();
 
         new AutoAdd(modID)
@@ -422,6 +427,8 @@ public class MorimensMod implements
 
         MonsterLib.initialize();
         MonsterLib.register();
+
+        RewardLib.register();
     }
 
     public static ArrayList<AbstractCard> lastTurnCardsPlayed = new ArrayList<>();

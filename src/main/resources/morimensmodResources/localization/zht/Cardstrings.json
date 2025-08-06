@@ -487,6 +487,10 @@
     "NAME": "狂亂",
     "DESCRIPTION": "${ModID}:被動 NL 「 打擊 」獲得 !M! ${ModID}:狂氣 。"
   },
+  "${ModID}:Whisper": {
+    "NAME": "呢喃",
+    "DESCRIPTION": "${ModID}:被動 NL 每場戰鬥結束後獲得 !M! ${ModID}:狂氣 。"
+  },
   "${ModID}:Insight": {
     "NAME": "靈感",
     "DESCRIPTION": "獲得 [E] 。 NL 抽 !${ModID}:M2! 張牌。",
