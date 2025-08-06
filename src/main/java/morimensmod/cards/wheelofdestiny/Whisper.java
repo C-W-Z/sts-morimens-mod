@@ -3,19 +3,19 @@ package morimensmod.cards.wheelofdestiny;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.Wiz.p;
 
-import morimensmod.actions.KeyflareChangeAction;
+import morimensmod.actions.AliemusChangeAction;
 
-public class Aged extends AbstractWheelOfDestiny {
-    public final static String ID = makeID(Aged.class.getSimpleName());
+public class Whisper extends AbstractWheelOfDestiny {
+    public final static String ID = makeID(Whisper.class.getSimpleName());
 
-    public Aged() {
+    public Whisper() {
         super(ID, CardRarity.COMMON);
-        magicNumber = baseMagicNumber = 250;
+        magicNumber = baseMagicNumber = 10;
     }
 
     @Override
     public void upp() {
-        upgradeMagicNumber(250);
+        upgradeMagicNumber(10);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class Aged extends AbstractWheelOfDestiny {
     @Override
     public boolean onVictory(boolean victory) {
         if (victory)
-            new KeyflareChangeAction(p(), magicNumber).update();
+            new AliemusChangeAction(p(), magicNumber).update();
         return victory;
     }
 }

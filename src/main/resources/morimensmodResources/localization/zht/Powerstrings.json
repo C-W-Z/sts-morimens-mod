@@ -194,10 +194,6 @@
     "NAME": "遺忘之手",
     "DESCRIPTIONS": ["「 #y打擊 」的基礎傷害增加 #b%d%% 。"]
   },
-  "${ModID}:AgedPower": {
-    "NAME": "熟成",
-    "DESCRIPTIONS": ["每場戰鬥結束後獲得 #b%d #y銀鑰能量 。"]
-  },
   "${ModID}:FrenzyPower": {
     "NAME": "狂亂",
     "DESCRIPTIONS": ["「 #y打擊 」獲得 #b%d #y狂氣 。"]

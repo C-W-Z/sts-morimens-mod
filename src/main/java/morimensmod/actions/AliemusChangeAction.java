@@ -31,19 +31,19 @@ public class AliemusChangeAction extends AbstractGameAction {
         else {
             this.awaker = null;
             logger.error("awaker passed to AliemusChangeAction is NOT an instance of AbstractAwakener");
+            isDone = true;
         }
     }
 
     @Override
     public void update() {
-        if (this.awaker == null) {
-            isDone = true;
+        isDone = true;
+        if (this.awaker == null)
             return;
-        }
+
+        AbstractAwakener.changeAliemus(amount);
 
         if (amount > 0) {
-
-            AbstractAwakener.changeAliemus(amount);
 
             // addToTop(new TextAboveCreatureAction(p(), "+" + amount));
             AbstractDungeon.effectList.add(
@@ -55,8 +55,6 @@ public class AliemusChangeAction extends AbstractGameAction {
 
         } else if (amount < 0) {
 
-            AbstractAwakener.changeAliemus(amount);
-
             // addToTop(new TextAboveCreatureAction(p(), "" + amount));
             AbstractDungeon.effectList.add(
                     new TextAboveCreatureEffect(
@@ -65,7 +63,5 @@ public class AliemusChangeAction extends AbstractGameAction {
                             amount + TEXT,
                             ModSettings.ALIEMUS_DECREASE_TEXT_COLOR));
         }
-
-        isDone = true;
     }
 }
