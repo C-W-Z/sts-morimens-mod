@@ -26,4 +26,9 @@ public class Greed extends AbstractWheelOfDestiny {
         }
         return false;
     }
+
+    @Override
+    public int getPrice() {
+        return 70;
+    }
 }
