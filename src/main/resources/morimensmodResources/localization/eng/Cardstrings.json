@@ -487,20 +487,20 @@
   },
   "${ModID}:Exile": {
     "NAME": "Exile",
-    "DESCRIPTION": "${ModID}:Passive NL Removing a ${ModID}:Symptom or Curse grants !M! Gold."
+    "DESCRIPTION": "${ModID}:Passive NL Removing a ${ModID}:Symptom or Curse grants you !M! Gold."
   },
   "${ModID}:Frenzy": {
     "NAME": "Frenzy",
-    "DESCRIPTION": "${ModID}:Passive NL Strike gains !M! ${ModID}:Aliemus."
+    "DESCRIPTION": "${ModID}:Passive NL Strike grants you !M! ${ModID}:Aliemus."
   },
   "${ModID}:Greed": {
     "NAME": "Greed",
-    "DESCRIPTION": "${ModID}:Passive NL Removing this card grants !M! Gold. "
+    "DESCRIPTION": "${ModID}:Passive NL Removing this card grants you !M! Gold."
   },
   "${ModID}:Suction": {
     "NAME": "Suction",
-    "DESCRIPTION": "${ModID}: Passive NL Regenerates an additional !M!% of your maximum health upon resting.",
-    "UPGRADE_DESCRIPTION": "${ModID}: Passive NL Regenerates an additional !M!% of your maximum health upon resting and gains !${ModID}:M2! Inspiration."
+    "DESCRIPTION": "${ModID}:Passive NL Whenever you Rest, heal an additional !M!% of your max HP.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Passive NL Whenever you Rest, heal an additional !M!% of your max HP and obtain !${ModID}:M2! \"Insight\"."
   },
   "${ModID}:Whisper": {
     "NAME": "Whisper",
