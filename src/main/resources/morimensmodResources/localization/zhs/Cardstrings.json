@@ -481,11 +481,24 @@
   },
   "${ModID}:Aged": {
     "NAME": "熟成",
-    "DESCRIPTION": "${ModID}:被动 每场战斗结束后获得 !M! ${ModID}:银钥能量 。"
+    "DESCRIPTION": "${ModID}:被动 NL 每场战斗结束后获得 !M! ${ModID}:银钥能量 。"
+  },
+  "${ModID}:Exile": {
+    "NAME": "放逐",
+    "DESCRIPTION": "${ModID}:被动 NL 移除 ${ModID}:症状 或 诅咒 时获得 !M! 金币。"
   },
   "${ModID}:Frenzy": {
     "NAME": "狂乱",
-    "DESCRIPTION": "${ModID}:被动 「 打击 」获得 !M! ${ModID}:狂气 。"
+    "DESCRIPTION": "${ModID}:被动 NL 「 打击 」获得 !M! ${ModID}:狂气 。"
+  },
+  "${ModID}:Greed": {
+    "NAME": "贪婪",
+    "DESCRIPTION": "${ModID}:被动 NL 移除此牌时获得 !M! 金币。"
+  },
+  "${ModID}:Suction": {
+    "NAME": "吮吸",
+    "DESCRIPTION": "${ModID}:被动 NL 在休息时额外回复等同于 !M! %最大生命值的生命。",
+    "UPGRADE_DESCRIPTION": "${ModID}:被动 NL 在休息时额外时回复等同于 !M! %最大生命值的生命并获得 !${ModID}:M2! 张「灵感」。"
   },
   "${ModID}:Whisper": {
     "NAME": "呢喃",

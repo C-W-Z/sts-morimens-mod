@@ -24,11 +24,13 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.LocalizedStrings;
 import com.megacrit.cardcrawl.relics.DreamCatcher;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rewards.RewardItem.RewardType;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.RestRoom;
+import com.megacrit.cardcrawl.ui.campfire.RestOption;
 import com.megacrit.cardcrawl.vfx.campfire.CampfireSleepEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
@@ -42,7 +44,7 @@ public class PassiveCardPatch {
     private static final Logger logger = LogManager.getLogger(PassiveCardPatch.class);
 
     @SpirePatch2(clz = CardGroup.class, method = "initializeDeck")
-    public static class InitDeckPatch {
+    public static class OnInitDeckPatch {
 
         @SpirePostfixPatch
         public static void Postfix(CardGroup __instance, CardGroup masterDeck) {
@@ -116,6 +118,33 @@ public class PassiveCardPatch {
             public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
                 Matcher matcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, "hasRelic");
                 return LineFinder.findInOrder(ctMethodToPatch, matcher);
+            }
+        }
+    }
+
+    @SpirePatch2(clz = RestOption.class, method = SpirePatch.CONSTRUCTOR, paramtypez = { boolean.class })
+    public static class RestOptionTextPatch {
+
+        @SpireInsertPatch(locator = Locator.class, localvars = { "healAmt" })
+        public static void Insert(CampfireSleepEffect __instance, int healAmt, @ByRef String[] ___description) {
+            deck().group.forEach(card -> {
+                if (card instanceof PassiveCard) {
+                    int newhealAmt = ((PassiveCard) card).onRestToChangeHealAmount(healAmt);
+                    int diffHealAmt = newhealAmt - healAmt;
+                    if (diffHealAmt != 0) {
+                        ___description[0] += String.format("\n%+d", diffHealAmt) +
+                                RestOption.TEXT[2] + card.name + LocalizedStrings.PERIOD;
+                    }
+                }
+            });
+        }
+
+        // 插入所有hasRelic前一行
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher matcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, "hasRelic");
+                return LineFinder.findAllInOrder(ctMethodToPatch, matcher);
             }
         }
     }
