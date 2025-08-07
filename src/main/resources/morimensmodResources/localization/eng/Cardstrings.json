@@ -495,7 +495,7 @@
   },
   "${ModID}:Greed": {
     "NAME": "Greed",
-    "DESCRIPTION": "${ModID}:Passive NL Removing this card grants you !M! Gold."
+    "DESCRIPTION": "${ModID}:Passive NL Removing this card grants you !M! Gold. NL Can be Upgraded any number of times."
   },
   "${ModID}:Suction": {
     "NAME": "Suction",

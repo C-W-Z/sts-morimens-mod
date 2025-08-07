@@ -14,8 +14,21 @@ public class Greed extends AbstractWheelOfDestiny {
     }
 
     @Override
+    public boolean canUpgrade() {
+        return true;
+    }
+
+    @Override
+    protected void upgradeName() {
+        ++this.timesUpgraded;
+        this.upgraded = true;
+        this.name = cardStrings.NAME + "+" + this.timesUpgraded;
+        this.initializeTitle();
+    }
+
+    @Override
     public void upp() {
-        upgradeMagicNumber(250);
+        upgradeMagicNumber(Math.max(275 - timesUpgraded * 25, 50));
     }
 
     @Override

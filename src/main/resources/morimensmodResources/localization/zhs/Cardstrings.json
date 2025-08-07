@@ -493,7 +493,7 @@
   },
   "${ModID}:Greed": {
     "NAME": "贪婪",
-    "DESCRIPTION": "${ModID}:被动 NL 移除此牌时获得 !M! 金币。"
+    "DESCRIPTION": "${ModID}:被动 NL 移除此牌时获得 !M! 金币。 NL 能被多次 升级 "
   },
   "${ModID}:Suction": {
     "NAME": "吮吸",
