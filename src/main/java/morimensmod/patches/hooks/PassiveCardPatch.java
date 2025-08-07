@@ -9,7 +9,9 @@ import org.apache.logging.log4j.Logger;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
@@ -62,6 +64,21 @@ public class PassiveCardPatch {
             deck().group.forEach(c -> {
                 if (c instanceof PassiveCard && ((PassiveCard) c).onVictory(!p().isDying))
                     AbstractDungeon.effectList.add(0, new ShowCardBrieflyEffect(c.makeStatEquivalentCopy()));
+            });
+        }
+    }
+
+    @SpirePatch2(clz = CardGroup.class, method = "removeCard")
+    public static class OnRemoveCardPatch {
+
+        @SpirePostfixPatch
+        public static void Postfix(CardGroup __instance, AbstractCard c) {
+            if (__instance.type != CardGroupType.MASTER_DECK)
+                return;
+            logger.debug("onRemoveCardFromDeck");
+            deck().group.forEach(card -> {
+                if (card instanceof PassiveCard && ((PassiveCard) card).onRemoveCardFromDeck(c))
+                    AbstractDungeon.effectList.add(0, new ShowCardBrieflyEffect(card.makeStatEquivalentCopy()));
             });
         }
     }
