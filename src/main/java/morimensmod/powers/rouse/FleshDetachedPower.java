@@ -20,7 +20,7 @@ public class FleshDetachedPower extends AbstractEasyPower implements OnPowerModi
     private static final String NAME = powerStrings.NAME;
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public static final int BLOCK_PER_HEAL = 4;
+    public static final int BLOCK_PER_HEAL = 5;
     private int block;
 
     public FleshDetachedPower(AbstractCreature owner, int amount) {

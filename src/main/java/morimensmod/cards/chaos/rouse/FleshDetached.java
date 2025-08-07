@@ -15,7 +15,7 @@ public class FleshDetached extends AbstractRouseCard {
     public final static String ID = makeID(FleshDetached.class.getSimpleName());
 
     public FleshDetached() {
-        super(ID, 2, CardRarity.COMMON, CHAOS_COLOR);
+        super(ID, 2, CardRarity.UNCOMMON, CHAOS_COLOR);
         block = baseBlock = FleshDetachedPower.BLOCK_PER_HEAL;
     }
 
