@@ -2,9 +2,11 @@ package morimensmod.cards.wheelofdestiny;
 
 import static morimensmod.MorimensMod.makeID;
 
-import com.megacrit.cardcrawl.core.Settings;
+import java.util.ArrayList;
+
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
+import com.megacrit.cardcrawl.rewards.RewardItem;
+import com.megacrit.cardcrawl.rewards.RewardItem.RewardType;
 
 import morimensmod.cards.buffs.Insight;
 
@@ -29,13 +31,16 @@ public class Suction extends AbstractWheelOfDestiny {
     }
 
     @Override
-    public boolean onRest() {
+    public ArrayList<RewardItem> onRestToObtainRewards() {
         if (!upgraded)
-            return false;
-        for (int i = 0; i < secondMagic; i++) {
-            AbstractDungeon.effectList.add(
-                new ShowCardAndObtainEffect(cardsToPreview, Settings.WIDTH / 2F, Settings.HEIGHT / 2F));
-        }
-        return true;
+            return null;
+        RewardItem reward = new RewardItem();
+        reward.type = RewardType.CARD;
+        reward.cards.clear();
+        for (int i = 0; i < secondMagic; i++)
+            reward.cards.add(cardsToPreview);
+        ArrayList<RewardItem> rewards = new ArrayList<>();
+        rewards.add(reward);
+        return rewards;
     }
 }

@@ -19,11 +19,10 @@ public class Greed extends AbstractWheelOfDestiny {
     }
 
     @Override
-    public boolean onRemoveCardFromDeck(AbstractCard card) {
+    public void preRemoveCardFromDeck(AbstractCard card) {
         if (card != this)
-            return false;
+            return;
         p().gainGold(magicNumber);
-            return true;
     }
 
     @Override

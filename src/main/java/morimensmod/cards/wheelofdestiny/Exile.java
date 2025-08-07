@@ -16,14 +16,18 @@ public class Exile extends AbstractWheelOfDestiny {
 
     @Override
     public void upp() {
-        upgradeMagicNumber(75);
+        upgradeMagicNumber(25);
     }
 
     @Override
-    public boolean onRemoveCardFromDeck(AbstractCard card) {
+    public void preRemoveCardFromDeck(AbstractCard card) {
         if (card.type != CardType.CURSE && card.color != SYMPTOM_COLOR)
-            return false;
+            return;
         p().gainGold(magicNumber);
-        return true;
+    }
+
+    @Override
+    public int getPrice() {
+        return 50;
     }
 }

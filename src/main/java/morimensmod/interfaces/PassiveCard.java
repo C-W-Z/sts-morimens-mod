@@ -1,6 +1,9 @@
 package morimensmod.interfaces;
 
+import java.util.ArrayList;
+
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.rewards.RewardItem;
 
 public interface PassiveCard {
     default boolean onInitDeck() {
@@ -15,15 +18,13 @@ public interface PassiveCard {
         return false;
     }
 
-    default boolean onRemoveCardFromDeck(AbstractCard card) {
-        return false;
-    }
+    default void preRemoveCardFromDeck(AbstractCard card) {}
 
     default int onRestToChangeHealAmount(int healAmount) {
         return healAmount;
     }
 
-    default boolean onRest() {
-        return false;
+    default ArrayList<RewardItem> onRestToObtainRewards() {
+        return null;
     }
 }

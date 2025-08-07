@@ -485,7 +485,7 @@
   },
   "${ModID}:Exile": {
     "NAME": "放逐",
-    "DESCRIPTION": "${ModID}:被動 NL 移除 ${ModID}:症狀 或 詛咒 時獲得 !M! 金幣 。"
+    "DESCRIPTION": "${ModID}:被動 NL 移除 ${ModID}:症狀 或 詛咒 時獲得 !M! 金幣。"
   },
   "${ModID}:Frenzy": {
     "NAME": "狂亂",
@@ -493,12 +493,12 @@
   },
   "${ModID}:Greed": {
     "NAME": "貪婪",
-    "DESCRIPTION": "${ModID}:被動 NL 移除此牌時獲得 !M! 金幣 。"
+    "DESCRIPTION": "${ModID}:被動 NL 移除此牌時獲得 !M! 金幣。"
   },
   "${ModID}:Suction": {
     "NAME": "吮吸",
-    "DESCRIPTION": "${ModID}:被動 NL 休息 時回復等同於 !M! %最大生命值的生命。",
-    "UPGRADE_DESCRIPTION": "${ModID}:被動 NL 休息 時回復等同於 !M! %最大生命值的生命並獲得 !${ModID}:M2! 張「靈感」。"
+    "DESCRIPTION": "${ModID}:被動 NL 在休息時額外回復等同於 !M! %最大生命值的生命。",
+    "UPGRADE_DESCRIPTION": "${ModID}:被動 NL 在休息時額外時回復等同於 !M! %最大生命值的生命並獲得 !${ModID}:M2! 張「靈感」。"
   },
   "${ModID}:Whisper": {
     "NAME": "呢喃",

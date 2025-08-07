@@ -4,6 +4,8 @@ import static morimensmod.util.Wiz.deck;
 import static morimensmod.util.Wiz.drawPile;
 import static morimensmod.util.Wiz.p;
 
+import java.util.ArrayList;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,11 +17,18 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.relics.DreamCatcher;
+import com.megacrit.cardcrawl.rewards.RewardItem;
+import com.megacrit.cardcrawl.rewards.RewardItem.RewardType;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.vfx.campfire.CampfireSleepEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
@@ -79,14 +88,14 @@ public class PassiveCardPatch {
     @SpirePatch2(clz = CardGroup.class, method = "removeCard", paramtypez = { AbstractCard.class })
     public static class OnRemoveCardPatch {
 
-        @SpirePostfixPatch
-        public static void Postfix(CardGroup __instance, AbstractCard c) {
+        @SpirePrefixPatch
+        public static void Prefix(CardGroup __instance, AbstractCard c) {
             if (__instance.type != CardGroupType.MASTER_DECK)
                 return;
-            logger.debug("onRemoveCardFromDeck");
+            logger.debug("preRemoveCardFromDeck" + c.cardID);
             deck().group.forEach(card -> {
-                if (card instanceof PassiveCard && ((PassiveCard) card).onRemoveCardFromDeck(c))
-                    AbstractDungeon.effectList.add(0, new ShowCardBrieflyEffect(card.makeStatEquivalentCopy()));
+                if (card instanceof PassiveCard)
+                    ((PassiveCard) card).preRemoveCardFromDeck(c);
             });
         }
     }
@@ -115,19 +124,46 @@ public class PassiveCardPatch {
     public static class OnRestPatch {
 
         @SpireInsertPatch(locator = Locator.class)
-        public static void Insert(CampfireSleepEffect __instance) {
+        public static SpireReturn<Void> Insert(CampfireSleepEffect __instance) {
+
+            ArrayList<RewardItem> rewards = new ArrayList<>();
             deck().group.forEach(card -> {
-                if (card instanceof PassiveCard && ((PassiveCard) card).onRest())
-                    AbstractDungeon.effectList.add(0, new ShowCardBrieflyEffect(card.makeStatEquivalentCopy()));
+                if (card instanceof PassiveCard) {
+                    ArrayList<RewardItem> r = ((PassiveCard) card).onRestToObtainRewards();
+                    if (r != null && !r.isEmpty())
+                        rewards.addAll(r);
+                }
             });
+
+            if (rewards.isEmpty())
+                return SpireReturn.Continue();
+
+            if (AbstractDungeon.player.hasRelic(DreamCatcher.ID)) {
+                AbstractDungeon.player.getRelic(DreamCatcher.ID).flash();
+                ArrayList<AbstractCard> rewardCards = AbstractDungeon.getRewardCards();
+                if (rewardCards != null && !rewardCards.isEmpty()) {
+                    RewardItem reward = new RewardItem();
+                    reward.type = RewardType.CARD;
+                    reward.cards = rewardCards;
+                    AbstractDungeon.getCurrRoom().rewards.add(reward);
+                }
+            }
+            AbstractDungeon.getCurrRoom().rewards.addAll(rewards);
+            AbstractDungeon.combatRewardScreen.open();
+            __instance.isDone = true;
+            ((RestRoom) AbstractDungeon.getCurrRoom()).fadeIn();
+            AbstractRoom.waitTimer = 0.0F;
+            (AbstractDungeon.getCurrRoom()).phase = AbstractRoom.RoomPhase.COMPLETE;
+
+            return SpireReturn.Return();
         }
 
         private static class Locator extends SpireInsertLocator {
             @Override
             public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
-                Matcher matcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, "heal");
-                int[] lines = LineFinder.findInOrder(ctMethodToPatch, matcher);
-                return new int[] { lines[0] + 1 };
+                Matcher matcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, "hasRelic");
+                int[] lines = LineFinder.findAllInOrder(ctMethodToPatch, matcher);
+                return new int[] { lines[1] };
             }
         }
     }
