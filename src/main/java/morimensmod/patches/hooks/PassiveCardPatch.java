@@ -126,7 +126,7 @@ public class PassiveCardPatch {
     public static class RestOptionTextPatch {
 
         @SpireInsertPatch(locator = Locator.class, localvars = { "healAmt" })
-        public static void Insert(CampfireSleepEffect __instance, int healAmt, @ByRef String[] ___description) {
+        public static void Insert(@ByRef String[] ___description, int healAmt) {
             deck().group.forEach(card -> {
                 if (card instanceof PassiveCard) {
                     int newhealAmt = ((PassiveCard) card).onRestToChangeHealAmount(healAmt);

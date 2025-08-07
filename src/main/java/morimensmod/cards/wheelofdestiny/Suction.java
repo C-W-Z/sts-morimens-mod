@@ -38,7 +38,7 @@ public class Suction extends AbstractWheelOfDestiny {
         reward.type = RewardType.CARD;
         reward.cards.clear();
         for (int i = 0; i < secondMagic; i++)
-            reward.cards.add(cardsToPreview);
+            reward.cards.add(cardsToPreview.makeStatEquivalentCopy());
         ArrayList<RewardItem> rewards = new ArrayList<>();
         rewards.add(reward);
         return rewards;
