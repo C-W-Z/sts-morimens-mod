@@ -14,10 +14,13 @@ public class Suction extends AbstractWheelOfDestiny {
     public Suction() {
         super(ID, CardRarity.COMMON);
         magicNumber = baseMagicNumber = 10;
+        secondMagic = baseSecondMagic = 0;
     }
 
     @Override
     public void upp() {
+        upgradeSecondMagic(1);
+        cardsToPreview = new Insight();
     }
 
     @Override
@@ -29,8 +32,10 @@ public class Suction extends AbstractWheelOfDestiny {
     public boolean onRest() {
         if (!upgraded)
             return false;
-        AbstractDungeon.effectList.add(
-                new ShowCardAndObtainEffect(new Insight(), Settings.WIDTH / 2F, Settings.HEIGHT / 2F));
+        for (int i = 0; i < secondMagic; i++) {
+            AbstractDungeon.effectList.add(
+                new ShowCardAndObtainEffect(cardsToPreview, Settings.WIDTH / 2F, Settings.HEIGHT / 2F));
+        }
         return true;
     }
 }

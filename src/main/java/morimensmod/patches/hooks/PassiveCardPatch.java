@@ -76,7 +76,7 @@ public class PassiveCardPatch {
         }
     }
 
-    @SpirePatch2(clz = CardGroup.class, method = "removeCard")
+    @SpirePatch2(clz = CardGroup.class, method = "removeCard", paramtypez = { AbstractCard.class })
     public static class OnRemoveCardPatch {
 
         @SpirePostfixPatch
