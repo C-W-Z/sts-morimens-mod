@@ -27,6 +27,8 @@ public class Suction extends AbstractWheelOfDestiny {
 
     @Override
     public boolean onRest() {
+        if (!upgraded)
+            return false;
         AbstractDungeon.effectList.add(
                 new ShowCardAndObtainEffect(new Insight(), Settings.WIDTH / 2F, Settings.HEIGHT / 2F));
         return true;

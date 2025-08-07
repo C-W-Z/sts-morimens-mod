@@ -21,10 +21,9 @@ public class Exile extends AbstractWheelOfDestiny {
 
     @Override
     public boolean onRemoveCardFromDeck(AbstractCard card) {
-        if (card.type == CardType.CURSE || card.color == SYMPTOM_COLOR) {
-            p().gainGold(magicNumber);
-            return true;
-        }
-        return false;
+        if (card.type != CardType.CURSE && card.color != SYMPTOM_COLOR)
+            return false;
+        p().gainGold(magicNumber);
+        return true;
     }
 }
