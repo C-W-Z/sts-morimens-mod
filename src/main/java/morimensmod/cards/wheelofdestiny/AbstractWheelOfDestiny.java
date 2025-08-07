@@ -51,4 +51,17 @@ public abstract class AbstractWheelOfDestiny extends AbstractEasyCard implements
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {}
+
+    public int getPrice() {
+        switch (this.rarity) {
+            case COMMON:
+                return 150;
+            case UNCOMMON:
+                return 200;
+            case RARE:
+                return 400;
+            default:
+                return 1000;
+        }
+    }
 }

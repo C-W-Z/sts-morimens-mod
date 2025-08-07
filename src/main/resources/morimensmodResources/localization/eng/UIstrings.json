@@ -127,7 +127,8 @@
       "Counts as Strike",
       "Counts as ${ModID}:Defend",
       "${ModID}:Phantasm",
-      "${ModID}:Echo"
+      "${ModID}:Echo",
+      "Can be Upgraded any number of times"
     ]
   },
   "${ModID}:ConfigPanel": {

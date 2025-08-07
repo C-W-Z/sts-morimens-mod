@@ -24,6 +24,7 @@ import com.megacrit.cardcrawl.shop.ShopScreen;
 
 import basemod.ReflectionHacks;
 import javassist.CtBehavior;
+import morimensmod.cards.wheelofdestiny.AbstractWheelOfDestiny;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.util.CardLib;
 
@@ -68,7 +69,13 @@ public class ShopPatch {
                 return;
 
             for (AbstractCard c : __instance.coloredCards) {
-                if (c.color == WHEEL_OF_DESTINY_COLOR) {
+                if (c instanceof AbstractWheelOfDestiny) {
+                    float tmpPrice = ((AbstractWheelOfDestiny) c).getPrice()
+                            * AbstractDungeon.merchantRng.random(0.9F, 1.1F);
+                    c.price = (int) tmpPrice;
+                    for (AbstractRelic r : AbstractDungeon.player.relics)
+                        r.onPreviewObtainCard(c);
+                } else if (c.color == WHEEL_OF_DESTINY_COLOR) {
                     float tmpPrice = AbstractCard.getPrice(CardRarity.RARE)
                             * AbstractDungeon.merchantRng.random(0.9F, 1.1F);
                     c.price = (int) tmpPrice;

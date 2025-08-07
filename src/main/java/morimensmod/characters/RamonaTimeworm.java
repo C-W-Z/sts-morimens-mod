@@ -121,6 +121,16 @@ public class RamonaTimeworm extends AbstractAwakener {
     }
 
     @Override
+    public AbstractCard getBasicStrike() {
+        return new Strike_RamonaTimeworm();
+    }
+
+    @Override
+    public AbstractCard getBasicDefend() {
+        return new Defend_RamonaTimeworm();
+    }
+
+    @Override
     public CardColor getRealmColor() {
         return CHAOS_COLOR;
     }
@@ -128,13 +138,6 @@ public class RamonaTimeworm extends AbstractAwakener {
     @Override
     public String getLocalizedCharacterName() {
         return NAMES[0];
-    }
-
-    @Override
-    public AbstractCard getStartCardForEvent() {
-        // System.out.println("YOU NEED TO SET getStartCardForEvent() in your " +
-        // getClass().getSimpleName() + " file!");
-        return new Strike_RamonaTimeworm();
     }
 
     @Override

@@ -137,6 +137,16 @@ public class Lotan extends AbstractAwakener {
     }
 
     @Override
+    public AbstractCard getBasicStrike() {
+        return new Strike();
+    }
+
+    @Override
+    public AbstractCard getBasicDefend() {
+        return new Defend();
+    }
+
+    @Override
     public CardColor getRealmColor() {
         return CHAOS_COLOR;
     }
@@ -144,11 +154,6 @@ public class Lotan extends AbstractAwakener {
     @Override
     public String getLocalizedCharacterName() {
         return NAMES[0];
-    }
-
-    @Override
-    public AbstractCard getStartCardForEvent() {
-        return new Strike();
     }
 
     @Override

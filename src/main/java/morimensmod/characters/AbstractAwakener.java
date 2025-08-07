@@ -126,12 +126,21 @@ public abstract class AbstractAwakener extends CustomPlayer {
         persistentPowers = new ArrayList<>();
     }
 
+    public abstract AbstractCard getBasicStrike();
+
+    public abstract AbstractCard getBasicDefend();
+
     public abstract CardColor getRealmColor();
 
     // must be AWAKENER_COLOR for relic pool
     @Override
     public CardColor getCardColor() {
         return AWAKENER_COLOR;
+    }
+
+    @Override
+    public AbstractCard getStartCardForEvent() {
+        return getBasicStrike();
     }
 
     @Override

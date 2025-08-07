@@ -41,7 +41,7 @@
   },
   {
     "PROPER_NAME": "Symptom Card",
-    "NAMES": ["Symptom Card", "symptom_card", "symptom_cards"],
+    "NAMES": ["Symptom Card", "symptom_card", "symptom_cards", "symptom", "symptoms"],
     "DESCRIPTION": "A type of card that is not routinely available and is generally harmful to the player."
   },
   {
