@@ -19,11 +19,6 @@ public class Aged extends AbstractWheelOfDestiny {
     }
 
     @Override
-    public boolean onInitDeck() {
-        return false;
-    }
-
-    @Override
     public boolean onVictory(boolean victory) {
         if (victory)
             new KeyflareChangeAction(p(), magicNumber).update();

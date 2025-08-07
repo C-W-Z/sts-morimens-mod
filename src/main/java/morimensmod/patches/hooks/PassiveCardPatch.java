@@ -7,6 +7,12 @@ import static morimensmod.util.Wiz.p;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.evacipated.cardcrawl.modthespire.lib.ByRef;
+import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
+import com.evacipated.cardcrawl.modthespire.lib.Matcher;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertLocator;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,8 +20,10 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.vfx.campfire.CampfireSleepEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
+import javassist.CtBehavior;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.interfaces.PassiveCard;
@@ -50,8 +58,8 @@ public class PassiveCardPatch {
     public static void onBattleStartPreDraw() {
         logger.debug("onBattleStartPreDraw");
         deck().group.forEach(c -> {
-            if (c instanceof PassiveCard)
-                ((PassiveCard) c).onBattleStartPreDraw();
+            if (c instanceof PassiveCard && ((PassiveCard) c).onBattleStartPreDraw())
+                AbstractDungeon.effectList.add(0, new ShowCardBrieflyEffect(c.makeStatEquivalentCopy()));
         });
     }
 
@@ -80,6 +88,47 @@ public class PassiveCardPatch {
                 if (card instanceof PassiveCard && ((PassiveCard) card).onRemoveCardFromDeck(c))
                     AbstractDungeon.effectList.add(0, new ShowCardBrieflyEffect(card.makeStatEquivalentCopy()));
             });
+        }
+    }
+
+    @SpirePatch2(clz = CampfireSleepEffect.class, method = SpirePatch.CONSTRUCTOR, paramtypez = {})
+    public static class CampfireHealAmountPatch {
+
+        @SpireInsertPatch(locator = Locator.class)
+        public static void Insert(CampfireSleepEffect __instance, @ByRef int[] ___healAmount) {
+            deck().group.forEach(card -> {
+                if (card instanceof PassiveCard)
+                    ___healAmount[0] = ((PassiveCard) card).onRestToChangeHealAmount(___healAmount[0]);
+            });
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher matcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, "hasRelic");
+                return LineFinder.findInOrder(ctMethodToPatch, matcher);
+            }
+        }
+    }
+
+    @SpirePatch2(clz = CampfireSleepEffect.class, method = "update")
+    public static class OnRestPatch {
+
+        @SpireInsertPatch(locator = Locator.class)
+        public static void Insert(CampfireSleepEffect __instance) {
+            deck().group.forEach(card -> {
+                if (card instanceof PassiveCard && ((PassiveCard) card).onRest())
+                    AbstractDungeon.effectList.add(0, new ShowCardBrieflyEffect(card.makeStatEquivalentCopy()));
+            });
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher matcher = new Matcher.MethodCallMatcher(AbstractPlayer.class, "heal");
+                int[] lines = LineFinder.findInOrder(ctMethodToPatch, matcher);
+                return new int[] { lines[0] + 1 };
+            }
         }
     }
 }
