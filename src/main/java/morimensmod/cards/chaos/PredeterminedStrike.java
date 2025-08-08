@@ -131,7 +131,7 @@ public class PredeterminedStrike extends AbstractEasyCard {
 
         initializeDescription(); // 更新描述中的 !D!
 
-        logger.debug("PredeterminedStrike.applyPowers: damage=" + damage + ", str.amount=" + originalStrength);
+        logger.trace("PredeterminedStrike.applyPowers: damage=" + damage + ", str.amount=" + originalStrength);
     }
 
     @Override
@@ -157,6 +157,6 @@ public class PredeterminedStrike extends AbstractEasyCard {
 
         initializeDescription();
 
-        logger.debug("PredeterminedStrike.calculateCardDamage: damage=" + damage + ", str.amount=" + originalStrength);
+        logger.trace("PredeterminedStrike.calculateCardDamage: damage=" + damage + ", str.amount=" + originalStrength);
     }
 }

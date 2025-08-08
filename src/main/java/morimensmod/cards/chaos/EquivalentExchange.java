@@ -1,6 +1,5 @@
 package morimensmod.cards.chaos;
 
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
@@ -8,7 +7,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.CardImgID;
-import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.enums.CustomTags;
 
 import static morimensmod.MorimensMod.makeID;
@@ -23,7 +21,9 @@ public class EquivalentExchange extends AbstractEasyCard {
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.HEALING);
         heal = baseHeal = 4;
+        block = baseBlock = 0;
         magicNumber = baseMagicNumber = 3;
+        secondMagic = baseSecondMagic = 0; // only for display
     }
 
     @Override
@@ -40,21 +40,21 @@ public class EquivalentExchange extends AbstractEasyCard {
 
     @Override
     public void applyPowers() {
-        baseBlock = (p().hand.size() - 1) * magicNumber;
-        heal = baseHeal + baseBlock;
+        int amount = (p().hand.size() - 1) * magicNumber;
 
-        int blockAmplify = 100 + baseBlockAmplify + AbstractAwakener.baseBlockAmplify;
-        int healAmplify = 100 + baseHealAmplify + AbstractAwakener.baseHealAmplify;
-
-        baseBlock = MathUtils.ceil(baseBlock * blockAmplify / 100F);
-        heal = MathUtils.ceil((baseHeal + baseBlock) * healAmplify / 100F);
-
+        int originBaseBlock = baseBlock;
+        baseBlock += amount;
         super.applyPowersToBlock();
+        baseSecondMagic = baseBlock;
+        secondMagic = block;
+        if (secondMagic != baseSecondMagic)
+            isSecondMagicModified = true;
+        baseBlock = originBaseBlock;
 
-        if (block != 0)
-            isBlockModified = true;
-        if (heal != baseHeal)
-            isHealModified = true;
+        int originBaseHeal = baseHeal;
+        baseHeal += amount;
+        applyHealAmplify();
+        baseHeal = originBaseHeal;
 
         rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
         initializeDescription();

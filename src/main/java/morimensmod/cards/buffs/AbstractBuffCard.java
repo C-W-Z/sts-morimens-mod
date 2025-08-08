@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.SpawnModificationCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.patches.enums.CustomTags;
@@ -25,11 +24,6 @@ public abstract class AbstractBuffCard extends AbstractEasyCard implements Spawn
     @Override
     public void applyPowers() {
         super.applySuperPower();
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateSuperCardDamage(mo);
     }
 
     @Override

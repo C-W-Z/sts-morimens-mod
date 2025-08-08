@@ -70,6 +70,7 @@ public abstract class AbstractEasyCard extends CustomCard {
     public static int baseDamageAmplify;
     public static int baseStrikeDamageAmplify;
     public static int baseBlockAmplify;
+    public static int baseDefendBlockAmplify;
     public static int baseHealAmplify;
     public static int baseAliemusAmplify;
 
@@ -141,70 +142,32 @@ public abstract class AbstractEasyCard extends CustomCard {
 
     @Override
     public void applyPowers() {
-        int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
-        if (isStrikeOrAsStrike(this))
-            damageAmplify += baseStrikeDamageAmplify;
-        int blockAmplify = 100 + baseBlockAmplify + AbstractAwakener.baseBlockAmplify;
-        int healAmplify = 100 + baseHealAmplify + AbstractAwakener.baseHealAmplify;
-        int aliemusAmplify = 100 + baseAliemusAmplify + AbstractAwakener.baseAliemusAmplify;
-
-        applyedBaseAmplifies(damageAmplify, blockAmplify, healAmplify, aliemusAmplify);
-
         super.applyPowers();
 
-        if (damageAmplify != 100)
-            isDamageModified = true;
-        if (blockAmplify != 100)
-            isBlockModified = true;
-        if (healAmplify != 100) {
-            isHealModified = true;
-            heal = baseHeal;
-        }
-        if (aliemusAmplify != 100) {
-            isAliemusModified = true;
-            aliemus = baseAliemus;
-        }
-
+        applyHealAmplify();
+        applyAliemusAmplify();
         // logger.info("aliemusAmplify: " + aliemusAmplify + ", baseAliemus: " +
         // baseAliemus);
     }
 
+    protected void applyHealAmplify() {
+        int healAmplify = 100 + baseHealAmplify + AbstractAwakener.baseHealAmplify;
+        if (healAmplify != 100) {
+            isHealModified = true;
+            heal = MathUtils.ceil(baseHeal * healAmplify / 100F);
+        }
+    }
+
+    protected void applyAliemusAmplify() {
+        int aliemusAmplify = 100 + baseAliemusAmplify + AbstractAwakener.baseAliemusAmplify;
+        if (aliemusAmplify != 100) {
+            isAliemusModified = true;
+            aliemus = MathUtils.ceil(baseAliemus * aliemusAmplify / 100F);
+        }
+    }
+
     protected void applySuperPower() {
         super.applyPowers();
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
-        if (isStrikeOrAsStrike(this))
-            damageAmplify += baseStrikeDamageAmplify;
-
-        applyedBaseDamageAmplifies(damageAmplify);
-
-        super.calculateCardDamage(mo);
-
-        if (damageAmplify != 100)
-            isDamageModified = true;
-    }
-
-    protected void calculateSuperCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-    }
-
-    protected void applyedBaseDamageAmplifies(int damageAmplify) {
-        if (damageAmplify == 100)
-            return;
-
-        AbstractCard tmp = CardLibrary.getCopy(cardID, timesUpgraded, misc);
-        baseDamage = MathUtils.ceil(tmp.baseDamage * damageAmplify / 100F);
-    }
-
-    protected void applyedBaseAmplifies(int damageAmplify, int blockAmplify, int healAmplify, int aliemusAmplify) {
-        AbstractEasyCard tmp = (AbstractEasyCard) CardLibrary.getCopy(cardID, timesUpgraded, misc);
-        baseDamage = MathUtils.ceil(tmp.baseDamage * damageAmplify / 100F);
-        baseBlock = MathUtils.ceil(tmp.baseBlock * blockAmplify / 100F);
-        baseHeal = MathUtils.ceil(tmp.baseHeal * healAmplify / 100F);
-        baseAliemus = MathUtils.ceil(tmp.baseAliemus * aliemusAmplify / 100F);
     }
 
     public void resetAttributes() {
@@ -420,6 +383,7 @@ public abstract class AbstractEasyCard extends CustomCard {
     public static void onInitializeDeck() {
         baseDamageAmplify = 0;
         baseStrikeDamageAmplify = 0;
+        baseDefendBlockAmplify = 0;
         baseBlockAmplify = 0;
         baseHealAmplify = 0;
         baseAliemusAmplify = 0;

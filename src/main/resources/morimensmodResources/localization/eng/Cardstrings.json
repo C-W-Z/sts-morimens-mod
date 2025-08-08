@@ -130,7 +130,7 @@
     "NAME": "Equivalent Exchange",
     "DESCRIPTION": "Heal !${ModID}:H! HP. Discard all cards in hand. For each card discarded, heal an additional !M! HP and gain the same amount of Block.",
     "EXTENDED_DESCRIPTION": [
-      "Heal !${ModID}:H! HP and gain !B! Block. Discard all cards in hand."
+      "Heal !${ModID}:H! HP and gain !${ModID}:M2! Block. Discard all cards in hand."
     ]
   },
   "${ModID}:PhysiologicalAnalysis": {

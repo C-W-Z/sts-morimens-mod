@@ -54,6 +54,12 @@ public abstract class AbstractRouseCard extends AbstractEasyCard implements Spaw
     }
 
     @Override
+    public void applyPowers() {
+        // 只有直接獲得的狂氣在這裡計算加成，回血、回狂和中毒等在Power中計算加成
+        applyAliemusAmplify();
+    }
+
+    @Override
     public boolean canSpawn(ArrayList<AbstractCard> currentRewardCards) {
         // Player can't already have the card.
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group)

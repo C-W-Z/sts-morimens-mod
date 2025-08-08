@@ -3,7 +3,6 @@ package morimensmod.cards.chaos;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.actB;
-import static morimensmod.util.Wiz.isStrikeOrAsStrike;
 import static morimensmod.util.Wiz.makeInHand;
 import static morimensmod.util.WizArt.showThoughtBubble;
 
@@ -11,7 +10,6 @@ import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.helpers.CardModifierManager;
@@ -68,25 +66,12 @@ public class Showdown extends AbstractEasyCard {
 
     @Override
     public void applyPowers() {
-        int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
-        if (isStrikeOrAsStrike(this))
-            damageAmplify += baseStrikeDamageAmplify;
+        super.applyPowers();
+
         int aliemusAmplify = 100 + baseAliemusAmplify + AbstractAwakener.baseAliemusAmplify;
-
-        AbstractEasyCard tmp = (AbstractEasyCard) CardLibrary.getCopy(cardID, timesUpgraded, misc);
-        baseDamage = MathUtils.ceil(tmp.baseDamage * damageAmplify / 100F);
-        baseAliemus = MathUtils.ceil(tmp.baseAliemus * aliemusAmplify / 100F);
-        baseSecondMagic = MathUtils.ceil(tmp.baseSecondMagic * aliemusAmplify / 100F);
-
-        super.applySuperPower();
-
-        if (damageAmplify != 100)
-            isDamageModified = true;
         if (aliemusAmplify != 100) {
-            isAliemusModified = true;
-            aliemus = baseAliemus;
             isSecondMagicModified = true;
-            secondMagic = baseSecondMagic;
+            secondMagic = MathUtils.ceil(baseSecondMagic * aliemusAmplify / 100F);
         }
     }
 }

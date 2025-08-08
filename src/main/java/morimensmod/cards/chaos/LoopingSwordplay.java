@@ -3,9 +3,7 @@ package morimensmod.cards.chaos;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.actB;
-import static morimensmod.util.Wiz.isStrikeOrAsStrike;
 
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -14,7 +12,6 @@ import basemod.abstracts.CustomSavable;
 import morimensmod.actions.LoopingSwordplayAction;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.CardImgID;
-import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.enums.CustomTags;
 
 public class LoopingSwordplay extends AbstractEasyCard implements CustomSavable<Integer> {
@@ -45,30 +42,14 @@ public class LoopingSwordplay extends AbstractEasyCard implements CustomSavable<
 
     @Override
     public void applyPowers() {
-        int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
-        if (isStrikeOrAsStrike(this))
-            damageAmplify += baseStrikeDamageAmplify;
-
-        baseDamage = MathUtils.ceil(misc * damageAmplify / 100F);
-
+        baseDamage = misc;
         super.applySuperPower();
-
-        if (damageAmplify != 100)
-            isDamageModified = true;
     }
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
-        int damageAmplify = 100 + baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
-        if (isStrikeOrAsStrike(this))
-            damageAmplify += baseStrikeDamageAmplify;
-
-        baseDamage = MathUtils.ceil(misc * damageAmplify / 100F);
-
-        super.calculateSuperCardDamage(mo);
-
-        if (damageAmplify != 100)
-            isDamageModified = true;
+        baseDamage = misc;
+        super.calculateCardDamage(mo);
     }
 
     @Override

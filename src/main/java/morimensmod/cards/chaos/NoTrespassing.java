@@ -15,7 +15,6 @@ import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.LoseThornsPower;
 
 import static morimensmod.util.Wiz.applyToSelf;
-import static morimensmod.util.Wiz.getCleanCopy;
 import static morimensmod.util.Wiz.isInBossCombat;
 
 public class NoTrespassing extends AbstractEasyCard {
@@ -50,10 +49,9 @@ public class NoTrespassing extends AbstractEasyCard {
 
         // 計算反擊加成
         int counterAmplify = 100 + AbstractAwakener.baseCounterAmplify;
-        AbstractEasyCard tmp = (AbstractEasyCard) getCleanCopy(this);
-        magicNumber = baseMagicNumber = MathUtils.ceil(tmp.baseMagicNumber * counterAmplify / 100F);
+        magicNumber = MathUtils.ceil(baseMagicNumber * counterAmplify / 100F);
 
-        if (magicNumber != tmp.baseMagicNumber)
+        if (magicNumber != baseMagicNumber)
             isMagicNumberModified = true;
     }
 }

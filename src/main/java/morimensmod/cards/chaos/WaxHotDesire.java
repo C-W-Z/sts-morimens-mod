@@ -3,7 +3,6 @@ package morimensmod.cards.chaos;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
-import static morimensmod.util.Wiz.getCleanCopy;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
@@ -66,10 +65,9 @@ public class WaxHotDesire extends AbstractEasyCard {
 
         // 計算反擊加成
         int counterAmplify = 100 + AbstractAwakener.baseCounterAmplify;
-        AbstractEasyCard tmp = (AbstractEasyCard) getCleanCopy(this);
-        magicNumber = baseMagicNumber = MathUtils.ceil(tmp.baseMagicNumber * counterAmplify / 100F);
+        magicNumber = MathUtils.ceil(baseMagicNumber * counterAmplify / 100F);
 
-        if (magicNumber != tmp.baseMagicNumber)
+        if (magicNumber != baseMagicNumber)
             isMagicNumberModified = true;
     }
 }
