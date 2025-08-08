@@ -1,4 +1,4 @@
-package morimensmod.patches;
+package morimensmod.patches.cards;
 
 import static morimensmod.MorimensMod.modID;
 
