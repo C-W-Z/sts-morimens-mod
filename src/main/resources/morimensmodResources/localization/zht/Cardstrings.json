@@ -128,7 +128,7 @@
     "NAME": "等價交換",
     "DESCRIPTION": "回復 !${ModID}:H! 點生命。棄掉所有手牌，每棄 1 張手牌額外回復 !M! 點生命並獲得等量 格擋 。",
     "EXTENDED_DESCRIPTION": [
-      "回復 !${ModID}:H! 點生命並獲得 !${ModID}:M2! 點 格擋 。棄掉所有手牌。"
+      "回復 !${ModID}:H! 點生命並獲得 !B! 點 格擋 。棄掉所有手牌。"
     ]
   },
   "${ModID}:PhysiologicalAnalysis": {

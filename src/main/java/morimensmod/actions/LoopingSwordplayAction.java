@@ -35,7 +35,7 @@ public class LoopingSwordplayAction extends AbstractGameAction {
     }
 
     public void update() {
-        if (duration == Settings.ACTION_DUR_FAST && target != null && isKilled(target)) {
+        if (duration == Settings.ACTION_DUR_FAST && (target == null || isKilled(target))) {
             isDone = true;
             return;
         }

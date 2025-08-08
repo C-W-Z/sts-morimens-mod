@@ -152,18 +152,16 @@ public abstract class AbstractEasyCard extends CustomCard {
 
     protected void applyHealAmplify() {
         int healAmplify = 100 + baseHealAmplify + AbstractAwakener.baseHealAmplify;
-        if (healAmplify != 100) {
+        heal = MathUtils.ceil(baseHeal * healAmplify / 100F);
+        if (heal != baseHeal)
             isHealModified = true;
-            heal = MathUtils.ceil(baseHeal * healAmplify / 100F);
-        }
     }
 
     protected void applyAliemusAmplify() {
         int aliemusAmplify = 100 + baseAliemusAmplify + AbstractAwakener.baseAliemusAmplify;
-        if (aliemusAmplify != 100) {
+        aliemus = MathUtils.ceil(baseAliemus * aliemusAmplify / 100F);
+        if (aliemus != baseAliemus)
             isAliemusModified = true;
-            aliemus = MathUtils.ceil(baseAliemus * aliemusAmplify / 100F);
-        }
     }
 
     protected void applySuperPower() {

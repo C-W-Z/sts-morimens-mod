@@ -23,11 +23,11 @@ public class EquivalentExchange extends AbstractEasyCard {
         heal = baseHeal = 4;
         block = baseBlock = 0;
         magicNumber = baseMagicNumber = 3;
-        secondMagic = baseSecondMagic = 0; // only for display
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        applyPowers();
         addToBot(new DiscardAction(p, p, p.hand.size(), false));
         addToBot(new HealAction(p, p, heal));
         addToBot(new GainBlockAction(p, block));
@@ -45,16 +45,16 @@ public class EquivalentExchange extends AbstractEasyCard {
         int originBaseBlock = baseBlock;
         baseBlock += amount;
         super.applyPowersToBlock();
-        baseSecondMagic = baseBlock;
-        secondMagic = block;
-        if (secondMagic != baseSecondMagic)
-            isSecondMagicModified = true;
         baseBlock = originBaseBlock;
+        if (block != baseBlock)
+            isBlockModified = true;
 
         int originBaseHeal = baseHeal;
         baseHeal += amount;
         applyHealAmplify();
         baseHeal = originBaseHeal;
+        if (heal != baseHeal)
+            isHealModified = true;
 
         rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
         initializeDescription();

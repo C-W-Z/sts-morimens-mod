@@ -128,7 +128,7 @@
     "NAME": "等价交换",
     "DESCRIPTION": "回复 !${ModID}:H! 点生命。弃掉所有手牌，每弃 1 张手牌额外回复 !M! 点生命并获得等量 格挡 。",
     "EXTENDED_DESCRIPTION": [
-      "回复 !${ModID}:H! 点生命并获得 !${ModID}:M2! 点 格挡 。弃掉所有手牌。"
+      "回复 !${ModID}:H! 点生命并获得 !B! 点 格挡 。弃掉所有手牌。"
     ]
   },
   "${ModID}:PhysiologicalAnalysis": {

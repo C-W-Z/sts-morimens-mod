@@ -1,5 +1,6 @@
 package morimensmod.patches.cards;
 
+import static morimensmod.util.Wiz.deck;
 import static morimensmod.util.Wiz.isDefendOrAsDefend;
 import static morimensmod.util.Wiz.isStrikeOrAsStrike;
 
@@ -19,6 +20,8 @@ public class OnBaseValueModifyPatch {
     public static class OnModifyBaseDamagePatch {
         @SpirePostfixPatch
         public static float Postfix(float __result, AbstractCard card, AbstractMonster mo) {
+            if (deck().contains(card))
+                return __result; // do NOT amplify cards in deck
             int damageAmplify = 100 + AbstractEasyCard.baseDamageAmplify + AbstractAwakener.baseDamageAmplify;
             if (isStrikeOrAsStrike(card))
                 damageAmplify += AbstractEasyCard.baseStrikeDamageAmplify;
@@ -32,6 +35,8 @@ public class OnBaseValueModifyPatch {
     public static class OnModifyBaseBlockPatch {
         @SpirePostfixPatch
         public static float Postfix(float __result, AbstractCard card) {
+            if (deck().contains(card))
+                return __result; // do NOT amplify cards in deck
             int blockAmplify = 100 + AbstractEasyCard.baseBlockAmplify + AbstractAwakener.baseBlockAmplify;
             if (isDefendOrAsDefend(card))
                 blockAmplify += AbstractEasyCard.baseDefendBlockAmplify;
