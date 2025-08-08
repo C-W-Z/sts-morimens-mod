@@ -1,4 +1,4 @@
-package morimensmod.patches.monsterRoom;
+package morimensmod.patches.monsterroom;
 
 import static morimensmod.MorimensMod.modID;
 import static morimensmod.util.Wiz.p;
