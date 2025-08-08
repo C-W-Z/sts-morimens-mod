@@ -43,7 +43,7 @@ public class LoopingSwordplay extends AbstractEasyCard implements CustomSavable<
     @Override
     public void applyPowers() {
         baseDamage = misc;
-        super.applySuperPower();
+        super.applyPowers();
     }
 
     @Override
