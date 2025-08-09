@@ -2,6 +2,7 @@ package morimensmod.powers;
 
 import static morimensmod.MorimensMod.makeID;
 
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnReceivePowerPower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
@@ -9,11 +10,13 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.PoisonPower;
 
 import morimensmod.interfaces.OnBeforeDamaged;
 import morimensmod.monsters.AbstractAwakenableBoss;
 
-public class ImmunePower extends AbstractEasyPower implements OnBeforeDamaged {
+public class ImmunePower extends AbstractEasyPower implements OnBeforeDamaged, OnReceivePowerPower {
 
     public final static String POWER_ID = makeID(ImmunePower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -48,5 +51,14 @@ public class ImmunePower extends AbstractEasyPower implements OnBeforeDamaged {
         if (monster instanceof AbstractAwakenableBoss)
             return false; // skip a turn if half killed by Poison or something at turn starts
         return true;
+    }
+
+    @Override
+    public boolean onReceivePower(AbstractPower powerToApply, AbstractCreature target, AbstractCreature source) {
+        if (powerToApply.type != PowerType.DEBUFF)
+            return true;
+        if (powerToApply.ID.equals(PoisonPower.POWER_ID) || powerToApply.ID.equals(BleedPower.POWER_ID))
+            return true;
+        return false;
     }
 }

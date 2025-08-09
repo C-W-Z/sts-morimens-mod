@@ -25,7 +25,7 @@
   },
   "${ModID}:ImmunePower": {
     "NAME": "免疫傷害",
-    "DESCRIPTIONS": ["免疫一切傷害，回合開始後移除。"]
+    "DESCRIPTIONS": ["免疫一切傷害，免疫 #p中毒 、 #r流血 以外的負面效果。回合開始後移除。"]
   },
   "${ModID}:TraumaPower": {
     "NAME": "創傷",
