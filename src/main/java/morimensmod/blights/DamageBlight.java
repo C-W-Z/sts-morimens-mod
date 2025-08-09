@@ -13,11 +13,11 @@ public class DamageBlight extends AbstractMorimensBlight {
     public static final String NAME = TEXT.NAME;
     public static final String[] DESCRIPTION = TEXT.DESCRIPTION;
 
-    public static final int DAMAGE_AMPLIFY_PER_COUNT = 10;
     public static final int[] DAMAGE_AMPLIFY = { 0, 5, 15, 25, 40, 55, 70, 90, 120, 150, 200 };
+    public static final int MAX_LVL = DAMAGE_AMPLIFY.length - 1;
 
     public DamageBlight() {
-        this(10);
+        this(0);
     }
 
     public DamageBlight(int amount) {
@@ -27,8 +27,8 @@ public class DamageBlight extends AbstractMorimensBlight {
     }
 
     public void limitCounter() {
-        if (counter >= DAMAGE_AMPLIFY.length)
-            counter = DAMAGE_AMPLIFY.length - 1;
+        if (counter > MAX_LVL)
+            counter = MAX_LVL;
     }
 
     @Override
