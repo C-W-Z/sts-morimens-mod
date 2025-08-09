@@ -55,11 +55,11 @@ public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse, Custo
 
     @Override
     public void onEquip() {
-        postGameStart();
+        obtainRelic();
     }
 
     // called in Main Mod file
-    public void postGameStart() {
+    public void obtainRelic() {
         if (relicObtained)
             return;
         AbstractDungeon.effectsQueue.add(new AbstractGameEffect() {

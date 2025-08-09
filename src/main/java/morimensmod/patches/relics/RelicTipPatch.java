@@ -8,8 +8,8 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 @SpirePatch2(clz = AbstractRelic.class, method = "relicTip")
 public class RelicTipPatch {
     @SpirePrefixPatch
-    public static void Insert() {
-        if (TipTracker.relicCounter >= 1 && !TipTracker.tips.get("RELIC_TIP"))
+    public static void Prefix() {
+        if (!TipTracker.tips.get("RELIC_TIP"))
             TipTracker.neverShowAgain("RELIC_TIP");
     }
 }
