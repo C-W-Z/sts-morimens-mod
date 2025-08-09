@@ -8,7 +8,11 @@ import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import basemod.AutoAdd;
 import morimensmod.blights.AbstractMorimensBlight;
@@ -36,5 +40,26 @@ public class BlightLib {
         }
         logger.error("Blight NOT FOUND: " + ID);
         return null;
+    }
+
+    public static void addBlight(AbstractBlight blight) {
+        logger.info("add Blight: " + blight.blightID);
+        AbstractDungeon.effectsQueue.add(new AbstractGameEffect() {
+            @Override
+            public void update() {
+                this.isDone = AbstractDungeon.player.hasBlight(blight.blightID);
+                if (!this.isDone && AbstractDungeon.getCurrRoom() != null) {
+                    AbstractDungeon.getCurrRoom().spawnBlightAndObtain(
+                            Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F, blight);
+                    this.isDone = true;
+                }
+            }
+
+            @Override
+            public void render(SpriteBatch sb) {}
+
+            @Override
+            public void dispose() {}
+        });
     }
 }
