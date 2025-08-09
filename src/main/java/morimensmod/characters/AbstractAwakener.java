@@ -531,9 +531,14 @@ public abstract class AbstractAwakener extends CustomPlayer {
         return 0;
     }
 
-    public void triggerPosse(AbstractPosse posse) {
+    public static void triggerPosse(AbstractPosse posse) {
         if (posse.getType() == PosseType.REGULAR) {
-            assert this.posse == posse;
+            if (p() instanceof AbstractAwakener) {
+                if (((AbstractAwakener) p()).posse != posse)
+                    logger.error("REGULAR Posse " + ((AbstractAwakener) p()).posse.cardID + " != " + posse.cardID);
+            } else {
+                logger.error("trigger REGULAR Posse by Non Awakener: " + posse.cardID);
+            }
             regularPossedThisTurn++;
         } else if (posse.getType() == PosseType.EXTRA) {
             extraPossedThisTurn++;

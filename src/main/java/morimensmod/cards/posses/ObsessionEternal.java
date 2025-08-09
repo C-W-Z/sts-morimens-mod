@@ -9,20 +9,12 @@ import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-import morimensmod.characters.AbstractAwakener;
-import morimensmod.misc.PosseType;
-
 public class ObsessionEternal extends AbstractPosse {
 
     public final static String ID = makeID(ObsessionEternal.class.getSimpleName());
 
-    // for register to CardLibrary
     public ObsessionEternal() {
-        this(null, PosseType.UNLIMITED);
-    }
-
-    public ObsessionEternal(AbstractAwakener awaker, PosseType type) {
-        super(ID, awaker, type);
+        super(ID);
     }
 
     @Override
