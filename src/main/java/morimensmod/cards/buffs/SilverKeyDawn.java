@@ -15,7 +15,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.cards.posses.AbstractPosse;
-import morimensmod.characters.AbstractAwakener;
 import morimensmod.misc.PosseType;
 import morimensmod.powers.OnlyUnlimitedPosseTwicePower;
 
@@ -38,7 +37,7 @@ public class SilverKeyDawn extends AbstractBuffCard {
         ArrayList<AbstractPosse> posses = getAllPosses();
 
         for (AbstractPosse posse : posses)
-            posse.set((AbstractAwakener) p, PosseType.UNLIMITED);
+            posse.set(p, PosseType.UNLIMITED);
 
         Collections.shuffle(posses, new Random(AbstractDungeon.miscRng.randomLong()));
         ArrayList<AbstractCard> choiceCardList = new ArrayList<>(posses.subList(0, Math.min(magicNumber, posses.size())));

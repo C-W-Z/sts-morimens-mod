@@ -1,9 +1,12 @@
 package morimensmod.cardmodifiers;
 
 import basemod.abstracts.AbstractCardModifier;
+import basemod.cardmods.EtherealMod;
+import basemod.helpers.CardModifierManager;
 
 import static morimensmod.MorimensMod.makeID;
 
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.CommonKeywordIconsField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class EtherealModifier extends AbstractCardModifier {
@@ -14,7 +17,12 @@ public class EtherealModifier extends AbstractCardModifier {
     }
 
     public boolean shouldApply(AbstractCard card) {
-        return !card.isEthereal;
+        if (card.isEthereal)
+            return false;
+        if (CommonKeywordIconsField.useIcons.get(card))
+            return true;
+        CardModifierManager.addModifier(card, new EtherealMod());
+        return false;
     }
 
     public void onInitialApplication(AbstractCard card) {
