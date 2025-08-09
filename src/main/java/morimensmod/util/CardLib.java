@@ -56,7 +56,6 @@ public class CardLib {
     public static ArrayList<AbstractCard> getAllPosseCards() {
         ArrayList<AbstractCard> pool = new ArrayList<>();
         for (AbstractCard c : posses)
-            if (!((AbstractPosse) c).isAwakenerOnly() || p() instanceof AbstractAwakener)
                 pool.add(c.makeCopy());
         return pool;
     }
@@ -64,7 +63,7 @@ public class CardLib {
     public static ArrayList<AbstractPosse> getAllPossesExcept(ArrayList<String> posseIDs) {
         ArrayList<AbstractPosse> pool = new ArrayList<>();
         for (AbstractPosse c : posses)
-            if ((!c.isAwakenerOnly() || p() instanceof AbstractAwakener) && !posseIDs.contains(c.cardID))
+            if (!posseIDs.contains(c.cardID))
                 pool.add((AbstractPosse) c.makeCopy());
         return pool;
     }

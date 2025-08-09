@@ -48,6 +48,7 @@ import com.evacipated.cardcrawl.mod.stslib.icons.CustomIconHelper;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.evacipated.cardcrawl.modthespire.Patcher;
+import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 
 import com.google.gson.Gson;
@@ -88,6 +89,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Optional;
+import java.util.Properties;
 import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
@@ -114,6 +116,10 @@ public class MorimensMod implements
 
     public static ModInfo info;
     public static String modID;
+
+    public static SpireConfig config;
+    public static final String PosseSelectUIID = makeID("PosseSelectUI");
+
     static {
         loadModInfo();
     }
@@ -286,6 +292,13 @@ public class MorimensMod implements
 
     public static void initialize() {
         new MorimensMod();
+        try {
+            Properties defaults = new Properties();
+            defaults.setProperty(PosseSelectUIID, "0");
+            config = new SpireConfig(modID, "COMMON", defaults);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -428,6 +441,8 @@ public class MorimensMod implements
                 .any(AbstractPersistentPower.class, (info, var) -> {
                     PersistentPowerLib.addPower(var);
                 });
+
+        // BaseMod.addSaveField(PosseSelectUI.ID, PosseSelectUI.getUI());
 
         BaseMod.addSaveField(SavePersistentPowers.ID, new SavePersistentPowers());
         BaseMod.addSaveField(SaveAwakenerProperties.ID, new SaveAwakenerProperties());

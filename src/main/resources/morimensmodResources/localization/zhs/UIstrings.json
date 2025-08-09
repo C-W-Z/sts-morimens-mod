@@ -56,6 +56,9 @@
   "DERIVATIVE": {
     "TEXT": ["衍生"]
   },
+  "${ModID}:PosseSelectUI": {
+    "TEXT": ["选择携带的钥令"]
+  },
   "${ModID}:choosePosse": {
     "TEXT": ["选择携带的钥令（滚动以查看更多）"]
   },

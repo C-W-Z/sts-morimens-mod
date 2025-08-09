@@ -56,6 +56,9 @@
   "DERIVATIVE": {
     "TEXT": ["Derivative "]
   },
+  "${ModID}:PosseSelectUI": {
+    "TEXT": ["Select a Posse to carry"]
+  },
   "${ModID}:choosePosse": {
     "TEXT": ["Select the Posse to carry (scroll to see more)"]
   },
