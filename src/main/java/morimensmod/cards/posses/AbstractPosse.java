@@ -74,4 +74,8 @@ public abstract class AbstractPosse extends AbstractEasyCard {
     public String getUIDescription() {
         return cardStrings.EXTENDED_DESCRIPTION[0];
     }
+
+    public boolean isAwakenerOnly() {
+        return false;
+    }
 }

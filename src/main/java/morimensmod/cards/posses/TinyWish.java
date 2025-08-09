@@ -23,4 +23,9 @@ public class TinyWish extends AbstractPosse {
     public String getUIDescription() {
         return String.format(cardStrings.EXTENDED_DESCRIPTION[0], magicNumber);
     }
+
+    @Override
+    public boolean isAwakenerOnly() {
+        return true;
+    }
 }

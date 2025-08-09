@@ -16,6 +16,7 @@ import morimensmod.cards.buffs.AbstractBuffCard;
 import morimensmod.cards.posses.AbstractPosse;
 import morimensmod.cards.symptoms.AbstractSymptomCard;
 import morimensmod.cards.wheelofdestiny.AbstractWheelOfDestiny;
+import morimensmod.characters.AbstractAwakener;
 
 public class CardLib {
 
@@ -47,21 +48,23 @@ public class CardLib {
     public static ArrayList<AbstractPosse> getAllPosses() {
         ArrayList<AbstractPosse> pool = new ArrayList<>();
         for (AbstractPosse c : posses)
-            pool.add((AbstractPosse) c.makeCopy());
+            if (!c.isAwakenerOnly() || p() instanceof AbstractAwakener)
+                pool.add((AbstractPosse) c.makeCopy());
         return pool;
     }
 
     public static ArrayList<AbstractCard> getAllPosseCards() {
         ArrayList<AbstractCard> pool = new ArrayList<>();
         for (AbstractCard c : posses)
-            pool.add(c.makeCopy());
+            if (!((AbstractPosse) c).isAwakenerOnly() || p() instanceof AbstractAwakener)
+                pool.add(c.makeCopy());
         return pool;
     }
 
     public static ArrayList<AbstractPosse> getAllPossesExcept(ArrayList<String> posseIDs) {
         ArrayList<AbstractPosse> pool = new ArrayList<>();
         for (AbstractPosse c : posses)
-            if (!posseIDs.contains(c.cardID))
+            if ((!c.isAwakenerOnly() || p() instanceof AbstractAwakener) && !posseIDs.contains(c.cardID))
                 pool.add((AbstractPosse) c.makeCopy());
         return pool;
     }

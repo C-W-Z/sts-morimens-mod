@@ -18,4 +18,9 @@ public class TheLoneSeed extends AbstractPosse {
         addToBot(new TheLoneSeedAction());
         addToBot(new AliemusChangeAction(awaker, 15));
     }
+
+    @Override
+    public boolean isAwakenerOnly() {
+        return true;
+    }
 }
