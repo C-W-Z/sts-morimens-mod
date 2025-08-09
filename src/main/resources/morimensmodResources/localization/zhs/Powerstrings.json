@@ -13,7 +13,7 @@
   },
   "${ModID}:BleedPower": {
     "NAME": "出血",
-    "DESCRIPTIONS": ["本回合结束时，失去 #b%d 点生命。"]
+    "DESCRIPTIONS": ["本回合结束时，受到 #b%d 点伤害。治疗时移除双倍回复量的 #r出血 层数。"]
   },
   "${ModID}:BarrierPower": {
     "NAME": "屏障",

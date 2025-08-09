@@ -15,7 +15,7 @@
   },
   "${ModID}:BleedPower": {
     "NAME": "Bleed",
-    "DESCRIPTIONS": ["At the end of its turn, lose #b%d HP."]
+    "DESCRIPTIONS": ["At the end of the turn, take #b%d damage. Healing removes double the amount of #rBleed stacks."]
   },
   "${ModID}:BarrierPower": {
     "NAME": "Barrier",

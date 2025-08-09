@@ -112,7 +112,7 @@
   {
     "PROPER_NAME": "#rBleed [${ModID}:BleedIcon]",
     "NAMES": ["Bleed", "bleed"],
-    "DESCRIPTION": "At the end of its turn, lose the corresponding amount of HP. Healing removes double the amount of #rBleed stacks"
+    "DESCRIPTION": "At the end of the turn, take the corresponding amount of damage. Healing removes double the amount of #rBleed stacks."
   },
   {
     "PROPER_NAME": "Persistent",

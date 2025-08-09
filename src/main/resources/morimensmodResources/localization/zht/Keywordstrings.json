@@ -112,7 +112,7 @@
   {
     "PROPER_NAME": "#r出血 [${ModID}:BleedIcon]",
     "NAMES": ["出血", "Bleed"],
-    "DESCRIPTION": "本回合結束時，失去相應層數的生命。治療時移除雙倍回復量的 #r出血 層數。"
+    "DESCRIPTION": "本回合結束時，受到相應層數的傷害。治療時移除雙倍回復量的 #r出血 層數。"
   },
   {
     "PROPER_NAME": "永久保留",
