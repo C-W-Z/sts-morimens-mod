@@ -17,6 +17,7 @@ import morimensmod.characters.Lotan;
 import morimensmod.characters.Ramona;
 import morimensmod.characters.RamonaTimeworm;
 import morimensmod.config.ConfigPanel;
+import morimensmod.config.ModConfig;
 import morimensmod.config.ModSettings;
 import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.icons.AbstractIcon;
@@ -48,7 +49,6 @@ import com.evacipated.cardcrawl.mod.stslib.icons.CustomIconHelper;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.evacipated.cardcrawl.modthespire.Patcher;
-import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 
 import com.google.gson.Gson;
@@ -89,7 +89,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Optional;
-import java.util.Properties;
 import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
@@ -116,9 +115,6 @@ public class MorimensMod implements
 
     public static ModInfo info;
     public static String modID;
-
-    public static SpireConfig config;
-    public static final String PosseSelectUIID = makeID("PosseSelectUI");
 
     static {
         loadModInfo();
@@ -292,13 +288,6 @@ public class MorimensMod implements
 
     public static void initialize() {
         new MorimensMod();
-        try {
-            Properties defaults = new Properties();
-            defaults.setProperty(PosseSelectUIID, "0");
-            config = new SpireConfig(modID, "COMMON", defaults);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -405,6 +394,9 @@ public class MorimensMod implements
     @SuppressWarnings("deprecation")
     @Override
     public void receivePostInitialize() {
+
+        ModConfig.initialize();
+
         // This loads the image used as an icon in the in-game mods menu.
         Texture badgeTexture = TexLoader.getTexture(makeUIPath("badge.png"));
         // Set up the mod information displayed in the in-game mods menu.

@@ -1,7 +1,5 @@
 package morimensmod.misc;
 
-import static morimensmod.MorimensMod.PosseSelectUIID;
-import static morimensmod.MorimensMod.config;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.util.CardLib.getAllPosseCards;
 
@@ -21,6 +19,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 
 import basemod.interfaces.ISubscriber;
 import morimensmod.cards.posses.AbstractPosse;
+import morimensmod.config.ModConfig;
 
 public class PosseSelectUI implements ISubscriber {
 
@@ -42,9 +41,10 @@ public class PosseSelectUI implements ISubscriber {
 
     public UIStrings uiStrings;
 
-    private static final ArrayList<AbstractCard> list = getAllPosseCards();
+    private static final ArrayList<AbstractCard> posseList = getAllPosseCards();
 
-    public static int defaultIndex = -1;
+    private static float centerX = Settings.WIDTH * 0.8F;
+    private static float centerY = Settings.HEIGHT * 0.35F;
 
     public PosseSelectUI() {
         uiStrings = CardCrawlGame.languagePack.getUIString(makeID(PosseSelectUI.class.getSimpleName()));
@@ -61,33 +61,39 @@ public class PosseSelectUI implements ISubscriber {
     }
 
     public static AbstractPosse getPosse() {
-        return (AbstractPosse) list.get(getUI().index);
+        return (AbstractPosse) posseList.get(getUI().index);
+    }
+
+    private int getPosseIndex(String posseID) {
+        for (int j = 0; j < posseList.size(); j++)
+            if (posseList.get(j).cardID.equals(posseID))
+                return j;
+        return 0;
     }
 
     public void initialize() {
-        int i = config.getInt(PosseSelectUIID);
+        String posseID = ModConfig.charConfig.getString(ModConfig.Char.PosseSelectUI);
+        int i = getPosseIndex(posseID);
         if (this.index != i && i >= 0)
             this.index = i;
         refresh();
     }
 
     public int prevIndex() {
-        return (this.index - 1 < 0) ? (list.size() - 1) : (this.index - 1);
+        return (this.index - 1 < 0) ? (posseList.size() - 1) : (this.index - 1);
     }
 
     public int nextIndex() {
-        return (this.index + 1 > list.size() - 1) ? 0 : (this.index + 1);
+        return (this.index + 1 > posseList.size() - 1) ? 0 : (this.index + 1);
     }
 
     public void refresh() {
-        this.cardToPreview = list.get(this.index);
+        this.cardToPreview = posseList.get(this.index);
         this.curName = cardToPreview.name;
-        this.nextName = list.get(nextIndex()).name;
+        this.nextName = posseList.get(nextIndex()).name;
     }
 
     public void update() {
-        float centerX = Settings.WIDTH * 0.8F;
-        float centerY = Settings.HEIGHT * 0.3F;
         this.leftHb.move(centerX - 180.0F * Settings.scale, centerY);
         this.rightHb.move(centerX + 180.0F * Settings.scale, centerY);
         updateInput();
@@ -101,8 +107,8 @@ public class PosseSelectUI implements ISubscriber {
             CardCrawlGame.sound.play("UI_CLICK_1");
             this.index = prevIndex();
             try {
-                config.setInt(PosseSelectUIID, this.index);
-                config.save();
+                ModConfig.charConfig.setString(ModConfig.Char.PosseSelectUI, posseList.get(index).cardID);
+                ModConfig.charConfig.save();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -113,8 +119,8 @@ public class PosseSelectUI implements ISubscriber {
             CardCrawlGame.sound.play("UI_CLICK_1");
             this.index = nextIndex();
             try {
-                config.setInt(PosseSelectUIID, this.index);
-                config.save();
+                ModConfig.charConfig.setString(ModConfig.Char.PosseSelectUI, posseList.get(index).cardID);
+                ModConfig.charConfig.save();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -129,8 +135,6 @@ public class PosseSelectUI implements ISubscriber {
     }
 
     public void render(SpriteBatch sb) {
-        float centerX = Settings.WIDTH * 0.8F;
-        float centerY = Settings.HEIGHT * 0.3F;
         renderCard(sb, centerX, centerY);
         FontHelper.renderFontCentered(sb, FontHelper.cardTitleFont, uiStrings.TEXT[0], centerX,
                 centerY + 320.0F * Settings.scale, Color.WHITE, 1.25F);
@@ -141,18 +145,16 @@ public class PosseSelectUI implements ISubscriber {
                 Settings.GOLD_COLOR);
         FontHelper.renderFontCentered(sb, FontHelper.cardTitleFont, this.nextName, centerX + dist * 1.5F,
                 centerY - dist * 0.5F, color);
-        if (this.leftHb.hovered) {
+        if (this.leftHb.hovered)
             sb.setColor(Color.LIGHT_GRAY);
-        } else {
+        else
             sb.setColor(Color.WHITE);
-        }
         sb.draw(ImageMaster.CF_LEFT_ARROW, this.leftHb.cX - 24.0F, this.leftHb.cY - 24.0F, 24.0F, 24.0F, 48.0F, 48.0F,
                 Settings.scale, Settings.scale, 0.0F, 0, 0, 48, 48, false, false);
-        if (this.rightHb.hovered) {
+        if (this.rightHb.hovered)
             sb.setColor(Color.LIGHT_GRAY);
-        } else {
+        else
             sb.setColor(Color.WHITE);
-        }
         sb.draw(ImageMaster.CF_RIGHT_ARROW, this.rightHb.cX - 24.0F, this.rightHb.cY - 24.0F, 24.0F, 24.0F, 48.0F,
                 48.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 48, 48, false, false);
         this.rightHb.render(sb);
@@ -165,14 +167,14 @@ public class PosseSelectUI implements ISubscriber {
     }
 
     public void renderCard(SpriteBatch sb, float x, float y) {
-        if (this.cardToPreview != null) {
-            this.cardToPreview.current_x = x;
-            this.cardToPreview.current_y = y + 150.0F * Settings.scale;
-            this.cardToPreview.hb.move(x, y + 150.0F * Settings.scale);
-            this.cardToPreview.drawScale = 0.7F;
-            this.cardToPreview.render(sb);
-            if (isHovered(this.cardToPreview.hb))
-                TipHelper.renderTipForCard(this.cardToPreview, sb, this.cardToPreview.keywords);
-        }
+        if (this.cardToPreview == null)
+            return;
+        this.cardToPreview.current_x = x;
+        this.cardToPreview.current_y = y + 150.0F * Settings.scale;
+        this.cardToPreview.hb.move(x, y + 150.0F * Settings.scale);
+        this.cardToPreview.drawScale = 0.7F;
+        this.cardToPreview.render(sb);
+        if (isHovered(this.cardToPreview.hb))
+            TipHelper.renderTipForCard(this.cardToPreview, sb, this.cardToPreview.keywords);
     }
 }
