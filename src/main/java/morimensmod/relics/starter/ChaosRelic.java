@@ -4,6 +4,9 @@ import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
 import static morimensmod.util.Wiz.p;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -21,6 +24,9 @@ import morimensmod.misc.PosseType;
 import morimensmod.relics.AbstractEasyRelic;
 
 public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse, CustomSavable<Boolean> {
+
+    private static Logger logger = LogManager.getLogger(ChaosRelic.class);
+
     public static final String ID = makeID(ChaosRelic.class.getSimpleName());
 
     private static final int COMMON_RELIC = 1;
@@ -55,6 +61,7 @@ public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse, Custo
 
     @Override
     public void onEquip() {
+        logger.info("onEquip");
         obtainRelic();
     }
 
