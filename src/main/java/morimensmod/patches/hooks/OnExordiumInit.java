@@ -14,9 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
 
-import morimensmod.blights.DamageBlight;
 import morimensmod.relics.starter.ChaosRelic;
-import morimensmod.util.BlightLib;
 
 @SpirePatches2({
         @SpirePatch2(clz = Exordium.class, method = SpirePatch.CONSTRUCTOR, paramtypez = { AbstractPlayer.class,
@@ -30,6 +28,9 @@ public class OnExordiumInit {
 
     @SpirePostfixPatch
     public static void Postfix() {
+        if (AbstractDungeon.floorNum > 1)
+            return;
+
         logger.info("OnExordiumInit");
 
         ChaosRelic chaosRelic = (ChaosRelic) AbstractDungeon.player.getRelic(ChaosRelic.ID);
@@ -38,7 +39,9 @@ public class OnExordiumInit {
             chaosRelic.obtainRelic();
         }
 
-        logger.info("add Blights");
-        BlightLib.addBlight(new DamageBlight(10));
+        // logger.info("add Blights");
+        // if (ConfigPanel.DAMAGE_BLIGHT_LVL > 0)
+        //     BlightLib.addBlight(new DamageBlight(ConfigPanel.DAMAGE_BLIGHT_LVL));
+        // BlightLib.addBlight(new HealthBlight(10));
     }
 }

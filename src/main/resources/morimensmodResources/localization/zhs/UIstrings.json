@@ -133,7 +133,8 @@
     "TEXT_DICT": {
       "USE_MORIMENS_POWER_ICON": "使用忘却前夜的Buff/Debuff图示",
       "AWAKENER_ENCOUNTER_MOD_MONSTER": "唤醒体角色会遇到忘却前夜的怪物",
-      "OTHER_CHAR_ENCOUNTER_MOD_MONSTER": "非唤醒体角色也能遇到忘却前夜的怪物"
+      "OTHER_CHAR_ENCOUNTER_MOD_MONSTER": "非唤醒体角色也能遇到忘却前夜的怪物",
+      "DAMAGE_BLIGHT_LVL": "敌人伤害加成等级"
     }
   },
   "${ModID}:AbstractWheelOfDestinyReward": {

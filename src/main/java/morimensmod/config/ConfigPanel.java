@@ -20,6 +20,8 @@ public class ConfigPanel extends EasyConfigPanel {
     public static boolean AWAKENER_ENCOUNTER_MOD_MONSTER = true;
     public static boolean OTHER_CHAR_ENCOUNTER_MOD_MONSTER = false;
 
+    // public static int DAMAGE_BLIGHT_LVL = 0;
+
     public ConfigPanel() {
         super(modID, UI_STRINGS, UI_STRINGS.TEXT[0]);
 
@@ -65,5 +67,10 @@ public class ConfigPanel extends EasyConfigPanel {
         this.addUIElement(useMorimensPowerIconButton);
         this.addUIElement(awakenerModMonsterEncounterButton);
         this.addUIElement(otherCharModMonsterEncounterButton);
+
+        // ModLabel blightLabel = new ModLabel("Blights", 400F, 425F, this, label -> {});
+        // this.addUIElement(blightLabel);
+
+        // this.setNumberRange("DAMAGE_BLIGHT_LVL", 0, DamageBlight.MAX_LVL);
     }
 }
