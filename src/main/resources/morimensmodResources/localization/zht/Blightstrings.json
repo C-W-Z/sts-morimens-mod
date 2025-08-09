@@ -1,0 +1,10 @@
+{
+  "${ModID}:DamageBlight": {
+    "NAME": "幻夢深潛·癲狂",
+    "DESCRIPTION": ["敵人傷害 #b+%d%% 。"]
+  },
+  "${ModID}:HealthBlight": {
+    "NAME": "幻夢深潛·癲狂",
+    "DESCRIPTION": ["敵人生命 #b+%d%% 。"]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "${ModID}:DamageBlight": {
+    "NAME": "Phantasmal Dive: Madness",
+    "DESCRIPTION": ["Enemy damage #b+%d%%."]
+  },
+  "${ModID}:HealthBlight": {
+    "NAME": "Phantasmal Dive: Madness",
+    "DESCRIPTION": ["Enemy health #b+%d%%."]
+  }
+}

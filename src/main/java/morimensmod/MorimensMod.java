@@ -7,6 +7,7 @@ import basemod.helpers.CardBorderGlowManager;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import me.antileaf.signature.utils.SignatureHelper;
+import morimensmod.blights.DamageBlight;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.chaos.QueensSword;
@@ -25,6 +26,7 @@ import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.powers.ImmunePower;
 import morimensmod.relics.AbstractEasyRelic;
+import morimensmod.relics.starter.ChaosRelic;
 import morimensmod.savables.SaveAwakenerFloatProperties;
 import morimensmod.savables.SaveAwakenerPosse;
 import morimensmod.savables.SaveAwakenerProperties;
@@ -40,6 +42,7 @@ import morimensmod.util.TexLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.mod.stslib.icons.CustomIconHelper;
 import com.evacipated.cardcrawl.modthespire.Loader;
@@ -49,6 +52,8 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.BlightStrings;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
@@ -62,6 +67,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import static morimensmod.util.Wiz.*;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AEQUOR_COLOR;
@@ -90,6 +96,7 @@ import org.scannotation.AnnotationDB;
 
 @SpireInitializer
 public class MorimensMod implements
+        StartGameSubscriber,
         PreMonsterTurnSubscriber,
         OnCardUseSubscriber,
         // OnPlayerTurnStartPostDrawSubscriber,
@@ -274,6 +281,10 @@ public class MorimensMod implements
         return modID + "Resources/images/rewards/" + resourcePath;
     }
 
+    public static final String makeBlightPath(String resourcePath) {
+        return modID + "Resources/images/blights/" + resourcePath;
+    }
+
     public static void initialize() {
         new MorimensMod();
     }
@@ -354,6 +365,8 @@ public class MorimensMod implements
                 modID + "Resources/localization/" + getLangString() + "/Monsterstrings.json");
         BaseMod.loadCustomStringsFile(EventStrings.class,
                 modID + "Resources/localization/" + getLangString() + "/Eventstrings.json");
+        BaseMod.loadCustomStringsFile(BlightStrings.class,
+                modID + "Resources/localization/" + getLangString() + "/Blightstrings.json");
     }
 
     @Override
@@ -483,5 +496,32 @@ public class MorimensMod implements
         if (monster.hasPower(ImmunePower.POWER_ID))
             return ImmunePower.onPreMonsterTurn(monster);
         return true;
+    }
+
+    @Override
+    public void receiveStartGame() {
+
+        ChaosRelic chaosRelic = (ChaosRelic) AbstractDungeon.player.getRelic(ChaosRelic.ID);
+        if (chaosRelic != null) {
+            chaosRelic.postGameStart();
+        }
+
+        AbstractDungeon.effectsQueue.add(new AbstractGameEffect() {
+            @Override
+            public void update() {
+                this.isDone = AbstractDungeon.player.hasBlight(DamageBlight.ID);
+                if (!this.isDone && AbstractDungeon.player != null && AbstractDungeon.getCurrRoom() != null) {
+                    AbstractDungeon.getCurrRoom().spawnBlightAndObtain(
+                            Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F, new DamageBlight());
+                    this.isDone = true;
+                }
+            }
+
+            @Override
+            public void render(SpriteBatch sb) {}
+
+            @Override
+            public void dispose() {}
+        });
     }
 }
