@@ -46,7 +46,7 @@ public class DamageBlight extends AbstractMorimensBlight {
 
     @Override
     public void incrementUp() {
-        this.increment++;
+        flash();
         this.counter++;
         limitCounter();
         updateDescription();
