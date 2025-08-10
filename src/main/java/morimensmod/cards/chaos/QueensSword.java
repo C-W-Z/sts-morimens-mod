@@ -44,7 +44,7 @@ public class QueensSword extends AbstractEasyCard {
     }
 
     public QueensSword() {
-        super(ID, CardImgID.RamonaAttack, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR);
+        super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR, CardImgID.Ramona.ID);
         tags.add(CustomTags.COMMAND);
         damage = baseDamage = 4;
         attackCount = baseAttackCount = 3;

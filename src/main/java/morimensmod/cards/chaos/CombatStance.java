@@ -15,7 +15,7 @@ public class CombatStance extends AbstractEasyCard {
     public final static String ID = makeID(CombatStance.class.getSimpleName());
 
     public CombatStance() {
-        super(ID, CardImgID.AlvaSkill, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR, CardImgID.Alva.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CustomTags.DEFEND);
         block = baseBlock = 5;

@@ -30,7 +30,7 @@ public class PiercingStrike extends AbstractEasyCard {
     public final static String ID = makeID(PiercingStrike.class.getSimpleName());
 
     public PiercingStrike() {
-        super(ID, CardImgID.OgierAttack, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR);
+        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR, CardImgID.Ogier.ID);
         tags.add(CustomTags.COMMAND);
         damageType = DamageType.NORMAL; // 必須是normal才能享受力量加成
         damage = baseDamage = 6;

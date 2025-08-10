@@ -38,7 +38,7 @@ public class PredeterminedStrike extends AbstractEasyCard {
     static final int DMG_SCALE = 2;
 
     public PredeterminedStrike() {
-        super(ID, CardImgID.RamonaTimewormAttack, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR);
+        super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR, CardImgID.RamonaTimeworm.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CustomTags.LOOP);
         damageType = DamageType.NORMAL; // 必須是normal才能享受力量加成
@@ -57,22 +57,24 @@ public class PredeterminedStrike extends AbstractEasyCard {
 
             EasyModalChoiceCard rebirthTribunal = new EasyModalChoiceCard(
                     ID,
-                    CardImgID.RamonaTimewormSkill,
+                    signatureImgID,
                     cardStrings.EXTENDED_DESCRIPTION[0],
                     cardStrings.EXTENDED_DESCRIPTION[1],
                     () -> useRebirthTribunal(p),
                     CHAOS_COLOR,
+                    cardOwner,
                     CustomTags.COMMAND);
 
             rebirthTribunal.secondMagic = rebirthTribunal.baseSecondMagic = secondMagic;
 
             EasyModalChoiceCard odeToTomorrow = new EasyModalChoiceCard(
                     ID,
-                    CardImgID.RamonaTimewormSkill,
+                    signatureImgID,
                     cardStrings.EXTENDED_DESCRIPTION[2],
                     cardStrings.EXTENDED_DESCRIPTION[3],
                     () -> useOdeToTomorrow(p),
                     CHAOS_COLOR,
+                    cardOwner,
                     CustomTags.COMMAND);
 
             odeToTomorrow.thirdMagic = odeToTomorrow.baseThirdMagic = thirdMagic;

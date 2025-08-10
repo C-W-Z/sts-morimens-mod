@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.BleedPower;
 
@@ -17,7 +18,7 @@ public class DirgeOfBlood extends AbstractEasyCard {
     public final static String ID = makeID(DirgeOfBlood.class.getSimpleName());
 
     public DirgeOfBlood() {
-        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CARO_COLOR);
+        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CARO_COLOR, CardImgID.Uvhash.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CustomTags.PHANTOM);
         damage = baseDamage = 5;

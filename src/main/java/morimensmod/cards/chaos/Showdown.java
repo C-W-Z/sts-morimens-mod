@@ -16,6 +16,7 @@ import basemod.helpers.CardModifierManager;
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.cardmodifiers.ExhaustModifier;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.config.ModSettings;
 import morimensmod.patches.enums.CustomTags;
@@ -26,7 +27,7 @@ public class Showdown extends AbstractEasyCard {
     private static final int MAX_ATTACK_COUNT = 6;
 
     public Showdown() {
-        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR);
+        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR, CardImgID.Ryker.ID);
         tags.add(CustomTags.COMMAND);
         damage = baseDamage = 6;
         attackCount = baseAttackCount = MAX_ATTACK_COUNT;

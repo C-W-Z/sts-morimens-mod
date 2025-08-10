@@ -14,7 +14,7 @@ public class DefensiveStance extends AbstractEasyCard {
     public final static String ID = makeID(DefensiveStance.class.getSimpleName());
 
     public DefensiveStance() {
-        super(ID, CardImgID.AlvaSkill, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR, CardImgID.Alva.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CustomTags.DEFEND);
         exhaust = true;

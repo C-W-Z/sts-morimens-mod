@@ -15,7 +15,7 @@ public abstract class AbstractRouseCard extends AbstractEasyCard implements Spaw
 
     int costBeforeUpgrade;
 
-    public AbstractRouseCard(final String cardID, final int cost, final CardRarity rarity, final CardColor color) {
+    public AbstractRouseCard(final String cardID, final int cost, final CardRarity rarity, final CardColor color, String cardOwner) {
         super(cardID, cost, CardType.POWER, rarity, CardTarget.SELF, color);
         tags.add(CustomTags.ROUSE);
         aliemus = baseAliemus = 10;

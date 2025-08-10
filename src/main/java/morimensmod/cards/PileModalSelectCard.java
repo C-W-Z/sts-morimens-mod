@@ -17,7 +17,7 @@ public class PileModalSelectCard extends AbstractEasyCard {
 
     public static String getCardImgID(AbstractCard card) {
         if (card instanceof AbstractEasyCard)
-            return ((AbstractEasyCard) card).cardImgID;
+            return ((AbstractEasyCard) card).signatureImgID;
         return card.cardID;
     }
 

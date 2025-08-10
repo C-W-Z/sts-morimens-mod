@@ -12,13 +12,14 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import morimensmod.actions.MoveFromDrawPileAndChangeCostAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 
 public class UnexpectedGain extends AbstractEasyCard {
     public final static String ID = makeID(UnexpectedGain.class.getSimpleName());
 
     public UnexpectedGain() {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR);
+        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR, CardImgID.Ryker.ID);
         tags.add(CustomTags.COMMAND);
         damage = baseDamage = 7;
         attackCount = baseAttackCount = 1;

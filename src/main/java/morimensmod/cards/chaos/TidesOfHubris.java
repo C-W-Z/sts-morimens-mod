@@ -19,7 +19,7 @@ public class TidesOfHubris extends AbstractEasyCard {
     public final static String ID = makeID(TidesOfHubris.class.getSimpleName());
 
     public TidesOfHubris() {
-        super(ID, CardImgID.LotanAttack, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
+        super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR, CardImgID.Lotan.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STRIKE);
         damage = baseDamage = 7;

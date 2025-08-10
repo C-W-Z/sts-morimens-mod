@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractRouseCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.powers.rouse.SoulblightPower;
 
 import static morimensmod.MorimensMod.makeID;
@@ -14,7 +15,7 @@ public class Soulblight extends AbstractRouseCard {
     public final static String ID = makeID(Soulblight.class.getSimpleName());
 
     public Soulblight() {
-        super(ID, 3, CardRarity.UNCOMMON, CHAOS_COLOR);
+        super(ID, 3, CardRarity.UNCOMMON, CHAOS_COLOR, CardImgID.DollInferno.ID);
         heal = baseHeal = SoulblightPower.HEAL_PER_AMOUNT;
         magicNumber = baseMagicNumber = SoulblightPower.INVOKE_POISON_PERCENT; // 觸發中毒%
     }

@@ -20,7 +20,7 @@ public class UnstableBarrier extends AbstractEasyCard {
     public final static String ID = makeID(UnstableBarrier.class.getSimpleName());
 
     public UnstableBarrier() {
-        super(ID, CardImgID.OgierSkill, -1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, -1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR, CardImgID.Ogier.ID);
         tags.add(CustomTags.COMMAND);
         block = baseBlock = 5;
         aliemus = baseAliemus = 5;

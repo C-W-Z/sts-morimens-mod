@@ -37,11 +37,12 @@ public class SelfDestruct extends AbstractEasyCard {
 
         EasyModalChoiceCard elation = new EasyModalChoiceCard(
                 ID,
-                cardImgID,
+                signatureImgID,
                 cardStrings.EXTENDED_DESCRIPTION[0],
                 cardStrings.EXTENDED_DESCRIPTION[1],
                 () -> useElation(p),
                 CHAOS_COLOR,
+                cardOwner,
                 CustomTags.COMMAND);
 
         elation.magicNumber = elation.baseMagicNumber = magicNumber;
@@ -54,6 +55,7 @@ public class SelfDestruct extends AbstractEasyCard {
                 cardStrings.EXTENDED_DESCRIPTION[3],
                 () -> useCurse(p),
                 CHAOS_COLOR,
+                cardOwner,
                 CustomTags.COMMAND);
 
         curse.magicNumber = curse.baseMagicNumber = magicNumber;

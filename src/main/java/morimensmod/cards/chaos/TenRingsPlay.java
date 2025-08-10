@@ -10,13 +10,14 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 
 public class TenRingsPlay extends AbstractEasyCard {
     public final static String ID = makeID(TenRingsPlay.class.getSimpleName());
 
     public TenRingsPlay() {
-        super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
+        super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR, CardImgID.Ryker.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CustomTags.PHANTOM);
         damage = baseDamage = 5;

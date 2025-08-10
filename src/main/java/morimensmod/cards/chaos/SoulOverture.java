@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 import morimensmod.actions.PierceDamageAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.BleedPower;
 
@@ -27,7 +28,7 @@ public class SoulOverture extends AbstractEasyCard {
     public final static String ID = makeID(SoulOverture.class.getSimpleName());
 
     public SoulOverture() {
-        super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
+        super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR, CardImgID.Hameln.ID);
         tags.add(CustomTags.COMMAND);
         damageType = DamageType.NORMAL;
         damage = baseDamage = 6;

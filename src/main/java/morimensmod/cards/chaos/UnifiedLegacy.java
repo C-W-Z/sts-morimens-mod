@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.DelayAliemusPower;
 import morimensmod.powers.DelayEnhancePower;
@@ -16,7 +17,7 @@ public class UnifiedLegacy extends AbstractEasyCard {
     public final static String ID = makeID(UnifiedLegacy.class.getSimpleName());
 
     public UnifiedLegacy() {
-        super(ID, 4, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, 4, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, CHAOS_COLOR, CardImgID.Tawil.ID);
         tags.add(CustomTags.COMMAND);
         aliemus = baseAliemus = 100;
         magicNumber = baseMagicNumber = 0;

@@ -1,35 +1,111 @@
 package morimensmod.cards;
 
+import static morimensmod.MorimensMod.makeID;
+import static morimensmod.util.General.removeModID;
+
 public class CardImgID {
-    public static final String RamonaAttack = makeAttack("Ramona");
-    public static final String RamonaSkill  = makeSkill("Ramona");
 
-    public static final String DollSkill    = makeSkill("Doll");
+    public static class Ramona {
+        public static final String ID           = makeID(Ramona.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
 
-    public static final String OgierAttack  = makeAttack("Ogier");
-    public static final String OgierSkill   = makeSkill("Ogier");
+    public static class RamonaTimeworm {
+        public static final String ID           = makeID(RamonaTimeworm.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
 
-    public static final String LotanAttack  = makeAttack("Lotan");
+    public static class Lotan {
+        public static final String ID           = makeID(Lotan.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
 
-    public static final String RamonaTimewormAttack = makeAttack("RamonaTimeworm");
-    public static final String RamonaTimewormSkill  = makeSkill("RamonaTimeworm");
+    public static class Doll {
+        public static final String ID           = makeID(Doll.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
 
-    // public static final String DollInfernoSkill     = makeSkill("DollInferno");
+    public static class DollInferno {
+        public static final String ID           = makeID(DollInferno.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
 
-    public static final String AlvaAttack   = makeAttack("Alva");
-    public static final String AlvaSkill    = makeSkill("Alva");
+    public static class Ogier {
+        public static final String ID           = makeID(Ogier.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
 
-    public static final String NymphaeaAttack   = makeAttack("Nymphaea");
-    public static final String NymphaeaSkill    = makeSkill("Nymphaea");
+    public static class Alva {
+        public static final String ID           = makeID(Alva.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
 
-    public static final String PandiaAttack = makeAttack("Pandia");
-    public static final String PandiaSkill  = makeSkill("Pandia");
+    public static class Nymphaea {
+        public static final String ID           = makeID(Nymphaea.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
 
-    public static final String NautilaSkill = makeSkill("Nautila");
+    public static class Pandia {
+        public static final String ID           = makeID(Pandia.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
 
-    public static final String KarenSkill   = makeSkill("Karen");
+    public static class Nautila {
+        public static final String ID           = makeID(Nautila.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
 
-    public static final String HamelnAttack = makeAttack("Hameln");
+    public static class Karen {
+        public static final String ID           = makeID(Karen.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
+
+    public static class Ryker {
+        public static final String ID           = makeID(Ryker.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
+
+    public static class Hameln {
+        public static final String ID           = makeID(Hameln.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
+
+    public static class Tawil {
+        public static final String ID           = makeID(Tawil.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
+
+    public static class Goliath {
+        public static final String ID           = makeID(Goliath.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
+
+    public static class Uvhash {
+        public static final String ID           = makeID(Uvhash.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
+
+    public static class Horla {
+        public static final String ID           = makeID(Horla.class.getSimpleName());
+        public static final String Attack       = makeAttack(removeModID(ID));
+        public static final String Skill        = makeSkill(removeModID(ID));
+    }
 
     public static final String makeAttack(String filename) {
         return filename + "_Attack";

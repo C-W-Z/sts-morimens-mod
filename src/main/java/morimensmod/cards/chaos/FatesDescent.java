@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.enums.CustomTags;
 
@@ -17,7 +18,7 @@ public class FatesDescent extends AbstractEasyCard {
     public final static String ID = makeID(FatesDescent.class.getSimpleName());
 
     public FatesDescent() {
-        super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, CHAOS_COLOR, CardImgID.DollInferno.Skill);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.HEALING);
         aliemus = baseAliemus = 30;

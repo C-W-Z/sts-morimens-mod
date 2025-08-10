@@ -18,7 +18,7 @@ public class LoopingSwordplay extends AbstractEasyCard implements CustomSavable<
     public final static String ID = makeID(LoopingSwordplay.class.getSimpleName());
 
     public LoopingSwordplay() {
-        super(ID, CardImgID.LotanAttack, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR);
+        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR, CardImgID.Lotan.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STRIKE);
         damage = baseDamage = misc = 16;

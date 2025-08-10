@@ -17,7 +17,7 @@ public class BladeOfDefiance extends AbstractEasyCard {
     public final static String ID = makeID(BladeOfDefiance.class.getSimpleName());
 
     public BladeOfDefiance() {
-        super(ID, CardImgID.LotanAttack, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
+        super(ID, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR, CardImgID.Lotan.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STRIKE);
         damage = baseDamage = 6;

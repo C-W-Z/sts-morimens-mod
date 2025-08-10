@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractRouseCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.powers.rouse.BattleThirstPower;
 
 import static morimensmod.MorimensMod.makeID;
@@ -14,7 +15,7 @@ public class BattleThirst extends AbstractRouseCard {
     public final static String ID = makeID(BattleThirst.class.getSimpleName());
 
     public BattleThirst() {
-        super(ID, 2, CardRarity.RARE, CHAOS_COLOR);
+        super(ID, 2, CardRarity.RARE, CHAOS_COLOR, CardImgID.Lotan.ID);
         magicNumber = baseMagicNumber = 1; // 攻擊次數 + 1
     }
 

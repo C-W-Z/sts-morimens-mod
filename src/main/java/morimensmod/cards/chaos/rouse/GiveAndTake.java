@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractRouseCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.powers.rouse.GiveAndTakePower;
 
 import static morimensmod.MorimensMod.makeID;
@@ -14,7 +15,7 @@ public class GiveAndTake extends AbstractRouseCard {
     public final static String ID = makeID(GiveAndTake.class.getSimpleName());
 
     public GiveAndTake() {
-        super(ID, 2, CardRarity.UNCOMMON, CHAOS_COLOR);
+        super(ID, 2, CardRarity.UNCOMMON, CHAOS_COLOR, CardImgID.Pandia.ID);
         magicNumber = baseMagicNumber = GiveAndTakePower.THORNS_PER_AMOUNT; // only for display
     }
 

@@ -22,7 +22,7 @@ public class AssaultThesis extends AbstractEasyCard {
     public final static String ID = makeID(AssaultThesis.class.getSimpleName());
 
     public AssaultThesis() {
-        super(ID, CardImgID.RamonaSkill, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
+        super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR, CardImgID.Ramona.ID);
         tags.add(CustomTags.COMMAND);
         magicNumber = baseMagicNumber = 4; // 降低臨時力量
         draw = baseDraw = 1; // 抽牌數
