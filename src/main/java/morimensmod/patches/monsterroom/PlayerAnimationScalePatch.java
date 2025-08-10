@@ -34,7 +34,7 @@ public class PlayerAnimationScalePatch {
             if (encounter == null)
                 encounter = MonsterLib.strongEncounters.get(key);
             if (encounter == null) {
-                logger.debug("monsterKey " + key + " NOT FOUND in MonsterLib");
+                logger.warn("monsterKey " + key + " NOT FOUND in MonsterLib");
                 return;
             }
             logger.debug("set animScale: " + encounter.animScale);
@@ -55,7 +55,7 @@ public class PlayerAnimationScalePatch {
                 return;
             MonsterLib.MonsterEncounter encounter = MonsterLib.eliteEncounters.get(key);
             if (encounter == null) {
-                logger.debug("eliteKey " + key + " NOT FOUND in MonsterLib");
+                logger.warn("eliteKey " + key + " NOT FOUND in MonsterLib");
                 return;
             }
             logger.debug("set animScale: " + encounter.animScale);
@@ -67,7 +67,20 @@ public class PlayerAnimationScalePatch {
     public static class GetBossPatch {
         @SpirePostfixPatch
         public static void Postfix() {
-            // TODO
+            String key = AbstractDungeon.bossKey;
+            logger.debug("bossKey: " + key);
+            if (!(p() instanceof CustomPlayer))
+                return;
+            AbstractAnimation animation = ReflectionHacks.getPrivate(p(), CustomPlayer.class, "animation");
+            if (!(animation instanceof Animator))
+                return;
+            MonsterLib.MonsterEncounter encounter = MonsterLib.bosses.get(key);
+            if (encounter == null) {
+                logger.warn("bossKey " + key + " NOT FOUND in MonsterLib");
+                return;
+            }
+            logger.debug("set animScale: " + encounter.animScale);
+            ((Animator) animation).setScale(encounter.animScale);
         }
     }
 }
