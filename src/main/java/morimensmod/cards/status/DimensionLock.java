@@ -14,6 +14,7 @@ public class DimensionLock extends AbstractStatusCard implements OnAfterExalt {
 
     public DimensionLock() {
         super(ID, -2, CardRarity.COMMON, CardTarget.NONE);
+        sortIndex = 20;
         magicNumber = baseMagicNumber = 2; // 封印
     }
 

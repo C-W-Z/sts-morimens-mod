@@ -14,6 +14,7 @@ public class SymptomClaustrophobia extends AbstractSymptomCard {
 
     public SymptomClaustrophobia() {
         super(ID, 1, CardTarget.SELF);
+        sortIndex = 6;
         tags.add(CustomTags.UNREMOVABLE_IN_SHOP);
         magicNumber = baseMagicNumber = 10; // 失去生命
     }

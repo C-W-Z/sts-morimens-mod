@@ -14,6 +14,7 @@ public class SymptomMadness extends AbstractSymptomCard {
 
     public SymptomMadness() {
         super(ID, 0, CardTarget.SELF);
+        sortIndex = 3;
         tags.add(CustomTags.UNREMOVABLE_IN_SHOP);
         magicNumber = baseMagicNumber = 15; // 失去生命
         aliemus = baseAliemus = 10;

@@ -21,6 +21,7 @@ public class Joker extends AbstractStatusCard {
 
     public Joker(int damageToSelf) {
         super(ID, 0, CardRarity.SPECIAL, CardTarget.SELF);
+        sortIndex = 1000;
         damageType = DamageType.NORMAL;
         magicNumber = baseMagicNumber = damageToSelf; // 受傷
         draw = baseDraw = 2;

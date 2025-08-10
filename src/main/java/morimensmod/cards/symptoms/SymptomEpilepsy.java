@@ -14,6 +14,7 @@ public class SymptomEpilepsy extends AbstractSymptomCard {
 
     public SymptomEpilepsy() {
         super(ID, 0, CardTarget.SELF);
+        sortIndex = 2;
         tags.add(CustomTags.UNREMOVABLE_IN_SHOP);
         magicNumber = baseMagicNumber = 15; // 失去生命
         draw = baseDraw = 2;

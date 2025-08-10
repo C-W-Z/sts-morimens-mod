@@ -16,6 +16,7 @@ public class CryOut extends AbstractStatusCard {
 
     public CryOut() {
         super(ID, 0, CardRarity.COMMON, CardTarget.ALL_ENEMY);
+        sortIndex = 105;
         magicNumber = baseMagicNumber = 3; // 降低臨時力量
         secondMagic = baseSecondMagic = 1; // 幾張妄想
         cardsToPreview = new SymptomDelusion();

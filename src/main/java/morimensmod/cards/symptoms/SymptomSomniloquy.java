@@ -14,6 +14,7 @@ public class SymptomSomniloquy extends AbstractSymptomCard {
 
     public SymptomSomniloquy() {
         super(ID, 1, CardTarget.NONE);
+        sortIndex = 8;
         tags.add(CustomTags.UNREMOVABLE_IN_SHOP);
         magicNumber = baseMagicNumber = 1;
         draw = baseDraw = 2;

@@ -16,6 +16,7 @@ public class ShacklesTorturedSlave extends AbstractStatusCard {
 
     public ShacklesTorturedSlave() {
         super(ID, 0, CardRarity.SPECIAL, CardTarget.SELF);
+        sortIndex = 2002;
         heal = baseHeal = 10;
         exhaust = true;
         selfRetain = true;

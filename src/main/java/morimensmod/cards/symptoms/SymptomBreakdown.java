@@ -17,6 +17,7 @@ public class SymptomBreakdown extends AbstractSymptomCard {
 
     public SymptomBreakdown() {
         super(ID, 1, CardTarget.ALL_ENEMY);
+        sortIndex = 5;
         tags.add(CustomTags.UNREMOVABLE_IN_SHOP);
         magicNumber = baseMagicNumber = 1;
     }
