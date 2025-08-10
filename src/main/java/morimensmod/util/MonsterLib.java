@@ -100,21 +100,6 @@ public class MonsterLib {
     public static HashMap<String, MonsterEncounter> bosses = new HashMap<>();
 
     public static void initialize() {
-        // don't remove these without makeID ones for compatible
-        weakEncounters.put("1-1-1", new MonsterEncounter(() -> new AbstractMonster[] {
-                new KingOfKids(-310, 0),
-                new Hardhitter(-40, -50),
-                new Fastrunner(200, 20)
-        }, Exordium.ID, 0));
-
-        weakEncounters.put("1-1-2", new MonsterEncounter(() -> new AbstractMonster[] {
-                new Hardhitter(-400, 20),
-                new Hardhitter(-160, -80, 2),
-                new KingOfKids(85, 40),
-                new Fastrunner(300, -30)
-        }, Exordium.ID, 0));
-
-        /* ================================================== */
 
         weakEncounters.put(makeID("1-1-1"), new MonsterEncounter(() -> new AbstractMonster[] {
                 new Fastrunner(-310, 0),
