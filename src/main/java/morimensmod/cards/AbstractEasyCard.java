@@ -34,7 +34,7 @@ import java.util.function.Consumer;
 public abstract class AbstractEasyCard extends CustomCard {
 
     protected final CardStrings cardStrings;
-    public String finalSignaturePath;
+    protected String finalSignaturePath;
     public String signatureImgID;
     public String cardOwner = null; // 是哪個角色的牌
 
@@ -138,7 +138,7 @@ public abstract class AbstractEasyCard extends CustomCard {
         h = Gdx.files.internal(textureString);
         if (!h.exists())
             textureString = "";
-        if (textureString.isEmpty() && cardOwner != null && !cardOwner.isEmpty()) {
+        if (textureString.isEmpty() && !isNullOrEmpty(cardOwner)) {
             switch (type) {
                 case ATTACK:
                     textureString = makeImagePath("cards/" + CardImgID.makeAttack(removeModID(cardOwner)) + ".png");
@@ -159,7 +159,7 @@ public abstract class AbstractEasyCard extends CustomCard {
     }
 
     public String getSignatureImgPath() {
-        if (signatureImgID != null && !signatureImgID.isEmpty()) {
+        if (!isNullOrEmpty(signatureImgID)) {
             finalSignaturePath = makeImagePath("signature/" + removeModID(signatureImgID) + "_s.png");
             return finalSignaturePath;
         }
@@ -187,6 +187,34 @@ public abstract class AbstractEasyCard extends CustomCard {
 
     public String getSignaturePortraitImgPath() {
         return this.getSignatureImgPath().replace(".png", "_p.png");
+    }
+
+    @Override
+    public int compareTo(AbstractCard other) {
+        if (!(other instanceof AbstractEasyCard))
+            return super.compareTo(other);
+        String otherOwner = ((AbstractEasyCard) other).cardOwner;
+
+        if (isNullOrEmpty(cardOwner) && isNullOrEmpty(otherOwner))
+            return 0;
+        else if (isNullOrEmpty(cardOwner) && !isNullOrEmpty(otherOwner))
+            return -1;
+        else if (!isNullOrEmpty(cardOwner) && isNullOrEmpty(otherOwner))
+            return 1;
+
+        int ret = cardOwner.compareTo(otherOwner);
+        if (ret != 0)
+            return ret;
+        ret = rarity.compareTo(other.rarity);
+        if (ret != 0)
+            return ret;
+        ret = type.compareTo(other.type);
+        if (ret != 0)
+            return ret;
+        ret = cost - other.cost;
+        if (ret != 0)
+            return ret;
+        return super.compareTo(other);
     }
 
     @Override

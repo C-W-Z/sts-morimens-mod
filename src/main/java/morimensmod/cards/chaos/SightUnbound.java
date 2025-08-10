@@ -21,7 +21,7 @@ public class SightUnbound extends AbstractEasyCard {
     public final static String ID = makeID(SightUnbound.class.getSimpleName());
 
     public SightUnbound() {
-        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR, CardImgID.DollInferno.ID);
+        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR, CardImgID.RamonaTimeworm.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CustomTags.LOOP);
         magicNumber = baseMagicNumber = 1; // 力量

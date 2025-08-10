@@ -21,7 +21,7 @@ public class GeniusForesight extends AbstractEasyCard {
     public final static String ID = makeID(GeniusForesight.class.getSimpleName());
 
     public GeniusForesight() {
-        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE, CHAOS_COLOR, CardImgID.DollInferno.Skill);
+        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE, CHAOS_COLOR, CardImgID.DollInferno.ID);
         tags.add(CustomTags.COMMAND);
         draw = baseDraw = 1;
         magicNumber = baseMagicNumber = 1; // 能量

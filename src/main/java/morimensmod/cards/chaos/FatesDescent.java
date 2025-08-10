@@ -18,7 +18,7 @@ public class FatesDescent extends AbstractEasyCard {
     public final static String ID = makeID(FatesDescent.class.getSimpleName());
 
     public FatesDescent() {
-        super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, CHAOS_COLOR, CardImgID.DollInferno.Skill);
+        super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, CHAOS_COLOR, CardImgID.DollInferno.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.HEALING);
         aliemus = baseAliemus = 30;

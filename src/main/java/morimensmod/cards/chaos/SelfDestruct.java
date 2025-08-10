@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.cards.EasyModalChoiceCard;
 import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.ElationPower;
@@ -25,7 +26,7 @@ public class SelfDestruct extends AbstractEasyCard {
     public final static String ID = makeID(SelfDestruct.class.getSimpleName());
 
     public SelfDestruct() {
-        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE, CHAOS_COLOR);
+        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE, CHAOS_COLOR, CardImgID.DollInferno.ID);
         tags.add(CustomTags.COMMAND);
         magicNumber = baseMagicNumber = 1; // 1回合 易傷/虛弱
         secondMagic = baseSecondMagic = 1; // 1回合 興奮

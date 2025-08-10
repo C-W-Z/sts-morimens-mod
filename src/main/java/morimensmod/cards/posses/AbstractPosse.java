@@ -84,8 +84,8 @@ public abstract class AbstractPosse extends AbstractEasyCard {
 
     @Override
     public int compareTo(AbstractCard other) {
-        if (other instanceof AbstractPosse && posseIndex != ((AbstractPosse)other).posseIndex)
-            return posseIndex - ((AbstractPosse)other).posseIndex;
-        return super.compareTo(other);
+        if (!(other instanceof AbstractPosse))
+            return super.compareTo(other);
+        return posseIndex - ((AbstractPosse)other).posseIndex;
     }
 }
