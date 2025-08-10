@@ -58,9 +58,9 @@
   },
   "${ModID}:EphemeralEternity": {
     "NAME": "Ephemeral Eternity",
-    "DESCRIPTION": "Gain [E]. Place 1 Base Copy of \"Strike\" and 1 Base Copy of \"Defend\" into hand, and grants then Exhaust, Ethereal. NL If the current Realm is ${ModID}:Ultra, gain an additional 2 ${ModID}:Temporary Strength and 1 ${ModID}:Temporary Dexterity.",
+    "DESCRIPTION": "Gain [E]. Place 1 Base Copy of \"Strike\" and 1 Base Copy of \"Defend\" into hand, and grants them Exhaust, Ethereal. NL If the current Realm is ${ModID}:Ultra, gain an additional 2 ${ModID}:Temporary Strength and 1 ${ModID}:Temporary Dexterity.",
     "EXTENDED_DESCRIPTION": [
-      "Gain [E] . Place #b1 Base Copy of \"Strike\" and #b1 Base Copy of \"Defend\" into hand, and grants then #yExhaust, #yEthereal. NL If the current Realm is #pUltra, gain an additional #b2 #yTemporary #yStrength and #b1 #yTemporary #yDexterity."
+      "Gain [E] . Place #b1 Base Copy of \"Strike\" and #b1 Base Copy of \"Defend\" into hand, and grants them #yExhaust, #yEthereal. NL If the current Realm is #pUltra, gain an additional #b2 #yTemporary #yStrength and #b1 #yTemporary #yDexterity."
     ]
   },
   "${ModID}:GatewayOfRetrospection": {

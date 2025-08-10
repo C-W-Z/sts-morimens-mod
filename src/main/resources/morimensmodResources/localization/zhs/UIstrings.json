@@ -59,9 +59,6 @@
   "${ModID}:PosseSelectUI": {
     "TEXT": ["选择携带的钥令"]
   },
-  "${ModID}:choosePosse": {
-    "TEXT": ["选择携带的钥令（滚动以查看更多）"]
-  },
   "${ModID}:EasyModalChoiceAction": {
     "TEXT": ["选择 ", " 个"]
   },

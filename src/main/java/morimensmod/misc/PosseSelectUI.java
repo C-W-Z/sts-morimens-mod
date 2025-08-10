@@ -55,8 +55,8 @@ public class PosseSelectUI implements ISubscriber {
 
     protected static final ArrayList<AbstractCard> posseList = getAllPosseCards();
 
-    protected static float centerX = Settings.WIDTH * 0.8F;
-    protected static float centerY = Settings.HEIGHT * 0.35F;
+    protected static float CENTER_X = Settings.WIDTH * 0.8F;
+    protected static float CENTER_Y = Settings.HEIGHT * 0.4F;
 
     protected float hoverTimer = 0F;
 
@@ -118,8 +118,8 @@ public class PosseSelectUI implements ISubscriber {
     }
 
     public void update() {
-        this.leftHb.move(centerX - 180.0F * Settings.scale, centerY);
-        this.rightHb.move(centerX + 180.0F * Settings.scale, centerY);
+        this.leftHb.move(CENTER_X - 190.0F * Settings.scale, CENTER_Y);
+        this.rightHb.move(CENTER_X + 190.0F * Settings.scale, CENTER_Y);
         updateInput();
     }
 
@@ -152,13 +152,13 @@ public class PosseSelectUI implements ISubscriber {
     }
 
     public void render(SpriteBatch sb) {
-        renderCard(sb, centerX, centerY);
+        renderCard(sb, CENTER_X, CENTER_Y);
 
         // FontHelper.renderFontCentered(sb, FontHelper.cardTitleFont,
         // uiStrings.TEXT[0], centerX,
         // centerY + 300.0F * Settings.scale, Color.WHITE, 1.25F);
-        FontHelper.renderFontCentered(sb, FontHelper.cardTitleFont, uiStrings.TEXT[0], centerX,
-                centerY + cardToPreview.hb.height, Color.WHITE, 1.25F);
+        FontHelper.renderFontCentered(sb, FontHelper.cardTitleFont, uiStrings.TEXT[0], CENTER_X,
+                CENTER_Y + cardToPreview.hb.height, Color.WHITE, 1.25F);
 
         Color color = Settings.GOLD_COLOR.cpy();
         color.a /= 2.0F;
@@ -168,22 +168,22 @@ public class PosseSelectUI implements ISubscriber {
                 sb,
                 FontHelper.cardTitleFont,
                 this.prevName,
-                centerX - dist * 1.5F,
-                centerY - dist * 0.75F,
+                CENTER_X - dist * 1.5F,
+                CENTER_Y - dist * 0.75F,
                 color);
         FontHelper.renderFontCentered(
                 sb,
                 FontHelper.cardTitleFont,
                 this.nextName,
-                centerX + dist * 1.5F,
-                centerY - dist * 0.75F,
+                CENTER_X + dist * 1.5F,
+                CENTER_Y - dist * 0.75F,
                 color);
         FontHelper.renderFontCentered(
                 sb,
                 FontHelper.cardTitleFont,
                 this.curName,
-                centerX,
-                centerY - dist * 0.25F,
+                CENTER_X,
+                CENTER_Y - dist * 0.25F,
                 Settings.GOLD_COLOR);
 
         if (this.leftHb.hovered)
