@@ -12,13 +12,8 @@ import me.antileaf.signature.utils.SignatureHelper;
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.chaos.QueensSword;
-import morimensmod.characters.AbstractAwakener;
-import morimensmod.characters.Lotan;
-import morimensmod.characters.Ramona;
-import morimensmod.characters.RamonaTimeworm;
-import morimensmod.config.ConfigPanel;
-import morimensmod.config.ModConfig;
-import morimensmod.config.ModSettings;
+import morimensmod.characters.*;
+import morimensmod.config.*;
 import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.icons.AbstractIcon;
 import morimensmod.misc.TopPanelDeathResistanceUI;
@@ -28,17 +23,8 @@ import morimensmod.potions.AbstractEasyPotion;
 import morimensmod.powers.AbstractPersistentPower;
 import morimensmod.powers.ImmunePower;
 import morimensmod.relics.AbstractEasyRelic;
-import morimensmod.savables.SaveAwakenerFloatProperties;
-import morimensmod.savables.SaveAwakenerPosse;
-import morimensmod.savables.SaveAwakenerProperties;
-import morimensmod.savables.SavePersistentPowers;
-import morimensmod.util.CardLib;
-import morimensmod.util.EventLib;
-import morimensmod.util.MonsterLib;
-import morimensmod.util.PersistentPowerLib;
-import morimensmod.util.ProAudio;
-import morimensmod.util.RewardLib;
-import morimensmod.util.TexLoader;
+import morimensmod.savables.*;
+import morimensmod.util.*;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -55,34 +41,10 @@ import com.google.gson.Gson;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.localization.BlightStrings;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.localization.EventStrings;
-import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.localization.OrbStrings;
-import com.megacrit.cardcrawl.localization.PotionStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
-import com.megacrit.cardcrawl.localization.StanceStrings;
-import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-
-import static morimensmod.util.Wiz.*;
-import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AEQUOR_COLOR;
-import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
-import static morimensmod.patches.enums.ColorPatch.CardColorPatch.BUFF_COLOR;
-import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CARO_COLOR;
-import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
-import static morimensmod.patches.enums.ColorPatch.CardColorPatch.DERIVATIVE_COLOR;
-import static morimensmod.patches.enums.ColorPatch.CardColorPatch.POSSE_COLOR;
-import static morimensmod.patches.enums.ColorPatch.CardColorPatch.STATUS_COLOR;
-import static morimensmod.patches.enums.ColorPatch.CardColorPatch.SYMPTOM_COLOR;
-import static morimensmod.patches.enums.ColorPatch.CardColorPatch.ULTRA_COLOR;
-import static morimensmod.patches.enums.ColorPatch.CardColorPatch.WHEEL_OF_DESTINY_COLOR;
-import static morimensmod.util.General.*;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -91,25 +53,29 @@ import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
 
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.scannotation.AnnotationDB;
+
+import static morimensmod.patches.enums.ColorPatch.CardColorPatch.*;
+import static morimensmod.util.General.*;
+import static morimensmod.util.Wiz.*;
 
 @SpireInitializer
 public class MorimensMod implements
-        PreMonsterTurnSubscriber,
+        AddAudioSubscriber,
+        EditCardsSubscriber,
+        EditCharactersSubscriber,
+        EditKeywordsSubscriber,
+        EditRelicsSubscriber,
+        EditStringsSubscriber,
         OnCardUseSubscriber,
         // OnPlayerTurnStartPostDrawSubscriber,
         OnPlayerTurnStartSubscriber,
-        PostBattleSubscriber,
         OnStartBattleSubscriber,
+        PostBattleSubscriber,
         PostInitializeSubscriber,
-        EditCardsSubscriber,
-        EditRelicsSubscriber,
-        EditStringsSubscriber,
-        EditKeywordsSubscriber,
-        EditCharactersSubscriber,
-        AddAudioSubscriber {
+        PreMonsterTurnSubscriber {
 
     private static final Logger logger = LogManager.getLogger(MorimensMod.class);
 
