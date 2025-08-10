@@ -10,13 +10,19 @@ import static morimensmod.MorimensMod.makeUIPath;
 public class SceneBG {
 
     public enum Image {
+        Random,
         CourtYard,
+        WeeklyDream02,
+        WeeklyDream03,
+        Woods,
+        WoodsNight,
         YardNight,
+        YardRedMoon,
     }
 
     private static final Image[] VALUES = Image.values();
 
-    public static Image DEFAULT = Image.CourtYard;
+    public static Image DEFAULT = Image.Random;
     public static Image currentImage;
     public static Texture texture;
 
@@ -30,6 +36,6 @@ public class SceneBG {
     }
 
     public static void setRandomBG() {
-        setBG(VALUES[AbstractDungeon.miscRng.random(VALUES.length)]);
+        setBG(VALUES[AbstractDungeon.miscRng.random(1, VALUES.length)]);
     }
 }
