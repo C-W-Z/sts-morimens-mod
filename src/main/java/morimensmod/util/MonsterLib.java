@@ -51,6 +51,7 @@ public class MonsterLib {
             this.actIDs = actIDs;
             this.weights = getFloats(actIDs.length, 1F);
             this.mapIcons = new String[] {};
+            this.bg = SceneBG.DEFAULT;
         }
 
         public MonsterEncounter setWeights(float... weights) {
