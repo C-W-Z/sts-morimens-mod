@@ -9,6 +9,7 @@ import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.actions.PosseAction;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.misc.Animator;
+import morimensmod.misc.PosseSelectUI;
 import morimensmod.misc.PosseType;
 import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.AbstractPersistentPower;
@@ -324,29 +325,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public void choosePosse() {
         logger.debug("choosePosse");
 
-        att(new AbstractGameAction() {
-            private boolean opened = false;
-
-            @Override
-            public void update() {
-                logger.debug("choosePosse update()");
-
-                if (!opened) {
-                    opened = true;
-                    ArrayList<AbstractCard> choices = new ArrayList<>();
-                    choices.addAll(getAllPosses());
-                    AbstractDungeon.cardRewardScreen.customCombatOpen(
-                            choices,
-                            CardCrawlGame.languagePack.getUIString(makeID("choosePosse")).TEXT[0],
-                            false);
-                } else if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
-                    logger.debug("choosePosse: " + AbstractDungeon.cardRewardScreen.discoveryCard.cardID);
-
-                    setPosse((AbstractPosse) AbstractDungeon.cardRewardScreen.discoveryCard);
-                    isDone = true;
-                }
-            }
-        });
+        setPosse(PosseSelectUI.getPosse());
     }
 
     public static int getLastUsedEnergy() {
