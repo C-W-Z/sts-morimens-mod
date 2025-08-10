@@ -44,11 +44,15 @@ public class CardPreviewUpgradePatch {
     private static final String TEXT = (CardCrawlGame.languagePack
             .getUIString(makeID(CardPreviewUpgradePatch.class.getSimpleName()))).TEXT[0];
 
+    public static boolean dontPath() {
+        return isShionModLoaded;
+    }
+
     @SpirePatch2(clz = SingleCardViewPopup.class, method = "render")
     public static class UpgradeNumResetPatch {
         @SpirePrefixPatch
         public static void Patch(SingleCardViewPopup __instance, SpriteBatch sb) {
-            if (isShionModLoaded)
+            if (dontPath())
                 return;
             if (!SingleCardViewPopup.isViewingUpgrade)
                 upgradeNum = 1;
@@ -59,7 +63,7 @@ public class CardPreviewUpgradePatch {
     public static class UpdateHitBox {
         @SpirePrefixPatch
         public static void Patch(SingleCardViewPopup __instance) {
-            if (isShionModLoaded)
+            if (dontPath())
                 return;
             if (!SingleCardViewPopup.isViewingUpgrade || !copyCanUpgradeMuti)
                 return;
@@ -101,7 +105,7 @@ public class CardPreviewUpgradePatch {
     public static class RenderHitbox {
         @SpirePrefixPatch
         public static void Patch(SingleCardViewPopup __instance, SpriteBatch sb) {
-            if (isShionModLoaded)
+            if (dontPath())
                 return;
             if (!SingleCardViewPopup.isViewingUpgrade || !copyCanUpgradeMuti)
                 return;
@@ -166,7 +170,7 @@ public class CardPreviewUpgradePatch {
     public static class OpenPatch1 {
         @SpirePrefixPatch
         public static void Patch(SingleCardViewPopup __instance, AbstractCard card, CardGroup group) {
-            if (isShionModLoaded)
+            if (dontPath())
                 return;
             upgradeHbL.move(Settings.WIDTH / 2.0F - 460.0F * Settings.scale, 70.0F * Settings.scale);
             upgradeHbR.move(Settings.WIDTH / 2.0F - 360.0F * Settings.scale, 70.0F * Settings.scale);
@@ -177,7 +181,7 @@ public class CardPreviewUpgradePatch {
     public static class OpenPatch2 {
         @SpirePrefixPatch
         public static void Patch(SingleCardViewPopup __instance, AbstractCard card) {
-            if (isShionModLoaded)
+            if (dontPath())
                 return;
             upgradeHbL.move(Settings.WIDTH / 2.0F - 460.0F * Settings.scale, 70.0F * Settings.scale);
             upgradeHbR.move(Settings.WIDTH / 2.0F - 360.0F * Settings.scale, 70.0F * Settings.scale);
@@ -188,7 +192,7 @@ public class CardPreviewUpgradePatch {
     public static class UpgradeCardPatch {
         @SpireInsertPatch(locator = Locator.class)
         public static void Patch(SingleCardViewPopup __instance, SpriteBatch sb, AbstractCard ___card) {
-            if (isShionModLoaded)
+            if (dontPath())
                 return;
             copyCanUpgradeMuti = ___card.canUpgrade();
             for (int i = 0; i < upgradeNum - 1; i++)
@@ -210,7 +214,7 @@ public class CardPreviewUpgradePatch {
         @SpireInsertPatch(locator = Locator.class)
         public static SpireReturn<Void> Patch(SingleCardViewPopup __instance, AbstractCard ___prevCard,
                 AbstractCard ___nextCard) {
-            if (isShionModLoaded)
+            if (dontPath())
                 return SpireReturn.Continue();
             // 用這段code取代掉原本的code
             boolean clickToClose = checkClickToClose();
