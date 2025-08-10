@@ -10,10 +10,10 @@ import basemod.interfaces.*;
 import me.antileaf.signature.utils.SignatureHelper;
 
 import morimensmod.cards.AbstractEasyCard;
-import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.chaos.QueensSword;
 import morimensmod.characters.*;
 import morimensmod.config.*;
+import morimensmod.dynamicvariables.AbstractEasyDynamicVariable;
 import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.icons.AbstractIcon;
 import morimensmod.misc.TopPanelDeathResistanceUI;

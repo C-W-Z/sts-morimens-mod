@@ -1,4 +1,4 @@
-package morimensmod.cards.cardvars;
+package morimensmod.dynamicvariables;
 
 import static morimensmod.MorimensMod.makeID;
 
@@ -6,17 +6,17 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 
 import morimensmod.cards.AbstractEasyCard;
 
-public class ThirdMagicNumber extends AbstractEasyDynamicVariable {
+public class SecondMagicNumber extends AbstractEasyDynamicVariable {
 
     @Override
     public String key() {
-        return makeID("M3");
+        return makeID("M2");
     }
 
     @Override
     public boolean isModified(AbstractCard card) {
         if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).isThirdMagicModified;
+            return ((AbstractEasyCard) card).isSecondMagicModified;
         }
         return false;
     }
@@ -24,21 +24,21 @@ public class ThirdMagicNumber extends AbstractEasyDynamicVariable {
     @Override
     public int value(AbstractCard card) {
         if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).thirdMagic;
+            return ((AbstractEasyCard) card).secondMagic;
         }
         return -1;
     }
 
     public void setIsModified(AbstractCard card, boolean v) {
         if (card instanceof AbstractEasyCard) {
-            ((AbstractEasyCard) card).isThirdMagicModified = v;
+            ((AbstractEasyCard) card).isSecondMagicModified = v;
         }
     }
 
     @Override
     public int baseValue(AbstractCard card) {
         if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).baseThirdMagic;
+            return ((AbstractEasyCard) card).baseSecondMagic;
         }
         return -1;
     }
@@ -46,7 +46,7 @@ public class ThirdMagicNumber extends AbstractEasyDynamicVariable {
     @Override
     public boolean upgraded(AbstractCard card) {
         if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).upgradedThirdMagic;
+            return ((AbstractEasyCard) card).upgradedSecondMagic;
         }
         return false;
     }
