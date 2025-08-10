@@ -11,20 +11,12 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
-import morimensmod.characters.AbstractAwakener;
-import morimensmod.misc.PosseType;
-
 public class VoicesInYourHead extends AbstractPosse {
 
     public final static String ID = makeID(VoicesInYourHead.class.getSimpleName());
 
-    // for register to CardLibrary
     public VoicesInYourHead() {
-        this(null, PosseType.UNLIMITED);
-    }
-
-    public VoicesInYourHead(AbstractAwakener awaker, PosseType type) {
-        super(ID, awaker, type);
+        super(ID);
         // only for display
         magicNumber = baseMagicNumber = 1; // debuff amount
         secondMagic = baseSecondMagic = 1; // steal STR

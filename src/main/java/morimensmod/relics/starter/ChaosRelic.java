@@ -4,6 +4,9 @@ import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.AWAKENER_COLOR;
 import static morimensmod.util.Wiz.p;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,6 +14,7 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
+import basemod.abstracts.CustomSavable;
 import morimensmod.actions.AliemusChangeAction;
 import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.cards.posses.AbstractPosse;
@@ -19,13 +23,18 @@ import morimensmod.interfaces.OnAfterPosse;
 import morimensmod.misc.PosseType;
 import morimensmod.relics.AbstractEasyRelic;
 
-public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse {
+public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse, CustomSavable<Boolean> {
+
+    private static Logger logger = LogManager.getLogger(ChaosRelic.class);
+
     public static final String ID = makeID(ChaosRelic.class.getSimpleName());
 
     private static final int COMMON_RELIC = 1;
     private static final int KEYFLARE = 250;
     private static final int REALM_MASTERY = 10;
     private static final int ALIEMUS = 1;
+
+    private boolean relicObtained = false;
 
     public ChaosRelic() {
         super(ID, RelicTier.STARTER, LandingSound.FLAT, AWAKENER_COLOR);
@@ -52,15 +61,21 @@ public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse {
 
     @Override
     public void onEquip() {
-        AbstractDungeon.topLevelEffects.add(new AbstractGameEffect() {
+        logger.info("onEquip");
+        obtainRelic();
+    }
 
-            // TODO: 把這個triggered變成CustomSavable，且不只在onEquip觸發獲得，例如改在update中呼叫之類的
-            private boolean triggered = false;
-
+    // called in Main Mod file
+    public void obtainRelic() {
+        if (relicObtained)
+            return;
+        AbstractDungeon.effectsQueue.add(new AbstractGameEffect() {
             @Override
             public void update() {
-                if (!triggered && AbstractDungeon.player != null && AbstractDungeon.getCurrRoom() != null) {
-                    triggered = true;
+                if (!relicObtained && AbstractDungeon.player != null && AbstractDungeon.getCurrRoom() != null) {
+                    relicObtained = true;
+                    flash();
+
                     // TODO: 未來可以做一個圖示是問號的遺物，效果是變成隨機遺物，也就是移除自身並獲得另一個隨機遺物
                     // AbstractDungeon.player.loseRelic(relicId);
 
@@ -70,7 +85,7 @@ public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse {
                     AbstractDungeon.getCurrRoom().spawnRelicAndObtain(
                             Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F, newRelic);
                 }
-                this.isDone = triggered;
+                this.isDone = relicObtained;
             }
 
             @Override
@@ -99,5 +114,15 @@ public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse {
             this.initializeTips();
         }
         super.renderTip(sb);
+    }
+
+    @Override
+    public void onLoad(Boolean value) {
+        relicObtained = value == null ? false : value.booleanValue();
+    }
+
+    @Override
+    public Boolean onSave() {
+        return relicObtained;
     }
 }

@@ -1,4 +1,4 @@
-package morimensmod.patches.monsterRoom;
+package morimensmod.patches.monsterroom;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;

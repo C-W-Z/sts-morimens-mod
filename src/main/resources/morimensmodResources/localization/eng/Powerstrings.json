@@ -15,7 +15,7 @@
   },
   "${ModID}:BleedPower": {
     "NAME": "Bleed",
-    "DESCRIPTIONS": ["At the end of its turn, lose #b%d HP."]
+    "DESCRIPTIONS": ["At the end of the turn, take #b%d damage. Healing removes double the amount of #rBleed stacks."]
   },
   "${ModID}:BarrierPower": {
     "NAME": "Barrier",
@@ -29,7 +29,7 @@
   },
   "${ModID}:ImmunePower": {
     "NAME": "Immune to Damage",
-    "DESCRIPTIONS": ["Immune to all damage, removed when turn starts."]
+    "DESCRIPTIONS": ["Immune to all damage and debuffs except #pPoison and #rBleed. Removed when turn starts."]
   },
   "${ModID}:TraumaPower": {
     "NAME": "Trauma",

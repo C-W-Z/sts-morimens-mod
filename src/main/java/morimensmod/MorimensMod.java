@@ -6,7 +6,9 @@ import basemod.abstracts.DynamicVariable;
 import basemod.helpers.CardBorderGlowManager;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
+
 import me.antileaf.signature.utils.SignatureHelper;
+
 import morimensmod.cards.AbstractEasyCard;
 import morimensmod.cards.cardvars.AbstractEasyDynamicVariable;
 import morimensmod.cards.chaos.QueensSword;
@@ -15,6 +17,7 @@ import morimensmod.characters.Lotan;
 import morimensmod.characters.Ramona;
 import morimensmod.characters.RamonaTimeworm;
 import morimensmod.config.ConfigPanel;
+import morimensmod.config.ModConfig;
 import morimensmod.config.ModSettings;
 import morimensmod.glowinfos.AbstractGlowInfo;
 import morimensmod.icons.AbstractIcon;
@@ -40,15 +43,19 @@ import morimensmod.util.TexLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.mod.stslib.icons.CustomIconHelper;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.evacipated.cardcrawl.modthespire.Patcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+
 import com.google.gson.Gson;
+
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.localization.BlightStrings;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
@@ -108,6 +115,7 @@ public class MorimensMod implements
 
     public static ModInfo info;
     public static String modID;
+
     static {
         loadModInfo();
     }
@@ -274,6 +282,14 @@ public class MorimensMod implements
         return modID + "Resources/images/rewards/" + resourcePath;
     }
 
+    public static final String makeBlightPath(String resourcePath) {
+        return modID + "Resources/images/blights/" + resourcePath;
+    }
+
+    public static final String makeCrystalPath(String resourcePath) {
+        return modID + "Resources/images/crystals/" + resourcePath;
+    }
+
     public static void initialize() {
         new MorimensMod();
     }
@@ -354,6 +370,8 @@ public class MorimensMod implements
                 modID + "Resources/localization/" + getLangString() + "/Monsterstrings.json");
         BaseMod.loadCustomStringsFile(EventStrings.class,
                 modID + "Resources/localization/" + getLangString() + "/Eventstrings.json");
+        BaseMod.loadCustomStringsFile(BlightStrings.class,
+                modID + "Resources/localization/" + getLangString() + "/Blightstrings.json");
     }
 
     @Override
@@ -380,6 +398,9 @@ public class MorimensMod implements
     @SuppressWarnings("deprecation")
     @Override
     public void receivePostInitialize() {
+
+        ModConfig.initialize();
+
         // This loads the image used as an icon in the in-game mods menu.
         Texture badgeTexture = TexLoader.getTexture(makeUIPath("badge.png"));
         // Set up the mod information displayed in the in-game mods menu.
@@ -416,6 +437,8 @@ public class MorimensMod implements
                 .any(AbstractPersistentPower.class, (info, var) -> {
                     PersistentPowerLib.addPower(var);
                 });
+
+        // BaseMod.addSaveField(PosseSelectUI.ID, PosseSelectUI.getUI());
 
         BaseMod.addSaveField(SavePersistentPowers.ID, new SavePersistentPowers());
         BaseMod.addSaveField(SaveAwakenerProperties.ID, new SaveAwakenerProperties());

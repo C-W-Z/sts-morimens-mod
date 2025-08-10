@@ -3,6 +3,7 @@ package morimensmod.cards.posses;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.POSSE_COLOR;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.actions.PosseAction;
@@ -13,10 +14,14 @@ import morimensmod.patches.enums.CustomTags;
 
 public abstract class AbstractPosse extends AbstractEasyCard {
 
-    protected AbstractAwakener awaker;
+    protected AbstractPlayer awaker;
     protected PosseType type;
 
-    public AbstractPosse(String cardID, AbstractAwakener awaker, PosseType type) {
+    public AbstractPosse(String cardID) {
+        this(cardID, AbstractDungeon.player, PosseType.UNLIMITED);
+    }
+
+    public AbstractPosse(String cardID, AbstractPlayer awaker, PosseType type) {
         super(cardID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, POSSE_COLOR);
         tags.add(CustomTags.POSSE);
         set(awaker, type);
@@ -37,7 +42,7 @@ public abstract class AbstractPosse extends AbstractEasyCard {
         onChoseThisOption();
     }
 
-    public AbstractAwakener getAwakener() {
+    public AbstractPlayer getAwakener() {
         return awaker;
     }
 
@@ -45,7 +50,7 @@ public abstract class AbstractPosse extends AbstractEasyCard {
         return type;
     }
 
-    public void set(AbstractAwakener awaker, PosseType type) {
+    public void set(AbstractPlayer awaker, PosseType type) {
         this.awaker = awaker;
         this.type = type;
     }
@@ -68,5 +73,9 @@ public abstract class AbstractPosse extends AbstractEasyCard {
 
     public String getUIDescription() {
         return cardStrings.EXTENDED_DESCRIPTION[0];
+    }
+
+    public boolean isAwakenerOnly() {
+        return false;
     }
 }

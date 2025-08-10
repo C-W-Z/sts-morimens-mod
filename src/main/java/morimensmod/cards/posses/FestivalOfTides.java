@@ -6,20 +6,13 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 
 import morimensmod.actions.AliemusChangeAction;
-import morimensmod.characters.AbstractAwakener;
-import morimensmod.misc.PosseType;
 
 public class FestivalOfTides extends AbstractPosse {
 
     public final static String ID = makeID(FestivalOfTides.class.getSimpleName());
 
-    // for register to CardLibrary
     public FestivalOfTides() {
-        this(null, PosseType.UNLIMITED);
-    }
-
-    public FestivalOfTides(AbstractAwakener awaker, PosseType type) {
-        super(ID, awaker, type);
+        super(ID);
     }
 
     @Override

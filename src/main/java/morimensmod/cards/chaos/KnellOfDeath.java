@@ -2,7 +2,6 @@ package morimensmod.cards.chaos;
 
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.CHAOS_COLOR;
-import static morimensmod.util.Wiz.getCleanCopy;
 import static morimensmod.util.Wiz.getPowerAmount;
 import static morimensmod.util.Wiz.p;
 
@@ -52,14 +51,14 @@ public class KnellOfDeath extends AbstractEasyCard {
     public void applyPowers() {
         super.applyPowers();
 
-        // 計算中毒加成
-        int poisonAmplify = 100 + AbstractAwakener.basePoisonAmplify;
-        AbstractEasyCard tmp = (AbstractEasyCard) getCleanCopy(this);
-        magicNumber = baseMagicNumber = MathUtils.ceil(tmp.baseMagicNumber * poisonAmplify / 100F);
-
+        magicNumber = baseMagicNumber;
         magicNumber += secondMagic * getPowerAmount(p(), PoisonPower.POWER_ID);
 
-        if (magicNumber != tmp.baseMagicNumber)
+        // 計算中毒加成
+        int poisonAmplify = 100 + AbstractAwakener.basePoisonAmplify;
+        magicNumber = MathUtils.ceil(magicNumber * poisonAmplify / 100F);
+
+        if (magicNumber != baseMagicNumber)
             isMagicNumberModified = true;
     }
 }

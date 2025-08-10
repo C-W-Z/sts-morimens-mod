@@ -9,7 +9,6 @@ import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerActi
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
@@ -60,23 +59,12 @@ public class Defend_RamonaTimeworm extends AbstractEasyCard {
 
     @Override
     public void applyPowers() {
-        int blockAmplify = 100 + baseBlockAmplify + AbstractAwakener.baseBlockAmplify;
-        int aliemusAmplify = 100 + baseAliemusAmplify + AbstractAwakener.baseAliemusAmplify;
-
-        AbstractEasyCard tmp = (AbstractEasyCard) CardLibrary.getCopy(cardID, timesUpgraded, misc);
-        baseBlock = MathUtils.ceil(tmp.baseBlock * blockAmplify / 100F);
-        baseAliemus = MathUtils.ceil(tmp.baseAliemus * aliemusAmplify / 100F);
-        baseSecondMagic = MathUtils.ceil(tmp.baseSecondMagic * aliemusAmplify / 100F);
-
         super.applyPowers();
 
-        if (blockAmplify != 100)
-            isBlockModified = true;
+        int aliemusAmplify = 100 + baseAliemusAmplify + AbstractAwakener.baseAliemusAmplify;
         if (aliemusAmplify != 100) {
-            isAliemusModified = true;
-            aliemus = baseAliemus;
             isSecondMagicModified = true;
-            secondMagic = baseSecondMagic;
+            secondMagic = MathUtils.ceil(baseSecondMagic * aliemusAmplify / 100F);
         }
     }
 }

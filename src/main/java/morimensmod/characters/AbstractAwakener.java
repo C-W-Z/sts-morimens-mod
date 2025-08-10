@@ -9,6 +9,7 @@ import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.actions.PosseAction;
 import morimensmod.exalts.AbstractExalt;
 import morimensmod.misc.Animator;
+import morimensmod.misc.PosseSelectUI;
 import morimensmod.misc.PosseType;
 import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.AbstractPersistentPower;
@@ -324,29 +325,7 @@ public abstract class AbstractAwakener extends CustomPlayer {
     public void choosePosse() {
         logger.debug("choosePosse");
 
-        att(new AbstractGameAction() {
-            private boolean opened = false;
-
-            @Override
-            public void update() {
-                logger.debug("choosePosse update()");
-
-                if (!opened) {
-                    opened = true;
-                    ArrayList<AbstractCard> choices = new ArrayList<>();
-                    choices.addAll(getAllPosses());
-                    AbstractDungeon.cardRewardScreen.customCombatOpen(
-                            choices,
-                            CardCrawlGame.languagePack.getUIString(makeID("choosePosse")).TEXT[0],
-                            false);
-                } else if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
-                    logger.debug("choosePosse: " + AbstractDungeon.cardRewardScreen.discoveryCard.cardID);
-
-                    setPosse((AbstractPosse) AbstractDungeon.cardRewardScreen.discoveryCard);
-                    isDone = true;
-                }
-            }
-        });
+        setPosse(PosseSelectUI.getPosse());
     }
 
     public static int getLastUsedEnergy() {
@@ -531,9 +510,14 @@ public abstract class AbstractAwakener extends CustomPlayer {
         return 0;
     }
 
-    public void triggerPosse(AbstractPosse posse) {
+    public static void triggerPosse(AbstractPosse posse) {
         if (posse.getType() == PosseType.REGULAR) {
-            assert this.posse == posse;
+            if (p() instanceof AbstractAwakener) {
+                if (((AbstractAwakener) p()).posse != posse)
+                    logger.error("REGULAR Posse " + ((AbstractAwakener) p()).posse.cardID + " != " + posse.cardID);
+            } else {
+                logger.error("trigger REGULAR Posse by Non Awakener: " + posse.cardID);
+            }
             regularPossedThisTurn++;
         } else if (posse.getType() == PosseType.EXTRA) {
             extraPossedThisTurn++;

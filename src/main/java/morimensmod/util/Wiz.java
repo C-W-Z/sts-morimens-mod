@@ -25,6 +25,9 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
+import morimensmod.cards.chaos.Defend;
+import morimensmod.cards.chaos.Strike;
+import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.enums.CustomTags;
 
 import static morimensmod.MorimensMod.makeID;
@@ -374,5 +377,45 @@ public class Wiz {
             if (c.color == SYMPTOM_COLOR)
                 retVal.group.add(c);
         return retVal;
+    }
+
+    public static AbstractCard getBasicStrike(AbstractPlayer p) {
+        if (p == null)
+            return new Strike();
+
+        if (p instanceof AbstractAwakener)
+            return ((AbstractAwakener) p).getBasicStrike();
+
+        ArrayList<AbstractCard> pool = new ArrayList<>();
+        pool = p.getCardPool(pool);
+        for (AbstractCard c : pool)
+            if (c.hasTag(CardTags.STARTER_STRIKE))
+                return c.makeCopy();
+
+        for (AbstractCard c : CardLibrary.getAllCards())
+            if (c.color == p.getCardColor() && c.hasTag(CardTags.STARTER_STRIKE))
+                return c.makeCopy();
+
+        return new Strike();
+    }
+
+    public static AbstractCard getBasicDefend(AbstractPlayer p) {
+        if (p == null)
+            return new Defend();
+
+        if (p instanceof AbstractAwakener)
+            return ((AbstractAwakener) p).getBasicDefend();
+
+        ArrayList<AbstractCard> pool = new ArrayList<>();
+        pool = p.getCardPool(pool);
+        for (AbstractCard c : pool)
+            if (c.hasTag(CardTags.STARTER_DEFEND))
+                return c.makeCopy();
+
+        for (AbstractCard c : CardLibrary.getAllCards())
+            if (c.color == p.getCardColor() && c.hasTag(CardTags.STARTER_DEFEND))
+                return c.makeCopy();
+
+        return new Defend();
     }
 }

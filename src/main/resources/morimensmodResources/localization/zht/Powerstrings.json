@@ -13,7 +13,7 @@
   },
   "${ModID}:BleedPower": {
     "NAME": "出血",
-    "DESCRIPTIONS": ["本回合結束時，失去 #b%d 點生命。"]
+    "DESCRIPTIONS": ["本回合結束時，受到 #b%d 點傷害。治療時移除雙倍回復量的 #r出血 層數。"]
   },
   "${ModID}:BarrierPower": {
     "NAME": "屏障",
@@ -25,7 +25,7 @@
   },
   "${ModID}:ImmunePower": {
     "NAME": "免疫傷害",
-    "DESCRIPTIONS": ["免疫一切傷害，回合開始後移除。"]
+    "DESCRIPTIONS": ["免疫一切傷害，免疫 #p中毒 、 #r流血 以外的負面效果。回合開始後移除。"]
   },
   "${ModID}:TraumaPower": {
     "NAME": "創傷",

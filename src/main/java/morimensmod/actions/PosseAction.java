@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
@@ -31,7 +32,7 @@ public class PosseAction extends AbstractGameAction {
         exhaustKeyflare = AbstractAwakener.exhaustKeyflareForPosse(posse.getType());
     }
 
-    public PosseAction(AbstractAwakener awaker, PosseType type, AbstractPosse posse) {
+    public PosseAction(AbstractPlayer awaker, PosseType type, AbstractPosse posse) {
         this.actionType = ActionType.SPECIAL;
         this.posse = (AbstractPosse) posse.makeCopy();
         this.posse.set(awaker, type);
@@ -58,7 +59,7 @@ public class PosseAction extends AbstractGameAction {
 
         logger.debug("PosseType: " + posse.getType());
 
-        posse.getAwakener().triggerPosse(posse);
+        AbstractAwakener.triggerPosse(posse);
 
         isDone = true;
 

@@ -3,6 +3,8 @@ package morimensmod.cards.posses;
 import static morimensmod.MorimensMod.makeID;
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.ULTRA_COLOR;
 import static morimensmod.util.Wiz.applyToSelf;
+import static morimensmod.util.Wiz.getBasicDefend;
+import static morimensmod.util.Wiz.getBasicStrike;
 import static morimensmod.util.Wiz.makeInHand;
 
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
@@ -15,24 +17,16 @@ import basemod.helpers.CardModifierManager;
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import morimensmod.cardmodifiers.EtherealModifier;
 import morimensmod.cardmodifiers.ExhaustModifier;
-import morimensmod.cards.chaos.Defend;
-import morimensmod.cards.chaos.Strike;
 import morimensmod.characters.AbstractAwakener;
-import morimensmod.misc.PosseType;
 
 public class EphemeralEternity extends AbstractPosse {
 
     public final static String ID = makeID(EphemeralEternity.class.getSimpleName());
 
-    // for register to CardLibrary
     public EphemeralEternity() {
-        this(null, PosseType.UNLIMITED);
-    }
+        super(ID);
 
-    public EphemeralEternity(AbstractAwakener awaker, PosseType type) {
-        super(ID, awaker, type);
-
-        MultiCardPreview.add(this, new Strike(), new Defend());
+        MultiCardPreview.add(this, getBasicStrike(awaker), getBasicDefend(awaker));
         MultiCardPreview.multiCardPreview.get(this).forEach(c -> {
             CardModifierManager.addModifier(c, new ExhaustModifier());
             CardModifierManager.addModifier(c, new EtherealModifier());
@@ -45,7 +39,7 @@ public class EphemeralEternity extends AbstractPosse {
 
         MultiCardPreview.multiCardPreview.get(this).forEach(c -> makeInHand(c));
 
-        if (awaker.getRealmColor() == ULTRA_COLOR) {
+        if (awaker instanceof AbstractAwakener && ((AbstractAwakener) awaker).getRealmColor() == ULTRA_COLOR) {
             applyToSelf(new StrengthPower(awaker, 2));
             applyToSelf(new LoseStrengthPower(awaker, 2));
             applyToSelf(new DexterityPower(awaker, 1));

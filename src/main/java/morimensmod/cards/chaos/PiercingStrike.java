@@ -72,7 +72,7 @@ public class PiercingStrike extends AbstractEasyCard {
 
         initializeDescription(); // 更新描述中的 !D!
 
-        logger.debug("PiercingStrike.applyPowers: damage=" + damage + ", str.amount=" + originalStrength);
+        logger.trace("PiercingStrike.applyPowers: damage=" + damage + ", str.amount=" + originalStrength);
     }
 
     // 針對單一目標計算最終傷害（例如精英或 Boss）
@@ -92,6 +92,6 @@ public class PiercingStrike extends AbstractEasyCard {
 
         initializeDescription();
 
-        logger.debug("PiercingStrike.calculateCardDamage: damage=" + damage + ", str.amount=" + originalStrength);
+        logger.trace("PiercingStrike.calculateCardDamage: damage=" + damage + ", str.amount=" + originalStrength);
     }
 }

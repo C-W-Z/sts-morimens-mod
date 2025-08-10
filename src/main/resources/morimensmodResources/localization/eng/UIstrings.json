@@ -56,8 +56,8 @@
   "DERIVATIVE": {
     "TEXT": ["Derivative "]
   },
-  "${ModID}:choosePosse": {
-    "TEXT": ["Select the Posse to carry (scroll to see more)"]
+  "${ModID}:PosseSelectUI": {
+    "TEXT": ["Select a Posse to Carry"]
   },
   "${ModID}:EasyModalChoiceAction": {
     "TEXT": ["Choose ", " item(s)"]
@@ -136,7 +136,8 @@
     "TEXT_DICT": {
       "USE_MORIMENS_POWER_ICON": "Use the Buff/Debuff icons from Morimens",
       "AWAKENER_ENCOUNTER_MOD_MONSTER": "Awakeners can encounter monsters from Morimens",
-      "OTHER_CHAR_ENCOUNTER_MOD_MONSTER": "Non-Awakener characters can also encounter monsters from Morimens"
+      "OTHER_CHAR_ENCOUNTER_MOD_MONSTER": "Non-Awakener characters can also encounter monsters from Morimens",
+      "DAMAGE_BLIGHT_LVL": "Enemy Damage Bonus Level"
     }
   },
   "${ModID}:AbstractWheelOfDestinyReward": {

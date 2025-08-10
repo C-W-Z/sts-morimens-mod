@@ -1,9 +1,12 @@
 package morimensmod.cardmodifiers;
 
 import basemod.abstracts.AbstractCardModifier;
+import basemod.cardmods.ExhaustMod;
+import basemod.helpers.CardModifierManager;
 
 import static morimensmod.MorimensMod.makeID;
 
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.CommonKeywordIconsField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class ExhaustModifier extends AbstractCardModifier {
@@ -14,7 +17,12 @@ public class ExhaustModifier extends AbstractCardModifier {
     }
 
     public boolean shouldApply(AbstractCard card) {
-        return !card.exhaust;
+        if (card.exhaust)
+            return false;
+        if (CommonKeywordIconsField.useIcons.get(card))
+            return true;
+        CardModifierManager.addModifier(card, new ExhaustMod());
+        return false;
     }
 
     public void onInitialApplication(AbstractCard card) {
