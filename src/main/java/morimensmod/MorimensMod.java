@@ -286,6 +286,10 @@ public class MorimensMod implements
         return modID + "Resources/images/blights/" + resourcePath;
     }
 
+    public static final String makeCrystalPath(String resourcePath) {
+        return modID + "Resources/images/crystals/" + resourcePath;
+    }
+
     public static void initialize() {
         new MorimensMod();
     }

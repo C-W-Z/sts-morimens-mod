@@ -10,18 +10,35 @@ import morimensmod.cards.posses.VoicesInYourHead;
 
 public class ModConfig {
 
-    public static SpireConfig charConfig;
     public static class Char {
+        public static SpireConfig config;
         public static final String PosseSelectUI = "PosseSelect";
+
+        public static void initialize() {
+            try {
+                Properties defaults = new Properties();
+                defaults.setProperty(Char.PosseSelectUI, VoicesInYourHead.ID);
+                config = new SpireConfig(modID, "Char", defaults);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        public static String getPosseSelect() {
+            return config.getString(ModConfig.Char.PosseSelectUI);
+        }
+
+        public static void savePosseSelect(String posseID) {
+            try {
+                config.setString(PosseSelectUI, posseID);
+                config.save();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static void initialize() {
-        try {
-            Properties defaults = new Properties();
-            defaults.setProperty(Char.PosseSelectUI, VoicesInYourHead.ID);
-            charConfig = new SpireConfig(modID, "Char", defaults);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Char.initialize();
     }
 }
