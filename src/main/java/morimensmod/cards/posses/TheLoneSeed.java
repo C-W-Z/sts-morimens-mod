@@ -11,6 +11,7 @@ public class TheLoneSeed extends AbstractPosse {
 
     public TheLoneSeed() {
         super(ID);
+        posseIndex = 7;
     }
 
     @Override

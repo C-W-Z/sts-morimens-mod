@@ -10,6 +10,7 @@ public class UnequalExchange extends AbstractPosse {
 
     public UnequalExchange() {
         super(ID);
+        posseIndex = 4000;
     }
 
     @Override

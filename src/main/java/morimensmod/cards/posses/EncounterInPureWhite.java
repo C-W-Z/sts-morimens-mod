@@ -11,6 +11,7 @@ public class EncounterInPureWhite extends AbstractPosse {
 
     public EncounterInPureWhite() {
         super(ID);
+        posseIndex = 3;
     }
 
     @Override

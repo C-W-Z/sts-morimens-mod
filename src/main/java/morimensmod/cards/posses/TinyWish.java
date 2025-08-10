@@ -11,6 +11,7 @@ public class TinyWish extends AbstractPosse {
 
     public TinyWish() {
         super(ID);
+        posseIndex = 1;
         magicNumber = baseMagicNumber = 35; // 狂氣
     }
 

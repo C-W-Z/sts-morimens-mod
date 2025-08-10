@@ -15,6 +15,7 @@ public class AGunsCry extends AbstractPosse {
 
     public AGunsCry() {
         super(ID);
+        posseIndex = 1007;
         cardsToPreview = new OctahedronDice();
         cardsToPreview.upgrade();
     }

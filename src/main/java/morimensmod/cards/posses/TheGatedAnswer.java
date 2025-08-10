@@ -20,6 +20,7 @@ public class TheGatedAnswer extends AbstractPosse {
 
     public TheGatedAnswer() {
         super(ID);
+        posseIndex = 9;
     }
 
     @Override
