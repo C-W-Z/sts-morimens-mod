@@ -50,6 +50,8 @@ public class PosseSelectUI implements ISubscriber {
 
     public String nextName = "";
 
+    public String prevName = "";
+
     public UIStrings uiStrings;
 
     private static final ArrayList<AbstractCard> posseList = getAllPosseCards();
@@ -102,6 +104,7 @@ public class PosseSelectUI implements ISubscriber {
         this.cardToPreview = posseList.get(this.index);
         this.curName = cardToPreview.name;
         this.nextName = posseList.get(nextIndex()).name;
+        this.prevName = posseList.get(prevIndex()).name;
     }
 
     public void update() {
@@ -153,10 +156,10 @@ public class PosseSelectUI implements ISubscriber {
         FontHelper.renderFontCentered(
                 sb,
                 FontHelper.cardTitleFont,
-                this.curName,
-                centerX,
-                centerY - dist * 0.25F,
-                Settings.GOLD_COLOR);
+                this.prevName,
+                centerX - dist * 1.5F,
+                centerY - dist * 0.75F,
+                color);
         FontHelper.renderFontCentered(
                 sb,
                 FontHelper.cardTitleFont,
@@ -164,6 +167,13 @@ public class PosseSelectUI implements ISubscriber {
                 centerX + dist * 1.5F,
                 centerY - dist * 0.75F,
                 color);
+        FontHelper.renderFontCentered(
+                sb,
+                FontHelper.cardTitleFont,
+                this.curName,
+                centerX,
+                centerY - dist * 0.25F,
+                Settings.GOLD_COLOR);
 
         if (this.leftHb.hovered)
             sb.setColor(Color.LIGHT_GRAY);
