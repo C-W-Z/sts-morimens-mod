@@ -15,39 +15,35 @@ public class Aliemus extends AbstractEasyDynamicVariable {
 
     @Override
     public boolean isModified(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).isAliemusModified;
-        }
-        return false;
+        if (!(card instanceof AbstractEasyCard))
+            return false;
+        return ((AbstractEasyCard) card).isAliemusModified;
     }
 
     @Override
     public int value(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).aliemus;
-        }
-        return -1;
+        if (!(card instanceof AbstractEasyCard))
+            return -1;
+        return ((AbstractEasyCard) card).aliemus;
     }
 
     public void setIsModified(AbstractCard card, boolean v) {
-        if (card instanceof AbstractEasyCard) {
-            ((AbstractEasyCard) card).isAliemusModified = v;
-        }
+        if (!(card instanceof AbstractEasyCard))
+            return;
+        ((AbstractEasyCard) card).isAliemusModified = v;
     }
 
     @Override
     public int baseValue(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).baseAliemus;
-        }
-        return -1;
+        if (!(card instanceof AbstractEasyCard))
+            return -1;
+        return ((AbstractEasyCard) card).baseAliemus;
     }
 
     @Override
     public boolean upgraded(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).upgradedAliemus;
-        }
-        return false;
+        if (!(card instanceof AbstractEasyCard))
+            return false;
+        return ((AbstractEasyCard) card).upgradedAliemus;
     }
 }

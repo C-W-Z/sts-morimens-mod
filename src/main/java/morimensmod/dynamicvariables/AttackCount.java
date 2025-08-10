@@ -15,39 +15,35 @@ public class AttackCount extends AbstractEasyDynamicVariable {
 
     @Override
     public boolean isModified(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).isAttackCountModified;
-        }
-        return false;
+        if (!(card instanceof AbstractEasyCard))
+            return false;
+        return ((AbstractEasyCard) card).isAttackCountModified;
     }
 
     public void setIsModified(AbstractCard card, boolean v) {
-        if (card instanceof AbstractEasyCard) {
-            ((AbstractEasyCard) card).isAttackCountModified = v;
-        }
+        if (!(card instanceof AbstractEasyCard))
+            return;
+        ((AbstractEasyCard) card).isAttackCountModified = v;
     }
 
     @Override
     public int value(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).attackCount;
-        }
-        return -1;
+        if (!(card instanceof AbstractEasyCard))
+            return -1;
+        return ((AbstractEasyCard) card).attackCount;
     }
 
     @Override
     public int baseValue(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).baseAttackCount;
-        }
-        return -1;
+        if (!(card instanceof AbstractEasyCard))
+            return -1;
+        return ((AbstractEasyCard) card).baseAttackCount;
     }
 
     @Override
     public boolean upgraded(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).upgradedAttackCount;
-        }
-        return false;
+        if (!(card instanceof AbstractEasyCard))
+            return false;
+        return ((AbstractEasyCard) card).upgradedAttackCount;
     }
 }

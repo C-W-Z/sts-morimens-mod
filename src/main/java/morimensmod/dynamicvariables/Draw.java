@@ -15,16 +15,15 @@ public class Draw extends AbstractEasyDynamicVariable {
 
     @Override
     public boolean isModified(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).isDrawModified;
-        }
-        return false;
+        if (!(card instanceof AbstractEasyCard))
+            return false;
+        return ((AbstractEasyCard) card).isDrawModified;
     }
 
     public void setIsModified(AbstractCard card, boolean v) {
-        if (card instanceof AbstractEasyCard) {
-            ((AbstractEasyCard) card).isDrawModified = v;
-        }
+        if (!(card instanceof AbstractEasyCard))
+            return;
+        ((AbstractEasyCard) card).isDrawModified = v;
     }
 
     @Override
@@ -39,9 +38,8 @@ public class Draw extends AbstractEasyDynamicVariable {
 
     @Override
     public boolean upgraded(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).upgradedDraw;
-        }
-        return false;
+        if (!(card instanceof AbstractEasyCard))
+            return false;
+        return ((AbstractEasyCard) card).upgradedDraw;
     }
 }
