@@ -23,6 +23,7 @@ import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 
 import basemod.ReflectionHacks;
+import basemod.ReflectionHacks.RMethod;
 import basemod.interfaces.ISubscriber;
 import me.antileaf.signature.utils.SignatureHelper;
 import me.antileaf.signature.utils.internal.SignatureHelperInternal;
@@ -36,28 +37,32 @@ public class PosseSelectUI implements ISubscriber {
 
     protected static PosseSelectUI instance = null;
 
-    public int index = 0;
+    protected int index = 0;
 
-    private AbstractCard cardToPreview;
+    protected AbstractCard cardToPreview;
 
-    public Hitbox leftHb;
+    protected Hitbox leftHb;
 
-    public Hitbox rightHb;
+    protected Hitbox rightHb;
 
-    public String curName = "";
+    protected String curName = "";
 
-    public String nextName = "";
+    protected String nextName = "";
 
-    public String prevName = "";
+    protected String prevName = "";
 
-    public UIStrings uiStrings;
+    protected UIStrings uiStrings;
 
-    private static final ArrayList<AbstractCard> posseList = getAllPosseCards();
+    protected static final ArrayList<AbstractCard> posseList = getAllPosseCards();
 
-    private static float centerX = Settings.WIDTH * 0.8F;
-    private static float centerY = Settings.HEIGHT * 0.35F;
+    protected static float centerX = Settings.WIDTH * 0.8F;
+    protected static float centerY = Settings.HEIGHT * 0.35F;
 
     protected float hoverTimer = 0F;
+
+    protected RMethod renderDescription;
+    protected RMethod renderDescriptionCN;
+    protected RMethod renderHelper;
 
     public PosseSelectUI() {
         uiStrings = CardCrawlGame.languagePack.getUIString(makeID(PosseSelectUI.class.getSimpleName()));
@@ -65,6 +70,7 @@ public class PosseSelectUI implements ISubscriber {
         this.leftHb = new Hitbox(70.0F * Settings.scale, 70.0F * Settings.scale);
         this.rightHb = new Hitbox(70.0F * Settings.scale, 70.0F * Settings.scale);
         initialize();
+        getReflectionHacks();
 
         for (AbstractCard c : posseList)
             if (SignatureHelperInternal.shouldUseSignature(c))
@@ -81,14 +87,14 @@ public class PosseSelectUI implements ISubscriber {
         return (AbstractPosse) posseList.get(getUI().index);
     }
 
-    private int getPosseIndex(String posseID) {
+    protected int getPosseIndex(String posseID) {
         for (int j = 0; j < posseList.size(); j++)
             if (posseList.get(j).cardID.equals(posseID))
                 return j;
         return 0;
     }
 
-    public void initialize() {
+    protected void initialize() {
         String posseID = ModConfig.Char.getPosseSelect();
         int i = getPosseIndex(posseID);
         if (this.index != i && i >= 0)
@@ -96,11 +102,11 @@ public class PosseSelectUI implements ISubscriber {
         refresh();
     }
 
-    public int prevIndex() {
+    protected int prevIndex() {
         return (this.index - 1 < 0) ? (posseList.size() - 1) : (this.index - 1);
     }
 
-    public int nextIndex() {
+    protected int nextIndex() {
         return (this.index + 1 > posseList.size() - 1) ? 0 : (this.index + 1);
     }
 
@@ -117,7 +123,7 @@ public class PosseSelectUI implements ISubscriber {
         updateInput();
     }
 
-    private void updateInput() {
+    protected void updateInput() {
         this.leftHb.update();
         this.rightHb.update();
 
@@ -221,7 +227,6 @@ public class PosseSelectUI implements ISubscriber {
         // this.cardToPreview.hb.move(x, y + 150.0F * Settings.scale);
         // this.cardToPreview.drawScale = 0.7F;
         // this.cardToPreview.render(sb);
-
         this.cardToPreview.current_y = y + this.cardToPreview.hb.height / 2F + 30F * Settings.scale;
         this.cardToPreview.hb.move(x, y + this.cardToPreview.hb.height / 2F);
         this.cardToPreview.drawScale = 1F;
@@ -238,40 +243,58 @@ public class PosseSelectUI implements ISubscriber {
         if (hoverTimer <= 0)
             return;
 
-        renderShadow(cardToPreview, sb);
-
-        if (Settings.lineBreakViaCharacter) {
-            // this.cardToPreview.renderDescriptionCN(sb);
-            ReflectionHacks.privateMethod(AbstractCard.class, "renderDescriptionCN", SpriteBatch.class)
-                    .invoke(this.cardToPreview, sb);
-        } else {
-            // this.cardToPreview.renderDescription(sb);
-            ReflectionHacks.privateMethod(AbstractCard.class, "renderDescription", SpriteBatch.class)
-                    .invoke(this.cardToPreview, sb);
-        }
+        renderShadowAndDescription(cardToPreview, sb);
     }
 
-    protected void renderShadow(AbstractCard card, SpriteBatch sb) {
+    protected void renderShadowAndDescription(AbstractCard card, SpriteBatch sb) {
+        // update transparency
         Color renderColor = ReflectionHacks.getPrivate(card, AbstractCard.class, "renderColor");
-        String shadow;
-        float alpha = renderColor.a;
+        Color textColor = ReflectionHacks.getPrivate(card, AbstractCard.class, "textColor");
+        Color goldColor = ReflectionHacks.getPrivate(card, AbstractCard.class, "goldColor");
+        float renderColorAlpha = renderColor.a;
+        float textColorAlpha = textColor.a;
+        float goldColorAlpha = goldColor.a;
+        float alpha = Math.min(1F, Math.max(0, hoverTimer) / 0.3F);
+        renderColor.a *= alpha;
+        textColor.a *= alpha;
+        goldColor.a *= alpha;
 
+        // render shadow
         SignatureHelper.Style style = SignatureHelper.DEFAULT_STYLE;
-        renderColor.a *= Math.min(1F, Math.max(0, hoverTimer) / 0.3F);
-
-        shadow = card.description.size() >= 4 || (style.descShadowSmall == null || style.descShadowSmall.isEmpty())
-                ? style.descShadow
-                : style.descShadowSmall;
+        String shadow = card.description.size() >= 4
+                || (style.descShadowSmall == null || style.descShadowSmall.isEmpty())
+                        ? style.descShadow
+                        : style.descShadowSmall;
 
         if (shadow != null) {
-            ReflectionHacks
-                    .privateMethod(AbstractCard.class, "renderHelper",
-                            SpriteBatch.class, Color.class, TextureAtlas.AtlasRegion.class, float.class,
-                            float.class)
-                    .invoke(card, sb, renderColor, SignatureHelperInternal.load(shadow), card.current_x,
-                            card.current_y);
+            renderHelper.invoke(
+                    card,
+                    sb,
+                    renderColor,
+                    SignatureHelperInternal.load(shadow),
+                    card.current_x,
+                    card.current_y);
         }
 
-        renderColor.a = alpha;
+        // render description
+        if (Settings.lineBreakViaCharacter)
+            renderDescriptionCN.invoke(card, sb);
+        else
+            renderDescription.invoke(card, sb);
+
+        // reset transparency
+        renderColor.a = renderColorAlpha;
+        textColor.a = textColorAlpha;
+        goldColor.a = goldColorAlpha;
+    }
+
+    protected void getReflectionHacks() {
+        renderHelper = ReflectionHacks.privateMethod(AbstractCard.class, "renderHelper",
+                SpriteBatch.class, Color.class, TextureAtlas.AtlasRegion.class, float.class,
+                float.class);
+        renderDescription = ReflectionHacks.privateMethod(AbstractCard.class, "renderDescription",
+                SpriteBatch.class);
+        renderDescriptionCN = ReflectionHacks.privateMethod(AbstractCard.class, "renderDescriptionCN",
+                SpriteBatch.class);
     }
 }
