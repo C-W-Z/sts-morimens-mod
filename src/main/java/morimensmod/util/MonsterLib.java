@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import basemod.BaseMod;
 import basemod.BaseMod.GetMonsterGroup;
 import morimensmod.characters.Lotan;
+import morimensmod.misc.SceneBG;
 import morimensmod.monsters.bosses.CasiahBoss;
 import morimensmod.monsters.bosses.HelotBoss;
 import morimensmod.monsters.bosses.LeighBoss;
@@ -42,55 +43,39 @@ public class MonsterLib {
         public String[] actIDs;
         public float[] weights;
         public String[] mapIcons;
+        public SceneBG.Image bg;
 
-        public MonsterEncounter(GetMonsterGroup group, String[] actIDs, float[] weight, float scale,
-                String[] mapIcons) {
-            if (actIDs.length != weight.length)
-                throw new RuntimeException("actIDs.length != weight.length");
-            this.group = group;
-            this.animScale = scale;
+        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String... actIDs) {
+            this.group = () -> new MonsterGroup(monsters.get());
+            this.animScale = 1F;
             this.actIDs = actIDs;
-            this.weights = weight;
-            this.mapIcons = mapIcons;
+            this.weights = getFloats(actIDs.length, 1F);
+            this.mapIcons = new String[] {};
         }
 
-        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String[] actIDs, float[] weight, float scale,
-                String[] mapIcons) {
-            this(() -> new MonsterGroup(monsters.get()), actIDs, weight, scale, mapIcons);
+        public MonsterEncounter setWeights(float... weights) {
+            this.weights = weights;
+            return this;
         }
 
-        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String[] actIDs, float[] weight, float scale) {
-            this(monsters, actIDs, weight, scale, new String[] {});
+        public MonsterEncounter setWeight(float weight) {
+            this.weights = getFloats(actIDs.length, weight);
+            return this;
         }
 
-        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String[] actIDs, float weight, float scale) {
-            this(monsters, actIDs, getFloats(actIDs.length, weight), scale);
+        public MonsterEncounter setScale(float scale) {
+            this.animScale = scale;
+            return this;
         }
 
-        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String actID, float weight, float scale) {
-            this(monsters, new String[] { actID }, weight, scale);
+        public MonsterEncounter setMapIcons(String... icons) {
+            this.mapIcons = icons;
+            return this;
         }
 
-        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String[] actIDs, float[] weight) {
-            this(monsters, actIDs, weight, 1F);
-        }
-
-        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String[] actIDs, float weight) {
-            this(monsters, actIDs, getFloats(actIDs.length, weight));
-        }
-
-        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String actID, float weight) {
-            this(monsters, new String[] { actID }, weight);
-        }
-
-        // for Bosses
-        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String[] actIDs, float scale, String[] mapIcons) {
-            this(monsters, actIDs, getFloats(actIDs.length, 1F), scale, mapIcons);
-        }
-
-        // for Bosses
-        public MonsterEncounter(Supplier<AbstractMonster[]> monsters, String actID, float scale, String[] mapIcons) {
-            this(monsters, new String[] { actID }, new float[] { 1F }, scale, mapIcons);
+        public MonsterEncounter setBG(SceneBG.Image bg) {
+            this.bg = bg;
+            return this;
         }
     }
 
@@ -105,82 +90,72 @@ public class MonsterLib {
                 new Fastrunner(-310, 0),
                 new Hardhitter(-40, 50),
                 new KingOfKids(200, 0)
-        }, Exordium.ID, 4));
+        }, Exordium.ID).setWeight(4));
 
         strongEncounters.put(makeID("1-1-2"), new MonsterEncounter(() -> new AbstractMonster[] {
                 new Hardhitter(-400, 20),
                 new Hardhitter(-160, -80),
                 new Fastrunner(85, 40),
                 new KingOfKids(300, -30)
-        }, Exordium.ID, 4));
+        }, Exordium.ID).setWeight(4));
 
         weakEncounters.put(makeID("1-2-1"), new MonsterEncounter(() -> new AbstractMonster[] {
                 new CollaborativeDissolute(-420, 10),
                 new DissolutedHumanoid(-130, -40, DissolutedHumanoid.Skin.B, 1),
                 new DissolutedHumanoid(220, 0, DissolutedHumanoid.Skin.C, 0)
-        }, new String[] { Exordium.ID, TheCity.ID }, 4));
+        }, Exordium.ID, TheCity.ID).setWeight(4));
 
         weakEncounters.put(makeID("1-2-2"), new MonsterEncounter(() -> new AbstractMonster[] {
                 new CollaborativeDissolute(-400, -10),
                 new DissolutedRatKing(-170, 10),
                 new InterferenceTypeDissolute(110, -20)
-        }, new String[] { Exordium.ID, TheCity.ID, TheBeyond.ID }, 4));
+        }, Exordium.ID, TheCity.ID, TheBeyond.ID).setWeight(4));
 
         strongEncounters.put(makeID("1-3-1"), new MonsterEncounter(() -> new AbstractMonster[] {
                 new DissolutedHumanoid(-420, -40, DissolutedHumanoid.Skin.B),
                 new CollaborativeDissolute(-140, 50, 1),
                 new CollaborativeDissolute(30, -30),
                 new CollaborativeDissolute(200, 20, 1),
-        }, new String[] { Exordium.ID, TheCity.ID, TheBeyond.ID }, 3));
+        }, Exordium.ID, TheCity.ID, TheBeyond.ID).setWeight(4));
 
         strongEncounters.put(makeID("1-3-2"), new MonsterEncounter(() -> new AbstractMonster[] {
                 new DissolutedHumanoid(-400, 0, DissolutedHumanoid.Skin.B),
                 new CollaborativeDissolute(-180, -30),
                 new DissolutedRatKing(20, 20, 2),
                 new DissolutedRatKing(270, -40),
-        }, new String[] { Exordium.ID, TheCity.ID, TheBeyond.ID }, 4));
+        }, Exordium.ID, TheCity.ID, TheBeyond.ID).setWeight(4));
 
         eliteEncounters.put(TheVoidClaimsAll.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new TheVoidClaimsAll(-100, -50)
-        }, Exordium.ID, 1, 0.8F));
+        }, Exordium.ID).setWeight(4).setScale(0.8F));
 
         eliteEncounters.put(DevouringHowl.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new DevouringHowl(-100, 0)
-        }, Exordium.ID, 1));
+        }, Exordium.ID).setWeight(1));
 
         eliteEncounters.put(IronPickaxeLucen.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new IronPickaxeLucen(-100, 0)
-        }, Exordium.ID, 1));
+        }, Exordium.ID).setWeight(1));
 
         bosses.put(LotanBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new LotanBoss(0, 0, LotanBoss.LVL.MEDIUM)
-        }, TheCity.ID, 0, new String[] {
-                makeCharacterPath(removeModID(Lotan.ID) + "/MapIcon.png")
-        }));
+        }, TheCity.ID).setMapIcons(makeCharacterPath(removeModID(Lotan.ID) + "/MapIcon.png")));
 
         bosses.put(LeighBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new LeighBoss(0, 0)
-        }, TheCity.ID, 0, new String[] {
-                makeCharacterPath(removeModID(LeighBoss.LeighID) + "/MapIcon.png")
-        }));
+        }, TheCity.ID).setMapIcons(makeCharacterPath(removeModID(LeighBoss.LeighID) + "/MapIcon.png")));
 
         bosses.put(HelotBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new HelotBoss(0, 0)
-        }, TheBeyond.ID, 0, new String[] {
-                makeCharacterPath(removeModID(HelotBoss.HelotID) + "/MapIcon.png")
-        }));
+        }, TheBeyond.ID).setMapIcons(makeCharacterPath(removeModID(HelotBoss.HelotID) + "/MapIcon.png")));
 
         bosses.put(LotanBoss.ID + LotanBoss.LVL.HARD.name(), new MonsterEncounter(() -> new AbstractMonster[] {
                 new LotanBoss(0, 0, LotanBoss.LVL.HARD)
-        }, TheBeyond.ID, 0, new String[] {
-                makeCharacterPath(removeModID(Lotan.ID) + "/MapIcon.png")
-        }));
+        }, TheBeyond.ID).setMapIcons(makeCharacterPath(removeModID(Lotan.ID) + "/MapIcon.png")));
 
         bosses.put(CasiahBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new CasiahBoss(75, 0)
-        }, TheBeyond.ID, 0, new String[] {
-                makeCharacterPath(removeModID(CasiahBoss.CasiahID) + "/MapIcon.png")
-        }));
+        }, TheBeyond.ID).setMapIcons(makeCharacterPath(removeModID(CasiahBoss.CasiahID) + "/MapIcon.png")));
     }
 
     public static void register() {
