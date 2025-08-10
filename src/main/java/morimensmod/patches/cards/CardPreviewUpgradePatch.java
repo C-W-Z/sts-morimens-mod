@@ -1,5 +1,6 @@
 package morimensmod.patches.cards;
 
+import static morimensmod.MorimensMod.isShionModLoaded;
 import static morimensmod.MorimensMod.makeID;
 
 import com.badlogic.gdx.graphics.Color;
@@ -47,6 +48,8 @@ public class CardPreviewUpgradePatch {
     public static class UpgradeNumResetPatch {
         @SpirePrefixPatch
         public static void Patch(SingleCardViewPopup __instance, SpriteBatch sb) {
+            if (isShionModLoaded)
+                return;
             if (!SingleCardViewPopup.isViewingUpgrade)
                 upgradeNum = 1;
         }
@@ -56,6 +59,8 @@ public class CardPreviewUpgradePatch {
     public static class UpdateHitBox {
         @SpirePrefixPatch
         public static void Patch(SingleCardViewPopup __instance) {
+            if (isShionModLoaded)
+                return;
             if (!SingleCardViewPopup.isViewingUpgrade || !copyCanUpgradeMuti)
                 return;
             if (upgradeNum > 1 && upgradeHbL != null) {
@@ -96,6 +101,8 @@ public class CardPreviewUpgradePatch {
     public static class RenderHitbox {
         @SpirePrefixPatch
         public static void Patch(SingleCardViewPopup __instance, SpriteBatch sb) {
+            if (isShionModLoaded)
+                return;
             if (!SingleCardViewPopup.isViewingUpgrade || !copyCanUpgradeMuti)
                 return;
             FontHelper.renderFontCentered(
@@ -159,6 +166,8 @@ public class CardPreviewUpgradePatch {
     public static class OpenPatch1 {
         @SpirePrefixPatch
         public static void Patch(SingleCardViewPopup __instance, AbstractCard card, CardGroup group) {
+            if (isShionModLoaded)
+                return;
             upgradeHbL.move(Settings.WIDTH / 2.0F - 460.0F * Settings.scale, 70.0F * Settings.scale);
             upgradeHbR.move(Settings.WIDTH / 2.0F - 360.0F * Settings.scale, 70.0F * Settings.scale);
         }
@@ -168,6 +177,8 @@ public class CardPreviewUpgradePatch {
     public static class OpenPatch2 {
         @SpirePrefixPatch
         public static void Patch(SingleCardViewPopup __instance, AbstractCard card) {
+            if (isShionModLoaded)
+                return;
             upgradeHbL.move(Settings.WIDTH / 2.0F - 460.0F * Settings.scale, 70.0F * Settings.scale);
             upgradeHbR.move(Settings.WIDTH / 2.0F - 360.0F * Settings.scale, 70.0F * Settings.scale);
         }
@@ -177,6 +188,8 @@ public class CardPreviewUpgradePatch {
     public static class UpgradeCardPatch {
         @SpireInsertPatch(locator = Locator.class)
         public static void Patch(SingleCardViewPopup __instance, SpriteBatch sb, AbstractCard ___card) {
+            if (isShionModLoaded)
+                return;
             copyCanUpgradeMuti = ___card.canUpgrade();
             for (int i = 0; i < upgradeNum - 1; i++)
                 ___card.upgrade();
@@ -195,7 +208,10 @@ public class CardPreviewUpgradePatch {
     @SpirePatch2(clz = SingleCardViewPopup.class, method = "updateInput")
     public static class UpdateInputPatch {
         @SpireInsertPatch(locator = Locator.class)
-        public static SpireReturn<Void> Patch(SingleCardViewPopup __instance, AbstractCard ___prevCard, AbstractCard ___nextCard) {
+        public static SpireReturn<Void> Patch(SingleCardViewPopup __instance, AbstractCard ___prevCard,
+                AbstractCard ___nextCard) {
+            if (isShionModLoaded)
+                return SpireReturn.Continue();
             // 用這段code取代掉原本的code
             boolean clickToClose = checkClickToClose();
             if (clickToClose)
