@@ -22,12 +22,22 @@ public class SceneBG {
 
     private static final Image[] VALUES = Image.values();
 
-    public static Image DEFAULT = Image.Random;
-    public static Image currentImage;
-    public static Texture texture;
+    public static final Image DEFAULT = Image.Random;
+    protected static Image currentImage;
+    protected static Texture texture;
 
     static {
         setBG(DEFAULT);
+    }
+
+    public static Image getRandomImage() {
+        return VALUES[AbstractDungeon.miscRng.random(1, VALUES.length - 1)];
+    }
+
+    public static Texture getBGTexture() {
+        if (currentImage == Image.Random)
+            setRandomBG();
+        return texture;
     }
 
     public static void setBG(Image image) {
@@ -36,6 +46,6 @@ public class SceneBG {
     }
 
     public static void setRandomBG() {
-        setBG(VALUES[AbstractDungeon.miscRng.random(1, VALUES.length)]);
+        setBG(getRandomImage());
     }
 }
