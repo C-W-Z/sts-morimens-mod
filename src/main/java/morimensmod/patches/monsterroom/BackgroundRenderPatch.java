@@ -66,9 +66,9 @@ public class BackgroundRenderPatch {
         float imgH = SceneBG.getBGTexture().getHeight();
 
         float scaleX = screenW / imgW;
-        // float scaleY = screenH / imgH;
-        // 原本的scaleY = screenH / imgH，但現在我們用讓下半部60%高度覆蓋螢幕的scale
-        float scaleY = screenH / (imgH * 0.6f);
+        float scaleY = screenH / imgH;
+        // 原本的scaleY = screenH / imgH，但現在我們用讓下半部80%高度覆蓋螢幕的scale
+        // float scaleY = screenH / (imgH * 0.8f);
 
         float coverScale = Math.max(scaleX, scaleY);
 
@@ -78,8 +78,7 @@ public class BackgroundRenderPatch {
         // 中心對齊
         float drawX = (screenW - scaledW) / 2f;
         // float drawY = (screenH - scaledH) / 2f;
-        // 計算 Y 座標，讓圖片底部對齊畫面底部，且下半部60%填滿畫面
-        // 因為圖片底部座標是 drawY，所以要把圖片整張往上移動 (scaledH - screenH)
+        // 圖片底部對齊螢幕底部
         float drawY = 0;
 
         sb.draw(SceneBG.getBGTexture(), drawX, drawY, scaledW, scaledH);
