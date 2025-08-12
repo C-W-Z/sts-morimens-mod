@@ -11,13 +11,16 @@ public class SceneBG {
 
     public enum Image {
         Random,
-        CourtYard,
+        RandomBoss,
+        /* BOSS BG */
         WeeklyDream02,
         WeeklyDream03,
+        YardRedMoon,
+        /* NORMAL BG */
+        CourtYard,
         Woods,
         WoodsNight,
         YardNight,
-        YardRedMoon,
     }
 
     private static final Image[] VALUES = Image.values();
@@ -30,13 +33,17 @@ public class SceneBG {
         setBG(DEFAULT);
     }
 
-    public static Image getRandomImage() {
-        return VALUES[AbstractDungeon.miscRng.random(1, VALUES.length - 1)];
+    public static Image getRandomImage(boolean isBoss) {
+        if (isBoss)
+            return VALUES[AbstractDungeon.miscRng.random(2, 4)];
+        return VALUES[AbstractDungeon.miscRng.random(5, VALUES.length - 1)];
     }
 
     public static Texture getBGTexture() {
         if (currentImage == Image.Random)
-            setRandomBG();
+            setRandomBG(false);
+        else if (currentImage == Image.RandomBoss)
+            setRandomBG(true);
         return texture;
     }
 
@@ -45,7 +52,7 @@ public class SceneBG {
         texture = TexLoader.getTexture(makeUIPath("scenebg/" + image.name() + ".png"));
     }
 
-    public static void setRandomBG() {
-        setBG(getRandomImage());
+    public static void setRandomBG(boolean isBoss) {
+        setBG(getRandomImage(isBoss));
     }
 }

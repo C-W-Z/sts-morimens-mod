@@ -140,23 +140,28 @@ public class MonsterLib {
 
         bosses.put(LotanBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new LotanBoss(0, 0, LotanBoss.LVL.MEDIUM)
-        }, TheCity.ID).setMapIcons(makeCharacterPath(removeModID(Lotan.ID) + "/MapIcon.png")));
+        }, TheCity.ID).setBG(SceneBG.Image.RandomBoss)
+                .setMapIcons(makeCharacterPath(removeModID(Lotan.ID) + "/MapIcon.png")));
 
         bosses.put(LeighBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new LeighBoss(0, 0)
-        }, TheCity.ID).setMapIcons(makeCharacterPath(removeModID(LeighBoss.LeighID) + "/MapIcon.png")));
+        }, TheCity.ID).setBG(SceneBG.Image.RandomBoss)
+                .setMapIcons(makeCharacterPath(removeModID(LeighBoss.LeighID) + "/MapIcon.png")));
 
         bosses.put(HelotBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new HelotBoss(0, 0)
-        }, TheBeyond.ID).setMapIcons(makeCharacterPath(removeModID(HelotBoss.HelotID) + "/MapIcon.png")));
+        }, TheBeyond.ID).setBG(SceneBG.Image.RandomBoss)
+                .setMapIcons(makeCharacterPath(removeModID(HelotBoss.HelotID) + "/MapIcon.png")));
 
         bosses.put(LotanBoss.ID + LotanBoss.LVL.HARD.name(), new MonsterEncounter(() -> new AbstractMonster[] {
                 new LotanBoss(0, 0, LotanBoss.LVL.HARD)
-        }, TheBeyond.ID).setMapIcons(makeCharacterPath(removeModID(Lotan.ID) + "/MapIcon.png")));
+        }, TheBeyond.ID).setBG(SceneBG.Image.RandomBoss)
+                .setMapIcons(makeCharacterPath(removeModID(Lotan.ID) + "/MapIcon.png")));
 
         bosses.put(CasiahBoss.ID, new MonsterEncounter(() -> new AbstractMonster[] {
                 new CasiahBoss(75, 0)
-        }, TheBeyond.ID).setMapIcons(makeCharacterPath(removeModID(CasiahBoss.CasiahID) + "/MapIcon.png")));
+        }, TheBeyond.ID).setBG(SceneBG.Image.RandomBoss)
+                .setMapIcons(makeCharacterPath(removeModID(CasiahBoss.CasiahID) + "/MapIcon.png")));
     }
 
     public static void register() {

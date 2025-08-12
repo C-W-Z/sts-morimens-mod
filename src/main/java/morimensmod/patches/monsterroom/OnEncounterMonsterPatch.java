@@ -34,7 +34,7 @@ public class OnEncounterMonsterPatch {
                 encounter = MonsterLib.strongEncounters.get(key);
             if (encounter == null) {
                 logger.warn("monsterKey " + key + " NOT FOUND in MonsterLib");
-                SceneBG.setRandomBG();
+                SceneBG.setRandomBG(false);
                 return;
             }
 
@@ -60,7 +60,7 @@ public class OnEncounterMonsterPatch {
             MonsterLib.MonsterEncounter encounter = MonsterLib.eliteEncounters.get(key);
             if (encounter == null) {
                 logger.warn("eliteKey " + key + " NOT FOUND in MonsterLib");
-                SceneBG.setRandomBG();
+                SceneBG.setRandomBG(false);
                 return;
             }
 
@@ -86,7 +86,7 @@ public class OnEncounterMonsterPatch {
             MonsterLib.MonsterEncounter encounter = MonsterLib.bosses.get(key);
             if (encounter == null) {
                 logger.warn("bossKey " + key + " NOT FOUND in MonsterLib");
-                SceneBG.setRandomBG();
+                SceneBG.setRandomBG(true);
                 return;
             }
 
