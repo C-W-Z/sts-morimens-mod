@@ -81,11 +81,12 @@ public class MorimensMod implements
 
     public static ModInfo info;
     public static String modID;
-
-    public static boolean isShionModLoaded;
+    public static final boolean isShionModLoaded;
 
     static {
         loadModInfo();
+        isShionModLoaded = Loader.isModLoadedOrSideloaded("VUPShionMod");
+        logger.info("Shion Mod " + (isShionModLoaded ? "is loaded" : "is NOT loaded"));
     }
 
     public static final String makeID(String idText) {
@@ -420,8 +421,6 @@ public class MorimensMod implements
         MonsterLib.register();
 
         RewardLib.register();
-
-        checkCompatibility();
     }
 
     public static ArrayList<AbstractCard> lastTurnCardsPlayed = new ArrayList<>();
@@ -476,9 +475,5 @@ public class MorimensMod implements
         if (monster.hasPower(ImmunePower.POWER_ID))
             return ImmunePower.onPreMonsterTurn(monster);
         return true;
-    }
-
-    public static void checkCompatibility() {
-        isShionModLoaded = Loader.isModLoadedOrSideloaded("VUPShionMod");
     }
 }
