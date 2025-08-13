@@ -7,83 +7,48 @@ import basemod.ReflectionHacks;
 import basemod.patches.com.megacrit.cardcrawl.screens.mainMenu.ColorTabBar.ColorTabBarFix;
 import basemod.patches.com.megacrit.cardcrawl.screens.mainMenu.ColorTabBar.ColorTabBarFix.ModColorTab;
 
+import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
 import com.megacrit.cardcrawl.screens.mainMenu.TabBarListener;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
 import morimensmod.patches.enums.ColorPatch.CardColorPatch;
 
 @SpirePatch2(clz = ColorTabBarFix.Ctor.class, method = "Postfix")
 public class TabOrderPatch {
+
+    public static final List<CardColor> orderedColors = Arrays.asList(
+            CardColorPatch.POSSE_COLOR,
+            CardColorPatch.CHAOS_COLOR,
+            CardColorPatch.AEQUOR_COLOR,
+            CardColorPatch.CARO_COLOR,
+            CardColorPatch.ULTRA_COLOR,
+            CardColorPatch.DERIVATIVE_COLOR,
+            CardColorPatch.WHEEL_OF_DESTINY_COLOR,
+            CardColorPatch.BUFF_COLOR,
+            CardColorPatch.SYMPTOM_COLOR,
+            CardColorPatch.STATUS_COLOR
+    );
 
     @SpirePostfixPatch
     public static void Postfix(TabBarListener delegate) {
         ArrayList<ModColorTab> modTabs = ReflectionHacks
                 .getPrivateStatic(ColorTabBarFix.Fields.class, "modTabs");
 
-        ArrayList<ModColorTab> newButton = new ArrayList<>();
-
-        for (ModColorTab button : modTabs)
-            if (button.color == CardColorPatch.POSSE_COLOR) {
-                newButton.add(button);
-                break;
-            }
-
-        for (ModColorTab button : modTabs)
-            if (button.color == CardColorPatch.CHAOS_COLOR) {
-                newButton.add(button);
-                break;
-            }
-
-        for (ModColorTab button : modTabs)
-            if (button.color == CardColorPatch.AEQUOR_COLOR) {
-                newButton.add(button);
-                break;
-            }
-
-        for (ModColorTab button : modTabs)
-            if (button.color == CardColorPatch.CARO_COLOR) {
-                newButton.add(button);
-                break;
-            }
-
-        for (ModColorTab button : modTabs)
-            if (button.color == CardColorPatch.ULTRA_COLOR) {
-                newButton.add(button);
-                break;
-            }
-
-        for (ModColorTab button : modTabs)
-            if (button.color == CardColorPatch.DERIVATIVE_COLOR) {
-                newButton.add(button);
-                break;
-            }
-
-        for (ModColorTab button : modTabs)
-            if (button.color == CardColorPatch.WHEEL_OF_DESTINY_COLOR) {
-                newButton.add(button);
-                break;
-            }
-
-        for (ModColorTab button : modTabs)
-            if (button.color == CardColorPatch.BUFF_COLOR) {
-                newButton.add(button);
-                break;
-            }
-
-        for (ModColorTab button : modTabs)
-            if (button.color == CardColorPatch.SYMPTOM_COLOR) {
-                newButton.add(button);
-                break;
-            }
-
-        for (ModColorTab button : modTabs)
-            if (button.color == CardColorPatch.STATUS_COLOR) {
-                newButton.add(button);
-                break;
-            }
+        // 依順序抽出對應 tab
+        List<ModColorTab> newButton = orderedColors.stream()
+                .map(color -> modTabs.stream()
+                        .filter(button -> button.color == color)
+                        .findFirst()
+                        .orElse(null))
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
 
         modTabs.removeIf(button -> CardColorPatch.isMorimensModCardColor(button.color));
         modTabs.addAll(0, newButton);
-        newButton.clear();
     }
 
     // @SpirePatch(clz = MasterDeckSortHeader.class, method = "render")

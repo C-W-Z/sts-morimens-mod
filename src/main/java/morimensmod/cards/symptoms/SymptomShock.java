@@ -15,6 +15,7 @@ public class SymptomShock extends AbstractSymptomCard {
 
     public SymptomShock() {
         super(ID, 1, CardTarget.SELF);
+        sortIndex = 11;
         magicNumber = baseMagicNumber = 4;
         secondMagic = baseSecondMagic = 2;
     }

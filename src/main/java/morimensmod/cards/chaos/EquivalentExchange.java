@@ -17,7 +17,7 @@ public class EquivalentExchange extends AbstractEasyCard {
     public final static String ID = makeID(EquivalentExchange.class.getSimpleName());
 
     public EquivalentExchange() {
-        super(ID, CardImgID.DollSkill, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR, CardImgID.Doll.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.HEALING);
         heal = baseHeal = 4;

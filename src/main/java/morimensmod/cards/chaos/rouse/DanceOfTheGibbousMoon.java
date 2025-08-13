@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractRouseCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.cards.buffs.MarvelousCuisine;
 import morimensmod.powers.rouse.DanceOfTheGibbousMoonPower;
 
@@ -15,7 +16,7 @@ public class DanceOfTheGibbousMoon extends AbstractRouseCard {
     public final static String ID = makeID(DanceOfTheGibbousMoon.class.getSimpleName());
 
     public DanceOfTheGibbousMoon() {
-        super(ID, 2, CardRarity.UNCOMMON, CHAOS_COLOR);
+        super(ID, 2, CardRarity.UNCOMMON, CHAOS_COLOR, CardImgID.Karen.ID);
         magicNumber = baseMagicNumber = DanceOfTheGibbousMoonPower.PER_N_CARD;
         heal = baseHeal = DanceOfTheGibbousMoonPower.HEAL_PER_AMOUNT;
         secondMagic = baseSecondMagic = DanceOfTheGibbousMoonPower.ALIEMUS_PER_AMOUNT;

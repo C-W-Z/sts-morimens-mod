@@ -152,6 +152,8 @@ public class PosseSelectUI implements ISubscriber {
     }
 
     public void render(SpriteBatch sb) {
+        sb.setColor(Color.WHITE);
+
         renderCard(sb, CENTER_X, CENTER_Y);
 
         // FontHelper.renderFontCentered(sb, FontHelper.cardTitleFont,

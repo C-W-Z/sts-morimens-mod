@@ -21,7 +21,7 @@ public class NoTrespassing extends AbstractEasyCard {
     public final static String ID = makeID(NoTrespassing.class.getSimpleName());
 
     public NoTrespassing() {
-        super(ID, CardImgID.NautilaSkill, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR, CardImgID.Nautila.ID);
         tags.add(CustomTags.COMMAND);
         block = baseBlock = 15;
         magicNumber = baseMagicNumber = 5; // 反擊

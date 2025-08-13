@@ -20,7 +20,7 @@ public class InsightStrike extends AbstractEasyCard {
     public final static String ID = makeID(InsightStrike.class.getSimpleName());
 
     public InsightStrike() {
-        super(ID, CardImgID.AlvaAttack, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.NONE, CHAOS_COLOR);
+        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.NONE, CHAOS_COLOR, CardImgID.Alva.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STRIKE);
         damage = baseDamage = 4;

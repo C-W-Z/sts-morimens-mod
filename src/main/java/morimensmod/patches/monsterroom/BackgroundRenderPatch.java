@@ -62,11 +62,13 @@ public class BackgroundRenderPatch {
         float screenW = Settings.WIDTH;
         float screenH = Settings.HEIGHT;
 
-        float imgW = SceneBG.texture.getWidth();
-        float imgH = SceneBG.texture.getHeight();
+        float imgW = SceneBG.getBGTexture().getWidth();
+        float imgH = SceneBG.getBGTexture().getHeight();
 
         float scaleX = screenW / imgW;
         float scaleY = screenH / imgH;
+        // 原本的scaleY = screenH / imgH，但現在我們用讓下半部80%高度覆蓋螢幕的scale
+        // float scaleY = screenH / (imgH * 0.8f);
 
         float coverScale = Math.max(scaleX, scaleY);
 
@@ -75,8 +77,10 @@ public class BackgroundRenderPatch {
 
         // 中心對齊
         float drawX = (screenW - scaledW) / 2f;
-        float drawY = (screenH - scaledH) / 2f;
+        // float drawY = (screenH - scaledH) / 2f;
+        // 圖片底部對齊螢幕底部
+        float drawY = 0;
 
-        sb.draw(SceneBG.texture, drawX, drawY, scaledW, scaledH);
+        sb.draw(SceneBG.getBGTexture(), drawX, drawY, scaledW, scaledH);
     }
 }

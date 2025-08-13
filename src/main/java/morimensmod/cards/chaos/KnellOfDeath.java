@@ -23,7 +23,7 @@ public class KnellOfDeath extends AbstractEasyCard {
     public final static String ID = makeID(KnellOfDeath.class.getSimpleName());
 
     public KnellOfDeath() {
-        super(ID, CardImgID.NymphaeaSkill, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
+        super(ID, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR, CardImgID.Nymphaea.ID);
         tags.add(CustomTags.COMMAND);
         magicNumber = baseMagicNumber = 8; // 中毒
         secondMagic = baseSecondMagic = 2; // 2倍自身中毒加成

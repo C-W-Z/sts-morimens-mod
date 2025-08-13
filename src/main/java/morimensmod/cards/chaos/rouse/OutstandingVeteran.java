@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 
 import morimensmod.cards.AbstractRouseCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.powers.rouse.OutstandingVeteranPower;
 
 import static morimensmod.MorimensMod.makeID;
@@ -15,7 +16,7 @@ public class OutstandingVeteran extends AbstractRouseCard {
     public final static String ID = makeID(OutstandingVeteran.class.getSimpleName());
 
     public OutstandingVeteran() {
-        super(ID, 2, CardRarity.RARE, CHAOS_COLOR);
+        super(ID, 2, CardRarity.RARE, CHAOS_COLOR, CardImgID.Alva.ID);
         magicNumber = baseMagicNumber = 1; // 敏捷
         secondMagic = baseSecondMagic = 1; // 一倍格擋加成
     }

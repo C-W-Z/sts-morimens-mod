@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractRouseCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.powers.rouse.DrowningInSorrowPower;
 
 import static morimensmod.MorimensMod.makeID;
@@ -14,7 +15,7 @@ public class DrowningInSorrow extends AbstractRouseCard {
     public final static String ID = makeID(DrowningInSorrow.class.getSimpleName());
 
     public DrowningInSorrow() {
-        super(ID, 1, CardRarity.UNCOMMON, CHAOS_COLOR);
+        super(ID, 1, CardRarity.UNCOMMON, CHAOS_COLOR, CardImgID.Nymphaea.ID);
         magicNumber = baseMagicNumber = DrowningInSorrowPower.POISON_PER_AMOUNT; // 每回合施加中毒
         secondMagic = baseSecondMagic = DrowningInSorrowPower.POISON_ALIEMUS_SCALE_PER_AMOUNT; // 狂氣倍數 only for display
     }

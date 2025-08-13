@@ -14,6 +14,7 @@ public class SymptomDespondency extends AbstractSymptomCard {
 
     public SymptomDespondency() {
         super(ID, 1, CardTarget.SELF);
+        sortIndex = 10;
         magicNumber = baseMagicNumber = 10;
         aliemus = baseAliemus = 5;
     }

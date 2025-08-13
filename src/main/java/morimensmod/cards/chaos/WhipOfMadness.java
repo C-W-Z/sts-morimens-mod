@@ -24,7 +24,7 @@ public class WhipOfMadness extends AbstractEasyCard {
     public final static String ID = makeID(WhipOfMadness.class.getSimpleName());
 
     public WhipOfMadness() {
-        super(ID, CardImgID.PandiaAttack, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR);
+        super(ID, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY, CHAOS_COLOR, CardImgID.Pandia.ID);
         tags.add(CustomTags.COMMAND);
         damageType = DamageType.NORMAL;
         damage = baseDamage = 6;

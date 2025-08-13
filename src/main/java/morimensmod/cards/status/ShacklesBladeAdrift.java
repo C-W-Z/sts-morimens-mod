@@ -16,6 +16,7 @@ public class ShacklesBladeAdrift extends AbstractStatusCard {
 
     public ShacklesBladeAdrift() {
         super(ID, 0, CardRarity.SPECIAL, CardTarget.SELF);
+        sortIndex = 2004;
         magicNumber = baseMagicNumber = 5;
         secondMagic = baseSecondMagic = 3;
         exhaust = true;

@@ -3,6 +3,10 @@ package morimensmod.util;
 import static morimensmod.MorimensMod.modID;
 
 public class General {
+    public static final boolean isNullOrEmpty(String s) {
+        return s == null || s.isEmpty();
+    }
+
     public static final String arrToString(String[] arr) {
         return arr == null ? "" : String.join(", ", arr);
     }

@@ -15,6 +15,7 @@ public class Suffocation extends AbstractStatusCard {
 
     public Suffocation() {
         this(DEFAULT_POISON);
+        sortIndex = 10;
     }
 
     public Suffocation(int poison) {

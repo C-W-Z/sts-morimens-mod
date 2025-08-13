@@ -14,13 +14,14 @@ import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 
 public class LawOfTheStrongest extends AbstractEasyCard {
     public final static String ID = makeID(LawOfTheStrongest.class.getSimpleName());
 
     public LawOfTheStrongest() {
-        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.ALL, AEQUOR_COLOR);
+        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.ALL, AEQUOR_COLOR, CardImgID.Goliath.ID);
         tags.add(CustomTags.COMMAND);
         magicNumber = baseMagicNumber = 1; // 永力
     }

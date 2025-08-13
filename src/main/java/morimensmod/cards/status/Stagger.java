@@ -9,6 +9,7 @@ public class Stagger extends AbstractStatusCard {
 
     public Stagger() {
         super(ID, 2, CardRarity.COMMON, CardTarget.NONE);
+        sortIndex = 3;
         exhaust = true;
     }
 

@@ -17,6 +17,7 @@ public class VoicesInYourHead extends AbstractPosse {
 
     public VoicesInYourHead() {
         super(ID);
+        posseIndex = 0;
         // only for display
         magicNumber = baseMagicNumber = 1; // debuff amount
         secondMagic = baseSecondMagic = 1; // steal STR

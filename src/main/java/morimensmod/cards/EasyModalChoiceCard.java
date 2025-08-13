@@ -13,19 +13,28 @@ public class EasyModalChoiceCard extends AbstractEasyCard {
     private String passedName;
     private String passedDesc;
 
-    public EasyModalChoiceCard(String cardID, String cardImgID, String name, String description,
-            Runnable onUseOrChosen) {
-        this(cardID, cardImgID, name, description, onUseOrChosen, CardColor.COLORLESS, new CardTags[] {});
+    // public EasyModalChoiceCard(String cardID, String name, String description, Runnable onUseOrChosen) {
+    //     this(cardID, null, name, description, onUseOrChosen, CardColor.COLORLESS, null, new CardTags[] {});
+    // }
+
+    // public EasyModalChoiceCard(String cardID, String name, String description, Runnable onUseOrChosen,
+    //         CardColor color, CardTags tag) {
+    //     this(cardID, null, name, description, onUseOrChosen, color, null, new CardTags[] { tag });
+    // }
+
+    public EasyModalChoiceCard(String cardID, String cardImgID, String name, String description, Runnable onUseOrChosen,
+            CardColor color, String cardOwner, CardTags tag) {
+        this(cardID, cardImgID, name, description, onUseOrChosen, color, cardOwner, new CardTags[] { tag });
     }
 
     public EasyModalChoiceCard(String cardID, String cardImgID, String name, String description, Runnable onUseOrChosen,
-            CardColor color, CardTags tag) {
-        this(cardID, cardImgID, name, description, onUseOrChosen, color, new CardTags[] { tag });
+            CardColor color, String cardOwner) {
+        this(cardID, cardImgID, name, description, onUseOrChosen, color, cardOwner, new CardTags[] {});
     }
 
     public EasyModalChoiceCard(String cardID, String cardImgID, String name, String description, Runnable onUseOrChosen,
-            CardColor color, CardTags[] tags) {
-        super(cardID, cardImgID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, color);
+            CardColor color, String cardOwner, CardTags[] tags) {
+        super(cardID, cardImgID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, color, cardOwner);
         if (tags != null)
             for (CardTags t : tags)
                 this.tags.add(t);
@@ -61,7 +70,7 @@ public class EasyModalChoiceCard extends AbstractEasyCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return new EasyModalChoiceCard(cardID, cardImgID, passedName, passedDesc, onUseOrChosen, color,
-                this.tags.toArray(new CardTags[this.tags.size()]));
+        return new EasyModalChoiceCard(cardID, signatureImgID, passedName, passedDesc, onUseOrChosen, color,
+                cardOwner, this.tags.toArray(new CardTags[this.tags.size()]));
     }
 }

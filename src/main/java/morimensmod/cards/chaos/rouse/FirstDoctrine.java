@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractRouseCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.powers.rouse.FirstDoctrinePower;
 
 import static morimensmod.MorimensMod.makeID;
@@ -14,7 +15,7 @@ public class FirstDoctrine extends AbstractRouseCard {
     public final static String ID = makeID(FirstDoctrine.class.getSimpleName());
 
     public FirstDoctrine() {
-        super(ID, 3, CardRarity.UNCOMMON, CHAOS_COLOR);
+        super(ID, 3, CardRarity.UNCOMMON, CHAOS_COLOR, CardImgID.Ramona.ID);
         magicNumber = baseMagicNumber = 1; // 每次獲得的能量
         secondMagic = baseSecondMagic = 3; // 每回合最大觸發次數 only for display
     }

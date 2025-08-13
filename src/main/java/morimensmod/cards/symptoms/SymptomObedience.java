@@ -13,6 +13,7 @@ public class SymptomObedience extends AbstractSymptomCard {
 
     public SymptomObedience() {
         super(ID, 1, CardTarget.NONE);
+        sortIndex = 13;
         magicNumber = baseMagicNumber = 1;
         selfRetain = true;
     }

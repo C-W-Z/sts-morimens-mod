@@ -17,6 +17,7 @@ public class Unrestrained extends AbstractStatusCard {
 
     public Unrestrained() {
         super(ID, 0, CardRarity.COMMON, CardTarget.ALL_ENEMY);
+        sortIndex = 110;
         tags.add(CustomTags.RETAIN_IN_DECK);
         magicNumber = baseMagicNumber = 2; // 獲得臨時力量
         secondMagic = baseSecondMagic = 2; // 敵人獲得臨時力量

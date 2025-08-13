@@ -15,6 +15,7 @@ public class ObsessionEternal extends AbstractPosse {
 
     public ObsessionEternal() {
         super(ID);
+        posseIndex = 6;
     }
 
     @Override

@@ -2,6 +2,7 @@ package morimensmod.cards.posses;
 
 import static morimensmod.patches.enums.ColorPatch.CardColorPatch.POSSE_COLOR;
 
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -13,6 +14,8 @@ import morimensmod.misc.PosseType;
 import morimensmod.patches.enums.CustomTags;
 
 public abstract class AbstractPosse extends AbstractEasyCard {
+
+    protected int posseIndex = 100;
 
     protected AbstractPlayer awaker;
     protected PosseType type;
@@ -77,5 +80,12 @@ public abstract class AbstractPosse extends AbstractEasyCard {
 
     public boolean isAwakenerOnly() {
         return false;
+    }
+
+    @Override
+    public int compareTo(AbstractCard other) {
+        if (!(other instanceof AbstractPosse))
+            return super.compareTo(other);
+        return posseIndex - ((AbstractPosse)other).posseIndex;
     }
 }

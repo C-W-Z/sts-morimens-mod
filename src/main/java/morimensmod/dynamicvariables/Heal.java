@@ -1,4 +1,4 @@
-package morimensmod.cards.cardvars;
+package morimensmod.dynamicvariables;
 
 import static morimensmod.MorimensMod.makeID;
 
@@ -15,16 +15,15 @@ public class Heal extends AbstractEasyDynamicVariable {
 
     @Override
     public boolean isModified(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).isHealModified;
-        }
-        return false;
+        if (!(card instanceof AbstractEasyCard))
+            return false;
+        return ((AbstractEasyCard) card).isHealModified;
     }
 
     public void setIsModified(AbstractCard card, boolean v) {
-        if (card instanceof AbstractEasyCard) {
-            ((AbstractEasyCard) card).isHealModified = v;
-        }
+        if (!(card instanceof AbstractEasyCard))
+            return;
+        ((AbstractEasyCard) card).isHealModified = v;
     }
 
     @Override
@@ -39,9 +38,8 @@ public class Heal extends AbstractEasyDynamicVariable {
 
     @Override
     public boolean upgraded(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).upgradedHeal;
-        }
-        return false;
+        if (!(card instanceof AbstractEasyCard))
+            return false;
+        return ((AbstractEasyCard) card).upgradedHeal;
     }
 }

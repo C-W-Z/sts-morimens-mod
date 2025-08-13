@@ -15,7 +15,7 @@ public class ShortTermMemory extends AbstractEasyCard {
     public final static String ID = makeID(ShortTermMemory.class.getSimpleName());
 
     public ShortTermMemory() {
-        super(ID, CardImgID.NautilaSkill, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF, CHAOS_COLOR, CardImgID.Nautila.ID);
         tags.add(CustomTags.COMMAND);
         block = baseBlock = 4;
         aliemus = baseAliemus = 10;

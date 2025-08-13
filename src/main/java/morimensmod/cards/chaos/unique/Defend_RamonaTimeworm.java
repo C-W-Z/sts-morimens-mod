@@ -24,7 +24,7 @@ public class Defend_RamonaTimeworm extends AbstractEasyCard {
     public final static String ID = makeID(Defend_RamonaTimeworm.class.getSimpleName());
 
     public Defend_RamonaTimeworm() {
-        super(ID, CardImgID.RamonaTimewormSkill, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF, CHAOS_COLOR, CardImgID.RamonaTimeworm.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CustomTags.DEFEND);
         tags.add(CardTags.STARTER_DEFEND);

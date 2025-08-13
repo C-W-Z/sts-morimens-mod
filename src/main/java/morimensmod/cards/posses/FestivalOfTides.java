@@ -13,6 +13,7 @@ public class FestivalOfTides extends AbstractPosse {
 
     public FestivalOfTides() {
         super(ID);
+        posseIndex = 3001;
     }
 
     @Override

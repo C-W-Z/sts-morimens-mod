@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import morimensmod.actions.MoveFromDrawPileAndChangeCostAction;
 import morimensmod.actions.MundusDecreeAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 import morimensmod.powers.NegentropyPower;
 
@@ -20,7 +21,7 @@ public class SightUnbound extends AbstractEasyCard {
     public final static String ID = makeID(SightUnbound.class.getSimpleName());
 
     public SightUnbound() {
-        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF, CHAOS_COLOR, CardImgID.RamonaTimeworm.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CustomTags.LOOP);
         magicNumber = baseMagicNumber = 1; // 力量

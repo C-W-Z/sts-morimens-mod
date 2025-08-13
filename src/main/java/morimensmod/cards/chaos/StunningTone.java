@@ -17,7 +17,7 @@ public class StunningTone extends AbstractEasyCard {
     public final static String ID = makeID(StunningTone.class.getSimpleName());
 
     public StunningTone() {
-        super(ID, CardImgID.HamelnAttack, 4, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, CHAOS_COLOR);
+        super(ID, 4, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY, CHAOS_COLOR, CardImgID.Hameln.ID);
         tags.add(CustomTags.COMMAND);
         damage = baseDamage = 35;
         attackCount = baseAttackCount = 1;

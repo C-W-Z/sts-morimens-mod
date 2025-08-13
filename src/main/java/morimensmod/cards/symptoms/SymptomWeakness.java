@@ -16,6 +16,7 @@ public class SymptomWeakness extends AbstractSymptomCard {
 
     public SymptomWeakness() {
         super(ID, 1, CardTarget.ALL_ENEMY);
+        sortIndex = 4;
         tags.add(CustomTags.UNREMOVABLE_IN_SHOP);
         magicNumber = baseMagicNumber = 1;
     }

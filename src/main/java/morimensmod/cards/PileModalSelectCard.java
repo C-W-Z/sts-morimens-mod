@@ -6,6 +6,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+/**
+ * @deprecated
+ */
+@Deprecated
 @AutoAdd.Ignore
 public class PileModalSelectCard extends AbstractEasyCard {
 
@@ -13,7 +17,7 @@ public class PileModalSelectCard extends AbstractEasyCard {
 
     public static String getCardImgID(AbstractCard card) {
         if (card instanceof AbstractEasyCard)
-            return ((AbstractEasyCard) card).cardImgID;
+            return ((AbstractEasyCard) card).signatureImgID;
         return card.cardID;
     }
 

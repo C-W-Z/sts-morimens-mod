@@ -12,6 +12,7 @@ public class WardedInjection extends AbstractPosse {
 
     public WardedInjection() {
         super(ID);
+        posseIndex = 4;
     }
 
     @Override

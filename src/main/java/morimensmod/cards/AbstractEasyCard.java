@@ -34,7 +34,9 @@ import java.util.function.Consumer;
 public abstract class AbstractEasyCard extends CustomCard {
 
     protected final CardStrings cardStrings;
-    public String cardImgID;
+    protected String finalSignaturePath;
+    public String signatureImgID;
+    public String cardOwner = null; // 是哪個角色的牌
 
     public int secondMagic;
     public int baseSecondMagic;
@@ -80,12 +82,13 @@ public abstract class AbstractEasyCard extends CustomCard {
 
     public int prepare = 0;
 
-    public AbstractEasyCard(final String cardID, final String cardImgID, final int cost, final CardType type, final CardRarity rarity,
-            final CardTarget target, final CardColor color) {
-        super(cardID, "", getCardTextureString(removeModID(cardImgID), type),
+    public AbstractEasyCard(final String cardID, final String signatureImgID, final int cost, final CardType type, final CardRarity rarity,
+            final CardTarget target, final CardColor color, String cardOwner) {
+        super(cardID, "", getCardTextureString(cardID, cardOwner, type),
                 cost, "", type, color, rarity, target);
+        this.cardOwner = cardOwner;
+        this.signatureImgID = signatureImgID;
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
-        this.cardImgID = cardImgID;
         rawDescription = cardStrings.DESCRIPTION;
         name = originalName = cardStrings.NAME;
         initializeTitle();
@@ -102,8 +105,18 @@ public abstract class AbstractEasyCard extends CustomCard {
     }
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity,
+            final CardTarget target, final CardColor color, String cardOwner) {
+        this(cardID, null, cost, type, rarity, target, color, cardOwner);
+    }
+
+    public AbstractEasyCard(final String cardID, final String signatureImgID, final int cost, final CardType type,
+            final CardRarity rarity, final CardTarget target, final CardColor color) {
+        this(cardID, signatureImgID, cost, type, rarity, target, color, null);
+    }
+
+    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity,
             final CardTarget target, final CardColor color) {
-        this(cardID, cardID, cost, type, rarity, target, color);
+        this(cardID, null, cost, type, rarity, target, color);
     }
 
     @Override
@@ -115,29 +128,93 @@ public abstract class AbstractEasyCard extends CustomCard {
         }
     }
 
-    public static String getCardTextureString(final String cardName, final CardType type) {
-        String textureString = type != CardType.STATUS
-                ? makeImagePath("cards/" + cardName + ".png")
-                : makeImagePath("cards/status.png");
-        FileHandle h = Gdx.files.internal(textureString);
+    public static String getCardTextureString(final String cardID, final String cardOwner, final CardType type) {
+        // 優先級: cardID -> cardOwner + Attack/Skill -> Status -> missing
+        String textureString = "";
+        FileHandle h;
+        if (cardID != null && !cardID.isEmpty()) {
+            textureString = makeImagePath("cards/" + removeModID(cardID) + ".png");
+        }
+        h = Gdx.files.internal(textureString);
+        if (!h.exists())
+            textureString = "";
+        if (textureString.isEmpty() && !isNullOrEmpty(cardOwner)) {
+            switch (type) {
+                case ATTACK:
+                    textureString = makeImagePath("cards/" + CardImgID.makeAttack(removeModID(cardOwner)) + ".png");
+                    break;
+                case SKILL:
+                    textureString = makeImagePath("cards/" + CardImgID.makeSkill(removeModID(cardOwner)) + ".png");
+                default:
+                    break;
+            }
+        }
+        h = Gdx.files.internal(textureString);
         if (!h.exists()) {
-            textureString = makeImagePath("ui/missing.png");
+            textureString = (type == CardType.STATUS)
+                    ? makeImagePath("cards/status.png")
+                    : makeImagePath("ui/missing.png");
         }
         return textureString;
     }
 
     public String getSignatureImgPath() {
-        if (this.textureImg.contains("/cards/"))
-            return CardImgID.removePofix(this.textureImg).replace(".png", "_s.png").replace("/cards/", "/signature/");
+        if (!isNullOrEmpty(signatureImgID)) {
+            finalSignaturePath = makeImagePath("signature/" + removeModID(signatureImgID) + "_s.png");
+            return finalSignaturePath;
+        }
 
-        if (this.textureImg.contains("/card/"))
-            return CardImgID.removePofix(this.textureImg).replace(".png", "_s.png").replace("/card/", "/signature/");
+        String imgUrl = makeImagePath("signature/" + removeModID(cardID) + "_s.png");
+        if (Gdx.files.internal(imgUrl).exists()) {
+            signatureImgID = cardID;
+            finalSignaturePath = imgUrl;
+            return imgUrl;
+        }
 
-        return CardImgID.removePofix(this.textureImg).replace(".png", "_s.png");
+        if (this.textureImg.contains("/cards/")) {
+            finalSignaturePath = CardImgID.removePofix(this.textureImg).replace(".png", "_s.png").replace("/cards/", "/signature/");
+            return finalSignaturePath;
+        }
+
+        if (this.textureImg.contains("/card/")) {
+            finalSignaturePath = CardImgID.removePofix(this.textureImg).replace(".png", "_s.png").replace("/card/", "/signature/");
+            return finalSignaturePath;
+        }
+
+        finalSignaturePath = CardImgID.removePofix(this.textureImg).replace(".png", "_s.png");
+        return finalSignaturePath;
     }
 
     public String getSignaturePortraitImgPath() {
         return this.getSignatureImgPath().replace(".png", "_p.png");
+    }
+
+    @Override
+    public int compareTo(AbstractCard other) {
+        if (!(other instanceof AbstractEasyCard))
+            return super.compareTo(other);
+        String otherOwner = ((AbstractEasyCard) other).cardOwner;
+
+        if (isNullOrEmpty(cardOwner) && isNullOrEmpty(otherOwner))
+            return 0;
+        else if (isNullOrEmpty(cardOwner) && !isNullOrEmpty(otherOwner))
+            return -1;
+        else if (!isNullOrEmpty(cardOwner) && isNullOrEmpty(otherOwner))
+            return 1;
+
+        int ret = cardOwner.compareTo(otherOwner);
+        if (ret != 0)
+            return ret;
+        ret = rarity.compareTo(other.rarity);
+        if (ret != 0)
+            return ret;
+        ret = type.compareTo(other.type);
+        if (ret != 0)
+            return ret;
+        ret = cost - other.cost;
+        if (ret != 0)
+            return ret;
+        return super.compareTo(other);
     }
 
     @Override

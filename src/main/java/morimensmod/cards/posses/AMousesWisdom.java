@@ -10,6 +10,7 @@ public class AMousesWisdom extends AbstractPosse {
 
     public AMousesWisdom() {
         super(ID);
+        posseIndex = 2;
         magicNumber = baseMagicNumber = 3; // energy
     }
 

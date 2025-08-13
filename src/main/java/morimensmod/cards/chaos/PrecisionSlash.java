@@ -22,7 +22,7 @@ public class PrecisionSlash extends AbstractEasyCard {
     public final static String ID = makeID(PrecisionSlash.class.getSimpleName());
 
     public PrecisionSlash() {
-        super(ID, CardImgID.AlvaAttack, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR);
+        super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY, CHAOS_COLOR, CardImgID.Alva.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STRIKE);
         damageType = DamageType.NORMAL; // 必須是normal才能享受力量加成

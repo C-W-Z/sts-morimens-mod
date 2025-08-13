@@ -20,7 +20,7 @@ public class Strike_RamonaTimeworm extends AbstractEasyCard {
     public final static String ID = makeID(Strike_RamonaTimeworm.class.getSimpleName());
 
     public Strike_RamonaTimeworm() {
-        super(ID, CardImgID.RamonaTimewormAttack, 1, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, CHAOS_COLOR);
+        super(ID, 1, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY, CHAOS_COLOR, CardImgID.RamonaTimeworm.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.STRIKE);
         tags.add(CardTags.STARTER_STRIKE);

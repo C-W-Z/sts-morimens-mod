@@ -10,13 +10,14 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.patches.enums.CustomTags;
 
 public class LessonLearned extends AbstractEasyCard {
     public final static String ID = makeID(LessonLearned.class.getSimpleName());
 
     public LessonLearned() {
-        super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY, ULTRA_COLOR);
+        super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY, ULTRA_COLOR, CardImgID.Horla.ID);
         tags.add(CustomTags.COMMAND);
         damage = baseDamage = 10;
         attackCount = baseAttackCount = 1;

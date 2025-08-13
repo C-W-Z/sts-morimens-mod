@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.cards.buffs.Insight;
 import morimensmod.patches.enums.CustomTags;
 
@@ -26,7 +27,7 @@ public class MemoryRondo extends AbstractEasyCard {
     private static boolean islastUseForcedPlay = false;
 
     public MemoryRondo() {
-        super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, CHAOS_COLOR);
+        super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.SELF, CHAOS_COLOR, CardImgID.Hameln.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CustomTags.FORCE_PLAYABLE);
         magicNumber = baseMagicNumber = 1; // 力量

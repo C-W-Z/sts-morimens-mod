@@ -16,6 +16,7 @@ public class ShacklesDivineMaidenReturn extends AbstractStatusCard {
 
     public ShacklesDivineMaidenReturn() {
         super(ID, 0, CardRarity.SPECIAL, CardTarget.SELF);
+        sortIndex = 2003;
         magicNumber = baseMagicNumber = 1;
         secondMagic = baseSecondMagic = 2;
         exhaust = true;

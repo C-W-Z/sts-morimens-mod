@@ -16,6 +16,7 @@ public class ShacklesLadyGovernor extends AbstractStatusCard {
 
     public ShacklesLadyGovernor() {
         super(ID, 0, CardRarity.SPECIAL, CardTarget.SELF);
+        sortIndex = 2001;
         magicNumber = baseMagicNumber = 17;
         secondMagic = baseSecondMagic = 3;
         exhaust = true;

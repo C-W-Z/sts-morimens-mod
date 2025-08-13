@@ -17,6 +17,7 @@ public class Wound extends AbstractStatusCard {
 
     public Wound() {
         super(ID, 0, CardRarity.COMMON, CardTarget.SELF);
+        sortIndex = 1;
         damageType = DamageType.NORMAL;
         magicNumber = baseMagicNumber = 2; // 受傷
         draw = baseDraw = 1;

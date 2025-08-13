@@ -17,7 +17,7 @@ public class OuterSurgery extends AbstractEasyCard {
     public final static String ID = makeID(OuterSurgery.class.getSimpleName());
 
     public OuterSurgery() {
-        super(ID, CardImgID.DollSkill, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL, CHAOS_COLOR);
+        super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL, CHAOS_COLOR, CardImgID.Doll.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CardTags.HEALING);
         heal = baseHeal = 3;

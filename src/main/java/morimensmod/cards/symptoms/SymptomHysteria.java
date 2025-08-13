@@ -14,6 +14,7 @@ public class SymptomHysteria extends AbstractSymptomCard {
 
     public SymptomHysteria() {
         super(ID, 0, CardTarget.NONE);
+        sortIndex = 9;
         tags.add(CustomTags.UNREMOVABLE_IN_SHOP);
         magicNumber = baseMagicNumber = 1;
         secondMagic = baseSecondMagic = 1;

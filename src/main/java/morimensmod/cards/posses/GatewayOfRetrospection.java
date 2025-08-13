@@ -10,6 +10,7 @@ public class GatewayOfRetrospection extends AbstractPosse {
 
     public GatewayOfRetrospection() {
         super(ID);
+        posseIndex = 2006;
     }
 
     @Override

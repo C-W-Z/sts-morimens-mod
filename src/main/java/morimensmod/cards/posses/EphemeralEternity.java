@@ -25,6 +25,7 @@ public class EphemeralEternity extends AbstractPosse {
 
     public EphemeralEternity() {
         super(ID);
+        posseIndex = 2004;
 
         MultiCardPreview.add(this, getBasicStrike(awaker), getBasicDefend(awaker));
         MultiCardPreview.multiCardPreview.get(this).forEach(c -> {

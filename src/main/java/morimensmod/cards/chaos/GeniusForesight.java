@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import morimensmod.actions.EasyModalChoiceAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.cards.EasyModalChoiceCard;
 import morimensmod.patches.enums.CustomTags;
 
@@ -20,7 +21,7 @@ public class GeniusForesight extends AbstractEasyCard {
     public final static String ID = makeID(GeniusForesight.class.getSimpleName());
 
     public GeniusForesight() {
-        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE, CHAOS_COLOR);
+        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE, CHAOS_COLOR, CardImgID.DollInferno.ID);
         tags.add(CustomTags.COMMAND);
         draw = baseDraw = 1;
         magicNumber = baseMagicNumber = 1; // 能量
@@ -31,22 +32,24 @@ public class GeniusForesight extends AbstractEasyCard {
 
         AbstractCard choiceA = new EasyModalChoiceCard(
                 ID,
-                cardImgID,
+                signatureImgID,
                 cardStrings.EXTENDED_DESCRIPTION[0],
                 cardStrings.EXTENDED_DESCRIPTION[1],
                 () -> addToBot(new GainEnergyAction(magicNumber)),
                 CHAOS_COLOR,
+                cardOwner,
                 CustomTags.COMMAND);
 
         choiceA.magicNumber = choiceA.baseMagicNumber = magicNumber;
 
         AbstractCard choiceB = new EasyModalChoiceCard(
                 ID,
-                cardImgID,
+                signatureImgID,
                 cardStrings.EXTENDED_DESCRIPTION[2],
                 cardStrings.EXTENDED_DESCRIPTION[3],
                 () -> addToBot(new DrawCardAction(draw)),
                 CHAOS_COLOR,
+                cardOwner,
                 CustomTags.COMMAND);
 
         choiceB.draw = choiceB.baseDraw = draw;

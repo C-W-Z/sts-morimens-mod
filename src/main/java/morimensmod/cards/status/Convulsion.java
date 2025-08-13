@@ -12,6 +12,7 @@ public class Convulsion extends AbstractStatusCard {
 
     public Convulsion() {
         super(ID, -2, CardRarity.COMMON, CardTarget.NONE);
+        sortIndex = 2;
         isEthereal = true;
     }
 
