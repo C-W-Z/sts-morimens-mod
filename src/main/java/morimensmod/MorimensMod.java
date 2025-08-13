@@ -79,12 +79,35 @@ public class MorimensMod implements
 
     private static final Logger logger = LogManager.getLogger(MorimensMod.class);
 
-    public static ModInfo info;
-    public static String modID;
+    public static final ModInfo info;
+    public static final String modID;
     public static final boolean isShionModLoaded;
 
     static {
-        loadModInfo();
+        /**
+         * This determines the mod's ID based on information stored by ModTheSpire.
+         */
+        Optional<ModInfo> infos = Arrays.stream(Loader.MODINFOS).filter((modInfo) -> {
+            AnnotationDB annotationDB = Patcher.annotationDBMap.get(modInfo.jarURL);
+            if (annotationDB == null)
+                return false;
+            Set<String> initializers = annotationDB.getAnnotationIndex().getOrDefault(SpireInitializer.class.getName(),
+                    Collections.emptySet());
+            return initializers.contains(MorimensMod.class.getName());
+        }).findFirst();
+        if (infos.isPresent()) {
+            info = infos.get();
+            modID = info.ID;
+
+            logger.info("ModID: " + modID);
+            logger.info("Name: " + info.Name);
+            logger.info("Version: " + info.ModVersion);
+            logger.info("Authors: " + arrToString(info.Authors));
+            logger.info("Description: " + info.Description);
+        } else {
+            throw new RuntimeException("Failed to determine mod info/ID based on initializer.");
+        }
+
         isShionModLoaded = Loader.isModLoadedOrSideloaded("VUPShionMod");
         logger.info("Shion Mod " + (isShionModLoaded ? "is loaded" : "is NOT loaded"));
     }
@@ -116,32 +139,6 @@ public class MorimensMod implements
         // if (lang.equals(Settings.language))
         // return Settings.language.name().toLowerCase();
         return Settings.GameLanguage.ENG.name().toLowerCase();
-    }
-
-    /**
-     * This determines the mod's ID based on information stored by ModTheSpire.
-     */
-    private static void loadModInfo() {
-        Optional<ModInfo> infos = Arrays.stream(Loader.MODINFOS).filter((modInfo) -> {
-            AnnotationDB annotationDB = Patcher.annotationDBMap.get(modInfo.jarURL);
-            if (annotationDB == null)
-                return false;
-            Set<String> initializers = annotationDB.getAnnotationIndex().getOrDefault(SpireInitializer.class.getName(),
-                    Collections.emptySet());
-            return initializers.contains(MorimensMod.class.getName());
-        }).findFirst();
-        if (infos.isPresent()) {
-            info = infos.get();
-            modID = info.ID;
-
-            logger.info("ModID: " + modID);
-            logger.info("Name: " + info.Name);
-            logger.info("Version: " + info.ModVersion);
-            logger.info("Authors: " + arrToString(info.Authors));
-            logger.info("Description: " + info.Description);
-        } else {
-            throw new RuntimeException("Failed to determine mod info/ID based on initializer.");
-        }
     }
 
     public MorimensMod() {
