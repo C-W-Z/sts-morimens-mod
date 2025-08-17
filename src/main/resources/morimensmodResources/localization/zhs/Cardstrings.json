@@ -337,6 +337,23 @@
     "DESCRIPTION": "获得 !M! 点 力量 ，将 !${ModID}:M2! 张「灵感」置入手中。 NL [E] 不足时仍可强行打出，效果改为将 !${ModID}:M2! 张「灵感」洗入抽牌堆。",
     "UPGRADE_DESCRIPTION": "获得 !M! 点 力量 ，将 !${ModID}:M2! 张「灵感」置入手中。 NL [E] 不足时仍可强行打出，效果改为获得 !${ModID}:M3! 点 力量 ，将 !${ModID}:M2! 张「灵感」洗入抽牌堆。"
   },
+  "${ModID}:PinionsOfTime": {
+    "NAME": "纵贯时序之翼",
+    "DESCRIPTION": "获得 !M! 点 力量和 !${ModID}:M2! 张「灵感」。 将「双翼初张」洗入抽牌堆中。保留"
+  },
+  "${ModID}:TwinWings": {
+    "NAME": "双翼初张",
+    "DESCRIPTION": "NL [E] 不足时能消耗 500点 ${ModID}:银钥能量 打出。造成 !${ModID}:AC! 次 !D! 点 伤害，获得 !${ModID}:A! ${ModID}:狂气 。抽 1 张牌。将「四翼渐生」洗入抽牌堆中。消耗"
+  },
+  "${ModID}:FourWings": {
+    "NAME": "四翼渐生",
+    "DESCRIPTION": "NL [E] 不足时能消耗 500点 ${ModID}:银钥能量 打出。造成 !${ModID}:AC! 次 !D! 点 伤害，抽 1 张牌。每造成1次伤害偷取目标 !M! 点力量。将「六翼满开」洗入抽牌堆中。消耗"
+  },
+  "${ModID}:SixWings": {
+    "NAME": "六翼满开",
+    "DESCRIPTION": "NL [E] 不足时能消耗 500点 ${ModID}:银钥能量 打出。造成 !${ModID}:AC! 次 !D! 点 伤害。消耗"
+  },
+
   "${ModID}:StunningTone": {
     "NAME": "惊愕强音",
     "DESCRIPTION": "造成 !D! 点伤害。"
