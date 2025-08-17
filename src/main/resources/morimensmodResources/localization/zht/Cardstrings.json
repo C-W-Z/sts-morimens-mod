@@ -339,19 +339,22 @@
   },
   "${ModID}:PinionsOfTime": {
     "NAME": "縱貫時序之翼",
-    "DESCRIPTION": "獲得 !M! 點 力量和 !${ModID}:M2! 張「靈感」。 將「雙翼初張」洗入抽牌堆中。保留"
+    "DESCRIPTION": "獲得 !M! 點 力量 。將「雙翼初張」洗入抽牌堆中。",
+    "UPGRADE_DESCRIPTION": "獲得 !M! 點 力量 和 !${ModID}:M2! 張「靈感」。將「雙翼初張+」洗入抽牌堆中。"
   },
   "${ModID}:TwinWings": {
     "NAME": "雙翼初張",
-    "DESCRIPTION": "NL [E] 不足時能消耗 500點 ${ModID}:銀鑰能量 打出。造成 !${ModID}:AC! 次 !D! 點 傷害，獲得 !${ModID}:A! ${ModID}:狂氣 。抽 1 張牌。將「四翼漸生」洗入抽牌堆中。消耗"
+    "DESCRIPTION": "[E] 不足時能消耗 500點 ${ModID}:銀鑰能量 打出。 NL 造成 !${ModID}:AC! 次 !D! 點傷害，獲得 !${ModID}:A! ${ModID}:狂氣 。抽 !${ModID}:DR! 張牌。將「四翼漸生」洗入抽牌堆中。",
+    "UPGRADE_DESCRIPTION": "[E] 不足時能消耗 500點 ${ModID}:銀鑰能量 打出。造成 !${ModID}:AC! 次 !D! 點傷害，獲得 !${ModID}:A! ${ModID}:狂氣 。抽 !${ModID}:DR! 張牌。將「四翼漸生+」洗入抽牌堆中。"
   },
   "${ModID}:FourWings": {
     "NAME": "四翼漸生",
-    "DESCRIPTION": "NL [E] 不足時能消耗 500點 ${ModID}:銀鑰能量 打出。造成 !${ModID}:AC! 次 !D! 點 傷害，抽 1 張牌。每造成1次傷害偷取目標 !M! 點力量。將「六翼滿開」洗入抽牌堆中。消耗"
+    "DESCRIPTION": "[E] 不足時能消耗 500點 ${ModID}:銀鑰能量 打出。 NL 造成 !${ModID}:AC! 次 !D! 點傷害，抽 1 張牌。將「六翼滿開」洗入抽牌堆中。",
+    "UPGRADE_DESCRIPTION": "[E] 不足時能消耗 500點 ${ModID}:銀鑰能量 打出。造成 !${ModID}:AC! 次 !D! 點傷害，抽 1 張牌。每造成1次傷害偷取目標 !M! 點力量。將「六翼滿開+」洗入抽牌堆中。"
   },
   "${ModID}:SixWings": {
     "NAME": "六翼滿開",
-    "DESCRIPTION": "NL [E] 不足時能消耗 500點 ${ModID}:銀鑰能量 打出。造成 !${ModID}:AC! 次 !D! 點 穿刺傷害。消耗"
+    "DESCRIPTION": "[E] 不足時能消耗 500點 ${ModID}:銀鑰能量 打出。 NL 造成 !${ModID}:AC! 次 !D! 點 ${ModID}:穿刺傷害 。"
   },
   "${ModID}:StunningTone": {
     "NAME": "驚愕強音",
