@@ -30,6 +30,7 @@ public class SixWings extends AbstractEasyCard {
     public SixWings() {
         super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CHAOS_COLOR, CardImgID.Tawil.ID);
         tags.add(CustomTags.COMMAND);
+        tags.add(CustomTags.PLAYABLE_BY_KEYFLARE);
         damage = baseDamage = 4;
         attackCount = baseAttackCount = 6; // 攻擊次數
         exhaust = true; // 消耗詞條

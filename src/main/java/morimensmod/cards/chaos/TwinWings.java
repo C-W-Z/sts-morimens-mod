@@ -34,6 +34,7 @@ public class TwinWings extends AbstractEasyCard {
     public TwinWings() {
         super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CHAOS_COLOR, CardImgID.Tawil.ID);
         tags.add(CustomTags.COMMAND);
+        tags.add(CustomTags.PLAYABLE_BY_KEYFLARE);
         damage = baseDamage = 2;
         attackCount = baseAttackCount = 2; // 攻擊次數
         aliemus = baseAliemus = 5; // 狂氣值
@@ -53,7 +54,7 @@ public class TwinWings extends AbstractEasyCard {
     }
 
     public void normalUse(AbstractPlayer p, AbstractMonster m) {
-        // 造成2刺傷害
+        // 造成2次傷害
         for (int i = 0; i < attackCount; i++) {
             actB(() -> {
                 calculateCardDamage(m);
@@ -77,6 +78,7 @@ public class TwinWings extends AbstractEasyCard {
     //     return false;
     // }
 
+    // TODO: 改成用Patch插入
     @Override
     public boolean hasEnoughEnergy() {
         if (AbstractDungeon.actionManager.turnHasEnded) {
@@ -119,7 +121,7 @@ public class TwinWings extends AbstractEasyCard {
 
     @Override
     public void upp() {
-        upgradeDamage(2);
+        upgradeAliemus(5);
         cardsToPreview.upgrade();
     }
 }

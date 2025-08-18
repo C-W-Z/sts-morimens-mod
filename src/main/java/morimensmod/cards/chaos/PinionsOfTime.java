@@ -34,8 +34,8 @@ public class PinionsOfTime extends AbstractEasyCard {
         if (magicNumber > 0)
             applyToSelf(new StrengthPower(p, magicNumber)); // 獲得力量
         if (secondMagic > 0)
-            makeInHand(new Insight(), secondMagic); // 將1張靈感放到手中
-        shuffleIn(new TwinWings()); // 把「雙翼初張」洗入抽牌堆中
+            makeInHand(MultiCardPreview.multiCardPreview.get(this).get(1), secondMagic); // 將1張靈感放到手中
+        shuffleIn(MultiCardPreview.multiCardPreview.get(this).get(0)); // 把「雙翼初張」洗入抽牌堆中
     }
 
     @Override

@@ -37,6 +37,7 @@ public class FourWings extends AbstractEasyCard {
     public FourWings() {
         super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CHAOS_COLOR, CardImgID.Tawil.ID);
         tags.add(CustomTags.COMMAND);
+        tags.add(CustomTags.PLAYABLE_BY_KEYFLARE);
         damage = baseDamage = 4;
         attackCount = baseAttackCount = 4; // 攻擊次數
         magicNumber = baseMagicNumber = 0; // 降低臨時力量
