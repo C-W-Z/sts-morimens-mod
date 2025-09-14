@@ -385,7 +385,7 @@ public class MorimensMod implements
                 .any(AbstractEasyCard.class, (info, card) -> {
                     if (!Gdx.files.internal(card.getSignatureImgPath()).exists())
                         return;
-                    logger.info("register & unlock signature:" + card.cardID);
+                    // logger.info("register & unlock signature:" + card.cardID);
                     SignatureHelper.register(card.cardID, new SignatureHelper.Info(
                             c -> ((AbstractEasyCard) c).getSignatureImgPath(),
                             c -> ((AbstractEasyCard) c).getSignaturePortraitImgPath(),

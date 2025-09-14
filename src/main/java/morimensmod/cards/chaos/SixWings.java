@@ -1,7 +1,6 @@
 package morimensmod.cards.chaos;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -15,6 +14,7 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import morimensmod.actions.KeyflareChangeAction;
 import morimensmod.actions.PierceDamageAction;
 import morimensmod.cards.AbstractEasyCard;
+import morimensmod.cards.CardImgID;
 import morimensmod.characters.AbstractAwakener;
 import morimensmod.patches.enums.CustomTags;
 
@@ -26,54 +26,55 @@ public class SixWings extends AbstractEasyCard {
     public final static String ID = makeID(SixWings.class.getSimpleName());
 
     public SixWings() {
-        super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CHAOS_COLOR);
+        super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CHAOS_COLOR, CardImgID.Tawil.ID);
         tags.add(CustomTags.COMMAND);
-        damage = baseDamage = 6;
+        tags.add(CustomTags.PLAYABLE_BY_KEYFLARE);
+        damage = baseDamage = 1;
         attackCount = baseAttackCount = 6; // 攻擊次數
         exhaust = true; // 消耗詞條
     }
+
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractAwakener awaker = (AbstractAwakener) p();
         if (EnergyPanel.totalCount >= this.costForTurn || freeToPlay() || this.isInAutoplay) {
             normalUse(p, m);
-        }
-        else if(awaker.getKeyflare() >= 500) {
+        } else if (p instanceof AbstractAwakener && AbstractAwakener.getKeyflare() >= 500) {
+            freeToPlayOnce = true;
             normalUse(p, m);
             addToTop(new KeyflareChangeAction(p(), -500));
-            // 有個小問題是，如果有消耗500銀鑰能量也會把剩下的能量消耗完，所以這邊要補回去
-            if (EnergyPanel.totalCount > 0) {
-                addToBot(new GainEnergyAction(EnergyPanel.totalCount));
-            }
         }
     }
 
     public void normalUse(AbstractPlayer p, AbstractMonster m) {
-        // 造成6次穿刺傷害
+        // 造成6次(穿刺)傷害
         for (int i = 0; i < attackCount; i++) {
             actB(() -> {
                 calculateCardDamage(m);
-                addToTop(new PierceDamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+                if (upgraded)
+                    addToTop(new PierceDamageAction(m, new DamageInfo(p, damage),
+                            AttackEffect.SLASH_DIAGONAL));
+                else
+                    dmgTop(m, AttackEffect.SLASH_HORIZONTAL);
             });
         }
     }
 
-    @Override
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        AbstractAwakener awaker = (AbstractAwakener) p();
-        if (EnergyPanel.totalCount >= this.costForTurn || freeToPlay() || this.isInAutoplay) {
-            return true;
-        }
-        if (awaker.getKeyflare() >= 500) {
-            return true;
-        }
+    // @Override
+    // public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+    //     AbstractAwakener awaker = (AbstractAwakener) p();
+    //     if (EnergyPanel.totalCount >= this.costForTurn || freeToPlay() ||
+    //             this.isInAutoplay) {
+    //         return true;
+    //     }
+    //     if (awaker.getKeyflare() >= 500) {
+    //         return true;
+    //     }
 
-        this.cantUseMessage = "算力不足，且銀鑰能量不足500！";
-        return false;
-    }
+    //     this.cantUseMessage = "算力不足，且銀鑰能量不足500！";
+    //     return false;
+    // }
 
     @Override
     public boolean hasEnoughEnergy() {
-        AbstractAwakener awaker = (AbstractAwakener) p();
         if (AbstractDungeon.actionManager.turnHasEnded) {
             this.cantUseMessage = TEXT[9];
             return false;
@@ -100,16 +101,18 @@ public class SixWings extends AbstractEasyCard {
             if (!c.canPlay(this))
                 return false;
         }
-        // if (EnergyPanel.totalCount >= this.costForTurn || freeToPlay() || this.isInAutoplay)
-        //     return true;
-        // this.cantUseMessage = TEXT[11];
-        // return false;
-//        if (awaker.getKeyflare()<500)
-//            return false;
-        return true;
+        if (EnergyPanel.totalCount >= this.costForTurn || freeToPlay() || this.isInAutoplay)
+            return true;
+        if (AbstractDungeon.player instanceof AbstractAwakener) {
+            if (AbstractAwakener.getKeyflare() >= 500)
+                return true;
+            this.cantUseMessage = TEXT[11];
+            return false;
+        }
+        this.cantUseMessage = TEXT[11];
+        return false;
     }
+
     @Override
-    public void upp() {
-        upgradeDamage(6);
-    }
+    public void upp() {}
 }

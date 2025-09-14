@@ -16,7 +16,7 @@ public class PersistentPowerLib {
     private static HashMap<String, AbstractPersistentPower> powers = new HashMap<>();
 
     public static void addPower(AbstractPersistentPower power) {
-        logger.debug("Register PersistentPower: " + power.ID, power);
+        logger.debug("Register PersistentPower: " + power.ID);
         powers.put(power.ID, power);
     }
 

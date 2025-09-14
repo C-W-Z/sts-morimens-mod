@@ -33,6 +33,8 @@ public class CustomTags {
     @SpireEnum
     public static CardTags FORCE_PLAYABLE;
     @SpireEnum
+    public static CardTags PLAYABLE_BY_KEYFLARE;
+    @SpireEnum
     public static CardTags PHANTOM;
     @SpireEnum
     public static CardTags REUSE;

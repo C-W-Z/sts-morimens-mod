@@ -67,6 +67,7 @@ public class MemoryRondo extends AbstractEasyCard {
         shuffleIn(cardsToPreview, secondMagic);
     }
 
+    // TODO: 改成用Patch插入
     @Override
     public boolean hasEnoughEnergy() {
         if (AbstractDungeon.actionManager.turnHasEnded) {

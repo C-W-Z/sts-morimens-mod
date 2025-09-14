@@ -339,23 +339,25 @@
     "DESCRIPTION": "Gain !M! Strength. Add !${ModID}:M2! \"Insight\" to your hand. NL In you lack the required [E], you can still play this card, but it effect will be changed to shuffle !${ModID}:M2! \"Insight\" into Draw Pile.",
     "UPGRADE_DESCRIPTION": "Gain !M! Strength. Add !${ModID}:M2! \"Insight\" to your hand. NL In you lack the required [E], you can still play this card, but it effect will be changed to gain !${ModID}:M3! Strength and shuffle !${ModID}:M2! \"Insight\" into Draw Pile."
   },
-
   "${ModID}:PinionsOfTime": {
     "NAME": "Pinions of Time",
-    "DESCRIPTION": "obtain !M! Strength and add !${ModID}:M2! \"Insight\" to your hand. Shuffle \"Twin Wings\" into the Draw Pile。保留"
+    "DESCRIPTION": "Gain !M! Strength. Shuffle \"Twin Wings\" into the Draw Pile.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength. Add !${ModID}:M2! \"Insight\" to your hand. Shuffle \"Twin Wings+\" into the Draw Pile."
   },
   "${ModID}:TwinWings": {
     "NAME": "Twin Wings",
-    "DESCRIPTION": "When NL [E] is insufficient, it consumes 500 ${ModID}:Keyflare to play. Deal !${ModID}:AC! instances of !D! damage,，obtain !${ModID}:A! ${ModID}:Aliemus 。draw 1 card. Shuffle \"Four Wings\" into the Draw Pile. Exhaust."
+    "DESCRIPTION": "When [E] is insufficient, can consume 500 ${ModID}:Keyflare to play. NL Deal !D! damage !${ModID}:AC! times. Gain !${ModID}:A! ${ModID}:Aliemus. Draw !${ModID}:DR! card. Shuffle \"Four Wings\" into the Draw Pile.",
+    "UPGRADE_DESCRIPTION": "When [E] is insufficient, can consume 500 ${ModID}:Keyflare to play.  NL Deal !D! damage !${ModID}:AC! times. Gain !${ModID}:A! ${ModID}:Aliemus. Draw !${ModID}:DR! card. Shuffle \"Four Wings+\" into the Draw Pile."
   },
   "${ModID}:FourWings": {
     "NAME": "Four Wings",
-    "DESCRIPTION": "When NL [E] is insufficient, it consumes 500 ${ModID}:Keyflare to play. Deal !${ModID}:AC! instances of !D! damage, draw 1 card. For each hit, steal !M! strength. Shuffle \"Six Wings\" into the Draw Pile. Exhaust."
-
+    "DESCRIPTION": "When [E] is insufficient, can consume 500 ${ModID}:Keyflare to play. NL Deal !D! damage !${ModID}:AC! times. Draw !${ModID}:DR! card. Shuffle \"Six Wings\" into the Draw Pile.",
+    "UPGRADE_DESCRIPTION": "When [E] is insufficient, can consume 500 ${ModID}:Keyflare to play. NL Deal !D! damage !${ModID}:AC! times. For each hit, steal !M! ${ModID}:Temporary Strength. Draw !${ModID}:DR! card. Shuffle \"Six Wings+\" into the Draw Pile."
   },
   "${ModID}:SixWings": {
     "NAME": "Six Wings",
-    "DESCRIPTION": "When NL [E] is insufficient, it consumes 500 ${ModID}:Keyflare to play. Deal !${ModID}:AC! instances of !D! pierce damage. Exhaust."
+    "DESCRIPTION": "When [E] is insufficient, can consume 500 ${ModID}:Keyflare to play. NL Deal !D! damage !${ModID}:AC! times.",
+    "UPGRADE_DESCRIPTION": "When [E] is insufficient, can consume 500 ${ModID}:Keyflare to play. NL Deal !D! ${ModID}:Pierce_Damage !${ModID}:AC! times."
   },
   "${ModID}:StunningTone": {
     "NAME": "Stunning Tone",

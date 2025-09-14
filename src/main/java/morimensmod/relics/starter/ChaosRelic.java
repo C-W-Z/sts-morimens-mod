@@ -118,7 +118,7 @@ public class ChaosRelic extends AbstractEasyRelic implements OnAfterPosse, Custo
 
     @Override
     public void onLoad(Boolean value) {
-        relicObtained = value == null ? false : value.booleanValue();
+        relicObtained = Boolean.TRUE.equals(value);
     }
 
     @Override

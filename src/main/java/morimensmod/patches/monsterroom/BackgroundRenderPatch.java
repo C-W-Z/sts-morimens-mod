@@ -16,6 +16,7 @@ import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
+import morimensmod.config.ConfigPanel;
 import morimensmod.misc.SceneBG;
 
 public class BackgroundRenderPatch {
@@ -45,7 +46,9 @@ public class BackgroundRenderPatch {
                     if ("renderCombatRoomBg".equals(m.getMethodName())
                             || "renderCombatRoomFg".equals(m.getMethodName())) {
                         if (m.getClassName().equals("com.megacrit.cardcrawl.scenes.AbstractScene")) {
-                            m.replace("{ /* removed */ }");
+                            // 用條件判斷是否呼叫原方法
+                            m.replace("{ if (!" + ConfigPanel.class.getName()
+                                    + ".USE_MORIMENS_ROOM_BACKGROUND) { $_ = $proceed($$); } }");
                         }
                     }
                 }
@@ -54,7 +57,7 @@ public class BackgroundRenderPatch {
     }
 
     public static void onPreRoomRender(SpriteBatch sb) {
-        if (AbstractDungeon.rs != AbstractDungeon.RenderScene.NORMAL)
+        if (AbstractDungeon.rs != AbstractDungeon.RenderScene.NORMAL || !ConfigPanel.USE_MORIMENS_ROOM_BACKGROUND)
             return;
 
         sb.setColor(Color.WHITE);
