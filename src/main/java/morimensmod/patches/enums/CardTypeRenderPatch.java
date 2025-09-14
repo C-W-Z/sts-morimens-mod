@@ -74,36 +74,39 @@ public class CardTypeRenderPatch {
         }
     }
 
-    @SpirePatch2(clz = AbstractSignatureCard.class, method = "renderType")
-    public static class SignatureCardTypeRenderPatch {
-        @SpireInsertPatch(locator = Locator.class, localvars = { "text" })
-        public static void Insert(AbstractSignatureCard __instance, SpriteBatch sb, @ByRef String[] text) {
-            if (__instance.hasTag(CustomTags.COMMAND))
-                text[0] = COMMAND_STRINGS.TEXT[0];
-            else if (__instance.hasTag(CustomTags.ROUSE))
-                text[0] = ROUSE_STRINGS.TEXT[0];
-            else if (__instance.hasTag(CustomTags.BUFF))
-                text[0] = BUFF_STRINGS.TEXT[0];
-            else if (__instance.hasTag(CustomTags.WHEEL_OF_DESTINY))
-                text[0] = WHEEL_OF_DESTINY_STRINGS.TEXT[0];
-            else if (__instance.hasTag(CustomTags.SYMPTOM))
-                text[0] = SYMPTOM_STRINGS.TEXT[0];
-            else if (__instance.hasTag(CustomTags.STATUS))
-                text[0] = STATUS_STRINGS.TEXT[0];
-            else if (__instance.hasTag(CustomTags.POSSE))
-                text[0] = POSSE_STRINGS.TEXT[0];
-            if (__instance.color == DERIVATIVE_COLOR)
-                text[0] = DERIVATIVE_STRINGS.TEXT[0] + text[0];
-        }
+    /**
+     * 暫時先用底下的Prefix，等SignatureLib更新後再改用這個Insert
+     */
+    // @SpirePatch2(clz = AbstractCard.class, method = "renderType")
+    // public static class SignatureCardTypeRenderPatch {
+    //     @SpireInsertPatch(locator = Locator.class, localvars = { "text" })
+    //     public static void Insert(AbstractCard __instance, SpriteBatch sb, @ByRef String[] text) {
+    //         if (__instance.hasTag(CustomTags.COMMAND))
+    //             text[0] = COMMAND_STRINGS.TEXT[0];
+    //         else if (__instance.hasTag(CustomTags.ROUSE))
+    //             text[0] = ROUSE_STRINGS.TEXT[0];
+    //         else if (__instance.hasTag(CustomTags.BUFF))
+    //             text[0] = BUFF_STRINGS.TEXT[0];
+    //         else if (__instance.hasTag(CustomTags.WHEEL_OF_DESTINY))
+    //             text[0] = WHEEL_OF_DESTINY_STRINGS.TEXT[0];
+    //         else if (__instance.hasTag(CustomTags.SYMPTOM))
+    //             text[0] = SYMPTOM_STRINGS.TEXT[0];
+    //         else if (__instance.hasTag(CustomTags.STATUS))
+    //             text[0] = STATUS_STRINGS.TEXT[0];
+    //         else if (__instance.hasTag(CustomTags.POSSE))
+    //             text[0] = POSSE_STRINGS.TEXT[0];
+    //         if (__instance.color == DERIVATIVE_COLOR)
+    //             text[0] = DERIVATIVE_STRINGS.TEXT[0] + text[0];
+    //     }
 
-        private static class Locator extends SpireInsertLocator {
-            @Override
-            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
-                return LineFinder.findInOrder(ctMethodToPatch,
-                        new Matcher.MethodCallMatcher(FontHelper.class, "renderRotatedText"));
-            }
-        }
-    }
+    //     private static class Locator extends SpireInsertLocator {
+    //         @Override
+    //         public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+    //             return LineFinder.findInOrder(ctMethodToPatch,
+    //                     new Matcher.MethodCallMatcher(FontHelper.class, "renderRotatedText"));
+    //         }
+    //     }
+    // }
 
     @SpirePatch2(clz = AbstractCard.class, method = "renderType")
     public static class RenderTypePatch {
