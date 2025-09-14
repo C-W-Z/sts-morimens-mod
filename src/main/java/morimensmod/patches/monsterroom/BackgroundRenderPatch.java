@@ -16,6 +16,7 @@ import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
+import morimensmod.config.ConfigPanel;
 import morimensmod.misc.SceneBG;
 
 public class BackgroundRenderPatch {
@@ -54,7 +55,7 @@ public class BackgroundRenderPatch {
     }
 
     public static void onPreRoomRender(SpriteBatch sb) {
-        if (AbstractDungeon.rs != AbstractDungeon.RenderScene.NORMAL)
+        if (AbstractDungeon.rs != AbstractDungeon.RenderScene.NORMAL || !ConfigPanel.USE_MORIMENS_ROOM_BACKGROUND)
             return;
 
         sb.setColor(Color.WHITE);
