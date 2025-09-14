@@ -46,7 +46,9 @@ public class BackgroundRenderPatch {
                     if ("renderCombatRoomBg".equals(m.getMethodName())
                             || "renderCombatRoomFg".equals(m.getMethodName())) {
                         if (m.getClassName().equals("com.megacrit.cardcrawl.scenes.AbstractScene")) {
-                            m.replace("{ /* removed */ }");
+                            // 用條件判斷是否呼叫原方法
+                            m.replace("{ if (!" + ConfigPanel.class.getName()
+                                    + ".USE_MORIMENS_ROOM_BACKGROUND) { $_ = $proceed($$); } }");
                         }
                     }
                 }
