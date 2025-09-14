@@ -29,7 +29,7 @@ public class SixWings extends AbstractEasyCard {
         super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CHAOS_COLOR, CardImgID.Tawil.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CustomTags.PLAYABLE_BY_KEYFLARE);
-        damage = baseDamage = 4;
+        damage = baseDamage = 1;
         attackCount = baseAttackCount = 6; // 攻擊次數
         exhaust = true; // 消耗詞條
     }
@@ -45,12 +45,15 @@ public class SixWings extends AbstractEasyCard {
     }
 
     public void normalUse(AbstractPlayer p, AbstractMonster m) {
-        // 造成6次穿刺傷害
+        // 造成6次(穿刺)傷害
         for (int i = 0; i < attackCount; i++) {
             actB(() -> {
                 calculateCardDamage(m);
-                addToTop(new PierceDamageAction(m, new DamageInfo(p, damage),
-                        AttackEffect.SLASH_DIAGONAL));
+                if (upgraded)
+                    addToTop(new PierceDamageAction(m, new DamageInfo(p, damage),
+                            AttackEffect.SLASH_DIAGONAL));
+                else
+                    dmgTop(m, AttackEffect.SLASH_HORIZONTAL);
             });
         }
     }
@@ -58,7 +61,8 @@ public class SixWings extends AbstractEasyCard {
     // @Override
     // public boolean canUse(AbstractPlayer p, AbstractMonster m) {
     //     AbstractAwakener awaker = (AbstractAwakener) p();
-    //     if (EnergyPanel.totalCount >= this.costForTurn || freeToPlay() || this.isInAutoplay) {
+    //     if (EnergyPanel.totalCount >= this.costForTurn || freeToPlay() ||
+    //             this.isInAutoplay) {
     //         return true;
     //     }
     //     if (awaker.getKeyflare() >= 500) {
@@ -110,7 +114,5 @@ public class SixWings extends AbstractEasyCard {
     }
 
     @Override
-    public void upp() {
-        upgradeDamage(2);
-    }
+    public void upp() {}
 }

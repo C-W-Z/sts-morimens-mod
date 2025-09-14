@@ -30,7 +30,7 @@ public class TwinWings extends AbstractEasyCard {
         super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CHAOS_COLOR, CardImgID.Tawil.ID);
         tags.add(CustomTags.COMMAND);
         tags.add(CustomTags.PLAYABLE_BY_KEYFLARE);
-        damage = baseDamage = 2;
+        damage = baseDamage = 1;
         attackCount = baseAttackCount = 2; // 攻擊次數
         aliemus = baseAliemus = 5; // 狂氣值
         draw = baseDraw = 1;
